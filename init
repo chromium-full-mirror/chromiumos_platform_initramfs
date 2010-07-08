@@ -1,0 +1,123 @@
+#!/bin/sh
+
+# Copyright (c) 2010 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+#
+# /init script for use in factory install shim.  Requires busybox in
+# /bin/busybox, and a symlink from /bin/sh -> busybox.
+
+# Mount point for the new tmpfs based partition.
+NEWROOT_MNT=/newroot
+# SD card partition and mount point.
+# TODO(girts): find it, instead of hardcoding.
+SD_DEV=/dev/sdb3
+SD_MNT=/sdcard
+# Size of the root ramdisk.
+TMPFS_SIZE=300M
+
+initial_mounts() {
+  mkdir /proc /sys /tmp /etc "$SD_MNT" "$NEWROOT_MNT"
+  mount -n -t proc proc /proc
+  mount -n -t sysfs sysfs /sys
+  mount -n -t devtmpfs -o mode=0755,size=20M none /dev
+  mkdir -p /dev/shm /dev/pts
+  mount -n -t tmpfs -onosuid,nodev shmfs /dev/shm
+  mount -n -t devpts -onoexec,nosuid,gid=5,mode=0620 devpts /dev/pts
+
+  # Create symlinks for all busybox programs.  /proc needs to be mounted first,
+  # otherwise it will mess up the link.
+  busybox --install -s
+}
+
+drop_to_shell() {
+  echo "Dropping to shell..."
+  exec /bin/sh
+}
+
+wait_for_root() {
+  local try
+  echo -n "Waiting for $SD_DEV to appear"
+  for try in $(seq 20); do
+    echo -n "."
+    if [ -b "$SD_DEV" ]; then
+      echo "ok"
+      return 0
+    fi
+    sleep 1
+  done
+  echo
+  echo "Failed waiting for root!"
+  return 1
+}
+
+mount_sd_card() {
+  local try
+  echo -n "Mounting sd card"
+  for try in $(seq 20); do
+    echo -n "."
+    if mount "$SD_DEV" "$SD_MNT" -o ro; then
+      echo "ok"
+      return 0
+    fi
+    sleep 1
+  done
+  echo
+  echo "Failed to mount sd card!"
+  return 1
+}
+
+mount_tmpfs() {
+  echo "Mounting tmpfs..."
+  mount -t tmpfs tmpfs "$NEWROOT_MNT" -o "size=$TMPFS_SIZE"
+  return $?
+}
+
+copy_contents() {
+  echo "Copying sdcard->tmpfs..."
+  time cp -av "$SD_MNT"/* "$NEWROOT_MNT"
+  return $?
+}
+
+move_mounts() {
+  mount --move /proc "$NEWROOT_MNT/proc"
+  mount --move /dev "$NEWROOT_MNT/dev"
+  mount --move /sys "$NEWROOT_MNT/sys"
+}
+
+unmount_sd_card() {
+  umount "$SD_MNT"
+  local try
+  echo -n "$SD_DEV can now be safely removed"
+  for try in $(seq 5); do
+    echo -n "."
+    sleep 1
+  done
+  echo "continue"
+  return 0
+}
+
+main() {
+  echo Starting init...
+  PATH=/bin
+
+  initial_mounts
+  wait_for_root || drop_to_shell
+  mount_sd_card || drop_to_shell
+  mount_tmpfs || drop_to_shell
+  copy_contents || drop_to_shell
+  unmount_sd_card || drop_to_shell
+  move_mounts || drop_to_shell
+  # switch_root makes a safety check for existance of /init.  Make it happy.
+  touch /init
+  # /sbin/chromeos_startup will see this and skip mounting of sysfs, proc and
+  # /dev.
+  mkdir "$NEWROOT_MNT/dev/.initramfs"
+  # Chroot into newroot, erase the contents of the old /, and exec real init.
+  exec switch_root "$NEWROOT_MNT" /sbin/init
+  # This should not really happen.
+  echo "Failed to switch root"
+  drop_to_shell
+}
+
+main
