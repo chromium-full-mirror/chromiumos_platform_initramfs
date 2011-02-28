@@ -234,8 +234,10 @@ setup_dm_root() {
 
   # Don't attempt to call dmsetup if the root device isn't one that was
   # discovered as the creation process will hang.
-  # TODO(wad) once we pass the UUID this will be easier to robustly check.
-  if [ -n "${USB_DEV}" ]; then
+  # TODO(wad) extract the UUID and use it with cgpt find instead.
+  if [ -n "$KERN_ARG_KERN_GUID" ]; then
+    [ "${DM_TABLE%$KERN_ARG_KERN_GUID*}" = "${DM_TABLE}" ] && return 1
+  elif [ -n "${USB_DEV}" ]; then
     [ "${DM_TABLE%$USB_DEV*}" = "${DM_TABLE}" ] && return 1
   fi
 
