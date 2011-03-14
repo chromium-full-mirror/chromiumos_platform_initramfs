@@ -9,7 +9,6 @@
 
 # USB card partition and mount point.
 USB_DEVS="sdb3 sdc3 mmcblk1p3"
-USB_SHIM_DEVS="sdb1 sdc1 mmcblk1p1"
 USB_MNT=/usb
 REAL_USB_DEV=
 DM_NAME=
@@ -24,10 +23,6 @@ LOG_FILE="/log/recovery.log"
 
 TPM_B_LOCKED=
 TPM_PP_LOCKED=
-
-# Developer script to run
-SHIM_SCRIPT="$STATEFUL_MNT/userdir/runme"
-SHIM_VBLOCK="$STATEFUL_MNT/userdir/runme.vblock"
 
 KERN_B_VBLOCK="$STATEFUL_MNT/vmlinuz_hd.vblock"
 REAL_KERN_B_HASH=
@@ -173,32 +168,6 @@ find_developer_root() {
   set_unofficial_root || return 1
   mount_usb || return 1
   return 0
-}
-
-# If this kernel image has been placed on a drive with only a
-# stateful partition, root detection will rightly fail.  However,
-# we can still run a developer supplied script so we will pretend
-# stateful is the root (USB_DEV).
-find_shim_root() {
-  # Lock the TPM prior to using an untrusted root.
-  lock_tpm || return 1
-  plog "\nSearching for an alternate recovery image . . ."
-  dlog -n "Waiting for $USB_SHIM_DEVS to appear"
-  for try in $(seq 20); do
-    plog " ."
-    for dev in $USB_SHIM_DEVS; do
-      if [ -b "/dev/${dev}" ]; then
-        USB_DEV="/dev/${dev}"
-        REAL_USB_DEV="$USB_DEV"
-        dlog "Found $USB_DEV"
-        set_unofficial_root || on_error
-        mount_usb || return 1
-        return 0
-      fi
-    done
-    sleep 1
-  done
-  return 1
 }
 
 # If we have a verified recovery root, ensure all blocks are valid before
@@ -429,50 +398,6 @@ check_key_or_wait() {
   return 0
 }
 
-# Never returns on success.
-attempt_shim_script() {
-  # TODO(wad) Add static root of trust validation then remove the next line.
-  #           http://crosbug/8390
-  is_developer_mode || return 1
-
-  # Now we will either install a colocated Chromium OS image by
-  # checking the keys on KERN-B against any on disk (KERN-[ABC])
-  # or by checking a signed script on stateful.
-  dlog "Checking for a shim script . . ."
-  [ -x "$SHIM_SCRIPT" ] || return 1
-  [ -f "$SHIM_VBLOCK" ] || return 1
-  log "Shim script and signing file found!"
-
-  plog "Verifying the signature on the script . . ."
-  # Extract pubkey and check signature
-  if ! dev_sign_file --verify "$SHIM_SCRIPT" \
-                     --vblock "$SHIM_VBLOCK" \
-                     --keyblock /tmp/shim.keyblock; then
-    log " failed."
-  fi
-  log " done."
-
-  # If we're not in developer mode, this will be terminal on failure.
-  check_key_or_wait /tmp/shim.keyblock
-
-  # Run the user supplied script. It is done in the current environment
-  # to avoid needing anything other than the script/program on the partition.
-  log "Executing shim script . . ."
-
-  dlog "calling $SHIM_SCRIPT with exec"
-  # Fix up the input/output
-  stop_log_file
-  set +x
-  exec &> "$TTY_PATH"1
-  exec < "$TTY_PATH"1
-  # Call the script!
-  exec "$SHIM_SCRIPT"
-
-  # Never reached.
-  save_log_file
-  return 0
-}
-
 get_kern_b_device() {
   # TODO(wad) By changing boot priority, could we end up
   # checking the recovery image or the recovery image could not
@@ -616,16 +541,7 @@ recover_system() {
   dlog "Beginning system recovery from $source"
 
   recovery_wait
-
-  if is_unofficial_root; then
-    dlog "Attempting to use shim  . . ."
-    # Mounting read only so a journal is not needed.
-    # If it fails, we can still proceed on a normal recovery path.
-    mount -n -o ro -t ext2 "$STATE_DEV" "$STATEFUL_MNT"
-    attempt_shim_script  # never returns on success.
-    umount "$STATEFUL_MNT"
-  fi
-
+  
   # If we're not running a developer script then we're either
   # installing a developer image or an official one. If we're
   # in normal recovery mode, then we require that the KERN-B
@@ -746,7 +662,7 @@ main() {
     log ""
   fi
 
-  if find_official_root || find_developer_root || find_shim_root; then
+  if find_official_root || find_developer_root; then
     log " found."
   else
     log " not found."
@@ -783,7 +699,7 @@ main() {
   # Chrome OS recovery kernel.
   if ! validate_recovery_root; then
     is_developer_mode || on_error
-    find_developer_root || find_shim_root || on_error
+    find_developer_root || on_error
     log " found."
     # This logic is duplicated to avoid double validating factory media.  It
     # will only be hit if a verified root can be mounted but is actually not
