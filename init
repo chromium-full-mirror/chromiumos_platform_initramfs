@@ -656,15 +656,15 @@ use_new_root() {
   return 1
 }
 
+is_nonchrome() {
+  crossystem mainfw_type?nonchrome
+}
+
 is_developer_mode() {
-  # See Firmware High-Level Spec for details on CHSW values
-  CHSW=$(cat /sys/devices/platform/chromeos_acpi/CHSW)
-  # If the switch is unsupported, treat as developer mode.
-  [ -z "$CHSW" ] && return 0
-  if [ $CHSW -gt 0 -a $((CHSW & 32)) -eq 32 ]; then
-    return 0
-  fi
-  return 1
+  # Legacy/unsupported systems are mapped to developer mode.
+  is_nonchrome && return 0
+  # Otherwise the exit status will be accurate.
+  crossystem devsw_boot?1
 }
 
 lock_tpm() {
@@ -674,11 +674,17 @@ lock_tpm() {
     tpmc startup
     tpmc ctest
     if ! tpmc block; then
-      log "An unrecoverable error occurred with your security device"
-      log "Please power down and try again."
-      dlog "Failed to lock bGlobalLock."
-      on_error
-      return 1  # Never reached.
+      if is_nonchrome; then
+        log "No security chip appears to exist in this non-Chrome device."
+        log "The security of your experience will suffer."
+        # Forge onward.
+      else
+        log "An unrecoverable error occurred with your security device"
+        log "Please power down and try again."
+        dlog "Failed to lock bGlobalLock."
+        on_error
+        return 1  # Never reached.
+      fi
     fi
     TPM_B_LOCKED=y
   fi
@@ -773,6 +779,14 @@ main() {
 
   # If not, we must be a recovery kernel.
   NEWROOT_MNT="$USB_MNT"
+
+  if is_nonchrome; then
+    log " "
+    log "Your computer does not appear to a Chrome computer!"
+    log " "
+    log "Your experience with Chromium OS will be suboptimal."
+    log " "
+  fi
 
   # Always lock the TPM.  If a NVRAM reset is ever needed, we can change it.
   lock_tpm || on_error
