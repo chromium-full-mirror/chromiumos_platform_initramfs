@@ -13,18 +13,17 @@ validate_recovery_root() {
   [ "$USB_DEV" = "/dev/dm-0" ] || return 0
   is_unofficial_root && return 0
 
-  plog "Validating official recovery image . . . "
+  message validating
   # Ensure the verified rootfs is fully intact or fail with no USB_DEV.
   # REAL_USB_DEV is left intact.
   # Correctness wins over speed for this.
   if ! dd if="$USB_DEV" of=/dev/null bs=$((16 * 1024 * 1024)); then
     dlog "Included root filesystem could not be verified."
-    log " failed!"
+    umount "$USB_MNT"
     dmsetup remove "$DM_NAME"  # Free up the real root for use.
     USB_DEV=
     return 1
   fi
-  log " completed."
   return 0
 }
 
@@ -37,56 +36,30 @@ get_dst() {
 
 dev_wait_or_error() {
   is_developer_mode || on_error  # terminal if we get here in regular mode.
-  log ""
-  log "A developer key change is required to proceed."
-  plog "Please wait 300 seconds . . ."
-  # TODO(wad) Divvy the total up into a few different prompts.
-  make_user_wait 300
-  log ""
-}
-
-recovery_wait() {
-  log ""
-  log "Preparing to recover your system image."
-  plog "If you do not wish to proceed, please reboot in the next 10 seconds ."
-  make_user_wait 10
-  log ""
-  log "System recovery is beginning."
-  log "Please do not disconnect from a power source or power down."
-  log ""
-}
-
-make_user_wait() {
-  local delay_in_sec="${1-300}"
-  while [ $delay_in_sec -gt 0 ]; do
-    plog " ."
-    sleep 1
-    delay_in_sec=$((delay_in_sec - 1))
-  done
-  log ""
+  message key_change
 }
 
 check_key_or_wait() {
-  plog "Searching the system disk for a matching kernel key . . ."
+  dlogf "Searching the system disk for a matching kernel key . . ."
   if ! cgpt find -t kernel -M "$1" "$DST"; then
-    log " failed."
+    dlog " failed."
     dev_wait_or_error
     return 0
   fi
-  log " found."
+  dlog " found."
 
-  plog "Validating matching signature(s) . . ."
+  dlogf "Validating matching signature(s) . . ."
   # If we found a keyblock, at the right offset, make sure it actually signed
   # the subsequent payload.
   local kdev=
   for kdev in $(cgpt find -t kernel -M "$1" "$DST"); do
-    plog " ."
+    dlogf " ."
     verify_kernel_signature "$kdev" "/tmp/kern.keyblock" || continue
-    log " done."
+    dlog " done."
     return 0
   done
 
-  log " failed."
+  dlog " failed."
   dev_wait_or_error
   return 0
 }
@@ -103,9 +76,7 @@ get_kern_b_device() {
 }
 
 get_real_kern_b_hash() {
-  REAL_KERN_B_HASH=$(dd if="${KERN_B_DEV}" | \
-                     sha1sum | \
-                     cut -f1 -d' ')
+  REAL_KERN_B_HASH=$(dd if="${KERN_B_DEV}" | sha1sum | cut -f1 -d' ')
   [ -n "$REAL_KERN_B_HASH" ]
 }
 
@@ -133,12 +104,14 @@ verify_install_kernel() {
   #           root of trust instead of using a baked in cmdline.
   if [ "$REAL_KERN_B_HASH" != "$KERN_ARG_KERN_B_HASH" ]; then
     if ! is_developer_mode; then
-      log "The recovery image cannot be verified."
+      dlog "The recovery kernel cannot be verified."
       return 1
     fi
 
+    message developer_image
+
     # Extract the kernel so that vbutil_kernel will happily consume it.
-    log "Checking the install kernel for a valid developer signature . . ."
+    dlog "Checking the install kernel for a valid developer signature . . ."
     verify_kernel_signature "$KERN_B_DEV" "/tmp/kern_b.keyblock" || return 1
     check_key_or_wait /tmp/kern_b.keyblock
   fi
@@ -157,10 +130,9 @@ call_image_recovery_script() {
   mount -t tmpfs -o mode=1777 none "$USB_MNT/tmp" || return 1
   move_mounts || return 1
 
-  # Start the copy.
-  log ""
-  log "Beginning system image copy. This will take some time . . ."
-  log ""
+  dlog "Installing software; this will take some time."
+  dlog "See the debug log on VT3 for the full output."
+
   # Until images are built with the installer keyblock in KERN-B by
   # default, we keep copying over the installer vblock from the
   # stateful partition.
@@ -170,10 +142,9 @@ call_image_recovery_script() {
     /usr/sbin/chromeos-install --run_as_root --yes \
                                --payload_image="$1" \
                                --use_payload_kern_b
-  if [  $? -eq 0 ]; then
-    log "System copy completed."
-  else
-    log "Error performing system recovery!"
+  local install_status=$?
+  if [  $install_status -ne 0 ]; then
+    dlog "Installation of software failed."
   fi
 
   # Clean up doesn't need to be successful.
@@ -184,29 +155,29 @@ call_image_recovery_script() {
   # to avoid a bonus wait period on reboot.
   # Failure here is non-terminal and it may not succeed just because the
   # partition table of the destination has not been synchronized.
-  dlog "Prepping destination stateful to avoid a secondary delay."
-  touch_developer_mode_file && log "Prepped image for developer use."
+  if [  $install_status -eq 0 ]; then
+    dlog "Prepping destination stateful to avoid a secondary delay."
+    touch_developer_mode_file && dlog "Prepped image for developer use."
+  fi
 
-  return 0
+  return $install_status
 }
 
 clear_tpm() {
-  plog "Resetting security device . . ."
+  dlogf "Resetting security device . . ."
   # TODO(wad) should we fail on this?
   tpmc ppon || dlog "tpmc ppon error: $?"
   tpmc clear || dlog "tpmc clear error: $?"
   tpmc enable || dlog "tpmc enable error: $?"
   tpmc activate || dlog "tpmc activate error: $?"
   tpmc pplock || dlog "tpmc pplock error: $?"
-  log " done."
+  dlog " done."
   return 0
 }
 
 recover_system() {
   local source=$(strip_partition "$REAL_USB_DEV")
   dlog "Beginning system recovery from $source"
-
-  recovery_wait
 
   # If we're not running a developer script then we're either
   # installing a developer image or an official one. If we're
@@ -219,6 +190,8 @@ recover_system() {
   # like.  Only bGlobalLock will be in place in advance.
   clear_tpm || return 1
 
+  message recovery_countdown
+
   call_image_recovery_script "$source" || return 1
 
   return 0
@@ -226,14 +199,6 @@ recover_system() {
 
 recovery_install() {
   NEWROOT_MNT="$USB_MNT"
-
-  if is_nonchrome; then
-    log " "
-    log "Your computer does not appear to a Chrome computer!"
-    log " "
-    log "Your experience with Chromium OS will be suboptimal."
-    log " "
-  fi
 
   # Always lock the TPM.  If a NVRAM reset is ever needed, we can change it.
   lock_tpm || on_error
@@ -243,21 +208,17 @@ recovery_install() {
   # intentionally mismatched - such as during Chromium OS recovery with a
   # Chrome OS recovery kernel.
   if ! validate_recovery_root; then
-    is_developer_mode || on_error
+    # The root we just mounted looked like an official recovery
+    # image, but it didn't pass validation.  Try to fall back to
+    # installing a developer image.
     find_developer_root || on_error
-    log " found."
-    # This logic is duplicated to avoid double validating factory media.  It
-    # will only be hit if a verified root can be mounted but is actually not
-    # intact.
     get_stateful_dev || on_error
+    message developer_image
   fi
 
   get_dst || on_error
 
   recover_system || on_error
-
-  log "System recovery is complete!"
-  log "Please remove the recovery device and reboot."
 
   stop_log_file
   # Save the recovery log to the target on success and the USB.
@@ -266,10 +227,8 @@ recovery_install() {
 
   unmount_usb
 
-  log ""
-  log ""
-  plog "The system will automatically reboot in 2 minutes"
-  make_user_wait 120
+  message complete
+
   reboot -f
   exit 0
 }

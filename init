@@ -40,34 +40,7 @@ UNOFFICIAL_ROOT=0
 # Size of the root ramdisk.
 TMPFS_SIZE=300M
 
-# User visible message logged w/ 'echo'
-log() {
-  echo "$@" | tee -a "$TTY_PATH"1 "$TTY_PATH"2
-}
-
-# Equivalent to 'log', but with 'printf'
-plog() {
-  printf "$@" | tee "$TTY_PATH"1 "$TTY_PATH"2
-}
-
-dlog() {
-  echo "$@" | tee -a "$TTY_PATH"2 "$TTY_PATH"3
-}
-
-on_error() {
-  # Exit, thus causing a kernel panic. We don't want to do anything else (like
-  # start a shell) because it would be trivially easy to get here (just unplug
-  # the USB drive after the kernel starts but before the USB drives are probed
-  # by the kernel) and starting a shell here would be a BIG security hole.
-  log
-  log
-  log "An unrecoverable error occurred during recovery!"
-  log
-  log "Please try again or try a newer recovery image."
-  save_log_file
-  sleep 1d
-  exit 1
-}
+. /lib/messages.sh
 
 initial_mounts() {
   mkdir -p /var/lock
@@ -91,7 +64,7 @@ wait_for_gpt_root() {
   [ -z "$KERN_ARG_KERN_GUID" ] && return 1
   dlog -n "Looking for rootfs using kern_guid..."
   for try in $(seq 20); do
-    plog " ."
+    dlogf " ."
     kern=$(cgpt find -1 -u $KERN_ARG_KERN_GUID)
     # We always try ROOT-A in recovery.
     newroot="${kern%[0-9]*}3"
@@ -110,7 +83,7 @@ wait_for_gpt_root() {
 wait_for_root() {
   dlog -n "Waiting for $USB_DEVS to appear"
   for try in $(seq 20); do
-    plog " ."
+    dlogf " ."
     for dev in $USB_DEVS; do
       if [ -b "/dev/${dev}" ]; then
         USB_DEV="/dev/${dev}"
@@ -132,7 +105,7 @@ check_if_dm_root() {
 # kernel we're booted into to. Exports REAL_USB_DEV if there
 # is a root partition that may be used - on succes or failure.
 find_official_root() {
-  plog "Checking for an official recovery image . . ."
+  dlogf "Checking for an official recovery image . . ."
 
   # Check for a kernel selected root device or one in a well known location.
   wait_for_gpt_root || wait_for_root || return 1
@@ -156,7 +129,7 @@ find_developer_root() {
   is_developer_mode || return 1
   # Lock the TPM prior to using an untrusted root.
   lock_tpm || return 1
-  plog "\nSearching for developer root . . ."
+  dlogf "\nSearching for developer root . . ."
   # If an official root could not be mounted, free up the underlying device
   # if it is claimed by verity.
   dmsetup remove "$DM_NAME"
@@ -203,7 +176,7 @@ setup_dm_root() {
 mount_usb() {
   dlog -n "Mounting usb"
   for try in $(seq 20); do
-    plog " ."
+    dlogf " ."
     if mount -n -o ro "$USB_DEV" "$USB_MNT"; then
       dlog "ok"
       return 0
@@ -283,10 +256,16 @@ save_log_file() {
   # The recovery stateful is usually too small for ext3.
   # TODO(wad) We could also just write the data raw if needed.
   #           Should this also try to save
-  dlog "Attempting to save log file: $LOG_FILE -> $log_dev"
-  mount -n -o sync,rw -t ext2 "$log_dev" /tmp
-  cp "$LOG_FILE" /tmp
-  umount -n /tmp
+  dlog "Saving log file: $LOG_FILE -> $log_dev"
+  err=0
+  mount -n -o sync,rw -t ext2 "$log_dev" /tmp || err=1
+  cp "$LOG_FILE" /tmp || err=1
+  umount -n /tmp || err=1
+  if [ $err -eq 0 ] ; then
+    dlog "Successfully saved the log file"
+  else
+    dlog "Failures seen trying to save log file"
+  fi
 }
 
 stop_log_file() {
@@ -323,12 +302,12 @@ lock_tpm() {
     tpmc ctest
     if ! tpmc block; then
       if is_nonchrome; then
-        log "No security chip appears to exist in this non-Chrome device."
-        log "The security of your experience will suffer."
+        dlog "No security chip appears to exist in this non-Chrome device."
+        dlog "The security of your experience will suffer."
         # Forge onward.
       else
-        log "An unrecoverable error occurred with your security device"
-        log "Please power down and try again."
+        dlog "An unrecoverable error occurred with your security device"
+        dlog "Please power down and try again."
         dlog "Failed to lock bGlobalLock."
         on_error
         return 1  # Never reached.
@@ -369,31 +348,21 @@ main() {
   (tail -f "$LOG_FILE" > "$TTY_PATH"3) &
   TAIL_PID=$!
 
-  log "Recovery image booting . . ."
-  log ""
-  log "Press Ctrl + Alt + F1 - F3 for more detailed information."
-  log ""
+  message startup
 
   # Export the kernel command line as a parsed blob prepending KERN_ARG_ to each
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
-  if is_developer_mode; then
-    log "! Your computer's developer mode switch is in the ENABLED position."
-    log "!"
-    log "! If this is unintentional, you should power off and toggle it back "
-    log "! after recovery is completed."
-    log ""
+  if ! find_official_root ; then
+    if find_developer_root; then
+      message developer_image
+    else
+      on_error
+    fi
   fi
 
-  if find_official_root || find_developer_root; then
-    log " found."
-  else
-    log " not found."
-    on_error
-  fi
-
-  # Extract the real boot source which may be masked by dm-verity.
+  # Extract the real boot source, which may be masked by dm-verity.
   get_stateful_dev || on_error
 
   # The remaining processing depends on whether this is a factory
