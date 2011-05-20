@@ -6,6 +6,11 @@
 # exclusivly for recovery images.  Note that this code uses the
 # busybox shell (not bash, not dash).
 
+# Starting kernel rollback version.
+KERNEL_VER_MIN=0x10001
+# TPM NVRAM index where the rollback kernel version is stored.
+KERNEL_VER_TPM_NV_SPACE=0x1008
+
 # If we have a verified recovery root, ensure all blocks are valid before
 # handing it off to the installer.
 validate_recovery_root() {
@@ -80,6 +85,20 @@ get_real_kern_b_hash() {
   [ -n "$REAL_KERN_B_HASH" ]
 }
 
+# Get the kernel version by directly reading the TPM NVRAM spaces.
+# Needed when crossystem doesn't work (e.g. Mario systems).
+get_kernelver_from_tpmc () {
+  set -- $(tpmc read $KERNEL_VER_TPM_NV_SPACE 9)
+  # Example output:
+  #
+  # 1 4c 57 52 47 1 0 1 0
+  #
+  # The first 5 bytes of the output are a canary value and can be
+  # ignored. The full kernel version is stored as a 32-bit integer
+  # in little endian format.
+  echo "$(( $9 << 24 | $8 << 16 | $7 << 8 | $6 ))"
+}
+
 verify_kernel_signature() {
   local kern_dev="$1"
   local keyblock="$2"
@@ -91,6 +110,25 @@ verify_kernel_signature() {
   # Validates the signature and outputs a keyblock.
   if ! vbutil_kernel --verify "/tmp/kern.bin" \
                      --keyblock "$keyblock"; then
+    return 1
+  fi
+  return 0
+}
+
+verify_kernel_version() {
+  local kern_dev="$1"
+  local minversion="$KERNEL_VER_MIN"
+
+  if ! dd if="$kern_dev" of="/tmp/kern.bin"; then
+    return 1
+  fi
+
+  # Get the currently set TPM NVRAM rollback versions.
+  minversion=$(crossystem tpm_kernver || get_kernelver_from_tpmc)
+  dlog "Rollback version stored in the TPM: $minversion"
+
+  # Validate the signature and rollback versions.
+  if ! vbutil_kernel --verify "/tmp/kern.bin" --minversion "$minversion"; then
     return 1
   fi
   return 0
@@ -114,7 +152,20 @@ verify_install_kernel() {
     dlog "Checking the install kernel for a valid developer signature . . ."
     verify_kernel_signature "$KERN_B_DEV" "/tmp/kern_b.keyblock" || return 1
     check_key_or_wait /tmp/kern_b.keyblock
+    return 0
   fi
+
+  # Looks like we have an official recovery image. Check for version rollback.
+  dlog "Checking the install kernel for valid versions and signature . . ."
+  if ! verify_kernel_version "$KERN_B_DEV"; then
+    if ! is_developer_mode; then
+      # Rollback version check failure is fatal if we are not in developer mode.
+      message invalid_install_kernel
+      return 1
+    fi
+    message warn_invalid_install_kernel
+  fi
+
   return 0
 }
 
