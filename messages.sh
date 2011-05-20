@@ -135,6 +135,27 @@ message_complete() {
   make_user_wait 120
 }
 
+message_invalid_install_kernel() {
+  log ""
+  log "The recovery device you inserted is corrupted or out-of-date."
+  log "A new recovery device can be created by following instructions at:"
+  log ""
+  log "          http://google.com/chromeos/recovery"
+  log ""
+  log "Please try recovery again with a newly created recovery device."
+  log ""
+}
+
+message_warn_invalid_install_kernel() {
+  log ""
+  log "WARNING: You are using an out-of-date or corrupted official Chrome OS"
+  log "         recovery image."
+  log ""
+  log "The system will not boot in verified mode."
+  log ""
+  make_user_wait 5
+}
+
 message() {
   message_$1
 }
