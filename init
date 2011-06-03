@@ -57,6 +57,7 @@ initial_mounts() {
   fi
   mkdir -p /dev/pts
   mount -t devpts -o noexec,nosuid none /dev/pts || true
+  mount -n -t debugfs debugfs /sys/kernel/debug
 }
 
 # Look for a device with our GPT ID.
