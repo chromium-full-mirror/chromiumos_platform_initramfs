@@ -1,0 +1,4 @@
+WARNING: You are using an out-of-date or corrupted official Chrome OS
+         recovery image.
+
+The system will not boot in verified mode.

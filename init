@@ -197,6 +197,7 @@ check_if_factory_install() {
   fi
 
   if [ -e "${USB_MNT}/root/.factory_installer" ]; then
+    clear_console
     log "Detected factory install."
     return 0
   fi

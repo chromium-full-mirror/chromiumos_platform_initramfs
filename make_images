@@ -1,0 +1,160 @@
+#!/bin/bash -e
+# Copyright (c) 2011 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+#
+# usage:
+#   ./make_images
+#
+# Refer to the README for details about what this script does, and how
+# to use it.
+
+# Image parameters
+BG='#607c91'
+COLOR='#9ccaec'
+FONT="Helvetica-Narrow"
+POINTSIZE=19
+
+. $(dirname $0)/constants.sh
+
+report() {
+  echo "wrote $1"
+}
+
+# Process all localized text message files, and create their
+# corresponding PNG image files.
+#
+# Arg 1:  Source directory where the localized text files are
+#   stored.
+# Arg 2:  Destination directory where the images will be stored.
+make_text_images() {
+  local srcdir=$1
+  local dstdir=$2
+  local textfile=
+  local screenfile=
+  for textfile in $srcdir/*/*.txt ; do
+    local message=${textfile%.txt}
+    message=${message#$srcdir/}
+    screenfile=$dstdir/${message}.png
+    mkdir -p $(dirname $screenfile)
+    convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} \
+      -background "$BG" -fill "$COLOR" \
+      -gravity Center -font "$FONT" -pointsize "$POINTSIZE" \
+      "label:@$textfile" "$screenfile"
+    report $screenfile
+  done
+}
+
+# Each locale includes a message image named 'empty' containing
+# no text.  We hard-code the generation of that image here, and
+# replicate the image for each locale.
+#
+# Arguments:  list of destination locale directories where the
+#   'empty.png' file is to be stored.
+make_empty_messages() {
+  local empty=empty.png
+  convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:$BG" $empty
+  for localedir in "$@"; do
+    ln -f $empty $localedir
+    report $localedir/$empty
+  done
+  rm $empty
+}
+
+# Create the images used for the countdown bar in make_user_wait
+#
+# Arg 1: Destination directory for the image files.
+make_countdown_bar() {
+  local dstdir=$1
+  local time_bar=time_bar.png
+  convert -size ${TIME_BAR_WIDTH}x${TIME_BAR_HEIGHT} \
+    "xc:$COLOR" $dstdir/$time_bar
+  report $dstdir/$time_bar
+  local time_line=time_line.png
+  convert -size ${TIME_BAR_WIDTH}x1 "xc:$BG" $dstdir/$time_line
+  report $dstdir/$time_line
+}
+
+# Create the moving box animation frames.  Roughly, the frame
+# sequence looks like this:
+#    Frame 0        Frame 1        Frame 2
+#   ============   ============   ============
+#   =          =   =          =   =          =
+#   = bb       =   =    bb    =   =       bb =
+#   = bb       =   =    bb    =   =       bb =
+#   =          =   =          =   =          =
+#   ============   ============   ============
+#
+# The '=' characters represent an outer rectangle forming a border
+# around the path of the moving box.  The path of the moving box
+# itself is smaller than the interior of the outer rectangle, so
+# that there is an inner border surrounding the path.  The box and
+# the outer border are drawn in the foreground color; the path and
+# the inner border are drawn in the background color.
+#
+# Arg 1: Destination directory for the image files.
+make_moving_box_frames() {
+  local dstdir=$1
+
+  local border=5  # width of the outer and inner borders
+  local box=30    # width and height of the moving box
+  local nbox=40   # frames are numbered 0..$nbox
+  local speed=10  # number of pixels the box moves each frame
+
+  local path_width=$(( speed * nbox + box ))
+  local path_left=$(( (MESSAGE_BOX_WIDTH - path_width) / 2 ))
+  local path_right=$(( path_left + path_width ))
+
+  local path_height=$box
+  local path_top=$(( (MESSAGE_BOX_HEIGHT - path_height) / 2 ))
+  local path_bottom=$(( path_top + path_height ))
+
+  # coordinates of top-left and bottom-right, respectively, of
+  # the outer rectangular border.
+  local border_tl=$(( path_left - border - 1 )),$(( path_top - border - 1 ))
+  local border_br=$(( path_right + border )),$(( path_bottom + border ))
+
+  for index in $(seq 0 $nbox); do
+    # coordinates of top-left and bottom-right, respectively, of
+    # the moving box for this frame.
+    local box_left=$(( path_left + index * speed ))
+    local box_tl=$box_left,$path_top
+    local box_br=$(( box_left + box )),$path_bottom
+    case $index in
+      [0-9]) zindex=0$index ;;
+      [1-9][0-9]) zindex=$index ;;
+    esac
+    local image_file=$dstdir/moving_box_${zindex}.png
+    convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:$BG" \
+      -stroke "$COLOR" -strokewidth $border -fill "$BG" \
+      -draw "rectangle $border_tl $border_br" \
+      -stroke "$BG" -strokewidth $border -fill "$COLOR" \
+      -draw "rectangle $box_tl $box_br" \
+      $image_file
+    report $image_file
+  done
+}
+
+SRCDIR=localized_text
+DSTDIR=screens
+rm -rf $DSTDIR
+mkdir -p $DSTDIR
+
+# The size for the background is selected to be large enough to
+# cover the full screen on either Alex or ZGB; we rely on the fact
+# that ply-image will clip the image to fit.
+#
+# TODO(jrbarnette):  If/when we have to support more screen sizes,
+# this solution won't scale.  Some new feature in ply-image is
+# likely to be required.
+convert -size 1366x800 "xc:$BG" $DSTDIR/background.png
+report $DSTDIR/background.png
+
+make_text_images $SRCDIR $DSTDIR
+
+LANGLIST=( $(cd $SRCDIR ; ls | sed "s=^=$DSTDIR/=") )
+make_empty_messages "${LANGLIST[@]}"
+
+make_countdown_bar $DSTDIR
+
+make_moving_box_frames $DSTDIR

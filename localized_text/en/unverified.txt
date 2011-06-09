@@ -1,0 +1,3 @@
+The image on your recovery device is an unverified developer image.
+Recovery will continue, because your computer's developer mode switch
+is in the ENABLED position.

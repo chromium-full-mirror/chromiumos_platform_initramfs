@@ -1,0 +1,6 @@
+The recovery device you inserted is corrupted or out-of-date.
+A new recovery device can be created by following instructions at:
+
+http://google.com/chromeos/recovery
+
+Please try recovery again with a newly created recovery device.

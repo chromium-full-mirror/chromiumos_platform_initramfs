@@ -3,7 +3,7 @@
 # found in the LICENSE file.
 #
 # This consists of functions sourced by the /init script and used
-# exclusivly for recovery images.  Note that this code uses the
+# exclusively for recovery images.  Note that this code uses the
 # busybox shell (not bash, not dash).
 
 # Starting kernel rollback version.
@@ -261,7 +261,7 @@ recover_system() {
   # like.  Only bGlobalLock will be in place in advance.
   clear_tpm || return 1
 
-  message recovery_countdown
+  message recovery_start
 
   call_image_recovery_script "$source" || return 1
 
@@ -298,9 +298,8 @@ recovery_install() {
 
   unmount_usb
 
-  if [ $(cat /sys/devices/virtual/tty/tty0/active) = tty1 ] ; then
-    message complete
-  else
+  message recovery_complete
+  if [ $(cat /sys/devices/virtual/tty/tty0/active) != tty1 ]; then
     dlog "Recovery is complete!  The system will remain up to allow"
     dlog "you to examine VT screen contents.  You must manually"
     dlog "power off when you're done."

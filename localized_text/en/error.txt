@@ -1,0 +1,3 @@
+An unrecoverable error occurred during recovery!
+
+Please try again or try a newer recovery image.

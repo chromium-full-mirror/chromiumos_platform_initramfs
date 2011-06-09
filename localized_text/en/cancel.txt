@@ -1,0 +1,5 @@
+Please make sure your computer is plugged in to a power source.
+
+If you want to cancel recovery, press the power button and hold it
+down until the computer turns off.  It is safe to do this at any
+time before recovery begins.

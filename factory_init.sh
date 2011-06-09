@@ -3,7 +3,7 @@
 # found in the LICENSE file.
 #
 # This consists of functions sourced by the /init script and used
-# exclusivly for factory install shim images.  Note that this code
+# exclusively for factory install shim images.  Note that this code
 # uses the busybox shell (not bash, not dash).
 
 mount_tmpfs() {
