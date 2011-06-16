@@ -177,10 +177,30 @@ touch_developer_mode_file() {
   return 0
 }
 
-call_image_recovery_script() {
+setup_install_mounts() {
   mount -t tmpfs -o mode=1777 none "$USB_MNT/tmp" || return 1
-  move_mounts || return 1
+  dlog "Re-binding $BASE_MOUNTS for $NEWROOT_MNT"
+  for mnt in $BASE_MOUNTS; do
+    # $mnt is a full path (leading '/'), so no '/' joiner
+    mkdir -p "$NEWROOT_MNT$mnt"
+    mount -n -o bind "$mnt" "$NEWROOT_MNT$mnt" || return 1
+  done
+  dlog "Done."
+  return 0
+}
 
+cleanup_install_mounts() {
+  dlog "Unmounting $BASE_MOUNTS in $NEWROOT_MNT"
+  for mnt in $BASE_MOUNTS; do
+    # $mnt is a full path (leading '/'), so no '/' joiner
+    umount "$NEWROOT_MNT$mnt"
+  done
+  dlog "Done."
+  umount "$USB_MNT/tmp"
+  return 0
+}
+
+call_image_recovery_script() {
   dlog "Installing software; this will take some time."
   dlog "See the debug log on VT3 for the full output."
 
@@ -188,6 +208,7 @@ call_image_recovery_script() {
   # default, we keep copying over the installer vblock from the
   # stateful partition.
   # TODO(wad) http://crosbug/8378
+  setup_install_mounts || return 1
   export IS_RECOVERY_INSTALL=1
   chroot "$USB_MNT" \
     /usr/sbin/chromeos-install --run_as_root --yes \
@@ -198,9 +219,8 @@ call_image_recovery_script() {
     dlog "Installation of software failed."
   fi
 
-  # Clean up doesn't need to be successful.
-  umount "$USB_MNT/tmp"
-  unmove_mounts
+  # No error check here:  Clean up doesn't need to be successful.
+  cleanup_install_mounts
 
   # If we're in developer mode, touch the .developer_mode file on stateful
   # to avoid a bonus wait period on reboot.

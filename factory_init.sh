@@ -41,6 +41,18 @@ copy_lsb() {
   rmdir "$STATEFUL_MNT"
 }
 
+move_mounts() {
+  dlog "Moving $BASE_MOUNTS to $NEWROOT_MNT"
+  for mnt in $BASE_MOUNTS; do
+    # $mnt is a full path (leading '/'), so no '/' joiner
+    mkdir -p "$NEWROOT_MNT$mnt"
+    mount -n -o move "$mnt" "$NEWROOT_MNT$mnt"
+  done
+  TTY_PATH="$NEWROOT_MNT/dev/tty"
+  dlog "Done."
+  return 0
+}
+
 use_new_root() {
   move_mounts || on_error
 
