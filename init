@@ -19,7 +19,8 @@ STATEFUL_MNT=/stateful
 STATE_DEV=
 
 LOG_DEV=
-LOG_FILE="/log/recovery.log"
+LOG_DIR=/log
+LOG_FILE=$LOG_DIR/recovery.log
 
 TPM_B_LOCKED=
 TPM_PP_LOCKED=
@@ -257,10 +258,10 @@ save_log_file() {
   # The recovery stateful is usually too small for ext3.
   # TODO(wad) We could also just write the data raw if needed.
   #           Should this also try to save
-  dlog "Saving log file: $LOG_FILE -> $log_dev"
+  dlog "Saving log file: $LOG_DIR -> $log_dev"
   err=0
   mount -n -o sync,rw -t ext2 "$log_dev" /tmp || err=1
-  cp "$LOG_FILE" /tmp || err=1
+  cp $LOG_DIR/* /tmp || err=1
   umount -n /tmp || err=1
   if [ $err -eq 0 ] ; then
     dlog "Successfully saved the log file"
