@@ -278,7 +278,14 @@ recovery_install() {
 
   unmount_usb
 
-  message complete
+  if [ $(cat /sys/devices/virtual/tty/tty0/active) = tty1 ] ; then
+    message complete
+  else
+    dlog "Recovery is complete!  The system will remain up to allow"
+    dlog "you to examine VT screen contents.  You must manually"
+    dlog "power off when you're done."
+    sleep 1d
+  fi
 
   reboot -f
   exit 0

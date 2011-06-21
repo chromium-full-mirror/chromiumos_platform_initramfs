@@ -131,8 +131,8 @@ message_complete() {
   log "System recovery is complete!"
   log ""
   log "It is now safe to remove the recovery device and restart your computer"
-  logf "The system will automatically reboot in 2 minutes"
-  make_user_wait 120
+  logf "The system will automatically restart in 10 seconds"
+  make_user_wait 10
 }
 
 message_invalid_install_kernel() {
