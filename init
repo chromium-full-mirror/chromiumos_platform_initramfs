@@ -280,7 +280,7 @@ lock_tpm() {
   if [ -z "$TPM_B_LOCKED" ]; then
     # Depending on the system, the tpm may need to be started.
     # Don't fail if it doesn't work though.
-    tpmc startup
+    tpmc startup &> /dev/null
     tpmc ctest
     if ! tpmc block; then
       if is_nonchrome; then
