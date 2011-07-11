@@ -13,8 +13,6 @@ USB_MNT=/usb
 REAL_USB_DEV=
 DM_NAME=
 
-DST=
-
 STATEFUL_MNT=/stateful
 STATE_DEV=
 

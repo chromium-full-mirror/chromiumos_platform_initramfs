@@ -11,6 +11,15 @@ KERNEL_VER_MIN=0x10001
 # TPM NVRAM index where the rollback kernel version is stored.
 KERNEL_VER_TPM_NV_SPACE=0x1008
 
+# Installation Target.
+#  DST_DEV_BASE: A device path for concatenate partition number.
+#                Sample: /dev/mmcblk0p /dev/sda
+#                Usage: "${DST_DEV_BASE}${PART_NUM}"
+#  DST: A device path for the block device itself (similar to rootdev -d).
+#                Sample: /dev/mmcblk0 /dev/sda
+DST_DEV_BASE=
+DST=
+
 # If we have a verified recovery root, ensure all blocks are valid before
 # handing it off to the installer.
 validate_recovery_root() {
@@ -34,9 +43,33 @@ validate_recovery_root() {
 
 # Accomodate sd* or mmcblk* devices
 get_dst() {
-  DST=$(echo ${REAL_USB_DEV%[0-9]*} | \
-        tr -s '[0-9]' '0' | \
-        sed -e 's/sd[b-z]/sda/g')
+  local arch="$(crossystem arch)"
+
+  # We can't trust the source (USB) media to find destination because ARM
+  # supports booting from both USB(sd*) and SD Card Reader (mmcblk*).
+  # The current solution is to hard-code destination by architecture -- which is
+  # also how factory test program works.
+
+  case "$arch" in
+    x86 )
+      DST="/dev/sda"
+      DST_DEV_BASE="$DST"
+      ;;
+    arm )
+      DST="/dev/mmcblk0"
+      DST_DEV_BASE="$DST"p
+      ;;
+    * )
+      dlog "Unknown platform ($arch), cannot identify destination."
+      return 1
+      ;;
+  esac
+
+  local src_dev_base="${REAL_USB_DEV%%[0-9]*}"
+  if [ "${src_dev_base}" = "$DST_DEV_BASE" ]; then
+    dlog "Cannot find SSD for installation."
+    return 1
+  fi
 }
 
 dev_wait_or_error() {
@@ -171,7 +204,7 @@ verify_install_kernel() {
 
 touch_developer_mode_file() {
   is_developer_mode || return 1
-  mount -n -o rw -t ext3 "$DST"1 "$STATEFUL_MNT" || return 1
+  mount -n -o rw -t ext3 "$DST_DEV_BASE"1 "$STATEFUL_MNT" || return 1
   touch "$STATEFUL_MNT/.developer_mode" || return 1
   umount "$STATEFUL_MNT" || return 1
   return 0
@@ -293,7 +326,7 @@ recovery_install() {
 
   stop_log_file
   # Save the recovery log to the target on success and the USB.
-  save_log_file "$DST"1
+  save_log_file "$DST_DEV_BASE"1
   save_log_file
 
   unmount_usb
