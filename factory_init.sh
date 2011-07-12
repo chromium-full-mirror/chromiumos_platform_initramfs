@@ -21,19 +21,22 @@ copy_contents() {
 }
 
 copy_lsb() {
-  STATEFUL_LSB="dev_image/etc/lsb-factory"
-  mkdir -p "${NEWROOT_MNT}/mnt/stateful_partition/dev_image/etc"
+  local lsb_file="dev_image/etc/lsb-factory"
+  local dest_path="${NEWROOT_MNT}/mnt/stateful_partition/${lsb_file}"
+  local src_path="${STATEFUL_MNT}/${lsb_file}"
+
+  mkdir -p "$(dirname $dest_path)"
   # Mounting ext3 as ext2 since the journal is unneeded in ro.
   if ! mount -n "${STATE_DEV}" "${STATEFUL_MNT}"; then
     log "Failed to mount ${STATE_DEV}!! Failing."
     return 1
   fi
-  if [ -f "${STATEFUL_MNT}/${STATEFUL_LSB}" ]; then
-    log "Found ${STATEFUL_MNT}/${STATEFUL_LSB}"
-    cp -a "${STATEFUL_MNT}/${STATEFUL_LSB}" \
-        "${NEWROOT_MNT}/mnt/stateful_partition/${STATEFUL_LSB}"
+  if [ -f "${src_path}" ]; then
+    log "Found ${src_path}"
+    cp -a "${src_path}" "${dest_path}"
+    echo "REAL_USB_DEV=$REAL_USB_DEV" >>"${dest_path}"
   else
-    log "Failed to find ${STATEFUL_MNT}/${STATEFUL_LSB}!! Failing."
+    log "Failed to find ${src_path}!! Failing."
     umount "$STATEFUL_MNT"
     return 1
   fi
