@@ -26,10 +26,8 @@ INSTRUCTION_BOX=$(( 0 * MESSAGE_BOX_HEIGHT ))
 PROGRESS_BOX=$(( 1 * MESSAGE_BOX_HEIGHT ))
 DEVMODE_BOX=$(( 2 * MESSAGE_BOX_HEIGHT ))
 
-# TODO(jrbarnette):  Currently, we have no translated text, so we
-# hard-code for US English.
 SCREENS=/etc/screens
-LANGDIR=en
+LANGDIR=
 
 # User visible message logged w/ 'echo'
 log() {
@@ -53,6 +51,16 @@ dlogf() {
 
 clear_console() {
   clear >"$TTY_PATH"1
+}
+
+select_locale() {
+  LANGDIR=$(vpd -g initial_locale)
+  if [ -z "$LANGDIR" -o ! -d "$SCREENS/$LANGDIR" ]; then
+    dlog "initial locale '$LANGDIR' not found"
+    LANGDIR=en-US
+  fi
+  dlog "selected locale $LANGDIR"
+
 }
 
 # Present a message screen aligned to the left of the display at a
@@ -170,6 +178,7 @@ message_startup() {
   # ply-image has pushed the screen image.
   echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
   ply-image $SCREENS/background.png
+  select_locale
   instructions cancel
   progress scanning
 

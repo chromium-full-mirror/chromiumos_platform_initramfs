@@ -55,6 +55,9 @@ make_empty_messages() {
   local empty=empty.png
   convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:$BG" $empty
   for localedir in "$@"; do
+    if [ ! -d $localedir ]; then
+      continue
+    fi
     ln -f $empty $localedir
     report $localedir/$empty
   done
