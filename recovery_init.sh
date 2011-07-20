@@ -65,7 +65,7 @@ get_dst() {
       ;;
   esac
 
-  local src_dev_base="${REAL_USB_DEV%%[0-9]*}"
+  local src_dev_base="${REAL_USB_DEV%[0-9]*}"
   if [ "${src_dev_base}" = "$DST_DEV_BASE" ]; then
     dlog "Cannot find SSD for installation."
     return 1
