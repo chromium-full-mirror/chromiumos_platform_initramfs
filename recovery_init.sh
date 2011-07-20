@@ -10,6 +10,9 @@
 KERNEL_VER_MIN=0x10001
 # TPM NVRAM index where the rollback kernel version is stored.
 KERNEL_VER_TPM_NV_SPACE=0x1008
+# TPM NVRAM index for the lockbox.
+LOCKBOX_TPM_NV_SPACE=0x20000004
+
 
 # Installation Target.
 #  DST_DEV_BASE: A device path for concatenate partition number.
@@ -267,6 +270,15 @@ call_image_recovery_script() {
   return $install_status
 }
 
+clobber_lockbox_space() {
+  # Clobber the lockbox space, by defining a new space at the same index.
+  # Protection flags and size of the new space don't matter, as it will get
+  # recreated again by cryptohome.
+  local ppwrite_permission=0x1
+  local temporary_lockbox_size=1
+  tpmc def $LOCKBOX_TPM_NV_SPACE $temporary_lockbox_size $ppwrite_permission
+}
+
 clear_tpm() {
   dlogf "Resetting security device . . ."
   # TODO(wad) should we fail on this?
@@ -274,6 +286,7 @@ clear_tpm() {
   tpmc clear || dlog "tpmc clear error: $?"
   tpmc enable || dlog "tpmc enable error: $?"
   tpmc activate || dlog "tpmc activate error: $?"
+  clobber_lockbox_space || dlog "error clobbering lockbox space: $?"
   tpmc pplock || dlog "tpmc pplock error: $?"
   dlog " done."
   return 0
