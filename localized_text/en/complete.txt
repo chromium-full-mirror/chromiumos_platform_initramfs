@@ -1,4 +1,4 @@
 System recovery is complete!
 
-It is now safe to remove the recovery device and restart your computer.
-The system will automatically reboot in 10 seconds.
+Please remove the recovery media and your Chromebook will
+restart automatically.

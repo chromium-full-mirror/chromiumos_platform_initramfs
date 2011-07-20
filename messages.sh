@@ -216,7 +216,6 @@ message_recovery_complete() {
   kill $MOVING_BOX_PID
   wait $MOVING_BOX_PID
   instructions complete
-  make_user_wait 10 empty
 }
 
 # Warn the user that the current image, although valid for

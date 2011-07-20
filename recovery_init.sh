@@ -332,12 +332,10 @@ recovery_install() {
   unmount_usb
 
   message recovery_complete
-  if [ $(cat /sys/devices/virtual/tty/tty0/active) != tty1 ]; then
-    dlog "Recovery is complete!  The system will remain up to allow"
-    dlog "you to examine VT screen contents.  You must manually"
-    dlog "power off when you're done."
-    sleep 1d
-  fi
+  local usb_base=$(basename "${REAL_USB_DEV%[0-9]*}")
+  while [ -d "/sys/block/$usb_base" ]; do
+    sleep 1
+  done
 
   reboot -f
   exit 0
