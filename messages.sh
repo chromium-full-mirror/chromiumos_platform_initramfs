@@ -26,6 +26,9 @@ INSTRUCTION_BOX=$(( 0 * MESSAGE_BOX_HEIGHT ))
 PROGRESS_BOX=$(( 1 * MESSAGE_BOX_HEIGHT ))
 DEVMODE_BOX=$(( 2 * MESSAGE_BOX_HEIGHT ))
 
+PROGRESS_BAR_LEFT=$(( (MESSAGE_BOX_WIDTH - PROGRESS_BAR_WIDTH) / 2 ))
+PROGRESS_BAR_TOP=$(( PROGRESS_BOX + 160 ))
+
 SCREENS=/etc/screens
 LANGDIR=
 
@@ -127,34 +130,45 @@ dev_notice() {
   showbox $DEVMODE_BOX $SCREENS/$LANGDIR/$1.png
 }
 
-# Enforce a delay on the user, for his own good, or for security's
-# sake.  A vertical bar on the right hand side of the "progress"
-# box counts down the time to prevent the user from being both in
-# the dark *and* impatient.
+# Handle display of a simple progress bar in the 'progress' box.
+# stdin is a sequence of numbers indicating percent of progress.
+# As each value is read, the progress bar is updated to reflect
+# the percentage.
+progress_bar() {
+  local image_left=$(( PROGRESS_BAR_LEFT - PROGRESS_BAR_INSET ))
+  local image_top=$(( PROGRESS_BAR_TOP - PROGRESS_BAR_INSET ))
+  ply-image --location $image_left,$image_top $SCREENS/progress_box.png
+
+  local leftmost=$(( PROGRESS_BAR_LEFT ))
+  local top=$(( PROGRESS_BAR_TOP ))
+  local percent=""
+  while read percent; do
+    local rightmost=$(( PROGRESS_BAR_LEFT + PROGRESS_BAR_PERCENT * percent ))
+    while [ $leftmost -lt $rightmost ]; do
+      ply-image --location $leftmost,$top $SCREENS/progress_increment.png
+      leftmost=$(( leftmost + PROGRESS_BAR_PERCENT ))
+    done
+  done
+}
+
+# Enforce a delay on the user for security's sake.  A progress bar
+# shows the time so that the impatient will not also be in the dark.
 #
 # Arg 1:  the wait time in seconds.
-# Arg 2:  the name of a message to display in the "progress" box
-#   that explains the timeout.
 make_user_wait() {
-  local seconds=${1:-300}
-  local left_edge=$(( 7 * MESSAGE_BOX_WIDTH / 8 ))
-  local top_line=$(( PROGRESS_BOX +
-                     (MESSAGE_BOX_HEIGHT - TIME_BAR_HEIGHT) / 2 ))
-  local last_line=$(( top_line + TIME_BAR_HEIGHT ))
+  local seconds=$1
 
-  progress $2
-  ply-image --location $left_edge,$top_line $SCREENS/time_bar.png
-
-  local ms_per_line=$(( (2 * 1000 * seconds / TIME_BAR_HEIGHT + 1) / 2 ))
-  local delay_sec=$(( ms_per_line / 1000 ))
-  local delay_ms=$(( ms_per_line % 1000 ))
+  # 100 updates because progress_bar wants percentages.
+  local num_updates=100
+  local ms_per_update=$(( (2 * 1000 * seconds / num_updates + 1) / 2 ))
+  local delay_sec=$(( ms_per_update / 1000 ))
+  local delay_ms=$(( ms_per_update % 1000 ))
   local delay=$(printf "%d.%03d" $delay_sec $delay_ms)
 
-  while [ $top_line -lt $last_line ] ; do
+  for i in $(seq 1 $num_updates); do
     sleep $delay
-    ply-image --location $left_edge,$top_line $SCREENS/time_line.png
-    top_line=$(( top_line + 1 ))
-  done
+    echo $i
+  done | progress_bar "$2"
 }
 
 # Generic message to report an error.
@@ -180,7 +194,7 @@ message_startup() {
   ply-image $SCREENS/background.png
   select_locale
   instructions cancel
-  progress scanning
+  progress validating
 
   # N.B. is_nonchrome implies is_developer_mode, so we must test
   # is_nonchrome first.
@@ -198,26 +212,25 @@ message_developer_image() {
   dev_notice unverified
 }
 
-# Tell the user that we're validating the recovery media.
-message_validating() {
-  progress validating
-}
-
 # Tell the user that he must endure the 5 minute wait for a
 # developer key change.
 message_key_change() {
+  progress wait
   dev_notice key_change
-  make_user_wait 300 wait
+  make_user_wait 300
 }
 
-# Announce that recovery is about to start.  This is the user's
-# last chance to cancel, so allow a short grace period.  When
-# the grace period is up, start the moving box animation that will
-# persist until recovery is complete.
+# Announce that recovery is about to start.  This happens after the
+# progress bar is full, and is the user's last chance to cancel.
+# The power button has to be held a full 8 seconds to power off, so
+# we allow a short grace period in case the user started pressing the
+# power button late in the cycle.
+#
+# When the grace period is up, start the moving box animation that
+# will persist until recovery is complete.
 message_recovery_start() {
-  sleep 1
-  make_user_wait 10 countdown
-  sleep 1
+  # The user gets a two seconds grace period to cancel
+  sleep 2
   instructions recovering
   show_moving_box >$LOG_DIR/moving.log 2>&1 &
   MOVING_BOX_PID=$!

@@ -1,1 +1,1 @@
-Checking recovery device integrity.
+Checking the integrity of your recovery media.
