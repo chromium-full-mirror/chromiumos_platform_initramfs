@@ -30,11 +30,36 @@ validate_recovery_root() {
   [ "$USB_DEV" = "/dev/dm-0" ] || return 0
   is_unofficial_root && return 0
 
-  message validating
+  local usb_base=$(basename "$USB_DEV")
+  local size=$(( 512 * $(cat /sys/block/$usb_base/size) ))
+
   # Ensure the verified rootfs is fully intact or fail with no USB_DEV.
   # REAL_USB_DEV is left intact.
-  # Correctness wins over speed for this.
-  if ! dd if="$USB_DEV" of=/dev/null bs=$((16 * 1024 * 1024)); then
+  #
+  # Correctness wins over speed for this.  Correctness also wins
+  # over readability.  :-(
+  #
+  # High level summary:  The 'pv -n' command copies bytes from stdin
+  # to stdout, and periodically prints *to stderr* the amount read
+  # as a percentage of the size in the '-s' option.  The pipeline
+  # redirects the stderr from 'pv' into stdin of 'progress_bar'.
+  # This usage is covered in the pv(1) man page, which rightly warns
+  # that "it may cause the programmer to overheat."
+  (
+    # The 'set -x' output goes to stderr, which would become input
+    # to 'progress_bar', below.  Turn it off in a subshell so as not
+    # to affect the main process.
+    set +x
+    (
+      (
+        # This 'dd' is the actual validation.  We must capture the
+        # exit code in order to figure out whether it passed or not.
+        dd if="$USB_DEV" bs=$((16 * 1024 * 1024)) 2>/dev/null
+        echo $? >/tmp/verification_status
+      ) | pv -n -s $size >/dev/null
+    ) 2>&1 | progress_bar
+  )
+  if [ "$(cat /tmp/verification_status)" != "0" ]; then
     dlog "Included root filesystem could not be verified."
     umount "$USB_MNT"
     dmsetup remove "$DM_NAME"  # Free up the real root for use.
