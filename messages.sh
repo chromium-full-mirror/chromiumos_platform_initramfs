@@ -160,6 +160,12 @@ message_on_error() {
 #
 # This message also appears when booting factory images.
 message_startup() {
+  # This printf disables screen blanking and powerdown.  Images
+  # displayed by ply-image would otherwise be erased if the system
+  # were left unattended for long enough.  These escape sequences
+  # are documented in the console_codes(4) man page.
+  printf "\033[9;0]\033[14;0]" >"$TTY_PATH"1
+
   # This 'echo' prevents the text cursor image from showing up after
   # ply-image has pushed the screen image.
   echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
@@ -216,6 +222,7 @@ message_recovery_complete() {
   kill $MOVING_BOX_PID
   wait $MOVING_BOX_PID
   instructions complete
+  progress empty
 }
 
 # Warn the user that the current image, although valid for
