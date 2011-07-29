@@ -153,7 +153,7 @@ setup_dm_root() {
   DM_NAME=$(echo "$DMARG" | cut -f1 -d' ')
   # We override the reboot-to-recovery error behavior so that we can fail
   # gracefully on invalid rootfs.
-  DM_TABLE="$(echo "$DMARG" | cut -f2 -d,) eio"
+  DM_TABLE="$(echo "$DMARG" | cut -f2 -d,) error_behavior=eio"
 
   # Don't attempt to call dmsetup if the root device isn't one that was
   # discovered as the creation process will hang.
