@@ -146,14 +146,31 @@ find_developer_root() {
   return 0
 }
 
+is_old_style_verity_argv() {
+  # TODO(ellyjones): remove by 2011-08-31. Part of crosbug.com/15772.
+  # "0 1740800 verity %U+1 %U+1 1740800 0 sha1 $hash"
+  local depth=$(echo "$1" | cut -f7 -d' ')
+  if [ $depth -eq "0" ]; then
+    return 0
+  fi
+  return 1
+}
+
 setup_dm_root() {
+  local eio
   dlog -n "Extracting the device mapper configuration..."
   # export_args can't handle dm="..." at present.
   DMARG=$(cat /proc/cmdline | sed -e 's/.*dm="\([^"\]*\)".*/\1/g')
   DM_NAME=$(echo "$DMARG" | cut -f1 -d' ')
   # We override the reboot-to-recovery error behavior so that we can fail
   # gracefully on invalid rootfs.
-  DM_TABLE="$(echo "$DMARG" | cut -f2 -d,) eio"
+  DM_TABLE="$(echo "$DMARG" | cut -f2 -d,)"
+  if is_old_style_verity_argv "$DM_TABLE"; then
+    eio=eio
+  else
+    eio='error_behavior=eio'
+  fi
+  DM_TABLE="$DM_TABLE $eio"
 
   # Don't attempt to call dmsetup if the root device isn't one that was
   # discovered as the creation process will hang.
