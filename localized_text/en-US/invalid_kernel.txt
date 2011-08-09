@@ -1,6 +1,6 @@
 The image on the recovery media is corrupted or out-of-date.
 New recovery media can be created by following instructions at:
 
-http://google.com/chromeos/recovery
+https://www.google.com/chromeos/recovery
 
-Please try recovery again with a newly created recovery device.
+Please try recovery again with newly created recovery media.
