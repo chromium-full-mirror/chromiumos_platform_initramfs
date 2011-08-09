@@ -150,7 +150,7 @@ is_old_style_verity_argv() {
   # TODO(ellyjones): remove by 2011-08-31. Part of crosbug.com/15772.
   # "0 1740800 verity %U+1 %U+1 1740800 0 sha1 $hash"
   local depth=$(echo "$1" | cut -f7 -d' ')
-  if [ $depth -eq "0" ]; then
+  if [ "$depth" = "0" ]; then
     return 0
   fi
   return 1
