@@ -271,7 +271,7 @@ save_log_file() {
 
 stop_log_file() {
   # Drop logging
-  exec &> "$TTY_PATH"3
+  exec >"$TTY_PATH"3 2>&1
   [ -n "$TAIL_PID" ] && kill $TAIL_PID
 }
 
@@ -299,7 +299,7 @@ lock_tpm() {
   if [ -z "$TPM_B_LOCKED" ]; then
     # Depending on the system, the tpm may need to be started.
     # Don't fail if it doesn't work though.
-    tpmc startup &> /dev/null
+    tpmc startup >/dev/null 2>&1
     tpmc ctest
     if ! tpmc block; then
       if is_nonchrome; then
@@ -340,7 +340,7 @@ export_args() {
 }
 
 main() {
-  exec &> "$LOG_FILE"
+  exec >"$LOG_FILE" 2>&1
 
   # Set up basic mounts, console.
   initial_mounts
