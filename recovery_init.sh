@@ -262,14 +262,15 @@ cleanup_install_mounts() {
 }
 
 call_image_recovery_script() {
-  dlog "Installing software; this will take some time."
-  dlog "See the debug log on VT3 for the full output."
-
   # Until images are built with the installer keyblock in KERN-B by
   # default, we keep copying over the installer vblock from the
   # stateful partition.
   # TODO(wad) http://crosbug/8378
   setup_install_mounts || return 1
+
+  dlog "Installing software; this will take some time."
+  dlog "See the debug log on VT3 for the full output."
+
   export IS_RECOVERY_INSTALL=1
   chroot "$USB_MNT" \
     /usr/sbin/chromeos-install --run_as_root --yes \
@@ -339,6 +340,26 @@ recover_system() {
   return 0
 }
 
+# Return the path to the node under /sys/block associated with
+# the USB stick.  The existence of that path is used to test whether
+# the user has removed the stick and we can reboot.
+#
+# For certain non-interactive test cases, the stateful partition on
+# the USB stick may be flagged to request that we bypass the
+# interactive removal of the USB stick.  If we detect that
+# condition, we signal it by returning an empty string instead
+# of a path.
+get_usb_node_dir() {
+  local usb_node_dir=/sys/block/$(strip_partition "${REAL_USB_DEV##*/}")
+  if mount -n -o sync,rw -t ext2 "${REAL_USB_DEV%[0-9]*}1" /tmp; then
+    if [ -f /tmp/non_interactive ]; then
+      usb_node_dir=""
+    fi
+    umount /tmp
+  fi
+  echo "$usb_node_dir"
+}
+
 recovery_install() {
   NEWROOT_MNT="$USB_MNT"
 
@@ -367,13 +388,33 @@ recovery_install() {
   save_log_file "$DST_DEV_BASE"1
   save_log_file
 
-  unmount_usb
+  # This assignment depends on the stateful partition on the USB
+  # stick, so we must do it before unmount_usb and the
+  # "recovery_complete" message, because the user could remove the
+  # USB stick from that moment forward.
+  local usb_node_dir=$(get_usb_node_dir)
 
+  unmount_usb
   message recovery_complete
-  local usb_base=$(basename "${REAL_USB_DEV%[0-9]*}")
-  while [ -d "/sys/block/$usb_base" ]; do
-    sleep 1
-  done
+
+  if [ -n "$usb_node_dir" ]; then
+    # Default (interactive) case; wait till the user removes the USB
+    # stick.
+    while [ -d "$usb_node_dir" ]; do
+      sleep 1
+    done
+  elif [ $(cat /sys/devices/virtual/tty/tty0/active) != tty1 ]; then
+    # Special (non-interactive) test case, and the user is watching
+    # VT2 or VT3.  Stay up a long time to allow for debugging.
+    dlog "Recovery is complete!  The system will remain up to allow"
+    dlog "you to examine VT screen contents.  You must manually"
+    dlog "power off when you're done."
+    sleep 1d
+  else
+    # Special (non-interactive) test case; reboot after a nominal
+    # pause to allow a human to observe the screen.
+    sleep 10
+  fi
 
   reboot -f
   exit 0
