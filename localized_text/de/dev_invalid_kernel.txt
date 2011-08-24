@@ -1,0 +1,4 @@
+WARNUNG: Sie verwenden ein veraltetes oder beschädigtes Chrome OS-
+         Wiederherstellungsabbild.
+
+Das System kann nicht im verifizierten Modus gestartet werden.

@@ -1,0 +1,4 @@
+Die Systemwiederherstellung ist abgeschlossen.
+
+Entfernen Sie das Wiederherstellungsmedium. Ihr Chromebook wird
+anschließend automatisch neu gestartet.

@@ -1,0 +1,4 @@
+System recovery is complete!
+
+Please remove the recovery media and your Chromebook will
+restart automatically.

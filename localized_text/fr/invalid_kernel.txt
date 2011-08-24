@@ -1,0 +1,6 @@
+L'image présente sur le support de récupération est corrompue ou obsolète.
+Vous pouvez créer un nouveau support de récupération en suivant les indications disponibles sur :
+
+https://www.google.com/chromeos/recovery
+
+Veuillez relancer la procédure de récupération avec le nouveau support.

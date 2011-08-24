@@ -1,0 +1,4 @@
+AVVISO. Stai utilizzando un'immagine di ripristino del sistema Chrome OS ufficiale obsoleta o danneggiata
+         .
+
+Il sistema non si avvierà in modalità verificata.

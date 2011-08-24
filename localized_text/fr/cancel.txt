@@ -1,0 +1,7 @@
+Veuillez vous assurer que votre Chromebook est branché sur une source d'alimentation.
+
+Si vous souhaitez annuler la procédure de récupération, appuyez
+de manière prolongée sur le bouton d'alimentation jusqu'à l'arrêt
+du Chromebook, soit environ huit secondes.  Vous pouvez effectuer
+cette opération en toute sécurité à tout moment
+avant la fin de la validation.

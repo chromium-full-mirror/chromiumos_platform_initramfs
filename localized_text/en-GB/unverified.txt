@@ -1,0 +1,3 @@
+WARNING:  The image on your recovery media is an unverified
+developer image.  Recovery will continue, because your Chromebook's
+developer mode switch is in the ENABLED position.

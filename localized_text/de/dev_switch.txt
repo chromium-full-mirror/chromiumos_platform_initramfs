@@ -1,0 +1,4 @@
+Auf Ihrem Chromebook ist der Entwicklermodus aktiviert.
+
+Sofern dies keine Absicht ist, brechen Sie die Wiederherstellung ab und
+deaktivieren Sie diesen Modus.

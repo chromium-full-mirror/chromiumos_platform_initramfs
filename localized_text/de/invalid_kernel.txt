@@ -1,0 +1,6 @@
+Das Abbild des Wiederherstellungsmediums ist beschädigt oder veraltet.
+Anweisungen zur Erstellung eines neuen Wiederherstellungsmediums finden Sie unter
+
+https://www.google.com/chromeos/recovery.
+
+Wiederholen Sie den Vorgang mit einem neu erstellten Wiederherstellungsmedium.
