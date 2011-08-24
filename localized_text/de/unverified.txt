@@ -1,0 +1,3 @@
+WARNUNG: Das Abbild auf Ihrem Wiederherstellungsmedium ist ein nicht
+verifiziertes Entwicklerabbild. Die Wiederherstellung wird fortgesetzt,
+weil der Entwicklermodus auf Ihrem Chromebook aktiviert ist.

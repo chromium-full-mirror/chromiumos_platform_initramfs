@@ -1,0 +1,7 @@
+Ihr Computer ist offenbar kein Chromebook.
+
+Durch diesen Vorgang werden alle anderen eventuell installierten
+Betriebssysteme sowie alle Daten gelöscht und es besteht keine
+Möglichkeit, die Daten zu sichern.  Sollten sich auf diesem Computer
+Daten befinden, die Sie noch benötigen, brechen Sie
+die Wiederherstellung ab.

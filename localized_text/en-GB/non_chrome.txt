@@ -1,0 +1,6 @@
+Your computer does not appear to be a Chromebook!
+
+This operation will delete any other operating system that you may have
+installed and all the data; there will be no opportunity for backup.
+If you have any data on this computer that you want to preserve, you
+should cancel recovery.

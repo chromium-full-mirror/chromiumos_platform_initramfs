@@ -1,0 +1,4 @@
+WAARSCHUWING: u gebruikt een verouderde of beschadigde officiële
+         Chrome OS-herstelimage.
+
+Het systeem wordt niet opgestart in de geverifieerde modus.

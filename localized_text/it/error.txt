@@ -1,0 +1,3 @@
+Si è verificato un errore irreversibile durante il ripristino.
+
+Riprova o prova a utilizzare un'immagine di ripristino più recente.

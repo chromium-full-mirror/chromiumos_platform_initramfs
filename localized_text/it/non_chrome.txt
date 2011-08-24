@@ -1,0 +1,6 @@
+Il computer in uso non risulta essere un Chromebook.
+
+Questa operazione eliminerà ogni eventuale altro sistema operativo
+installato e tutti i dati; non sarà possibile effettuare il backup.
+Se sul computer hai memorizzato dei dati che vorresti conservare,
+devi annullare il ripristino.

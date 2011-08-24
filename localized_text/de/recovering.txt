@@ -1,0 +1,3 @@
+Die Systemwiederherstellung wurde gestartet.
+
+Unterbrechen Sie nicht die Stromzufuhr und schalten Sie den Computer nicht aus.

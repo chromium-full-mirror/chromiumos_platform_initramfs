@@ -1,0 +1,6 @@
+L'immagine sul supporto di ripristino è danneggiata oppure obsoleta.
+È possibile creare un nuovo supporto di ripristino seguendo le istruzioni all'indirizzo:
+
+https://www.google.com/chromeos/recovery
+
+Tenta di nuovo il ripristino con il supporto di ripristino appena creato.

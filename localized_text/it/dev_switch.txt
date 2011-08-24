@@ -1,0 +1,4 @@
+Lo switch della modalità sviluppatore del Chromebook è nella posizione ATTIVA.
+
+Se non è intenzionale, dovresti annullare il ripristino e spostare
+lo switch in posizione NON ATTIVA.
