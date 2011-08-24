@@ -1,0 +1,6 @@
+De image op het herstelmedium is beschadigd of verouderd.
+U kunt nieuwe herstelmedia maken via de instructies op:
+
+https://www.google.com/chromeos/recovery
+
+Probeer het herstel opnieuw met net gemaakte herstelmedia.

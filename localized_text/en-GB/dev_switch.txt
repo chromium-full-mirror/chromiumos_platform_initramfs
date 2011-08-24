@@ -1,0 +1,4 @@
+Your Chromebook's developer mode switch is in the ENABLED position.
+
+If this is unintentional, you should cancel recovery and toggle the
+switch to DISABLED.

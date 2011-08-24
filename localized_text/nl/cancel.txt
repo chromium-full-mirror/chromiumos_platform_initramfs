@@ -1,0 +1,6 @@
+Zorg ervoor dat uw Chromebook is aangesloten op een voedingsbron.
+
+Als u het herstel wilt annuleren, drukt u op de aan/uit-knop en
+houdt u deze knop ingedrukt totdat uw Chromebook wordt uitgeschakeld.
+Dit duurt ongeveer acht seconden.  U kunt dit op elk moment veilig
+doen totdat de verificatie is voltooid.

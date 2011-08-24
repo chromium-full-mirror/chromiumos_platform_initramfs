@@ -1,0 +1,4 @@
+AVERTISSEMENT : Votre image de récupération officielle de Chrome OS est
+         obsolète ou corrompue.
+
+Le système ne va pas procéder au démarrage vérifié.
