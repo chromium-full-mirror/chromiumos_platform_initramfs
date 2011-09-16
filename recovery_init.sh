@@ -273,7 +273,7 @@ call_image_recovery_script() {
 
   export IS_RECOVERY_INSTALL=1
   chroot "$USB_MNT" \
-    /usr/sbin/chromeos-install --run_as_root --yes \
+    /usr/sbin/chromeos-install --yes \
                                --payload_image="$1" \
                                --use_payload_kern_b
   local install_status=$?
