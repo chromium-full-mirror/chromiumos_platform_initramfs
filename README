@@ -56,3 +56,4 @@ The workflow for creating the images goes something like this:
  5) "git commit" your changes to "localized_text" and "screens",
     upload them, get them reviewed, and submit.  (This could, of
     course, entail repeating steps 1-4).
+
