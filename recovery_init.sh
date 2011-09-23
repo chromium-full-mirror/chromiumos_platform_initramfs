@@ -271,12 +271,18 @@ call_image_recovery_script() {
   dlog "Installing software; this will take some time."
   dlog "See the debug log on VT3 for the full output."
 
-  export IS_RECOVERY_INSTALL=1
-  chroot "$USB_MNT" \
-    /usr/sbin/chromeos-install --yes \
-                               --payload_image="$1" \
-                               --use_payload_kern_b
-  local install_status=$?
+  local install_status
+  if [ -x "$USB_MNT/usr/sbin/chromeos-recovery" ]; then
+    chroot "$USB_MNT" /usr/sbin/chromeos-recovery "$1"
+    install_status=$?
+  else
+    export IS_RECOVERY_INSTALL=1
+    chroot "$USB_MNT" \
+      /usr/sbin/chromeos-install --yes --run_as_root \
+                                 --payload_image="$1" \
+                                 --use_payload_kern_b
+    install_status=$?
+  fi
   if [  $install_status -ne 0 ]; then
     dlog "Installation of software failed."
   fi
