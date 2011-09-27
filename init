@@ -285,14 +285,14 @@ set_unofficial_root() {
 }
 
 is_nonchrome() {
-  crossystem mainfw_type?nonchrome
+  crossystem "mainfw_type?nonchrome"
 }
 
 is_developer_mode() {
   # Legacy/unsupported systems are mapped to developer mode.
   is_nonchrome && return 0
   # Otherwise the exit status will be accurate.
-  crossystem devsw_boot?1
+  crossystem "devsw_boot?1"
 }
 
 lock_tpm() {
