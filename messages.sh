@@ -57,7 +57,8 @@ clear_console() {
 }
 
 select_locale() {
-  LANGDIR=$(vpd -g initial_locale)
+  # VPD is only available on Chrome systems.
+  is_nonchrome || LANGDIR=$(vpd -g initial_locale)
   if [ -z "$LANGDIR" -o ! -d "$SCREENS/$LANGDIR" ]; then
     dlog "initial locale '$LANGDIR' not found"
     LANGDIR=en-US
