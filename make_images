@@ -9,40 +9,20 @@
 # Refer to the README for details about what this script does, and how
 # to use it.
 
-# Image parameters
+# ALERT!
+#
+# The color constants below are duplicated in make_text_images.  If
+# you change them here, you must also change them there, and vice
+# versa.
+
 BG='#607c91'
 COLOR='#9ccaec'
-FONT="Helvetica-Narrow"
-POINTSIZE=19
+# End Alert
 
 . $(dirname $0)/constants.sh
 
 report() {
   echo "wrote $1"
-}
-
-# Process all localized text message files, and create their
-# corresponding PNG image files.
-#
-# Arg 1:  Source directory where the localized text files are
-#   stored.
-# Arg 2:  Destination directory where the images will be stored.
-make_text_images() {
-  local srcdir=$1
-  local dstdir=$2
-  local textfile=
-  local screenfile=
-  for textfile in $srcdir/*/*.txt ; do
-    local message=${textfile%.txt}
-    message=${message#$srcdir/}
-    screenfile=$dstdir/${message}.png
-    mkdir -p $(dirname $screenfile)
-    convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} \
-      -background "$BG" -fill "$COLOR" \
-      -gravity Center -font "$FONT" -pointsize "$POINTSIZE" \
-      "label:@$textfile" "$screenfile"
-    report $screenfile
-  done
 }
 
 # Each locale includes a message image named 'empty' containing
@@ -173,7 +153,7 @@ mkdir -p $DSTDIR
 convert -size 1366x800 "xc:$BG" $DSTDIR/background.png
 report $DSTDIR/background.png
 
-make_text_images $SRCDIR $DSTDIR
+$(dirname $0)/make_text_images $SRCDIR $DSTDIR
 
 LANGLIST=( $(cd $SRCDIR ; ls | sed "s=^=$DSTDIR/=") )
 make_empty_messages "${LANGLIST[@]}"
