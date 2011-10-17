@@ -1,0 +1,131 @@
+#!/usr/bin/python
+# Copyright (c) 2011 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+#
+# usage:
+#   ./make_text_images <localized_text> <screens>
+#
+# This script is only invoked from make_images, and is not intended
+# to be used as a standalone command.
+#
+# Refer to the README for details about how to use make_images.
+
+import os
+import re
+import sys
+
+import cairo
+import pango
+import pangocairo
+
+def calc_cairo_rgb(rgb24):
+  """Return the components of an RGB24 integer as a 3-tuple of floats."""
+  red = (rgb24 >> 16) / 255.0
+  green = ((rgb24 >> 8) & 0xff) / 255.0
+  blue = (rgb24 & 0xff) / 255.0
+  return red, green, blue
+
+# ALERT!
+#
+# The color constants below are duplicated in make_images.  If you
+# change them here, you must also change them there, and vice versa.
+
+BG_RED, BG_GREEN, BG_BLUE = calc_cairo_rgb(0x607c91)
+FG_RED, FG_GREEN, FG_BLUE = calc_cairo_rgb(0x9ccaec)
+# End Alert
+
+
+# ALERT!
+#
+# The message box dimensions below are duplicated in constants.sh.
+# If you change them here, you must also change them there, and vice
+# versa.
+
+MESSAGE_BOX_WIDTH = 800
+MESSAGE_BOX_HEIGHT = 200
+# End Alert
+
+
+# Input text files are broken into paragraphs like so:
+#   This is a sample line of text in the first paragraph.
+#   This is a second line in the same paragraph.
+#
+#   This is the second paragraph.
+#
+# Pango believes newlines are used to separate paragraphs, so
+# we convert all single newline characters to a space.  We leave
+# the double newlines for a paragraph separator so that Pango will
+# render the paragraphs with additional separation.
+#
+# We also convert multiple blanks into a single blank.
+
+NEWLINE_PATTERN = re.compile("([^\n])\n([^\n])")
+NEWLINE_REPLACEMENT = r"\1 \2"
+MULTIBLANK_PATTERN = re.compile("   *")
+
+
+# Text is rendered in a box inside the image inset left, right,
+# top, and bottom by the number of pixels below.
+
+INSET_WIDTH = 75
+INSET_HEIGHT = 50
+
+FONT_DESCRIPTION = "Sans 12"
+FONT = pango.FontDescription(FONT_DESCRIPTION)
+
+def create_message_image(msgtext, imagename):
+  """Create a message image file containing the given text."""
+  # Create a background canvas.
+  surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
+                               MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT)
+  context = cairo.Context(surface)
+  context.rectangle(0, 0, MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT)
+  context.set_source_rgb(BG_RED, BG_GREEN, BG_BLUE)
+  context.fill()
+
+  # Create the inset box for containing the text.
+  context.translate(INSET_WIDTH, INSET_HEIGHT)
+  pangocontext = pangocairo.CairoContext(context)
+  pangocontext.set_antialias(cairo.ANTIALIAS_SUBPIXEL)
+  layout = pangocontext.create_layout()
+  layout.set_width((MESSAGE_BOX_WIDTH - 2 * INSET_WIDTH) * pango.SCALE)
+
+  # Actually write the text to the canvas.
+  layout.set_font_description(FONT)
+  layout.set_text(msgtext)
+  context.set_source_rgb(FG_RED, FG_GREEN, FG_BLUE)
+  pangocontext.update_layout(layout)
+  pangocontext.show_layout(layout)
+
+  # Write the image to its output file.
+  with open(imagename, "w") as image_output:
+    surface.write_to_png(image_output)
+
+
+def main(argv):
+  """Create message images for all locales."""
+  textdir = argv[1]
+  screendir = argv[2]
+  for localedir, _, textfiles in os.walk(textdir):
+    if not textfiles:
+      continue
+    locale = os.path.basename(localedir)
+    os.mkdir(os.path.join(screendir, locale))
+
+    # Go through <textdir>/<locale>/*.txt, converting text to
+    # paragraphs conforming to Pango's expectations.  Render
+    # the text onto <screendir>/<locale>/*.png.
+    for filename in textfiles:
+      tag = os.path.splitext(filename)[0]
+      with open(os.path.join(localedir, filename), "r") as msgfile:
+        msgtext = msgfile.read()
+      msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
+      msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
+      pngfilename = os.path.join(screendir, locale, tag + ".png")
+      create_message_image(msgtext, pngfilename)
+      print "wrote " + pngfilename
+
+
+if __name__ == "__main__":
+  main(sys.argv)

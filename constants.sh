@@ -8,8 +8,15 @@
 # (make_images) and busybox (messages.sh).  Stick to simple constants
 # and expressions, and you won't go wrong.
 
+# ALERT!
+#
+# The message box dimensions are duplicated in make_text_images.
+# If you change them here, you must also change them there, and vice
+# versa.
+
 MESSAGE_BOX_WIDTH=800
 MESSAGE_BOX_HEIGHT=200
+# End Alert
 
 PROGRESS_BAR_WIDTH=400
 PROGRESS_BAR_HEIGHT=20
