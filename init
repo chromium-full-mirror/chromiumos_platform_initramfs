@@ -209,17 +209,7 @@ mount_usb() {
 }
 
 check_if_factory_install() {
-  if is_unofficial_root; then
-    dlog "Skipping factory install check."
-    return 1
-  fi
-
-  if [ -e "${USB_MNT}/root/.factory_installer" ]; then
-    clear_console
-    log "Detected factory install."
-    return 0
-  fi
-  return 1
+  [ -n "$KERN_ARG_CROS_FACTORY_INSTALL" ]
 }
 
 get_stateful_dev() {
@@ -349,11 +339,13 @@ main() {
   (tail -f "$LOG_FILE" > "$TTY_PATH"3) &
   TAIL_PID=$!
 
-  message startup
-
   # Export the kernel command line as a parsed blob prepending KERN_ARG_ to each
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
+
+  if ! check_if_factory_install; then
+    message startup
+  fi
 
   if ! find_official_root ; then
     if find_developer_root; then
