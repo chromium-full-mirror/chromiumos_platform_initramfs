@@ -232,7 +232,7 @@ verify_install_kernel() {
 
 touch_developer_mode_file() {
   is_developer_mode || return 1
-  mount -n -o rw -t ext3 "$DST_DEV_BASE"1 "$STATEFUL_MNT" || return 1
+  mount -n -o rw -t ext4 "$DST_DEV_BASE"1 "$STATEFUL_MNT" || return 1
   touch "$STATEFUL_MNT/.developer_mode" || return 1
   umount "$STATEFUL_MNT" || return 1
   return 0
