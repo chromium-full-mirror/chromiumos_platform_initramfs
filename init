@@ -332,6 +332,11 @@ export_args() {
 main() {
   exec >"$LOG_FILE" 2>&1
 
+  # Sanity check the date (crosbug.com/13200)
+  if [ $(date +%Y) -lt 1970 ]; then
+    date 010200001970.00
+  fi
+
   # Set up basic mounts, console.
   initial_mounts
 
