@@ -86,8 +86,8 @@ wait_for_root() {
   for try in $(seq 20); do
     dlogf " ."
     for dev in $USB_DEVS; do
-      if [ -b "/dev/${dev}" ]; then
-        USB_DEV="/dev/${dev}"
+      if [ -b "/dev/$dev" ]; then
+        USB_DEV="/dev/$dev"
         dlog "Found $USB_DEV"
         return 0
       fi
@@ -99,7 +99,13 @@ wait_for_root() {
 }
 
 check_if_dm_root() {
-  [ "$KERN_ARG_ROOT" = "/dev/dm-0" ]
+  if check_if_factory_install; then
+    [ "$KERN_ARG_ROOT" = "/dev/dm-0" ] || return 1
+  else
+    dump_kernel_config "$KERN_B_DEV" | grep -q 'root=/dev/dm-0' || return 1
+  fi
+
+  return 0
 }
 
 # Attempt to find the root defined in the signed recovery
@@ -120,6 +126,9 @@ find_official_root() {
   # (arm). Get stateful partition by replacing partition number with "1".
   LOG_DEV="${USB_DEV%[0-9]*}"1  # Default to stateful.
 
+  # Must verify that install kernel hash matches current kernel hash argument.
+  verify_install_kernel_hash || return 1
+
   # Now see if the root should be integrity checked.
   if check_if_dm_root; then
     setup_dm_root || return 1
@@ -139,6 +148,8 @@ find_developer_root() {
   dmsetup remove "$DM_NAME"
 
   # If we found a valid rootfs earlier, then we're done.
+  # TODO(wad) Attempt to setup an unofficial dm root prior to
+  # mounting the USB directly
   USB_DEV="$REAL_USB_DEV"
   [ -z "$USB_DEV" ] && return 1
   set_unofficial_root || return 1
@@ -156,11 +167,62 @@ is_old_style_verity_argv() {
   return 1
 }
 
+get_kern_b_device() {
+  # TODO(wad) By changing boot priority, we could end up checking the recovery
+  # image or the recovery image could not be in slot A. In that case, it should
+  # fail in normal mode.
+  KERN_B_DEV=${REAL_USB_DEV%[0-9]*}4
+  if [ ! -b "$KERN_B_DEV" ]; then
+    return 1
+  fi
+  return 0
+}
+
+get_real_kern_b_hash() {
+  REAL_KERN_B_HASH=$(dd if="$KERN_B_DEV" | sha1sum | cut -f1 -d' ')
+  [ -n "$REAL_KERN_B_HASH" ]
+}
+
+verify_install_kernel_hash() {
+  # Factory installs don't have kern-b, nothing to do.
+  check_if_factory_install && return 0
+
+  get_kern_b_device || return 1
+  get_real_kern_b_hash || return 1
+
+  # TODO(wad) Check signatures from stateful on kern-b using the root of trust
+  # instead of using a baked in cmdline.
+  if [ "$REAL_KERN_B_HASH" != "$KERN_ARG_KERN_B_HASH" ]; then
+    if ! is_developer_mode; then
+      dlog "The recovery kernel cannot be verified."
+      return 1
+    fi
+  fi
+
+  return 0
+}
+
 setup_dm_root() {
   local eio
   dlog -n "Extracting the device mapper configuration..."
   # export_args can't handle dm="..." at present.
-  DMARG=$(cat /proc/cmdline | sed -e 's/.*dm="\([^"\]*\)".*/\1/g')
+  # If this is a factory install, retrieve dm args from current running kernel;
+  # otherwise, extract from install image.
+  if check_if_factory_install; then
+    DMARG=$(cat /proc/cmdline | sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d')
+  else
+    # We have to substitute the GUID of the recovery kernel for the %U variable.
+    DMARG=$(dump_kernel_config "$KERN_B_DEV" |
+            sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d' |
+            sed -e "s/%U/$KERN_ARG_KERN_GUID/g")
+  fi
+
+  # Make sure we have valid dm args string.
+  if [ -z "$DMARG" ]; then
+    dlog "Failed to extract dm arguments from kernel command line"
+    return 1
+  fi
+
   DM_NAME=$(echo "$DMARG" | cut -f1 -d' ')
   # We override the reboot-to-recovery error behavior so that we can fail
   # gracefully on invalid rootfs.
@@ -176,9 +238,9 @@ setup_dm_root() {
   # discovered as the creation process will hang.
   # TODO(wad) extract the UUID and use it with cgpt find instead.
   if [ -n "$KERN_ARG_KERN_GUID" ]; then
-    [ "${DM_TABLE%$KERN_ARG_KERN_GUID*}" = "${DM_TABLE}" ] && return 1
-  elif [ -n "${USB_DEV}" ]; then
-    [ "${DM_TABLE%$USB_DEV*}" = "${DM_TABLE}" ] && return 1
+    [ "${DM_TABLE%$KERN_ARG_KERN_GUID*}" = "$DM_TABLE" ] && return 1
+  elif [ -n "$USB_DEV" ]; then
+    [ "${DM_TABLE%$USB_DEV*}" = "$DM_TABLE" ] && return 1
   fi
 
   if ! dmsetup create -r "$DM_NAME" --major 254 --minor 0 --table "$DM_TABLE"

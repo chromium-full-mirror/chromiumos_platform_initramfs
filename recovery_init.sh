@@ -130,22 +130,6 @@ check_key_or_wait() {
   return 0
 }
 
-get_kern_b_device() {
-  # TODO(wad) By changing boot priority, could we end up
-  # checking the recovery image or the recovery image could not
-  # be in slot A. In that case, it should fail in normal mode.
-  KERN_B_DEV=${REAL_USB_DEV%[0-9]*}4
-  if [ ! -b "${KERN_B_DEV}" ]; then
-    return 1
-  fi
-  return 0
-}
-
-get_real_kern_b_hash() {
-  REAL_KERN_B_HASH=$(dd if="${KERN_B_DEV}" | sha1sum | cut -f1 -d' ')
-  [ -n "$REAL_KERN_B_HASH" ]
-}
-
 # Get the kernel version by directly reading the TPM NVRAM spaces.
 # Needed when crossystem doesn't work (e.g. Mario systems).
 get_kernelver_from_tpmc () {
@@ -196,16 +180,12 @@ verify_kernel_version() {
 }
 
 verify_install_kernel() {
-  get_kern_b_device || return 1
-  get_real_kern_b_hash || return 1
-
   # TODO(wad) check signatures from stateful on kern b using the
   #           root of trust instead of using a baked in cmdline.
   if [ "$REAL_KERN_B_HASH" != "$KERN_ARG_KERN_B_HASH" ]; then
-    if ! is_developer_mode; then
-      dlog "The recovery kernel cannot be verified."
-      return 1
-    fi
+    # Assertion: we have to be in developer mode; this was verified in the
+    # course of the general init process.
+    is_developer_mode || return 1
 
     message developer_image
 
