@@ -1,0 +1,4 @@
+AVERTISMENT: utilizaţi o imagine de recuperare a sistemului de operare Chrome
+         neactualizată sau deteriorată.
+
+Sistemul nu va porni în modul verificat.

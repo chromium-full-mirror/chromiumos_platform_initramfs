@@ -1,0 +1,4 @@
+Przywracanie systemu zostało ukończone.
+
+Odłącz nośnik przywracania. Chromebook automatycznie
+uruchomi się ponownie.

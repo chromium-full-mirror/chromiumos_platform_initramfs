@@ -1,0 +1,3 @@
+Chromebook'unuzun geliştirici modu düğmesi ENABLED (EKTİN) konumunda.
+
+Bunu isteyerek yapmadıysanız, kurtarmayı iptal edip düğmeyi DISABLED (DEVRE DIŞI) konumuna getirmelisiniz.

@@ -1,0 +1,6 @@
+Hình ảnh trên phương tiện khôi phục bị hỏng hoặc lỗi thời.
+Có thể tạo phương tiện khôi phục mới bằng cách thực hiện theo hướng dẫn tại:
+
+https://www.google.com/chromeos/recovery
+
+Vui lòng thử khôi phục lại bằng phương tiện khôi phục mới được tạo.

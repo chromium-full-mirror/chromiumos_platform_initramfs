@@ -1,0 +1,4 @@
+Recuperarea sistemului este finalizată!
+
+Eliminaţi suportul de recuperare, iar laptopul Chromebook
+va reporni automat.

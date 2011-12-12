@@ -1,0 +1,4 @@
+OSTRZEŻENIE: używasz nieaktualnego lub uszkodzonego oficjalnego obrazu przywracania
+         systemu operacyjnego Chrome.
+
+System nie uruchomi się w trybie zweryfikowanym.

@@ -1,0 +1,3 @@
+Kontakten til udviklertilstand på din Chromebook er sat til AKTIVERET.
+
+Hvis dette er en fejl, skal du annullere genoprettelsen og sætte kontakten til DEAKTIVERET.

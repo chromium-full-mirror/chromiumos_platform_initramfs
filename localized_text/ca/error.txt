@@ -1,0 +1,3 @@
+S'ha produït un error no recuperable durant la recuperació.
+
+Torneu-ho a provar o proveu una altra imatge de recuperació.

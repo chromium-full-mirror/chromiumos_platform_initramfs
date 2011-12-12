@@ -1,0 +1,4 @@
+Přepínač režimu pro vývojáře na Chromebooku je v poloze ZAPNUTO.
+
+Není-li to úmyslné, zrušte obnovení a uveďte přepínač
+do polohy VYPNUTO.

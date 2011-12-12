@@ -1,0 +1,4 @@
+ADVERTIMENT: Esteu utilitzant un SO Chrome oficial no actualitzat o corromput
+         imatge de recuperació.
+
+El sistema no arrencarà en mode verificat.

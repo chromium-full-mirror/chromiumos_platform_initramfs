@@ -1,0 +1,4 @@
+Seu computador não é um Chromebook.
+
+Esta operação excluirá qualquer outro sistema operacional instalado e dados gravados. Não haverá oportunidade para fazer o backup destas informações.
+Se tiver dados neste computador que queira manter, cancele a recuperação.

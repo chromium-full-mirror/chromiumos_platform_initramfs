@@ -1,0 +1,1 @@
+ADVARSEL:  Billedet på dit genoprettelsesmedie er ikke et bekræftet udviklerbillede.  Genoprettelsen fortsætter, fordi kontakten til udviklertilstand på din Chromebook er sat til AKTIVERET.

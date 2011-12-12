@@ -1,0 +1,6 @@
+A imagem na mídia de recuperação está desatualizada ou danificada.
+Você pode criar uma nova mídia seguindo as instruções em: 
+
+https://www.google.com/chromeos/recovery
+
+Tente novamente utilizando uma mídia de recuperação criada recentemente.

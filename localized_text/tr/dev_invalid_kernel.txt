@@ -1,0 +1,4 @@
+UYARI: Kullandığınız resmi Chrome OS kurtarma görüntüsü
+         eski veya bozuk.
+
+Sistem, doğrulanmış modda açılmayacak.

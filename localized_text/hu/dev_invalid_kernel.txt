@@ -1,0 +1,4 @@
+FIGYELMEZTETÉS: Elavult vagy sérült hivatalos Chrome OS
+         helyreállító képfájlt használ.
+
+A rendszer nem fog betölteni ellenőrzött módban.

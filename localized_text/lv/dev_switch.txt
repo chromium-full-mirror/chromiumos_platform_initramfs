@@ -1,0 +1,3 @@
+Chromebook datora izstrādātāja režīma slēdzis ir IESLĒGTĀ pozīcijā.
+
+Ja slēdzis ir pārslēgts netīšām, atceliet sistēmas atkopšanu un pārslēdziet to IZSLĒGTĀ pozīcijā.

@@ -1,0 +1,1 @@
+FIGYELMEZTETÉS: A helyreállítási adathordozón található képfájl egy nem ellenőrzött fejlesztői képfájl.  A helyreállítás folytatódik, mert Chromebookjának fejlesztői mód kapcsolója az ENGEDÉLYEZ pozícióban van.

@@ -1,0 +1,4 @@
+CẢNH BÁO: Bạn đang sử dụng Chrome OS chính thức bị lỗi thời hoặc bị hỏng
+         hình ảnh khôi phục.
+
+Hệ thống sẽ không khởi động trong chế độ được xác minh.

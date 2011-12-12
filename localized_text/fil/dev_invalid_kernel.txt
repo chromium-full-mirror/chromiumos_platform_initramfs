@@ -1,0 +1,4 @@
+BABALA: Gumagamit ka ng luma o sirang opisyal na Chrome OS
+         larawan ng pagbawi.
+
+Hindi magbu-boot ang system sa na-verify na mode.

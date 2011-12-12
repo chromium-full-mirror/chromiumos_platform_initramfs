@@ -1,0 +1,4 @@
+HOIATUS. Kasutate aegunud või rikutud ametlikku Chrome OS-i
+         taastekujutist.
+
+Süsteemi buutimine ei toimu kinnitatud režiimil.

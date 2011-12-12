@@ -1,0 +1,3 @@
+Pri obnovovaní sa vyskytla kritická chyba!
+
+Skúste to znova alebo vyskúšajte novší obraz na obnovenie.

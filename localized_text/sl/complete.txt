@@ -1,0 +1,3 @@
+Obnovitev sistema je končana.
+
+Odstranite obnovitveni nosilec podatkov in Chromebook se bo samodejno znova zagnal.

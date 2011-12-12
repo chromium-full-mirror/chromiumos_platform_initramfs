@@ -1,0 +1,3 @@
+Sistēmas atkopšana ir pabeigta.
+
+Izņemiet atkopšanas datu nesēju, un Chromebook dators automātiski restartēsies.

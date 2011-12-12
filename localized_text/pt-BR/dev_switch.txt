@@ -1,0 +1,3 @@
+O seletor do modo programador de seu Chromebook está na posição ATIVADO.
+
+Caso isto seja intencional, você deve cancelar a recuperação e alternar o seletor para a opção DESATIVADO. 

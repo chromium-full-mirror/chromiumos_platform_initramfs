@@ -1,0 +1,3 @@
+PERINGATAN: Citra pada media pemulihan Anda adalah citra pengembang
+yang belum terverifikasi.  Pemulihan akan dilanjutkan, karena pengalih mode pengembang
+Chromebook Anda berada dalam posisi AKTIF.

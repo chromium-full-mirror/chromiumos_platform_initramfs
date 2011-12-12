@@ -1,0 +1,4 @@
+Sørg for, at din Chromebook er tilsluttet strøm.
+
+Hvis du vil annullere genoprettelsen, skal du trykke på afbryderknappen og holde den nede, indtil Chromebooken slukker. Det tager ca. 8 sekunder.
+Du kan gøre dette til enhver tid, indtil bekræftelsen er fuldført.

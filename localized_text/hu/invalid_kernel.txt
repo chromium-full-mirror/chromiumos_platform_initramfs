@@ -1,0 +1,6 @@
+A helyreállító adathordozón található képfájl sérült vagy elavult.
+Új helyreállítási adathordozót a következő instrukciók követésével hozhat létre:
+
+https://www.google.com/chromeos/recovery
+
+Kérjük, próbálja meg az újbóli helyreállítást az új helyreállítási adathordozóval.

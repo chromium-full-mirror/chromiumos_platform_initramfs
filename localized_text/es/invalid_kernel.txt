@@ -1,0 +1,6 @@
+La imagen del medio de recuperación está obsoleta o dañada.
+Para crear un nuevo medio de recuperación, consulta las instrucciones disponibles en la siguiente página:
+
+https://www.google.com/chromeos/recovery
+
+Vuelve a intentar realizar la recuperación del sistema con el nuevo medio de recuperación que hayas creado.

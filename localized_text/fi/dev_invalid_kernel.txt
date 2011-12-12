@@ -1,0 +1,4 @@
+VAROITUS: käytät vanhentunutta tai viallista Chrome-käyttöjärjestelmän
+         palautusnäköistiedostoa.
+
+Järjestelmä ei käynnisty uudelleen vahvistetussa tilassa.

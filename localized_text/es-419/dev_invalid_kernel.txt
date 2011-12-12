@@ -1,0 +1,3 @@
+ADVERTENCIA: Estás utilizando una imagen de recuperación del Sistema operativo oficial de Chrome         desactualizada o dañada.
+
+El sistema no se iniciará en modo verificado.

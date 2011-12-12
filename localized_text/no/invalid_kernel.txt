@@ -1,0 +1,6 @@
+Bildet på gjenopprettingsmediet er skadet eller gammelt.
+Du kan opprette et nytt gjenopprettingsmedium ved å følge instruksjonene på:
+
+https://www.google.com/chromeos/recovery
+
+Prøv på nytt med et nylig opprettet gjenopprettingsmedium.

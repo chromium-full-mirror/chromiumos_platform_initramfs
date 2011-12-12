@@ -1,0 +1,4 @@
+Paistab, et teie arvuti ei ole Chromebook.
+
+See toiming kustutab iga muu operatsioonisüsteemi, mis võib installitud olla, ja kõik andmed; varundamise võimalust ei ole.
+Kui selles arvutis on mingeid andmeid, mida soovite säilitada, siis peate taaste tühistama.

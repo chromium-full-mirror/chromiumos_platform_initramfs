@@ -1,0 +1,4 @@
+Bilgisayarınız Chromebook olarak görünmüyor!
+
+Bu işlem, bilgisayarınızda yüklü diğer tüm işletim sistemlerini ve verileri silecektir. Yedekleme için herhangi bir fırsatı sunulmayacaktır.
+Bu bilgisayarda, korumak istediğiniz veriler varsa, kurtarma işlemini iptal etmelisiniz.

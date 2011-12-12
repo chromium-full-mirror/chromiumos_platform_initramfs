@@ -1,0 +1,3 @@
+Obnovenie systému bolo spustené.
+
+Neodpájajte počítač od zdroja napájania ani ho nevypínajte.

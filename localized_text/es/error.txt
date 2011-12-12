@@ -1,0 +1,3 @@
+Se ha producido un error irrecuperable durante la recuperación del sistema.
+
+Vuelve a intentarlo o prueba a utilizar una imagen de recuperación más reciente.

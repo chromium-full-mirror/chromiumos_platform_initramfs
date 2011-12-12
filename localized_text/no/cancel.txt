@@ -1,0 +1,5 @@
+Kontroller at Chromebooken din er koblet til en strømkilde.
+
+Hvis du vil avbryte gjenopprettingen, trykker du på strømknappen og holder 
+den inne inntil Chromebooken slår seg av. Dette tar vanligvis åtte sekunder.
+Du kan gjøre dette når som helst inntil bekreftelsen er fullført.

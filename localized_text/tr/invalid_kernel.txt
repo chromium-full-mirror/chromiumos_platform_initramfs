@@ -1,0 +1,6 @@
+Kurtarma medyasındaki görüntü dosyası bozuk veya eski.
+Şu adresteki talimatları uygulayarak yeni kurtarma medyası oluşturabilirsiniz:
+
+https://www.google.com/chromeos/recovery
+
+Lütfen, kurtarma işlemini yeni oluşturulmuş bir kurtarma medyası ile tekrar deneyin.

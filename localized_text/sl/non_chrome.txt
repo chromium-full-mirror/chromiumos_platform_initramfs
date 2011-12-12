@@ -1,0 +1,4 @@
+Vaš računalnik ni Chromebook.
+
+Ta postopek izbriše vse druge operacijske sisteme, ki so morda nameščeni, in vse podatke. Varnostne kopije ne boste mogli narediti.
+Če imate v tem računalniku podatke, ki jih želite ohraniti, prekličite obnovitev.

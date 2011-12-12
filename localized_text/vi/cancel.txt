@@ -1,0 +1,4 @@
+Đảm bảo rằng Chromebook của bạn được cắm vào nguồn điện.
+
+Nếu bạn muốn hủy khôi phục, nhấn và giữ nút nguồn cho đến khi Chromebook tắt; quá trình này mất khoảng 8 giây.
+Bạn có thể làm việc này an toàn bất kỳ lúc nào cho đến khi xác minh hoàn tất.

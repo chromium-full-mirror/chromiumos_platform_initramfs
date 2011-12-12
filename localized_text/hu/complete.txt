@@ -1,0 +1,3 @@
+A rendszer helyreállítása befejeződött!
+
+Kérjük, távolítsa el a helyreállítási adathordozót, és Chromebookja automatikusan újraindul.

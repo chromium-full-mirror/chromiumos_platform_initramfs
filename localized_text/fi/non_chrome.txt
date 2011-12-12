@@ -1,0 +1,4 @@
+Tietokoneesi ei näytä olevan Chromebook.
+
+Tämä prosessi poistaa muut käyttöjärjestelmät ja kaikki tietokoneella olevat tiedot. Varmuuskopiota ei voi luoda.
+Jos tietokoneella on tietoja, jotka haluat säilyttää, peruuta järjestelmän palautus.

@@ -1,0 +1,6 @@
+Bilden i dina återställningsmedia är skadad eller för gammal.
+Du kan skapa nya återställningsmedia med hjälp av anvisningarna på:
+
+https://www.google.com/chromeos/recovery
+
+Prova att göra en återställning med nya återställningsmedia.

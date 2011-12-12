@@ -1,0 +1,4 @@
+ADVERTENCIA: estás utilizando una imagen de recuperación oficial de Chrome OS
+         que está obsoleta o dañada.
+
+El sistema no se iniciará en modo verificado.

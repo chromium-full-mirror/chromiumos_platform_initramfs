@@ -1,0 +1,4 @@
+Comutatorul modului pentru dezvoltatori al laptopului Chromebook se află în poziţia ACTIVAT.
+
+Dacă nu aţi intenţionat acest lucru, trebuie să anulaţi recuperarea şi
+să treceţi comutatorul în poziţia DEZACTIVAT.

@@ -1,0 +1,4 @@
+Atrodo, kad jūsų kompiuteris – ne „Chromebook“!
+
+Jei atliksite šią operaciją, bet kuri kita įdiegta operacinė sistema ir visi duomenys bus ištrinti. Padaryti atsarginės kopijos taip pat nebus galima.
+Jei kompiuteryje turite duomenų, kuriuos norite išsaugoti, turėtumėte atšaukti atkūrimą.
