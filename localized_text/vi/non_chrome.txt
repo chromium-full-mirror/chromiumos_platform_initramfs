@@ -1,0 +1,4 @@
+Máy tính của bạn không phải là Chromebook!
+
+Thao tác này sẽ xóa bất kỳ hệ điều hành nào khác bạn có thể đã cài đặt và tất cả dữ liệu; không có cơ hội để sao lưu.
+Nếu bạn muốn giữ lại bất kỳ dữ liệu nào trên máy tính này, bạn nên hủy khôi phục.

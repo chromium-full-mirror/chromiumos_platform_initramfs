@@ -1,0 +1,3 @@
+ADVARSEL: Bildet på gjenopprettingsmediet er et ikke-bekreftet
+utviklerbilde. Gjenopprettingen fortsetter fordi utviklermodus i Chromebooken din 
+er satt til AKTIVERT.

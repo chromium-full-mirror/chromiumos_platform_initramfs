@@ -1,0 +1,3 @@
+Nag-umpisa na ang pagbawi ng system.
+
+Mangyaring huwag idiskonekta mula sa isang pinagmulan ng power o power down.

@@ -1,0 +1,3 @@
+Utvecklarläget på Chromebook är inställt på AKTIVERAT.
+
+Om det inte är avsiktligt bör du avbryta återställningen och byta till INAKTIVERAT.

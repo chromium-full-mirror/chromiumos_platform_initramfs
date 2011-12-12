@@ -1,0 +1,4 @@
+El selector de mode desenvolupador de Chromebook està en posició ACTIVADA.
+
+Si no és intencionat, hauríeu de cancel·lar la recuperació i canviar el
+selector a DESACTIVAT.

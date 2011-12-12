@@ -1,0 +1,2 @@
+AVERTISMENT: imaginea de pe suportul dvs. de recuperare este o
+imagine de la un dezvoltator neverificat.  Recuperarea va continua, deoarece comutatorul modului pentru dezvoltatori al laptopului Chromebook este în poziţia ACTIVAT.

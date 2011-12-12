@@ -1,0 +1,3 @@
+Chromebookjának fejlesztői mód kapcsolója az ENGEDÉLYEZ pozícióban van.
+
+Amennyiben ez nem szándékos, szakítsa meg a helyreállítást, és állítsa a kapcsolót LETILTÁS pozícióba.

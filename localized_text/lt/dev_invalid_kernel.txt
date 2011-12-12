@@ -1,0 +1,4 @@
+ĮSPĖJIMAS: naudojate pasenusį arba sugadintą oficialų „Chrome“ OS
+         atkūrimo vaizdą.
+
+Sistema nebus paleista patikrintu režimu.

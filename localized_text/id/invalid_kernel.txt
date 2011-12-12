@@ -1,0 +1,6 @@
+Citra di media pemulihan rusak atau usang.
+Media pemulihan baru dapat dibuat dengan mengikuti petunjuk di:
+
+https://www.google.com/chromeos/recovery
+
+Coba lagi pemulihan dengan media pemulihan yang baru dibuat.

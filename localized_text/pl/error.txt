@@ -1,0 +1,3 @@
+Podczas przywracania systemu wystąpił błąd krytyczny.
+
+Spróbuj ponownie lub użyj nowszego obrazu przywracania.

@@ -1,0 +1,3 @@
+Prepínač režimu vývojára na Chromebooku je v polohe POVOLENÉ.
+
+Pokiaľ to nie je úmyselné, zrušte obnovenie a prepnite prepínač do polohy VYPNUTÉ.

@@ -1,0 +1,3 @@
+ADVERTIMENT: La imatge al vostre mitjà de recuperació és una
+imatge de desenvolupador no verificada.  La recuperació continuarà, perquè el selector del mode de
+desenvolupador de Chromebook està en posició ACTIVADA.

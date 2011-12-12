@@ -1,0 +1,6 @@
+Taastekandja kujutis on rikutud või aegunud.
+Uue taastekandja saate luua nende juhiste järgi:
+
+https://www.google.com/chromeos/recovery
+
+Proovige taastamist uuesti värskelt loodud taastekandjaga.

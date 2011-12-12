@@ -1,0 +1,1 @@
+VAROITUS: palautustietovälineelläsi oleva näköistiedosto on vahvistamaton kehittäjän näköistiedosto.  Palauttamista jatketaan, koska Chromebookisi kehittäjätila on käytössä.

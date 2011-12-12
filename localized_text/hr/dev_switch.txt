@@ -1,0 +1,3 @@
+Prekidač načina rada razvojnog programera na Chromebooku postavljen je na OMOGUĆENO.
+
+Ako niste namjerno tako odredili, otkažite oporavak i prekidač postavite na ONEMOGUĆENO.

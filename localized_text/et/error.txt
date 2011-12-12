@@ -1,0 +1,3 @@
+Taastamise käigus esines taastamatu viga.
+
+Proovige uuesti või proovige uuemat taastekujutist.

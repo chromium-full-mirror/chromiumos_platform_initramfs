@@ -1,0 +1,3 @@
+Đã xảy ra lỗi không thể khôi phục trong quá trình khôi phục!
+
+Vui lòng thử lại hoặc thử hình ảnh khôi phục mới hơn.

@@ -1,0 +1,5 @@
+Pastikan bahwa Chromebook Anda disambungkan ke sumber daya.
+
+Jika Anda ingin membatalkan pemulihan, tekan tombol daya dan tahan
+hingga Chromebook mati; butuh waktu kira-kira 8 detik.
+Ini aman untuk dilakukan kapan saja hingga verifikasi selesai.

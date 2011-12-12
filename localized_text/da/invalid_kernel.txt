@@ -1,0 +1,6 @@
+Billedet på genoprettelsesmediet er beskadiget eller forældet.
+Du kan oprette et nyt genoprettelsesmedie ved at følge vejledning nedenfor:
+
+https://www.google.com/chromeos/recovery
+
+Prøv at genoprette igen ved hjælp af det nyoprettede genoprettelsesmedie.

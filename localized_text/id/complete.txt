@@ -1,0 +1,4 @@
+Pemulihan sistem selesai!
+
+Hapus media pemulihan dan Chromebook
+akan dimulai ulang secara otomatis.

@@ -1,0 +1,4 @@
+AVISO: está a utilizar uma imagem de recuperação do SO Chrome oficial 
+         desatualizada ou danificada.
+
+O sistema não arrancará em modo confirmado.

@@ -1,0 +1,3 @@
+Se completó la recuperación del sistema.
+
+Elimina el medio de recuperación y tu Chromebook se reiniciará automáticamente.

@@ -1,0 +1,3 @@
+Systemåterställningen är klar!
+
+Ta bort återställningsmedia så startas Chromebook om automatiskt.

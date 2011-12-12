@@ -1,0 +1,4 @@
+UPOZORNENIE: Na obnovenie používate zastaraný alebo poškodený oficiálny operačný systém Chrome
+         systému Chrome OS.
+
+Systém nie je možné spustiť v overenom režime.

@@ -1,0 +1,3 @@
+Der opstod en uoprettelig fejl under genoprettelsen!
+
+Prøv igen, eller prøv at bruge et nyere genoprettelsesbillede.

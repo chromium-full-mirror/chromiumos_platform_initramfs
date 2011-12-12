@@ -1,0 +1,1 @@
+Ověřování integrity média pro obnovení.

@@ -1,0 +1,3 @@
+Kurtarma sırasında, kurtarılamayan bir hata oluştu!
+
+Lütfen tekrar deneyin veya daha yeni bir kurtarma görüntüsü kullanın.

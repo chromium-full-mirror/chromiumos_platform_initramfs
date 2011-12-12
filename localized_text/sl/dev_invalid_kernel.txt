@@ -1,0 +1,4 @@
+OPOZORILO: Uporabljate zastarel ali poškodovan uradni
+         posnetek za obnovitev sistema Chrome OS.
+
+Sistem se ne bo zagnal v preverjenem načinu.

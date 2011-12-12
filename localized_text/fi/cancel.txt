@@ -1,0 +1,4 @@
+Varmista, että Chromebook on kytketty virtalähteeseen.
+
+Jos haluat peruuttaa järjestelmän palauttamisen, pidä virtapainiketta painettuna, kunnes Chromebook sammuu. Tämä kestää noin kahdeksan sekuntia.
+Voit peruuttaa palauttamisen milloin tahansa ennen vahvistuksen valmistumista.

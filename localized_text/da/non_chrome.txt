@@ -1,0 +1,4 @@
+Det lader til, at du ikke bruger en Chromebook!
+
+Denne handling sletter ethvert andet operativsystem, som du har installeret, samt dine data. Du har ikke mulighed for at tage en sikkerhedskopi.
+Hvis du har data på computeren, som du vil gemme, skal du annullere genoprettelsen.

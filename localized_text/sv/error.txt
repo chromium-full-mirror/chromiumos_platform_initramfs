@@ -1,0 +1,3 @@
+Ett fel som inte går att återställa inträffade under återställningen!
+
+Försök igen eller prova en nyare återställningsbild.

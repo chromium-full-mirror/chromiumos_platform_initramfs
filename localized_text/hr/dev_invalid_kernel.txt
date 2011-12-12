@@ -1,0 +1,4 @@
+UPOZORENJE: Koristite zastarjelu ili oštećenu službenu
+         sliku za oporavak OS-a Chrome.
+
+Sustav se neće pokrenuti u provjerenom načinu.

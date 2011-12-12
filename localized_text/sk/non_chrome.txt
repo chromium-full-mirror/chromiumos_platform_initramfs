@@ -1,0 +1,4 @@
+Zdá sa, že váš počítač nie je Chromebook!
+
+Táto operácia odstráni všetky ostatné operačné systémy, ktoré ste mohli nainštalovať, a všetky dáta. Nebude možné vytvoriť zálohu.
+Ak máte v tomto počítači dáta, ktoré chcete zachovať, mali by ste obnovenie zrušiť.

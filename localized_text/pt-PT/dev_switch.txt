@@ -1,0 +1,3 @@
+O interruptor do modo de programador do Chromebook está na posição ATIVADO.
+
+Se não é intencional, deve cancelar a recuperação e mudar o interruptor para DESATIVADO.

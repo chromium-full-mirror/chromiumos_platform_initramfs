@@ -1,0 +1,3 @@
+Süsteemitaaste on lõpetatud.
+
+Eemaldage taastekandja ja teie Chromebook taaskäivitub automaatselt.

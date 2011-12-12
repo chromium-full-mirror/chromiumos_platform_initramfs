@@ -1,0 +1,4 @@
+ADVARSEL: Du bruker en gammel eller skadet offisiell versjon av et Chrome OS-
+         gjenopprettingsbilde.
+
+Systemet starter ikke på nytt i bekreftet modus.

@@ -1,0 +1,3 @@
+Oporavak sustava je dovršen!
+
+Uklonite medij za oporavak i Chromebook će se automatski ponovo pokrenuti.

@@ -1,0 +1,1 @@
+UPOZORENJE:  Slika na vašem mediju za oporavak neprovjerena je slika razvojnog programera.  Oporavak će se nastaviti jer je prekidač načina rada razvojnog programera na Chromebooku postavljen na OMOGUĆENO.

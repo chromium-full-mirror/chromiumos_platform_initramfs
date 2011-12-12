@@ -1,0 +1,4 @@
+Preverite, ali je Chromebook priključen na vir napajanja.
+
+Če želite obnovitev preklicati, pritisnite gumb za napajanje in ga pridržite, dokler se Chromebook ne izklopi. To traja približno 8 sekund.
+To lahko naredite kadar koli, dokler se preverjanje ne konča.

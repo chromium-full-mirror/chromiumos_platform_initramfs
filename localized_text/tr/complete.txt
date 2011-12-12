@@ -1,0 +1,3 @@
+Sistem kurtarma işlemi tamamlandı!
+
+Lütfen kurtarma medyasını çıkarın, Chromebook'unuz otomatik olarak başlayacaktır.

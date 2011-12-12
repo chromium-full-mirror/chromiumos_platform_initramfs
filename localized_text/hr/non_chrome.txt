@@ -1,0 +1,4 @@
+Izgleda da vaše računalo nije Chromebook!
+
+Ovaj će postupak izbrisati sve druge operativne sustave koji su možda instalirani i sve podatke; ne postoji mogućnost stvaranja sigurnosne kopije.
+Ako želite sačuvati neke podatke s ovog računala, otkažite oporavak.

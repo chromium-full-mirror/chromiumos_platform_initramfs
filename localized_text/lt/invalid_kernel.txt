@@ -1,0 +1,6 @@
+Atkūrimo laikmenoje esantis vaizdas yra sugadintas arba pasenęs.
+Jei norite sukurti naują atkūrimo laikmeną, vadovaukitės šioje svetainėje pateiktomis instrukcijomis:
+
+https://www.google.com/chromeos/recovery
+
+Bandykite atkurti sistemą dar kartą naudodami naujai sukurtą atkūrimo laikmeną.

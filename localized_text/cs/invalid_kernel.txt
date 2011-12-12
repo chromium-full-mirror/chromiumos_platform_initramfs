@@ -1,0 +1,6 @@
+Obraz na médiu pro obnovení je poškozený nebo zastaralý.
+Nové médium pro obnovení lze vytvořit podle pokynů na adrese:
+
+https://www.google.com/chromeos/recovery
+
+Zkuste prosím systém obnovit znovu pomocí nově vytvořeného média pro obnovení.

@@ -1,0 +1,4 @@
+UPOZORNĚNÍ: Používáte zastaralý nebo poškozený oficiální obraz pro obnovení
+         systému Chrome OS.
+
+Systém nelze spustit v ověřeném režimu.

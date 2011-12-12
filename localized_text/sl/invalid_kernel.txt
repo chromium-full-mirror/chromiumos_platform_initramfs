@@ -1,0 +1,6 @@
+Posnetek na obnovitvenem nosilcu je poškodovan ali zastarel.
+Nov obnovitveni nosilec lahko pripravite s postopkom, opisanim tukaj:
+
+https://www.google.com/chromeos/recovery
+
+Še enkrat poskusite obnovitev z novim obnovitvenim nosilcem.

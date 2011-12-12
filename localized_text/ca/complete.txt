@@ -1,0 +1,3 @@
+La recuperació del sistema s'ha completat.
+
+Elimineu els mitjans de recuperació i Chromebook es reiniciarà automàticament.

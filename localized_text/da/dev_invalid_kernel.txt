@@ -1,0 +1,4 @@
+ADVARSEL: Du bruger en forældet eller beskadiget officiel version af Chrome OS
+         genoprettelsesbillede.
+
+Systemet genstarter ikke i bekræftet tilstand.

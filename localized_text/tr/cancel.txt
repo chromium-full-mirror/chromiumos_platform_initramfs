@@ -1,0 +1,4 @@
+Lütfen Chromebook'unuzun bir güç kaynağına takılı olduğundan emin olun.
+
+Kurtarma işlemini iptal etmek isterseniz, güç düğmesine basın ve Chromebook kapanana kadar (yaklaşık 8 saniye) düğmeyi basılı tutun.
+Doğrulama tamamlanana kadar bu işlemi her defasında güvenli bir şekilde yapabilirsiniz.
