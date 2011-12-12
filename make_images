@@ -10,6 +10,7 @@
 # to use it.
 
 . $(dirname $0)/constants.sh
+SUPPORTED_LOCALES="de en-GB en-US fr it ko nl"
 
 report() {
   echo "wrote $1"
@@ -19,16 +20,20 @@ report() {
 # no text.  We hard-code the generation of that image here, and
 # replicate the image for each locale.
 #
-# Arguments:  list of destination locale directories where the
-#   'empty.png' file is to be stored.
+# Arg 1: destination directory where the locale directories should
+#   exist.
+# Args 2 and on:  locales for which the 'empty.png' file is to be
+#   created.
 make_empty_messages() {
   local empty=empty.png
+  local dstdir=$1
+  shift
   convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:#$BG" $empty
   for localedir in "$@"; do
-    if [ ! -d $localedir ]; then
+    if [ ! -d $dstdir/$localedir ]; then
       continue
     fi
-    ln -f $empty $localedir
+    ln -f $empty $dstdir/$localedir
     report $localedir/$empty
   done
   rm $empty
@@ -133,10 +138,11 @@ DSTDIR=screens
 rm -rf $DSTDIR
 mkdir -p $DSTDIR
 
-$(dirname $0)/make_text_images $SRCDIR $DSTDIR
+for locale in $SUPPORTED_LOCALES ; do
+  $(dirname $0)/make_text_images $SRCDIR $DSTDIR $locale
+done
 
-LANGLIST=( $(cd $SRCDIR ; ls | sed "s=^=$DSTDIR/=") )
-make_empty_messages "${LANGLIST[@]}"
+make_empty_messages $DSTDIR $SUPPORTED_LOCALES
 
 make_progress_bar $DSTDIR
 

@@ -104,25 +104,25 @@ def create_message_image(msgtext, imagename):
 
 
 def main(argv):
-  """Create message images for all locales."""
+  """Create message images for the locale."""
   textdir = argv[1]
   screendir = argv[2]
-  for localedir, _, textfiles in os.walk(textdir):
-    if not textfiles:
-      continue
-    locale = os.path.basename(localedir)
-    os.mkdir(os.path.join(screendir, locale))
+  locale = argv[3]
+  locale_text = os.path.join(textdir, locale)
+  locale_screen = os.path.join(screendir, locale)
+  os.mkdir(locale_screen)
 
-    # Go through <textdir>/<locale>/*.txt, converting text to
-    # paragraphs conforming to Pango's expectations.  Render
-    # the text onto <screendir>/<locale>/*.png.
-    for filename in textfiles:
+  # Go through <textdir>/<locale>/*.txt, converting text to
+  # paragraphs conforming to Pango's expectations.  Render
+  # the text onto <screendir>/<locale>/*.png.
+  for _, _, filenames in os.walk(locale_text):
+    for filename in filenames:
       tag = os.path.splitext(filename)[0]
-      with open(os.path.join(localedir, filename), "r") as msgfile:
-        msgtext = msgfile.read()
+      with open(os.path.join(locale_text, filename), "r") as msgfile:
+        msgtext = msgfile.read().decode("utf_8_sig")
       msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
       msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
-      pngfilename = os.path.join(screendir, locale, tag + ".png")
+      pngfilename = os.path.join(locale_screen, tag + ".png")
       create_message_image(msgtext, pngfilename)
       print "wrote " + pngfilename
 
