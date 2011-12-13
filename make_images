@@ -9,16 +9,6 @@
 # Refer to the README for details about what this script does, and how
 # to use it.
 
-# ALERT!
-#
-# The color constants below are duplicated in make_text_images.  If
-# you change them here, you must also change them there, and vice
-# versa.
-
-BG='#607c91'
-COLOR='#9ccaec'
-# End Alert
-
 . $(dirname $0)/constants.sh
 
 report() {
@@ -33,7 +23,7 @@ report() {
 #   'empty.png' file is to be stored.
 make_empty_messages() {
   local empty=empty.png
-  convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:$BG" $empty
+  convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:#$BG" $empty
   for localedir in "$@"; do
     if [ ! -d $localedir ]; then
       continue
@@ -69,13 +59,13 @@ make_progress_bar() {
   local border_br=$border_right,$border_bottom
 
   local image_file=$dstdir/progress_box.png
-  convert -size ${box_width}x${box_height} "xc:$BG" \
-    -stroke "$COLOR" -strokewidth $border -fill "$BG" \
+  convert -size ${box_width}x${box_height} "xc:#$BG" \
+    -stroke "#$COLOR" -strokewidth $border -fill "#$BG" \
     -draw "rectangle $border_tl $border_br" \
     $image_file
   report $image_file
 
-  convert -size ${PROGRESS_BAR_PERCENT}x${bar_height} "xc:$COLOR" \
+  convert -size ${PROGRESS_BAR_PERCENT}x${bar_height} "xc:#$COLOR" \
     $dstdir/progress_increment.png
   report $dstdir/progress_increment.png
 }
@@ -128,10 +118,10 @@ make_moving_box_frames() {
     local box_br=$(( box_left + box )),$path_bottom
     zindex=$(printf "%02d" $index)
     local image_file=$dstdir/moving_box_${zindex}.png
-    convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:$BG" \
-      -stroke "$COLOR" -strokewidth $border -fill "$BG" \
+    convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:#$BG" \
+      -stroke "#$COLOR" -strokewidth $border -fill "#$BG" \
       -draw "rectangle $border_tl $border_br" \
-      -stroke "$BG" -strokewidth $border -fill "$COLOR" \
+      -stroke "#$BG" -strokewidth $border -fill "#$COLOR" \
       -draw "rectangle $box_tl $box_br" \
       $image_file
     report $image_file
@@ -142,16 +132,6 @@ SRCDIR=localized_text
 DSTDIR=screens
 rm -rf $DSTDIR
 mkdir -p $DSTDIR
-
-# The size for the background is selected to be large enough to
-# cover the full screen on either Alex or ZGB; we rely on the fact
-# that ply-image will clip the image to fit.
-#
-# TODO(jrbarnette):  If/when we have to support more screen sizes,
-# this solution won't scale.  Some new feature in ply-image is
-# likely to be required.
-convert -size 1366x800 "xc:$BG" $DSTDIR/background.png
-report $DSTDIR/background.png
 
 $(dirname $0)/make_text_images $SRCDIR $DSTDIR
 

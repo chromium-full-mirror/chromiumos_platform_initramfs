@@ -192,7 +192,7 @@ message_startup() {
   # This 'echo' prevents the text cursor image from showing up after
   # ply-image has pushed the screen image.
   echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
-  ply-image $SCREENS/background.png
+  ply-image --clear "0x$BG"
   select_locale
   instructions cancel
   progress validating

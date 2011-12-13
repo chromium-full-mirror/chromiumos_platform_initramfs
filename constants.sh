@@ -10,6 +10,16 @@
 
 # ALERT!
 #
+# The color constants below are duplicated in make_text_images.  If
+# you change them here, you must also change them there, and vice
+# versa.
+
+BG='607c91'
+COLOR='9ccaec'
+# End Alert
+
+# ALERT!
+#
 # The message box dimensions are duplicated in make_text_images.
 # If you change them here, you must also change them there, and vice
 # versa.
