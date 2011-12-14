@@ -20,7 +20,7 @@ COLOR='#9ccaec'
 # End Alert
 
 . $(dirname $0)/constants.sh
-SUPPORTED_LOCALES="de en-GB en-US fr it ko nl"
+SUPPORTED_LOCALES="de en-GB en-US es fr it ko nl"
 
 report() {
   echo "wrote $1"
