@@ -69,7 +69,7 @@ MULTIBLANK_PATTERN = re.compile("   *")
 # top, and bottom by the number of pixels below.
 
 INSET_WIDTH = 75
-INSET_HEIGHT = 50
+INSET_HEIGHT = 25
 
 FONT_DESCRIPTION = "Sans 12"
 FONT = pango.FontDescription(FONT_DESCRIPTION)
