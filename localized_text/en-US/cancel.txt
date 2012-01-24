@@ -1,5 +1,5 @@
-Please make sure your Chromebook is plugged in to a power source.
+Please make sure your system is plugged in to a power source.
 
 If you want to cancel recovery, press the power button and hold it
-down until the Chromebook turns off; this takes about 8 seconds.
+down until the system turns off; this can take up to 8 seconds.
 It is safe to do this at any time until verification is complete.
