@@ -8,27 +8,6 @@
 
 . /lib/constants.sh
 
-# Message screens are presented in one of three boxes:
-# + The 'instructions' box is used for messages telling users
-#   what they can or should do.  It's for messages like "here's how
-#   to cancel", or "don't turn off your computer".
-# + The 'progress' box is used for to inform users how things are
-#   going.  It's for animations and messages that describe what
-#   work is being done, or to show percentage completion of an
-#   operation.
-# + The 'devmode' box is for messages that should only occur in
-#   developer mode, or on non-chrome hardware.
-#
-# The boxes are assigned fixed locations on the screen, top to
-# bottom in the order cited above.  The parameters below assign the
-# Y-coordinate of the top of each box
-INSTRUCTION_BOX=$(( 0 * MESSAGE_BOX_HEIGHT ))
-PROGRESS_BOX=$(( 1 * MESSAGE_BOX_HEIGHT ))
-DEVMODE_BOX=$(( 2 * MESSAGE_BOX_HEIGHT ))
-
-PROGRESS_BAR_LEFT=$(( (MESSAGE_BOX_WIDTH - PROGRESS_BAR_WIDTH) / 2 ))
-PROGRESS_BAR_TOP=$(( PROGRESS_BOX + 160 ))
-
 SCREENS=/etc/screens
 LANGDIR=
 
@@ -67,13 +46,47 @@ select_locale() {
 
 }
 
+# Message screens are presented in one of three boxes:
+# + The 'instructions' box is used for messages telling users
+#   what they can or should do.  It's for messages like "here's how
+#   to cancel", or "don't turn off your computer".
+# + The 'progress' box is used for to inform users how things are
+#   going.  It's for animations and messages that describe what
+#   work is being done, or to show percentage completion of an
+#   operation.
+# + The 'devmode' box is for messages that should only occur in
+#   developer mode, or on non-chrome hardware.
+#
+# The boxes are assigned locations on the screen, top to bottom in
+# the order cited above.  The locations are selected so that the
+# boxes are centered horizontally and vertically.  /sys isn't
+# mounted at startup, so we have to invoke a function to calculate
+# the message box boundaries later.
+set_box_boundaries() {
+  set $(sed 's/,/ /' /sys/class/graphics/fb0/virtual_size)
+  local screen_width=$1
+  local screen_height=$2
+
+  MESSAGE_BOX_LEFT=$(( (screen_width - MESSAGE_BOX_WIDTH) / 2 ))
+
+  local message_boxes_top=$((
+      (screen_height - 3 * MESSAGE_BOX_HEIGHT) / 2 ))
+  INSTRUCTION_BOX_TOP=$(( message_boxes_top + 0 * MESSAGE_BOX_HEIGHT ))
+  PROGRESS_BOX_TOP=$(( message_boxes_top + 1 * MESSAGE_BOX_HEIGHT ))
+  DEVMODE_BOX_TOP=$(( message_boxes_top + 2 * MESSAGE_BOX_HEIGHT ))
+
+  PROGRESS_BAR_LEFT=$(( MESSAGE_BOX_LEFT +
+                        (MESSAGE_BOX_WIDTH - PROGRESS_BAR_WIDTH) / 2 ))
+  PROGRESS_BAR_TOP=$(( PROGRESS_BOX_TOP + 160 ))
+}
+
 # Present a message screen aligned to the left of the display at a
 # specified Y-coordinate.
 #
 # Arg 1:  the Y-coordinate.
 # Args 2..$#:  arguments for ply-image.
 showbox() {
-  local location=0,$1
+  local location=$MESSAGE_BOX_LEFT,$1
   shift
   ply-image --location $location "$@"
 }
@@ -103,7 +116,7 @@ show_moving_box() {
   trap 'TERMINATED=1' TERM
 
   while [ $TERMINATED -eq 0 ] ; do
-    showbox $PROGRESS_BOX $forward $backward
+    showbox $PROGRESS_BOX_TOP $forward $backward
   done
 }
 
@@ -112,7 +125,7 @@ show_moving_box() {
 # Arg 1:  a token identifying the message, which is used to form the
 #   file name based on the current locale.
 instructions() {
-  showbox $INSTRUCTION_BOX $SCREENS/$LANGDIR/$1.png
+  showbox $INSTRUCTION_BOX_TOP $SCREENS/$LANGDIR/$1.png
 }
 
 # Display a message in the "progress" box.
@@ -120,7 +133,7 @@ instructions() {
 # Arg 1:  a token identifying the message, which is used to form the
 #   file name based on the current locale.
 progress() {
-  showbox $PROGRESS_BOX $SCREENS/$LANGDIR/$1.png
+  showbox $PROGRESS_BOX_TOP $SCREENS/$LANGDIR/$1.png
 }
 
 # Display a message in the "devmode" box.
@@ -128,7 +141,7 @@ progress() {
 # Arg 1:  a token identifying the message, which is used to form the
 #   file name based on the current locale.
 dev_notice() {
-  showbox $DEVMODE_BOX $SCREENS/$LANGDIR/$1.png
+  showbox $DEVMODE_BOX_TOP $SCREENS/$LANGDIR/$1.png
 }
 
 # Handle display of a simple progress bar in the 'progress' box.
@@ -193,7 +206,9 @@ message_startup() {
   # ply-image has pushed the screen image.
   echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
   ply-image --clear "0x$BG"
+  set_box_boundaries
   select_locale
+
   instructions cancel
   progress validating
 
