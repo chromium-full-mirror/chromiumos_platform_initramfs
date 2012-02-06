@@ -1,13 +1,13 @@
 #!/usr/bin/python
-# Copyright (c) 2011 The Chromium OS Authors. All rights reserved.
+# Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 #
 # usage:
-#   ./make_text_images <localized_text> <screens>
+#   ./make_text_images <localized_text> <screens> [ <locales> ... ]
 #
-# This script is only invoked from make_images, and is not intended
-# to be used as a standalone command.
+# This script is meant to be invoked from make_images and the
+# ebuild, and may or may not be useful as a standalone command.
 #
 # Refer to the README for details about how to use make_images.
 
@@ -19,6 +19,10 @@ import cairo
 import pango
 import pangocairo
 
+SUPPORTED_LOCALES = [
+    "de", "en-GB", "en-US", "es", "fr", "it", "ko", "nl"
+]
+
 def calc_cairo_rgb(rgb24):
   """Return the components of an RGB24 integer as a 3-tuple of floats."""
   red = (rgb24 >> 16) / 255.0
@@ -28,8 +32,9 @@ def calc_cairo_rgb(rgb24):
 
 # ALERT!
 #
-# The color constants below are duplicated in make_images.  If you
-# change them here, you must also change them there, and vice versa.
+# The color constants below are duplicated in constants.sh as 'BG'
+# and 'COLOR'.  If you change them here, you must also change them
+# there, and vice versa.
 
 BG_RED, BG_GREEN, BG_BLUE = calc_cairo_rgb(0x607c91)
 FG_RED, FG_GREEN, FG_BLUE = calc_cairo_rgb(0x9ccaec)
@@ -74,6 +79,7 @@ INSET_HEIGHT = 25
 FONT_DESCRIPTION = "Sans 12"
 FONT = pango.FontDescription(FONT_DESCRIPTION)
 
+
 def create_message_image(msgtext, imagename):
   """Create a message image file containing the given text."""
   # Create a background canvas.
@@ -104,27 +110,39 @@ def create_message_image(msgtext, imagename):
 
 
 def main(argv):
-  """Create message images for the locale."""
+  """Create message images for given locales."""
   textdir = argv[1]
   screendir = argv[2]
-  locale = argv[3]
-  locale_text = os.path.join(textdir, locale)
-  locale_screen = os.path.join(screendir, locale)
-  os.mkdir(locale_screen)
+  empty_base = "empty.png"
+  empty_file = os.path.join(screendir, empty_base)
+  create_message_image("", empty_file)
 
-  # Go through <textdir>/<locale>/*.txt, converting text to
-  # paragraphs conforming to Pango's expectations.  Render
-  # the text onto <screendir>/<locale>/*.png.
-  for _, _, filenames in os.walk(locale_text):
-    for filename in filenames:
-      tag = os.path.splitext(filename)[0]
-      with open(os.path.join(locale_text, filename), "r") as msgfile:
-        msgtext = msgfile.read().decode("utf_8_sig")
-      msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
-      msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
-      pngfilename = os.path.join(locale_screen, tag + ".png")
-      create_message_image(msgtext, pngfilename)
-      print "wrote " + pngfilename
+  locale_list = argv[3:]
+  if not locale_list:
+    locale_list = SUPPORTED_LOCALES
+
+  for locale in locale_list:
+    print "Locale %s" % locale
+    locale_text = os.path.join(textdir, locale)
+    locale_screen = os.path.join(screendir, locale)
+    os.mkdir(locale_screen)
+    locale_empty = os.path.join(locale_screen, empty_base)
+    os.link(empty_file, locale_empty)
+
+    # Go through <textdir>/<locale>/*.txt, converting text to
+    # paragraphs conforming to Pango's expectations.  Render
+    # the text onto <screendir>/<locale>/*.png.
+    for _, _, filenames in os.walk(locale_text):
+      for filename in filenames:
+        tag = os.path.splitext(filename)[0]
+        with open(os.path.join(locale_text, filename), "r") as msgfile:
+          msgtext = msgfile.read().decode("utf_8_sig")
+        msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
+        msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
+        pngfilename = os.path.join(locale_screen, tag + ".png")
+        create_message_image(msgtext, pngfilename)
+
+  os.unlink(empty_file)
 
 
 if __name__ == "__main__":

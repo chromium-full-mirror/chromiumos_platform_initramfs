@@ -1,42 +1,20 @@
 #!/bin/bash -e
-# Copyright (c) 2011 The Chromium OS Authors. All rights reserved.
+# Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 #
 # usage:
 #   ./make_images
+#   ./make_images --all
+#   ./make_images <locale> ...
 #
 # Refer to the README for details about what this script does, and how
 # to use it.
 
 . $(dirname $0)/constants.sh
-SUPPORTED_LOCALES="de en-GB en-US es fr it ko nl"
 
 report() {
   echo "wrote $1"
-}
-
-# Each locale includes a message image named 'empty' containing
-# no text.  We hard-code the generation of that image here, and
-# replicate the image for each locale.
-#
-# Arg 1: destination directory where the locale directories should
-#   exist.
-# Args 2 and on:  locales for which the 'empty.png' file is to be
-#   created.
-make_empty_messages() {
-  local empty=empty.png
-  local dstdir=$1
-  shift
-  convert -size ${MESSAGE_BOX_WIDTH}x${MESSAGE_BOX_HEIGHT} "xc:#$BG" $empty
-  for localedir in "$@"; do
-    if [ ! -d $dstdir/$localedir ]; then
-      continue
-    fi
-    ln -f $empty $dstdir/$localedir
-    report $localedir/$empty
-  done
-  rm $empty
 }
 
 # Create the images used for the progress bar in make_user_wait
@@ -133,17 +111,15 @@ make_moving_box_frames() {
   done
 }
 
-SRCDIR=localized_text
 DSTDIR=screens
 rm -rf $DSTDIR
 mkdir -p $DSTDIR
 
-for locale in $SUPPORTED_LOCALES ; do
-  $(dirname $0)/make_text_images $SRCDIR $DSTDIR $locale
-done
-
-make_empty_messages $DSTDIR $SUPPORTED_LOCALES
-
 make_progress_bar $DSTDIR
-
 make_moving_box_frames $DSTDIR
+
+if [ "$1" = "--all" ]; then
+  $(dirname $0)/make_text_images localized_text $DSTDIR
+elif [ $# -ne 0 ]; then
+  $(dirname $0)/make_text_images localized_text $DSTDIR "$@"
+fi
