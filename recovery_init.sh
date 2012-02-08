@@ -210,14 +210,6 @@ verify_install_kernel() {
   return 0
 }
 
-touch_developer_mode_file() {
-  is_developer_mode || return 1
-  mount -n -o rw -t ext4 "$DST_DEV_BASE"1 "$STATEFUL_MNT" || return 1
-  touch "$STATEFUL_MNT/.developer_mode" || return 1
-  umount "$STATEFUL_MNT" || return 1
-  return 0
-}
-
 setup_install_mounts() {
   mount -t tmpfs -o mode=1777 none "$USB_MNT/tmp" || return 1
   dlog "Re-binding $BASE_MOUNTS for $NEWROOT_MNT"
@@ -269,15 +261,6 @@ call_image_recovery_script() {
 
   # No error check here:  Clean up doesn't need to be successful.
   cleanup_install_mounts
-
-  # If we're in developer mode, touch the .developer_mode file on stateful
-  # to avoid a bonus wait period on reboot.
-  # Failure here is non-terminal and it may not succeed just because the
-  # partition table of the destination has not been synchronized.
-  if [  $install_status -eq 0 ]; then
-    dlog "Prepping destination stateful to avoid a secondary delay."
-    touch_developer_mode_file && dlog "Prepped image for developer use."
-  fi
 
   return $install_status
 }
