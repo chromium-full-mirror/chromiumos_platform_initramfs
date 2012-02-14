@@ -17,7 +17,8 @@ import pango
 import pangocairo
 
 SUPPORTED_LOCALES = [
-    "de", "en-GB", "en-US", "es", "fr", "it", "ko", "nl"
+    "de", "en-GB", "en-US", "es", "es-419", "fr", "it", "ja", "ko", "nl",
+    "pt-BR", "sv"
 ]
 
 def calc_cairo_rgb(rgb24):
@@ -60,10 +61,13 @@ MESSAGE_BOX_HEIGHT = 200
 # the double newlines for a paragraph separator so that Pango will
 # render the paragraphs with additional separation.
 #
-# We also convert multiple blanks into a single blank.
+# Also, text returned from translators may have spurious whitespace,
+# so we convert CR-LF into just LF, and convert multiple blanks into
+# a single blank.
 
 NEWLINE_PATTERN = re.compile("([^\n])\n([^\n])")
 NEWLINE_REPLACEMENT = r"\1 \2"
+CRLF_PATTERN = re.compile("\r\n")
 MULTIBLANK_PATTERN = re.compile("   *")
 
 
@@ -145,6 +149,7 @@ def main(argv):
         tag = os.path.splitext(filename)[0]
         with open(os.path.join(locale_text, filename), "r") as msgfile:
           msgtext = msgfile.read().decode("utf_8_sig")
+        msgtext = re.sub(CRLF_PATTERN, "\n", msgtext)
         msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
         msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
         pngfilename = os.path.join(locale_screen, tag + ".png")
