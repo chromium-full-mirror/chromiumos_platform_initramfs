@@ -83,17 +83,19 @@ Normally, you shouldn't need to do this unless you make a change to
 "make_images".
 
 The text content for initramfs images is generated automatically in
-the ebuild; if your only change is text messages, you don't need to
-do anything.  However, you may want to generate all images prior to
+the ebuild; if your only change is to text messages, you don't need
+to do anything.  However, you may want to generate images prior to
 building in order to review the images directly (e.g. using a
-browser to display the files).  For convenience, the 'make_images'
-command can also generate the text images.
+browser to display the files).  Below are the commands for the most
+likely use cases.
 
-To generate graphic images and messages for all supported locales:
+To regenerate graphic images and messages for all supported locales:
   ./make_images --all
 
-To generate graphic images and messages for specified locales:
+To regenerate graphic images and messages for specified locales,
+including locales not in the current supported list:
   ./make_images <locale> [ <locale> ... ]
 
-The second form can be used to generate images for locales that
-aren't part of the default supported set.
+To generate messages for supported locales without regenerating the
+graphic images:
+  ./make_text_images

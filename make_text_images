@@ -4,12 +4,9 @@
 # found in the LICENSE file.
 #
 # usage:
-#   ./make_text_images <localized_text> <screens> [ <locales> ... ]
+#   ./make_text_images [ <localized_text> <screens> [ <locale> ... ] ]
 #
-# This script is meant to be invoked from make_images and the
-# ebuild, and may or may not be useful as a standalone command.
-#
-# Refer to the README for details about how to use make_images.
+# Refer to the README for details about how to use this command.
 
 import os
 import re
@@ -111,8 +108,16 @@ def create_message_image(msgtext, imagename):
 
 def main(argv):
   """Create message images for given locales."""
-  textdir = argv[1]
-  screendir = argv[2]
+  if len(argv) == 1:
+    textdir = "localized_text"
+    screendir = "screens"
+  elif len(argv) > 2:
+    textdir = argv[1]
+    screendir = argv[2]
+  else:
+    sys.stderr.write('usage: %s [ <dir> <dir> [ <locale> ... ] ]\n' %
+                     os.path.basename(argv[0]))
+    sys.exit(1)
   empty_base = "empty.png"
   empty_file = os.path.join(screendir, empty_base)
   create_message_image("", empty_file)
@@ -125,8 +130,11 @@ def main(argv):
     print "Locale %s" % locale
     locale_text = os.path.join(textdir, locale)
     locale_screen = os.path.join(screendir, locale)
-    os.mkdir(locale_screen)
+    if not os.path.isdir(locale_screen):
+      os.mkdir(locale_screen)
     locale_empty = os.path.join(locale_screen, empty_base)
+    if os.path.exists(locale_empty):
+      os.unlink(locale_empty)
     os.link(empty_file, locale_empty)
 
     # Go through <textdir>/<locale>/*.txt, converting text to
