@@ -21,6 +21,14 @@ SUPPORTED_LOCALES = [
     "pt-BR", "sv"
 ]
 
+# A handful of locales reuse the texts from other locales.
+# (With apologies to our Aussie and Canadian friends, who really
+# deserve locales of their own ;-) ).
+LOCALE_LINKS = [
+  ("en-CA", "en-US"),
+  ("en-AU", "en-GB")
+]
+
 def calc_cairo_rgb(rgb24):
   """Return the components of an RGB24 integer as a 3-tuple of floats."""
   red = (rgb24 >> 16) / 255.0
@@ -156,6 +164,24 @@ def main(argv):
         create_message_image(msgtext, pngfilename)
 
   os.unlink(empty_file)
+
+  # If any of the targets in LOCALE_LINKS were created, create
+  # the linked locale as well.
+  for locale, orig in LOCALE_LINKS:
+    if orig not in locale_list:
+      continue
+    print "Locale %s linked to %s" % (locale, orig)
+    locale_screen = os.path.join(screendir, locale)
+    orig_screen = os.path.join(screendir, orig)
+    if not os.path.isdir(locale_screen):
+      os.mkdir(locale_screen)
+    for _, _, filenames in os.walk(orig_screen):
+      for filename in filenames:
+        orig_file = os.path.join(orig_screen, filename)
+        locale_file = os.path.join(locale_screen, filename)
+        if os.path.exists(locale_file):
+          os.unlink(locale_file)
+        os.link(orig_file, locale_file)
 
 
 if __name__ == "__main__":
