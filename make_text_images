@@ -4,7 +4,7 @@
 # found in the LICENSE file.
 #
 # usage:
-#   ./make_text_images [ <localized_text> <screens> [ <locale> ... ] ]
+#   ./make_images [ <localized_text> <screens> [ <locale> ... ] ]
 #
 # Refer to the README for details about how to use this command.
 
@@ -16,6 +16,9 @@ import cairo
 import pango
 import pangocairo
 
+# The default list of supported locales.  If you're adding a new
+# locale, it's usually (mostly) enough just to update this list.
+# See the README for information about the caveats.
 SUPPORTED_LOCALES = [
     "de", "en-GB", "en-US", "es", "es-419", "fr", "it", "ja", "ko", "nl",
     "pt-BR", "sv"
@@ -29,6 +32,97 @@ LOCALE_LINKS = [
   ("en-AU", "en-GB")
 ]
 
+
+# Message box dimensions.
+# MESSAGE_BOX_WIDTH:
+#     Width in pixels of an image containing message text.  This
+#     width must not exceed the width of the "boot_message.png"
+#     image.  At the time of this comment, the limit is 1024 pixels.
+# MESSAGE_BOX_HEIGHT:
+#     Height in pixels of an image containing message text.  This
+#     height must not exceed one third of the height of the frame
+#     allocated for messages in "boot_message.png".  At the time of
+#     this comment, the limit is 115 pixels.
+# TEXT_INSET_WIDTH:
+#     Message images will have a border of this many pixels on the
+#     right and left of the text.
+# TEXT_INSET_HEIGHT:
+#     Message images will have a border of this many pixels on the
+#     top and bottom of the text.
+
+MESSAGE_BOX_WIDTH = 1000
+MESSAGE_BOX_HEIGHT = 115
+TEXT_INSET_WIDTH = 50
+TEXT_INSET_HEIGHT = 0
+
+FONT_DESCRIPTION = "Sans 12"
+FONT = pango.FontDescription(FONT_DESCRIPTION)
+
+
+# Progress bar dimensions.
+# The progress bar is laid out along these lines:
+#   +--------------+ <--- Outer border
+#   |             <+--- Inner border
+#   | XXX......... |
+#   |   ^          |
+#   +---+----------+
+#       |
+#       +---- Progress bar increments
+#
+# PROGRESS_BAR_INCREMENT:
+#     The width in pixels of a 1% increment in the progress bar.
+# PROGRESS_BAR_WIDTH:
+#     The total width in pixels of the progress bar, not counting
+#     the borders.  This is the same as the width of 100 increments.
+# PROGRESS_BAR_HEIGHT:
+#     The height in pixels of the progress bar, not counting the
+#     borders.
+# PROGRESS_BAR_BORDER:
+#     The thickness of the borders in pixels.  The inner and outer
+#     borders have the same thickness.
+# PROGRESS_BAR_INSET:
+#     The inset (width and height) for the progress bar increments
+#     within the progress bar image; this is just twice the border.
+#     This value is only used in constants.sh.
+# PROGRESS_BAR_LEFT:
+#     Offset from the left of the message box where the progress bar
+#     should be placed.  This value is only used in constants.sh.
+# PROGRESS_BAR_TOP:
+#     Offset from the top of the message box where the progress bar
+#     should be placed.  This value is only used in constants.sh.
+
+PROGRESS_BAR_INCREMENT = 4
+PROGRESS_BAR_WIDTH = 100 * PROGRESS_BAR_INCREMENT
+PROGRESS_BAR_HEIGHT = 20
+PROGRESS_BAR_BORDER = 5
+
+PROGRESS_BAR_INSET = 2 * PROGRESS_BAR_BORDER
+PROGRESS_BAR_LEFT = TEXT_INSET_WIDTH
+PROGRESS_BAR_TOP = 40
+
+
+# Color parameters:
+# BACKGROUND:
+#     This is the background color.  N.B.:  This color must be the
+#     same as the background color of the "boot_message.png" image
+#     file from chromeos-assets; if that image changes, this color
+#     will need to change.
+# TEXT_COLOR:
+#     This is the foreground color for message text.
+# PROGRESS_COLOR:
+#     This is the foreground color for the progress bar, used for
+#     the outer border and incremental updates.
+#
+# 'BACKGROUND' is shared with messages.sh, which requires a 24-bit
+# RGB value; for consistency all three colors are defined as 24-bit
+# RGB values, and then converted to the 3 separate floating point
+# component values that Cairo expects to be passed.
+
+BACKGROUND = 0xfefefe
+TEXT_COLOR = 0x000000
+PROGRESS_COLOR = 0x404040
+
+
 def calc_cairo_rgb(rgb24):
   """Return the components of an RGB24 integer as a 3-tuple of floats."""
   red = (rgb24 >> 16) / 255.0
@@ -36,26 +130,10 @@ def calc_cairo_rgb(rgb24):
   blue = (rgb24 & 0xff) / 255.0
   return red, green, blue
 
-# ALERT!
-#
-# The color constants below are duplicated in constants.sh as 'BG'
-# and 'COLOR'.  If you change them here, you must also change them
-# there, and vice versa.
 
-BG_RED, BG_GREEN, BG_BLUE = calc_cairo_rgb(0x607c91)
-FG_RED, FG_GREEN, FG_BLUE = calc_cairo_rgb(0x9ccaec)
-# End Alert
-
-
-# ALERT!
-#
-# The message box dimensions below are duplicated in constants.sh.
-# If you change them here, you must also change them there, and vice
-# versa.
-
-MESSAGE_BOX_WIDTH = 800
-MESSAGE_BOX_HEIGHT = 200
-# End Alert
+BG_RED, BG_GREEN, BG_BLUE = calc_cairo_rgb(BACKGROUND)
+FG_RED, FG_GREEN, FG_BLUE = calc_cairo_rgb(TEXT_COLOR)
+PB_RED, PB_GREEN, PB_BLUE = calc_cairo_rgb(PROGRESS_COLOR)
 
 
 # Input text files are broken into paragraphs like so:
@@ -79,18 +157,15 @@ CRLF_PATTERN = re.compile("\r\n")
 MULTIBLANK_PATTERN = re.compile("   *")
 
 
-# Text is rendered in a box inside the image inset left, right,
-# top, and bottom by the number of pixels below.
+def CreateMessageImage(msgtext, imagename):
+  """Create a message image file containing the given text.
 
-INSET_WIDTH = 75
-INSET_HEIGHT = 25
+  `msgtxt` is a string with the text; it has already been adjusted
+  to remove extra white space and create proper paragraph breaks.
 
-FONT_DESCRIPTION = "Sans 12"
-FONT = pango.FontDescription(FONT_DESCRIPTION)
+  `imagename` is the path name for the final .png image.
 
-
-def create_message_image(msgtext, imagename):
-  """Create a message image file containing the given text."""
+  """
   # Create a background canvas.
   surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
                                MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT)
@@ -100,11 +175,11 @@ def create_message_image(msgtext, imagename):
   context.fill()
 
   # Create the inset box for containing the text.
-  context.translate(INSET_WIDTH, INSET_HEIGHT)
+  context.translate(TEXT_INSET_WIDTH, TEXT_INSET_HEIGHT)
   pangocontext = pangocairo.CairoContext(context)
   pangocontext.set_antialias(cairo.ANTIALIAS_SUBPIXEL)
   layout = pangocontext.create_layout()
-  layout.set_width((MESSAGE_BOX_WIDTH - 2 * INSET_WIDTH) * pango.SCALE)
+  layout.set_width((MESSAGE_BOX_WIDTH - 2 * TEXT_INSET_WIDTH) * pango.SCALE)
 
   # Actually write the text to the canvas.
   layout.set_font_description(FONT)
@@ -118,25 +193,69 @@ def create_message_image(msgtext, imagename):
     surface.write_to_png(image_output)
 
 
-def main(argv):
-  """Create message images for given locales."""
-  if len(argv) == 1:
-    textdir = "localized_text"
-    screendir = "screens"
-  elif len(argv) > 2:
-    textdir = argv[1]
-    screendir = argv[2]
-  else:
-    sys.stderr.write('usage: %s [ <dir> <dir> [ <locale> ... ] ]\n' %
-                     os.path.basename(argv[0]))
-    sys.exit(1)
+def CreateProgressBar(image_dir):
+  """Create images for the progress bar.
+
+  Two images are created:  "progress_box.png" is an empty progress
+  bar; "progress_increment.png" is a 1% increment of the progress
+  bar.  `image_dir` is the directory in which the output files
+  should be created.
+
+  The "progress_box.png" file is just the outer border with an empty
+  progress bar.  It's created by filling the entire rectangle with
+  the foreground color, and then redrawing a smaller rectangle
+  inside in the background color, inset by the border.
+
+  """
+  surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
+                               PROGRESS_BAR_WIDTH + 4*PROGRESS_BAR_BORDER,
+                               PROGRESS_BAR_HEIGHT + 4*PROGRESS_BAR_BORDER)
+  context = cairo.Context(surface)
+  context.rectangle(0, 0,
+                    PROGRESS_BAR_WIDTH + 4*PROGRESS_BAR_BORDER,
+                    PROGRESS_BAR_HEIGHT + 4*PROGRESS_BAR_BORDER)
+  context.set_source_rgb(PB_RED, PB_GREEN, PB_BLUE)
+  context.fill()
+  context.rectangle(PROGRESS_BAR_BORDER, PROGRESS_BAR_BORDER,
+                    PROGRESS_BAR_WIDTH + 2*PROGRESS_BAR_BORDER,
+                    PROGRESS_BAR_HEIGHT + 2*PROGRESS_BAR_BORDER)
+  context.set_source_rgb(BG_RED, BG_GREEN, BG_BLUE)
+  context.fill()
+
+  # Write the image to its output file.
+  filename = os.path.join(image_dir, "progress_box.png")
+  with open(filename, "w") as image_output:
+    surface.write_to_png(image_output)
+  print "wrote %s" % os.path.basename(filename)
+
+  surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
+                               PROGRESS_BAR_INCREMENT, PROGRESS_BAR_HEIGHT)
+  context = cairo.Context(surface)
+  context.rectangle(0, 0, PROGRESS_BAR_INCREMENT, PROGRESS_BAR_HEIGHT)
+  context.set_source_rgb(PB_RED, PB_GREEN, PB_BLUE)
+  context.fill()
+
+  # Write the image to its output file.
+  filename = os.path.join(image_dir, "progress_increment.png")
+  with open(filename, "w") as image_output:
+    surface.write_to_png(image_output)
+  print "wrote %s" % os.path.basename(filename)
+
+
+def CreateLocales(textdir, screendir, locale_list):
+  """Create message images for all locales.
+
+  The per-locale input directories are found in `textdir`.  The
+  per-locale output images are written under `screendir`.  The
+  locales to be used are specified in `locale_list`.
+
+  All locales share a distinguished image named "empty.png" that
+  contains no text.
+
+  """
   empty_base = "empty.png"
   empty_file = os.path.join(screendir, empty_base)
-  create_message_image("", empty_file)
-
-  locale_list = argv[3:]
-  if not locale_list:
-    locale_list = SUPPORTED_LOCALES
+  CreateMessageImage("", empty_file)
 
   for locale in locale_list:
     print "Locale %s" % locale
@@ -161,17 +280,27 @@ def main(argv):
         msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
         msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
         pngfilename = os.path.join(locale_screen, tag + ".png")
-        create_message_image(msgtext, pngfilename)
-
+        CreateMessageImage(msgtext, pngfilename)
   os.unlink(empty_file)
 
-  # If any of the targets in LOCALE_LINKS were created, create
-  # the linked locale as well.
-  for locale, orig in LOCALE_LINKS:
+
+def CreateLinkedLocales(screendir, locale_list, link_list):
+  """Created locales that are linked to pre-existing locales.
+
+  `locale_list` is a list of locales that already exist, and
+  `link_list` is a list of (`target`, `orig`) tuples.  For each
+  `orig` that is also in `locale_list`, the corresponding `target`
+  is created as a linked copy of `orig`.
+
+  `orig` is expected to exist under the directory `screendir` and
+  `target` is created there.
+
+  """
+  for target, orig in link_list:
     if orig not in locale_list:
       continue
-    print "Locale %s linked to %s" % (locale, orig)
-    locale_screen = os.path.join(screendir, locale)
+    print "Locale %s linked to %s" % (target, orig)
+    locale_screen = os.path.join(screendir, target)
     orig_screen = os.path.join(screendir, orig)
     if not os.path.isdir(locale_screen):
       os.mkdir(locale_screen)
@@ -182,6 +311,73 @@ def main(argv):
         if os.path.exists(locale_file):
           os.unlink(locale_file)
         os.link(orig_file, locale_file)
+
+
+def CreateConstantDefs(image_dir):
+  """Create the 'constants.sh' source file used by 'messages.sh'.
+
+  A number of parameters defined in module are needed in
+  'messages.sh', primarily to calculate the placement of images.
+  Create a simple shell source that assigns the parameters their
+  values.
+
+  """
+  export_vars = [
+    ("BACKGROUND",             "%06x"),
+    ("MESSAGE_BOX_WIDTH",      "%d"),
+    ("MESSAGE_BOX_HEIGHT",     "%d"),
+    ("PROGRESS_BAR_INCREMENT", "%d"),
+    ("PROGRESS_BAR_INSET",     "%d"),
+    ("PROGRESS_BAR_LEFT",      "%d"),
+    ("PROGRESS_BAR_TOP",       "%d"),
+  ]
+  fileheader = """\
+# Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+#
+# DO NOT EDIT THIS FILE:  It is automatically generated by %s.
+
+"""
+  constants_sh = os.path.join(image_dir, "constants.sh")
+  with open(constants_sh, "w") as genfile:
+    genfile.write(fileheader % os.path.basename(sys.argv[0]))
+    for var, fmt in export_vars:
+      genfile.write(("%s=" + fmt + "\n") % (var, globals()[var]))
+  print "wrote %s" % os.path.basename(constants_sh)
+
+
+def main(argv):
+  """Create message images for given locales.
+
+  For user convenience, if invoked without arguments we construct
+  appropriate defaults.
+
+  This command is also invoked by the ebuild; be sure you understand
+  that usage before you tinker with the command line syntax.
+
+  """
+  locale_list = SUPPORTED_LOCALES
+  if len(argv) == 1:
+    textdir = "localized_text"
+    screendir = "screens"
+  elif len(argv) > 2:
+    textdir = argv[1]
+    screendir = argv[2]
+    if argv[3:]:
+      locale_list = argv[3:]
+  else:
+    sys.stderr.write("usage: %s [ <dir> <dir> [ <locale> ... ] ]\n" %
+                     os.path.basename(argv[0]))
+    sys.exit(1)
+
+  if not os.path.isdir(screendir):
+    os.mkdir(screendir)
+
+  CreateLocales(textdir, screendir, locale_list)
+  CreateLinkedLocales(screendir, locale_list, LOCALE_LINKS)
+  CreateProgressBar(screendir)
+  CreateConstantDefs(screendir)
 
 
 if __name__ == "__main__":

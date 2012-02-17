@@ -57,7 +57,7 @@ validate_recovery_root() {
         dd if="$USB_DEV" bs=$((16 * 1024 * 1024)) 2>/dev/null
         echo $? >/tmp/verification_status
       ) | pv -n -s $size >/dev/null
-    ) 2>&1 | progress_bar
+    ) 2>&1 | ( set -x ; progress_bar ) >$LOG_DIR/progress.log 2>&1
   )
   if [ "$(cat /tmp/verification_status)" != "0" ]; then
     dlog "Included root filesystem could not be verified."

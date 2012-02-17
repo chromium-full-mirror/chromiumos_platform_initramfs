@@ -6,10 +6,10 @@
 # exclusively for recovery images.  Note that this code uses the
 # busybox shell (not bash, not dash).
 
-. /lib/constants.sh
-
 SCREENS=/etc/screens
 LANGDIR=
+
+. $SCREENS/constants.sh
 
 # User visible message logged w/ 'echo'
 log() {
@@ -43,7 +43,6 @@ select_locale() {
     LANGDIR=en-US
   fi
   dlog "selected locale $LANGDIR"
-
 }
 
 # Message screens are presented in one of three boxes:
@@ -74,10 +73,6 @@ set_box_boundaries() {
   INSTRUCTION_BOX_TOP=$(( message_boxes_top + 0 * MESSAGE_BOX_HEIGHT ))
   PROGRESS_BOX_TOP=$(( message_boxes_top + 1 * MESSAGE_BOX_HEIGHT ))
   DEVMODE_BOX_TOP=$(( message_boxes_top + 2 * MESSAGE_BOX_HEIGHT ))
-
-  PROGRESS_BAR_LEFT=$(( MESSAGE_BOX_LEFT +
-                        (MESSAGE_BOX_WIDTH - PROGRESS_BAR_WIDTH) / 2 ))
-  PROGRESS_BAR_TOP=$(( PROGRESS_BOX_TOP + 160 ))
 }
 
 # Present a message screen aligned to the left of the display at a
@@ -91,32 +86,21 @@ showbox() {
   ply-image --location $location "$@"
 }
 
-# During installation, we show an animation of a moving box inside
-# the "progress" message box.  The animation is currently not tied
-# to any measure of progress; it's meant merely for keeping up
-# appearances...
-#
-# The moving box animation is a set of frames numbered from 0..N.
-# The sequence displays frames 0..N-1 (moving from left to right),
-# followed by frames N..1 (moving from right to left).
-show_moving_box() {
-  # 'forward' is the list of frames, 0..N-1
-  local forward="$(ls $SCREENS/moving_box_??.png | sed '$d')"
-  # 'backward' is the list of frames, N..1
-  local backward="$(ls -r $SCREENS/moving_box_??.png | sed '$d')"
-
+# During installation, we show a spinner animation inside the
+# "progress" message box.  The animation moves at a constant speed
+# that's currently not tied to any measure of progress; it's meant
+# merely for keeping up appearances...
+show_install_spinner() {
   # The termination logic here is a nuisance.  We'd like to stop the
   # animation as soon as we get SIGTERM, but we have to make sure
-  # the final animation has stopped.  Starting `showbox` in the
-  # background would create a child (shell) and grandchild
-  # (ply-image), so cleaning up is tricky.  Far easier (in this
-  # case) to run everything in the foreground and simply check for
-  # termination at fixed intervals.
+  # the final animation has stopped.  To keep things simple, we run
+  # everything in the foreground and simply check for termination at
+  # fixed intervals.
   TERMINATED=0
   trap 'TERMINATED=1' TERM
 
   while [ $TERMINATED -eq 0 ] ; do
-    showbox $PROGRESS_BOX_TOP $forward $backward
+    ply-image --frame-interval=100 $SCREENS/spinner/*.png
   done
 }
 
@@ -149,18 +133,19 @@ dev_notice() {
 # As each value is read, the progress bar is updated to reflect
 # the percentage.
 progress_bar() {
-  local image_left=$(( PROGRESS_BAR_LEFT - PROGRESS_BAR_INSET ))
-  local image_top=$(( PROGRESS_BAR_TOP - PROGRESS_BAR_INSET ))
+  local image_left=$(( MESSAGE_BOX_LEFT + PROGRESS_BAR_LEFT ))
+  local image_top=$(( PROGRESS_BOX_TOP + PROGRESS_BAR_TOP ))
   ply-image --location $image_left,$image_top $SCREENS/progress_box.png
 
-  local leftmost=$(( PROGRESS_BAR_LEFT ))
-  local top=$(( PROGRESS_BAR_TOP ))
+  local bar_left=$(( image_left + PROGRESS_BAR_INSET ))
+  local bar_top=$(( image_top + PROGRESS_BAR_INSET ))
+  local leftmost=$bar_left
   local percent=""
   while read percent; do
-    local rightmost=$(( PROGRESS_BAR_LEFT + PROGRESS_BAR_PERCENT * percent ))
+    local rightmost=$(( bar_left + PROGRESS_BAR_INCREMENT * percent ))
     while [ $leftmost -lt $rightmost ]; do
-      ply-image --location $leftmost,$top $SCREENS/progress_increment.png
-      leftmost=$(( leftmost + PROGRESS_BAR_PERCENT ))
+      ply-image --location $leftmost,$bar_top $SCREENS/progress_increment.png
+      leftmost=$(( leftmost + PROGRESS_BAR_INCREMENT ))
     done
   done
 }
@@ -205,7 +190,8 @@ message_startup() {
   # This 'echo' prevents the text cursor image from showing up after
   # ply-image has pushed the screen image.
   echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
-  ply-image --clear "0x$BG"
+  ply-image --clear "0x$BACKGROUND"
+  ply-image $SCREENS/boot_message.png
   set_box_boundaries
   select_locale
 
@@ -248,17 +234,18 @@ message_recovery_start() {
   # The user gets a two seconds grace period to cancel
   sleep 2
   instructions recovering
-  show_moving_box >$LOG_DIR/moving.log 2>&1 &
-  MOVING_BOX_PID=$!
+  progress empty
+  show_install_spinner >$LOG_DIR/spinner.log 2>&1 &
+  SPINNER_PID=$!
 }
 
-# Kill the moving box animation and announce that recovery is
+# Kill the spinner animation and announce that recovery is
 # complete.  Note that waiting for termination of the animation
 # is necessary to guarantee that subsequent messages don't get
 # overwritten.
 message_recovery_complete() {
-  kill $MOVING_BOX_PID
-  wait $MOVING_BOX_PID
+  kill $SPINNER_PID
+  wait $SPINNER_PID
   instructions complete
   progress empty
 }
