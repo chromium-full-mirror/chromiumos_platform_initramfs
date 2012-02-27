@@ -1,3 +1,4 @@
-Utviklermodus i Chromebooken din er satt til AKTIVERT.
+Utviklermodusen på enheten din er satt til AKTIVERT.
 
-Hvis dette ikke er gjort med hensikt, bør du avbryte gjenopprettingen og sette innstillingen til DEAKTIVERT.
+Hvis dette ikke er gjort med hensikt, bør du avbryte gjenopprettingen og sette innstillingen
+til DEAKTIVERT.

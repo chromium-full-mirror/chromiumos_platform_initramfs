@@ -1,1 +1,1 @@
-AVISO: a imagem no seu suporte de dados de recuperação é uma imagem de programador não confirmada. A recuperação continuará porque o interruptor do modo de programador do Chromebook está na posição ATIVADO.
+AVISO: a imagem no seu suporte de dados de recuperação é uma imagem de programador não confirmada. A recuperação continuará porque o interruptor do modo de programador do sistema está na posição ATIVADO.

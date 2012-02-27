@@ -1,4 +1,4 @@
-Twój komputer prawdopodobnie nie jest Chromebookiem.
+Twój komputer prawdopodobnie nie ma systemu operacyjnego Chrome.
 
 Ta operacja spowoduje usunięcie zainstalowanego obecnie systemu operacyjnego
 i wszystkich danych. Nie będzie możliwości utworzenia kopii zapasowej.

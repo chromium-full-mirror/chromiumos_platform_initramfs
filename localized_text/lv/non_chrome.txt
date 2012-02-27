@@ -1,4 +1,4 @@
-Šķiet, šis nav Chromebook dators.
+Izskatās, ka jūsu datorā netiek izmantota sistēma Chrome OS!
 
 Izpildot šo darbību, tiks dzēsta instalētā operētājsistēma un visi dati. Dublējumu nevarēs izveidot.
 Ja šajā datorā glabājat kādus datus, kurus nevēlaties dzēst, atceliet sistēmas atkopšanu.

@@ -1,4 +1,4 @@
-Įsitikinkite, kad jūsų „Chromebook“ prijungtas prie maitinimo šaltinio.
+Įsitikinkite, kad sistema įjungta į maitinimo šaltinį.
 
-Jei norite atšaukti atkūrimą, paspauskite įjungimo mygtuką ir laikykite nuspaudę, kol „Chromebook“ išsijungs. Tai užtruks apie 8 sekundes.
-Tai daryti saugu bet kuriuo metu, kol baigiama tikrinti.
+Jei norite atšaukti atkūrimą, paspauskite maitinimo mygtuką ir laikykite paspaudę, kol sistema išsijungs. Tai užtruks apie 8 sekundes.
+Tai daryti saugu bet kuriuo metu, iki užbaigiant patvirtinimo procesą.

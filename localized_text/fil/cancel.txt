@@ -1,4 +1,4 @@
-Pakitiyak na naka-plug in ang iyong Chromebook sa isang pinagmulan ng power.
+Pakitiyak na naka-plug in ang iyong system sa pinagmumulan ng power.
 
-Kung nais mong kanselahin ang pagbawi, pindutin ang power button at pindutin ito nang matagal hanggang sa ma-off ang Chromebook; tumatagal ito ng halos 8 segundo.
-Ligtas itong gawin anumang oras hanggang sa makumpleto ang pag-verify.
+Kung nais mong kanselahin ang pagbawi, pindutin ang power button at pindutin ito nang matagal hanggang sa mag-off ang system; maaari itong magtagal nang hanggang 8 segundo.
+Magagawa ito nang ligtas anumang oras hanggang sa makumpleto ang pag-verify.

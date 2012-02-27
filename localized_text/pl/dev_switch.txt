@@ -1,4 +1,4 @@
-Przełącznik trybu programisty na Chromebooku jest w pozycji WŁĄCZONEJ.
+Przełącznik trybu programisty systemu jest w pozycji WŁĄCZONEJ.
 
 Jeśli nie jest to celowe, anuluj przywracanie systemu i ustaw przełącznik
 w pozycji WYŁĄCZONEJ.

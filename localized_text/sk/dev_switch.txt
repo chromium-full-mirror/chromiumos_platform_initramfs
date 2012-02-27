@@ -1,3 +1,4 @@
-Prepínač režimu vývojára na Chromebooku je v polohe POVOLENÉ.
+Prepínač režimu vývojára v systéme je v polohe ZAPNUTÉ.
 
-Pokiaľ to nie je úmyselné, zrušte obnovenie a prepnite prepínač do polohy VYPNUTÉ.
+Pokiaľ to nie je úmyselné, zrušte obnovenie a prepnite
+prepínač do polohy VYPNUTÉ.

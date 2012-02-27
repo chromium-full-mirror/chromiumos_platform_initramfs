@@ -1,3 +1,3 @@
 Hoàn tất khôi phục hệ thống!
 
-Vui lòng tháo phương tiện khôi phục và Chromebook của bạn sẽ tự động khởi động lại.
+Vui lòng tháo phương tiện khôi phục và hệ thống của bạn sẽ tự động khởi động lại.

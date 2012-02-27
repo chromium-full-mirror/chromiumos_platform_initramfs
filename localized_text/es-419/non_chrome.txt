@@ -1,4 +1,4 @@
-Aparentemente, tu computadora no es una Chromebook.
+Al parecer, tu computadora no cuenta con el sistema operativo de Chrome.
 
 Esta operación eliminará cualquier otro sistema operativo que pudieras haber instalado y todos los datos. No tendrás la oportunidad de realizar una copia de seguridad.
 Si tienes datos en esta computadora que deseas conservar, debes cancelar la recuperación.

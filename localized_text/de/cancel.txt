@@ -1,6 +1,4 @@
-Überprüfen Sie, ob Ihr Chromebook mit einer Stromquelle verbunden ist.
+Überprüfen Sie, ob Ihr Computer mit einer Stromquelle verbunden ist.
 
-Wenn Sie die Wiederherstellung abbrechen möchten, halten Sie
-die Ein-/Austaste gedrückt, bis das Chromebook ausgeschaltet wird.
-Dieser Vorgang dauert etwa acht Sekunden und kann jederzeit
-bis zum Abschluss der Verifizierung durchgeführt werden.
+Wenn Sie die Wiederherstellung abbrechen möchten, halten Sie die Ein-/Austaste gedrückt, bis der Computer ausgeschaltet wird. Dieser Vorgang kann bis zu 8 Sekunden dauern
+und kann jederzeit bis zum Abschluss der Verifizierung durchgeführt werden.

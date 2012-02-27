@@ -1,4 +1,4 @@
-Chromebook mora biti uključen u izvor napajanja.
+Vaš sustav mora biti uključen u izvor napajanja.
 
-Ako želite otkazati oporavak, pritisnite gumb za isključivanje i držite ga pritisnutim sve dok se Chromebook ne isključi; to će potrajati približno 8 sekunda.
+Ako želite otkazati oporavak, pritisnite gumb za isključivanje i držite ga pritisnutim sve dok se sustav ne isključi; to će potrajati približno 8 sekunda.
 To slobodno možete učiniti sve dok se ne dovrši provjera.

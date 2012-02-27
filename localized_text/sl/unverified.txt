@@ -1,1 +1,1 @@
-OPOZORILO: Posnetek na obnovitvenem nosilcu je nepreverjen razvijalski posnetek.  Obnovitev se bo nadaljevala, ker je stikalo razvijalskega načina v Chromebooku v položaju ENABLED (omogočeno).
+OPOZORILO: Posnetek na obnovitvenem nosilcu je nepreverjen razvijalski posnetek.  Obnovitev se bo nadaljevala, ker je stikalo razvijalskega načina v sistemu v položaju ENABLED (omogočeno).

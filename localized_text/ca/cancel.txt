@@ -1,5 +1,5 @@
-Assegureu-vos que Chromebook estigui connectat a una font d'alimentació.
+Assegureu-vos que el sistema estigui connectat a una font d'alimentació.
 
 Si voleu cancel·lar la recuperació, premeu el botó d'alimentació i manteniu-lo premut
-fins que Chromebook s'apagui; trigarà 8 segons aproximadament.
+fins que el sistema s'apagui; trigarà 8 segons aproximadament.
 És segur fer-ho en qualsevol moment fins que la verificació s'hagi completat.

@@ -1,1 +1,1 @@
-VARNING!  Bilden i dina återställningsmedia är en utvecklarbild som inte har verifierats.  Återställningen kommer att fortsätta eftersom utvecklarläget för Chromebook är inställt på AKTIVERAT.
+VARNING!  Bilden i återställningsmediet är en utvecklarbild som inte har verifierats.  Återställningen kommer att fortsätta eftersom systemets utvecklarläge är AKTIVERAT.

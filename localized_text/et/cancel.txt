@@ -1,4 +1,4 @@
-Veenduge, et Chromebook on toiteallikaga ühendatud.
+Veenduge, et süsteem on toiteallikaga ühendatud.
 
-Kui soovite taastamise tühistada, siis vajutage ja hoidke all toitenuppu, kuni Chromebook välja lülitub. Selleks kulub umbes 8 sekundit.
+Kui soovite taastamise tühistada, siis vajutage ja hoidke all toitenuppu, kuni süsteem välja lülitub. Selleks võib kuluda umbes 8 sekundit.
 Toiming on turvaline ükskõik millal, kuni kinnitamine on lõpetatud.

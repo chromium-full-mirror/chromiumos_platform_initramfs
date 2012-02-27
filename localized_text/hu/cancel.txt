@@ -1,4 +1,4 @@
-Bizonyosodjon meg róla, hogy Chromebookja hálózati áramról működik-e.
+Bizonyosodjon meg arról, hogy készüléke hálózati áramról működik.
 
-A helyreállítás megszakításához tartsa lenyomva a bekapcsoló gombot, amíg a Chromebook ki nem kapcsol -- ez kb. 8 másodpercet vesz igénybe.
+A helyreállítás megszakításához tartsa lenyomva a bekapcsológombot, amíg a rendszer ki nem kapcsol -- ez kb. 8 másodpercet vesz igénybe.
 Ezt biztonságosan megteheti az ellenőrzés befejezéséig.

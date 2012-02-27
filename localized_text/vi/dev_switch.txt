@@ -1,3 +1,3 @@
-Khóa chuyển chế độ nhà phát triển của Chromebook đang ở vị trí BẬT.
+Khóa chuyển chế độ nhà phát triển của hệ thống của bạn đang ở vị trí BẬT.
 
 Nếu đây không phải là ý định của bạn, bạn nên hủy khôi phục và chuyển khóa chuyển thành TẮT.

@@ -1,1 +1,1 @@
-Trwa weryfikowanie poprawności nośnika przywracania.
+Trwa sprawdzanie poprawności nośnika przywracania.

@@ -1,2 +1,1 @@
-UPOZORNĚNÍ: Obraz na médiu pro obnovení pochází od neověřeného vývojáře. Obnovení bude pokračovat, protože je přepínač režimu
-pro vývojáře na Chromebooku v poloze ZAPNUTO.
+UPOZORNĚNÍ: Obraz na médiu pro obnovení pochází od neověřeného vývojáře. Protože je přepínač režimu pro vývojáře na počítači v poloze ZAPNUTO, bude obnovení pokračovat.

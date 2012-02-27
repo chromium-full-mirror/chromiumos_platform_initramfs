@@ -1,4 +1,4 @@
-Your computer does not appear to be a Chromebook!
+Your computer does not appear to be a Chrome OS system!
 
 This operation will delete any other operating system that you may have
 installed and all the data; there will be no opportunity for backup.

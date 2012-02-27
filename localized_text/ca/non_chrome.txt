@@ -1,4 +1,4 @@
-Sembla que el vostre equip no és un Chromebook!
+Sembla que el vostre equip no és un sistema SO Chrome.
 
 Aquesta operació suprimirà qualsevol altre sistema operatiu que tingueu
 instal·lat i totes les dades; no hi haurà cap possibilitat de fer una còpia de seguretat.

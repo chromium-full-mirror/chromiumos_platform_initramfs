@@ -1,3 +1,4 @@
 Obnovenie systému je dokončené!
 
-Odoberte médium na obnovenie a Chromebook sa automaticky reštartuje.
+Odoberte médium na obnovenie a systém
+sa automaticky reštartuje.

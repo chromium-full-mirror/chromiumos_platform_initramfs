@@ -1,3 +1,3 @@
-Utvecklarläget på Chromebook är inställt på AKTIVERAT.
+Systemets utvecklarläge är AKTIVERAT.
 
-Om det inte är avsiktligt bör du avbryta återställningen och byta till INAKTIVERAT.
+Om det inte är avsiktligt bör du avbryta återställningen och flytta omkopplaren till INAKTIVERAT.

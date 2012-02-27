@@ -1,4 +1,4 @@
-Nasa PINAGANANG posisyon ang switch ng mode ng developer ng iyong Chromebook.
+Nasa posisyong PINAPAGANA ang switch ng mode ng developer ng iyong system.
 
 Kung hindi ito sinasadya, dapat mong kanselahin ang pagbawi at i-toggle ang
-switch sa HINDI PINAGANA.
+switch sa HINDI PINAPAGANA.

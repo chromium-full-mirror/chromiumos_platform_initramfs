@@ -1,1 +1,1 @@
-ĮSPĖJIMAS: atkūrimo laikmenoje esantis vaizdas yra nepatvirtintas kūrėjo vaizdas. Atkūrimas bus tęsiamas, nes „Chromebook“ kūrėjo režimo mygtuko pozicija yra ĮGALINTAS.
+ĮSPĖJIMAS: atkūrimo laikmenoje esantis vaizdas yra nepatvirtintas kūrėjo vaizdas. Atkūrimas bus tęsiamas, nes sistemos kūrėjo režimo jungiklio pozicija yra ĮGALINTAS.

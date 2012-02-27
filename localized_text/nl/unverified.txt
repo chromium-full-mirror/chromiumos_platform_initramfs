@@ -1,3 +1,1 @@
-WAARSCHUWING: de image op uw herstelmedium is een niet-geverifieerde
-ontwikkelaarsimage. Het herstel wordt voortgezet, omdat de schakelaar
-voor de ontwikkelaarsmodus van uw Chromebook is ingesteld op INGESCHAKELD.
+WAARSCHUWING: de image op uw herstelmedium is een niet-geverifieerde ontwikkelaarsimage. Het herstel wordt voortgezet, omdat de schakelaar voor de ontwikkelaarsmodus van uw systeem is ingesteld op INGESCHAKELD.

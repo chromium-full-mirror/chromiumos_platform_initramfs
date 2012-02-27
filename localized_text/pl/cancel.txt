@@ -1,5 +1,5 @@
-Upewnij się, że Chromebook jest podłączony do zasilania.
+Upewnij się, że system jest podłączony do zasilania.
 
 Aby anulować przywracanie systemu, naciśnij i przytrzymaj przycisk
-zasilania, aż Chromebook się wyłączy. Potrwa to około 8 sekund.
+zasilania, aż system się wyłączy. Potrwa to około 8 sekund.
 Możesz to bezpiecznie zrobić w każdej chwili, dopóki nie zostanie ukończona weryfikacja.

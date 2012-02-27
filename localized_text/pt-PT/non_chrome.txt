@@ -1,4 +1,4 @@
-O computador não parece ser um Chromebook!
+O computador não parece ser um sistema com o SO Chrome!
 
 Esta operação eliminará qualquer outro sistema operativo que tenha instalado e todos os dados; não haverá oportunidade para fazer uma cópia de segurança.
 Se tem dados neste computador que pretende preservar, deve cancelar a recuperação.

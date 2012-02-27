@@ -1,4 +1,4 @@
-Nodrošiniet, lai Chromebook dators būtu pievienots strāvas avotam.
+Nodrošiniet, lai sistēma būtu pievienota strāvas avotam.
 
-Lai atceltu sistēmas atkopšanu, nospiediet barošanas pogu un turiet to nospiestu, kamēr Chromebook dators izslēdzas. Tas ilgst aptuveni 8 sekundes.
+Lai atceltu sistēmas atkopšanu, nospiediet barošanas pogu un turiet to nospiestu, kamēr sistēma izslēdzas. Tas ilgst aptuveni 8 sekundes.
 To var droši darīt jebkurā laikā, pirms verifikācija ir pabeigta.

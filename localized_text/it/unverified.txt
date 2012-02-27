@@ -1,4 +1,1 @@
-AVVISO. L'immagine sul supporto di ripristino è un'immagine
-sviluppatore non verificata. Il ripristino continuerà perché
-lo switch della modalità sviluppatore del Chromebook è
-in posizione ATTIVA.
+AVVISO. L'immagine sul supporto di ripristino è un'immagine sviluppatore non verificata. Il ripristino continuerà perché lo switch della modalità sviluppatore del sistema è in posizione ATTIVA.

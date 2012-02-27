@@ -1,3 +1,4 @@
-Pengalih mode pengembang Chromebook Anda berada dalam posisi AKTIF.
+Pengalih mode pengembang sistem Anda berada dalam posisi AKTIF.
 
-Jika Anda tidak sengaja melakukannya, sebaiknya batalkan pemulihan dan mengembalikan pengalih menjadi NONAKTIF.
+Jika Anda tidak sengaja melakukannya, sebaiknya batalkan pemulihan dan alihkan
+menjadi NONAKTIF.

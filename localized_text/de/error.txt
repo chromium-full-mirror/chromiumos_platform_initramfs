@@ -1,4 +1,3 @@
 Bei der Wiederherstellung ist ein nicht behebbarer Fehler aufgetreten.
 
-Versuchen Sie es erneut und wiederholen Sie den Vorgang
-mit einem neueren Wiederherstellungsabbild.
+Versuchen Sie es erneut oder wiederholen Sie den Vorgang mit einem neueren Wiederherstellungsabbild.

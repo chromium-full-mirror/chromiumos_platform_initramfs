@@ -1,3 +1,3 @@
 A recuperação do sistema foi concluída.
 
-Remova a mídia de recuperação e seu Chromebook reiniciará automaticamente. 
+Remova a mídia de recuperação e o sistema reiniciará automaticamente. 

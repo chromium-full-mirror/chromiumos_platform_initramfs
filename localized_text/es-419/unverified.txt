@@ -1,1 +1,1 @@
-ADVERTENCIA: La imagen del medio de recuperación es una imagen de programador sin verificar.  La recuperación continuará, ya que el interruptor del modo de programador de tu Chromebook está en la posición HABILITADO.
+ADVERTENCIA: La imagen del medio de recuperación es una imagen de programador sin verificar.  La recuperación continuará porque el interruptor del modo de programador de tu sistema se encuentra en la posición HABILITADO.

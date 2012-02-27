@@ -1,4 +1,4 @@
-Számítógépe nem egy Chromebook!
+Lehet, hogy számítógépe nem Chrome OS operációs rendszeren fut.
 
 A művelet töröl minden más telepített operációs rendszert
 és minden adatot; nem fog tudni biztonsági másolatot készíteni.

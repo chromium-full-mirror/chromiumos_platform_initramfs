@@ -1,5 +1,5 @@
-Zkontrolujte prosím, zda je Chromebook připojen ke zdroji napájení.
+Zkontrolujte prosím, zda je počítač připojen ke zdroji napájení.
 
 Chcete-li obnovení zrušit, stiskněte a podržte tlačítko napájení,
-dokud se Chromebook nevypne. Trvá to asi 8 sekund.
+dokud se počítač nevypne. Trvá to asi 8 sekund.
 Můžete to bezpečně udělat kdykoli, dokud nebude dokončeno ověření.

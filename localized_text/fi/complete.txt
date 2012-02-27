@@ -1,3 +1,3 @@
-Järjestelmän palautus onnistui!
+Järjestelmän palautus onnistui.
 
-Poista palautustietoväline, niin Chromebook käynnistyy uudelleen automaattisesti.
+Poista palautustietoväline, niin järjestelmä käynnistyy uudelleen automaattisesti.

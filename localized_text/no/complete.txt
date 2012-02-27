@@ -1,5 +1,5 @@
 Systemgjenopprettingen er fullført!
 
 Fjern gjenopprettingsmediet, så starter 
-Chromebooken 
+enheten
 automatisk på nytt.

@@ -1,1 +1,1 @@
-Verifierar integriteten för återställningsmedia.
+Verifierar återställningsmediet.

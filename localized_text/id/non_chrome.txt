@@ -1,4 +1,4 @@
-Sepertinya komputer Anda bukan Chromebook!
+Komputer Anda tampaknya tidak menggunakan sistem Chrome OS!
 
 Operasi ini akan menghapus sistem operasi lainnya yang mungkin telah Anda
 pasang serta semua data yang ada; tidak ada lagi kesempatan untuk mencadangkan.

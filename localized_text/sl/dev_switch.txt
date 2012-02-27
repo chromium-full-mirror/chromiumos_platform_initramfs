@@ -1,3 +1,3 @@
-Stikalo razvijalskega načina v Chromebooku je v položaju ENABLED (omogočeno).
+Stikalo razvijalskega načina v sistemu je v položaju ENABLED (omogočeno).
 
 Če to ni namerno, prekličite obnovitev in preklopite stikalo v položaj DISABLED (onemogočeno).

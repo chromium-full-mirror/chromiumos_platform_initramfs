@@ -1,2 +1,2 @@
-HOIATUS. Kujutis teie taastekandjal on kinnitamata arendaja kujutis.  Taastamine jätkub, kuna teie Chromebooki
+HOIATUS. Kujutis teie taastekandjal on kinnitamata arendaja kujutis.  Taastamine jätkub, kuna teie süsteemi
 arendaja režiimi lüliti on asendis LUBATUD.

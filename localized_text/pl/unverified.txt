@@ -1,3 +1,3 @@
 OSTRZEŻENIE: obraz na nośniku przywracania jest niezweryfikowanym
 obrazem programisty. Przywracanie systemu będzie kontynuowane, ponieważ przełącznik
-trybu programisty na Chromebooku jest w pozycji WŁĄCZONEJ.
+trybu programisty systemu jest w pozycji WŁĄCZONEJ.

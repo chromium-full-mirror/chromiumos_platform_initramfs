@@ -1,3 +1,3 @@
-Le bouton du mode développeur de votre Chromebook est sur la position ACTIVÉ.
+Le commutateur du mode développeur de votre système est sur la position ACTIVÉ.
 
 S'il s'agit d'une erreur, nous vous recommandons d'annuler la récupération, puis de basculer sur DÉSACTIVÉ.

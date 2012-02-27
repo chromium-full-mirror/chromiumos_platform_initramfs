@@ -1,4 +1,4 @@
-Zdá se, že váš počítač není Chromebook!
+Zdá se, že tento počítač nepoužívá systém Chrome OS.
 
 Tato operace smaže všechny jiné operační systémy, které jste
 možná nainstalovali, a všechna data. Nebude možné vytvořit zálohu.

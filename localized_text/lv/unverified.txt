@@ -1,1 +1,1 @@
-BRĪDINĀJUMS: datu nesējā esošais attēls nav verificēts izstrādātāja attēls. Sistēmas atkopšana tiks turpināta, jo Chromebook datora izstrādātāja režīma slēdzis ir IESLĒGTĀ pozīcijā.
+BRĪDINĀJUMS: datu nesējā esošais attēls nav verificēts izstrādātāja attēls. Sistēmas atkopšana tiks turpināta, jo sistēmas izstrādātāja režīma slēdzis ir IESLĒGTĀ pozīcijā.

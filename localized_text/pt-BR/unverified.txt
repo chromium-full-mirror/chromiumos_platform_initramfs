@@ -1,1 +1,1 @@
-AVISO: a imagem em sua mídia de recuperação provém de um programador não verificado.  Como o seletor de modo programador está na posição ATIVADO, a recuperação prosseguirá.
+AVISO: a imagem em sua mídia de recuperação provém de um programador não verificado.  Como o seletor de modo programador do sistema está na posição ATIVADO, a recuperação prosseguirá.

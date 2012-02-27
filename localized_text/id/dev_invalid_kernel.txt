@@ -1,4 +1,4 @@
-PERINGATAN: Anda menggunakan citra pemulihan Chrome OS resmi yang
+PERINGATAN: Anda menggunakan Chrome OS resmi yang lawas atau rusak
          yang sudah usang atau rusak.
 
 Sistem tidak akan melakukan boot dalam mode terverifikasi.

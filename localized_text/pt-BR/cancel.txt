@@ -1,4 +1,4 @@
-Certifique-se de que seu Chromebook esteja conectado a uma fonte de energia. 
+Certifique-se de que seu sistema esteja conectado a uma fonte de energia. 
 
-Se quiser cancelar a recuperação, mantenha o botão ligar/desligar pressionado até que o Chromebook desligue. Isso deve durar, em média, oito segundos.
+Se quiser cancelar a recuperação, mantenha o botão ligar/desligar pressionado até que o sistema desligue. Isso pode demorar até oito segundos.
 É seguro realizar este procedimento a qualquer momento antes do término da verificação.

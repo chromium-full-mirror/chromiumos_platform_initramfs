@@ -1,3 +1,3 @@
-Chromebooki arendaja režiimi lüliti on asendis LUBATUD.
+Süsteemi arendaja režiimi lüliti on asendis LUBATUD.
 
 Kui see on tahtmatu valik, siis tühistage taaste ja pange lüliti asendisse KEELATUD.

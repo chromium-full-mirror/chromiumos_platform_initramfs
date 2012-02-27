@@ -1,4 +1,4 @@
-Kontrollera att Chromebook är ansluten till ett eluttag.
+Kontrollera att systemet är anslutet till ett eluttag.
 
-Om du vill avbryta återställningen trycker du på avstängningsknappen och håller ned den tills Chromebook stängs av. Det tar ca 8 sekunder.
+Om du vill avbryta återställningen trycker du på avstängningsknappen och håller ned den tills systemet stängs av. Det tar ca 8 sekunder.
 Du kan göra det när som helst innan verifieringen är klar.

@@ -1,6 +1,4 @@
-Uw computer lijkt geen Chromebook te zijn.
+Het lijkt erop dat uw computer geen Chrome OS-systeem is.
 
-Als u deze bewerking uitvoert, worden andere geïnstalleerde
-besturingssystemen en alle gegevens verwijderd. Er is geen
-mogelijkheid voor het maken van een back-up.  Als er gegevens
-op deze computer staan die u wilt behouden, moet u het herstel annuleren.
+Als u deze bewerking uitvoert, worden andere geïnstalleerde besturingssystemen en alle gegevens verwijderd. Er is geen mogelijkheid voor het maken van een back-up.
+Als er gegevens op deze computer staan die u wilt behouden, moet u het herstel annuleren.

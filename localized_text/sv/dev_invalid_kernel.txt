@@ -1,4 +1,3 @@
-VARNING! Du använder en gammal eller skadad officiell återställningsbild för Chrome OS
-         .
+VARNING! Du använder en gammal eller skadad officiell återställningsbild för Chrome OS.
 
 Systemet kommer inte att startas om i verifierat läge.

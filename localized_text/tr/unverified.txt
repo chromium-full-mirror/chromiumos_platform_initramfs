@@ -1,1 +1,1 @@
-UYARI: Kurtarma medyanızdaki görüntü, doğrulanmamış bir geliştirici görüntüsü.  Chromebook'unuzun geliştirici modu düğmesi ENABLED (ETKİN) konumunda olduğundan kurtarma işlemi devam edecek.
+UYARI: Kurtarma medyanızdaki görüntü, doğrulanmamış bir geliştirici görüntüsü.  Sisteminizin geliştirici modu düğmesi ENABLED (ETKİN) konumunda olduğundan kurtarma işlemi devam edecek.
