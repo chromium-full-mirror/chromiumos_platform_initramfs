@@ -16,13 +16,26 @@ import cairo
 import pango
 import pangocairo
 
-# The default list of supported locales.  If you're adding a new
-# locale, it's usually (mostly) enough just to update this list.
-# See the README for information about the caveats.
-SUPPORTED_LOCALES = [
-    "de", "en-GB", "en-US", "es", "es-419", "fr", "it", "ja", "ko", "nl",
-    "pt-BR", "sv"
-]
+# The list of supported locales, and their associated fonts.  If
+# you're adding a new locale, it's usually (mostly) enough just to
+# update this dictionary.  See the README for information about the
+# caveats.
+DEFAULT_FONT = "Sans 12"
+SUPPORTED_LOCALES = {
+    "de": DEFAULT_FONT,
+    "en-GB": DEFAULT_FONT,
+    "en-US": DEFAULT_FONT,
+    "es": DEFAULT_FONT,
+    "es-419": DEFAULT_FONT,
+    "fr": DEFAULT_FONT,
+    "it": DEFAULT_FONT,
+    "ja": "IPAPGothic,Sans 12",
+    "ko": "NanumGothic,Sans 12",
+    "nl": DEFAULT_FONT,
+    "pt-BR": DEFAULT_FONT,
+    "sv": DEFAULT_FONT
+}
+
 
 # A handful of locales reuse the texts from other locales.
 # (With apologies to our Aussie and Canadian friends, who really
@@ -54,9 +67,6 @@ MESSAGE_BOX_WIDTH = 1000
 MESSAGE_BOX_HEIGHT = 115
 TEXT_INSET_WIDTH = 50
 TEXT_INSET_HEIGHT = 0
-
-FONT_DESCRIPTION = "Sans 12"
-FONT = pango.FontDescription(FONT_DESCRIPTION)
 
 
 # Progress bar dimensions.
@@ -157,7 +167,7 @@ CRLF_PATTERN = re.compile("\r\n")
 MULTIBLANK_PATTERN = re.compile("   *")
 
 
-def CreateMessageImage(msgtext, imagename):
+def CreateMessageImage(msgtext, locale, imagename):
   """Create a message image file containing the given text.
 
   `msgtxt` is a string with the text; it has already been adjusted
@@ -182,7 +192,8 @@ def CreateMessageImage(msgtext, imagename):
   layout.set_width((MESSAGE_BOX_WIDTH - 2 * TEXT_INSET_WIDTH) * pango.SCALE)
 
   # Actually write the text to the canvas.
-  layout.set_font_description(FONT)
+  font = pango.FontDescription(SUPPORTED_LOCALES.get(locale, DEFAULT_FONT))
+  layout.set_font_description(font)
   layout.set_text(msgtext)
   context.set_source_rgb(FG_RED, FG_GREEN, FG_BLUE)
   pangocontext.update_layout(layout)
@@ -255,7 +266,7 @@ def CreateLocales(textdir, screendir, locale_list):
   """
   empty_base = "empty.png"
   empty_file = os.path.join(screendir, empty_base)
-  CreateMessageImage("", empty_file)
+  CreateMessageImage("", "en-US", empty_file)
 
   for locale in locale_list:
     print "Locale %s" % locale
@@ -280,7 +291,7 @@ def CreateLocales(textdir, screendir, locale_list):
         msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
         msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
         pngfilename = os.path.join(locale_screen, tag + ".png")
-        CreateMessageImage(msgtext, pngfilename)
+        CreateMessageImage(msgtext, locale, pngfilename)
   os.unlink(empty_file)
 
 
@@ -357,7 +368,7 @@ def main(argv):
   that usage before you tinker with the command line syntax.
 
   """
-  locale_list = SUPPORTED_LOCALES
+  locale_list = SUPPORTED_LOCALES.keys()
   if len(argv) == 1:
     textdir = "localized_text"
     screendir = "screens"
