@@ -1,3 +1,4 @@
-System recovery has begun.
+System recovery is in progress...
 
-Please do not disconnect from a power source or power down.
+This will take a few minutes. Please do not turn off the system or
+disconnect the power.

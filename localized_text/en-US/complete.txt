@@ -1,4 +1,4 @@
-System recovery is complete!
+System recovery is complete.
 
-Please remove the recovery media and your system will
-restart automatically.
+Please remove the recovery media and your system will restart
+automatically.

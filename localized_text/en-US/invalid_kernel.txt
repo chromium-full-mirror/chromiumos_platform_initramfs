@@ -1,6 +1,6 @@
-The image on the recovery media is corrupted or out-of-date.
-New recovery media can be created by following instructions at:
+You are using an out-of-date Chrome OS recovery image.
+
+Please refer to this URL for instructions on how to create new
+recovery media:
 
 https://www.google.com/chromeos/recovery
-
-Please try recovery again with newly created recovery media.
