@@ -75,8 +75,8 @@ set_box_boundaries() {
   DEVMODE_BOX_TOP=$(( message_boxes_top + 2 * MESSAGE_BOX_HEIGHT ))
 }
 
-# Present a message screen aligned to the left of the display at a
-# specified Y-coordinate.
+# Present a message screen horizontally centered at a specified
+# Y-coordinate.
 #
 # Arg 1:  the Y-coordinate.
 # Args 2..$#:  arguments for ply-image.
@@ -86,10 +86,23 @@ showbox() {
   ply-image --location $location "$@"
 }
 
-# During installation, we show a spinner animation inside the
-# "progress" message box.  The animation moves at a constant speed
-# that's currently not tied to any measure of progress; it's meant
-# merely for keeping up appearances...
+# Display an icon next to text in the message box with the given
+# Y-coordinate.  The settings of ICON_INSET_LEFT and ICON_INSET_TOP
+# are used to determine placement of the icon within the box.
+#
+# Arg 1:  the Y-coordinate of the text box.
+# Args 2..$#:  arguments for ply-image.
+showicon() {
+  local icon_left=$(( MESSAGE_BOX_LEFT + ICON_INSET_LEFT ))
+  local icon_top=$(( $1 + ICON_INSET_TOP ))
+  shift
+  ply-image --location $icon_left,$icon_top "$@"
+}
+
+# During installation, we show a spinner animation beside the text
+# in the "instruction" message box.  The animation moves at a
+# constant speed that's currently not tied to any measure of
+# progress; it's meant merely for keeping up appearances...
 show_install_spinner() {
   # The termination logic here is a nuisance.  We'd like to stop the
   # animation as soon as we get SIGTERM, but we have to make sure
@@ -100,7 +113,7 @@ show_install_spinner() {
   trap 'TERMINATED=1' TERM
 
   while [ $TERMINATED -eq 0 ] ; do
-    ply-image --frame-interval=100 $SCREENS/spinner/*.png
+    showicon $INSTRUCTION_BOX_TOP --frame-interval=115 $SCREENS/spinner_*.png
   done
 }
 
@@ -173,6 +186,7 @@ make_user_wait() {
 # Generic message to report an error.
 message_on_error() {
   instructions error
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
   progress empty
   dev_notice empty
 }
@@ -247,6 +261,7 @@ message_recovery_complete() {
   kill $SPINNER_PID
   wait $SPINNER_PID
   instructions complete
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_check.png
   progress empty
 }
 
@@ -263,6 +278,7 @@ message_warn_invalid_install_kernel() {
 # This is an error condition equivalent to on_error, below.
 message_invalid_install_kernel() {
   instructions invalid_kernel
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
   save_log_file
   sleep 1d
   exit 1

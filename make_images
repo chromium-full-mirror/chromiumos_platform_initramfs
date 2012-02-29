@@ -57,16 +57,27 @@ LOCALE_LINKS = [
 #     allocated for messages in "boot_message.png".  At the time of
 #     this comment, the limit is 115 pixels.
 # TEXT_INSET_WIDTH:
-#     Message images will have a border of this many pixels on the
+#     Message images will have a margin of this many pixels on the
 #     right and left of the text.
 # TEXT_INSET_HEIGHT:
-#     Message images will have a border of this many pixels on the
+#     Message images will have a margin of this many pixels on the
 #     top and bottom of the text.
+# ICON_INSET_LEFT:
+#     Some messages include an icon (e.g. the activity spinner)
+#     beside the text.  This is the number of pixels to inset the
+#     image from the left of the message image.  Icons are 21 or 22
+#     pixels wide, so the inset must be at least 22 pixels less than
+#     the text inset.
+# ICON_INSET_TOP:
+#     Inset from the top of the message image for a message icon.
 
 MESSAGE_BOX_WIDTH = 1000
 MESSAGE_BOX_HEIGHT = 115
 TEXT_INSET_WIDTH = 50
 TEXT_INSET_HEIGHT = 0
+_ICON_WIDTH = 22
+ICON_INSET_LEFT = TEXT_INSET_WIDTH - _ICON_WIDTH - 10
+ICON_INSET_TOP = TEXT_INSET_HEIGHT
 
 
 # Progress bar dimensions.
@@ -87,26 +98,30 @@ TEXT_INSET_HEIGHT = 0
 # PROGRESS_BAR_HEIGHT:
 #     The height in pixels of the progress bar, not counting the
 #     borders.
-# PROGRESS_BAR_BORDER:
-#     The thickness of the borders in pixels.  The inner and outer
-#     borders have the same thickness.
+# PROGRESS_BAR_OUTER_BORDER:
+#     The thickness of the outer border in pixels.
+# PROGRESS_BAR_INNER_BORDER:
+#     The thickness of the inner border in pixels.
 # PROGRESS_BAR_INSET:
 #     The inset (width and height) for the progress bar increments
-#     within the progress bar image; this is just twice the border.
-#     This value is only used in constants.sh.
+#     within the progress bar image; this is just the sum of the
+#     thickness of the inner and outer border.
 # PROGRESS_BAR_LEFT:
 #     Offset from the left of the message box where the progress bar
-#     should be placed.  This value is only used in constants.sh.
+#     should be placed.  This value is calculated for use in
+#     constants.sh.
 # PROGRESS_BAR_TOP:
 #     Offset from the top of the message box where the progress bar
-#     should be placed.  This value is only used in constants.sh.
+#     should be placed.  This value is calculated for use in
+#     constants.sh.
 
-PROGRESS_BAR_INCREMENT = 4
+PROGRESS_BAR_INCREMENT = 3
 PROGRESS_BAR_WIDTH = 100 * PROGRESS_BAR_INCREMENT
-PROGRESS_BAR_HEIGHT = 20
-PROGRESS_BAR_BORDER = 5
+PROGRESS_BAR_HEIGHT = 17
+PROGRESS_BAR_OUTER_BORDER = 2
+PROGRESS_BAR_INNER_BORDER = 1
 
-PROGRESS_BAR_INSET = 2 * PROGRESS_BAR_BORDER
+PROGRESS_BAR_INSET = PROGRESS_BAR_OUTER_BORDER + PROGRESS_BAR_INNER_BORDER
 PROGRESS_BAR_LEFT = TEXT_INSET_WIDTH
 PROGRESS_BAR_TOP = 40
 
@@ -129,8 +144,8 @@ PROGRESS_BAR_TOP = 40
 # component values that Cairo expects to be passed.
 
 BACKGROUND = 0xfefefe
-TEXT_COLOR = 0x000000
-PROGRESS_COLOR = 0x404040
+TEXT_COLOR = 0x333333
+PROGRESS_COLOR = 0xbbbbbb
 
 
 def calc_cairo_rgb(rgb24):
@@ -219,17 +234,17 @@ def CreateProgressBar(image_dir):
 
   """
   surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
-                               PROGRESS_BAR_WIDTH + 4*PROGRESS_BAR_BORDER,
-                               PROGRESS_BAR_HEIGHT + 4*PROGRESS_BAR_BORDER)
+                               PROGRESS_BAR_WIDTH + 2*PROGRESS_BAR_INSET,
+                               PROGRESS_BAR_HEIGHT + 2*PROGRESS_BAR_INSET)
   context = cairo.Context(surface)
   context.rectangle(0, 0,
-                    PROGRESS_BAR_WIDTH + 4*PROGRESS_BAR_BORDER,
-                    PROGRESS_BAR_HEIGHT + 4*PROGRESS_BAR_BORDER)
+                    PROGRESS_BAR_WIDTH + 2*PROGRESS_BAR_INSET,
+                    PROGRESS_BAR_HEIGHT + 2*PROGRESS_BAR_INSET)
   context.set_source_rgb(PB_RED, PB_GREEN, PB_BLUE)
   context.fill()
-  context.rectangle(PROGRESS_BAR_BORDER, PROGRESS_BAR_BORDER,
-                    PROGRESS_BAR_WIDTH + 2*PROGRESS_BAR_BORDER,
-                    PROGRESS_BAR_HEIGHT + 2*PROGRESS_BAR_BORDER)
+  context.rectangle(PROGRESS_BAR_OUTER_BORDER, PROGRESS_BAR_OUTER_BORDER,
+                    PROGRESS_BAR_WIDTH + 2*PROGRESS_BAR_INNER_BORDER,
+                    PROGRESS_BAR_HEIGHT + 2*PROGRESS_BAR_INNER_BORDER)
   context.set_source_rgb(BG_RED, BG_GREEN, BG_BLUE)
   context.fill()
 
@@ -337,6 +352,8 @@ def CreateConstantDefs(image_dir):
     ("BACKGROUND",             "%06x"),
     ("MESSAGE_BOX_WIDTH",      "%d"),
     ("MESSAGE_BOX_HEIGHT",     "%d"),
+    ("ICON_INSET_LEFT",        "%d"),
+    ("ICON_INSET_TOP",         "%d"),
     ("PROGRESS_BAR_INCREMENT", "%d"),
     ("PROGRESS_BAR_INSET",     "%d"),
     ("PROGRESS_BAR_LEFT",      "%d"),
