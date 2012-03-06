@@ -29,7 +29,7 @@ SUPPORTED_LOCALES = {
     "es-419": DEFAULT_FONT,
     "fr": DEFAULT_FONT,
     "it": DEFAULT_FONT,
-    "ja": "IPAPGothic,Sans 12",
+    "ja": "MotoyaG04Gothic,IPAPGothic,Sans 12",
     "ko": "NanumGothic,Sans 12",
     "nl": DEFAULT_FONT,
     "pt-BR": DEFAULT_FONT,
