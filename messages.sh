@@ -9,7 +9,25 @@
 SCREENS=/etc/screens
 LANGDIR=
 
+# Message screens are presented in one of three boxes:
+# + The 'instructions' box is used for messages telling users
+#   what they can or should do.  It's for messages like "here's how
+#   to cancel", or "don't turn off your computer".
+# + The 'progress' box is used for to inform users how things are
+#   going.  It's for animations and messages that describe what
+#   work is being done, or to show percentage completion of an
+#   operation.
+# + The 'devmode' box is for messages that should only occur in
+#   developer mode, or on non-chrome hardware.
+#
+# The boxes are assigned locations on the screen, top to bottom in
+# the order cited above.  The locations are selected so that the
+# box ensemble is centered horizontally and vertically.
+
 . $SCREENS/constants.sh
+INSTRUCTION_BOX_TOP=-$MESSAGE_BOX_HEIGHT
+PROGRESS_BOX_TOP=0
+DEVMODE_BOX_TOP=$MESSAGE_BOX_HEIGHT
 
 # User visible message logged w/ 'echo'
 log() {
@@ -45,45 +63,15 @@ select_locale() {
   dlog "selected locale $LANGDIR"
 }
 
-# Message screens are presented in one of three boxes:
-# + The 'instructions' box is used for messages telling users
-#   what they can or should do.  It's for messages like "here's how
-#   to cancel", or "don't turn off your computer".
-# + The 'progress' box is used for to inform users how things are
-#   going.  It's for animations and messages that describe what
-#   work is being done, or to show percentage completion of an
-#   operation.
-# + The 'devmode' box is for messages that should only occur in
-#   developer mode, or on non-chrome hardware.
-#
-# The boxes are assigned locations on the screen, top to bottom in
-# the order cited above.  The locations are selected so that the
-# boxes are centered horizontally and vertically.  /sys isn't
-# mounted at startup, so we have to invoke a function to calculate
-# the message box boundaries later.
-set_box_boundaries() {
-  set $(sed 's/,/ /' /sys/class/graphics/fb0/virtual_size)
-  local screen_width=$1
-  local screen_height=$2
-
-  MESSAGE_BOX_LEFT=$(( (screen_width - MESSAGE_BOX_WIDTH) / 2 ))
-
-  local message_boxes_top=$((
-      (screen_height - 3 * MESSAGE_BOX_HEIGHT) / 2 ))
-  INSTRUCTION_BOX_TOP=$(( message_boxes_top + 0 * MESSAGE_BOX_HEIGHT ))
-  PROGRESS_BOX_TOP=$(( message_boxes_top + 1 * MESSAGE_BOX_HEIGHT ))
-  DEVMODE_BOX_TOP=$(( message_boxes_top + 2 * MESSAGE_BOX_HEIGHT ))
-}
-
 # Present a message screen horizontally centered at a specified
 # Y-coordinate.
 #
 # Arg 1:  the Y-coordinate.
 # Args 2..$#:  arguments for ply-image.
 showbox() {
-  local location=$MESSAGE_BOX_LEFT,$1
+  local offset=0,$1
   shift
-  ply-image --location $location "$@"
+  ply-image --offset $offset "$@"
 }
 
 # Display an icon next to text in the message box with the given
@@ -93,10 +81,10 @@ showbox() {
 # Arg 1:  the Y-coordinate of the text box.
 # Args 2..$#:  arguments for ply-image.
 showicon() {
-  local icon_left=$(( MESSAGE_BOX_LEFT + ICON_INSET_LEFT ))
+  local icon_left=$(( ICON_INSET_LEFT ))
   local icon_top=$(( $1 + ICON_INSET_TOP ))
   shift
-  ply-image --location $icon_left,$icon_top "$@"
+  ply-image --offset $icon_left,$icon_top "$@"
 }
 
 # During installation, we show a spinner animation beside the text
@@ -146,19 +134,19 @@ dev_notice() {
 # As each value is read, the progress bar is updated to reflect
 # the percentage.
 progress_bar() {
-  local image_left=$(( MESSAGE_BOX_LEFT + PROGRESS_BAR_LEFT ))
+  local image_left=$(( PROGRESS_BAR_LEFT ))
   local image_top=$(( PROGRESS_BOX_TOP + PROGRESS_BAR_TOP ))
-  ply-image --location $image_left,$image_top $SCREENS/progress_box.png
+  ply-image --offset $image_left,$image_top $SCREENS/progress_box.png
 
-  local bar_left=$(( image_left + PROGRESS_BAR_INSET ))
-  local bar_top=$(( image_top + PROGRESS_BAR_INSET ))
-  local leftmost=$bar_left
+  local incr_left=$(( PROGRESS_INCREMENT_LEFT ))
+  local incr_top=$(( PROGRESS_BOX_TOP + PROGRESS_INCREMENT_TOP ))
+  local leftmost=$incr_left
   local percent=""
   while read percent; do
-    local rightmost=$(( bar_left + PROGRESS_BAR_INCREMENT * percent ))
+    local rightmost=$(( incr_left + PROGRESS_INCREMENT * percent ))
     while [ $leftmost -lt $rightmost ]; do
-      ply-image --location $leftmost,$bar_top $SCREENS/progress_increment.png
-      leftmost=$(( leftmost + PROGRESS_BAR_INCREMENT ))
+      ply-image --offset $leftmost,$incr_top $SCREENS/progress_increment.png
+      leftmost=$(( leftmost + PROGRESS_INCREMENT ))
     done
   done
 }
@@ -204,9 +192,10 @@ message_startup() {
   # This 'echo' prevents the text cursor image from showing up after
   # ply-image has pushed the screen image.
   echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
+
   ply-image --clear "0x$BACKGROUND"
   ply-image $SCREENS/boot_message.png
-  set_box_boundaries
+
   select_locale
 
   instructions cancel

@@ -62,23 +62,11 @@ LOCALE_LINKS = [
 # TEXT_INSET_HEIGHT:
 #     Message images will have a margin of this many pixels on the
 #     top and bottom of the text.
-# ICON_INSET_LEFT:
-#     Some messages include an icon (e.g. the activity spinner)
-#     beside the text.  This is the number of pixels to inset the
-#     image from the left of the message image.  Icons are 21 or 22
-#     pixels wide, so the inset must be at least 22 pixels less than
-#     the text inset.
-# ICON_INSET_TOP:
-#     Inset from the top of the message image for a message icon.
 
 MESSAGE_BOX_WIDTH = 1000
 MESSAGE_BOX_HEIGHT = 115
 TEXT_INSET_WIDTH = 50
 TEXT_INSET_HEIGHT = 0
-_ICON_WIDTH = 22
-ICON_INSET_LEFT = TEXT_INSET_WIDTH - _ICON_WIDTH - 10
-ICON_INSET_TOP = TEXT_INSET_HEIGHT
-
 
 # Progress bar dimensions.
 # The progress bar is laid out along these lines:
@@ -90,40 +78,113 @@ ICON_INSET_TOP = TEXT_INSET_HEIGHT
 #       |
 #       +---- Progress bar increments
 #
-# PROGRESS_BAR_INCREMENT:
+# PROGRESS_INCREMENT:
 #     The width in pixels of a 1% increment in the progress bar.
-# PROGRESS_BAR_WIDTH:
-#     The total width in pixels of the progress bar, not counting
-#     the borders.  This is the same as the width of 100 increments.
-# PROGRESS_BAR_HEIGHT:
-#     The height in pixels of the progress bar, not counting the
-#     borders.
+# PROGRESS_INCREMENT_HEIGHT:
+#     The height in pixels of a progress bar increment.
 # PROGRESS_BAR_OUTER_BORDER:
-#     The thickness of the outer border in pixels.
+#     The thickness in pixels of the outer border.
 # PROGRESS_BAR_INNER_BORDER:
-#     The thickness of the inner border in pixels.
+#     The thickness in pixels of the inner border.
 # PROGRESS_BAR_INSET:
 #     The inset (width and height) for the progress bar increments
 #     within the progress bar image; this is just the sum of the
 #     thickness of the inner and outer border.
-# PROGRESS_BAR_LEFT:
-#     Offset from the left of the message box where the progress bar
-#     should be placed.  This value is calculated for use in
-#     constants.sh.
-# PROGRESS_BAR_TOP:
-#     Offset from the top of the message box where the progress bar
-#     should be placed.  This value is calculated for use in
-#     constants.sh.
+# PROGRESS_BAR_WIDTH:
+#     The total width in pixels of the progress bar, including the
+#     borders.
+# PROGRESS_BAR_HEIGHT:
+#     The total height in pixels of the progress bar, including the
+#     borders.
 
-PROGRESS_BAR_INCREMENT = 3
-PROGRESS_BAR_WIDTH = 100 * PROGRESS_BAR_INCREMENT
-PROGRESS_BAR_HEIGHT = 17
+PROGRESS_INCREMENT = 3
+PROGRESS_INCREMENT_HEIGHT = 17
 PROGRESS_BAR_OUTER_BORDER = 2
 PROGRESS_BAR_INNER_BORDER = 1
 
 PROGRESS_BAR_INSET = PROGRESS_BAR_OUTER_BORDER + PROGRESS_BAR_INNER_BORDER
-PROGRESS_BAR_LEFT = TEXT_INSET_WIDTH
-PROGRESS_BAR_TOP = 40
+PROGRESS_BAR_WIDTH = 100*PROGRESS_INCREMENT + 2*PROGRESS_BAR_INSET
+PROGRESS_BAR_HEIGHT = PROGRESS_INCREMENT_HEIGHT + 2*PROGRESS_BAR_INSET
+
+
+# Parameters for placement of message icons and the progress bar.
+# "LEFT" and "TOP" are calculated as offsets relative to the center
+# of the message image; see OffsetFromCenter(), below.
+#
+# These are calculated just to be available in constants.sh.
+#
+# ICON_INSET_LEFT:
+#     Some messages include an icon (e.g. the activity spinner)
+#     beside the text.  This is the number of pixels to inset the
+#     icon image on the X axis.  Icons are 21 or 22 pixels wide, so
+#     the inset must be at least 22 pixels less than the text inset.
+# ICON_INSET_TOP:
+#     Inset from the top of the message image for a message icon.
+# PROGRESS_BAR_LEFT:
+#     Offset along the X axis where the progress bar should be
+#     placed.
+# PROGRESS_BAR_TOP:
+#     Offset along the Y axis where the progress bar should be
+#     placed.
+# PROGRESS_INCREMENT_LEFT:
+#     Offset along the X axis for placement of the leftmost progress
+#     bar increment.
+# PROGRESS_INCREMENT_TOP:
+#     Offset along the Y axis for placement of the top of progress
+#     bar increments.
+
+def _OffsetFromCenter(offset, target, reference):
+  """Return the offset needed to align images with ply-image --offset.
+
+  `ply-image --offset` places the center of an image at an offset
+  from the center of the screen.  In cases where we want to place
+  the _edge_ of a target image A at a location relative to the same
+  edge of a reference image B, the distance to the center of A and B
+  must both be accounted for.
+
+  This function performs the necessary calculations to find the
+  offset to apply in either the X or Y direction, given the
+  corresponding width or height of the target and reference images.
+
+  Arguments:
+  `offset`:  Desired offset relative to the edge (top or left) of
+      the reference image.
+  `target`:  Size (width or height) of the target image.
+  `reference`:  Size (width or height) of the reference image.
+
+  Returns the offset from the center of the target image needed to
+  place the target at `offset`.
+  """
+  # The two separate rounding expressions here are necessary as is,
+  # to account for the centering from the two separate ply-image
+  # invocations.  This rounding may nonetheless do the wrong thing
+  # if the screen has an odd number of rows or columns.  :-(
+  #
+  # Don't try to tweak this unless you really know what you're
+  # doing, you've studied the relevant code in ply-image, and you've
+  # tested all four cases of (target, reference) x (even, odd).
+  # You have been warned.
+  return offset + (target + 1) / 2 - (reference + 1) / 2
+
+
+_ICON_WIDTH = 22
+ICON_INSET_LEFT = _OffsetFromCenter(TEXT_INSET_WIDTH - _ICON_WIDTH - 10,
+                                    _ICON_WIDTH, MESSAGE_BOX_WIDTH)
+ICON_INSET_TOP = _OffsetFromCenter(TEXT_INSET_HEIGHT,
+                                   _ICON_WIDTH, MESSAGE_BOX_HEIGHT)
+
+_PROGRESS_BAR_TOP_OFFSET = 40
+PROGRESS_BAR_LEFT = _OffsetFromCenter(TEXT_INSET_WIDTH,
+                                     PROGRESS_BAR_WIDTH, MESSAGE_BOX_WIDTH)
+PROGRESS_BAR_TOP = _OffsetFromCenter(_PROGRESS_BAR_TOP_OFFSET,
+                                     PROGRESS_BAR_HEIGHT, MESSAGE_BOX_HEIGHT)
+
+PROGRESS_INCREMENT_LEFT = _OffsetFromCenter(
+                              TEXT_INSET_WIDTH + PROGRESS_BAR_INSET,
+                              PROGRESS_INCREMENT, MESSAGE_BOX_WIDTH)
+PROGRESS_INCREMENT_TOP = _OffsetFromCenter(
+                              _PROGRESS_BAR_TOP_OFFSET + PROGRESS_BAR_INSET,
+                              PROGRESS_INCREMENT_HEIGHT, MESSAGE_BOX_HEIGHT)
 
 
 # Color parameters:
@@ -234,17 +295,15 @@ def CreateProgressBar(image_dir):
 
   """
   surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
-                               PROGRESS_BAR_WIDTH + 2*PROGRESS_BAR_INSET,
-                               PROGRESS_BAR_HEIGHT + 2*PROGRESS_BAR_INSET)
+                               PROGRESS_BAR_WIDTH, PROGRESS_BAR_HEIGHT)
   context = cairo.Context(surface)
   context.rectangle(0, 0,
-                    PROGRESS_BAR_WIDTH + 2*PROGRESS_BAR_INSET,
-                    PROGRESS_BAR_HEIGHT + 2*PROGRESS_BAR_INSET)
+                    PROGRESS_BAR_WIDTH, PROGRESS_BAR_HEIGHT)
   context.set_source_rgb(PB_RED, PB_GREEN, PB_BLUE)
   context.fill()
   context.rectangle(PROGRESS_BAR_OUTER_BORDER, PROGRESS_BAR_OUTER_BORDER,
-                    PROGRESS_BAR_WIDTH + 2*PROGRESS_BAR_INNER_BORDER,
-                    PROGRESS_BAR_HEIGHT + 2*PROGRESS_BAR_INNER_BORDER)
+                    PROGRESS_BAR_WIDTH - 2*PROGRESS_BAR_OUTER_BORDER,
+                    PROGRESS_BAR_HEIGHT - 2*PROGRESS_BAR_OUTER_BORDER)
   context.set_source_rgb(BG_RED, BG_GREEN, BG_BLUE)
   context.fill()
 
@@ -255,9 +314,12 @@ def CreateProgressBar(image_dir):
   print "wrote %s" % os.path.basename(filename)
 
   surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
-                               PROGRESS_BAR_INCREMENT, PROGRESS_BAR_HEIGHT)
+                               PROGRESS_INCREMENT,
+                               PROGRESS_INCREMENT_HEIGHT)
   context = cairo.Context(surface)
-  context.rectangle(0, 0, PROGRESS_BAR_INCREMENT, PROGRESS_BAR_HEIGHT)
+  context.rectangle(0, 0,
+                    PROGRESS_INCREMENT,
+                    PROGRESS_INCREMENT_HEIGHT)
   context.set_source_rgb(PB_RED, PB_GREEN, PB_BLUE)
   context.fill()
 
@@ -349,15 +411,16 @@ def CreateConstantDefs(image_dir):
 
   """
   export_vars = [
-    ("BACKGROUND",             "%06x"),
-    ("MESSAGE_BOX_WIDTH",      "%d"),
-    ("MESSAGE_BOX_HEIGHT",     "%d"),
-    ("ICON_INSET_LEFT",        "%d"),
-    ("ICON_INSET_TOP",         "%d"),
-    ("PROGRESS_BAR_INCREMENT", "%d"),
-    ("PROGRESS_BAR_INSET",     "%d"),
-    ("PROGRESS_BAR_LEFT",      "%d"),
-    ("PROGRESS_BAR_TOP",       "%d"),
+    ("BACKGROUND",              "%06x"),
+    ("MESSAGE_BOX_WIDTH",       "%d"),
+    ("MESSAGE_BOX_HEIGHT",      "%d"),
+    ("ICON_INSET_LEFT",         "%d"),
+    ("ICON_INSET_TOP",          "%d"),
+    ("PROGRESS_BAR_LEFT",       "%d"),
+    ("PROGRESS_BAR_TOP",        "%d"),
+    ("PROGRESS_INCREMENT",      "%d"),
+    ("PROGRESS_INCREMENT_LEFT", "%d"),
+    ("PROGRESS_INCREMENT_TOP",  "%d"),
   ]
   fileheader = """\
 # Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
