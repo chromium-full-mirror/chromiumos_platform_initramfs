@@ -1,4 +1,4 @@
 System recovery is in progress...
 
-This will take a few minutes. Please do not turn off the system or
+This will take a few minutes. Please do not turn off the computer or
 disconnect the power.
