@@ -1,4 +1,5 @@
-ADVARSEL: Du bruger en forældet eller beskadiget officiel version af Chrome OS
-         genoprettelsesbillede.
+Du bruger et forældet officielt billede til genoprettelse af Chrome OS.
 
-Systemet genstarter ikke i bekræftet tilstand.
+Gendannelsen fortsætter, fordi bekræftelsen er deaktiveret.
+Hvis du senere aktiverer bekræftelsen igen, skal du gentage
+genoprettelsen med et opdateret Chrome OS-billede.

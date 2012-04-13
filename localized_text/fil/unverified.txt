@@ -1,1 +1,4 @@
-BABALA:  Isang hindi na-verify na larawan ng developer ang larawan sa iyong media sa pagbawi.  Magpapatuloy ang pagbawi, dahil nasa posisyong PINAPAGANA ang switch ng mode ng developer ng iyong system.
+Isang hindi na-verify na larawan ng developer ang larawan sa iyong media sa pagbawi.
+
+Magpapatuloy ang pagbawi dahil naka-off ang na-verify na boot.
+Kung i-o-on mong muli ang pag-verify sa ibang pagkakataon, kakailanganin mong ulitin ang pagbawi gamit ang isang opisyal na larawan ng Chrome OS.

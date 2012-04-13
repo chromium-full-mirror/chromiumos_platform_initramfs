@@ -1,6 +1,6 @@
-La imagen del medio de recuperación está obsoleta o dañada.
-Para crear un nuevo medio de recuperación, consulta las instrucciones disponibles en la siguiente página:
+Estás utilizando una imagen de recuperación de Chrome OS que está obsoleta.
+
+Para obtener instrucciones sobre cómo crear nuevos
+medios de recuperación, consulta esta URL:
 
 https://www.google.com/chromeos/recovery
-
-Vuelve a intentar realizar la recuperación del sistema con el nuevo medio de recuperación que hayas creado.

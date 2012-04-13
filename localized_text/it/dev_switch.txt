@@ -1,3 +1,5 @@
-Lo switch della modalità sviluppatore del sistema è in posizione ATTIVA.
+La verifica di Chrome OS non è attiva.
 
-Se non è intenzionale, dovresti annullare il ripristino e spostare lo switch in posizione NON ATTIVA.
+Se la disattivazione non è intenzionale, annulla il ripristino e disattiva la modalità sviluppatore per attivare la verifica. Per ulteriori informazioni, visita il sito all'indirizzo:
+
+https://www.google.com/chromeos/recovery

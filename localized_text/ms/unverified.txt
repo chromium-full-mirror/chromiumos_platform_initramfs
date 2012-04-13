@@ -1,0 +1,4 @@
+Imej pada media pemulihan anda ialah imej pembangun yang tidak disahkan.
+
+Pemulihan akan diteruskan kerana but yang disahkan dimatikan.
+Jika anda menghidupkan kembali pengesahan kemudian, anda perlu mengulangi pemulihan menggunakan imej Chrome OS rasmi.

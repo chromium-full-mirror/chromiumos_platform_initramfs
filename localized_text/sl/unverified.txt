@@ -1,1 +1,5 @@
-OPOZORILO: Posnetek na obnovitvenem nosilcu je nepreverjen razvijalski posnetek.  Obnovitev se bo nadaljevala, ker je stikalo razvijalskega načina v sistemu v položaju ENABLED (omogočeno).
+Posnetek na obnovitvenem nosilcu je nepreverjen razvijalski posnetek.
+
+Obnova se bo nadaljevala, ker je preverjen zagon izklopljen.
+Če pozneje spet vklopite preverjanje,
+boste morali obnovitev ponoviti z uradnim posnetkom za Chrome OS.

@@ -1,6 +1,6 @@
-Citra di media pemulihan rusak atau usang.
-Media pemulihan baru dapat dibuat dengan mengikuti petunjuk di:
+Anda menggunakan citra pemulihan Chrome OS yang kedaluwarsa.
+
+Buka URL berikut untuk petunjuk cara membuat media
+pemulihan baru:
 
 https://www.google.com/chromeos/recovery
-
-Coba lagi pemulihan dengan media pemulihan yang baru dibuat.

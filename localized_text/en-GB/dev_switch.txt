@@ -1,4 +1,7 @@
-Your system's developer mode switch is in the ENABLED position.
+Chrome OS verification is turned off.
 
-If this is unintentional, you should cancel recovery and toggle the
-switch to DISABLED.
+If this is unintentional, you should cancel recovery and disable
+developer mode in order to enable verification.  For more information,
+refer to this URL:
+
+https://www.google.com/chromeos/recovery

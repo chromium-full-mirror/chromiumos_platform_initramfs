@@ -1,4 +1,4 @@
-Obnovení systému je dokončeno!
+Obnovení systému je dokončeno.
 
 Odeberte prosím médium pro obnovení. Počítač
 se automaticky restartuje.

@@ -1,6 +1,5 @@
-La imagen del medio de recuperación está desactualizada o dañada.
-Puedes crear un nuevo medio de recuperación al seguir las instrucciones de
+Estás usando una imagen de recuperación del sistema operativo de Chrome desactualizada.
+
+Para obtener instrucciones acerca de cómo crear nuevos medios de recuperación, visita esta URL:
 
 https://www.google.com/chromeos/recovery
-
-Vuelve a intentar la recuperación con un medio de recuperación recién creado.

@@ -1,3 +1,5 @@
-El interruptor del modo de programador de tu sistema se encuentra en la posición HABILITADO.
+La verificación del sistema operativo de Chrome está desactivada.
 
-Si esto es intencional, debes cancelar la recuperación y cambiar el interruptor a INHABILITADO.
+Si la desactivación es involuntaria, debes cancelar la recuperación e inhabilitar el modo de programador para habilitar la verificación.  Para obtener más información, visita esta URL:
+
+https://www.google.com/chromeos/recovery

@@ -1,3 +1,7 @@
-Sisteminizin geliştirici modu düğmesi ENABLED (EKTİN) konumunda.
+Chrome OS doğrulaması kapalı.
 
-Bunu isteyerek yapmadıysanız, kurtarmayı iptal edip düğmeyi DISABLED (DEVRE DIŞI) konumuna getirmelisiniz.
+Bu durumun farkında değildiyseniz, doğrulamayı etkinleştirmek
+için kurtarma işlemini iptal etmeniz ve geliştirici modunu devre dışı bırakmanız gerekir. Daha fazla bilgi için
+şu URL'ye bakın:
+
+https://www.google.com/chromeos/recovery

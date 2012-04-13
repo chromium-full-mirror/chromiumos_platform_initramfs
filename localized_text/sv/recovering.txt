@@ -1,3 +1,3 @@
-Systemåterställningen har startat.
+Systemåterställningen pågår ...
 
-Stäng inte av systemet och koppla inte ur eluttaget.
+Det tar några minuter. Stäng inte av datorn eller dra ur nätkabeln.

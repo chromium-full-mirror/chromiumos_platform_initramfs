@@ -1,3 +1,4 @@
-Une erreur irréversible s'est produite lors de la récupération !
+Une erreur inattendue s'est produite. Veuillez consulter les conseils de dépannage
+disponibles à l'adresse suivante :
 
-Veuillez réessayer ou utiliser une image de récupération plus récente.
+https://www.google.com/chromeos/recovery

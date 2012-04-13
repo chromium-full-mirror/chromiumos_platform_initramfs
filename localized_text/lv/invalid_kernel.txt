@@ -1,6 +1,6 @@
-Sistēmas atkopšanas datu nesējā esošais attēls ir bojāts vai novecojis.
-Jaunu sistēmas atkopšanas datu nesēju var izveidot, izpildot norādījumus, kas minēti šeit:
+Jūs lietojat novecojušu Chrome OS atkopšanas attēlu.
 
-https://www.google.com/chromeos/recovery
+Norādījumus par jauna atkopšanas datu nesēja
+izveidi skatiet šajā vietnē:
 
-Mēģiniet vēlreiz atkopt sistēmu, izmantojot tikko izveidoto sistēmas atkopšanas datu nesēju.
+https://www.google.com/chromeos/recovery.

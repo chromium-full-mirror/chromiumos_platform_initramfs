@@ -1,6 +1,6 @@
-Billedet på genoprettelsesmediet er beskadiget eller forældet.
-Du kan oprette et nyt genoprettelsesmedie ved at følge vejledning nedenfor:
+Du bruger et forældet billede til genoprettelse af Chrome OS.
+
+Gå til denne webadresse for at få en vejledning i, hvordan du opretter et nyt
+genoprettelsesmedie:
 
 https://www.google.com/chromeos/recovery
-
-Prøv at genoprette igen ved hjælp af det nyoprettede genoprettelsesmedie.

@@ -1,3 +1,4 @@
-Obnovitev sistema se je začela.
+Poteka obnova sistema ...
 
-Računalnika ne iztaknite iz vira napajanja in ga ne izklapljajte.
+To lahko traja nekaj minut. Ne izklapljajte računalnika
+in ne iztaknite napajalnega kabla.

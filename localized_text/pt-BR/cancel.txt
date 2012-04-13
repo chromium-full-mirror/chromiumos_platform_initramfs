@@ -1,4 +1,4 @@
-Certifique-se de que seu sistema esteja conectado a uma fonte de energia. 
+Você está prestes a recuperar seu computador. Certifique-se de que ele esteja conectado a uma fonte de energia. 
 
-Se quiser cancelar a recuperação, mantenha o botão ligar/desligar pressionado até que o sistema desligue. Isso pode demorar até oito segundos.
-É seguro realizar este procedimento a qualquer momento antes do término da verificação.
+Se quiser cancelar a recuperação, mantenha o botão ligar/desligar pressionado até desligar o computador. Isso pode demorar até oito segundos.
+É seguro realizar este procedimento a qualquer momento durante a verificação.

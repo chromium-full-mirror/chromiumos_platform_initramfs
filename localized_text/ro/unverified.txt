@@ -1,2 +1,5 @@
-AVERTISMENT: imaginea de pe suportul dvs. de recuperare este o
-imagine de la un dezvoltator neverificat.  Recuperarea va continua, deoarece comutatorul modului pentru dezvoltatori al sistemului dvs. este în poziţia ACTIVAT.
+Imaginea de pe suportul de recuperare este o imagine de dezvoltare neverificată.
+
+Recuperarea va continua, deoarece pornirea verificată este dezactivată.
+Dacă ulterior activaţi din nou verificarea, va trebui să repetaţi
+recuperarea utilizând o imagine oficială a sistemului de operare Chrome.

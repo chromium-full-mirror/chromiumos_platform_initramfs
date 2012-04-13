@@ -1,3 +1,3 @@
-Er is tijdens het herstel een onherstelbare fout opgetreden!
+Er is een onverwachte fout opgetreden. Ga voor tips over het oplossen van problemen naar deze URL:
 
-Probeer het opnieuw of gebruik een recentere herstelimage.
+https://www.google.com/chromeos/recovery

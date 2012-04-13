@@ -1,3 +1,5 @@
-OSTRZEŻENIE: obraz na nośniku przywracania jest niezweryfikowanym
-obrazem programisty. Przywracanie systemu będzie kontynuowane, ponieważ przełącznik
-trybu programisty systemu jest w pozycji WŁĄCZONEJ.
+Obraz na nośniku przywracania jest niezweryfikowaną wersją dla programistów.
+
+Przywracanie będzie kontynuowane, ponieważ sprawdzanie systemu podczas uruchamiania jest wyłączone.
+Jeśli później ponownie włączysz sprawdzanie systemu, będzie trzeba powtórzyć
+przywracanie przy użyciu oficjalnego obrazu systemu operacyjnego Chrome.

@@ -1,6 +1,6 @@
-Imaginea de pe suportul de recuperare este deteriorată sau neactualizată.
-Un nou suport de recuperare poate fi creat urmând instrucţiunile de la:
+Utilizaţi o imagine de recuperare a sistemului de operare Chrome neactualizată.
+
+Accesaţi următoarea adresă URL pentru instrucţiuni privind modul în care
+puteți să creaţi un nou suport de recuperare:
 
 https://www.google.com/chromeos/recovery
-
-Încercaţi din nou recuperarea utilizând noul suport media creat.

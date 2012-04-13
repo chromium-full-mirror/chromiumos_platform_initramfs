@@ -1,5 +1,5 @@
-Systemgjenopprettingen er fullført!
+Systemgjenopprettingen er fullført.
 
 Fjern gjenopprettingsmediet, så starter 
-enheten
+datamaskinen 
 automatisk på nytt.

@@ -1,4 +1,5 @@
-WARNING: You are using an out-of-date or corrupted official Chrome OS
-         recovery image.
+You are using an out-of-date official Chrome OS recovery image.
 
-The system will not boot up in verified mode.
+Recovery will continue because verification is turned off.
+If you later turn verification back on, you will need to repeat
+recovery with an up-to-date Chrome OS image.

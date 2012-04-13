@@ -1,3 +1,4 @@
-Sistemos atkūrimas pradėtas.
+Vykdomas sistemos atkūrimas...
 
-Neatjunkite nuo maitinimo šaltinio ir neišjunkite.
+Tai truks kelias minutes. Neišjunkite kompiuterio ir
+neatjunkite maitinimo šaltinio.

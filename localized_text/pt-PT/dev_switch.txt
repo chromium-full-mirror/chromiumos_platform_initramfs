@@ -1,3 +1,5 @@
-O interruptor do modo de programador do sistema está na posição ATIVADO.
+A verificação do SO do Chrome está desativada.
 
-Se não é intencional, deve cancelar a recuperação e mudar o interruptor para DESATIVADO.
+Se não é intencional, deve cancelar a recuperação e desativar o modo de programador para ativar a confirmação.  Para obter mais informações, consulte este URL:
+
+https://www.google.com/chromeos/recovery

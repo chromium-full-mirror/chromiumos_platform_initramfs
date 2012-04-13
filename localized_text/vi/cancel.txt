@@ -1,4 +1,4 @@
-Đảm bảo rằng hệ thống của bạn được cắm vào nguồn điện.
+Bạn sắp khôi phục máy tính của mình. Đảm bảo rằng máy tính được cắm vào nguồn điện.
 
-Nếu bạn muốn hủy khôi phục, nhấn và giữ nút nguồn cho đến khi hệ thống tắt; quá trình này mất khoảng 8 giây.
-Bạn có thể làm việc này an toàn bất kỳ lúc nào cho đến khi xác minh hoàn tất.
+Nếu bạn muốn hủy khôi phục, nhấn và giữ nút nguồn cho đến khi máy tính tắt (quá trình này mất khoảng 8 giây).
+Bạn có thể làm việc này an toàn bất kỳ lúc nào trong khi xác minh.

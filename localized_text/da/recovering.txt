@@ -1,3 +1,4 @@
-Systemgenoprettelsen er startet.
+Systemgenoprettelse er i gang...
 
-Du må ikke fjerne strømforsyningen eller slukke for strømmen.
+Dette tager et par minutter. Undlad at slukke computeren eller
+afbryde strømmen.

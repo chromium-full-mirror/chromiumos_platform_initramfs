@@ -1,3 +1,3 @@
-Se produjo un error irrecuperable durante la recuperación.
+Se produjo un error inesperado.  Para obtener consejos relacionados con la solución de problemas, visita esta URL:
 
-Vuelve a intentarlo o prueba con una imagen de recuperación más reciente.
+https://www.google.com/chromeos/recovery

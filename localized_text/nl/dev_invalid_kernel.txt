@@ -1,4 +1,4 @@
-WAARSCHUWING: u gebruikt een verouderde of beschadigde officiële
-         Chrome OS-herstelimage.
+U gebruikt een verouderde officiële Chrome OS-herstelimage.
 
-Het systeem wordt niet opgestart in de geverifieerde modus.
+Het herstel wordt wel uitgevoerd, omdat verificatie is uitgeschakeld.
+Als u de verificatie opnieuw inschakelt, moet u het herstel herhalen met een bijgewerkte Chrome OS-image.

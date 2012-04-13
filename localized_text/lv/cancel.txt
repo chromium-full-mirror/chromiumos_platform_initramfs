@@ -1,4 +1,6 @@
-Nodrošiniet, lai sistēma būtu pievienota strāvas avotam.
+Jūs gatavojaties veikt datora atkopšanu. Lūdzu, nodrošiniet, ka tas
+ir pievienots strāvas avotam.
 
-Lai atceltu sistēmas atkopšanu, nospiediet barošanas pogu un turiet to nospiestu, kamēr sistēma izslēdzas. Tas ilgst aptuveni 8 sekundes.
-To var droši darīt jebkurā laikā, pirms verifikācija ir pabeigta.
+Lai atceltu atkopšanu, nospiediet barošanas pogu un turiet to
+nospiestu, kamēr dators izslēdzas (var ilgt līdz 8 sekundēm).
+To var droši darīt jebkurā laikā, kamēr tiek veikta verifikācija.

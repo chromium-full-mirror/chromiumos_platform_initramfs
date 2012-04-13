@@ -1,6 +1,6 @@
-Obraz na nośniku przywracania jest uszkodzony lub nieaktualny.
-Aby utworzyć nowy nośnik przywracania, postępuj zgodnie z instrukcjami na stronie:
+Używasz nieaktualnego obrazu przywracania systemu operacyjnego Chrome.
+
+Instrukcję tworzenia nowego nośnika przywracania
+znajdziesz na tej stronie:
 
 https://www.google.com/chromeos/recovery
-
-Ponów próbę przywrócenia systemu za pomocą nowo utworzonego nośnika przywracania.

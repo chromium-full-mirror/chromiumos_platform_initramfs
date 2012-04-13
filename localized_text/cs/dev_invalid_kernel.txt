@@ -1,4 +1,6 @@
-UPOZORNĚNÍ: Používáte zastaralý nebo poškozený oficiální obraz pro obnovení
-         systému Chrome OS.
+Používáte zastaralý oficiální obraz pro obnovení operačního
+systému Chrome OS.
 
-Systém nelze spustit v ověřeném režimu.
+Obnovení bude pokračovat, protože ověření systému je vypnuto.
+Pokud ověření později znovu zapnete, budete muset obnovení
+zopakovat s aktuálním obrazem systému Chrome OS.

@@ -1,4 +1,5 @@
-UYARI: Kullandığınız resmi Chrome OS kurtarma görüntüsü
-         eski veya bozuk.
+Kullandığınız resmi Chrome OS kurtarma görüntüsü eski.
 
-Sistem, doğrulanmış modda açılmayacak.
+Doğrulama kapalı olduğundan kurtarma işlemi devam edecek.
+Daha sonra doğrulamayı tekrar açarsanız, kurtarma işlemini
+güncel bir Chrome OS görüntüsüyle tekrarlamanız gerekecek.

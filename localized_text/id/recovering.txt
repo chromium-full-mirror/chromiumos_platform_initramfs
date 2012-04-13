@@ -1,3 +1,4 @@
-Pemulihan sistem telah dimulai.
+Pemulihan sistem sedang berlangsung...
 
-Jangan mencopot sambungan dari sumber daya atau mematikan daya.
+Proses ini akan memakan waktu beberapa menit. Jangan matikan komputer atau
+memutuskan daya.

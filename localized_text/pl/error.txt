@@ -1,3 +1,4 @@
-Podczas przywracania systemu wystąpił błąd krytyczny.
+Wystąpił nieoczekiwany błąd.  Wskazówki na temat rozwiązywania problemów
+znajdziesz na tej stronie:
 
-Spróbuj ponownie lub użyj nowszego obrazu przywracania.
+https://www.google.com/chromeos/recovery

@@ -1,6 +1,5 @@
-Palautustietovälineen näköistiedosto on viallinen tai vanhentunut.
-Voit luoda uuden palautustietovälineen noudattamalla seuraavassa osoitteessa olevia ohjeita:
+Käytät vanhentunutta Chrome-käyttöjärjestelmän palautusnäköistiedostoa.
+
+Saat ohjeet uuden palautustietovälineen luomiseen seuraavasta URL-osoitteesta:
 
 https://www.google.com/chromeos/recovery
-
-Yritä suorittaa palautus uudelleen uuden palautustietovälineen avulla.

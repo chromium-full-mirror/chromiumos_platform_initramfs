@@ -1,6 +1,5 @@
-A helyreállító adathordozón található képfájl sérült vagy elavult.
-Új helyreállítási adathordozót a következő oldalon található instrukciók követésével hozhat létre:
+Az Ön által használt Chrome OS helyreállítási lemezkép elavult.
+
+Új helyreállítási adathordozó létrehozására vonatkozó útmutatónkat a következő címen találja:
 
 https://www.google.com/chromeos/recovery
-
-Kérjük, próbálja meg az újbóli helyreállítást az új helyreállítási adathordozóval.

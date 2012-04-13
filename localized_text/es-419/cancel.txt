@@ -1,4 +1,4 @@
-Asegúrate de que tu sistema esté conectado a una fuente de alimentación.
+Estás a punto de recuperar tu computadora. Asegúrate de que esté conectada a una fuente de alimentación.
 
-Si deseas cancelar la recuperación, mantén presionado el botón de encendido hasta que se apague el sistema. Esto puede demorar hasta ocho segundos.
-Es seguro hacer esto en cualquier momento hasta que finalice la verificación.
+Si deseas cancelar la recuperación, mantén presionado el botón de encendido hasta que se apague la computadora (esto puede demorar hasta ocho segundos).
+Es seguro hacer esto en cualquier momento durante la verificación.

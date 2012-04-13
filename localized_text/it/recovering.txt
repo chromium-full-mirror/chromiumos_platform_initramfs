@@ -1,3 +1,3 @@
-Il ripristino del sistema è iniziato.
+Ripristino del sistema in corso...
 
-Non scollegarti dalla fonte di alimentazione e non spegnere il computer.
+L'operazione richiederà alcuni minuti. Non spegnere il computer e non staccarlo dall'alimentazione.

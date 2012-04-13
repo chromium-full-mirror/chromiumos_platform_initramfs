@@ -1,4 +1,5 @@
-Utviklermodusen på enheten din er satt til AKTIVERT.
+Google Chrome OS-verifisering er slått av.
 
-Hvis dette ikke er gjort med hensikt, bør du avbryte gjenopprettingen og sette innstillingen
-til DEAKTIVERT.
+Hvis dette ikke er gjort med hensikt, bør du avbryte gjenopprettingen og deaktivere utviklermodusen for å kunne aktivere verifisering. Gå til denne nettadressen for mer informasjon:
+
+https://www.google.com/chromeos/recovery

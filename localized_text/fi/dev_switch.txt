@@ -1,3 +1,5 @@
-Järjestelmän kehittäjätila on käytössä.
+Chrome-käyttöjärjestelmän vahvistus on poistettu käytöstä.
 
-Jos valinta on tehty vahingossa, suosittelemme peruuttamaan palautuksen ja poistamaan kehittäjätilan käytöstä.
+Jos tämä ei ollut tarkoitus, suosittelemme peruuttamaan palautuksen ja ottamaan vahvistuksen takaisin käyttöön poistumalla kehittäjätilasta. Saat lisätietoja seuraavasta URL-osoitteesta:
+
+https://www.google.com/chromeos/recovery

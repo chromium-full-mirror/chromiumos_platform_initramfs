@@ -1,4 +1,4 @@
-WARNUNG: Sie verwenden ein veraltetes oder beschädigtes Chrome OS-
-         Wiederherstellungsabbild.
+Sie verwenden ein veraltetes offizielles Chrome OS-Wiederherstellungsabbild.
 
-Das System kann nicht im verifizierten Modus gestartet werden.
+Die Wiederherstellung wird fortgesetzt, da die Bestätigung deaktiviert ist.
+Wenn Sie die Bestätigung später wieder aktivieren, wiederholen Sie die Wiederherstellung mit einem aktuellen Chrome OS-Abbild.

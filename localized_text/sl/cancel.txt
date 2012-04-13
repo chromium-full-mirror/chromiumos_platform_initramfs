@@ -1,4 +1,6 @@
-Preverite, ali je sistem priključen na vir napajanja.
+Ste pred tem, da obnovite računalnik. Preverite, ali je priključen
+ v vir napajanja.
 
-Če želite obnovitev preklicati, pritisnite gumb za napajanje in ga pridržite, dokler se sistem ne izklopi. To traja približno 8 sekund.
-To lahko naredite kadar koli, dokler se preverjanje ne konča.
+Če želite obnovitev preklicati, pritisnite gumb za napajanje in ga pridržite,
+dokler se računalnik ne izklopi (to traja do 8 sekund).
+To lahko naredite kadar koli med preverjanjem.

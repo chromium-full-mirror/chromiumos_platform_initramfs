@@ -1,3 +1,4 @@
-Obnovení systému bylo zahájeno.
+Probíhá obnovení systému...
 
-Neodpojujte prosím počítač od zdroje napájení ani jej nevypínejte.
+Tato operace může trvat několik minut. Nevypínejte počítač ani jej neodpojujte
+od zdroje napájení.

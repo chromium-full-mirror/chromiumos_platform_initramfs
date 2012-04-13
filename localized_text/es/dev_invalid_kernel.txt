@@ -1,4 +1,4 @@
-ADVERTENCIA: estás utilizando una imagen de recuperación oficial de Chrome OS
-         que está obsoleta o dañada.
+Estás utilizando una imagen de recuperación oficial de Chrome OS que está obsoleta.
 
-El sistema no se iniciará en modo verificado.
+La recuperación continuará, ya que la verificación está desactivada.
+Si vuelves a activar la verificación, deberás repetir la recuperación con una imagen de Chrome OS actualizada.

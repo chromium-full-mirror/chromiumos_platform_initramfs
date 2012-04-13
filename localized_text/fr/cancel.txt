@@ -1,4 +1,5 @@
-Veuillez vous assurer que votre système est relié à une source d'alimentation.
+Vous êtes sur le point de lancer la procédure de récupération de votre ordinateur. Veuillez vous assurer
+qu'il est relié à une source d'alimentation.
 
-Si vous souhaitez annuler la procédure de récupération, appuyez de manière prolongée sur le bouton d'alimentation jusqu'à l'arrêt du système. Vous devrez peut-être patienter jusqu'à huit secondes.
-Vous pouvez effectuer cette opération en toute sécurité à tout moment avant la fin de la validation.
+Si vous souhaitez annuler la procédure de récupération, appuyez de manière prolongée sur le bouton d'alimentation jusqu'à l'arrêt de l'ordinateur. Vous devrez peut-être patienter jusqu'à huit secondes.
+Vous pouvez effectuer cette opération en toute sécurité à tout moment au cours de la vérification.

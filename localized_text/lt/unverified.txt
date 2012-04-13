@@ -1,1 +1,4 @@
-ĮSPĖJIMAS: atkūrimo laikmenoje esantis vaizdas yra nepatvirtintas kūrėjo vaizdas. Atkūrimas bus tęsiamas, nes sistemos kūrėjo režimo jungiklio pozicija yra ĮGALINTAS.
+Atkūrimo medijoje esantis atvaizdis yra nepatvirtintas kūrėjo atvaizdis.
+
+Atkūrimas tęsis, nes patvirtintas paleidimas išjungtas.
+Jei vėliau vėl įjungsite patvirtinimą, reikės pakartoti atkūrimo procesą naudojant oficialų „Chrome“ OS atvaizdį.

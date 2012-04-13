@@ -1,4 +1,4 @@
-Verifica che il sistema sia collegato a una fonte di alimentazione.
+Stai per ripristinare il computer. Verifica che sia collegato a una fonte di alimentazione.
 
-Se desideri annullare il ripristino, premi il tasto di accensione e tienilo premuto fino allo spegnimento del sistema, che può richiedere fino a 8 secondi.
-Puoi svolgere questa operazione in qualsiasi momento fino al termine della verifica.
+Se desideri annullare il ripristino, premi il tasto di accensione e tienilo premuto fino allo spegnimento del computer, che può richiedere fino a 8 secondi.
+Puoi svolgere questa operazione in qualsiasi momento durante la verifica.

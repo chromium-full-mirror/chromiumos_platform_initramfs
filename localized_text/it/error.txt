@@ -1,3 +1,3 @@
-Si è verificato un errore irreversibile durante il ripristino.
+Si è verificato un errore imprevisto. Visita il sito al seguente indirizzo per avere suggerimenti per la risoluzione dei problemi:
 
-Riprova o prova a utilizzare un'immagine di ripristino più recente.
+https://www.google.com/chromeos/recovery

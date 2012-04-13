@@ -1,3 +1,5 @@
-Khóa chuyển chế độ nhà phát triển của hệ thống của bạn đang ở vị trí BẬT.
+Xác minh hệ điều hành Chrome bị tắt.
 
-Nếu đây không phải là ý định của bạn, bạn nên hủy khôi phục và chuyển khóa chuyển thành TẮT.
+Nếu điều này không theo chủ ý, bạn nên hủy khôi phục và tắt chế độ nhà phát triển để bật xác minh.  Để biết thêm thông tin, tham khảo URL này:
+
+https://www.google.com/chromeos/recovery

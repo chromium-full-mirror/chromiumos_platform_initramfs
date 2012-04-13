@@ -1,4 +1,7 @@
-Przełącznik trybu programisty systemu jest w pozycji WŁĄCZONEJ.
+Sprawdzanie systemu operacyjnego Chrome jest wyłączone.
 
-Jeśli nie jest to celowe, anuluj przywracanie systemu i ustaw przełącznik
-w pozycji WYŁĄCZONEJ.
+Jeśli sprawdzanie jest włączone celowo, anuluj przywracanie
+i wyłącz tryb programisty, by wykonać sprawdzanie systemu.  Więcej informacji
+znajdziesz na tej stronie:
+
+https://www.google.com/chromeos/recovery

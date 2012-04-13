@@ -1,1 +1,5 @@
-ADVARSEL! Billedet på dit genoprettelsesmedie er ikke et bekræftet udviklerbillede.  Genoprettelsen fortsætter, fordi kontakten til udviklertilstand på dit system er sat til AKTIVERET.
+Billedet på dit genoprettelsesmedie er ikke et bekræftet udviklerbillede.
+
+Genoprettelsen fortsætter, fordi bekræftet opstart er deaktiveret.
+Hvis du senere aktiverer bekræftelsen igen, skal du gentage
+genoprettelsen med et officielt Chrome OS-billede.
