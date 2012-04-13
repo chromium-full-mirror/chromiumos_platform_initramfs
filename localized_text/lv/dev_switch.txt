@@ -1,3 +1,7 @@
-Sistēmas izstrādātāja režīma slēdzis ir IESLĒGTĀ pozīcijā.
+Chrome OS verifikācija ir izslēgta.
 
-Ja slēdzis ir pārslēgts netīšām, atceliet sistēmas atkopšanu un pārslēdziet to IZSLĒGTĀ pozīcijā.
+Ja esat to izslēdzis netīšām, atceliet atkopšanu un atspējojiet
+izstrādātāja režīmu, lai iespējotu verifikāciju. Plašāku informāciju
+skatiet šajā URL:
+
+https://www.google.com/chromeos/recovery.

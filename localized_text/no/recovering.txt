@@ -1,3 +1,3 @@
-Systemgjenopprettingen har startet.
+Systemgjenoppretting pågår ...
 
-Ikke koble fra en strømkilde eller slå av maskinen.
+Dette kan ta noen minutter. Ikke slå av datamaskinen eller koble fra strømtilkoblingen.

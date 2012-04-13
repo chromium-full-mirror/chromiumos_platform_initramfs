@@ -1,1 +1,4 @@
-VAROITUS: palautustietovälineelläsi oleva näköistiedosto on vahvistamaton kehittäjän näköistiedosto. Palauttamista jatketaan, koska järjestelmäsi kehittäjätila on käytössä.
+Palautustietovälineelläsi oleva näköistiedosto on vahvistamaton kehittäjän näköistiedosto. 
+
+Palautusta jatketaan, koska vahvistettu uudelleenkäynnistys ei ole käytössä.
+Jos otat vahvistuksen käyttöön myöhemmin, sinun tulee toistaa palautus ajan tasalla olevan virallisen Chrome-käyttöjärjestelmän näköistiedoston avulla.

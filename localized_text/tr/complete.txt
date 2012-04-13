@@ -1,3 +1,4 @@
-Sistem kurtarma işlemi tamamlandı!
+Sistem kurtarma işlemi tamamlandı.
 
-Lütfen kurtarma medyasını çıkarın, sisteminiz otomatik olarak başlayacaktır.
+Lütfen kurtarma medyasını çıkarın, bilgisayarınız otomatik olarak
+başlayacaktır.

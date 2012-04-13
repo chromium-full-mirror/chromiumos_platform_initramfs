@@ -1,3 +1,3 @@
-Tijekom oporavka došlo je do nepopravljive pogreške!
+Došlo je do neočekivane pogreške. Savjete o rješavanju problema potražite na ovom URL-u:
 
-Pokušajte ponovo ili isprobajte noviju sliku za oporavak.
+https://www.google.com/chromeos/recovery

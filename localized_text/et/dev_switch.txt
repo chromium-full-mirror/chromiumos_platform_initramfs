@@ -1,3 +1,7 @@
-Süsteemi arendaja režiimi lüliti on asendis LUBATUD.
+Chrome OS-i kinnitamine on välja lülitatud.
 
-Kui see on tahtmatu valik, siis tühistage taaste ja pange lüliti asendisse KEELATUD.
+Kui see juhtus tahtmatult, siis tuleb teil kinnitamise lubamiseks
+taastamine tühistada ja arendajarežiim keelata.  Lisateabe saamiseks
+vaadake seda URL-i:
+
+https://www.google.com/chromeos/recovery

@@ -1,6 +1,5 @@
-De image op het herstelmedium is beschadigd of verouderd.
-U kunt nieuwe herstelmedia maken via de instructies op:
+U gebruikt een verouderde Chrome OS-herstelimage.
+
+Ga naar deze URL voor instructies voor het maken van nieuwe herstelmedia:
 
 https://www.google.com/chromeos/recovery
-
-Probeer het herstel opnieuw met net gemaakte herstelmedia.

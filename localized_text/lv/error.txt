@@ -1,3 +1,4 @@
-Sistēmas atkopšanas laikā radusies nelabojama kļūda.
+Radās neparedzēta kļūda. Problēmas novēršanas padomus
+skatiet šajā URL:
 
-Mēģiniet vēlreiz vai izmantojiet jaunāku atkopšanas attēlu.
+https://www.google.com/chromeos/recovery.

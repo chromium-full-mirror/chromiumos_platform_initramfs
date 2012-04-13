@@ -1,4 +1,4 @@
-ĮSPĖJIMAS: naudojate pasenusį arba sugadintą oficialų „Chrome“ OS
-         atkūrimo vaizdą.
+Naudojate pasenusį oficialų „Chrome“ OS atkūrimo vaizdą.
 
-Sistema nebus paleista patikrintu režimu.
+Atkūrimas tęsis, nes patvirtinimas yra išjungtas.
+Jei vėliau vėl įjungsite patvirtinimą, reikės pakartoti atkūrimo procesą naudojant naują „Chrome“ OS vaizdą.

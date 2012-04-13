@@ -1,3 +1,5 @@
-O seletor do modo programador de seu sistema está na posição ATIVADO.
+A verificação do Chrome OS está desativada.
 
-Caso isto não seja intencional, você deve cancelar a recuperação e alternar o seletor para a opção DESATIVADO. 
+Se não for essa a intenção, cancele a recuperação e desative o modo de desenvolvedor para ativar a verificação.  Para obter mais informações, consulte:
+
+https://www.google.com/chromeos/recovery

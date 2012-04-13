@@ -1,0 +1,6 @@
+Pengesahan Chrome OS dimatikan.
+
+Jika hal ini tidak disengajakan, anda harus membatalkan pemulihan dan melumpuhkan mod pembangun untuk mendayakan pengesahan.  Untuk mendapatkan maklumat lanjut,
+rujuk kepada URL ini:
+
+https://www.google.com/chromeos/recovery

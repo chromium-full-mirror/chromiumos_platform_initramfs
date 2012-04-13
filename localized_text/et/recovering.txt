@@ -1,3 +1,4 @@
-Süsteemitaaste on alanud.
+Süsteemi taastamine on pooleli ...
 
-Palun ärge katkestage ühendust toiteallikaga ega lülitage voolu välja.
+Selleks võib kuluda mitu minutit. Ärge lülitage arvutit välja
+ega katkestage toidet.

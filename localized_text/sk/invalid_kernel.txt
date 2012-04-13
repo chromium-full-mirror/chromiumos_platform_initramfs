@@ -1,6 +1,7 @@
-Obraz na médiu na obnovenie je poškodený alebo zastaraný.
-Nové médium na obnovenie je možné vytvoriť podľa pokynov na adrese:
+Používate zastaraný obraz na obnovenie
+operačného systému Chrome OS.
+
+Pokyny na vytvorenie nového média na obnovenie
+nájdete na tejto adrese URL:
 
 https://www.google.com/chromeos/recovery
-
-Skúste systém obnoviť znova pomocou novo vytvoreného média na obnovenie.

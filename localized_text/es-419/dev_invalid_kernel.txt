@@ -1,4 +1,4 @@
-ADVERTENCIA: Estás utilizando una imagen de recuperación del Sistema operativo oficial de Chrome
-         desactualizada o dañada.
+Estás usando una imagen de recuperación oficial del sistema operativo de Chrome desactualizada.
 
-El sistema no se iniciará en modo verificado.
+La recuperación continuará porque se desactivó la verificación.
+Si vuelves a activar la verificación más adelante, tendrás que repetir la recuperación con una imagen del sistema operativo de Chrome actualizada.

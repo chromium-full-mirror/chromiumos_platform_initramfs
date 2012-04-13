@@ -1,4 +1,7 @@
-El selector de mode desenvolupador del sistema està en posició ACTIVADA.
+La verificació del SO Chrome està desactivada.
 
-Si no és intencionat, hauríeu de cancel·lar la recuperació i canviar el
-selector a DESACTIVAT.
+Si no l'heu desactivada expressament, cancel·leu la recuperació i desactiveu el mode
+desenvolupador per poder activar la verificació.  Per obtenir més informació,
+consulteu aquest URL:
+
+https://www.google.com/chromeos/recovery

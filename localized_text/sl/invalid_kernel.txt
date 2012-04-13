@@ -1,6 +1,5 @@
-Posnetek na obnovitvenem nosilcu je poškodovan ali zastarel.
-Nov obnovitveni nosilec lahko pripravite s postopkom, opisanim tukaj:
+Uporabljate zastarel obnovitveni posnetek za Chrome OS.
+
+Navodila za pripravo obnovitvenih medijev najdete na tem naslovu:
 
 https://www.google.com/chromeos/recovery
-
-Še enkrat poskusite obnovitev z novim obnovitvenim nosilcem.

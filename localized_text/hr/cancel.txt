@@ -1,4 +1,4 @@
-Vaš sustav mora biti uključen u izvor napajanja.
+Upravo ćete oporaviti svoje računalo. Neka svakako bude uključeno u izvor napajanja.
 
-Ako želite otkazati oporavak, pritisnite gumb za isključivanje i držite ga pritisnutim sve dok se sustav ne isključi; to će potrajati približno 8 sekunda.
-To slobodno možete učiniti sve dok se ne dovrši provjera.
+Ako želite otkazati oporavak, pritisnite gumb za isključivanje i držite ga pritisnutim sve dok se računalo ne isključi (to će potrajati približno 8 sekunda).
+To slobodno možete učiniti u bilo kojem trenutku provjere.

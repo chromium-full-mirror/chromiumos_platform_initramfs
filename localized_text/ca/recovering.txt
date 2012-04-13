@@ -1,3 +1,4 @@
-Ha començat la recuperació del sistema.
+Recuperació del sistema en curs...
 
-No el desconnecteu de la font d'alimentació ni l'apagueu.
+Això pot trigar uns quants minuts. No apagueu l'equip ni
+el desconnecteu de l'alimentació.

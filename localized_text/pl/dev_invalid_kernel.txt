@@ -1,4 +1,5 @@
-OSTRZEŻENIE: używasz nieaktualnego lub uszkodzonego oficjalnego obrazu przywracania
-         systemu operacyjnego Chrome.
+Używasz nieaktualnego, oficjalnego obrazu przywracania systemu operacyjnego Chrome.
 
-System nie uruchomi się w trybie zweryfikowanym.
+Przywracanie będzie kontynuowane, ponieważ sprawdzanie systemu jest wyłączone.
+Jeśli później ponownie włączysz sprawdzanie systemu, trzeba będzie powtórzyć
+przywracanie przy użyciu aktualnego obrazu systemu operacyjnego Chrome.

@@ -1,6 +1,5 @@
-L'immagine sul supporto di ripristino è danneggiata oppure obsoleta.
-È possibile creare un nuovo supporto di ripristino seguendo le istruzioni all'indirizzo:
+Stai utilizzando un'immagine di ripristino di Chrome OS obsoleta.
+
+Per avere istruzioni sulla creazione di un nuovo supporto di ripristino, visita il sito al seguente indirizzo:
 
 https://www.google.com/chromeos/recovery
-
-Tenta di nuovo il ripristino con il supporto di ripristino appena creato.

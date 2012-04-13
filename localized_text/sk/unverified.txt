@@ -1,3 +1,5 @@
-UPOZORNENIE: Obraz na médiu na obnovenie pochádza
-od neovereného vývojára.  Obnovenie bude pokračovať, pretože prepínač režimu vývojára
-v systéme je v polohe ZAPNUTÉ.
+Obraz na médiu na obnovenie pochádza od neverifikovaného vývojára.
+
+Obnovenie bude pokračovať, pretože je verifikácia pri štarte vypnutá.
+Ak verifikáciu neskôr znova zapnete, budete musieť obnovenie
+zopakovať s oficiálnym obrazom systému Chrome OS.

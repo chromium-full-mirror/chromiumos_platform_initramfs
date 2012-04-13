@@ -1,3 +1,4 @@
-VARNING! Du använder en gammal eller skadad officiell återställningsbild för Chrome OS.
+Du använder en inaktuell återställningsavbildning av Chrome OS.
 
-Systemet kommer inte att startas om i verifierat läge.
+Återställningen fortsätter eftersom verifieringen är inaktiverad.
+Om du aktiverar verifieringen igen vid ett senare tillfälle måste du göra om återställningen med en aktuell återställningsavbildning av Chrome OS.

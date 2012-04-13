@@ -1,3 +1,4 @@
-Vykstant atkūrimo procesui įvyko nepataisoma klaida!
+Įvyko netikėta klaida. Jei reikia trikčių šalinimo patarimų,
+naudokite šį URL:
 
-Bandykite dar kartą arba pabandykite naudoti naujesnį atkūrimo vaizdą.
+https://www.google.com/chromeos/recovery

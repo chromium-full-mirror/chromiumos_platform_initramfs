@@ -1,4 +1,4 @@
 Przywracanie systemu zostało ukończone.
 
-Wyjmij nośnik przywracania. System automatycznie
+Wyjmij nośnik przywracania. Komputer automatycznie
 uruchomi się ponownie.

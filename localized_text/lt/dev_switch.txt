@@ -1,3 +1,6 @@
-Sistemos kūrėjo režimo jungiklio pozicija yra ĮGALINTAS.
+„Chrome“ OS patvirtinimas išjungtas.
 
-Jei tai nutiko netyčia, turėtumėte atšaukti atkūrimą ir perjungti jungiklį į poziciją NELEIDŽIAMAS.
+Jei tai padarėte netyčia, turėtumėte atšaukti atkūrimą ir neleisti kūrėjo režimo, kad įgalintumėte patvirtinimą. Jei reikia daugiau informacijos,
+naudokite šį URL:
+
+https://www.google.com/chromeos/recovery

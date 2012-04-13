@@ -1,5 +1,6 @@
-Asiguraţi-vă că sistemul dvs. este conectat la o sursă de alimentare.
+În curând vă veți recupera datele de pe computer. Asiguraţi-vă că acesta
+este conectat la o sursă de alimentare.
 
 Dacă doriţi să anulaţi recuperarea, apăsaţi pe butonul de alimentare şi ţineţi-l apăsat
-până când sistemul se opreşte; procesul durează aproximativ 8 secunde.
-Puteţi face oricând acest lucru în siguranţă până când verificarea este finalizată.
+până când computerul se opreşte (procesul durează aproximativ 8 secunde).
+Puteţi face în siguranţă acest lucru oricând pe parcursul verificării.

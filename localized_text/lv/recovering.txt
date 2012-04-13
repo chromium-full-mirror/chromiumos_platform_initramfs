@@ -1,3 +1,4 @@
-Ir sākta sistēmas atkopšana.
+Notiek sistēmas atkopšana...
 
-Neatvienojiet datoru no strāvas avota un neizslēdziet to.
+Tā ilgs dažas minūtes. Lūdzu, neizslēdziet datoru un
+neatvienojiet to no strāvas avota.

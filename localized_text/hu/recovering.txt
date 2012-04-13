@@ -1,3 +1,4 @@
-A rendszer helyreállítása elkezdődött.
+A rendszer helyreállítása folyamatban van...
 
-Ne húzza ki számítógépét a hálózati áramkörből, és ne kapcsolja ki.
+Ez eltart pár percig. Kérjük, ne kapcsolja ki a számítógépet és
+ne húzza ki a hálózati kábelt.

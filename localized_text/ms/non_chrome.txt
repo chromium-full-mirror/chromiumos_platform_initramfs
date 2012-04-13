@@ -1,0 +1,4 @@
+Komputer anda nampaknya tidak menggunakan Chrome OS!
+
+Operasi ini akan memadamkan sebarang sistem pengendalian lain yang anda telah pasang dan semua datanya; anda tidak akan berpeluang membuat sandaran.
+Jika anda mempunyai sebarang data pada komputer ini yang anda ingin simpan, anda perlu membatalkan pemulihan.

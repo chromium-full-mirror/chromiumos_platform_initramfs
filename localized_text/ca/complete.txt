@@ -1,3 +1,3 @@
 La recuperació del sistema s'ha completat.
 
-Elimineu els mitjans de recuperació i el sistema es reiniciarà automàticament.
+Elimineu els mitjans de recuperació i l'equip es reiniciarà automàticament.

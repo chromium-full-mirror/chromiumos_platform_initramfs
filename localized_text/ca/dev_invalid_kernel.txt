@@ -1,4 +1,5 @@
-ADVERTIMENT: Esteu utilitzant un SO Chrome oficial no actualitzat o corromput
-         imatge de recuperació.
+Esteu utilitzant una imatge de recuperació de SO Chrome oficial caducada.
 
-El sistema no arrencarà en mode verificat.
+La recuperació continuarà perquè n'heu desactivat la verificació.
+Si més endavant torneu a activar la verificació, haureu de repetir
+la recuperació amb una imatge de SO Chrome actualitzada.

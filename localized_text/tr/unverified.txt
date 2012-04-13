@@ -1,1 +1,5 @@
-UYARI: Kurtarma medyanızdaki görüntü, doğrulanmamış bir geliştirici görüntüsü.  Sisteminizin geliştirici modu düğmesi ENABLED (ETKİN) konumunda olduğundan kurtarma işlemi devam edecek.
+Kurtarma medyanızdaki görüntü, doğrulanmamış bir geliştirici görüntüsü.
+
+Doğrulanmış açılış seçeneği kapalı olduğundan kurtarma işlemi devam edecek.
+Daha sonra doğrulamayı tekrar açarsanız, kurtarma işlemini
+resmi bir Chrome OS görüntüsüyle tekrarlamanız gerekecek.

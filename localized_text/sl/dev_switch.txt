@@ -1,3 +1,7 @@
-Stikalo razvijalskega načina v sistemu je v položaju ENABLED (omogočeno).
+Preverjanje za Chrome OS je izklopljeno.
 
-Če to ni namerno, prekličite obnovitev in preklopite stikalo v položaj DISABLED (onemogočeno).
+Če to ni namerno, prekličite obnovo in onemogočite
+razvijalski način, da boste vklopili preverjanje.  Več o tem lahko
+preberete tukaj:
+
+https://www.google.com/chromeos/recovery

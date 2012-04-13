@@ -1,3 +1,4 @@
 Obnovitev sistema je končana.
 
-Odstranite obnovitveni nosilec podatkov in sistem se bo samodejno znova zagnal.
+Odstranite obnovitveni nosilec podatkov in računalnik se bo samodejno
+znova zagnal.

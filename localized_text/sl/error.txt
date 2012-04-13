@@ -1,3 +1,4 @@
-Med obnovitvijo je prišlo do nepopravljive napake.
+Nepričakovana napaka.  Nasvete za odpravljanje
+napak najdete tukaj:
 
-Poskusite znova ali uporabite novejši posnetek za obnovitev.
+https://www.google.com/chromeos/recovery

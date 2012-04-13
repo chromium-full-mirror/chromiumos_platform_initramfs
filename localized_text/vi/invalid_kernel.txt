@@ -1,6 +1,5 @@
-Hình ảnh trên phương tiện khôi phục bị hỏng hoặc lỗi thời.
-Có thể tạo phương tiện khôi phục mới bằng cách thực hiện theo hướng dẫn tại:
+Bạn đang sử dụng hình ảnh khôi phục hệ điều hành Chrome lỗi thời.
+
+Vui lòng tham khảo URL này để biết hướng dẫn về cách tạo phương tiện khôi phục mới:
 
 https://www.google.com/chromeos/recovery
-
-Vui lòng thử khôi phục lại bằng phương tiện khôi phục mới được tạo.

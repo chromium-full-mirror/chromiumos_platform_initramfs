@@ -1,3 +1,4 @@
-Kurtarma sırasında, kurtarılamayan bir hata oluştu!
+Beklenmeyen bir hata oluştu.  Sorun giderme ipuçları için
+lütfen şu URL'ye bakın:
 
-Lütfen tekrar deneyin veya daha yeni bir kurtarma görüntüsü kullanın.
+https://www.google.com/chromeos/recovery

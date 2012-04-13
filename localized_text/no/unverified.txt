@@ -1,4 +1,4 @@
-ADVARSEL: Bildet på gjenopprettingsmediet er et ikke-bekreftet
-utviklerbilde. Gjenopprettingen fortsetter fordi
-utviklermodusen på enheten din 
-er satt til AKTIVERT.
+Avbildningen på gjenopprettingsmediet er en ikke-bekreftet utvikleravbildning. 
+
+Gjenopprettingen fortsetter fordi verifisert oppstart er slått av.
+Hvis du slår på verifiseringen igjen senere, må du gjenta gjenopprettingen med en offisiell Chrome OS-avbildning.

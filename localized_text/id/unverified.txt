@@ -1,3 +1,5 @@
-PERINGATAN:  Gambar pada media pemulihan Anda adalah gambar pengembang
-yang belum diverifikasi.  Pemulihan akan dilanjutkan, karena pengalih
-mode pengembang sistem Anda berada dalam posisi AKTIF.
+Citra pada media pemulihan Anda adalah citra pengembang yang belum diverifikasi.
+
+Pemulihan akan dilanjutkan karena boot terverifikasi dimatikan.
+Jika kemudian Anda menghidupkan verifikasi lagi, Anda harus mengulangi
+pemulihan dengan citra Chrome OS yang resmi.

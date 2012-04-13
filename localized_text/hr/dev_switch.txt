@@ -1,3 +1,5 @@
-Prekidač načina rada razvojnog programera sustava postavljen je na OMOGUĆENO.
+Provjera OS-a Chrome isključena je.
 
-Ako niste namjerno tako odredili, otkažite oporavak i prekidač postavite na ONEMOGUĆENO.
+Ako je to bilo nenamjerno, otkažite oporavak i onemogućite način rada razvojnog programera kako biste omogućili potvrdu. Više informacija potražite na ovom URL-u:
+
+https://www.google.com/chromeos/recovery

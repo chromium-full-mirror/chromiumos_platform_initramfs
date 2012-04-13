@@ -1,0 +1,4 @@
+Anda menggunakan imej pemulihan Chrome OS rasmi yang telah lapuk.
+
+Pemulihan akan diteruskan kerana pengesahan dimatikan.
+Jika anda menghidupkan kembali pengesahan kemudian, anda perlu mengulang pemulihan menggunakan imej Chrome OS yang terkini.

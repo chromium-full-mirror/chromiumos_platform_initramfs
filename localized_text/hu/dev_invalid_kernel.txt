@@ -1,4 +1,4 @@
-FIGYELMEZTETÉS: Elavult vagy sérült hivatalos Chrome OS
-         helyreállító képfájlt használ.
+Az Ön által használt hivatalos Chrome OS helyreállítási lemezkép elavult.
 
-A rendszer nem fog betölteni ellenőrzött módban.
+A helyreállítás folytatódik, mert az ellenőrzés ki van kapcsolva.
+Ha később ismét bekapcsolja az ellenőrzést, meg kell ismételnie a helyreállítást a legfrissebb Chrome OS-lemezképpel.

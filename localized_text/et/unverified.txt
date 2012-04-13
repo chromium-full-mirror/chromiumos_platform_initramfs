@@ -1,2 +1,5 @@
-HOIATUS. Kujutis teie taastekandjal on kinnitamata arendaja kujutis.  Taastamine jätkub, kuna teie süsteemi
-arendaja režiimi lüliti on asendis LUBATUD.
+Kujutis teie taastekandjal on kinnitamata arendaja kujutis.
+
+Taastamine jätkub, kuna kinnitusega käivitamine on välja lülitatud.
+Kui lülitate hiljem kinnitamise taas sisse, siis tuleb teil ajakohase
+Chrome OS-i kujutise abil taastamist korrata.

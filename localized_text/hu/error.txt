@@ -1,3 +1,4 @@
-Nem visszaállítható hiba történt a helyreállítás során!
+Ismeretlen hiba történt.  A következő címen talál
+problémamegoldási tanácsokat:
 
-Kérjük, próbálja újra, vagy próbáljon ki egy újabb helyreállítási képfájlt.
+https://www.google.com/chromeos/recovery

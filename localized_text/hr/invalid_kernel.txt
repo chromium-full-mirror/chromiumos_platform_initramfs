@@ -1,6 +1,5 @@
-Slika na mediju za oporavak oštećena je ili zastarjela.
-Novi medij za oporavak može se stvoriti prema uputama na:
+Upotrebljavate zastarjelu sliku za oporavak OS-a Chrome.
+
+Na ovom URL-u potražite upute za izradu novog medija za oporavak:
 
 https://www.google.com/chromeos/recovery
-
-Ponovite oporavak na novostvorenom mediju za oporavak.

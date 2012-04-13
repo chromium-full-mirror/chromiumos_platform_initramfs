@@ -1,1 +1,5 @@
-AVERTISSEMENT : L'image présente sur votre support de récupération est une image développeur non validée. La procédure de récupération va se poursuivre, car le bouton du mode développeur de votre système est sur la position ACTIVÉ.
+L'image présente sur votre support de récupération est une image développeur qui n'a pas été vérifiée.
+
+La procédure de récupération va se poursuivre, car le démarrage vérifié est désactivé.
+Si vous réactivez la vérification ultérieurement,
+vous devrez relancer la récupération avec une image officielle de Google Chrome OS.

@@ -1,3 +1,4 @@
-Der opstod en uoprettelig fejl under genoprettelsen!
+Der opstod en uventet fejl.  Du kan gå tips til fejlfinding
+ved at gå til denne webadresse:
 
-Prøv igen, eller prøv at bruge et nyere genoprettelsesbillede.
+https://www.google.com/chromeos/recovery

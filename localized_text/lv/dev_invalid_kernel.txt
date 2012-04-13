@@ -1,4 +1,5 @@
-BRĪDINĀJUMS: jūs lietojat oficiālās Chrome OS versijas novecojušu vai bojātu
-         atkopšanas attēlu.
+Jūs lietojat novecojušu oficiālās Chrome OS versijas atkopšanas attēlu.
 
-Sistēma netiks sāknēta verificētajā režīmā.
+Atkopšana tiks turpināta, jo verifikācija ir izslēgta.
+Ja vēlāk ieslēgsiet verifikāciju, jums būs jāatkārto
+atkopšana, izmantojot jaunāko Chrome OS attēlu.

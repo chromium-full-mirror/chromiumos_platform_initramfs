@@ -1,4 +1,5 @@
-OPOZORILO: Uporabljate zastarel ali poškodovan uradni
-         posnetek za obnovitev sistema Chrome OS.
+Uporabljate zastarel uradni obnovitveni posnetek za Chrome OS.
 
-Sistem se ne bo zagnal v preverjenem načinu.
+Obnova se bo nadaljevala, ker je preverjanje izklopljeno.
+Če pozneje spet vklopite preverjanje,
+boste morali obnovitev ponoviti s posodobljenim posnetkom za Chrome OS.

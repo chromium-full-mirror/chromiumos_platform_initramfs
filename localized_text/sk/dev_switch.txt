@@ -1,4 +1,7 @@
-Prepínač režimu vývojára v systéme je v polohe ZAPNUTÉ.
+Verifikácia operačného systému Chrome OS je vypnutá.
 
-Pokiaľ to nie je úmyselné, zrušte obnovenie a prepnite
-prepínač do polohy VYPNUTÉ.
+Ak to nie je úmyselné, zrušte obnovenie a zakážte
+režim pre vývojárov, čím verifikáciu systému povolíte.  Viac informácií nájdete na tejto
+adrese URL:
+
+https://www.google.com/chromeos/recovery

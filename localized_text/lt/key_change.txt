@@ -1,2 +1,2 @@
-Jei norite tęsti, reikia pakeisti kūrėjo kodą; procesas trunka
+Jei norite tęsti, reikia pakeisti kūrėjo raktą; procesas trunka
 5 minutes.

@@ -1,5 +1,6 @@
-Assegureu-vos que el sistema estigui connectat a una font d'alimentació.
+Abans de començar amb la recuperació de l'equip, comproveu que estigui
+connectat a una font d'alimentació.
 
 Si voleu cancel·lar la recuperació, premeu el botó d'alimentació i manteniu-lo premut
-fins que el sistema s'apagui; trigarà 8 segons aproximadament.
-És segur fer-ho en qualsevol moment fins que la verificació s'hagi completat.
+fins que l'equip s'apagui (trigarà 8 segons aproximadament).
+Es pot fer de forma segura en qualsevol moment durant la verificació.

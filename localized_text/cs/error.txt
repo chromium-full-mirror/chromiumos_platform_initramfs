@@ -1,3 +1,4 @@
-Při obnovování došlo ke kritické chybě!
+Došlo k neočekávané chybě.  Tipy k odstraňování problémů naleznete
+na této adrese URL:
 
-Zkuste to prosím znovu nebo vyzkoušejte novější obraz pro obnovení.
+https://www.google.com/chromeos/recovery

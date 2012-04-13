@@ -1,3 +1,4 @@
-Terjadi galat yang tidak dapat dipulihkan selama pemulihan!
+Terjadi kesalahan yang tidak diharapkan.  Buka URL berikut untuk
+kiat pemecahan masalah:
 
-Coba lagi atau coba citra pemulihan yang lebih anyar.
+https://www.google.com/chromeos/recovery

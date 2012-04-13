@@ -1,3 +1,6 @@
-ADVERTIMENT: La imatge al vostre mitjà de recuperació és una
-imatge de desenvolupador no verificada.  La recuperació continuarà, perquè el selector del mode de
-desenvolupador del sistema està en posició ACTIVADA.
+La imatge del vostre mitjà de recuperació és una
+imatge de desenvolupador no verificada.
+
+La recuperació continuarà perquè n'heu desactivat la verificació per arrancar.
+Si més endavant torneu a activar la verificació, haureu de repetir
+la recuperació amb una imatge de SO Chrome oficial.

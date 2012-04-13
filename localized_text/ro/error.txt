@@ -1,3 +1,4 @@
-A apărut o eroare iremediabilă în timpul recuperării!
+A apărut o eroare neaşteptată.  Accesaţi următoarea adresă URL pentru
+sfaturi de depanare:
 
-Încercaţi din nou sau încercaţi cu o imagine de recuperare mai nouă.
+https://www.google.com/chromeos/recovery

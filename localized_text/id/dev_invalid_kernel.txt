@@ -1,4 +1,5 @@
-PERINGATAN: Anda menggunakan Chrome OS resmi yang lawas atau rusak
-         yang sudah usang atau rusak.
+Anda menggunakan citra pemulihan Chrome OS resmi yang kedaluwarsa.
 
-Sistem tidak akan melakukan boot dalam mode terverifikasi.
+Pemulihan akan dilanjutkan karena verifikasi dimatikan.
+Jika kemudian Anda menghidupkan verifikasi lagi, Anda harus mengulangi
+pemulihan dengan citra Chrome OS terbaru.

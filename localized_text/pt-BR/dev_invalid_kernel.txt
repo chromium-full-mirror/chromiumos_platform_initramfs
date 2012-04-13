@@ -1,4 +1,4 @@
-AVISO: você está utilizando uma versão desatualizada ou danificada do Chrome OS.
-         imagem recuperada.
+A imagem de recuperação oficial do Chrome OS que você está usando está desatualizada.
 
-O sistema não inicializará no modo verificado.
+A recuperação continuará porque a verificação está desativada.
+Caso venha a reativar a verificação posteriormente, você precisará repetir a recuperação com uma imagem atualizada do Chrome OS.

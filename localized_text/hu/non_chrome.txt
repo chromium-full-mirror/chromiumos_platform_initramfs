@@ -1,4 +1,4 @@
-Lehet, hogy számítógépe nem Chrome OS operációs rendszeren fut.
+Úgy tűnik, hogy a számítógépén nem Chrome OS operációs rendszer fut.
 
 A művelet töröl minden más telepített operációs rendszert
 és minden adatot; nem fog tudni biztonsági másolatot készíteni.

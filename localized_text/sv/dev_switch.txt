@@ -1,3 +1,5 @@
-Systemets utvecklarläge är AKTIVERAT.
+Verifiering av Chrome OS är inaktiverad.
 
-Om det inte är avsiktligt bör du avbryta återställningen och flytta omkopplaren till INAKTIVERAT.
+Om detta har skett oavsiktligt bör du avbryta återställningen och inaktivera utvecklarläget för att sedan aktivera verifiering.  Besök den här sidan om du vill veta mer:
+
+https://www.google.com/chromeos/recovery

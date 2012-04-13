@@ -1,4 +1,5 @@
-Bizonyosodjon meg arról, hogy készüléke hálózati áramról működik.
+A számítógép helyreállítására készül. Bizonyosodjon meg arról,
+hogy a számítógép hálózati áramról működik.
 
-A helyreállítás megszakításához tartsa lenyomva a bekapcsológombot, amíg a rendszer ki nem kapcsol -- ez kb. 8 másodpercet vesz igénybe.
-Ezt biztonságosan megteheti az ellenőrzés befejezéséig.
+A helyreállítás megszakításához tartsa lenyomva a bekapcsológombot, amíg a számítógép ki nem kapcsol (ez kb. 8 másodpercet vesz igénybe).
+Ezt bármikor biztonságosan megteheti az ellenőrzés során.

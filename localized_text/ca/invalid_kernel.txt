@@ -1,6 +1,6 @@
-La imatge al mitjà de recuperació està corrompuda o no està actualitzada.
-Es poden crear mitjans de recuperació nous si seguiu les instruccions a:
+Esteu utilitzant una imatge de recuperació de SO Chrome caducada.
+
+Consulteu aquest URL per obtenir instruccions sobre com crear
+mitjans de recuperació nous:
 
 https://www.google.com/chromeos/recovery
-
-Proveu la recuperació una altra vegada amb mitjans de recuperació creats recentment.

@@ -1,6 +1,5 @@
-A imagem no suporte de dados de recuperação está danificada ou desatualizada.
-É possível criar um novo suporte de dados de recuperação seguindo as instruções em:
+Está a utilizar uma imagem de recuperação do SO Chrome desatualizada.
+
+Para obter instruções sobre como criar um novo suporte de dados de recuperação, consulte este URL:
 
 https://www.google.com/chromeos/recovery
-
-Tente novamente a recuperação com o suporte de dados de recuperação acabado de criar.

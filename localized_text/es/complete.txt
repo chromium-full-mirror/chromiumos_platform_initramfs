@@ -1,3 +1,3 @@
 Se ha completado la recuperación del sistema.
 
-Elimina el medio de recuperación para que el sistema se reinicie automáticamente.
+Elimina el medio de recuperación para que el ordenador se reinicie automáticamente.

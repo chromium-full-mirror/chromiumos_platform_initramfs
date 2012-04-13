@@ -1,1 +1,5 @@
-BRĪDINĀJUMS: datu nesējā esošais attēls nav verificēts izstrādātāja attēls. Sistēmas atkopšana tiks turpināta, jo sistēmas izstrādātāja režīma slēdzis ir IESLĒGTĀ pozīcijā.
+Atkopšanas datu nesējā esošais attēls nav verificēts izstrādātāja attēls.
+
+Atkopšana tiks turpināta, jo ir izslēgta drošā sāknēšana.
+Ja vēlāk ieslēgsiet verifikāciju, jums būs jāatkārto
+atkopšana, izmantojot oficiālu Chrome OS attēlu.

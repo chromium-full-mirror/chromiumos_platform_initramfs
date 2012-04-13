@@ -1,4 +1,6 @@
-Uistite sa, že je váš systém pripojený k zdroju napájania.
+Chystáte sa obnoviť počítač. Skontrolujte, či 
+je počítač pripojený ku zdroju napájania.
 
-Ak chcete obnovenie zrušiť, stlačte a podržte tlačidlo napájania, dokým sa systém nevypne. Trvá to približne 8 sekúnd.
-Môžete tak bezpečne urobiť kedykoľvek pred ukončením verifikácie.
+Ak chcete obnovenie zrušiť, stlačte tlačidlo napájania a podržte ho,
+dokým sa systém nevypne (trvá to približne 8 sekúnd).
+Môžete tak bezpečne urobiť kedykoľvek počas verifikácie.

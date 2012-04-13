@@ -1,4 +1,4 @@
-Kontrollera att systemet är anslutet till ett eluttag.
+Datorn kommer att startas om. Kontrollera att datorn är ansluten till ett eluttag.
 
-Om du vill avbryta återställningen trycker du på avstängningsknappen och håller ned den tills systemet stängs av. Det tar ca 8 sekunder.
-Du kan göra det när som helst innan verifieringen är klar.
+Om du vill avbryta återställningen trycker du på avstängningsknappen och håller ned den tills datorn stängs av. (Det tar ca 8 sekunder.)
+Du kan göra detta när som helst medan verifieringen genomförs.

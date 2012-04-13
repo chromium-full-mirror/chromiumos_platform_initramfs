@@ -1,4 +1,4 @@
-CẢNH BÁO: Bạn đang sử dụng Chrome OS chính thức bị lỗi thời hoặc bị hỏng
-         hình ảnh khôi phục.
+Bạn đang sử dụng hình ảnh khôi phục hệ điều hành Chrome chính thức.
 
-Hệ thống sẽ không khởi động trong chế độ được xác minh.
+Khôi phục sẽ tiếp tục bởi vì xác minh bị tắt.
+Nếu bạn bật lại xác minh sau, bạn sẽ cần thực hiện lại việc khôi phục với một hình ảnh hệ điều hành Chrome cập nhật.

@@ -1,3 +1,4 @@
-Taastamise käigus esines taastamatu viga.
+Ilmnes tundmatu viga.  Vaadake vigade otsimise nõuandeid
+sellelt URL-ilt:
 
-Proovige uuesti või proovige uuemat taastekujutist.
+https://www.google.com/chromeos/recovery
