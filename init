@@ -311,7 +311,7 @@ save_log_file() {
   #           Should this also try to save
   dlog "Saving log file: $LOG_DIR -> $log_dev"
   err=0
-  mount -n -o sync,rw -t ext2 "$log_dev" /tmp || err=1
+  mount -n -o sync,rw "$log_dev" /tmp || err=1
   cp $LOG_DIR/* /tmp || err=1
   umount -n /tmp || err=1
   if [ $err -eq 0 ] ; then
