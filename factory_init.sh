@@ -71,7 +71,13 @@ use_new_root() {
 }
 
 factory_install() {
-  is_developer_mode || on_error  # factory install requires it.
+  # devsw_boot is 0 on dev + recovery boot on Parrot.
+  # TODO(yongjaek) When the virtual switches are fixed in crossystem, it
+  # should be reverted.
+  if [ "$(crossystem devsw_boot)" = "0" \
+       -a "$(crossystem recoverysw_boot)" = "0" ]; then
+    on_error
+  fi
   # Copy rootfs contents to tmpfs, then unmount USB device.
   NEWROOT_MNT=/newroot
   mount_tmpfs || on_error
