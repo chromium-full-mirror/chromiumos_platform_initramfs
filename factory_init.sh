@@ -1,4 +1,4 @@
-# Copyright (c) 2011 The Chromium OS Authors. All rights reserved.
+# Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 #
@@ -71,7 +71,6 @@ use_new_root() {
 }
 
 factory_install() {
-  is_developer_mode || on_error  # factory install requires it.
   # Copy rootfs contents to tmpfs, then unmount USB device.
   NEWROOT_MNT=/newroot
   mount_tmpfs || on_error
