@@ -80,13 +80,7 @@ get_dst() {
 
   case "$arch" in
     x86 )
-      # find the first ATA device from parted
-      SD_INFO=$(parted -l -s -m)
-      DST=$(expr "${SD_INFO}" : ".*\(/dev/sd[^:]*\)[^;]*:ATA\ ")
-      # fall back on /dev/sda if we find nothing
-      if [ "$DST" == 0 ]; then
-        DST="/dev/sda"
-      fi
+      DST="/dev/sda"
       DST_DEV_BASE="$DST"
       ;;
     arm )
