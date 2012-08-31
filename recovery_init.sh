@@ -72,6 +72,8 @@ validate_recovery_root() {
 # Accomodate sd* or mmcblk* devices
 get_dst() {
   local arch="$(crossystem arch)"
+  local src_dev_base="${REAL_USB_DEV%[0-9]*}"
+  DST=""
 
   # We can't trust the source (USB) media to find destination because ARM
   # supports booting from both USB(sd*) and SD Card Reader (mmcblk*).
@@ -80,7 +82,26 @@ get_dst() {
 
   case "$arch" in
     x86 )
-      DST="/dev/sda"
+      DEV_CHILDREN=$(ls /dev/sd* | grep '/sd[a-z][a-z]*$')
+
+      # Check that there are only 2 sd devices. This will fail on non-ChromeOS
+      # devices with more than 1 internal drive, but the user is very unlikely
+      # to want to take that approach since it is uncertain which drive this
+      # will install to.
+      if [ $(echo "$DEV_CHILDREN" | wc -l) -ne 2 ]; then
+        return 1
+      fi
+
+      for SD in $DEV_CHILDREN
+      do
+        if [ "${src_dev_base}" != "$SD" ]; then
+          DST="${SD}"
+        fi
+      done
+
+      if [ -z "$DST" ]; then
+        return 1
+      fi
       DST_DEV_BASE="$DST"
       ;;
     arm )
@@ -93,7 +114,6 @@ get_dst() {
       ;;
   esac
 
-  local src_dev_base="${REAL_USB_DEV%[0-9]*}"
   if [ "${src_dev_base}" = "$DST_DEV_BASE" ]; then
     dlog "Cannot find SSD for installation."
     return 1
