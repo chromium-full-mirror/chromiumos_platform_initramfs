@@ -349,11 +349,83 @@ get_usb_node_dir() {
   echo "$usb_node_dir"
 }
 
+get_usb_debugging_flag() {
+  local decrypt=""
+  if get_stateful_dev && mount -n -o sync,ro "${STATE_DEV}" /tmp; then
+    if [ -f /tmp/decrypt_stateful ]; then
+      decrypt=$(cat /tmp/decrypt_stateful)
+    fi
+    umount /tmp
+  fi
+  echo "$decrypt"
+}
+
+maybe_get_debugging_logs() {
+  local state=$(get_usb_debugging_flag)
+  if [ -z "$state" ]; then
+    return 0
+  fi
+  log "Stateful recovery requested: ${state}"
+
+  dlog "Attempting to find the destination stateful . . ."
+  get_dst || return 0
+
+  log "Please wait . . ."
+  sleep 150  # Five minutes in half.
+  if ! mount -n -o sync,rw "${DST_DEV_BASE}1" "${STATEFUL_MNT}"; then
+    log "Unable to perform stateful recovery."
+    dlog "mount failed for ${DST_DEV_BASE}1"
+    sleep 1d
+    reboot -f
+  fi
+
+  local flagfile="${STATEFUL_MNT}/decrypt_stateful"
+  # Check if the files exist already or if recovery needs to be requested.
+  if [ -f "$flagfile" ]; then
+    log "Prior recovery request exists. Attempting to extract files."
+    if ! mount -n -o sync,rw "${STATE_DEV}" /tmp; then
+      dlog "Failed to mount recovery stateful partition"
+      on_error
+    fi
+    mkdir -p /tmp/recovery || on_error
+    log "Copying files . . ."
+    if ! cp -var "${STATEFUL_MNT}/decrypted" /tmp/recovery; then
+      log "Copying failed. Please resize your stateful partition and try again!"
+      crossystem recovery_request=1
+      umount /tmp
+      umount "${STATEFUL_MNT}"
+      on_error
+    fi
+    log "Removing the request file and old data . . ."
+    rm -f "${flagfile}"
+    rm -rf "${STATEFUL_MNT}/decrypted/"
+    umount /tmp
+    umount "${STATEFUL_MNT}"
+    log "Please inspect your recovery media for the requested data in /recovery"
+    sleep 1d
+    reboot -f
+  fi
+  log "Installing request file . . ."
+  echo -n "${state}" > "$flagfile"
+  umount "${STATEFUL_MNT}"
+
+  log "Stateful recovery initiation completed."
+  log "In 60 seconds, the system will reboot to the local OS."
+  log "Once the files are prepared, it will return back to recovery mode."
+  log "Please use this same recovery media."
+  sleep 60
+  reboot -f  # Back to the system!
+  return 1
+}
+
 recovery_install() {
   NEWROOT_MNT="$USB_MNT"
 
   # Always lock the TPM.  If a NVRAM reset is ever needed, we can change it.
   lock_tpm || on_error
+
+  # Check if we're really doing debugging log extraction.
+  maybe_get_debugging_logs || return 1
 
   # Perform a full device mapper root validation to avoid any unexpected
   # failures during postinst.  It also allows us to detect if the root is
