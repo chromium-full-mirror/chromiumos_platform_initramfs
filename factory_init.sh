@@ -62,7 +62,7 @@ use_new_root() {
   # Chroot into newroot, erase the contents of the old /, and exec real init.
   log "About to switch root"
   stop_log_file
-  exec switch_root -c /dev/console "$NEWROOT_MNT" /sbin/init
+  exec switch_root -c /dev/tty2 "$NEWROOT_MNT" /sbin/init
 
   # This should not really happen.
   log "Failed to switch root."
