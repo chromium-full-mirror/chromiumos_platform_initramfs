@@ -370,7 +370,7 @@ maybe_get_debugging_logs() {
   dlog "Attempting to find the destination stateful . . ."
   get_dst || return 0
 
-  log "Please wait . . ."
+  log "Please wait (this may take up to 2 and a half minutes). . ."
   sleep 150  # Five minutes in half.
   if ! mount -n -o sync,rw "${DST_DEV_BASE}1" "${STATEFUL_MNT}"; then
     log "Unable to perform stateful recovery."
@@ -401,7 +401,8 @@ maybe_get_debugging_logs() {
     rm -rf "${STATEFUL_MNT}/decrypted/"
     umount /tmp
     umount "${STATEFUL_MNT}"
-    log "Please inspect your recovery media for the requested data in /recovery"
+    log "Operation complete, you can now remove your recovery media."
+    log "The requested data can be found in the /recovery folder."
     sleep 1d
     reboot -f
   fi
