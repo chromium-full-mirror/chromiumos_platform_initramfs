@@ -89,7 +89,7 @@ get_dst() {
       do
         if [ "${src_dev_base}" != "$SD" ]; then
           local sd_base=$(basename $SD)
-          if [ -f /sys/block/${sd_base}/size &&
+          if [ -f /sys/block/${sd_base}/size -a \
                "$(cat /sys/block/${sd_base}/size)" != "0" ]; then
             DST="$SD"
             num_sd=$(( num_sd + 1 ))
