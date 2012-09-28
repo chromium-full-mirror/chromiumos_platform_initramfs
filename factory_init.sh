@@ -6,6 +6,9 @@
 # exclusively for factory install shim images.  Note that this code
 # uses the busybox shell (not bash, not dash).
 
+# Size of the root ramdisk.
+TMPFS_SIZE=400M
+
 mount_tmpfs() {
   dlog "Mounting tmpfs..."
   mount -n -t tmpfs tmpfs "$NEWROOT_MNT" -o "size=$TMPFS_SIZE"

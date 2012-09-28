@@ -37,8 +37,6 @@ TAIL_PID=
 # a properly matched root and kernel.
 UNOFFICIAL_ROOT=0
 
-# Size of the root ramdisk.
-TMPFS_SIZE=300M
 
 . /lib/messages.sh
 
