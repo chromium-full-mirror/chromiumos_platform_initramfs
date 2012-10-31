@@ -16,11 +16,11 @@ import cairo
 import pango
 import pangocairo
 
-# The list of supported locales, and their associated fonts.  If
-# you're adding a new locale, it's usually (mostly) enough just to
-# update this dictionary.  See the README for information about the
-# caveats.
-DEFAULT_FONT = "Sans 12"
+# The list of supported locales, and their associated fonts.  Fonts should
+# generally match the list of families in Chrome's IDS_UI_FONT_FAMILY_CROS
+# string.  If you're adding a new locale, it's usually (mostly) enough just to
+# update this dictionary.  See the README for information about the caveats.
+DEFAULT_FONT = "Noto Sans UI,Droid Sans Fallback,sans-serif, 12"
 SUPPORTED_LOCALES = {
     "de": DEFAULT_FONT,
     "en-GB": DEFAULT_FONT,
@@ -29,8 +29,9 @@ SUPPORTED_LOCALES = {
     "es-419": DEFAULT_FONT,
     "fr": DEFAULT_FONT,
     "it": DEFAULT_FONT,
-    "ja": "MotoyaG04Gothic,IPAPGothic,Sans 12",
-    "ko": "NanumGothic,Sans 12",
+    "ja": "MotoyaG04Gothic,Noto Sans UI,IPAPGothic,Droid Sans Fallback," \
+          "sans-serif, 12",
+    "ko": "Noto Sans UI,NanumGothic,Droid Sans Fallback,sans-serif, 12",
     "nl": DEFAULT_FONT,
     "pt-BR": DEFAULT_FONT,
     "sv": DEFAULT_FONT
@@ -263,11 +264,11 @@ def CreateMessageImage(msgtext, locale, imagename):
   # Create the inset box for containing the text.
   context.translate(TEXT_INSET_WIDTH, TEXT_INSET_HEIGHT)
   pangocontext = pangocairo.CairoContext(context)
-  pangocontext.set_antialias(cairo.ANTIALIAS_SUBPIXEL)
   layout = pangocontext.create_layout()
   layout.set_width((MESSAGE_BOX_WIDTH - 2 * TEXT_INSET_WIDTH) * pango.SCALE)
 
-  # Actually write the text to the canvas.
+  # Actually write the text to the canvas.  Rendering settings (antialiases,
+  # subpixel rendering, etc.) come from Fontconfig: http://crosbug.com/27872.
   font = pango.FontDescription(SUPPORTED_LOCALES.get(locale, DEFAULT_FONT))
   layout.set_font_description(font)
   layout.set_text(msgtext)

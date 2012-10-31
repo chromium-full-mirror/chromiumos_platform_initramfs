@@ -78,7 +78,9 @@ which units could actually be shipped.
 The dictionary of supported locales and their associated fonts is
 stored in a global setting at the top of 'make_images'.  A new
 locale can be added by creating a mapping for the locale to an
-appropriate font.
+appropriate font.  The list of font families assigned to a locale here
+should typically match the families used in Chrome's UI; see the
+IDS_UI_FONT_FAMILY_CROS string in Chrome.
 
 Note that you should not accept on faith that simply updating the
 list of supported locales is enough to produce a good set of images.
