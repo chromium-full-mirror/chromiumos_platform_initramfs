@@ -20,7 +20,7 @@ import pangocairo
 # generally match the list of families in Chrome's IDS_UI_FONT_FAMILY_CROS
 # string.  If you're adding a new locale, it's usually (mostly) enough just to
 # update this dictionary.  See the README for information about the caveats.
-DEFAULT_FONT = "Noto Sans UI,Droid Sans Fallback,sans-serif, 12"
+DEFAULT_FONT = "Noto Sans UI,Droid Sans Fallback,sans-serif, 14px"
 SUPPORTED_LOCALES = {
     "de": DEFAULT_FONT,
     "en-GB": DEFAULT_FONT,
@@ -30,8 +30,8 @@ SUPPORTED_LOCALES = {
     "fr": DEFAULT_FONT,
     "it": DEFAULT_FONT,
     "ja": "MotoyaG04Gothic,Noto Sans UI,IPAPGothic,Droid Sans Fallback," \
-          "sans-serif, 12",
-    "ko": "Noto Sans UI,NanumGothic,Droid Sans Fallback,sans-serif, 12",
+          "sans-serif, 14px",
+    "ko": "Noto Sans UI,NanumGothic,Droid Sans Fallback,sans-serif, 14px",
     "nl": DEFAULT_FONT,
     "pt-BR": DEFAULT_FONT,
     "sv": DEFAULT_FONT
@@ -276,6 +276,13 @@ def CreateMessageImage(msgtext, locale, imagename):
   pangocontext.update_layout(layout)
   pangocontext.show_layout(layout)
 
+  # Check that the text didn't get clipped.
+  layout_width, layout_height = layout.get_pixel_size()
+  if layout_width > MESSAGE_BOX_WIDTH or layout_height > MESSAGE_BOX_HEIGHT:
+    raise RuntimeError('Text for %s (%dx%d) exceeds image size (%dx%d)' %
+                       (imagename, layout_width, layout_height,
+                        MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT))
+
   # Write the image to its output file.
   with open(imagename, "w") as image_output:
     surface.write_to_png(image_output)
@@ -368,6 +375,9 @@ def CreateLocales(textdir, screendir, locale_list):
         msgtext = re.sub(CRLF_PATTERN, "\n", msgtext)
         msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
         msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
+        # Strip any trailing whitespace.  A trailing newline appears to make
+        # Pango report a larger layout size than what's actually visible.
+        msgtext = msgtext.strip()
         pngfilename = os.path.join(locale_screen, tag + ".png")
         CreateMessageImage(msgtext, locale, pngfilename)
   os.unlink(empty_file)
