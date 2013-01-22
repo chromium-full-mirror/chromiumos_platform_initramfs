@@ -73,6 +73,23 @@ use_new_root() {
   return 1
 }
 
+netboot_ramfs_install() {
+  mkdir -p /var/log
+  touch /var/log/softwareupdate.log
+  (tail -f /var/log/softwareupdate.log >/dev/tty1) &
+
+  # For network boot, we are not able to retrieve install log if anything
+  # goes wrong. When installation fails, a shell on TTY4 would be handy.
+  # For security reason, this is disabled by default. Uncomment this line
+  # and do a local build by make_netboot.sh to build a netboot image with
+  # shell.
+  # (sh </dev/tty4 >/dev/tty4 2>/dev/tty4) &
+
+  # In case an error is not handled by factory installer itself, stop here
+  # so that an operator can see installation stop.
+  factory_install.sh >/dev/tty1 || sleep 1d
+}
+
 factory_install() {
   # Copy rootfs contents to tmpfs, then unmount USB device.
   NEWROOT_MNT=/newroot

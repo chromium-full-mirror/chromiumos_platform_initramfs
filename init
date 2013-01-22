@@ -56,6 +56,7 @@ initial_mounts() {
   mkdir -p /dev/pts
   mount -t devpts -o noexec,nosuid none /dev/pts || true
   mount -n -t debugfs debugfs /sys/kernel/debug
+  ln -s /proc/self/fd /dev/fd || true
 }
 
 # Look for a device with our GPT ID.
@@ -336,6 +337,10 @@ check_if_factory_install() {
   [ -n "$KERN_ARG_CROS_FACTORY_INSTALL" ]
 }
 
+check_if_netboot_ramfs() {
+  [ -n "$KERN_ARG_CROS_NETBOOT_RAMFS" ]
+}
+
 get_stateful_dev() {
   STATE_DEV=${REAL_USB_DEV%[0-9]*}1
   if [ ! -b "$STATE_DEV" ]; then
@@ -474,6 +479,11 @@ main() {
 
   if ! check_if_factory_install; then
     message startup
+  fi
+
+  if check_if_netboot_ramfs; then
+    . /lib/factory_init.sh
+    netboot_ramfs_install
   fi
 
   if ! find_official_root ; then
