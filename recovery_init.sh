@@ -271,6 +271,9 @@ call_image_recovery_script() {
   dlog "Installing software; this will take some time."
   dlog "See the debug log on VT3 for the full output."
 
+  # Prevent accidentally loading modules from the usb mount
+  echo 1 >/proc/sys/kernel/modules_disabled
+
   local install_status
   if [ -x "$USB_MNT/usr/sbin/chromeos-recovery" ]; then
     chroot "$USB_MNT" /usr/sbin/chromeos-recovery "$1"
