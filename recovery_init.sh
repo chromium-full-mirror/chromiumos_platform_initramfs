@@ -12,6 +12,8 @@ KERNEL_VER_MIN=0x10001
 KERNEL_VER_TPM_NV_SPACE=0x1008
 # TPM NVRAM index for the lockbox.
 LOCKBOX_TPM_NV_SPACE=0x20000004
+# Where chromeos-install will store any related hardware diagnostics data.
+LOG_HARDWARE_DIAGNOSTICS=hardware_diagnostics.log
 
 
 # Installation Target.
@@ -287,7 +289,20 @@ call_image_recovery_script() {
     install_status=$?
   fi
   if [  $install_status -ne 0 ]; then
-    dlog "Installation of software failed."
+    dlog "WARNING!!! Installation of software failed. Displaying hw diagnostics"
+    local diagnostics_file="$USB_MNT/tmp/$LOG_HARDWARE_DIAGNOSTICS"
+    if [ -f "$diagnostics_file" ]; then
+      cp "$diagnostics_file" "$LOG_DIR"
+      dlog \
+"============================ HARDWARE DIAGNOSTICS =========================="
+      dlog $(cat "$diagnostics_file")
+      dlog "See recovery log for more information."
+      dlog \
+"============================================================================"
+      dlog
+    else
+      dlog "Missing hardware diagnostics."
+    fi
   fi
 
   # No error check here:  Clean up doesn't need to be successful.
