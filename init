@@ -370,13 +370,22 @@ strip_partition() {
   echo "${dev%p*}"
 }
 
-save_log_file() {
-  local log_dev="${1:-$LOG_DEV}"
-  [ -z "$log_dev" ] && return 0
+# Saves log files stored in LOG_DIR in addition to demsg to the device specified
+# (/ of stateful mount if none specified).
+save_log_files() {
   # The recovery stateful is usually too small for ext3.
   # TODO(wad) We could also just write the data raw if needed.
   #           Should this also try to save
-  dlog "Saving log file: $LOG_DIR -> $log_dev"
+  local log_dev="${1:-$LOG_DEV}"
+  [ -z "$log_dev" ] && return 0
+
+  dlog "Dumping dmesg to $LOG_DIR"
+  dmesg > "$LOG_DIR"/dmesg
+
+  # TODO(sosa): Remove once caller scripts recover all of the log dir.
+  cat "$LOG_DIR"/dmesg >> "$LOG_FILE"
+
+  dlog "Saving log files from: $LOG_DIR -> $log_dev"
   err=0
   mount -n -o sync,rw "$log_dev" /tmp || err=1
   cp $LOG_DIR/* /tmp || err=1

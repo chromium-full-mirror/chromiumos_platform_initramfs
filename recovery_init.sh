@@ -473,8 +473,8 @@ recovery_install() {
 
   stop_log_file
   # Save the recovery log to the target on success and the USB.
-  save_log_file "$DST_DEV_BASE"1
-  save_log_file
+  save_log_files "$DST_DEV_BASE"1
+  save_log_files
 
   # This assignment depends on the stateful partition on the USB
   # stick, so we must do it before unmount_usb and the

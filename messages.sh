@@ -268,7 +268,7 @@ message_warn_invalid_install_kernel() {
 message_invalid_install_kernel() {
   instructions invalid_kernel
   showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
-  save_log_file
+  save_log_files
   sleep 1d
   exit 1
 }
@@ -285,7 +285,7 @@ message() {
 # shell here would be a BIG security hole.
 on_error() {
   message on_error
-  save_log_file
+  save_log_files
   sleep 1d
   exit 1
 }

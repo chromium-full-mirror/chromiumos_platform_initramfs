@@ -69,7 +69,7 @@ use_new_root() {
 
   # This should not really happen.
   log "Failed to switch root."
-  save_log_file
+  save_log_files
   return 1
 }
 
