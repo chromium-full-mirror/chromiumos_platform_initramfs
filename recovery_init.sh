@@ -391,7 +391,7 @@ maybe_get_debugging_logs() {
   if [ -z "$state" ]; then
     return 0
   fi
-  log "Stateful recovery requested: ${state}"
+  log "Stateful recovery requested."
 
   dlog "Attempting to find the destination stateful . . ."
   get_dst || return 0
@@ -432,8 +432,36 @@ maybe_get_debugging_logs() {
     sleep 1d
     reboot -f
   fi
+
+  local saltfile="${STATEFUL_MNT}"/home/.shadow/salt
+  if [ ! -f "${saltfile}" ]; then
+    log "Target has no system salt file. Giving up."
+    sleep 1d
+    reboot -f
+  fi
+
+  log "Stateful recovery requires authentication."
+  log "Your username and salted password will be temporarily written to the"
+  log "device for the duration of this recovery process. Once finished,"
+  log "please be sure to change your password as a precautionary measure."
+
+  local username
+  read -p Username: username <"$TTY_PATH"1 2>"$TTY_PATH"1
+
+  local password
+  read -p Password: -s password <"$TTY_PATH"1 2>"$TTY_PATH"1
+  # Force a newline for sane output after silent input.
+  echo "" >"$TTY_PATH"1
+
+  local salt=$(hexdump -v -e '/1 "%02x"' <"$saltfile")
+  local passkey=$(echo -n "${salt}${password}" | sha256sum | cut -c-32)
+
   log "Installing request file . . ."
-  echo -n "${state}" > "$flagfile"
+  cat > "$flagfile" <<EOM
+2
+$username
+$passkey
+EOM
   umount "${STATEFUL_MNT}"
 
   log "Stateful recovery initiation completed."
