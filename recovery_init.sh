@@ -406,17 +406,30 @@ maybe_get_debugging_logs() {
   fi
 
   local flagfile="${STATEFUL_MNT}/decrypt_stateful"
+  local decrypted_dir="${STATEFUL_MNT}/decrypted"
+  local tarball_dir="/tmp/recovery"
+  local tarball="${tarball_dir}/extracted.tgz"
   # Check if the files exist already or if recovery needs to be requested.
-  if [ -f "$flagfile" ]; then
+  if [ -f "$flagfile" ] && [ ! -d "$decrypted_dir" ]; then
+    log "Prior recovery request incomplete. Starting over . . ."
+  fi
+  if [ -f "$flagfile" ] && [ -d "$decrypted_dir" ]; then
     log "Prior recovery request exists. Attempting to extract files."
-    if ! mount -n -o sync,rw "${STATE_DEV}" /tmp; then
-      dlog "Failed to mount recovery stateful partition"
+    if ! mount -n -o sync,rw "${STATE_DEV}" /tmp 2>"$TTY_PATH"2; then
+      log "Failed to mount recovery stateful partition."
       on_error
     fi
-    mkdir -p /tmp/recovery || on_error
+    mkdir -p "$tarball_dir" || on_error
     log "Copying files . . ."
-    if ! cp -var "${STATEFUL_MNT}/decrypted" /tmp/recovery; then
-      log "Copying failed. Please resize your stateful partition and try again!"
+    # Due to the tty redirection that this script runs under, without the
+    # explicit stdin and stdout redirects, tar will fail with "Broken pipe".
+    if ! tar -czf "${tarball}" -C "${STATEFUL_MNT}" \
+         --exclude './decrypt_stateful' \
+         --exclude './encrypted*' \
+         --exclude './home/.shadow/*/*' \
+         --exclude './dev_image' \
+         . >"$TTY_PATH2"2 2>"$TTY_PATH"2 </dev/null ; then
+      log "Extraction failed. See debug log for more details."
       crossystem recovery_request=1
       umount /tmp
       umount "${STATEFUL_MNT}"
@@ -424,7 +437,7 @@ maybe_get_debugging_logs() {
     fi
     log "Removing the request file and old data . . ."
     rm -f "${flagfile}"
-    rm -rf "${STATEFUL_MNT}/decrypted/"
+    rm -rf "${decrypted_dir}"
     umount /tmp
     umount "${STATEFUL_MNT}"
     log "Operation complete, you can now remove your recovery media."
