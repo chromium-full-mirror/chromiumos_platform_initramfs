@@ -128,6 +128,7 @@ get_dst() {
     dlog "Cannot find SSD for installation."
     return 1
   fi
+  SRC_DEV_BASE="${src_dev_base}"
 }
 
 dev_wait_or_error() {
@@ -514,8 +515,9 @@ recovery_install() {
 
   stop_log_file
   # Save the recovery log to the target on success and the USB.
-  save_log_files "$DST_DEV_BASE"1
-  save_log_files
+  save_log_files "$DST_DEV_BASE"1 ext4
+  save_log_files "$SRC_DEV_BASE"12 vfat
+  save_log_files "$SRC_DEV_BASE"1 ext4
 
   # This assignment depends on the stateful partition on the USB
   # stick, so we must do it before unmount_usb and the
