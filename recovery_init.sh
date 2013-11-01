@@ -447,13 +447,6 @@ maybe_get_debugging_logs() {
     reboot -f
   fi
 
-  local saltfile="${STATEFUL_MNT}"/home/.shadow/salt
-  if [ ! -f "${saltfile}" ]; then
-    log "Target has no system salt file. Giving up."
-    sleep 1d
-    reboot -f
-  fi
-
   log "Stateful recovery requires authentication."
   log "Your username and salted password will be temporarily written to the"
   log "device for the duration of this recovery process. Once finished,"
@@ -462,20 +455,32 @@ maybe_get_debugging_logs() {
   local username
   read -p Username: username <"$TTY_PATH"1 2>"$TTY_PATH"1
 
-  local password
-  read -p Password: -s password <"$TTY_PATH"1 2>"$TTY_PATH"1
-  # Force a newline for sane output after silent input.
-  echo "" >"$TTY_PATH"1
+  if [ -n "${username}" ]; then
+    local password
+    read -p Password: -s password <"$TTY_PATH"1 2>"$TTY_PATH"1
+    # Force a newline for sane output after silent input.
+    echo "" >"$TTY_PATH"1
 
-  local salt=$(hexdump -v -e '/1 "%02x"' <"$saltfile")
-  local passkey=$(echo -n "${salt}${password}" | sha256sum | cut -c-32)
+    local saltfile="${STATEFUL_MNT}"/home/.shadow/salt
+    if [ ! -f "${saltfile}" ]; then
+      log "Target has no system salt file. Giving up."
+      sleep 1d
+      reboot -f
+    fi
 
-  log "Installing request file . . ."
-  cat > "$flagfile" <<EOM
+    local salt=$(hexdump -v -e '/1 "%02x"' <"$saltfile")
+    local passkey=$(echo -n "${salt}${password}" | sha256sum | cut -c-32)
+
+    log "Installing v2 request file . . ."
+    cat > "${flagfile}" <<EOM
 2
 $username
 $passkey
 EOM
+  else
+    log "Installing v1 request file . . ."
+    echo -n "1" > "${flagfile}"
+  fi
   umount "${STATEFUL_MNT}"
 
   log "Stateful recovery initiation completed."
