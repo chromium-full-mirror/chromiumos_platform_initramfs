@@ -16,10 +16,14 @@ mount_tmpfs() {
 }
 
 copy_contents() {
-  log "Copying usb->tmpfs..."
+  log "Copying contents of USB device to tmpfs..."
   (cd "${USB_MNT}" ; tar cf - . | (cd "${NEWROOT_MNT}" && tar xf  -))
   RES=$?
-  log "Copy returned with result $RES"
+  if [ $RES -eq 0 ]; then
+    log "Copy complete."
+  else
+    log "Copy failed with result $RES."
+  fi
   return $RES
 }
 
@@ -45,6 +49,12 @@ copy_lsb() {
   fi
   umount "$STATEFUL_MNT"
   rmdir "$STATEFUL_MNT"
+}
+
+copy_bins() {
+  # Copy essential binaries that are in the initramfs, but not in the root FS.
+  log "Copying binaries to $NEWROOT_MNT"
+  cp /bin/busybox $NEWROOT_MNT/bin
 }
 
 move_mounts() {
@@ -75,27 +85,33 @@ use_new_root() {
 
 netboot_ramfs_install() {
   mkdir -p /var/log
-  touch /var/log/softwareupdate.log
-  (tail -f /var/log/softwareupdate.log >/dev/tty1) &
+
+  # Install busybox bins for factory installer and add to path.
+  mkdir /tmp/busybox-bins
+  busybox --install /tmp/busybox-bins
+  PATH="$PATH":/tmp/busybox-bins
+  export PATH
 
   # For network boot, we are not able to retrieve install log if anything
-  # goes wrong. When installation fails, a shell on TTY4 would be handy.
+  # goes wrong. When installation fails, a shell on TTY5 would be handy.
   # For security reason, this is disabled by default. Uncomment this line
   # and do a local build by make_netboot.sh to build a netboot image with
   # shell.
-  # (sh </dev/tty4 >/dev/tty4 2>/dev/tty4) &
+  # openvt -c 5 bash
 
   # In case an error is not handled by factory installer itself, stop here
   # so that an operator can see installation stop.
-  factory_install.sh >/dev/tty1 || sleep 1d
+  openvt -c 1 factory_install.sh -w || sleep 1d
 }
 
 factory_install() {
+  log "Bootstrapping factory shim."
   # Copy rootfs contents to tmpfs, then unmount USB device.
   NEWROOT_MNT=/newroot
   mount_tmpfs || on_error
   copy_contents || on_error
   copy_lsb || on_error
+  copy_bins || on_error
   # USB device is unmounted, we can remove it now.
   unmount_usb || on_error
   # Switch to the new root
