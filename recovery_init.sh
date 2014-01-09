@@ -72,59 +72,49 @@ validate_recovery_root() {
 }
 
 # Accomodate sd* or mmcblk* devices
+# TODO(shawnn): Sync the target device selection logic to chromeos-install.
+# See http://crbug.com/336654.
 get_dst() {
-  local arch="$(crossystem arch)"
+  # Find a non-removable /dev/sd* or /dev/mmcblk* device to install to.
+  local num_dev=0
   local src_dev_base="${REAL_USB_DEV%[0-9]*}"
-  DST=""
+  local dev
 
-  # We can't trust the source (USB) media to find destination because ARM
-  # supports booting from both USB(sd*) and SD Card Reader (mmcblk*).
-  # The current solution is to hard-code destination by architecture -- which is
-  # also how factory test program works.
+  for dev in /sys/block/sd* /sys/block/mmcblk*; do
+    if [ ! -d "${dev}" ]; then
+      continue
+    fi
+    # Do not install to removable devices, or devices of size < 1 GiB
+    # (2097152 blocks of size 512 bytes). Devices of such size are too small
+    # for Chromium OS, and may in fact be special partitions of large drives.
+    if [ "$(cat "${dev}/removable")" = 1 ]; then
+      continue
+    fi
+    if [ "$(cat "${dev}/size")" -lt 2097152 ]; then
+      continue
+    fi
 
-  case "$arch" in
-    x86 )
-      DEV_CHILDREN=$(ls /dev/sd* | grep '/sd[a-z][a-z]*$')
-      local num_sd=0
+    DST="/dev/$(basename "${dev}")"
+    : $(( num_dev += 1 ))
 
-      for SD in $DEV_CHILDREN
-      do
-        if [ "${src_dev_base}" != "$SD" ]; then
-          local sd_base=$(basename $SD)
-          if [ -f /sys/block/${sd_base}/size -a \
-               "$(cat /sys/block/${sd_base}/size)" != "0" ]; then
-            DST="$SD"
-            num_sd=$(( num_sd + 1 ))
-          fi
-        else
-          num_sd=$(( num_sd + 1 ))
-        fi
-      done
+    if [ "${dev%[0-9]}" = "${dev}" ]; then
+      # ex, sda => sda1, sdb1
+      DST_DEV_BASE="/dev/$(basename "${dev}")"
+    else
+      # ex, mmcblk0 => mmcblk0p1
+      DST_DEV_BASE="/dev/$(basename "${dev}")p"
+    fi
+  done
 
-      # Check that there are only 2 sd devices. This will fail on non-ChromeOS
-      # devices with more than 1 internal drive, but the user is very unlikely
-      # to want to take that approach since it is uncertain which drive this
-      # will install to.
-      if [ $num_sd -ne 2 ]; then
-        return 1
-      fi
+  # Check that there is only 1 internal device. This will fail on non-ChromeOS
+  # devices with more than 1 internal drive, but the user is very unlikely
+  # to want to take that approach since it is uncertain which drive this
+  # will install to.
+  if [ ${num_dev} -ne 1 ]; then
+    return 1
+  fi
 
-      if [ -z "$DST" ]; then
-        return 1
-      fi
-      DST_DEV_BASE="$DST"
-      ;;
-    arm )
-      DST="/dev/mmcblk0"
-      DST_DEV_BASE="$DST"p
-      ;;
-    * )
-      dlog "Unknown platform ($arch), cannot identify destination."
-      return 1
-      ;;
-  esac
-
-  if [ "${src_dev_base}" = "$DST_DEV_BASE" ]; then
+  if [ "${src_dev_base}" = "${DST_DEV_BASE}" ]; then
     dlog "Cannot find SSD for installation."
     return 1
   fi
