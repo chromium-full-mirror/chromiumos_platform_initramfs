@@ -84,14 +84,25 @@ get_dst() {
     if [ ! -d "${dev}" ]; then
       continue
     fi
-    # Do not install to removable devices, or devices of size < 1 GiB
-    # (2097152 blocks of size 512 bytes). Devices of such size are too small
-    # for Chromium OS, and may in fact be special partitions of large drives.
+    # Do not install to removable devices.
     if [ "$(cat "${dev}/removable")" = 1 ]; then
       continue
     fi
+    # Do not install to devices of size < 1 GiB (2097152 blocks of size 512
+    # bytes). Devices of such size are too small for Chromium OS, and may in
+    # fact be special partitions of large drives.
     if [ "$(cat "${dev}/size")" -lt 2097152 ]; then
       continue
+    fi
+    # The mmcblk driver may identify media cards as non-removable, so exclude
+    # SD cards, which are inherently removable. BUG: We may still identify
+    # external MMC cards as non-removable.
+    if [ -f "${dev}/device/type" ]; then
+      case "$(cat "${dev}/device/type")" in
+      SD*)
+        continue;
+        ;;
+      esac
     fi
 
     DST="/dev/$(basename "${dev}")"
