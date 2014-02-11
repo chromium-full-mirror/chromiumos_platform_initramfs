@@ -430,7 +430,7 @@ maybe_get_debugging_logs() {
          --exclude './encrypted*' \
          --exclude './home/.shadow/*/*' \
          --exclude './dev_image' \
-         . >"$TTY_PATH2"2 2>"$TTY_PATH"2 </dev/null ; then
+         . >"$TTY_PATH"2 2>"$TTY_PATH"2 </dev/null ; then
       log "Extraction failed. See debug log for more details."
       crossystem recovery_request=1
       umount /tmp
