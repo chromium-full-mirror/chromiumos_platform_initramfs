@@ -6,9 +6,6 @@
 # exclusively for recovery images.  Note that this code uses the
 # busybox shell (not bash, not dash).
 
-# Include disk information.
-. /usr/sbin/write_gpt.sh
-
 # Starting kernel rollback version.
 KERNEL_VER_MIN=0x10001
 # TPM NVRAM index where the rollback kernel version is stored.
@@ -66,7 +63,7 @@ validate_recovery_root() {
   )
   if [ "$(cat /tmp/verification_status)" != "0" ]; then
     dlog "Included root filesystem could not be verified."
-    umount "${USB_MNT}"
+    umount "$USB_MNT"
     dmsetup remove "$DM_NAME"  # Free up the real root for use.
     USB_DEV=
     return 1
@@ -74,20 +71,60 @@ validate_recovery_root() {
   return 0
 }
 
+# Accomodate sd* or mmcblk* devices
+# TODO(shawnn): Sync the target device selection logic to chromeos-install.
+# See http://crbug.com/336654.
 get_dst() {
-  load_base_vars
-  DST="$(get_fixed_dst_drive)"
-  if [ -z "${DST}" ]; then
-    dlog "SSD for installation not specified"
+  # Find a non-removable /dev/sd* or /dev/mmcblk* device to install to.
+  local num_dev=0
+  local src_dev_base="${REAL_USB_DEV%[0-9]*}"
+  local dev
+
+  for dev in /sys/block/sd* /sys/block/mmcblk*; do
+    if [ ! -d "${dev}" ]; then
+      continue
+    fi
+    # Do not install to removable devices.
+    if [ "$(cat "${dev}/removable")" = 1 ]; then
+      continue
+    fi
+    # Do not install to devices of size < 1 GiB (2097152 blocks of size 512
+    # bytes). Devices of such size are too small for Chromium OS, and may in
+    # fact be special partitions of large drives.
+    if [ "$(cat "${dev}/size")" -lt 2097152 ]; then
+      continue
+    fi
+    # The mmcblk driver may identify media cards as non-removable, so exclude
+    # SD cards, which are inherently removable. BUG: We may still identify
+    # external MMC cards as non-removable.
+    if [ -f "${dev}/device/type" ]; then
+      case "$(cat "${dev}/device/type")" in
+      SD*)
+        continue;
+        ;;
+      esac
+    fi
+
+    DST="/dev/$(basename "${dev}")"
+    : $(( num_dev += 1 ))
+
+    if [ "${dev%[0-9]}" = "${dev}" ]; then
+      # ex, sda => sda1, sdb1
+      DST_DEV_BASE="/dev/$(basename "${dev}")"
+    else
+      # ex, mmcblk0 => mmcblk0p1
+      DST_DEV_BASE="/dev/$(basename "${dev}")p"
+    fi
+  done
+
+  # Check that there is only 1 internal device. This will fail on non-ChromeOS
+  # devices with more than 1 internal drive, but the user is very unlikely
+  # to want to take that approach since it is uncertain which drive this
+  # will install to.
+  if [ ${num_dev} -ne 1 ]; then
     return 1
   fi
-  if [ "${DST%[0-9]}" = "${DST}" ]; then
-    # ex, sda => sda1, sdb1
-    DST_DEV_BASE="${DST}"
-  else
-    # ex, mmcblk0 => mmcblk0p1
-    DST_DEV_BASE="${DST}p"
-  fi
+
   if [ "${src_dev_base}" = "${DST_DEV_BASE}" ]; then
     dlog "Cannot find SSD for installation."
     return 1
@@ -113,7 +150,7 @@ check_key_or_wait() {
   # If we found a keyblock, at the right offset, make sure it actually signed
   # the subsequent payload.
   local kdev=
-  for kdev in $(cgpt find -t kernel -M "$1" "${DST}"); do
+  for kdev in $(cgpt find -t kernel -M "$1" "$DST"); do
     dlogf " ."
     verify_kernel_signature "$kdev" "/tmp/kern.keyblock" || continue
     dlog " done."
@@ -206,7 +243,7 @@ verify_install_kernel() {
 }
 
 setup_install_mounts() {
-  mount -t tmpfs -o mode=1777 none "${USB_MNT}/tmp" || return 1
+  mount -t tmpfs -o mode=1777 none "$USB_MNT/tmp" || return 1
   dlog "Re-binding $BASE_MOUNTS for $NEWROOT_MNT"
   for mnt in $BASE_MOUNTS; do
     # $mnt is a full path (leading '/'), so no '/' joiner
@@ -224,7 +261,7 @@ cleanup_install_mounts() {
     umount "$NEWROOT_MNT$mnt"
   done
   dlog "Done."
-  umount "${USB_MNT}/tmp"
+  umount "$USB_MNT/tmp"
   return 0
 }
 
@@ -241,17 +278,13 @@ call_image_recovery_script() {
   # Prevent accidentally loading modules from the usb mount
   echo 1 >/proc/sys/kernel/modules_disabled
 
-  # If you change the command lines below for either
-  # chromeos-recovery or chromeos-install, you could break dev mode
-  # installation on Mario.
-  # Don't change the code until you understand this issue.
   local install_status
-  if [ -x "${USB_MNT}/usr/sbin/chromeos-recovery" ]; then
-    chroot "${USB_MNT}" /usr/sbin/chromeos-recovery "$1"
+  if [ -x "$USB_MNT/usr/sbin/chromeos-recovery" ]; then
+    chroot "$USB_MNT" /usr/sbin/chromeos-recovery "$1"
     install_status=$?
   else
     export IS_RECOVERY_INSTALL=1
-    chroot "${USB_MNT}" \
+    chroot "$USB_MNT" \
       /usr/sbin/chromeos-install --yes --run_as_root \
                                  --payload_image="$1" \
                                  --use_payload_kern_b
@@ -259,7 +292,7 @@ call_image_recovery_script() {
   fi
   if [  $install_status -ne 0 ]; then
     dlog "WARNING!!! Installation of software failed. Displaying hw diagnostics"
-    local diagnostics_file="${USB_MNT}/tmp/$LOG_HARDWARE_DIAGNOSTICS"
+    local diagnostics_file="$USB_MNT/tmp/$LOG_HARDWARE_DIAGNOSTICS"
     if [ -f "$diagnostics_file" ]; then
       cp "$diagnostics_file" "$LOG_DIR"
       dlog \
@@ -461,7 +494,7 @@ EOM
 }
 
 recovery_install() {
-  NEWROOT_MNT="${USB_MNT}"
+  NEWROOT_MNT="$USB_MNT"
 
   # Always lock the TPM.  If a NVRAM reset is ever needed, we can change it.
   lock_tpm || on_error
@@ -488,9 +521,9 @@ recovery_install() {
 
   stop_log_file
   # Save the recovery log to the target on success and the USB.
-  save_log_files "${DST_DEV_BASE}"1 ext4
-  save_log_files "${SRC_DEV_BASE}"12 vfat
-  save_log_files "${SRC_DEV_BASE}"1 ext4
+  save_log_files "$DST_DEV_BASE"1 ext4
+  save_log_files "$SRC_DEV_BASE"12 vfat
+  save_log_files "$SRC_DEV_BASE"1 ext4
 
   # This assignment depends on the stateful partition on the USB
   # stick, so we must do it before unmount_usb and the
