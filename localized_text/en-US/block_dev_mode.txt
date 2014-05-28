@@ -1,0 +1,7 @@
+The device owner requires this device to run with Chrome OS
+verification turned on.  You are trying to install an unofficial
+Chrome OS recovery image which does not pass verification.
+
+For more information, refer to this URL:
+
+https://www.google.com/chromeos/devmode

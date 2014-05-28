@@ -28,13 +28,40 @@ LOG_HARDWARE_DIAGNOSTICS=hardware_diagnostics.log
 DST_DEV_BASE=
 DST=
 
-# If we have a verified recovery root, ensure all blocks are valid before
-# handing it off to the installer.
-validate_recovery_root() {
-  # Allow test recovery roots that are unverified.
-  [ "$USB_DEV" = "/dev/dm-0" ] || return 0
-  is_unofficial_root && return 0
 
+# Error codes used as return code by functions to indicate installation
+# should be aborted for the corresponding reason.
+
+# Indicates a failure validating the kernel.
+ERR_INVALID_INSTALL_KERNEL=2
+
+# The image failed validation on a device with block_devmode=1.
+ERR_DEV_MODE_BLOCKED=3
+
+
+# Check whether the device owner has configured the device to block
+# developer mode.  Note that the check works regardless of whether the
+# device is currently booted in developer mode or not.
+#
+# This check is used to enforce the block_devmode flag.  The regular boot
+# path checks the flag in chromeos_startup, which resides in the root.
+# Hence, only official kernels and roots that are guaranteed to perform the
+# check can be allowed to be installed - otherwise developer mode blocking
+# is easily circumvented by installing an unofficial kernel or root that
+# doesn't perform the block_devmode check.
+is_developer_mode_blocked() {
+  # The device should refuse operation in developer mode if
+  # (1) the device owner has flipped the block_devmode flag to 1 and
+  # (2) firmware write protection is enabled.  Disabled write protection
+  #     signals hardware tampering, at which point there's no point in
+  #     trying to restrict image installation to hard disk as the user
+  #     could just hook up a different disk.
+  crossystem block_devmode?1 wpsw_boot?1
+}
+
+# Verifies the recovery root by reading all blocks of the dm-verity
+# block device.  Return code indicates whether verification succeeded.
+verify_recovery_root() {
   local usb_base=$(basename "$USB_DEV")
   local size=$(( 512 * $(cat /sys/block/$usb_base/size) ))
 
@@ -66,11 +93,45 @@ validate_recovery_root() {
   )
   if [ "$(cat /tmp/verification_status)" != "0" ]; then
     dlog "Included root filesystem could not be verified."
-    umount "${USB_MNT}"
-    dmsetup remove "$DM_NAME"  # Free up the real root for use.
-    USB_DEV=
     return 1
   fi
+  return 0
+}
+
+# Checks that we have a valid recovery root before handing it off to the
+# installer.
+validate_recovery_root() {
+  # Allow test recovery roots that are unverified unless developer mode
+  # is blocked by the device owner.
+  if [ "$USB_DEV" != "/dev/dm-0" ] || is_unofficial_root; then
+    is_developer_mode_blocked && return $ERR_DEV_MODE_BLOCKED
+    return 0
+  fi
+
+  # Perform a full device mapper root validation to avoid any unexpected
+  # failures during postinst.  It also allows us to detect if the root
+  # is intentionally mismatched - such as during Chromium OS recovery
+  # with a Chrome OS recovery kernel.
+  verify_recovery_root && return 0
+
+  # Verification failed. Only proceed in developer mode.
+  is_developer_mode || return 1
+
+  # If developer mode is blocked, don't allow an unverified root.
+  is_developer_mode_blocked && return $ERR_DEV_MODE_BLOCKED
+
+  # The root we just mounted looked like an official recovery image, but
+  # it didn't pass validation.  Try to fall back to installing a
+  # developer image.
+  umount "${USB_MNT}"
+  dmsetup remove "$DM_NAME"  # Free up the real root for use.
+  USB_DEV=
+
+  find_developer_root || return 1
+  get_stateful_dev || return 1
+
+  message developer_image
+
   return 0
 }
 
@@ -95,17 +156,13 @@ get_dst() {
   SRC_DEV_BASE="${src_dev_base}"
 }
 
-dev_wait_or_error() {
-  is_developer_mode || on_error  # terminal if we get here in regular mode.
-  message key_change
-}
-
-check_key_or_wait() {
+# Checks whether a given key block is also a valid key block used to
+# sign a kernel currently installed on the destination block device.
+check_install_kernel_key_match() {
   dlogf "Searching the system disk for a matching kernel key . . ."
   if ! cgpt find -t kernel -M "$1" "$DST"; then
     dlog " failed."
-    dev_wait_or_error
-    return 0
+    return 1
   fi
   dlog " found."
 
@@ -121,8 +178,7 @@ check_key_or_wait() {
   done
 
   dlog " failed."
-  dev_wait_or_error
-  return 0
+  return 1
 }
 
 # Get the kernel version by directly reading the TPM NVRAM spaces.
@@ -182,23 +238,27 @@ verify_install_kernel() {
     # course of the general init process.
     is_developer_mode || return 1
 
+    # Only allow verified kernels when developer mode blocking is on.
+    is_developer_mode_blocked && return $ERR_DEV_MODE_BLOCKED
+
     message developer_image
 
     # Extract the kernel so that vbutil_kernel will happily consume it.
     dlog "Checking the install kernel for a valid developer signature . . ."
     verify_kernel_signature "$KERN_B_DEV" "/tmp/kern_b.keyblock" || return 1
-    check_key_or_wait /tmp/kern_b.keyblock
+    check_install_kernel_key_match /tmp/kern_b.keyblock || message key_change
     return 0
   fi
 
   # Looks like we have an official recovery image. Check for version rollback.
   dlog "Checking the install kernel for valid versions and signature . . ."
   if ! verify_kernel_version "$KERN_B_DEV"; then
-    if ! is_developer_mode; then
-      # Rollback version check failure is fatal if we are not in developer mode.
-      message invalid_install_kernel
-      return 1
-    fi
+    # Rollback version check failure is fatal if we are not in developer mode.
+    is_developer_mode || return $ERR_INVALID_INSTALL_KERNEL
+
+    # Don't allow version downgrades when developer mode blocking is on.
+    is_developer_mode_blocked && return $ERR_DEV_MODE_BLOCKED
+
     message warn_invalid_install_kernel
   fi
 
@@ -293,7 +353,7 @@ recover_system() {
   # in normal recovery mode, then we require that the KERN-B
   # on the recovery image matches the hash on the command line.
   # In developer mode, we will just check the keys.
-  verify_install_kernel || return 1
+  verify_install_kernel || return $?
 
   # Only clear on full installs. Shim scripts can call tpmc if they
   # like.  Only bGlobalLock will be in place in advance.
@@ -444,6 +504,23 @@ EOM
   return 1
 }
 
+# Shows the appropriate error screen for the specified error code and
+# stops further action, i.e. doesn't return.
+handle_error() {
+  case "$1" in
+    $ERR_DEV_MODE_BLOCKED)
+      message block_developer_mode
+      ;;
+    $ERR_INVALID_INSTALL_KERNEL)
+      message invalid_install_kernel
+      ;;
+    *)
+      # Show the generic error screen by default.
+      on_error
+      ;;
+  esac
+}
+
 recovery_install() {
   NEWROOT_MNT="${USB_MNT}"
 
@@ -453,22 +530,12 @@ recovery_install() {
   # Check if we're really doing debugging log extraction.
   maybe_get_debugging_logs || return 1
 
-  # Perform a full device mapper root validation to avoid any unexpected
-  # failures during postinst.  It also allows us to detect if the root is
-  # intentionally mismatched - such as during Chromium OS recovery with a
-  # Chrome OS recovery kernel.
-  if ! validate_recovery_root; then
-    # The root we just mounted looked like an official recovery
-    # image, but it didn't pass validation.  Try to fall back to
-    # installing a developer image.
-    find_developer_root || on_error
-    get_stateful_dev || on_error
-    message developer_image
-  fi
+  # Check if we have a verified recovery root.
+  validate_recovery_root || handle_error $?
 
   get_dst || on_error
 
-  recover_system || on_error
+  recover_system || handle_error $?
 
   stop_log_file
   # Save the recovery log to the target on success and the USB.

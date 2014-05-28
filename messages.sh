@@ -67,11 +67,24 @@ select_locale() {
 # Y-coordinate.
 #
 # Arg 1:  the Y-coordinate.
-# Args 2..$#:  arguments for ply-image.
+# Arg 2:  a token identifying the message, which is used to form the
+#   file name based on the current locale.  In case the localized version
+#   of the message is unavailable, the en-US version is shown instead.
+# Args 3..$#:  arguments for ply-image.
 showbox() {
   local offset=0,$1
   shift
-  ply-image --offset $offset "$@"
+  local message_token=$1
+  shift
+
+  # Determine the filename of the message resource. Fall back to en-US if
+  # the localized version of the message is not available.
+  local message_file=$SCREENS/$LANGDIR/$message_token.png
+  if [ ! -f $message_file ]; then
+    message_file=$SCREENS/en-US/$message_token.png
+  fi
+
+  ply-image --offset $offset $message_file "$@"
 }
 
 # Display an icon next to text in the message box with the given
@@ -110,7 +123,7 @@ show_install_spinner() {
 # Arg 1:  a token identifying the message, which is used to form the
 #   file name based on the current locale.
 instructions() {
-  showbox $INSTRUCTION_BOX_TOP $SCREENS/$LANGDIR/$1.png
+  showbox $INSTRUCTION_BOX_TOP $1
 }
 
 # Display a message in the "progress" box.
@@ -118,7 +131,7 @@ instructions() {
 # Arg 1:  a token identifying the message, which is used to form the
 #   file name based on the current locale.
 progress() {
-  showbox $PROGRESS_BOX_TOP $SCREENS/$LANGDIR/$1.png
+  showbox $PROGRESS_BOX_TOP $1
 }
 
 # Display a message in the "devmode" box.
@@ -126,7 +139,7 @@ progress() {
 # Arg 1:  a token identifying the message, which is used to form the
 #   file name based on the current locale.
 dev_notice() {
-  showbox $DEVMODE_BOX_TOP $SCREENS/$LANGDIR/$1.png
+  showbox $DEVMODE_BOX_TOP $1
 }
 
 # Handle display of a simple progress bar in the 'progress' box.
@@ -268,6 +281,21 @@ message_warn_invalid_install_kernel() {
 message_invalid_install_kernel() {
   instructions invalid_kernel
   showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
+  save_log_files
+  sleep 1d
+  exit 1
+}
+
+# Tell the user that installation can't continue because the device
+# owner has engaged developer mode blocking, and the image to be
+# installed is not an official image.
+#
+# This is an error condition equivalent to on_error, below.
+message_block_developer_mode() {
+  instructions block_dev_mode
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
+  progress empty
+  dev_notice empty
   save_log_files
   sleep 1d
   exit 1
