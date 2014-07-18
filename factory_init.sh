@@ -55,6 +55,12 @@ copy_bins() {
   # Copy essential binaries that are in the initramfs, but not in the root FS.
   log "Copying binaries to $NEWROOT_MNT"
   cp /bin/busybox $NEWROOT_MNT/bin
+
+  # Modify some files that does not work (and not required) in tmpfs chroot.
+  # This may be removed when we can build factory installer in "embedded" mode.
+  local file="${NEWROOT_MNT}/usr/sbin/mount-encrypted"
+  echo '#!/bin/sh' >"${file}"
+  echo 'echo "Sorry, $0 is disabled on factory installer image."' >>"${file}"
 }
 
 move_mounts() {
