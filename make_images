@@ -10,11 +10,11 @@
 
 import os
 import re
+import subprocess
+import tempfile
 import sys
 
-import cairo
-import pango
-import pangocairo
+import Image
 
 # The list of supported locales, and their associated fonts.  Fonts should
 # generally match the list of families in Chrome's IDS_UI_FONT_FAMILY_CROS
@@ -210,19 +210,6 @@ TEXT_COLOR = 0x333333
 PROGRESS_COLOR = 0xbbbbbb
 
 
-def calc_cairo_rgb(rgb24):
-  """Return the components of an RGB24 integer as a 3-tuple of floats."""
-  red = (rgb24 >> 16) / 255.0
-  green = ((rgb24 >> 8) & 0xff) / 255.0
-  blue = (rgb24 & 0xff) / 255.0
-  return red, green, blue
-
-
-BG_RED, BG_GREEN, BG_BLUE = calc_cairo_rgb(BACKGROUND)
-FG_RED, FG_GREEN, FG_BLUE = calc_cairo_rgb(TEXT_COLOR)
-PB_RED, PB_GREEN, PB_BLUE = calc_cairo_rgb(PROGRESS_COLOR)
-
-
 # Input text files are broken into paragraphs like so:
 #   This is a sample line of text in the first paragraph.
 #   This is a second line in the same paragraph.
@@ -253,39 +240,45 @@ def CreateMessageImage(msgtext, locale, imagename):
   `imagename` is the path name for the final .png image.
 
   """
-  # Create a background canvas.
-  surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
-                               MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT)
-  context = cairo.Context(surface)
-  context.rectangle(0, 0, MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT)
-  context.set_source_rgb(BG_RED, BG_GREEN, BG_BLUE)
-  context.fill()
+  # pango-view cannot specify height and individual margins, so we want to
+  # create image as text inset only, and then extend to proper size.
+  text_width = MESSAGE_BOX_WIDTH - 2 * TEXT_INSET_WIDTH
+  text_height = MESSAGE_BOX_HEIGHT - 2 * TEXT_INSET_HEIGHT
+  # pango-view supports specifying content by parameter (--text=) but that may
+  # cause python to fail due to unicode when running inside emerge environment.
+  # To prevent that, we want to write formatted content into a temporary file.
+  with tempfile.NamedTemporaryFile() as text_file:
+    params = (
+        'pango-view',
+        '-q',
+        '--pixels',
+        '--hinting=auto',
+        '--align=left',
+        '--margin=0',
+        '--language=%s' % locale,
+        '--foreground=#%06x' % TEXT_COLOR,
+        '--background=#%06x' % BACKGROUND,
+        '--width=%d' % text_width,
+        '--font=%s' % SUPPORTED_LOCALES.get(locale, DEFAULT_FONT),
+        '--output=%s' % imagename,
+        text_file.name)
+    text_file.write(msgtext.encode('utf_8_sig'))
+    text_file.flush()
+    subprocess.check_call(params)
 
-  # Create the inset box for containing the text.
-  context.translate(TEXT_INSET_WIDTH, TEXT_INSET_HEIGHT)
-  pangocontext = pangocairo.CairoContext(context)
-  layout = pangocontext.create_layout()
-  layout.set_width((MESSAGE_BOX_WIDTH - 2 * TEXT_INSET_WIDTH) * pango.SCALE)
+  # Check that the text didn't get clipped. Note the size here is different from
+  # final output image.
+  image = Image.open(imagename)
+  if image.size[1] > text_height:
+    raise RuntimeError(
+        'ERROR: Text for %s (%dx%d) exceeds image text size (%dx%d)' %
+        (imagename, image.size[0], image.size[1], text_width, text_height))
 
-  # Actually write the text to the canvas.  Rendering settings (antialiases,
-  # subpixel rendering, etc.) come from Fontconfig: http://crosbug.com/27872.
-  font = pango.FontDescription(SUPPORTED_LOCALES.get(locale, DEFAULT_FONT))
-  layout.set_font_description(font)
-  layout.set_text(msgtext)
-  context.set_source_rgb(FG_RED, FG_GREEN, FG_BLUE)
-  pangocontext.update_layout(layout)
-  pangocontext.show_layout(layout)
-
-  # Check that the text didn't get clipped.
-  layout_width, layout_height = layout.get_pixel_size()
-  if layout_width > MESSAGE_BOX_WIDTH or layout_height > MESSAGE_BOX_HEIGHT:
-    raise RuntimeError('Text for %s (%dx%d) exceeds image size (%dx%d)' %
-                       (imagename, layout_width, layout_height,
-                        MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT))
-
-  # Write the image to its output file.
-  with open(imagename, "w") as image_output:
-    surface.write_to_png(image_output)
+  # Expand image with correct margins.
+  new_image = Image.new(image.mode, (MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT),
+                        BACKGROUND)
+  new_image.paste(image, (TEXT_INSET_WIDTH, TEXT_INSET_HEIGHT))
+  new_image.save(imagename)
 
 
 def CreateProgressBar(image_dir):
@@ -302,39 +295,21 @@ def CreateProgressBar(image_dir):
   inside in the background color, inset by the border.
 
   """
-  surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
-                               PROGRESS_BAR_WIDTH, PROGRESS_BAR_HEIGHT)
-  context = cairo.Context(surface)
-  context.rectangle(0, 0,
-                    PROGRESS_BAR_WIDTH, PROGRESS_BAR_HEIGHT)
-  context.set_source_rgb(PB_RED, PB_GREEN, PB_BLUE)
-  context.fill()
-  context.rectangle(PROGRESS_BAR_OUTER_BORDER, PROGRESS_BAR_OUTER_BORDER,
-                    PROGRESS_BAR_WIDTH - 2*PROGRESS_BAR_OUTER_BORDER,
-                    PROGRESS_BAR_HEIGHT - 2*PROGRESS_BAR_OUTER_BORDER)
-  context.set_source_rgb(BG_RED, BG_GREEN, BG_BLUE)
-  context.fill()
-
-  # Write the image to its output file.
+  progress_box = Image.new("RGB", (PROGRESS_BAR_WIDTH, PROGRESS_BAR_HEIGHT),
+                           PROGRESS_COLOR)
+  progress_box.paste(
+      Image.new("RGB", (PROGRESS_BAR_WIDTH - 2 * PROGRESS_BAR_OUTER_BORDER,
+                        PROGRESS_BAR_HEIGHT - 2 * PROGRESS_BAR_OUTER_BORDER),
+                BACKGROUND),
+      (PROGRESS_BAR_OUTER_BORDER, PROGRESS_BAR_OUTER_BORDER))
   filename = os.path.join(image_dir, "progress_box.png")
-  with open(filename, "w") as image_output:
-    surface.write_to_png(image_output)
+  progress_box.save(filename)
   print "wrote %s" % os.path.basename(filename)
 
-  surface = cairo.ImageSurface(cairo.FORMAT_ARGB32,
-                               PROGRESS_INCREMENT,
-                               PROGRESS_INCREMENT_HEIGHT)
-  context = cairo.Context(surface)
-  context.rectangle(0, 0,
-                    PROGRESS_INCREMENT,
-                    PROGRESS_INCREMENT_HEIGHT)
-  context.set_source_rgb(PB_RED, PB_GREEN, PB_BLUE)
-  context.fill()
-
-  # Write the image to its output file.
+  progress_increment = Image.new(
+      "RGB", (PROGRESS_INCREMENT, PROGRESS_INCREMENT_HEIGHT), PROGRESS_COLOR)
   filename = os.path.join(image_dir, "progress_increment.png")
-  with open(filename, "w") as image_output:
-    surface.write_to_png(image_output)
+  progress_increment.save(filename)
   print "wrote %s" % os.path.basename(filename)
 
 
