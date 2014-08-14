@@ -8,6 +8,7 @@
 #
 # Refer to the README for details about how to use this command.
 
+import multiprocessing
 import os
 import re
 import subprocess
@@ -324,10 +325,12 @@ def CreateLocales(textdir, screendir, locale_list):
   contains no text.
 
   """
+  # Need to create the empty image before processing the others.
   empty_base = "empty.png"
   empty_file = os.path.join(screendir, empty_base)
   CreateMessageImage("", "en-US", empty_file)
 
+  pool = multiprocessing.Pool()
   for locale in locale_list:
     print "Locale %s" % locale
     locale_text = os.path.join(textdir, locale)
@@ -335,9 +338,8 @@ def CreateLocales(textdir, screendir, locale_list):
     if not os.path.isdir(locale_screen):
       os.mkdir(locale_screen)
     locale_empty = os.path.join(locale_screen, empty_base)
-    if os.path.exists(locale_empty):
-      os.unlink(locale_empty)
-    os.link(empty_file, locale_empty)
+    if not os.path.exists(locale_empty):
+      os.link(empty_file, locale_empty)
 
     # Go through <textdir>/<locale>/*.txt, converting text to
     # paragraphs conforming to Pango's expectations.  Render
@@ -354,7 +356,10 @@ def CreateLocales(textdir, screendir, locale_list):
         # Pango report a larger layout size than what's actually visible.
         msgtext = msgtext.strip()
         pngfilename = os.path.join(locale_screen, tag + ".png")
-        CreateMessageImage(msgtext, locale, pngfilename)
+        pool.apply_async(CreateMessageImage, (msgtext, locale, pngfilename))
+
+  pool.close()
+  pool.join()
   os.unlink(empty_file)
 
 
