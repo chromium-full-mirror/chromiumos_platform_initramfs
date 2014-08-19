@@ -241,22 +241,8 @@ call_image_recovery_script() {
   # Prevent accidentally loading modules from the usb mount
   echo 1 >/proc/sys/kernel/modules_disabled
 
-  # If you change the command lines below for either
-  # chromeos-recovery or chromeos-install, you could break dev mode
-  # installation on Mario.
-  # Don't change the code until you understand this issue.
-  local install_status
-  if [ -x "${USB_MNT}/usr/sbin/chromeos-recovery" ]; then
-    chroot "${USB_MNT}" /usr/sbin/chromeos-recovery "$1"
-    install_status=$?
-  else
-    export IS_RECOVERY_INSTALL=1
-    chroot "${USB_MNT}" \
-      /usr/sbin/chromeos-install --yes --run_as_root \
-                                 --payload_image="$1" \
-                                 --use_payload_kern_b
-    install_status=$?
-  fi
+  chroot "${USB_MNT}" /usr/sbin/chromeos-recovery "$1"
+  local install_status=$?
   if [  $install_status -ne 0 ]; then
     dlog "WARNING!!! Installation of software failed. Displaying hw diagnostics"
     local diagnostics_file="${USB_MNT}/tmp/$LOG_HARDWARE_DIAGNOSTICS"
