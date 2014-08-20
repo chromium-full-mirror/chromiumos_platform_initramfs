@@ -23,7 +23,6 @@ LOG_FILE=$LOG_DIR/recovery.log
 TPM_B_LOCKED=
 TPM_PP_LOCKED=
 
-KERN_B_VBLOCK="$STATEFUL_MNT/vmlinuz_hd.vblock"
 REAL_KERN_B_HASH=
 
 # Special file systems required in addition to the root file system.
