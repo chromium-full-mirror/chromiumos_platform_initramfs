@@ -229,10 +229,6 @@ cleanup_install_mounts() {
 }
 
 call_image_recovery_script() {
-  # Until images are built with the installer keyblock in KERN-B by
-  # default, we keep copying over the installer vblock from the
-  # stateful partition.
-  # TODO(wad) http://crosbug/8378
   setup_install_mounts || return 1
 
   dlog "Installing software; this will take some time."
