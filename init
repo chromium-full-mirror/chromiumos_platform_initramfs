@@ -458,7 +458,7 @@ lock_tpm() {
 
 # Extract and export kernel arguments
 export_args() {
-  # We trust out kernel command line explicitly.
+  # We trust our kernel command line explicitly.
   local arg=
   local key=
   local val=
