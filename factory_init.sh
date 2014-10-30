@@ -107,7 +107,19 @@ netboot_ramfs_install() {
 
   # In case an error is not handled by factory installer itself, stop here
   # so that an operator can see installation stop.
-  openvt -c 1 factory_install.sh -w || sleep 1d
+  if openvt true; then
+    openvt -c 1 factory_install.sh -w || sleep 1d
+  else
+    # Head-less devices without virtual terminal.
+    if [ -n "$KERN_ARG_DEBUG" ]; then
+      ln -s /dev/console /dev/tty1
+      ln -s /dev/console /dev/tty2
+      ln -s /dev/console /dev/tty3
+      ln -s /dev/console /dev/tty4
+    fi
+    exec >/dev/console 2>&1 </dev/console
+    factory_install.sh -w || sleep 1d
+  fi
 }
 
 factory_install() {
