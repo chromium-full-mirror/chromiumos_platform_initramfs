@@ -37,6 +37,7 @@ TAIL_PID=
 UNOFFICIAL_ROOT=0
 
 
+. /lib/completion_settings.sh
 . /lib/messages.sh
 
 initial_mounts() {
@@ -529,4 +530,3 @@ if [ "$0" = "/init" ]; then
   # Should never reach here.
   exit 1
 fi
-

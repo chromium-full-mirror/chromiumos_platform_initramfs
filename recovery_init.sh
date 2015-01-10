@@ -317,7 +317,9 @@ recover_system() {
 # of a path.
 get_usb_node_dir() {
   local usb_node_dir=/sys/block/$(strip_partition "${REAL_USB_DEV##*/}")
-  if mount -n -o sync,rw "${REAL_USB_DEV%[0-9]*}1" /tmp; then
+  if [ "$INTERACTIVE_COMPLETE" = false ]; then
+    usb_node_dir=""
+  elif mount -n -o sync,rw "${REAL_USB_DEV%[0-9]*}1" /tmp; then
     if [ -f /tmp/non_interactive ]; then
       usb_node_dir=""
     fi
