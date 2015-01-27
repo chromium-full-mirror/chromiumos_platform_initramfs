@@ -6,7 +6,8 @@
 BIN_DEPS= \
 	/bin/busybox \
 	/bin/sh \
-	/usr/bin/cgpt
+	/usr/bin/cgpt \
+	/usr/bin/crossystem
 
 # Extra dependency, should be set by builder configuration.
 EXTRA_BIN_DEPS?=
