@@ -3,9 +3,8 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 #
-# /init script for use in factory install shim and recovery
-# installer.  Note that this script uses the busybox shell (not
-# bash, not dash).
+# /init script for use in recovery installer.  Note that this script uses the
+# busybox shell (not bash, not dash).
 
 # USB card partition and mount point.
 USB_DEVS="sdb3 sdc3 mmcblk1p3"
@@ -98,12 +97,7 @@ wait_for_root() {
 }
 
 check_if_dm_root() {
-  if check_if_factory_install; then
-    [ "${KERN_ARG_ROOT%%[0-9]}" = "/dev/dm-" ] || return 1
-  else
-    dump_kernel_config "$KERN_B_DEV" | grep -q 'root=/dev/dm-' || return 1
-  fi
-
+  dump_kernel_config "$KERN_B_DEV" | grep -q 'root=/dev/dm-' || return 1
   return 0
 }
 
@@ -183,9 +177,6 @@ get_real_kern_b_hash() {
 }
 
 verify_install_kernel_hash() {
-  # Factory installs don't have kern-b, nothing to do.
-  check_if_factory_install && return 0
-
   get_kern_b_device || return 1
   get_real_kern_b_hash || return 1
 
@@ -277,16 +268,10 @@ setup_dm_root() {
   local eio
   dlog -n "Extracting the device mapper configuration..."
   # export_args can't handle dm="..." at present.
-  # If this is a factory install, retrieve dm args from current running kernel;
-  # otherwise, extract from install image.
-  if check_if_factory_install; then
-    DMARG=$(cat /proc/cmdline | sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d')
-  else
-    # We have to substitute the GUID of the recovery kernel for the %U variable.
-    DMARG=$(dump_kernel_config "$KERN_B_DEV" |
-            sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d' |
-            sed -e "s/%U/$KERN_ARG_KERN_GUID/g")
-  fi
+  # We have to substitute the GUID of the recovery kernel for the %U variable.
+  DMARG=$(dump_kernel_config "$KERN_B_DEV" |
+    sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d' |
+    sed -e "s/%U/$KERN_ARG_KERN_GUID/g")
 
   # Make sure we have valid dm args string.
   if [ -z "$DMARG" ]; then
@@ -331,14 +316,6 @@ mount_usb() {
   done
   dlog "Failed to mount usb!"
   return 1
-}
-
-check_if_factory_install() {
-  [ -n "$KERN_ARG_CROS_FACTORY_INSTALL" ]
-}
-
-check_if_netboot_ramfs() {
-  [ -n "$KERN_ARG_CROS_NETBOOT_RAMFS" ]
 }
 
 get_stateful_dev() {
@@ -504,14 +481,7 @@ main() {
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
-  if ! check_if_factory_install; then
-    message startup
-  fi
-
-  if check_if_netboot_ramfs; then
-    . /lib/factory_init.sh
-    netboot_ramfs_install
-  fi
+  message startup
 
   if ! find_official_root ; then
     if find_developer_root; then
@@ -524,16 +494,8 @@ main() {
   # Extract the real boot source, which may be masked by dm-verity.
   get_stateful_dev || on_error
 
-  # The remaining processing depends on whether this is a factory
-  # install that will run from RAM, or a recovery installer that
-  # will continue on in this same environment.
-  if check_if_factory_install; then
-    . /lib/factory_init.sh
-    factory_install
-  else
-    . /lib/recovery_init.sh
-    recovery_install
-  fi
+  . /lib/recovery_init.sh
+  recovery_install
 }
 
 # Make this source-able for testing.
