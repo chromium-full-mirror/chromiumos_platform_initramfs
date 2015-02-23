@@ -18,7 +18,7 @@ STATE_DEV=
 
 LOG_DEV=
 LOG_DIR=/log
-LOG_FILE=$LOG_DIR/recovery.log
+LOG_FILE=${LOG_DIR}/recovery.log
 
 TPM_B_LOCKED=
 TPM_PP_LOCKED=
@@ -370,33 +370,45 @@ strip_partition() {
   echo "${dev%p*}"
 }
 
-# Saves log files stored in LOG_DIR in addition to demsg to the device specified
-# (/ of stateful mount if none specified).
+# Usage: save_log_files [log_dev] [log_fs]
+# Save log files stored in LOG_DIR in addition to demsg to the device specified.
+# Args:
+#  log_dev: The block device holding the filesystem where the logs should be
+#      copied to. By default the LOG_DEV device is used, which points to the
+#      stateful partition in the USB_DEV device.
+#  log_fs: The filesystem type (default: ext4).
 save_log_files() {
   # The recovery stateful is usually too small for ext3.
   # TODO(wad) We could also just write the data raw if needed.
   #           Should this also try to save
   local log_dev="${1:-$LOG_DEV}"
-  [ -z "$log_dev" ] && return 0
-
   local log_fs="${2:-ext4}"
 
-  dlog "Dumping dmesg to $LOG_DIR"
-  dmesg > "$LOG_DIR"/dmesg
+  [ -z "${log_dev}" ] && return 0
 
-  # TODO(sosa): Remove once caller scripts recover all of the log dir.
-  cat "$LOG_DIR"/dmesg >> "$LOG_FILE"
+  if [ ! -b "${log_dev}" ]; then
+    dlog "Can't store logs on passed device '${log_dev}': not a block device."
+    return 1
+  fi
 
-  dlog "Saving log files from: $LOG_DIR -> $log_dev"
+  dlog "Dumping dmesg to ${LOG_DIR}"
+  dmesg > "${LOG_DIR}"/dmesg
+
+  # TODO(sosa): Remove once caller scripts recover all of the log dir. See
+  # crbug.com/213731 and crbug.com/212794 for details.
+  cat "${LOG_DIR}"/dmesg >> "${LOG_FILE}"
+
+  dlog "Saving log files from: ${LOG_DIR} -> ${log_dev}"
   err=0
-  [ $err -ne 0 ] || mount -n -t "$log_fs" -o sync,rw "$log_dev" /tmp || err=1
-  [ $err -ne 0 ] || rm -rf /tmp/recovery_logs || err=1
-  [ $err -ne 0 ] || mkdir -p /tmp/recovery_logs || err=1
-  [ $err -ne 0 ] || cp $LOG_DIR/* /tmp/recovery_logs || err=1
+  [ ${err} -ne 0 ] ||
+    mount -n -t "${log_fs}" -o sync,rw "${log_dev}" /tmp || err=1
+  [ ${err} -ne 0 ] || rm -rf /tmp/recovery_logs || err=1
+  [ ${err} -ne 0 ] || mkdir -p /tmp/recovery_logs || err=1
+  [ ${err} -ne 0 ] || cp "${LOG_DIR}"/* /tmp/recovery_logs || err=1
   # Attempt umount, even if there was an error to avoid leaking the mount.
   umount -n /tmp || err=1
 
-  if [ $err -eq 0 ] ; then
+  if [ ${err} -eq 0 ] ; then
     dlog "Successfully saved the log file"
   else
     dlog "Failures seen trying to save log file"
@@ -474,7 +486,7 @@ export_args() {
 }
 
 main() {
-  exec >"$LOG_FILE" 2>&1
+  exec >"${LOG_FILE}" 2>&1
 
   # Sanity check the date (crosbug.com/13200)
   if [ $(date +%Y) -lt 1970 ]; then
@@ -485,7 +497,7 @@ main() {
   initial_mounts
 
   # Send all verbose output to tty3
-  (tail -f "$LOG_FILE" > "$TTY_PATH"3) &
+  (tail -f "${LOG_FILE}" > "$TTY_PATH"3) &
   TAIL_PID=$!
 
   # Export the kernel command line as a parsed blob prepending KERN_ARG_ to each
