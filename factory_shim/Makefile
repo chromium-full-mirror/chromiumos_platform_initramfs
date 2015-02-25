@@ -8,6 +8,9 @@ BIN_DEPS= \
 	/bin/sh \
 	/usr/bin/cgpt
 
+# Extra dependency, should be set by builder configuration.
+EXTRA_BIN_DEPS?=
+
 # Layout of directories to be created in initramfs.
 RAMFS_LAYOUT_DIRS=\
 	bin \
@@ -49,6 +52,6 @@ $(RAMFS_BIN):
 	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) --libdir=/lib --bindir=/bin \
-		$(BIN_DEPS)
+		$(BIN_DEPS) $(EXTRA_BIN_DEPS)
 	cp init $(STAGE)/
 	(cd $(STAGE); find . | cpio -o -H newc | xz -9 --check=crc32) >$@

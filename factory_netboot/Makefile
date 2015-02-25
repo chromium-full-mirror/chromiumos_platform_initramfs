@@ -8,6 +8,9 @@ BIN_DEPS= \
 	/bin/busybox \
 	/bin/sh
 
+# Extra dependency, should be set by builder configuration.
+EXTRA_BIN_DEPS?=
+
 # Programs required by netboot intaller
 NETBOOT_BIN_DEPS= \
 	/bin/dd \
@@ -48,9 +51,6 @@ DATA_DEPS=\
 	/root/.pmbr_code \
 	/usr/share/misc/chromeos-common.sh \
 	/usr/share/misc/shflags
-
-# Optional dependency, should be set by builder configuration.
-OPTIONAL_DEPS?=
 
 # Directories to be cloned into initramfs.
 DATA_DIR_DEPS= \
@@ -100,7 +100,7 @@ $(RAMFS_BIN):
 	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) --libdir=/lib --bindir=/bin \
-		$(BIN_DEPS) $(NETBOOT_BIN_DEPS) $(CROS_DEPS) $(OPTIONAL_DEPS)
+		$(BIN_DEPS) $(NETBOOT_BIN_DEPS) $(CROS_DEPS) $(EXTRA_BIN_DEPS)
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) --libdir=/lib \
 		$(DATA_DEPS)

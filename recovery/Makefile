@@ -15,6 +15,9 @@ BIN_DEPS= \
 	/usr/bin/tpmc \
 	/usr/bin/cgpt
 
+# Extra dependency, should be set by builder configuration.
+EXTRA_BIN_DEPS?=
+
 DATA_DEPS= \
 	/usr/share/misc/chromeos-common.sh
 
@@ -31,6 +34,7 @@ RAMFS_LAYOUT_DIRS=\
 	tmp \
 	usr \
 	usr/share/misc \
+	log \
 	newroot \
 	stateful \
 	usb
@@ -63,19 +67,20 @@ $(RAMFS_BIN):
 	ln -s lib $(STAGE)/lib64
 	ln -s busybox $(STAGE)/bin/sh
 	ln -s bin $(STAGE)/sbin
-	ln -s bin $(STAGE)/usr/bin
-	ln -s bin $(STAGE)/usr/sbin
+	ln -s ../bin $(STAGE)/usr/bin
+	ln -s ../bin $(STAGE)/usr/sbin
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
 	ln -s futility "$(STAGE)/bin/vbutil_kernel"
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) --libdir=/lib --bindir=/bin \
-		$(BIN_DEPS)
+		$(BIN_DEPS) $(EXTRA_BIN_DEPS)
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) --libdir=/lib \
 		$(DATA_DEPS)
 	cp init $(STAGE)/
 	cp *.sh $(STAGE)/lib
-	echo "$(INTERACTIVE_COMPLETE)" >$(STAGE)/lib/completion_settings.sh
+	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
+		>$(STAGE)/lib/completion_settings.sh
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
 	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
