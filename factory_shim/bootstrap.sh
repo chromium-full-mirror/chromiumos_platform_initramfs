@@ -15,10 +15,11 @@ REAL_USB_DEV=
 
 STATEFUL_MNT=/stateful
 STATE_DEV=
+NEWROOT_MNT=/newroot
 
 LOG_DEV=
 LOG_DIR=/log
-LOG_FILE=$LOG_DIR/recovery.log
+LOG_FILE=${LOG_DIR}/factory_shim.log
 
 # Size of the root ramdisk.
 TMPFS_SIZE=400M
@@ -27,31 +28,59 @@ TMPFS_SIZE=400M
 BASE_MOUNTS="/sys /proc /dev"
 
 # To be updated to keep logging after move_mounts.
-TTY_PATH="/dev/tty"
+TTY=
+LOG_TTY=/dev/null
 TAIL_PID=
 
-# User visible message logged w/ 'echo'
-log() {
-  echo "$@" | tee -a "$TTY_PATH"1 "$TTY_PATH"2
+# Checks if given parameter is a valid TTY (or PTS) device file.
+is_valid_tty() {
+  [ -c "$1" ] && (echo "" >"$1") 2>/dev/null
 }
 
-# User visible message logged w/ 'printf'
-logf() {
-  printf "$@" | tee -a "$TTY_PATH"1 "$TTY_PATH"2
+# Determine the right console by following order:
+#  - The last non-empty console= from cmdline.
+#  - /dev/tty1 if available (for Non-Freon boards).
+#  - /dev/null if nothing available.
+find_best_tty() {
+  local entry="$(cat /proc/cmdline)"
+  local ttys=""
+  local tty=""
+
+  while echo "${entry}" | grep -q console= ; do
+    entry="${entry#*console=}"
+    ttys="${entry%%[ ,]*} ${ttys}"
+    entry="${entry#* }"
+  done
+
+  for tty in ${ttys}; do
+    if is_valid_tty "/dev/${tty}"; then
+      TTY="${tty}"
+      break
+    fi
+  done
+
+  if [ -z "${TTY}" ]; then
+    if is_valid_tty "/dev/tty1"; then
+      TTY=/dev/tty1
+    else
+      TTY=/dev/null
+    fi
+  fi
+
+  # Enable LOG_TTY if available (currently only works for VT).
+  is_valid_tty "/dev/tty2" && LOG_TTY="/dev/tty2"
+  return 0
 }
 
-# Debug console message logged w/ 'echo'
-dlog() {
-  echo "$@" | tee -a "$TTY_PATH"2 "$TTY_PATH"3
-}
-
-# Debug console message logged w/ 'printf'
-dlogf() {
-  printf "$@" | tee -a "$TTY_PATH"2 "$TTY_PATH"3
+# Print message on both main TTY and log file.
+info() {
+  echo "$@" | tee -a "${TTY}" "${LOG_FILE}"
 }
 
 on_error() {
-  log "ERROR: Factory installation aborted."
+  trap - EXIT
+  info -e '\033[1;31m'
+  info "ERROR: Factory installation aborted."
   save_log_files
   sleep 1d
   exit 1
@@ -60,46 +89,46 @@ on_error() {
 # Look for a device with our GPT ID.
 wait_for_gpt_root() {
   [ -z "$KERN_ARG_KERN_GUID" ] && return 1
-  dlog -n "Looking for rootfs using kern_guid..."
+  info -n "Looking for rootfs using kern_guid... "
   for try in $(seq 20); do
-    dlogf " ."
+    info -n ". "
     kern=$(cgpt find -1 -u $KERN_ARG_KERN_GUID)
     # We always try ROOT-A in recovery.
     newroot="${kern%[0-9]*}3"
     if [ -b "$newroot" ]; then
       USB_DEV="$newroot"
-      dlog "Found $USB_DEV"
+      info "Found ${USB_DEV}"
       return 0
     fi
     sleep 1
   done
-  dlog "Failed waiting for kern_guid"
+  info "Failed waiting for kern_guid ${KERN_ARG_KERN_GUID}."
   return 1
 }
 
 # Look for any USB device.
 wait_for_root() {
-  dlog -n "Waiting for $USB_DEVS to appear"
+  info -n "Waiting for $USB_DEVS to appear"
   for try in $(seq 20); do
-    dlogf " ."
+    info -n " ."
     for dev in $USB_DEVS; do
       if [ -b "/dev/$dev" ]; then
         USB_DEV="/dev/$dev"
-        dlog "Found $USB_DEV"
+        info "Found $USB_DEV"
         return 0
       fi
     done
     sleep 1
   done
-  dlog "Failed waiting for root!"
+  info "Failed waiting for root!"
   return 1
 }
 
-# Attempt to find the root defined in the signed recovery
+# Attempt to find the root defined in the signed factory shim
 # kernel we're booted into to. Exports REAL_USB_DEV if there
 # is a root partition that may be used - on succes or failure.
 find_official_root() {
-  dlogf "Checking for an official root . . ."
+  info -n "Checking for an official root... "
 
   # Check for a kernel selected root device or one in a well known location.
   wait_for_gpt_root || wait_for_root || return 1
@@ -113,40 +142,38 @@ find_official_root() {
   # (arm). Get stateful partition by replacing partition number with "1".
   LOG_DEV="${USB_DEV%[0-9]*}"1  # Default to stateful.
 
-  mount_usb || return 1
-  return 0
+  mount_usb
 }
 
 mount_usb() {
-  dlog -n "Mounting usb"
+  info -n "Mounting usb... "
   for try in $(seq 20); do
-    dlogf " ."
+    info -n ". "
     if mount -n -o ro "$USB_DEV" "$USB_MNT"; then
-      dlog "ok"
+      info "OK."
       return 0
     fi
     sleep 1
   done
-  dlog "Failed to mount usb!"
+  info "Failed to mount usb!"
   return 1
 }
 
 get_stateful_dev() {
   STATE_DEV=${REAL_USB_DEV%[0-9]*}1
   if [ ! -b "$STATE_DEV" ]; then
-    dlog "Failed to determine stateful device"
+    info "Failed to determine stateful device."
     return 1
   fi
   return 0
 }
 
 unmount_usb() {
-  dlog "Unmounting $USB_MNT"
-  umount "$USB_MNT"
-  dlog
-  dlog "$REAL_USB_DEV can now be safely removed"
-  dlog
-  return 0
+  info "Unmounting ${USB_MNT}..."
+  umount -n "${USB_MNT}"
+  info ""
+  info "$REAL_USB_DEV can now be safely removed."
+  info ""
 }
 
 strip_partition() {
@@ -164,33 +191,36 @@ save_log_files() {
   local log_dev="${1:-$LOG_DEV}"
   [ -z "$log_dev" ] && return 0
 
-  local log_fs="${2:-ext4}"
+  info "Dumping dmesg to $LOG_DIR"
+  dmesg >"$LOG_DIR"/dmesg
 
-  dlog "Dumping dmesg to $LOG_DIR"
-  dmesg > "$LOG_DIR"/dmesg
+  local err=0
+  local save_mnt=/save_mnt
+  local save_dir_name="factory_shim_logs"
+  local save_dir="${save_mnt}/${save_dir_name}"
 
-  # TODO(sosa): Remove once caller scripts recover all of the log dir.
-  cat "$LOG_DIR"/dmesg >> "$LOG_FILE"
-
-  dlog "Saving log files from: $LOG_DIR -> $log_dev"
-  err=0
-  [ $err -ne 0 ] || mount -n -t "$log_fs" -o sync,rw "$log_dev" /tmp || err=1
-  [ $err -ne 0 ] || rm -rf /tmp/recovery_logs || err=1
-  [ $err -ne 0 ] || mkdir -p /tmp/recovery_logs || err=1
-  [ $err -ne 0 ] || cp $LOG_DIR/* /tmp/recovery_logs || err=1
+  info "Saving log files from: $LOG_DIR -> $log_dev $(basename ${save_dir})"
+  mkdir -p "${save_mnt}"
+  mount -n -o sync,rw "${log_dev}" "${save_mnt}" || err=$?
+  [ ${err} -ne 0 ] || rm -rf "${save_dir}" || err=$?
+  [ ${err} -ne 0 ] || cp -r "${LOG_DIR}" "${save_dir}" || err=$?
   # Attempt umount, even if there was an error to avoid leaking the mount.
-  umount -n /tmp || err=1
+  umount -n "${save_mnt}" || err=1
 
-  if [ $err -eq 0 ] ; then
-    dlog "Successfully saved the log file"
+  if [ ${err} -eq 0 ] ; then
+    info "Successfully saved the log file."
+    info ""
+    info "Please remove the USB media, insert into a Linux machine,"
+    info "mount the first partition, and find the logs in directory:"
+    info "  ${save_dir_name}"
   else
-    dlog "Failures seen trying to save log file"
+    info "Failures seen trying to save log file."
   fi
 }
 
 stop_log_file() {
   # Drop logging
-  exec >"$TTY_PATH"3 2>&1
+  exec >"${TTY}" 2>&1
   [ -n "$TAIL_PID" ] && kill $TAIL_PID
 }
 
@@ -206,26 +236,25 @@ export_args() {
                    tr -dc "$acceptable_set" '_')
     val="${arg#*=}"
     export "KERN_ARG_$key"="$val"
-    dlog "Exporting kernel argument $key as KERN_ARG_$key"
+    info "Exporting kernel argument $key as KERN_ARG_$key"
   done
 }
 
 mount_tmpfs() {
-  dlog "Mounting tmpfs..."
+  info "Mounting tmpfs..."
   mount -n -t tmpfs tmpfs "$NEWROOT_MNT" -o "size=$TMPFS_SIZE"
-  return $?
 }
 
 copy_contents() {
-  log "Copying contents of USB device to tmpfs..."
-  (cd "${USB_MNT}" ; tar cf - . | (cd "${NEWROOT_MNT}" && tar xf  -))
-  RES=$?
-  if [ $RES -eq 0 ]; then
-    log "Copy complete."
+  info "Copying contents of USB device to tmpfs..."
+  local ret=0
+  (cd "${USB_MNT}" ; tar cf - . | (cd "${NEWROOT_MNT}" && tar xf -)) || ret=$?
+  if [ ${ret} -eq 0 ]; then
+    info "Copy complete."
   else
-    log "Copy failed with result $RES."
+    info "Copy failed with result ${ret}."
   fi
-  return $RES
+  return ${ret}
 }
 
 copy_lsb() {
@@ -233,28 +262,29 @@ copy_lsb() {
   local dest_path="${NEWROOT_MNT}/mnt/stateful_partition/${lsb_file}"
   local src_path="${STATEFUL_MNT}/${lsb_file}"
 
-  mkdir -p "$(dirname $dest_path)"
+  mkdir -p "$(dirname ${dest_path})"
   # Mounting ext3 as ext2 since the journal is unneeded in ro.
   if ! mount -n "${STATE_DEV}" "${STATEFUL_MNT}"; then
-    log "Failed to mount ${STATE_DEV}!! Failing."
+    info "Failed to mount ${STATE_DEV}!! Failing."
     return 1
   fi
+  local ret=0
   if [ -f "${src_path}" ]; then
-    log "Found ${src_path}"
+    info "Found ${src_path}"
     cp -a "${src_path}" "${dest_path}"
-    echo "REAL_USB_DEV=$REAL_USB_DEV" >>"${dest_path}"
+    echo "REAL_USB_DEV=${REAL_USB_DEV}" >>"${dest_path}"
   else
-    log "Failed to find ${src_path}!! Failing."
-    umount "$STATEFUL_MNT"
-    return 1
+    info "Failed to find ${src_path}!! Failing."
+    ret=1
   fi
-  umount "$STATEFUL_MNT"
-  rmdir "$STATEFUL_MNT"
+  umount -n "${STATEFUL_MNT}" || true
+  rmdir "${STATEFUL_MNT}" || true
+  return "${ret}"
 }
 
 copy_bins() {
   # Copy essential binaries that are in the initramfs, but not in the root FS.
-  log "Copying binaries to $NEWROOT_MNT"
+  info "Copying binaries to $NEWROOT_MNT"
   cp /bin/busybox $NEWROOT_MNT/bin
 
   # Modify some files that does not work (and not required) in tmpfs chroot.
@@ -265,35 +295,40 @@ copy_bins() {
 }
 
 move_mounts() {
-  dlog "Moving $BASE_MOUNTS to $NEWROOT_MNT"
+  info "Moving $BASE_MOUNTS to $NEWROOT_MNT"
   for mnt in $BASE_MOUNTS; do
     # $mnt is a full path (leading '/'), so no '/' joiner
     mkdir -p "$NEWROOT_MNT$mnt"
     mount -n -o move "$mnt" "$NEWROOT_MNT$mnt"
   done
-  TTY_PATH="$NEWROOT_MNT/dev/tty"
-  dlog "Done."
-  return 0
+  # Adjust /dev files.
+  TTY="${NEWROOT_MNT}${TTY}"
+  LOG_TTY="${NEWROOT_MNT}${LOG_TTY}"
+  [ -z "${LOG_DEV}" ] || LOG_DEV="${NEWROOT_MNT}${LOG_DEV}"
+  # Make a copy of bootstrap log into new root.
+  mkdir -p "${NEWROOT_MNT}${LOG_DIR}"
+  cp -f "${LOG_FILE}" "${NEWROOT_MNT}${LOG_FILE}"
+  info "Done."
 }
 
 use_new_root() {
-  move_mounts || on_error
+  move_mounts
 
   # Chroot into newroot, erase the contents of the old /, and exec real init.
-  log "About to switch root"
+  info "About to switch root..."
   stop_log_file
-  exec switch_root -c /dev/tty2 "$NEWROOT_MNT" /sbin/init
+  exec switch_root "${NEWROOT_MNT}" /sbin/init
 
   # This should not really happen.
-  log "Failed to switch root."
+  info "Failed to switch root."
   save_log_files
   return 1
 }
 
 check_block_dev() {
-  log "Checking block_devmode flags"
+  info "Checking block_devmode flags"
   if crossystem 'block_devmode?1' 'wpsw_boot?1' 2>/dev/null; then
-    log "
+    info "
     crossystem flag 'block_devmode' is set on a write protected device.
 
     You need to disable hardware write protection to bypass this check.
@@ -304,33 +339,48 @@ check_block_dev() {
 }
 
 main() {
-  mkdir -p "$(dirname $LOG_FILE)"
-  exec >"$LOG_FILE" 2>&1
-  # Send all verbose output to tty3
-  (tail -f "$LOG_FILE" > "$TTY_PATH"3) &
-  TAIL_PID=$!
+  # Setup environment.
+  find_best_tty
+  mkdir -p "${USB_MNT}" "${STATEFUL_MNT}" "${LOG_DIR}" "${NEWROOT_MNT}"
+
+  exec >"${LOG_FILE}" 2>"${LOG_FILE}"
+  info "ChromeOS Factory Shim"
+  info "----------------------------------------------------------------------"
+  info "TTY: ${TTY}, LOG_TTY: ${LOG_TTY}"
+
+  # Send all verbose output to debug TTY.
+  (tail -f "${LOG_FILE}" >"${LOG_TTY}") &
+  TAIL_PID="$!"
 
   # Export the kernel command line as a parsed blob prepending KERN_ARG_ to each
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
-  check_block_dev || on_error
-  find_official_root || on_error
-  get_stateful_dev || on_error
+  # For debugging.
+  if grep -qw cros_debug /proc/cmdline 2>/dev/null; then
+    info -e '\033[1;33m[cros_debug] enabled. A console is opened on TTY4.\033[m'
+    (setsid sh -c sh </dev/tty4 >>/dev/tty4 2>&1 || true) &
+  fi
 
+  check_block_dev
+  find_official_root
+  get_stateful_dev
 
-  log "Bootstrapping factory shim."
+  info "Bootstrapping factory shim."
   # Copy rootfs contents to tmpfs, then unmount USB device.
-  NEWROOT_MNT=/newroot
-  mount_tmpfs || on_error
-  copy_contents || on_error
-  copy_lsb || on_error
-  copy_bins || on_error
+  mount_tmpfs
+  copy_contents
+  copy_lsb
+  copy_bins
+
   # USB device is unmounted, we can remove it now.
-  unmount_usb || on_error
+  unmount_usb
+
   # Switch to the new root
-  use_new_root || on_error
-  on_error # !! Never reached. !!
+  use_new_root
+  on_error  # Should never reach here.
 }
 
+trap on_error EXIT
+set -e
 main "$@"
