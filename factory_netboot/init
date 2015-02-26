@@ -7,42 +7,30 @@
 # Note that this script uses the busybox shell (not bash, not dash).
 set -x
 
-init_mounts() {
-  mkdir -p /var/lock
+setup_environment() {
+  # Sanity check the date (crosbug.com/13200)
+  if [ $(date +%Y) -lt 1970 ]; then
+    date 010200001970.00
+  fi
+
+  # Install additional utility programs.
+  /bin/busybox --install /bin || true
+
+  # Mount system special folders
+  mkdir -p /var/lock /dev /proc /sys
   mount -t devtmpfs -o mode=0755 none /dev
   mount -t proc -o nodev,noexec,nosuid none /proc
   mount -t sysfs -o nodev,noexec,nosuid none /sys
 
   # Commands below must be executed after dev, proc, and sys are mounted.
   mkdir -p /dev/pts
-  ln -s /proc/self/fd /dev/fd || true
   mount -t devpts -o noexec,nosuid none /dev/pts
   mount -n -t debugfs debugfs /sys/kernel/debug
-
-  # Setup bin and lib(64).
-  mount --bind /bin /usr/bin
-  mount --bind /bin /sbin
-  mount --bind /bin /usr/sbin
-  mount --bind /lib /lib64
-}
-
-init_busybox() {
-  # Install busybox bins for factory installer and add to path.
-  mkdir /tmp/busybox-bins
-  /bin/busybox --install /tmp/busybox-bins
-  PATH="$PATH":/tmp/busybox-bins
-  export PATH
+  ln -sf /proc/self/fd /dev/fd
 }
 
 main() {
-  # Sanity check the date (crosbug.com/13200)
-  if [ $(date +%Y) -lt 1970 ]; then
-    date 010200001970.00
-  fi
-
-  init_mounts
-  init_busybox
-
+  setup_environment
   # In case an error is not handled by factory installer itself, stop here
   # so that an operator can see installation stop.
   factory_install_service.sh || sleep 1d

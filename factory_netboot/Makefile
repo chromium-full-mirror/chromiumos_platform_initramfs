@@ -62,13 +62,10 @@ RAMFS_LAYOUT_DIRS=\
 	dev \
 	etc \
 	lib \
-	lib64 \
 	proc \
 	root \
 	sys \
 	tmp \
-	usr/bin \
-	usr/sbin \
 	usr/share/misc \
 	var/empty \
 	var/log \
@@ -98,6 +95,11 @@ clean:
 $(RAMFS_BIN):
 	rm -rf "$(STAGE)"; mkdir -p "$(STAGE)"
 	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
+	# Use "ln -s" because "mount --bind" may not work in initramfs.
+	ln -s lib $(STAGE)/lib64
+	ln -s bin $(STAGE)/sbin
+	ln -s ../bin $(STAGE)/usr/bin
+	ln -s ../bin $(STAGE)/usr/sbin
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) --libdir=/lib --bindir=/bin \
 		$(BIN_DEPS) $(NETBOOT_BIN_DEPS) $(CROS_DEPS) $(EXTRA_BIN_DEPS)
