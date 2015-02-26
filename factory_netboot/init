@@ -9,13 +9,15 @@ set -x
 
 init_mounts() {
   mkdir -p /var/lock
-  mkdir -p /dev/pts
+  mount -t devtmpfs -o mode=0755 none /dev
   mount -t proc -o nodev,noexec,nosuid none /proc
   mount -t sysfs -o nodev,noexec,nosuid none /sys
-  mount -t devtmpfs -o mode=0755 none /dev
-  mount -t devpts -o noexec,nosuid none /dev/pts || true
-  mount -n -t debugfs debugfs /sys/kernel/debug
+
+  # Commands below must be executed after dev, proc, and sys are mounted.
+  mkdir -p /dev/pts
   ln -s /proc/self/fd /dev/fd || true
+  mount -t devpts -o noexec,nosuid none /dev/pts
+  mount -n -t debugfs debugfs /sys/kernel/debug
 
   # Setup bin and lib(64).
   mount --bind /bin /usr/bin
