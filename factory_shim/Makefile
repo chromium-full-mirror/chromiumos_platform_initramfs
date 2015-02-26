@@ -24,11 +24,7 @@ RAMFS_LAYOUT_DIRS=\
 	tmp \
 	usr/share/misc \
 	var/empty \
-	var/log \
-	log \
-	newroot \
-	stateful \
-	usb
+	var/log
 
 # Staging and build toolchain.
 OUTPUT_DIR		?= .
