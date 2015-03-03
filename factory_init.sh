@@ -110,7 +110,20 @@ netboot_ramfs_install() {
   openvt -c 1 factory_install.sh -w || sleep 1d
 }
 
+check_block_dev() {
+  log "Checking block_devmode flags"
+  if crossystem 'block_devmode?1' 'wpsw_boot?1' 2>/dev/null; then
+    log "
+    crossystem flag 'block_devmode' is set on a write protected device.
+
+    You need to disable hardware write protection to bypass this check.
+    "
+    on_error
+  fi
+}
+
 factory_install() {
+  check_block_dev
   log "Bootstrapping factory shim."
   # Copy rootfs contents to tmpfs, then unmount USB device.
   NEWROOT_MNT=/newroot
