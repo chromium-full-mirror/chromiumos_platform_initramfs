@@ -108,10 +108,13 @@ on_error() {
 # Look for a device with our GPT ID.
 wait_for_gpt_root() {
   [ -z "$KERN_ARG_KERN_GUID" ] && return 1
-  info -n "Looking for rootfs using kern_guid... "
+  info -n "Looking for rootfs using kern_guid [${KERN_ARG_KERN_GUID}]... "
+  local try kern newroot
   for try in $(seq 20); do
     info -n ". "
-    kern=$(cgpt find -1 -u $KERN_ARG_KERN_GUID)
+    # crbug.com/463414: when the cgpt supports MTD (cgpt.bin), redirecting its
+    # output will get duplicated data.
+    kern="$(cgpt find -1 -u $KERN_ARG_KERN_GUID 2>/dev/null | uniq)"
     # We always try ROOT-A in recovery.
     newroot="${kern%[0-9]*}3"
     if [ -b "$newroot" ]; then
@@ -121,7 +124,7 @@ wait_for_gpt_root() {
     fi
     sleep 1
   done
-  info "Failed waiting for kern_guid ${KERN_ARG_KERN_GUID}."
+  info "Failed waiting for device with correct kern_guid."
   return 1
 }
 
