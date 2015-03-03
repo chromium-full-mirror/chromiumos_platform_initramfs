@@ -1,0 +1,5 @@
+El propietari del dispositiu requereix que s'utilitzi amb la verificació de Chrome OS activada. La imatge de recuperació de Chrome OS que proveu d'instal·lar no és oficial i no superarà el procés de verificació.
+
+Per obtenir més informació, consulteu aquest URL:
+
+https://www.google.com/chromeos/devmode

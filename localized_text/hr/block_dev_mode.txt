@@ -1,0 +1,5 @@
+Vlasnik zahtijeva da uređaj radi uz uključenu potvrdu OS-a Chrome. Pokušavate instalirati neslužbenu sliku sustava za oporavak OS-a Chrome koja ne prolazi potvrdu.
+
+Više informacija potražite na ovom URL-u:
+
+https://www.google.com/chromeos/devmode

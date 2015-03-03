@@ -1,0 +1,5 @@
+Eieren av enheten krever at denne enheten kjøres med Chrome OS-verifisering slått på. Du prøver å installere en uoffisiell gjenopprettingsavbildning av Chrome OS som ikke består verifiseringen.
+
+Du finner mer informasjon på denne nettsiden:
+
+https://www.google.com/chromeos/devmode

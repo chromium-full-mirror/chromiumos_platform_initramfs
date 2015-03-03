@@ -1,0 +1,5 @@
+Hinihiling ng may-ari ng device na tumakbo ang device na ito nang naka-on ang pag-verify ng Chrome OS.  Sinusubukan mong mag-install ng hindi opisyal na recovery image ng Chrome OS na hindi pumasa sa pag-verify.
+
+Para sa higit pang impormasyon, sumangguni sa URL na ito:
+
+https://www.google.com/chromeos/devmode

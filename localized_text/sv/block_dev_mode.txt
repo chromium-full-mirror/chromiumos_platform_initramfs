@@ -1,0 +1,5 @@
+Enhetsägaren kräver att enheten körs med Chrome OS-verifiering aktiverad. Du försöker installera en inofficiell återställningsavbildning för Chrome OS som inte klarar verifieringen.
+
+Besök den här webbadressen om du vill läsa mer:
+
+https://www.google.com/chromeos/devmode

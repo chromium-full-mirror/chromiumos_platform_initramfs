@@ -1,0 +1,5 @@
+Laitteen omistaja edellyttää, että tässä laitteessa käytetään Chrome-käyttöjärjestelmän vahvistusta. Yrität asentaa Chrome-käyttöjärjestelmän epävirallista palautuskuvaa, joka ei läpäise vahvistusta.
+
+Saat lisätietoja tästä URL-osoitteesta:
+
+https://www.google.com/chromeos/devmode

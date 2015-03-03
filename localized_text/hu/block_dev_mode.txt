@@ -1,0 +1,5 @@
+Az eszköztulajdonos megköveteli, hogy használatkor engedélyezve legyen a Chrome operációs rendszer ellenőrzése. Egy olyan nem hivatalos Chrome operációsrendszer-helyreállítási képfájlt próbál telepíteni, amely nem felel meg az ellenőrzési folyamatnak.
+
+További információért látogasson el a következő oldalra:
+
+https://www.google.com/chromeos/devmode
