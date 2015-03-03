@@ -1,0 +1,5 @@
+Enhedsejeren kræver, at Chrome OS-verifikation er slået til på enheden. Du forsøger at installere et uofficielt gendannelsesbillede, som ikke kan verificeres.
+
+Du kan få flere oplysninger på denne webadresse:
+
+https://www.google.com/chromeos/devmode

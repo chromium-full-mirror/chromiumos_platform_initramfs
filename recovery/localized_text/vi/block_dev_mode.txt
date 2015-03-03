@@ -1,0 +1,5 @@
+Chủ sở hữu thiết bị yêu cầu phải chạy thiết bị này khi đã bật tính năng xác minh trên Chrome OS. Bạn đang cố cài đặt hình ảnh khôi phục không chính thức mà chưa được xác minh.
+
+Để biết thêm thông tin, hãy tham khảo URL này:
+
+https://www.google.com/chromeos/devmode

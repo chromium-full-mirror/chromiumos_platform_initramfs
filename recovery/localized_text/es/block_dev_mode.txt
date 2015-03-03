@@ -1,0 +1,5 @@
+El propietario del dispositivo requiere que este se utilice con la verificación de Chrome OS activada. Estás intentando instalar una imagen de recuperación de Chrome OS no oficial que no ha superado la verificación.
+
+Para obtener más información, consulta esta URL:
+
+https://www.google.com/chromeos/devmode

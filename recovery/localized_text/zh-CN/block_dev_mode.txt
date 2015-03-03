@@ -1,0 +1,5 @@
+此设备的所有者要求此设备在运行期间必须启用 Chrome 操作系统验证功能。您正尝试安装的非官方 Chrome 操作系统恢复映像并未通过验证。
+
+如需更多信息，请前往以下网址：
+
+https://www.google.com/chromeos/devmode

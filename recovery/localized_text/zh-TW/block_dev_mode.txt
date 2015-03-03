@@ -1,0 +1,5 @@
+根據裝置擁有者的設定，這台裝置必須開啟 Chrome 作業系統驗證程序才能正常運作，而您要安裝的非官方 Chrome 作業系統還原映像檔並未通過驗證程序。
+
+詳情請見以下網頁：
+
+https://www.google.com/chromeos/devmode

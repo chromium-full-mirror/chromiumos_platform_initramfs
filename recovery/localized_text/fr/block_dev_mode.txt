@@ -1,0 +1,5 @@
+Le propriétaire de l'appareil exige que la validation de Chrome OS soit activée pour utiliser l'appareil. Vous essayez d'installer une image de restauration de Chrome OS non officielle qui ne satisfait pas aux critères de validation.
+
+Pour plus d'informations, rendez-vous sur :
+
+https://www.google.com/chromeos/devmode

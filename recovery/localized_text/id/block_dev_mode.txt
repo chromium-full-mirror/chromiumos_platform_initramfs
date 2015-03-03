@@ -1,0 +1,5 @@
+Pemilik perangkat mewajibkan perangkat ini berjalan dengan mengaktifkan verifikasi Chrome OS.  Anda mencoba memasang gambar pemulihan Chrome OS tidak resmi yang tidak melalui proses verifikasi.
+
+Untuk informasi selengkapnya, kunjungi URL berikut:
+
+https://www.google.com/chromeos/devmode

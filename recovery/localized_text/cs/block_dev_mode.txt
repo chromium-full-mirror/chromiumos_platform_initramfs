@@ -1,0 +1,5 @@
+Vlastník zařízení vyžaduje, aby v tomto zařízení bylo zapnuto ověření systému Chrome OS. Snažíte se nainstalovat neoficiální obraz pro obnovení systému Chrome OS, který ověřením neprojde.
+
+Další informace naleznete na této adrese URL:
+
+https://www.google.com/chromeos/devmode
