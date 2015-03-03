@@ -78,11 +78,29 @@ info() {
   echo "$@" | tee -a "${TTY}" "${LOG_FILE}"
 }
 
+is_cros_debug() {
+  grep -qw cros_debug /proc/cmdline 2>/dev/null
+}
+
+enable_debug_console() {
+  local tty="$1"
+  if ! is_cros_debug; then
+    info "To debug, add [cros_debug] to your kernel command line."
+  elif [ "${tty}" = /dev/null ] || ! is_valid_tty "${tty}"; then
+    # User probably can't see this, but we don't have better way.
+    info "Please set a valid [console=XXX] in kernel command line."
+  else
+    info -e '\033[1;33m[cros_debug] enabled on '${tty}'.\033[m'
+    (setsid sh -c sh <"${tty}" >>"${tty}" 2>&1 || true) &
+  fi
+}
+
 on_error() {
   trap - EXIT
   info -e '\033[1;31m'
   info "ERROR: Factory installation aborted."
   save_log_files
+  enable_debug_console "${TTY}"
   sleep 1d
   exit 1
 }
@@ -319,11 +337,6 @@ use_new_root() {
   info "About to switch root..."
   stop_log_file
   exec switch_root "${NEWROOT_MNT}" /sbin/init
-
-  # This should not really happen.
-  info "Failed to switch root."
-  save_log_files
-  return 1
 }
 
 check_block_dev() {
@@ -344,7 +357,7 @@ main() {
   find_best_tty
   mkdir -p "${USB_MNT}" "${STATEFUL_MNT}" "${LOG_DIR}" "${NEWROOT_MNT}"
 
-  exec >"${LOG_FILE}" 2>"${LOG_FILE}"
+  exec >"${LOG_FILE}" 2>&1
   info "ChromeOS Factory Shim"
   info "----------------------------------------------------------------------"
   info "TTY: ${TTY}, LOG_TTY: ${LOG_TTY}"
@@ -357,11 +370,9 @@ main() {
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
-  # For debugging.
-  if grep -qw cros_debug /proc/cmdline 2>/dev/null; then
-    info -e '\033[1;33m[cros_debug] enabled. A console is opened on TTY4.\033[m'
-    (setsid sh -c sh </dev/tty4 >>/dev/tty4 2>&1 || true) &
-  fi
+  # TTY4 may be not available, but we don't have better choices on headless
+  # devices.
+  enable_debug_console "/dev/tty4"
 
   check_block_dev
   find_official_root
@@ -379,7 +390,9 @@ main() {
 
   # Switch to the new root
   use_new_root
-  on_error  # Should never reach here.
+
+  # Should never reach here.
+  return 1
 }
 
 trap on_error EXIT
