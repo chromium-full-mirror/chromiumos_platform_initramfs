@@ -44,7 +44,7 @@ is_valid_tty() {
 find_best_tty() {
   local entry="$(cat /proc/cmdline)"
   local ttys=""
-  local tty=""
+  local tty_name="" tty_path=""
 
   while echo "${entry}" | grep -q console= ; do
     entry="${entry#*console=}"
@@ -52,9 +52,10 @@ find_best_tty() {
     entry="${entry#* }"
   done
 
-  for tty in ${ttys}; do
-    if is_valid_tty "/dev/${tty}"; then
-      TTY="${tty}"
+  for tty_name in ${ttys}; do
+    tty_path="/dev/${tty_name}"
+    if is_valid_tty "${tty_path}"; then
+      TTY="${tty_path}"
       break
     fi
   done
