@@ -47,6 +47,10 @@ BOARD			?= unknown
 BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 INTERACTIVE_COMPLETE	?= true
 
+# LOCALE_LIST can be overridden on the command line.  This feature
+# is used in the ebuild to allow board-specific locale lists.
+LOCALE_LIST		=
+
 # Output image file names.
 # TODO(hungte) Change this to recovery_ramfs.cpio.xz when the migration is over.
 RAMFS_BIN=$(OUTPUT_DIR)/initramfs.cpio.xz
@@ -63,7 +67,7 @@ $(RAMFS_BIN):
 	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
 	cp "$(SYSROOT)/usr/share/chromeos-assets/images/boot_message.png" \
 		assets/*.png $(STAGE)/etc/screens
-	./make_images localized_text "$(STAGE)/etc/screens"
+	./make_images localized_text "$(STAGE)/etc/screens" $(LOCALE_LIST)
 	ln -s lib $(STAGE)/lib64
 	ln -s busybox $(STAGE)/bin/sh
 	ln -s bin $(STAGE)/sbin
