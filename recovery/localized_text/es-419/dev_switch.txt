@@ -1,5 +1,0 @@
-La verificación del sistema operativo de Chrome está desactivada.
-
-Si la desactivación es involuntaria, debes cancelar la recuperación e inhabilitar el modo de programador para habilitar la verificación.  Para obtener más información, visita esta URL:
-
-https://www.google.com/chromeos/recovery

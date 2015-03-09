@@ -1,5 +1,0 @@
-Obraz na nośniku przywracania jest niezweryfikowaną wersją dla programistów.
-
-Przywracanie będzie kontynuowane, ponieważ sprawdzanie systemu podczas uruchamiania jest wyłączone.
-Jeśli później ponownie włączysz sprawdzanie systemu, będzie trzeba powtórzyć
-przywracanie przy użyciu oficjalnego obrazu systemu operacyjnego Chrome.

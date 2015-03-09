@@ -1,5 +1,0 @@
-Il proprietario richiede che sul dispositivo sia attiva la verifica del sistema operativo Chrome. Stai provando a installare un'immagine di ripristino di Chrome OS non ufficiale che non supera la verifica.
-
-Per ulteriori informazioni fai riferimento al seguente URL:
-
-https://www.google.com/chromeos/devmode

@@ -1,5 +1,0 @@
-Upotrebljavate zastarjelu sliku za oporavak OS-a Chrome.
-
-Na ovom URL-u potražite upute za izradu novog medija za oporavak:
-
-https://www.google.com/chromeos/recovery

@@ -1,4 +1,0 @@
-De image op uw herstelmedium is een niet-geverifieerde ontwikkelaarsimage.
-
-Het herstel wordt wel uitgevoerd, omdat verified boot is uitgeschakeld.
-Als u de verificatie opnieuw inschakelt, moet u het herstel herhalen met een officiële Chrome OS-image.

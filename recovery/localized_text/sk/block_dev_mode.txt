@@ -1,5 +1,0 @@
-Vlastník zariadenia vyžaduje, aby v tomto zariadení bolo zapnuté overenie systému Chrome OS. Snažíte sa nainštalovať neoficiálny obraz na obnovenie systému Chrome OS, ktorý overením neprejde.
-
-Ďalšie informácie nájdete na tejto webovej adrese:
-
-https://www.google.com/chromeos/devmode

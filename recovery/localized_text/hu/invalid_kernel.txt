@@ -1,5 +1,0 @@
-Az Ön által használt Chrome OS helyreállítási lemezkép elavult.
-
-Új helyreállítási adathordozó létrehozására vonatkozó útmutatónkat a következő címen találja:
-
-https://www.google.com/chromeos/recovery

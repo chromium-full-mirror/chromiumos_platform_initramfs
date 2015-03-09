@@ -1,4 +1,0 @@
-A imagem em sua mídia de recuperação é uma imagem de desenvolvedor não verificada.
-
-A recuperação continuará porque a inicialização verificada está desativada.
-Caso venha a reativar a verificação posteriormente, você precisará repetir a recuperação com uma imagem oficial do Chrome OS.

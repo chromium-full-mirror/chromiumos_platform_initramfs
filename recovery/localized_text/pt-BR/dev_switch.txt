@@ -1,5 +1,0 @@
-A verificação do Chrome OS está desativada.
-
-Se não for essa a intenção, cancele a recuperação e desative o modo de desenvolvedor para ativar a verificação.  Para obter mais informações, consulte:
-
-https://www.google.com/chromeos/recovery

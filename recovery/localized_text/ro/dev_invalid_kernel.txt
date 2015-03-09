@@ -1,5 +1,0 @@
-Utilizaţi o imagine de recuperare a sistemului de operare Chrome oficială neactualizată.
-
-Recuperarea va continua, deoarece verificarea este dezactivată.
-Dacă ulterior activaţi din nou verificarea, va trebui să repetaţi
-recuperarea utilizând o imagine actualizată a sistemului de operare Chrome.

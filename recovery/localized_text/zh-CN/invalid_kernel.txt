@@ -1,6 +1,0 @@
-您正在使用的 Chrome 操作系统恢复映像已过时。
-
-有关如何创建新的恢复媒体的说明，
-请参阅此网址：
-
-https://www.google.com/chromeos/recovery

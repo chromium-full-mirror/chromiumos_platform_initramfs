@@ -1,5 +1,0 @@
-Cihazın sahibi, bu cihazın Chrome OS doğrulaması açık bir şekilde çalıştırılmasını gerektiriyor. Resmi olmayan ve doğrulamayı geçmeyen bir Chrome OS kurtarma imajı yüklemeye çalışıyorsunuz.
-
-Daha fazla bilgi edinmek için şu URL'ye bakın:
-
-https://www.google.com/chromeos/devmode

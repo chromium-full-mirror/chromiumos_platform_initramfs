@@ -1,5 +1,0 @@
-Jūs lietojat novecojušu oficiālās Chrome OS versijas atkopšanas attēlu.
-
-Atkopšana tiks turpināta, jo verifikācija ir izslēgta.
-Ja vēlāk ieslēgsiet verifikāciju, jums būs jāatkārto
-atkopšana, izmantojot jaunāko Chrome OS attēlu.

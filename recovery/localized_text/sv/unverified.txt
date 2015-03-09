@@ -1,4 +1,0 @@
-Bilden i återställningsmediet är en utvecklarbild som inte har verifierats.
-
-Återställningen fortsätter eftersom verifierad systemstart är inaktiverad.
-Om du aktiverar verifieringen igen vid ett senare tillfälle måste du göra om återställningen med en aktuell återställningsavbildning av Chrome OS.

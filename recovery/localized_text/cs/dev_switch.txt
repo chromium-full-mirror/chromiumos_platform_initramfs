@@ -1,7 +1,0 @@
-Ověření operačního systému Chrome OS je vypnuto.
-
-Není-li to úmyslné, zrušte obnovení a zakažte režim pro vývojáře,
-čímž ověření systému zapnete.  Další informace naleznete na této
-adrese URL:
-
-https://www.google.com/chromeos/recovery

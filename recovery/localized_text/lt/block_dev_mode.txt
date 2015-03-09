@@ -1,5 +1,0 @@
-Įrenginio savininkas reikalauja, kad šis įrenginys būtų naudojamas įjungus „Chrome“ OS patvirtinimo funkciją. Jūs bandote įdiegti neoficialų „Chrome“ OS atkūrimo vaizdą, kuris negali būti patvirtintas.
-
-Jei reikia daugiau informacijos, apsilankykite naudodami šį URL:
-
-https://www.google.com/chromeos/devmode

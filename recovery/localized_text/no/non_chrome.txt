@@ -1,5 +1,0 @@
-Datamaskinen din ser ikke ut til å være et Chrome-OS-system.
-
-Denne operasjonen sletter andre operativsystemer du har installert, samt alle data, og sikkerhetskopiering er ikke mulig.
-Hvis du har data på denne datamaskinen som du vil ta vare på, bør du
-avbryte gjenopprettingen.

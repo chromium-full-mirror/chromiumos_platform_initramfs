@@ -1,5 +1,0 @@
-Sie verwenden ein veraltetes Chrome OS-Wiederherstellungsabbild.
-
-Eine Anleitung zum Erstellen neuer Wiederherstellungsmedien finden Sie unter der folgenden URL:
-
-https://www.google.com/chromeos/recovery.

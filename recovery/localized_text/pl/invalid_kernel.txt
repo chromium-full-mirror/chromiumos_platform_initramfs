@@ -1,6 +1,0 @@
-Używasz nieaktualnego obrazu przywracania systemu operacyjnego Chrome.
-
-Instrukcję tworzenia nowego nośnika przywracania
-znajdziesz na tej stronie:
-
-https://www.google.com/chromeos/recovery

@@ -1,4 +1,0 @@
-Az Ön által használt hivatalos Chrome OS helyreállítási lemezkép elavult.
-
-A helyreállítás folytatódik, mert az ellenőrzés ki van kapcsolva.
-Ha később ismét bekapcsolja az ellenőrzést, meg kell ismételnie a helyreállítást a legfrissebb Chrome OS-lemezképpel.

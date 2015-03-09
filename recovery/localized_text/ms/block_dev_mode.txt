@@ -1,5 +1,0 @@
-Pemilik peranti menghendaki peranti ini dijalankan dengan pengesahan OS Chrome dihidupkan. Anda cuba memasang imej pemulihan OS Chrome tidak rasmi yang tidak lulus pengesahan.
-
-Untuk mendapatkan maklumat lanjut, rujuk URL ini:
-
-https://www.google.com/chromeos/devmode

@@ -1,7 +1,0 @@
-La verificación de Chrome OS está desactivada.
-
-Si este modo se ha seleccionado por error, debes cancelar la recuperación del sistema e inhabilitar
-el modo de desarrollador para habilitar la verificación. Para obtener más información,
-consulta esta URL:
-
-https://www.google.com/chromeos/recovery

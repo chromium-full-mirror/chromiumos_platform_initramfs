@@ -1,5 +1,0 @@
-Esteu utilitzant una imatge de recuperació de SO Chrome oficial caducada.
-
-La recuperació continuarà perquè n'heu desactivat la verificació.
-Si més endavant torneu a activar la verificació, haureu de repetir
-la recuperació amb una imatge de SO Chrome actualitzada.

@@ -1,7 +1,0 @@
-La verificació del SO Chrome està desactivada.
-
-Si no l'heu desactivada expressament, cancel·leu la recuperació i desactiveu el mode
-desenvolupador per poder activar la verificació.  Per obtenir més informació,
-consulteu aquest URL:
-
-https://www.google.com/chromeos/recovery

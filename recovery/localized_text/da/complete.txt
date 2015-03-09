@@ -1,3 +1,0 @@
-Systemgenoprettelsen er gennemført.
-
-Fjern genoprettelsesmediet, så genstarter din computer automatisk.

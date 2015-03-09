@@ -1,4 +1,0 @@
-Der opstod en uventet fejl.  Du kan gå tips til fejlfinding
-ved at gå til denne webadresse:
-
-https://www.google.com/chromeos/recovery

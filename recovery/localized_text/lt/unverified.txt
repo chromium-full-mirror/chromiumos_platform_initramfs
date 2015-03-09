@@ -1,4 +1,0 @@
-Atkūrimo medijoje esantis atvaizdis yra nepatvirtintas kūrėjo atvaizdis.
-
-Atkūrimas tęsis, nes patvirtintas paleidimas išjungtas.
-Jei vėliau vėl įjungsite patvirtinimą, reikės pakartoti atkūrimo procesą naudojant oficialų „Chrome“ OS atvaizdį.

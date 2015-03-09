@@ -1,6 +1,0 @@
-Abans de començar amb la recuperació de l'equip, comproveu que estigui
-connectat a una font d'alimentació.
-
-Si voleu cancel·lar la recuperació, premeu el botó d'alimentació i manteniu-lo premut
-fins que l'equip s'apagui (trigarà 8 segons aproximadament).
-Es pot fer de forma segura en qualsevol moment durant la verificació.

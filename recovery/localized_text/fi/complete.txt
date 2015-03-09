@@ -1,3 +1,0 @@
-Järjestelmän palautus onnistui.
-
-Poista palautustietoväline, niin tietokone käynnistyy uudelleen automaattisesti.

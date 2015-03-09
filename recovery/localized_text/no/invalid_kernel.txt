@@ -1,6 +1,0 @@
-Du bruker en utdatert gjenopprettingsavbildning for Chrome OS.
-
-Gå til denne nettadressen for instruksjoner om oppretting av nye
-gjenopprettingsmedier:
-
-https://www.google.com/chromeos/recovery

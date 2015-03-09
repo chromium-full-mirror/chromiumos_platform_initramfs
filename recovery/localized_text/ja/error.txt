@@ -1,3 +1,0 @@
-予期しないエラーが発生しました。トラブルシューティングについては、次の URL をご覧ください。
-
-https://www.google.com/chromeos/recovery

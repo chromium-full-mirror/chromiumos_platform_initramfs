@@ -1,5 +1,0 @@
-Chrome-käyttöjärjestelmän vahvistus on poistettu käytöstä.
-
-Jos tämä ei ollut tarkoitus, suosittelemme peruuttamaan palautuksen ja ottamaan vahvistuksen takaisin käyttöön poistumalla kehittäjätilasta. Saat lisätietoja seuraavasta URL-osoitteesta:
-
-https://www.google.com/chromeos/recovery

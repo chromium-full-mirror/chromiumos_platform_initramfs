@@ -1,4 +1,0 @@
-Avbildningen på gjenopprettingsmediet er en ikke-bekreftet utvikleravbildning. 
-
-Gjenopprettingen fortsetter fordi verifisert oppstart er slått av.
-Hvis du slår på verifiseringen igjen senere, må du gjenta gjenopprettingen med en offisiell Chrome OS-avbildning.

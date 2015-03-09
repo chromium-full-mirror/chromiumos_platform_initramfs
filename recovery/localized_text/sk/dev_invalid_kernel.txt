@@ -1,5 +1,0 @@
-Používate zastaraný oficiálny obraz na obnovenie operačného systému Chrome OS.
-
-Obnovenie bude pokračovať, pretože je verifikácia systému vypnutá.
-Ak verifikáciu neskôr znova zapnete, budete musieť obnovenie
-zopakovať s aktuálnym obrazom systému Chrome OS.

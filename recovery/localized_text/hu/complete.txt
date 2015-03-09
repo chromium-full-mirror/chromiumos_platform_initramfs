@@ -1,3 +1,0 @@
-A rendszer helyreállítása befejeződött.
-
-Kérjük, távolítsa el a helyreállítási adathordozót. A számítógép automatikusan újraindul.

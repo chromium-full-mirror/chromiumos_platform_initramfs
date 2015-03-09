@@ -1,6 +1,0 @@
-Bilgisayarınızı kurtarma işlemini başlatmak üzeresiniz. Lütfen bilgisayarınızın bir güç
-kaynağına takılı olduğundan emin olun.
-
-Kurtarma işlemini iptal etmek isterseniz, güç düğmesine basın ve
-bilgisayar kapanana kadar düğmeyi basılı tutun (8 saniye kadar sürer).
-Doğrulama sırasında istediğiniz zaman bu işlemi güvenli bir şekilde yapabilirsiniz.

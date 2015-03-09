@@ -1,5 +1,0 @@
-De apparaateigenaar heeft Chrome OS-verificatie verplicht gesteld op dit apparaat. U probeert een onofficiële Chrome OS-herstelimage te installeren die niet slaagt voor de verificatie.
-
-Bezoek deze URL voor meer informatie:
-
-https://www.google.com/chromeos/devmode

@@ -1,4 +1,0 @@
-A imagem de recuperação oficial do Chrome OS que você está usando está desatualizada.
-
-A recuperação continuará porque a verificação está desativada.
-Caso venha a reativar a verificação posteriormente, você precisará repetir a recuperação com uma imagem atualizada do Chrome OS.

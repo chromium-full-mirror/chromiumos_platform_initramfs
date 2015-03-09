@@ -1,4 +1,0 @@
-Aiot palauttaa tietokoneesi. Varmista, että järjestelmä on kytketty virtalähteeseen.
-
-Jos haluat peruuttaa palauttamisen, pidä virtapainiketta painettuna, kunnes tietokone sammuu. Tämä kestää noin kahdeksan sekuntia.
-Voit peruuttaa palauttamisen milloin tahansa vahvistuksen aikana.

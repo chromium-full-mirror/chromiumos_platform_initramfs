@@ -1,0 +1,59 @@
+<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="hr">
+<translation id="3750930141330200643">Upotrebljavate zastarjelu sliku za oporavak OS-a Chrome.
+
+Upute za izradu novog medija za oporavak potražite na ovom URL-u:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8728458033228603970">U tijeku je oporavak sustava...
+
+To će potrajati nekoliko minuta. Ne isključujte računalo
+i napajanje.</translation>
+<translation id="816304391526917903">Upotrebljavate zastarjelu službenu sliku za oporavak OS-a Chrome.
+
+Oporavak će se nastaviti jer je potvrda isključena.
+Ako kasnije uključite potvrdu, morat ćete ponoviti
+oporavak s ažurnom slikom OS-a Chrome.</translation>
+<translation id="544118001572747892">Izgleda da vaše računalo nije sustav OS-a Chrome!
+
+Ta će operacija izbrisati sve ostale operativne sustave koji su
+instalirani i sve podatke; neće biti prilike za izradu sigurnosne kopije.
+Ako želite sačuvati neke podatke na ovom računalu,
+otkažite oporavak.</translation>
+<translation id="2701006671590617571">Oporavit ćete svoje računalo. Obavezno ga uključite
+u izvor napajanja.
+
+Ako želite otkazati oporavak, pritisnite tipku za uključivanje/isključivanje
+i držite je dok se računalo ne isključi (to traje do 8 sekundi).
+To slobodno možete učiniti u bilo kojem trenutku tijekom potvrde.</translation>
+<translation id="2731700343119398978">Pričekajte...</translation>
+<translation id="537291066186627789">Dovršen je oporavak sustava.
+
+Uklonite medij za oporavak i računalo će se automatski
+ponovo pokrenuti.</translation>
+<translation id="3946632524220974380">Za nastavak je potrebna promjena ključa razvojnog programera;
+taj postupak traje 5 minuta.</translation>
+<translation id="4905949142713655149">Dogodila se neočekivana pogreška. Savjete za rješavanje problema
+potražite na ovom URL-u:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="436588829138218801">Potvrda OS-a Chrome isključena je.
+
+Ako to niste namjeravali, otkažite oporavak i onemogućite način
+rada razvojnog programera da biste omogućili potvrdu. Više informacija
+potražite na ovom URL-u:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="300775974721831513">Vlasnik uređaja zahtijeva da uređaj radi uz uključenu potvrdu
+OS-a Chrome. Pokušavate instalirati neslužbenu sliku za
+oporavak OS-a Chrome koja ne prolazi potvrdu.
+
+Više informacija potražite na ovom URL-u:
+
+https://www.google.com/chromeos/devmode</translation>
+<translation id="6478314309353607985">Slika na vašem mediju za oporavak nepotvrđena je slika razvojnog programera.
+
+Oporavak će se nastaviti jer je potvrđeno pokretanje isključeno.
+Ako kasnije uključite potvrdu, morat ćete ponoviti
+oporavak sa službenom slikom OS-a Chrome.</translation>
+<translation id="3243756202241744259">Provjeravamo integritet vašeg medija za oporavak...</translation>
+</translationbundle>

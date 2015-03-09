@@ -1,4 +1,0 @@
-Süsteemi taastamine on pooleli ...
-
-Selleks võib kuluda mitu minutit. Ärge lülitage arvutit välja
-ega katkestage toidet.

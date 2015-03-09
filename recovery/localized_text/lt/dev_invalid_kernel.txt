@@ -1,4 +1,0 @@
-Naudojate pasenusį oficialų „Chrome“ OS atkūrimo vaizdą.
-
-Atkūrimas tęsis, nes patvirtinimas yra išjungtas.
-Jei vėliau vėl įjungsite patvirtinimą, reikės pakartoti atkūrimo procesą naudojant naują „Chrome“ OS vaizdą.

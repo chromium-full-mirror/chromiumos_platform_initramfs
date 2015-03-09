@@ -1,4 +1,0 @@
-S'ha produït un error inesperat.  Consulteu aquest URL per
-obtenir consells de resolució de problemes:
-
-https://www.google.com/chromeos/recovery

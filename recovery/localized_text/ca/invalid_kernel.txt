@@ -1,6 +1,0 @@
-Esteu utilitzant una imatge de recuperació de SO Chrome caducada.
-
-Consulteu aquest URL per obtenir instruccions sobre com crear
-mitjans de recuperació nous:
-
-https://www.google.com/chromeos/recovery

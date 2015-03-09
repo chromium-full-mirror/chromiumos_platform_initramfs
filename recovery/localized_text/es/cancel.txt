@@ -1,5 +1,0 @@
-Estás a punto de recuperar tu ordenador. Asegúrate de que esté
-conectado a una fuente de alimentación.
-
-Si quieres cancelar la recuperación, mantén pulsado el botón de encendido hasta que se apague el ordenador (tarda unos ocho segundos).
-Puedes realizar esta acción en cualquier momento durante el proceso de verificación.

@@ -1,5 +1,0 @@
-The image on your recovery media is an unverified developer image.
-
-Recovery will continue because verified boot is turned off.
-If you later turn verification back on, you will need to repeat
-recovery with an official Chrome OS image.

@@ -1,7 +1,0 @@
-Verificarea sistemului de operare Chrome este dezactivată.
-
-Dacă nu aţi intenţionat acest lucru, trebuie să anulaţi recuperarea şi să dezactivaţi
-modul pentru dezvoltatori pentru a activa verificarea.  Pentru informaţii suplimentare,
-accesaţi următoarea adresă URL:
-
-https://www.google.com/chromeos/recovery

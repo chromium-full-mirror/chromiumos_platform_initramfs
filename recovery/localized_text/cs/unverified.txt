@@ -1,5 +1,0 @@
-Obraz na médiu pro obnovení pochází od neověřeného vývojáře. 
-
-Obnovení bude pokračovat, protože ověření při startu je vypnuto.
-Pokud ověření později znovu zapnete, budete muset obnovení
-zopakovat s oficiálním obrazem systému Chrome OS.

@@ -1,5 +1,0 @@
-Provjera OS-a Chrome isključena je.
-
-Ako je to bilo nenamjerno, otkažite oporavak i onemogućite način rada razvojnog programera kako biste omogućili potvrdu. Više informacija potražite na ovom URL-u:
-
-https://www.google.com/chromeos/recovery

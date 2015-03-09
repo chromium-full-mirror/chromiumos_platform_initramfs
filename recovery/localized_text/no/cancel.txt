@@ -1,5 +1,0 @@
-Du er i ferd med å gjenopprette datamaskinen din. Kontroller at datamaskinen er tilkoblet en strømkilde.
-
-Hvis du vil avbryte gjenopprettingen, trykker du på strømknappen og holder den inne
-til datamaskinen slår seg av (dette kan ta opptil åtte sekunder).
-Du kan trygt gjøre dette når som helst under verifiseringen.

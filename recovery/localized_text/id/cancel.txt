@@ -1,6 +1,0 @@
-Anda akan memulihkan komputer Anda. Pastikan komputer
-tersambung ke sumber daya.
-
-Jika Anda ingin membatalkan pemulihan, tekan tombol daya dan tahan
-hingga komputer mati (dibutuhkan waktu hingga 8 detik).
-Tindakan ini aman untuk dilakukan kapan saja selama verifikasi.

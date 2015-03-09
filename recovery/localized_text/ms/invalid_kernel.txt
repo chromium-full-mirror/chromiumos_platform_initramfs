@@ -1,5 +1,0 @@
-Anda menggunakan imej pemulihan Chrome OS yang telah lapuk.
-
-Sila rujuk URL ini untuk mendapatkan arahan tentang cara mencipta media pemulihan baharu:
-
-https://www.google.com/chromeos/recovery

@@ -1,5 +1,0 @@
-Kasutate aegunud Chrome OS-i taastekujutist.
-
-Taastamine jätkub, kuna kinnitamine on välja lülitatud.
-Kui lülitate hiljem kinnitamise taas sisse, siis tuleb teil ajakohase
-Chrome OS-i kujutise abil taastamist korrata.

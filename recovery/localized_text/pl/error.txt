@@ -1,4 +1,0 @@
-Wystąpił nieoczekiwany błąd.  Wskazówki na temat rozwiązywania problemów
-znajdziesz na tej stronie:
-
-https://www.google.com/chromeos/recovery

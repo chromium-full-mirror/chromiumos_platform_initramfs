@@ -1,6 +1,0 @@
-Úgy tűnik, hogy a számítógépén nem Chrome OS operációs rendszer fut.
-
-A művelet töröl minden más telepített operációs rendszert
-és minden adatot; nem fog tudni biztonsági másolatot készíteni.
-Ha meg szeretne őrizni bizonyos adatokat a számítógépéről,
-akkor állítsa le a helyreállítást.

@@ -1,6 +1,0 @@
-Naka-off ang pag-verify ng Chrome OS.
-
-Kung hindi ito sinasadya, dapat mong kanselahin ang pagbawi at hindi paganahin ang developer mode upang mapagana ang pag-verify.  Para sa higit pang impormasyon,
-mag-refer sa URL na ito:
-
-https://www.google.com/chromeos/recovery

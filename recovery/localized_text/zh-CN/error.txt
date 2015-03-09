@@ -1,4 +1,0 @@
-出现意外错误。有关问题排查的提示，
-请参阅此网址：
-
-https://www.google.com/chromeos/recovery

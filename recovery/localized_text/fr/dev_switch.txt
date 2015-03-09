@@ -1,6 +1,0 @@
-La vérification de Google Chrome OS est désactivée.
-
-Si ce n'est pas ce que vous souhaitez, vous devriez annuler la récupération et désactiver le mode développeur afin d'activer la vérification. Pour en savoir plus, veuillez consulter
-l'article disponible à l'adresse suivante :
-
-https://www.google.com/chromeos/recovery

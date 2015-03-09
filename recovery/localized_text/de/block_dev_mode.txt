@@ -1,5 +1,0 @@
-Der Eigentümer des Geräts hat festgelegt, dass auf diesem Gerät die Chrome OS-Überprüfung aktiviert sein muss. Sie versuchen, ein inoffizielles Chrome OS-Wiederherstellungsabbild zu installieren, das die Überprüfung nicht besteht.
-
-Weitere Informationen finden Sie unter der folgenden URL:
-
-https://www.google.com/chromeos/devmode

@@ -1,4 +1,0 @@
-Süsteemitaaste on lõpetatud.
-
-Eemaldage taastekandja ja teie arvuti taaskäivitub
-automaatselt.

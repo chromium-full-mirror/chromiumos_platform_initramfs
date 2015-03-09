@@ -1,6 +1,0 @@
-Alustate arvuti taastamist. Veenduge, et süsteem on
-toiteallikaga ühendatud.
-
-Kui soovite taastamise tühistada, siis vajutage ja hoidke all toitenuppu,
-kuni arvuti välja lülitub (selleks võib kuluda umbes 8 sekundit).
-Võite seda kinnitamise ajal ükskõik millal teha.

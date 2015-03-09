@@ -1,6 +1,0 @@
-Kasutate aegunud Chrome OS-i taastekujutist.
-
-Vaadake sellelt URL-ilt juhiseid uue
-taastekandja loomise kohta:
-
-https://www.google.com/chromeos/recovery

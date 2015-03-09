@@ -1,4 +1,0 @@
-Käytät vanhentunutta Chrome-käyttöjärjestelmän virallista palautusnäköistiedostoa.
-
-Palautusta jatketaan, koska vahvistus ei ole käytössä.
-Jos otat vahvistuksen käyttöön myöhemmin, sinun tulee toistaa palautus ajan tasalla olevan Chrome-käyttöjärjestelmän näköistiedoston avulla.

@@ -1,4 +1,0 @@
-Obnovenie systému je dokončené.
-
-Odoberte médium na obnovenie a počítač
-sa automaticky reštartuje.

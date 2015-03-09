@@ -1,5 +1,0 @@
-Xác minh hệ điều hành Chrome bị tắt.
-
-Nếu điều này không theo chủ ý, bạn nên hủy khôi phục và tắt chế độ nhà phát triển để bật xác minh.  Để biết thêm thông tin, tham khảo URL này:
-
-https://www.google.com/chromeos/recovery

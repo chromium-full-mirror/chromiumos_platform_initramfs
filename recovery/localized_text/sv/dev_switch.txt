@@ -1,5 +1,0 @@
-Verifiering av Chrome OS är inaktiverad.
-
-Om detta har skett oavsiktligt bör du avbryta återställningen och inaktivera utvecklarläget för att sedan aktivera verifiering.  Besök den här sidan om du vill veta mer:
-
-https://www.google.com/chromeos/recovery

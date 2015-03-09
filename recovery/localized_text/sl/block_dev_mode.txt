@@ -1,5 +1,0 @@
-Lastnik naprave zahteva, da se ta naprava uporablja z vklopljeno funkcijo preverjanja sistema Chrome OS. Namestiti poskušate neuradni posnetek za obnovitev sistema Chrome OS, ki ni prestal preverjanja.
-
-Več informacij je na voljo na tem URL-ju:
-
-https://www.google.com/chromeos/devmode

@@ -1,6 +1,0 @@
-Anda menggunakan citra pemulihan Chrome OS yang kedaluwarsa.
-
-Buka URL berikut untuk petunjuk cara membuat media
-pemulihan baru:
-
-https://www.google.com/chromeos/recovery

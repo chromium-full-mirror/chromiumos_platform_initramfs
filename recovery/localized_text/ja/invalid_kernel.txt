@@ -1,5 +1,0 @@
-お使いの Chrome OS リカバリ イメージが最新ではありません。
-
-新しいリカバリ メディアを作成する手順については、次の URL をご覧ください。
-
-https://www.google.com/chromeos/recovery

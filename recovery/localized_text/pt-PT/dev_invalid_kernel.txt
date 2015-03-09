@@ -1,4 +1,0 @@
-Está a utilizar uma imagem de recuperação do SO Chrome oficial desatualizada.
-
-A recuperação continuará, porque a confirmação está desativada.
-Se voltar a ativar a confirmação mais tarde, terá de repetir a recuperação com uma imagem do SO Chrome atualizada.

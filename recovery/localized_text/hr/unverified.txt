@@ -1,4 +1,0 @@
-Slika na vašem mediju za oporavak nepotvrđena je slika razvojnog programera.
-
-Oporavak će se nastaviti jer je pokretanje s potvrdom isključeno.
-Ako kasnije opet uključite potvrdu, morat ćete ponoviti oporavak sa službenom slikom OS-a Chrome.

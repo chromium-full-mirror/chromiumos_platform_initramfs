@@ -1,7 +1,0 @@
-Preverjanje za Chrome OS je izklopljeno.
-
-Če to ni namerno, prekličite obnovo in onemogočite
-razvijalski način, da boste vklopili preverjanje.  Več o tem lahko
-preberete tukaj:
-
-https://www.google.com/chromeos/recovery

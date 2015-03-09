@@ -1,3 +1,0 @@
-Se completó la recuperación del sistema.
-
-Elimina los medios de recuperación y tu computadora se reiniciará automáticamente.

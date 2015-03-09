@@ -1,4 +1,0 @@
-L'immagine sul supporto di ripristino è un'immagine sviluppatore non verificata.
-
-Il ripristino proseguirà perché l'avvio verificato non è attivo.
-Se in un secondo momento riattiverai la verifica, dovrai ripetere il ripristino con un'immagine di Chrome OS ufficiale.

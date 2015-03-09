@@ -1,5 +1,0 @@
-O proprietário do dispositivo requer que este dispositivo seja executado com a validação do SO Chrome ativada. Está a tentar instalar uma imagem de recuperação não oficial do SO Chrome que não é aprovada pela validação.
-
-Para mais informações, aceda a este URL:
-
-https://www.google.com/chromeos/devmode

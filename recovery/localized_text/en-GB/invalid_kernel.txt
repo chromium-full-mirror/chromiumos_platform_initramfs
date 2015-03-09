@@ -1,6 +1,0 @@
-You are using an out-of-date Chrome OS recovery image.
-
-Please refer to this URL for instructions on how to create new
-recovery media:
-
-https://www.google.com/chromeos/recovery

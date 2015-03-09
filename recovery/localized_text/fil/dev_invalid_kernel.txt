@@ -1,4 +1,0 @@
-Gumagamit ka ng lumang opisyal na larawan sa pagbawi ng Chrome OS.
-
-Magpapatuloy ang pagbawi dahil naka-off ang pag-verify.
-Kung i-o-on mong muli ang pag-verify sa ibang pagkakataon, kakailanganin mong ulitin ang pagbawi gamit ang isang napapanahong larawan ng Chrome OS.

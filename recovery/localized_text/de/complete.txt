@@ -1,3 +1,0 @@
-Die Systemwiederherstellung ist abgeschlossen.
-
-Entfernen Sie das Wiederherstellungsmedium. Ihr Computer wird anschließend automatisch neu gestartet.

@@ -1,6 +1,0 @@
-Twój komputer prawdopodobnie nie ma systemu operacyjnego Chrome.
-
-Ta operacja spowoduje usunięcie zainstalowanego obecnie systemu operacyjnego
-i wszystkich danych. Nie będzie możliwości utworzenia kopii zapasowej.
-Jeśli masz na tym komputerze jakiekolwiek dane, które chcesz zachować,
-anuluj przywracanie systemu.

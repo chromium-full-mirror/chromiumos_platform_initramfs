@@ -1,3 +1,0 @@
-La récupération du système est terminée !
-
-Veuillez retirer le support de récupération. Votre ordinateur va redémarrer automatiquement.

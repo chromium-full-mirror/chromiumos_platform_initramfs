@@ -1,4 +1,0 @@
-Sie verwenden ein veraltetes offizielles Chrome OS-Wiederherstellungsabbild.
-
-Die Wiederherstellung wird fortgesetzt, da die Bestätigung deaktiviert ist.
-Wenn Sie die Bestätigung später wieder aktivieren, wiederholen Sie die Wiederherstellung mit einem aktuellen Chrome OS-Abbild.

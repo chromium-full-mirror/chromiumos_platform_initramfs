@@ -1,5 +1,0 @@
-Seadme omanik nõuab seadme kasutamist koos Chrome OS-i kinnitamise funktsiooniga. Üritate installida mitteametlikku Chrome OS-i taastekujutist, mis ei ole kinnitamist läbinud.
-
-Vaadake lisateavet järgmiselt URL-ilt:
-
-https://www.google.com/chromeos/devmode

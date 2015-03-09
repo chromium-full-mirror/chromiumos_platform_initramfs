@@ -1,5 +1,0 @@
-您使用的 Chrome 作業系統還原映像檔版本過舊。
-
-如要瞭解如何建立新的還原媒體，請參考下列網址：
-
-https://www.google.com/chromeos/recovery

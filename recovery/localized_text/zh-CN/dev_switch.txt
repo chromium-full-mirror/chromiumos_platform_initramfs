@@ -1,7 +1,0 @@
-Chrome 操作系统验证已关闭。
-
-如果此操作不是有意执行的，则应该取消恢复，并停用
-开发模式，以启用验证。有关详情，
-请参阅此网址：
-
-https://www.google.com/chromeos/recovery

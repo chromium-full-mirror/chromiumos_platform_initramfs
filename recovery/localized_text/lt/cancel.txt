@@ -1,5 +1,0 @@
-Ruošiatės atkurti kompiuterį. Įsitikinkite, kad jis
-įjungtas į maitinimo šaltinį.
-
-Jei norite atšaukti atkūrimą, paspauskite maitinimo mygtuką ir laikykite paspaudę, kol kompiuteris išsijungs (tai užtruks apie 8 sekundes).
-Tai daryti saugu bet kuriuo metu vykdant patvirtinimo procesą.

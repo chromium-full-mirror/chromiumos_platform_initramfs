@@ -1,0 +1,41 @@
+<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="ca">
+<translation id="3750930141330200643">Esteu utilitzant una imatge de recuperació de Chrome OS obsoleta.
+
+Consulteu l'URL següent per obtenir instruccions sobre com es poden crear mitjans de recuperació nous:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8728458033228603970">Recuperació del sistema en curs...
+
+Aquesta tasca pot tardar uns quants minuts. No apagueu l'ordinador ni el desconnecteu de la font d'alimentació.</translation>
+<translation id="816304391526917903">Esteu utilitzant una imatge de recuperació de Chrome OS oficial obsoleta.
+
+La recuperació continuarà perquè la verificació està desactivada. Si més endavant torneu a activar la verificació, haureu de repetir la recuperació amb una imatge de Chrome OS actualitzada.</translation>
+<translation id="544118001572747892">Sembla que el vostre ordinador no és un sistema Chrome OS.
+
+Aquesta operació suprimirà qualsevol altre sistema operatiu que tingueu instal·lat i totes les dades que hi tingueu desades; no en podreu fer cap còpia de seguretat. Si teniu dades a l'ordinador que vulgueu conservar, cancel·leu la recuperació.</translation>
+<translation id="2701006671590617571">Abans de començar amb la recuperació de l'ordinador, comproveu que estigui connectat a una font d'alimentació.
+
+Si voleu cancel·lar la recuperació, premeu el botó d'engegada i manteniu-lo premut fins que l'ordinador no s'apagui (tardarà 8 segons com a màxim). Es pot fer de forma segura en qualsevol moment durant la verificació.</translation>
+<translation id="2731700343119398978">Espereu...</translation>
+<translation id="537291066186627789">La recuperació del sistema s'ha completat.
+
+Extraieu el mitjà de recuperació i l'ordinador es reiniciarà automàticament.</translation>
+<translation id="3946632524220974380">Cal canviar la clau de desenvolupador per continuar. Aquest procés tarda 5 minuts.</translation>
+<translation id="4905949142713655149">S'ha produït un error inesperat. Consulteu l'URL següent per obtenir consells de resolució de problemes:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="436588829138218801">La verificació de Chrome OS està desactivada.
+
+Si no l'heu desactivada expressament, cancel·leu la recuperació i desactiveu el mode de desenvolupador per poder activar la verificació. Per obtenir més informació, consulteu l'URL següent:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="300775974721831513">El propietari del dispositiu requereix que el dispositiu s'executi amb la verificació de Chrome OS activada. Esteu provant d'instal·lar una imatge de recuperació de Chrome OS no oficial, que no s'ha pogut verificar.
+
+Per obtenir més informació, consulteu l'URL següent:
+
+https://www.google.com/chromeos/devmode</translation>
+<translation id="6478314309353607985">La imatge del mitjà de recuperació és una imatge de desenvolupador no verificada.
+
+La recuperació continuarà perquè l'inici verificat està desactivat. Si més endavant torneu a activar la verificació, haureu de repetir la recuperació amb una imatge de Chrome OS oficial.</translation>
+<translation id="3243756202241744259">S'està verificant la integritat del mitjà de recuperació...</translation>
+</translationbundle>

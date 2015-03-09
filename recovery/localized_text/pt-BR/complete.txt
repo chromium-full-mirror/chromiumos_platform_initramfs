@@ -1,3 +1,0 @@
-A recuperação do sistema foi concluída.
-
-Remova a mídia de recuperação; o sistema será reiniciado automaticamente. 

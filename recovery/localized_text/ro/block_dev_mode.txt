@@ -1,5 +1,0 @@
-Proprietarul dispozitivului solicită ca dispozitivul să ruleze având verificarea pentru sistemul de operare Chrome activată. Dvs. încercați să instalați o imagine de recuperare neoficială a sistemului de operare Chrome, care nu trece de faza de verificare.
-
-Pentru mai multe informații, consultați această adresă URL:
-
-https://www.google.com/chromeos/devmode

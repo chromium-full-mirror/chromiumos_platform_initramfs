@@ -1,4 +1,0 @@
-Votre ordinateur ne semble pas être un système Chrome OS !
-
-Cette opération va supprimer tout autre système d'exploitation installé, ainsi que toutes les données. Vous ne pourrez pas effectuer de sauvegarde.
-Si vous souhaitez conserver des données stockées sur cet ordinateur, nous vous recommandons d'annuler la procédure de récupération.

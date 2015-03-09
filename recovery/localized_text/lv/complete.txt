@@ -1,3 +1,0 @@
-Sistēmas atkopšana ir pabeigta.
-
-Lūdzu, izņemiet atkopšanas datu nesēju, un dators automātiski restartēsies.

@@ -1,4 +1,0 @@
-Bilgisayarınızın sistemi Chrome OS gibi görünmüyor!
-
-Bu işlem, bilgisayarınızda yüklü diğer tüm işletim sistemlerini ve verileri silecektir. Yedekleme için herhangi bir fırsat sunulmayacaktır.
-Bu bilgisayarda, korumak istediğiniz veriler varsa, kurtarma işlemini iptal etmelisiniz.

@@ -1,6 +1,0 @@
-Chrome OS-bekræftelse er deaktiveret.
-
-Hvis det er ubevidst, skal du annullere genoprettelsen og deaktivere udviklertilstanden for at aktivere bekræftelsen.  Du kan få flere oplysninger
-ved at gå til denne webadresse:
-
-https://www.google.com/chromeos/recovery

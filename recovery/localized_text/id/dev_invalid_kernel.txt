@@ -1,5 +1,0 @@
-Anda menggunakan citra pemulihan Chrome OS resmi yang kedaluwarsa.
-
-Pemulihan akan dilanjutkan karena verifikasi dimatikan.
-Jika kemudian Anda menghidupkan verifikasi lagi, Anda harus mengulangi
-pemulihan dengan citra Chrome OS terbaru.

@@ -1,5 +1,0 @@
-Du använder en inaktuell återställningsavbildning av Chrome OS.
-
-På den här sidan hittar du anvisningar om hur du skapar nya återställningsmedia:
-
-https://www.google.com/chromeos/recovery

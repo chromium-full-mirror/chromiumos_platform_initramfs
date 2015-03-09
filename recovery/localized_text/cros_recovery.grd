@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grit base_dir="." latest_public_release="0" current_release="1"
+      source_lang_id="en-US" enc_check="möl">
+  <outputs>
+    <!-- Generate output in chrome_message_json format. The resulting JSON
+         files are processed by make_images to render the translated message
+         text to PNG image files. These are used by the recovery installer
+         script to display messages on screen. -->
+    <output filename="ar.json" type="chrome_messages_json" lang="ar" />
+    <output filename="bg.json" type="chrome_messages_json" lang="bg" />
+    <output filename="bn.json" type="chrome_messages_json" lang="bn" />
+    <output filename="ca.json" type="chrome_messages_json" lang="ca" />
+    <output filename="cs.json" type="chrome_messages_json" lang="cs" />
+    <output filename="da.json" type="chrome_messages_json" lang="da" />
+    <output filename="de.json" type="chrome_messages_json" lang="de" />
+    <output filename="el.json" type="chrome_messages_json" lang="el" />
+    <output filename="en-GB.json" type="chrome_messages_json" lang="en-GB" />
+    <output filename="en-US.json" type="chrome_messages_json" lang="en-US" />
+    <output filename="es.json" type="chrome_messages_json" lang="es" />
+    <output filename="es-419.json" type="chrome_messages_json" lang="es-419" />
+    <output filename="et.json" type="chrome_messages_json" lang="et" />
+    <output filename="fa.json" type="chrome_messages_json" lang="fa" />
+    <output filename="fi.json" type="chrome_messages_json" lang="fi" />
+    <output filename="fil.json" type="chrome_messages_json" lang="fil" />
+    <output filename="fr.json" type="chrome_messages_json" lang="fr" />
+    <output filename="gu.json" type="chrome_messages_json" lang="gu" />
+    <output filename="hi.json" type="chrome_messages_json" lang="hi" />
+    <output filename="hr.json" type="chrome_messages_json" lang="hr" />
+    <output filename="hu.json" type="chrome_messages_json" lang="hu" />
+    <output filename="id.json" type="chrome_messages_json" lang="id" />
+    <output filename="it.json" type="chrome_messages_json" lang="it" />
+    <output filename="iw.json" type="chrome_messages_json" lang="iw" />
+    <output filename="ja.json" type="chrome_messages_json" lang="ja" />
+    <output filename="kn.json" type="chrome_messages_json" lang="kn" />
+    <output filename="ko.json" type="chrome_messages_json" lang="ko" />
+    <output filename="lt.json" type="chrome_messages_json" lang="lt" />
+    <output filename="lv.json" type="chrome_messages_json" lang="lv" />
+    <output filename="ml.json" type="chrome_messages_json" lang="ml" />
+    <output filename="mr.json" type="chrome_messages_json" lang="mr" />
+    <output filename="ms.json" type="chrome_messages_json" lang="ms" />
+    <output filename="nl.json" type="chrome_messages_json" lang="nl" />
+    <output filename="no.json" type="chrome_messages_json" lang="no" />
+    <output filename="pl.json" type="chrome_messages_json" lang="pl" />
+    <output filename="pt-BR.json" type="chrome_messages_json" lang="pt-BR" />
+    <output filename="pt-PT.json" type="chrome_messages_json" lang="pt-PT" />
+    <output filename="ro.json" type="chrome_messages_json" lang="ro" />
+    <output filename="ru.json" type="chrome_messages_json" lang="ru" />
+    <output filename="sk.json" type="chrome_messages_json" lang="sk" />
+    <output filename="sl.json" type="chrome_messages_json" lang="sl" />
+    <output filename="sr.json" type="chrome_messages_json" lang="sr" />
+    <output filename="sv.json" type="chrome_messages_json" lang="sv" />
+    <output filename="ta.json" type="chrome_messages_json" lang="ta" />
+    <output filename="te.json" type="chrome_messages_json" lang="te" />
+    <output filename="th.json" type="chrome_messages_json" lang="th" />
+    <output filename="tr.json" type="chrome_messages_json" lang="tr" />
+    <output filename="uk.json" type="chrome_messages_json" lang="uk" />
+    <output filename="vi.json" type="chrome_messages_json" lang="vi" />
+    <output filename="zh-CN.json" type="chrome_messages_json" lang="zh-CN" />
+    <output filename="zh-TW.json" type="chrome_messages_json" lang="zh-TW" />
+  </outputs>
+  <translations>
+    <file path="cros_recovery_ar.xtb" lang="ar" />
+    <file path="cros_recovery_bg.xtb" lang="bg" />
+    <file path="cros_recovery_bn.xtb" lang="bn" />
+    <file path="cros_recovery_ca.xtb" lang="ca" />
+    <file path="cros_recovery_cs.xtb" lang="cs" />
+    <file path="cros_recovery_da.xtb" lang="da" />
+    <file path="cros_recovery_de.xtb" lang="de" />
+    <file path="cros_recovery_el.xtb" lang="el" />
+    <file path="cros_recovery_en-GB.xtb" lang="en-GB" />
+    <file path="cros_recovery_es.xtb" lang="es" />
+    <file path="cros_recovery_es-419.xtb" lang="es-419" />
+    <file path="cros_recovery_et.xtb" lang="et" />
+    <file path="cros_recovery_fa.xtb" lang="fa" />
+    <file path="cros_recovery_fi.xtb" lang="fi" />
+    <file path="cros_recovery_fil.xtb" lang="fil" />
+    <file path="cros_recovery_fr.xtb" lang="fr" />
+    <file path="cros_recovery_gu.xtb" lang="gu" />
+    <file path="cros_recovery_hi.xtb" lang="hi" />
+    <file path="cros_recovery_hr.xtb" lang="hr" />
+    <file path="cros_recovery_hu.xtb" lang="hu" />
+    <file path="cros_recovery_id.xtb" lang="id" />
+    <file path="cros_recovery_it.xtb" lang="it" />
+    <file path="cros_recovery_iw.xtb" lang="iw" />
+    <file path="cros_recovery_ja.xtb" lang="ja" />
+    <file path="cros_recovery_kn.xtb" lang="kn" />
+    <file path="cros_recovery_ko.xtb" lang="ko" />
+    <file path="cros_recovery_lt.xtb" lang="lt" />
+    <file path="cros_recovery_lv.xtb" lang="lv" />
+    <file path="cros_recovery_ml.xtb" lang="ml" />
+    <file path="cros_recovery_mr.xtb" lang="mr" />
+    <file path="cros_recovery_ms.xtb" lang="ms" />
+    <file path="cros_recovery_nl.xtb" lang="nl" />
+    <file path="cros_recovery_no.xtb" lang="no" />
+    <file path="cros_recovery_pl.xtb" lang="pl" />
+    <file path="cros_recovery_pt-BR.xtb" lang="pt-BR" />
+    <file path="cros_recovery_pt-PT.xtb" lang="pt-PT" />
+    <file path="cros_recovery_ro.xtb" lang="ro" />
+    <file path="cros_recovery_ru.xtb" lang="ru" />
+    <file path="cros_recovery_sk.xtb" lang="sk" />
+    <file path="cros_recovery_sl.xtb" lang="sl" />
+    <file path="cros_recovery_sr.xtb" lang="sr" />
+    <file path="cros_recovery_sv.xtb" lang="sv" />
+    <file path="cros_recovery_ta.xtb" lang="ta" />
+    <file path="cros_recovery_te.xtb" lang="te" />
+    <file path="cros_recovery_th.xtb" lang="th" />
+    <file path="cros_recovery_tr.xtb" lang="tr" />
+    <file path="cros_recovery_uk.xtb" lang="uk" />
+    <file path="cros_recovery_vi.xtb" lang="vi" />
+    <file path="cros_recovery_zh-CN.xtb" lang="zh-CN" />
+    <file path="cros_recovery_zh-TW.xtb" lang="zh-TW" />
+  </translations>
+  <release seq="1">
+    <messages fallback_to_english="true">
+      <message name="block_dev_mode" desc="Message shown by the recovery installer upon attempts to install an unofficial image on a device that has been set up to block developer mode.">
+The device owner requires this device to run with Chrome OS
+verification turned on.  You are trying to install an unofficial
+Chrome OS recovery image which does not pass verification.
+
+For more information, refer to this URL:
+
+https://www.google.com/chromeos/devmode
+      </message>
+      <message name="cancel" desc="Message shown by the recovery installer before actual installation, providing instructions on how to cancel.">
+You are about to recover your computer.  Please make sure it is
+plugged in to a power source.
+
+If you want to cancel recovery, press the power button and hold it
+down until the computer turns off (this takes up to 8 seconds).
+It is safe to do this at any time during verification.
+      </message>
+      <message name="complete" desc="Message shown by the recovery installer upon completion of the image installation procedure.">
+System recovery is complete.
+
+Please remove the recovery media and your computer will restart
+automatically.
+      </message>
+      <message name="dev_invalid_kernel" desc="Message shown by the recovery installer when developer mode is enabled and an image that is signed with outdated signing keys gets installed.">
+You are using an out-of-date official Chrome OS recovery image.
+
+Recovery will continue because verification is turned off.
+If you later turn verification back on, you will need to repeat
+recovery with an up-to-date Chrome OS image.
+      </message>
+      <message name="dev_switch" desc="Message shown by the recovery installer to alert the user to the fact that developer mode is enabled.">
+Chrome OS verification is turned off.
+
+If this is unintentional, you should cancel recovery and disable
+developer mode in order to enable verification.  For more information,
+refer to this URL:
+
+https://www.google.com/chromeos/recovery
+      </message>
+      <message name="error" desc="Message shown by the recovery installer when encountering an unexpected error.">
+An unexpected error has occurred.  Please refer to this URL for
+troubleshooting tips:
+
+https://www.google.com/chromeos/recovery
+      </message>
+      <message name="invalid_kernel" desc="Message shown by the recovery installer on an attempt to install a recovery image that was signed by an outdated signing key.">
+You are using an out-of-date Chrome OS recovery image.
+
+Please refer to this URL for instructions on how to create new
+recovery media:
+
+https://www.google.com/chromeos/recovery
+      </message>
+      <message name="key_change" desc="Message shown by the recovery installer in developer mode when installing a kernel that fails validation against the signing keys installed on the device.">
+A developer key change is required to proceed; the process requires
+5 minutes.
+      </message>
+      <message name="non_chrome" desc="Message shown by the recovery installer when running on a machine that does not look like Chrome OS hardware.">
+Your computer does not appear to be a Chrome OS system!
+
+This operation will delete any other operating system you may have
+installed and all the data; there will be no opportunity for backup.
+If you have any data on this computer that you want to preserve, you
+should cancel recovery.
+      </message>
+      <message name="recovering" desc="Message shown by the recovery installer while the recovery image is getting installed on the device.">
+System recovery is in progress...
+
+This will take a few minutes. Please do not turn off the computer or
+disconnect the power.
+      </message>
+      <message name="unverified" desc="Message shown by the recovery installer in developer mode to alert the user when installing an unverified image.">
+The image on your recovery media is an unverified developer image.
+
+Recovery will continue because verified boot is turned off.
+If you later turn verification back on, you will need to repeat
+recovery with an official Chrome OS image.
+      </message>
+      <message name="validating" desc="Message shown by the recovery installer while checking the validity of the installation image.">
+Verifying the integrity of your recovery media...
+      </message>
+      <message name="wait" desc="Message shown by the recovery installer to inform the user to wait for completion of an ongoing operation.">
+Please wait...
+      </message>
+    </messages>
+  </release>
+</grit>

@@ -1,4 +1,0 @@
-Hình ảnh trên phương tiện khôi phục của bạn là hình ảnh nhà phát triển chưa được xác minh.
-
-Khôi phục sẽ tiếp tục bởi vì khởi động đã xác minh bị tắt.
-Nếu bạn bật lại xác minh sau, bạn sẽ cần thực hiện lại việc khôi phục với một hình ảnh hệ điều hành Chrome chính thức.

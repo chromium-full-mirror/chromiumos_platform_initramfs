@@ -1,3 +1,0 @@
-Ripristino del sistema completato.
-
-Rimuovi il supporto di ripristino; il computer si riavvierà automaticamente.

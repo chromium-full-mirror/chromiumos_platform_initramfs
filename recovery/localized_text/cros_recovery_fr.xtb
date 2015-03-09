@@ -1,0 +1,65 @@
+<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="fr">
+<translation id="3750930141330200643">L'image de récupération Chrome OS que vous utilisez est obsolète.
+
+Pour obtenir des instructions sur la manière de créer un support de récupération,
+veuillez consulter l'article disponible à l'adresse ci-dessous :
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8728458033228603970">Récupération du système en cours…
+
+Cette opération prend quelques minutes. Veuillez ne pas éteindre l'ordinateur
+ni couper l'alimentation.</translation>
+<translation id="816304391526917903">L'image de récupération Chrome OS officielle que vous utilisez est obsolète.
+
+Le processus de récupération va se poursuivre, car la validation est désactivée.
+Si vous la réactivez ultérieurement, vous devrez répéter le processus de
+récupération à l'aide d'une image Chrome OS à jour.</translation>
+<translation id="544118001572747892">Il semblerait que votre ordinateur ne soit pas un système Chrome OS.
+
+Cette opération aura pour effet de supprimer tout autre système
+d'exploitation déjà installé et l'ensemble des données. Vous ne pourrez
+pas les sauvegarder.
+Si vous souhaitez conserver des données sur cet ordinateur,
+ne procédez pas à la récupération.</translation>
+<translation id="2701006671590617571">Vous êtes sur le point de lancer le processus de récupération
+sur votre ordinateur. Veuillez vous assurer qu'il est branché à
+une source d'alimentation.
+
+Si vous souhaitez annuler la récupération, appuyez sur le bouton
+Marche/Arrêt jusqu'à ce que l'ordinateur s'éteigne (cela peut prendre
+jusqu'à huit secondes).
+Vous pouvez réaliser cette opération sans danger à tout moment lors de la validation.</translation>
+<translation id="2731700343119398978">Veuillez patienter…</translation>
+<translation id="537291066186627789">La récupération du système est à présent terminée.
+
+Veuillez retirer le support de récupération. Votre ordinateur redémarrera
+automatiquement.</translation>
+<translation id="3946632524220974380">Vous devez changer la clé de développeur pour continuer. Ce processus
+prend cinq minutes.</translation>
+<translation id="4905949142713655149">Une erreur inattendue s'est produite. Pour obtenir des conseils
+de dépannage, veuillez consulter l'article disponible à l'adresse ci-dessous :
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="436588829138218801">La validation Chrome OS est désactivée.
+
+Si ce n'est pas volontaire, ne procédez pas à la récupération
+et désactivez le mode développeur afin d'activer la validation.
+Pour plus d'informations, veuillez consulter l'article disponible à l'adresse ci-dessous :
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="300775974721831513">Le propriétaire de cet appareil exige que la validation Chrome OS
+soit activée sur celui-ci. Vous tentez d'installer une image de récupération
+Chrome OS non officielle qui ne peut pas être validée.
+
+Pour plus d'informations, veuillez consulter l'article disponible à l'adresse ci-dessous :
+
+https://www.google.com/chromeos/devmode</translation>
+<translation id="6478314309353607985">L'image sur votre support de récupération est une image de développeur
+non validée.
+
+Le processus de récupération va se poursuivre, car le système
+de validation au démarrage est désactivé.
+Si vous réactivez la validation ultérieurement, vous devrez répéter
+le processus de récupération à l'aide d'une image Chrome OS officielle.</translation>
+<translation id="3243756202241744259">Validation de l'intégrité de votre support de récupération en cours…</translation>
+</translationbundle>

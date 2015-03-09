@@ -1,5 +1,0 @@
-Verificatie van Chrome OS is uitgeschakeld.
-
-Als dit niet de bedoeling was, moet u het herstel annuleren en de ontwikkelaarsmodus uitschakelen om verificatie te kunnen inschakelen. Ga voor meer informatie naar deze URL:
-
-https://www.google.com/chromeos/recovery

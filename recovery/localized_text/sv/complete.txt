@@ -1,3 +1,0 @@
-Systemåterställningen är klar.
-
-Ta bort återställningsmediet så startas datorn om automatiskt.

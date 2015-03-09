@@ -1,6 +1,0 @@
-오래된 Chrome OS 복구 이미지를 사용하고 있습니다.
-
-새 복구 미디어를 만드는 방법에 대한 도움말은
-다음 URL을 참조하세요.
-
-https://www.google.com/chromeos/recovery

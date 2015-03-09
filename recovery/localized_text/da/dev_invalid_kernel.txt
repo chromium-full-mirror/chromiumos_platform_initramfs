@@ -1,5 +1,0 @@
-Du bruger et forældet officielt billede til genoprettelse af Chrome OS.
-
-Gendannelsen fortsætter, fordi bekræftelsen er deaktiveret.
-Hvis du senere aktiverer bekræftelsen igen, skal du gentage
-genoprettelsen med et opdateret Chrome OS-billede.

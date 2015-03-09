@@ -1,4 +1,0 @@
-Une erreur inattendue s'est produite. Veuillez consulter les conseils de dépannage
-disponibles à l'adresse suivante :
-
-https://www.google.com/chromeos/recovery

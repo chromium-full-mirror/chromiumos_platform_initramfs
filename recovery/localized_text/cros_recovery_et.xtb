@@ -1,0 +1,58 @@
+<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="et">
+<translation id="3750930141330200643">Kasutate Chrome OS-i aegunud taastekujutist.
+
+Sellelt URL-ilt leiate juhised uue taastemeediumi loomiseks:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8728458033228603970">Süsteemitaaste on pooleli ...
+
+See võtab mõne minuti. Ärge lülitage arvutit välja ega eemaldage toidet.</translation>
+<translation id="816304391526917903">Kasutate Chrome OS-i aegunud ametlikku taastekujutist.
+
+Taastamine jätkub, kuna kinnitamine on välja lülitatud.
+Kui lülitate kinnitamise hiljem uuesti sisse, peate taastamist
+kordama Chrome OS-i ajakohase kujutisega.</translation>
+<translation id="544118001572747892">Tundub, et teie arvuti pole Chrome OS-i süsteemis.
+
+Selle toiminguga kustutatakse kõik muud installitud operatsioonisüsteemid
+ja kõik andmed; varundamise võimalust pole.
+Kui teil on arvutis andmeid, mille soovite säilitada, peaksite
+taastamise tühistama.</translation>
+<translation id="2701006671590617571">Alustate kohe arvuti taastamist. Veenduge, et see oleks
+toiteallikaga ühendatud.
+
+Kui soovite taastamise tühistada, vajutage toitenuppu ja hoidke seda all,
+kuni arvuti välja lülitub (see võib võtta kuni 8 sekundit).
+See toiming on ohutu mis tahes ajal kinnitamise jooksul.</translation>
+<translation id="2731700343119398978">Oodake ...</translation>
+<translation id="537291066186627789">Süsteemitaaste on lõpetatud.
+
+Eemaldage taastemeedium ja teie arvuti taaskäivitatakse
+automaatselt.</translation>
+<translation id="3946632524220974380">Jätkamiseks tuleb muuta arendaja võtit; see protseduur võtab
+5 minutit.</translation>
+<translation id="4905949142713655149">Ilmnes ootamatu viga. Sellelt URL-ilt leiate
+nõuanded vigade otsimiseks:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="436588829138218801">Chrome OS-i kinnitamine on välja lülitatud.
+
+Kui seda tehti kogemata, peaksite kinnitamise lubamiseks
+tühistama taastamise ja keelama arendajarežiimi. Lisateavet leiate
+sellelt URL-ilt:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="300775974721831513">Seadme omanik nõuab, et seadme käitamisel oleks Chrome OS-i
+kinnitamine sisse lülitatud. Üritate installida
+Chrome OS-i mitteametlikku taastekujutist, mida ei saa kinnitada.
+
+Lisateavet leiate sellelt URL-ilt:
+
+https://www.google.com/chromeos/devmode</translation>
+<translation id="6478314309353607985">Taastemeediumi kujutis on arendaja kinnitamata kujutis.
+
+Taastamist jätkatakse, kuna kinnitatud käivitamine on välja lülitatud.
+Kui hiljem kinnitamise uuesti sisse lülitate, peate taastamist
+kordama Chrome OS-i ametliku kujutisega.</translation>
+<translation id="3243756202241744259">Teie taastemeediumi terviklikkuse kinnitamine ...</translation>
+</translationbundle>

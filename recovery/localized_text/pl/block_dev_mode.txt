@@ -1,5 +1,0 @@
-Właściciel tego urządzenia wymaga, by uruchamiać je z włączoną weryfikacją Chrome OS. Próbujesz zainstalować nieoficjalny obraz odzyskiwania Chrome OS, którego nie można zweryfikować.
-
-Więcej informacji znajdziesz pod tym adresem URL:
-
-https://www.google.com/chromeos/devmode

@@ -1,5 +1,0 @@
-El propietario del dispositivo solicita que este dispositivo funcione con la verificación del Sistema operativo Chrome activada. Intentaste instalar una imagen de recuperación del Sistema operativo Chrome no oficial que no pasó la verificación.
-
-Para obtener más información, consulta la siguiente URL:
-
-https://www.google.com/chromeos/devmode.

@@ -1,2 +1,0 @@
-Pokračovať bude možné až po zmene kľúča vývojára. Tento proces trvá
-5 minút.

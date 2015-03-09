@@ -1,4 +1,0 @@
-Beklenmeyen bir hata oluştu.  Sorun giderme ipuçları için
-lütfen şu URL'ye bakın:
-
-https://www.google.com/chromeos/recovery

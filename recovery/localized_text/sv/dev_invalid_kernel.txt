@@ -1,4 +1,0 @@
-Du använder en inaktuell återställningsavbildning av Chrome OS.
-
-Återställningen fortsätter eftersom verifieringen är inaktiverad.
-Om du aktiverar verifieringen igen vid ett senare tillfälle måste du göra om återställningen med en aktuell återställningsavbildning av Chrome OS.

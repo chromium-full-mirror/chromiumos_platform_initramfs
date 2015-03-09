@@ -1,5 +1,0 @@
-A imagem de recuperação do Chrome OS que você está usando está desatualizada.
-
-Consulte este URL para obter instruções sobre como criar novas mídias de recuperação:
-
-https://www.google.com/chromeos/recovery

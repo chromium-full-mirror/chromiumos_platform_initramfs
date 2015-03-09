@@ -1,5 +1,0 @@
-Ierīces īpašnieks ir noteicis, ka šajā ierīcē ir jāieslēdz Chrome OS verifikācija. Jūs mēģināt instalēt neoficiālu Chrome OS atkopšanas attēlu, kuru nevar verificēt.
-
-Plašāku informāciju skatiet šajā vietnē:
-
-https://www.google.com/chromeos/devmode

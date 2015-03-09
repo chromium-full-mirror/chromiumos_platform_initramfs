@@ -1,5 +1,0 @@
-Kurtarma medyanızdaki görüntü, doğrulanmamış bir geliştirici görüntüsü.
-
-Doğrulanmış açılış seçeneği kapalı olduğundan kurtarma işlemi devam edecek.
-Daha sonra doğrulamayı tekrar açarsanız, kurtarma işlemini
-resmi bir Chrome OS görüntüsüyle tekrarlamanız gerekecek.

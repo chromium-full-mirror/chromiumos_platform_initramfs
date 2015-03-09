@@ -1,6 +1,0 @@
-Utilizaţi o imagine de recuperare a sistemului de operare Chrome neactualizată.
-
-Accesaţi următoarea adresă URL pentru instrucţiuni privind modul în care
-puteți să creaţi un nou suport de recuperare:
-
-https://www.google.com/chromeos/recovery

@@ -1,6 +1,0 @@
-„Chrome“ OS patvirtinimas išjungtas.
-
-Jei tai padarėte netyčia, turėtumėte atšaukti atkūrimą ir neleisti kūrėjo režimo, kad įgalintumėte patvirtinimą. Jei reikia daugiau informacijos,
-naudokite šį URL:
-
-https://www.google.com/chromeos/recovery

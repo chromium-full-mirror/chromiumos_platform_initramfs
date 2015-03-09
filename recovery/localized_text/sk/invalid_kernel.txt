@@ -1,7 +1,0 @@
-Používate zastaraný obraz na obnovenie
-operačného systému Chrome OS.
-
-Pokyny na vytvorenie nového média na obnovenie
-nájdete na tejto adrese URL:
-
-https://www.google.com/chromeos/recovery

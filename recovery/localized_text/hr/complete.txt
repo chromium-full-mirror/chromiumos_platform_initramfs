@@ -1,3 +1,0 @@
-Oporavak sustava dovršen je.
-
-Uklonite medij za oporavak i računalo će se automatski ponovo pokrenuti.

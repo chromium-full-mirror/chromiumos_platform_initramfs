@@ -1,4 +1,0 @@
-Das Abbild auf Ihrem Wiederherstellungsmedium ist ein nicht bestätigtes Entwicklerabbild. 
-
-Die Wiederherstellung wird fortgesetzt, da Verified Boot deaktiviert ist.
-Wenn Sie die Verified Boot später wieder aktivieren, wiederholen Sie die Wiederherstellung mit einem aktuellen Chrome OS-Abbild.

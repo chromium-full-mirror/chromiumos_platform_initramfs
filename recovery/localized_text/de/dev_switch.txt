@@ -1,5 +1,0 @@
-Die Google Chrome OS-Bestätigung ist deaktiviert.
-
-Sofern dies keine Absicht ist, brechen Sie die Wiederherstellung ab und deaktivieren Sie den Entwicklermodus, um die Bestätigung zu aktivieren. Weitere Informationen finden Sie unter der folgenden URL:
-
-https://www.google.com/chromeos/recovery.

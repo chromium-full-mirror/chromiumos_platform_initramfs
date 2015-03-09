@@ -1,4 +1,0 @@
-Estás usando una imagen de recuperación oficial del sistema operativo de Chrome desactualizada.
-
-La recuperación continuará porque se desactivó la verificación.
-Si vuelves a activar la verificación más adelante, tendrás que repetir la recuperación con una imagen del sistema operativo de Chrome actualizada.

@@ -1,5 +1,0 @@
-Naudojate pasenusį „Chrome“ OS atkūrimo atvaizdį.
-
-Naudokite šį URL, kad gautumėte instrukcijų apie tai, kaip sukurti naują atkūrimo mediją:
-
-https://www.google.com/chromeos/recovery

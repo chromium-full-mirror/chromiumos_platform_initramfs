@@ -1,4 +1,0 @@
-Stai utilizzando un'immagine di ripristino di Chrome OS ufficiale obsoleta.
-
-Il ripristino proseguirà perché la verifica non è attiva.
-Se in un secondo momento riattiverai la verifica, dovrai ripetere il ripristino con un'immagine di Chrome OS aggiornata.

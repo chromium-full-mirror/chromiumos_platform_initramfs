@@ -1,5 +1,0 @@
-U gebruikt een verouderde Chrome OS-herstelimage.
-
-Ga naar deze URL voor instructies voor het maken van nieuwe herstelmedia:
-
-https://www.google.com/chromeos/recovery

@@ -1,7 +1,0 @@
-Sprawdzanie systemu operacyjnego Chrome jest wyłączone.
-
-Jeśli sprawdzanie jest włączone celowo, anuluj przywracanie
-i wyłącz tryb programisty, by wykonać sprawdzanie systemu.  Więcej informacji
-znajdziesz na tej stronie:
-
-https://www.google.com/chromeos/recovery

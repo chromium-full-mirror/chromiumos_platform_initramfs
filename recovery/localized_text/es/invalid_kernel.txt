@@ -1,6 +1,0 @@
-Estás utilizando una imagen de recuperación de Chrome OS que está obsoleta.
-
-Para obtener instrucciones sobre cómo crear nuevos
-medios de recuperación, consulta esta URL:
-
-https://www.google.com/chromeos/recovery

@@ -1,4 +1,0 @@
-Przywracanie systemu zostało ukończone.
-
-Wyjmij nośnik przywracania. Komputer automatycznie
-uruchomi się ponownie.

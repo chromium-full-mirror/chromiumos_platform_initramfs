@@ -1,4 +1,0 @@
-Sie sind im Begriff, Ihren Computer wiederherzustellen. Überprüfen Sie, ob dieser mit einer Stromquelle verbunden ist.
-
-Wenn Sie die Wiederherstellung abbrechen möchten, halten Sie die Ein-/Austaste gedrückt, bis der Computer ausgeschaltet wird. Dieser Vorgang kann bis zu 8 Sekunden dauern
-und kann während der Bestätigung jederzeit durchgeführt werden.

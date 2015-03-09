@@ -1,4 +1,0 @@
-Se ha producido un error inesperado. Para obtener sugerencias de resolución de problemas,
-consulta esta URL:
-
-https://www.google.com/chromeos/recovery

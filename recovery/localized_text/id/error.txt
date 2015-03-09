@@ -1,4 +1,0 @@
-Terjadi kesalahan yang tidak diharapkan.  Buka URL berikut untuk
-kiat pemecahan masalah:
-
-https://www.google.com/chromeos/recovery

@@ -8,12 +8,16 @@
 #
 # Refer to the README for details about how to use this command.
 
+import io
+import json
 import multiprocessing
 import os
 import re
+import shutil
+import string
 import subprocess
-import tempfile
 import sys
+import tempfile
 
 import Image
 
@@ -334,50 +338,65 @@ def CreateProgressBar(image_dir):
 def CreateLocales(textdir, screendir, locale_list):
   """Create message images for all locales.
 
-  The per-locale input directories are found in `textdir`.  The
-  per-locale output images are written under `screendir`.  The
-  locales to be used are specified in `locale_list`.
+  The per-locale XTB files containing translations are found in `textdir`.  The
+  per-locale output images are written under `screendir`.  The locales to be
+  used are specified in `locale_list`.
 
   All locales share a distinguished image named "empty.png" that
   contains no text.
 
   """
   # Need to create the empty image before processing the others.
-  empty_base = "empty.png"
+  empty_base = 'empty.png'
   empty_file = os.path.join(screendir, empty_base)
-  CreateMessageImage("", "en-US", empty_file)
+  CreateMessageImage('', 'en-US', empty_file)
 
   pool = multiprocessing.Pool()
-  for locale in locale_list:
-    print "Locale %s" % locale
-    locale_text = os.path.join(textdir, locale)
-    locale_screen = os.path.join(screendir, locale)
-    if not os.path.isdir(locale_screen):
-      os.mkdir(locale_screen)
-    locale_empty = os.path.join(locale_screen, empty_base)
-    if not os.path.exists(locale_empty):
-      os.link(empty_file, locale_empty)
+  try:
+    # Create a temporary directory to place the translation output from grit in.
+    tmpdir = tempfile.mkdtemp()
 
-    # Go through <textdir>/<locale>/*.txt, converting text to
-    # paragraphs conforming to Pango's expectations.  Render
-    # the text onto <screendir>/<locale>/*.png.
-    for _, _, filenames in os.walk(locale_text):
-      for filename in filenames:
-        tag = os.path.splitext(filename)[0]
-        with open(os.path.join(locale_text, filename), "r") as msgfile:
-          msgtext = msgfile.read().decode("utf_8_sig")
-        msgtext = re.sub(CRLF_PATTERN, "\n", msgtext)
+    # This invokes the grit build command to generate JSON files from the XTB
+    # files containing translations.  The results are placed in `tmpdir` as
+    # specified in cros_recovery.grd, i.e. one JSON file per locale.
+    subprocess.check_call([
+        'grit',
+        '-i', os.path.join(textdir, 'cros_recovery.grd'),
+        'build',
+        '-o', os.path.join(tmpdir)
+    ])
+
+    for locale in locale_list:
+      print 'Locale %s' % locale
+      locale_screen = os.path.join(screendir, locale)
+      if not os.path.isdir(locale_screen):
+        os.mkdir(locale_screen)
+      locale_empty = os.path.join(locale_screen, empty_base)
+      if not os.path.exists(locale_empty):
+        os.link(empty_file, locale_empty)
+
+      # Read the JSON file to obtain translated messages.
+      msgfilename = os.path.join(tmpdir, locale + '.json')
+      with io.open(msgfilename, encoding='utf-8-sig') as msgfile:
+        translations = json.load(msgfile)
+
+      # Generate an image file for translated message.
+      for (tag, msgdict) in translations.iteritems():
+        msgtext = msgdict['message']
+        msgtext = re.sub(CRLF_PATTERN, '\n', msgtext)
         msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
-        msgtext = re.sub(MULTIBLANK_PATTERN, " ", msgtext)
+        msgtext = re.sub(MULTIBLANK_PATTERN, ' ', msgtext)
         # Strip any trailing whitespace.  A trailing newline appears to make
         # Pango report a larger layout size than what's actually visible.
         msgtext = msgtext.strip()
-        pngfilename = os.path.join(locale_screen, tag + ".png")
+        pngfilename = os.path.join(locale_screen, tag + '.png')
         pool.apply_async(CreateMessageImage, (msgtext, locale, pngfilename))
 
-  pool.close()
-  pool.join()
-  os.unlink(empty_file)
+  finally:
+    pool.close()
+    pool.join()
+    os.unlink(empty_file)
+    shutil.rmtree(tmpdir)
 
 
 def CreateLinkedLocales(screendir, locale_list, link_list):

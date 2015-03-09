@@ -1,4 +1,0 @@
-U gebruikt een verouderde officiële Chrome OS-herstelimage.
-
-Het herstel wordt wel uitgevoerd, omdat verificatie is uitgeschakeld.
-Als u de verificatie opnieuw inschakelt, moet u het herstel herhalen met een bijgewerkte Chrome OS-image.

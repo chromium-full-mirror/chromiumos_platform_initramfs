@@ -1,4 +1,0 @@
-La imagen del medio de recuperación es una imagen de desarrollador que no se ha verificado.
-
-La recuperación continuará, ya que el arranque verificado está desactivado.
-Si vuelves a activar la verificación, deberás repetir la recuperación con una imagen oficial de Chrome OS.

@@ -1,0 +1,60 @@
+<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="lt">
+<translation id="3750930141330200643">Naudojate pasenusį „Chrome“ OS atkūrimo vaizdą.
+
+Jei reikia instrukcijų, kaip kurti naują atkūrimo mediją,
+apsilankykite šiuo URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8728458033228603970">Vykdomas sistemos atkūrimas...
+
+Tai truks kelias minutes. Neišjunkite kompiuterio arba
+neatjunkite maitinimo.</translation>
+<translation id="816304391526917903">Naudojate pasenusį oficialų „Chrome“ OS atkūrimo vaizdą.
+
+Atkūrimas toliau bus vykdomas, nes patvirtinimas išjungtas.
+Jei vėliau vėl įjungsite patvirtinimą, turėsite pakartoti
+atkūrimo procesą naudodami atnaujintą „Chrome“ OS vaizdą.</translation>
+<translation id="544118001572747892">Panašu, kad kompiuteryje neveikia „Chrome“ OS sistema!
+
+Įvykdžius šią operaciją bus ištrinta bet kokia kita įdiegta operacinė
+sistema ir visi jos duomenys. Negalėsite sukurti atsarginių kopijų.
+Jei šiame kompiuteryje yra duomenų, kuriuos norite išsaugoti,
+turite atšaukti atkūrimą.</translation>
+<translation id="2701006671590617571">Ketinate atkurti kompiuterį. Įsitikinkite, kad jis
+prijungtas prie maitinimo šaltinio.
+
+Jei norite atšaukti atkūrimą, paspauskite maitinimo mygtuką ir laikykite,
+kol kompiuteris išsijungs (tai truks iki 8 sek.).
+Tai galite atlikti bet kada per patvirtinimo procesą.</translation>
+<translation id="2731700343119398978">Palaukite...</translation>
+<translation id="537291066186627789">Sistemos atkūrimas baigtas.
+
+Pašalinkite atkūrimo mediją ir kompiuteris bus automatiškai paleistas
+iš naujo.</translation>
+<translation id="3946632524220974380">Norint tęsti, reikia pakeisti kūrėjo raktą; procesas truks
+5 minutes.</translation>
+<translation id="4905949142713655149">Įvyko nenumatyta klaida. Žr. trikčių šalinimo patarimus,
+apsilankę šiuo URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="436588829138218801">„Chrome“ OS patvirtinimas išjungtas.
+
+Jei tai įvyko netikėtai, turėtumėte atšaukti atkūrimą ir išjungti
+kūrėjo režimą, kad įgalintumėte patvirtinimą. Jei reikia daugiau informacijos,
+apsilankykite šiuo URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="300775974721831513">Įrenginio savininkas reikalauja, kad šis įrenginys veiktų įjungus
+„Chrome“ OS patvirtinimą. Bandote įdiegti neoficialų
+„Chrome“ OS atkūrimo vaizdą, kurio negalima patvirtinti.
+
+Jei reikia daugiau informacijos, apsilankykite šiuo URL:
+
+https://www.google.com/chromeos/devmode</translation>
+<translation id="6478314309353607985">Atkūrimo medijos vaizdas yra nepatvirtintas kūrėjo vaizdas.
+
+Atkūrimas toliau bus vykdomas, nes patvirtintas paleidimas išjungtas.
+Jei vėliau vėl įjungsite patvirtinimą, turėsite pakartoti
+atkūrimo procesą naudodami oficialų „Chrome“ OS vaizdą.</translation>
+<translation id="3243756202241744259">Tvirtinamas atkūrimo medijos tinkamumas...</translation>
+</translationbundle>

@@ -1,7 +1,0 @@
-Chrome OS doğrulaması kapalı.
-
-Bu durumun farkında değildiyseniz, doğrulamayı etkinleştirmek
-için kurtarma işlemini iptal etmeniz ve geliştirici modunu devre dışı bırakmanız gerekir. Daha fazla bilgi için
-şu URL'ye bakın:
-
-https://www.google.com/chromeos/recovery

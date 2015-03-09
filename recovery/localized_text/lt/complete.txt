@@ -1,3 +1,0 @@
-Sistemos atkūrimas baigtas.
-
-Pašalinkite atkūrimo mediją ir kompiuteris bus automatiškai paleistas iš naujo.

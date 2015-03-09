@@ -1,6 +1,0 @@
-Za chwilę rozpocznie się przywracanie systemu. Upewnij się,
-że komputer jest podłączony do zasilania.
-
-Aby anulować przywracanie systemu, naciśnij i przytrzymaj
-przycisk zasilania (przez ok. 8 sekund), aż komputer się wyłączy.
-Możesz to bezpiecznie zrobić w dowolnej chwili podczas sprawdzania systemu.

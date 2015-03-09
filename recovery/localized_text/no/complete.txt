@@ -1,5 +1,0 @@
-Systemgjenopprettingen er fullført.
-
-Fjern gjenopprettingsmediet, så starter 
-datamaskinen 
-automatisk på nytt.

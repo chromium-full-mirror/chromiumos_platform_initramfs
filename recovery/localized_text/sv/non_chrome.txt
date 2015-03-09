@@ -1,4 +1,0 @@
-Det verkar som om datorn inte använder systemet Chrome OS.
-
-Åtgärden tar bort andra operativsystem som du kanske har installerade samt all information. Du kan inte göra någon säkerhetskopia.
-Om du har information på datorn som du vill spara bör du avbryta återställningen.

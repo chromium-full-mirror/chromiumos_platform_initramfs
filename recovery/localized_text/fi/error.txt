@@ -1,3 +1,0 @@
-Tapahtui odottamaton virhe. Saat vianetsintävihjeitä seuraavasta URL-osoitteesta:
-
-https://www.google.com/chromeos/recovery

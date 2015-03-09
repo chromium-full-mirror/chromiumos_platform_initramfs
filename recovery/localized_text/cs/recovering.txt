@@ -1,4 +1,0 @@
-Probíhá obnovení systému...
-
-Tato operace může trvat několik minut. Nevypínejte počítač ani jej neodpojujte
-od zdroje napájení.

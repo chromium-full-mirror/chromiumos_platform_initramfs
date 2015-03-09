@@ -1,6 +1,0 @@
-Kullandığınız Chrome OS kurtarma görüntüsü eski.
-
-Yeni bir kurtarma medyasını nasıl oluşturacağınızla ilgili
-talimatlar için şu URL'ye bakın:
-
-https://www.google.com/chromeos/recovery

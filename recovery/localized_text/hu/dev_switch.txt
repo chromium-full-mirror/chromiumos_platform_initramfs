@@ -1,6 +1,0 @@
-A Chrome OS ellenőrzése ki van kapcsolva.
-
-Amennyiben ez nem szándékosan történt, szakítsa meg a helyreállítási folyamatot, és kapcsolja ki a fejlesztői módot az ellenőrzés engedélyezéséhez.  További információt
-a következő címen talál:
-
-https://www.google.com/chromeos/recovery

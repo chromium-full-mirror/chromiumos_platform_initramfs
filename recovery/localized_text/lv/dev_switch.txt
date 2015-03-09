@@ -1,7 +1,0 @@
-Chrome OS verifikācija ir izslēgta.
-
-Ja esat to izslēdzis netīšām, atceliet atkopšanu un atspējojiet
-izstrādātāja režīmu, lai iespējotu verifikāciju. Plašāku informāciju
-skatiet šajā URL:
-
-https://www.google.com/chromeos/recovery.

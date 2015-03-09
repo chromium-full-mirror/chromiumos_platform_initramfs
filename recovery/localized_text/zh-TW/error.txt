@@ -1,3 +1,0 @@
-發生未預期的錯誤。如需疑難排解提示，請參考下列網址：
-
-https://www.google.com/chromeos/recovery

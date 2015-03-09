@@ -1,5 +1,0 @@
-Gumagamit ka ng lumang larawan sa pagbawi ng Chrome OS.
-
-Mangyaring mag-refer sa URL na ito para sa mga tagubilin kung paano lumikha ng bagong media sa pagbawi:
-
-https://www.google.com/chromeos/recovery

@@ -1,0 +1,57 @@
+<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="lv">
+<translation id="3750930141330200643">Jūs izmantojat novecojušu Chrome OS atkopšanas attēlu.
+
+Norādījumus par jauna atkopšanas datu nesēja izveidi skatiet šeit:
+
+https://www.google.com/chromeos/recovery.</translation>
+<translation id="8728458033228603970">Notiek sistēmas atkopšana...
+
+Tas aizņems dažas minūtes. Lūdzu, neizslēdziet datoru
+un neatvienojiet to no barošanas avota.</translation>
+<translation id="816304391526917903">Jūs izmantojat novecojušu oficiālo Chrome OS atkopšanas attēlu.
+
+Atkopšana tiks turpināta, jo verifikācija ir izslēgta.
+Ja vēlāk ieslēgsiet verifikāciju, atkopšana būs jāatkārto,
+izmantojot atjauninātu Chrome OS attēlu.</translation>
+<translation id="544118001572747892">Šķiet, ka šajā datorā nedarbojas sistēma Chrome OS.
+
+Veicot šo darbību, tiks izdzēsta jebkura cita šajā datorā instalētā
+operētājsistēma, kā arī visi dati. Datu dublēšana nebūs iespējama.
+Ja šajā datorā ir dati, kurus vēlaties saglabāt, atceliet
+atkopšanu.</translation>
+<translation id="2701006671590617571">Jūs grasāties atkopt datoru. Tam ir jābūt pieslēgtam
+pie barošanas avota.
+
+Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu,
+līdz dators izslēdzas (izslēgšana ilgst līdz 8 sekundēm).
+Verifikācijas laikā šo darbību var droši veikt jebkurā brīdī.</translation>
+<translation id="2731700343119398978">Lūdzu, uzgaidiet…</translation>
+<translation id="537291066186627789">Sistēmas atkopšana ir pabeigta.
+
+Lūdzu, noņemiet atkopšanas datu nesēju. Dators tiks automātiski restartēts.</translation>
+<translation id="3946632524220974380">Lai turpinātu, ir nepieciešama izstrādātāja atslēga; process aizņems
+5 minūtes.</translation>
+<translation id="4905949142713655149">Radās neparedzēta kļūda. Skatiet problēmu novēršanas padomus šeit:
+
+https://www.google.com/chromeos/recovery.</translation>
+<translation id="436588829138218801">Chrome OS verifikācija ir izslēgta.
+
+Ja verifikācija ir izslēgta bez nolūka, atceliet atkopšanu un atspējojiet
+izstrādātāja režīmu, lai iespējotu verifikāciju. Plašāku informāciju
+skatiet šeit:
+
+https://www.google.com/chromeos/recovery.</translation>
+<translation id="300775974721831513">Ierīces īpašnieks ir noteicis, ka šī ierīce darbojas ar ieslēgtu
+Chrome OS verifikāciju. Jūs mēģināt instalēt neoficiālu
+Chrome OS atkopšanas attēlu, kuru nevar verificēt.
+
+Plašāku informāciju skatiet šeit:
+
+https://www.google.com/chromeos/devmode.</translation>
+<translation id="6478314309353607985">Atkopšanas datu nesējā esošais attēls nav verificēts izstrādātāja attēls.
+
+Atkopšana tiks turpināta, jo verificētā palaišana ir izslēgta.
+Ja vēlāk ieslēgsiet verifikāciju, atkopšana būs jāatkārto,
+izmantojot oficiālu Chrome OS attēlu.</translation>
+<translation id="3243756202241744259">Tiek pārbaudīta datu nesēja integritāte...</translation>
+</translationbundle>

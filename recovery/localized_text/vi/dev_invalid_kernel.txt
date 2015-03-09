@@ -1,4 +1,0 @@
-Bạn đang sử dụng hình ảnh khôi phục hệ điều hành Chrome chính thức.
-
-Khôi phục sẽ tiếp tục bởi vì xác minh bị tắt.
-Nếu bạn bật lại xác minh sau, bạn sẽ cần thực hiện lại việc khôi phục với một hình ảnh hệ điều hành Chrome cập nhật.

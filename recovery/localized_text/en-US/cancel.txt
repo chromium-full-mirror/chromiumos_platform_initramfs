@@ -1,6 +1,0 @@
-You are about to recover your computer.  Please make sure it is
-plugged in to a power source.
-
-If you want to cancel recovery, press the power button and hold it
-down until the computer turns off (this takes up to 8 seconds).
-It is safe to do this at any time during verification.

@@ -1,5 +1,0 @@
-Bạn đang sử dụng hình ảnh khôi phục hệ điều hành Chrome lỗi thời.
-
-Vui lòng tham khảo URL này để biết hướng dẫn về cách tạo phương tiện khôi phục mới:
-
-https://www.google.com/chromeos/recovery

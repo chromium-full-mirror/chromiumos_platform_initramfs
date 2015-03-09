@@ -1,5 +1,0 @@
-Stai utilizzando un'immagine di ripristino di Chrome OS obsoleta.
-
-Per avere istruzioni sulla creazione di un nuovo supporto di ripristino, visita il sito al seguente indirizzo:
-
-https://www.google.com/chromeos/recovery

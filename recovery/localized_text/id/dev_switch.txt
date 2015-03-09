@@ -1,7 +1,0 @@
-Verifikasi Chrome OS dimatikan.
-
-Jika tindakan ini tidak disengaja, sebaiknya batalkan pemulihan dan nonaktifkan
-mode pengembang guna mengaktifkan verifikasi.  Untuk informasi selengkapnya,
-buka URL berikut:
-
-https://www.google.com/chromeos/recovery

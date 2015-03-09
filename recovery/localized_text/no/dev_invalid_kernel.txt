@@ -1,4 +1,0 @@
-Du bruker en utdatert offisiell gjenopprettingsavbildning for Chrome OS.
-
-Gjenopprettingen fortsetter fordi verifiseringen er slått av.
-Hvis du slår på verifiseringen igjen senere, må du gjenta gjenopprettingen med en oppdatert gjenopprettingsavbildning av Chrome OS.

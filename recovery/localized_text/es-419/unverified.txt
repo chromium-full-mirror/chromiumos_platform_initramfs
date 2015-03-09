@@ -1,4 +1,0 @@
-La imagen de tus medios de recuperación es una imagen de programador sin verificar.
-
-La recuperación continuará porque se desactivó la verificación del inicio.
-Si vuelves a activar la verificación más adelante, tendrás que repetir la recuperación con una imagen oficial del sistema operativo de Chrome.

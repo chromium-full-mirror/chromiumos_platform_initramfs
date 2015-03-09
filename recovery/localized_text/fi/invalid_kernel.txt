@@ -1,5 +1,0 @@
-Käytät vanhentunutta Chrome-käyttöjärjestelmän palautusnäköistiedostoa.
-
-Saat ohjeet uuden palautustietovälineen luomiseen seuraavasta URL-osoitteesta:
-
-https://www.google.com/chromeos/recovery

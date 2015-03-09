@@ -1,5 +1,0 @@
-Mababawi mo na ang iyong computer. Pakitiyak na
-naka-plug ito sa isang power source.
-
-Kung nais mong kanselahin ang pagbawi, pindutin ang power button at pindutin ito nang matagal hanggang sa mag-off ang computer (maaari itong tumagal nang 8 segundo).
-Magagawa ito nang ligtas anumang oras habang isinasagawa ang pag-verify.

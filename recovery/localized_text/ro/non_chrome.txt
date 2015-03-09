@@ -1,6 +1,0 @@
-Computerul dvs. nu pare să ruleze sistemul de operare Chrome!
-
-Această operaţie va şterge orice alt sistem de operare pe care îl aveţi
-instalat, împreună cu toate datele sale; nu va exista nicio posibilitate de a salva o copie de rezervă.
-Dacă aveţi date pe acest computer pe care doriţi să le păstraţi, 
-anulaţi recuperarea.

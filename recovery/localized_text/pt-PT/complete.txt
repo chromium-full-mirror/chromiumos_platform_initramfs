@@ -1,3 +1,0 @@
-A recuperação do sistema está concluída.
-
-Remova o suporte de dados de recuperação e o computador será automaticamente reiniciado.

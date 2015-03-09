@@ -1,6 +1,0 @@
-Zdá se, že tento počítač nepoužívá systém Chrome OS.
-
-Tato operace smaže všechny jiné operační systémy, které jste
-možná nainstalovali, a všechna data. Nebude možné vytvořit zálohu.
-Máte-li v tomto počítači data, která chcete zachovat, měli byste
-obnovení zrušit.

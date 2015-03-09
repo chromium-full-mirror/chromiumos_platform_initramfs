@@ -1,4 +1,0 @@
-A helyreállítási adathordozón található képfájl nem ellenőrzött fejlesztői képfájl.
-
-A helyreállítás folytatódik, mert az ellenőrzött rendszerindítás ki van kapcsolva.
-Ha később ismét bekapcsolja az ellenőrzést, meg kell ismételnie a helyreállítást egy hivatalos Chrome OS-lemezképpel.

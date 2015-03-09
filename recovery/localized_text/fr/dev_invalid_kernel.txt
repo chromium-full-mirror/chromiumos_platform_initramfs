@@ -1,5 +1,0 @@
-Vous utilisez une image de récupération officielle de Google Chrome OS obsolète.
-
-La procédure de récupération va se poursuivre, car la vérification est désactivée.
-Si vous réactivez la vérification ultérieurement,
-vous devrez relancer la récupération avec une image de Google Chrome OS à jour.

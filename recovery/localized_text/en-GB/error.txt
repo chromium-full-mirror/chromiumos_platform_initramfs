@@ -1,4 +1,0 @@
-An unexpected error has occurred.  Please refer to this URL for
-troubleshooting tips:
-
-https://www.google.com/chromeos/recovery

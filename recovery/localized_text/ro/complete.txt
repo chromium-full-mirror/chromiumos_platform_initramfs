@@ -1,4 +1,0 @@
-Recuperarea sistemului este finalizată.
-
-Eliminaţi suportul de recuperare, iar computerul dvs.
-va reporni automat.
