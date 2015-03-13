@@ -279,7 +279,24 @@ def CreateMessageImage(msgtext, locale, imagename):
   new_image = Image.new(image.mode, (MESSAGE_BOX_WIDTH, MESSAGE_BOX_HEIGHT),
                         BACKGROUND)
   new_image.paste(image, (TEXT_INSET_WIDTH, TEXT_INSET_HEIGHT))
-  new_image.save(imagename)
+  temp_imagename = '%s.tmp%s' % os.path.splitext(imagename)
+  new_image.save(temp_imagename)
+  # These pngcrush options won't generate the smallest .png file possible,
+  # instead, the goal here is to generate .png files that the xz step that
+  # compresses the initramfs can compress well, taking advantage of the
+  # redundancy between files. See crbug.com/465647 for details.
+  subprocess.check_call(
+      ['pngcrush', '-quiet',
+      # Set the color type to "grayscale without alpha channel".
+      '-c', '0',
+      # Use method 1 (no filtering).
+      '-m', '1',
+      # zlib level 0 (no compression).
+      '-l', '0',
+      # No filter.
+      '-f', '0',
+      temp_imagename, imagename])
+  os.unlink(temp_imagename)
 
 
 def CreateProgressBar(image_dir):
