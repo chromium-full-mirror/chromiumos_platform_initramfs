@@ -61,6 +61,9 @@ copy_bins() {
   local file="${NEWROOT_MNT}/usr/sbin/mount-encrypted"
   echo '#!/bin/sh' >"${file}"
   echo 'echo "Sorry, $0 is disabled on factory installer image."' >>"${file}"
+
+  # We don't want any consoles to be executed.
+  rm -f "${NEWROOT_MNT}"/etc/init/console-*.conf
 }
 
 move_mounts() {
