@@ -429,7 +429,7 @@ maybe_get_debugging_logs() {
   fi
   if [ -f "$flagfile" ] && [ -d "$decrypted_dir" ]; then
     log "Prior recovery request exists. Attempting to extract files."
-    if ! mount -n -o sync,rw "${STATE_DEV}" /tmp 2>"$TTY_PATH"2; then
+    if ! mount -n -o sync,rw "${STATE_DEV}" /tmp 2>"${TTY_LOG}"; then
       log "Failed to mount recovery stateful partition."
       on_error
     fi
@@ -442,7 +442,7 @@ maybe_get_debugging_logs() {
          --exclude './encrypted*' \
          --exclude './home/.shadow/*/*' \
          --exclude './dev_image' \
-         . >"$TTY_PATH"2 2>"$TTY_PATH"2 </dev/null ; then
+         . >"${TTY_LOG}" 2>"${TTY_LOG}" </dev/null ; then
       log "Extraction failed. See debug log for more details."
       crossystem recovery_request=1
       umount /tmp
@@ -466,13 +466,13 @@ maybe_get_debugging_logs() {
   log "please be sure to change your password as a precautionary measure."
 
   local username
-  read -p Username: username <"$TTY_PATH"1 2>"$TTY_PATH"1
+  read -p Username: username <"${TTY_CONSOLE}" 2>"${TTY_CONSOLE}"
 
   if [ -n "${username}" ]; then
     local password
-    read -p Password: -s password <"$TTY_PATH"1 2>"$TTY_PATH"1
+    read -p Password: -s password <"${TTY_CONSOLE}" 2>"${TTY_CONSOLE}"
     # Force a newline for sane output after silent input.
-    echo "" >"$TTY_PATH"1
+    echo "" >"${TTY_CONSOLE}"
 
     local saltfile="${STATEFUL_MNT}"/home/.shadow/salt
     if [ ! -f "${saltfile}" ]; then

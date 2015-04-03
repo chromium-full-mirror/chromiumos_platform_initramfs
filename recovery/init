@@ -27,8 +27,10 @@ REAL_KERN_B_HASH=
 # Special file systems required in addition to the root file system.
 BASE_MOUNTS="/sys /proc /dev"
 
-# To be updated to keep logging after move_mounts.
-TTY_PATH="/dev/tty"
+# Console and logs.
+TTY_CONSOLE=/dev/tty1
+TTY_LOG=/dev/tty2
+TTY_DEBUG=/dev/tty3
 TAIL_PID=
 
 # Used to ensure the factory check only occurs with
@@ -394,7 +396,7 @@ save_log_files() {
 
 stop_log_file() {
   # Drop logging
-  exec >"$TTY_PATH"3 2>&1
+  exec >"${TTY_DEBUG}" 2>&1
   [ -n "$TAIL_PID" ] && kill $TAIL_PID
 }
 
@@ -473,8 +475,8 @@ main() {
   # Set up basic mounts, console.
   initial_mounts
 
-  # Send all verbose output to tty3
-  (tail -f "${LOG_FILE}" > "$TTY_PATH"3) &
+  # Send all verbose output to debug tty.
+  (tail -f "${LOG_FILE}" > "${TTY_DEBUG}") &
   TAIL_PID=$!
 
   # Export the kernel command line as a parsed blob prepending KERN_ARG_ to each

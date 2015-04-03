@@ -31,26 +31,26 @@ DEVMODE_BOX_TOP=$MESSAGE_BOX_HEIGHT
 
 # User visible message logged w/ 'echo'
 log() {
-  echo "$@" | tee -a "$TTY_PATH"1 "$TTY_PATH"2
+  echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
 }
 
 # User visible message logged w/ 'printf'
 logf() {
-  printf "$@" | tee -a "$TTY_PATH"1 "$TTY_PATH"2
+  printf "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
 }
 
 # Debug console message logged w/ 'echo'
 dlog() {
-  echo "$@" | tee -a "$TTY_PATH"2 "$TTY_PATH"3
+  echo "$@" | tee -a "${TTY_LOG}" "${TTY_DEBUG}"
 }
 
 # Debug console message logged w/ 'printf'
 dlogf() {
-  printf "$@" | tee -a "$TTY_PATH"2 "$TTY_PATH"3
+  printf "$@" | tee -a "${TTY_LOG}" "${TTY_DEBUG}"
 }
 
 clear_console() {
-  clear >"$TTY_PATH"1
+  clear >"${TTY_CONSOLE}"
 }
 
 select_locale() {
@@ -200,7 +200,7 @@ message_startup() {
   # displayed by ply-image would otherwise be erased if the system
   # were left unattended for long enough.  These escape sequences
   # are documented in the console_codes(4) man page.
-  printf "\033[9;0]\033[14;0]" >"$TTY_PATH"1
+  printf "\033[9;0]\033[14;0]" >"${TTY_CONSOLE}"
 
   # This 'echo' prevents the text cursor image from showing up after
   # ply-image has pushed the screen image.
