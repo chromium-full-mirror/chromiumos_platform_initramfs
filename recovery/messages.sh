@@ -53,9 +53,21 @@ clear_console() {
   clear >"${TTY_CONSOLE}"
 }
 
+read_vpd_locale() {
+  local region="$(vpd -g region)"
+  local locale=""
+  if [ -n "${region}" ]; then
+    # Lookup correct value from locale list.
+    sed -nre "s/^${region}\t(.*)$/\1/p" /etc/locales.txt
+  else
+    # Legacy devices that do not have 'region' and may have multiple locales.
+    vpd -g initial_locale | sed 's/,.*//'
+  fi
+}
+
 select_locale() {
-  # VPD is only available on Chrome systems.
-  is_nonchrome || LANGDIR=$(vpd -g initial_locale)
+  # The region (fetched via VPD) is only available on Chrome systems.
+  is_nonchrome || LANGDIR="$(read_vpd_locale)"
   if [ -z "$LANGDIR" -o ! -d "$SCREENS/$LANGDIR" ]; then
     dlog "initial locale '$LANGDIR' not found"
     LANGDIR=en-US

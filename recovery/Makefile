@@ -54,6 +54,11 @@ OVERLAY_FOLDER		?= $(SYSROOT)/var/lib/initramfs/recovery
 # is used in the ebuild to allow board-specific locale lists.
 LOCALE_LIST		=
 
+# The region database installed by virtual/chromeos-regions, and will be used to
+# generate the locales table.
+CROS_REGIONS_DATABASE	?= $(SYSROOT)/usr/share/misc/cros-regions.json
+LOCALES_TABLE		?= $(STAGE)/etc/locales.txt
+
 # Output image file names.
 RAMFS_BIN=$(OUTPUT_DIR)/recovery_ramfs.cpio.xz
 
@@ -70,6 +75,7 @@ $(RAMFS_BIN):
 	cp "$(SYSROOT)/usr/share/chromeos-assets/images/boot_message.png" \
 		assets/*.png $(STAGE)/etc/screens
 	./make_images localized_text "$(STAGE)/etc/screens" $(LOCALE_LIST)
+	./make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
 	ln -s lib $(STAGE)/lib64
 	ln -s busybox $(STAGE)/bin/sh
 	ln -s bin $(STAGE)/sbin
