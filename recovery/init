@@ -18,6 +18,7 @@ STATE_DEV=
 LOG_DEV=
 LOG_DIR=/log
 LOG_FILE=${LOG_DIR}/recovery.log
+TAIL_PID=
 
 TPM_B_LOCKED=
 TPM_PP_LOCKED=
@@ -27,19 +28,18 @@ REAL_KERN_B_HASH=
 # Special file systems required in addition to the root file system.
 BASE_MOUNTS="/sys /proc /dev"
 
-# Console and logs.
-TTY_CONSOLE=/dev/tty1
-TTY_LOG=/dev/tty2
-TTY_DEBUG=/dev/tty3
-TAIL_PID=
-
 # Used to ensure the factory check only occurs with
 # a properly matched root and kernel.
 UNOFFICIAL_ROOT=0
 
-
 . /lib/completion_settings.sh
 . /lib/messages.sh
+
+# Load default settings, which may be overridden by board_recovery.sh.
+. /lib/defaults.sh
+if [ -f /lib/board_recovery.sh ]; then
+  . /lib/board_recovery.sh
+fi
 
 initial_mounts() {
   mkdir -p /var/lock

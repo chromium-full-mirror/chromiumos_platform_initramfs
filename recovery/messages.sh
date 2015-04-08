@@ -301,11 +301,6 @@ message_block_developer_mode() {
   exit 1
 }
 
-# Wrapper to provide a hook for every message we print.
-message() {
-  message_$1
-}
-
 # Terminate with an error message.  We don't want to do anything
 # else (like start a shell) because it would be trivially easy to
 # get here (just unplug the USB drive after the kernel starts but

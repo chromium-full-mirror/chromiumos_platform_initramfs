@@ -126,3 +126,22 @@ as for locales not in the current supported list:
   ./make_images localized_text screens <locale> [ <locale> ... ]
 This command will use the default font for unknown locales; this may
 or may not be right.
+
+
+How to override user interface
+==============================
+
+The user interface for recovery program was made primarily for systems with
+display. For headless (without display) devices, you may need to override
+the console output and images (ply-image) to serial console and other
+peripherals like LED or speaker.
+
+To do this, you have to:
+ - Override the virtual/chromeos-bsp-initramfs with your own version
+ - Install additional files to /var/lib/initramfs/recovery
+ - Override the variables and functions defined in defaults.sh by
+   /var/lib/initramfs/recovery/lib/board_recovery.sh
+
+Note we only allow overriding variables and functions in defaults.sh. All
+other variables and functions are reserved internally and may change in
+future.

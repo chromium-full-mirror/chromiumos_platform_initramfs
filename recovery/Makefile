@@ -47,6 +47,9 @@ BOARD			?= unknown
 BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 INTERACTIVE_COMPLETE	?= true
 
+# Any files here will be overlayed to the initramfs folder.
+OVERLAY_FOLDER		?= $(SYSROOT)/var/lib/initramfs/recovery
+
 # LOCALE_LIST can be overridden on the command line.  This feature
 # is used in the ebuild to allow board-specific locale lists.
 LOCALE_LIST		=
@@ -85,6 +88,7 @@ $(RAMFS_BIN):
 	cp *.sh $(STAGE)/lib
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
+	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
 	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
