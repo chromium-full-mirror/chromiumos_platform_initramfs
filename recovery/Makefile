@@ -55,8 +55,7 @@ OVERLAY_FOLDER		?= $(SYSROOT)/var/lib/initramfs/recovery
 LOCALE_LIST		=
 
 # Output image file names.
-# TODO(hungte) Change this to recovery_ramfs.cpio.xz when the migration is over.
-RAMFS_BIN=$(OUTPUT_DIR)/initramfs.cpio.xz
+RAMFS_BIN=$(OUTPUT_DIR)/recovery_ramfs.cpio.xz
 
 .PHONY: clean all
 
