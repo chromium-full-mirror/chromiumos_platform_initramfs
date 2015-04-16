@@ -41,13 +41,12 @@ $(GEN_INIT_CPIO): ../common/gen_init_cpio.c
 stage_init:
 	rm -rf "$(STAGE)"
 	mkdir -p "$(STAGE)"
+	ln -s . "$(STAGE)/usr"
 	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
 
 	# Use "ln -s" because "mount --bind" may not work in initramfs.
 	ln -s lib $(STAGE)/lib64
 	ln -s bin $(STAGE)/sbin
-	ln -s ../bin $(STAGE)/usr/bin
-	ln -s ../bin $(STAGE)/usr/sbin
 
 define generate_initramfs
 	../common/gen_initramfs_list.sh -u squash -g squash $(1) >> $(2).contents
