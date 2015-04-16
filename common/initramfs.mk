@@ -26,3 +26,9 @@ stage_init:
 	rm -rf "$(STAGE)"
 	mkdir -p "$(STAGE)"
 	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
+
+	# Use "ln -s" because "mount --bind" may not work in initramfs.
+	ln -s lib $(STAGE)/lib64
+	ln -s bin $(STAGE)/sbin
+	ln -s ../bin $(STAGE)/usr/bin
+	ln -s ../bin $(STAGE)/usr/sbin

@@ -60,11 +60,7 @@ $(RAMFS_BIN): stage_init
 		assets/*.png $(STAGE)/etc/screens
 	./make_images localized_text "$(STAGE)/etc/screens" $(LOCALE_LIST)
 	./make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
-	ln -s lib $(STAGE)/lib64
 	ln -s busybox $(STAGE)/bin/sh
-	ln -s bin $(STAGE)/sbin
-	ln -s ../bin $(STAGE)/usr/bin
-	ln -s ../bin $(STAGE)/usr/sbin
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
 	ln -s futility "$(STAGE)/bin/vbutil_kernel"
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \

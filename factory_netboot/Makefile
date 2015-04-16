@@ -81,11 +81,6 @@ NAME = netboot
 include ../common/initramfs.mk
 
 $(RAMFS_BIN): stage_init
-	# Use "ln -s" because "mount --bind" may not work in initramfs.
-	ln -s lib $(STAGE)/lib64
-	ln -s bin $(STAGE)/sbin
-	ln -s ../bin $(STAGE)/usr/bin
-	ln -s ../bin $(STAGE)/usr/sbin
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) --libdir=/lib --bindir=/bin \
 		$(BIN_DEPS) $(NETBOOT_BIN_DEPS) $(CROS_DEPS) $(EXTRA_BIN_DEPS)
