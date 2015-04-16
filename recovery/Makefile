@@ -39,12 +39,6 @@ RAMFS_LAYOUT_DIRS=\
 	stateful \
 	usb
 
-# Staging and build toolchain.
-OUTPUT_DIR		?= .
-STAGE			?= $(OUTPUT_DIR)/stage_recovery
-SYSROOT			?= /
-BOARD			?= unknown
-BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 INTERACTIVE_COMPLETE	?= true
 
 # Any files here will be overlayed to the initramfs folder.
@@ -58,9 +52,6 @@ LOCALE_LIST		=
 # generate the locales table.
 CROS_REGIONS_DATABASE	?= $(SYSROOT)/usr/share/misc/cros-regions.json
 LOCALES_TABLE		?= $(STAGE)/etc/locales.txt
-
-# Output image file names.
-RAMFS_BIN=$(OUTPUT_DIR)/recovery_ramfs.cpio.xz
 
 include ../common/initramfs.mk
 

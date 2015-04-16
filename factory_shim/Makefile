@@ -26,14 +26,6 @@ RAMFS_LAYOUT_DIRS=\
 	var/empty \
 	var/log
 
-# Staging and build toolchain.
-OUTPUT_DIR		?= .
-STAGE			?= $(OUTPUT_DIR)/stage_shim
-SYSROOT			?= /
-
-# Output image file names.
-RAMFS_BIN=$(OUTPUT_DIR)/factory_shim_ramfs.cpio.xz
-
 include ../common/initramfs.mk
 
 $(RAMFS_BIN): stage_init

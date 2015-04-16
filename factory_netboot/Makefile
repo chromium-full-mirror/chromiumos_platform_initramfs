@@ -74,16 +74,9 @@ RAMFS_LAYOUT_DIRS=\
 	stateful \
 	usb
 
-# Staging and build toolchain.
-OUTPUT_DIR		?= .
-STAGE			?= $(OUTPUT_DIR)/stage_netboot
-SYSROOT			?= /
-BOARD			?= unknown
-BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 SERVER_ADDR		?= 10.0.0.1
 
-# Output image file names.
-RAMFS_BIN=$(OUTPUT_DIR)/netboot_ramfs.cpio.xz
+NAME = netboot
 
 include ../common/initramfs.mk
 

@@ -5,6 +5,15 @@
 # Disable implicit rules.
 .SUFFIXES:
 
+# Staging and build toolchain.
+NAME			?= $(notdir $(CURDIR))
+OUTPUT_DIR		?= $(CURDIR)
+RAMFS_BIN		?= $(OUTPUT_DIR)/$(NAME)_ramfs.cpio.xz
+STAGE			?= $(OUTPUT_DIR)/stage_$(NAME)
+SYSROOT			?= /
+BOARD			?= unknown
+BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
+
 .PHONY: all
 all:	$(RAMFS_BIN)
 
