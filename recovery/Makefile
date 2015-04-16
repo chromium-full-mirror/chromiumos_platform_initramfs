@@ -62,16 +62,9 @@ LOCALES_TABLE		?= $(STAGE)/etc/locales.txt
 # Output image file names.
 RAMFS_BIN=$(OUTPUT_DIR)/recovery_ramfs.cpio.xz
 
-.PHONY: clean all
+include ../common/initramfs.mk
 
-all:	$(RAMFS_BIN)
-
-clean:
-	rm -rf $(RAMFS_BIN) $(STAGE)
-
-$(RAMFS_BIN):
-	rm -rf "$(STAGE)"; mkdir -p "$(STAGE)"
-	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
+$(RAMFS_BIN): stage_init
 	cp "$(SYSROOT)/usr/share/chromeos-assets/images/boot_message.png" \
 		assets/*.png $(STAGE)/etc/screens
 	./make_images localized_text "$(STAGE)/etc/screens" $(LOCALE_LIST)

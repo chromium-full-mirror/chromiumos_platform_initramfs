@@ -85,16 +85,9 @@ SERVER_ADDR		?= 10.0.0.1
 # Output image file names.
 RAMFS_BIN=$(OUTPUT_DIR)/netboot_ramfs.cpio.xz
 
-.PHONY: clean all
+include ../common/initramfs.mk
 
-all:	$(RAMFS_BIN)
-
-clean:
-	rm -rf $(RAMFS_BIN) $(STAGE)
-
-$(RAMFS_BIN):
-	rm -rf "$(STAGE)"; mkdir -p "$(STAGE)"
-	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
+$(RAMFS_BIN): stage_init
 	# Use "ln -s" because "mount --bind" may not work in initramfs.
 	ln -s lib $(STAGE)/lib64
 	ln -s bin $(STAGE)/sbin
