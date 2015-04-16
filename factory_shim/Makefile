@@ -34,4 +34,4 @@ $(RAMFS_BIN): stage_init
 		$(BIN_DEPS) $(EXTRA_BIN_DEPS)
 	cp init $(STAGE)/
 	cp bootstrap.sh $(STAGE)/bin
-	(cd $(STAGE); find . | cpio -o -H newc | xz -9 --check=crc32) >$@
+	$(call generate_ramfs)

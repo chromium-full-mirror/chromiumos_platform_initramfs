@@ -32,3 +32,7 @@ stage_init:
 	ln -s bin $(STAGE)/sbin
 	ln -s ../bin $(STAGE)/usr/bin
 	ln -s ../bin $(STAGE)/usr/sbin
+
+define generate_ramfs
+	(cd $(STAGE); find . | cpio -o -H newc | xz -9 --check=crc32) >$(RAMFS_BIN)
+endef

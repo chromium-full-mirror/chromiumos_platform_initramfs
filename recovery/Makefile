@@ -77,4 +77,4 @@ $(RAMFS_BIN): stage_init
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
 	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
-	(cd $(STAGE); find . | cpio -o -H newc | xz -9 --check=crc32) >$@
+	$(call generate_ramfs)

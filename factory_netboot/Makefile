@@ -104,4 +104,4 @@ $(RAMFS_BIN): stage_init
 	cp init $(STAGE)/
 	chmod a+x $(STAGE)/init $(STAGE)/etc/udhcpc.script
 	./kotree.sh usbnet.ko $(SYSROOT) $(STAGE)
-	(cd $(STAGE); find . | cpio -o -H newc | xz -9 --check=crc32) >$@
+	$(call generate_ramfs)
