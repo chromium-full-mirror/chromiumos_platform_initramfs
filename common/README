@@ -1,0 +1,27 @@
+These files are shared between all initramfs environments.
+
+
+gen_initramfs_list.sh
+=====================
+
+Create a flat listing of files for gen_init_cpio.
+
+This comes directly from upstream Linux.  Please send changes there and keep
+our copy unmodified.
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/scripts
+
+
+gen_init_cpio.c
+===============
+
+Create a cpio archive from a flat listing.
+
+This comes directly from upstream Linux.  Please send changes there and keep
+our copy unmodified.
+https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/usr
+
+
+initramfs.mk
+============
+
+Common build logic used by specific Makefiles.

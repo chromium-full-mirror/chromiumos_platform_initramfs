@@ -1,2 +1,3 @@
 *.cpio*
 stage_*/
+gen_init_cpio

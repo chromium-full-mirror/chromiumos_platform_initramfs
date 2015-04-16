@@ -5,6 +5,9 @@
 # Disable implicit rules.
 .SUFFIXES:
 
+# How to compress the cpio archive.
+COMPRESS = xz -9 --check=crc32
+
 # Staging and build toolchain.
 NAME			?= $(notdir $(CURDIR))
 OUTPUT_DIR		?= $(CURDIR)
@@ -14,12 +17,19 @@ SYSROOT			?= /
 BOARD			?= unknown
 BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 
+GEN_INIT_CPIO		= $(OUTPUT_DIR)/gen_init_cpio
+
 .PHONY: all
 all:	$(RAMFS_BIN)
 
 .PHONY: clean
 clean:
-	rm -rf $(RAMFS_BIN) $(STAGE)
+	rm -rf $(RAMFS_BIN) $(RAMFS_BIN).contents $(STAGE) $(GEN_INIT_CPIO)
+
+$(RAMFS_BIN): $(GEN_INIT_CPIO)
+
+$(GEN_INIT_CPIO): ../common/gen_init_cpio.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $< -o $@
 
 .PHONY: stage_init
 stage_init:
@@ -33,6 +43,10 @@ stage_init:
 	ln -s ../bin $(STAGE)/usr/bin
 	ln -s ../bin $(STAGE)/usr/sbin
 
+define generate_initramfs
+	../common/gen_initramfs_list.sh -u squash -g squash $(1) >> $(2).contents
+	$(GEN_INIT_CPIO) $(2).contents $(if $(COMPRESS),| $(COMPRESS)) > $(2)
+endef
 define generate_ramfs
-	(cd $(STAGE); find . | cpio -o -H newc | xz -9 --check=crc32) >$(RAMFS_BIN)
+	$(call generate_initramfs,$(STAGE),$(RAMFS_BIN))
 endef
