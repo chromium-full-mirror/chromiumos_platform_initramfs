@@ -23,18 +23,8 @@ DATA_DEPS= \
 
 # Layout of directories to be created in initramfs.
 RAMFS_LAYOUT_DIRS=\
-	bin \
-	dev \
-	etc \
 	etc/screens \
-	lib \
-	proc \
-	root \
-	sys \
-	tmp \
-	usr \
 	usr/share/misc \
-	log \
 	newroot \
 	stateful \
 	usb

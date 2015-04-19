@@ -17,6 +17,8 @@ SYSROOT			?= /
 BOARD			?= unknown
 BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 
+# These are common paths we want to install files into.
+RAMFS_LAYOUT_DIRS	+= bin etc lib root
 RAMFS_BIN_DEPS		?= $(BIN_DEPS) $(EXTRA_BIN_DEPS)
 GEN_INIT_CPIO		= $(OUTPUT_DIR)/gen_init_cpio
 
@@ -42,11 +44,10 @@ $(GEN_INIT_CPIO): ../common/gen_init_cpio.c
 stage_init:
 	rm -rf "$(STAGE)"
 	mkdir -p "$(STAGE)"
-	ln -s . "$(STAGE)/usr"
+	../common/process-layout \
+		make \
+		../common/fs-layout.txt "$(STAGE)"
 	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
-
-	# Use "ln -s" because "mount --bind" may not work in initramfs.
-	ln -s bin $(STAGE)/sbin
 
 	lddtree --verbose --copy-non-elfs --root="$(SYSROOT)" \
 		--copy-to-tree="$(STAGE)" --bindir=/bin \
@@ -55,7 +56,10 @@ stage_init:
 	cp ../common/init.sh "$(STAGE)/lib/"
 
 define generate_initramfs
-	../common/gen_initramfs_list.sh -u squash -g squash $(1) >> $(2).contents
+	../common/gen_initramfs_list.sh -u squash -g squash $(1) > $(2).contents
+	../common/process-layout \
+		filter \
+		../common/fs-layout.txt $(2).contents
 	$(GEN_INIT_CPIO) $(2).contents $(if $(COMPRESS),| $(COMPRESS)) > $(2)
 endef
 define generate_ramfs
