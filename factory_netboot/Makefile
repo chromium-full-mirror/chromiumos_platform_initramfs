@@ -82,10 +82,10 @@ include ../common/initramfs.mk
 
 $(RAMFS_BIN): stage_init
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
-		--copy-to-tree=$(STAGE) --libdir=/lib --bindir=/bin \
+		--copy-to-tree=$(STAGE) --bindir=/bin \
 		$(BIN_DEPS) $(NETBOOT_BIN_DEPS) $(CROS_DEPS) $(EXTRA_BIN_DEPS)
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
-		--copy-to-tree=$(STAGE) --libdir=/lib \
+		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
 	for data in $(DATA_DIR_DEPS); do \
 		cp -r $(SYSROOT)/$${data} $(STAGE)/$${data}; \

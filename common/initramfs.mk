@@ -45,7 +45,6 @@ stage_init:
 	(cd $(STAGE); mkdir -p $(RAMFS_LAYOUT_DIRS))
 
 	# Use "ln -s" because "mount --bind" may not work in initramfs.
-	ln -s lib $(STAGE)/lib64
 	ln -s bin $(STAGE)/sbin
 
 define generate_initramfs

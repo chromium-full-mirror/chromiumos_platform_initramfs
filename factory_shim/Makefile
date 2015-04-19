@@ -30,7 +30,7 @@ include ../common/initramfs.mk
 
 $(RAMFS_BIN): stage_init
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
-		--copy-to-tree=$(STAGE) --libdir=/lib --bindir=/bin \
+		--copy-to-tree=$(STAGE) --bindir=/bin \
 		$(BIN_DEPS) $(EXTRA_BIN_DEPS)
 	cp init $(STAGE)/
 	cp bootstrap.sh $(STAGE)/bin
