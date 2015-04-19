@@ -17,6 +17,7 @@ SYSROOT			?= /
 BOARD			?= unknown
 BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 
+RAMFS_BIN_DEPS		?= $(BIN_DEPS) $(EXTRA_BIN_DEPS)
 GEN_INIT_CPIO		= $(OUTPUT_DIR)/gen_init_cpio
 
 # Settings for the build system.
@@ -46,6 +47,11 @@ stage_init:
 
 	# Use "ln -s" because "mount --bind" may not work in initramfs.
 	ln -s bin $(STAGE)/sbin
+
+	lddtree --verbose --copy-non-elfs --root="$(SYSROOT)" \
+		--copy-to-tree="$(STAGE)" --bindir=/bin \
+		$(RAMFS_BIN_DEPS)
+	cp init "$(STAGE)/init"
 
 define generate_initramfs
 	../common/gen_initramfs_list.sh -u squash -g squash $(1) >> $(2).contents

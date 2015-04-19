@@ -64,12 +64,8 @@ $(RAMFS_BIN): stage_init
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
 	ln -s futility "$(STAGE)/bin/vbutil_kernel"
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
-		--copy-to-tree=$(STAGE) --bindir=/bin \
-		$(BIN_DEPS) $(EXTRA_BIN_DEPS)
-	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
-	cp init $(STAGE)/
 	cp *.sh $(STAGE)/lib
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh

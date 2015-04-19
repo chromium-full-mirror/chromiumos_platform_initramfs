@@ -78,12 +78,15 @@ SERVER_ADDR		?= 10.0.0.1
 
 NAME = netboot
 
+RAMFS_BIN_DEPS = \
+	$(BIN_DEPS) \
+	$(NETBOOT_BIN_DEPS) \
+	$(CROS_DEPS) \
+	$(EXTRA_BIN_DEPS)
+
 include ../common/initramfs.mk
 
 $(RAMFS_BIN): stage_init
-	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
-		--copy-to-tree=$(STAGE) --bindir=/bin \
-		$(BIN_DEPS) $(NETBOOT_BIN_DEPS) $(CROS_DEPS) $(EXTRA_BIN_DEPS)
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
@@ -101,7 +104,6 @@ $(RAMFS_BIN): stage_init
 		$(STAGE)/mnt/stateful_partition/dev_image/etc/lsb-factory
 	ln -s /mnt/stateful_partition/dev_image/etc/lsb-factory \
 		$(STAGE)/etc/lsb-release
-	cp init $(STAGE)/
 	chmod a+x $(STAGE)/init $(STAGE)/etc/udhcpc.script
 	./kotree.sh usbnet.ko $(SYSROOT) $(STAGE)
 	$(call generate_ramfs)
