@@ -7,26 +7,13 @@
 # Note that this script uses the busybox shell (not bash, not dash).
 set -x
 
+. /lib/init.sh
+
 setup_environment() {
-  # Sanity check the date (crosbug.com/13200)
-  if [ $(date +%Y) -lt 1970 ]; then
-    date 010200001970.00
-  fi
+  initialize
 
   # Install additional utility programs.
   /bin/busybox --install /bin || true
-
-  # Mount system special folders
-  mkdir -p /var/lock /dev /proc /sys
-  mount -t devtmpfs -o mode=0755 none /dev
-  mount -t proc -o nodev,noexec,nosuid none /proc
-  mount -t sysfs -o nodev,noexec,nosuid none /sys
-
-  # Commands below must be executed after dev, proc, and sys are mounted.
-  mkdir -p /dev/pts
-  mount -t devpts -o noexec,nosuid none /dev/pts
-  mount -n -t debugfs debugfs /sys/kernel/debug
-  ln -sf /proc/self/fd /dev/fd
 }
 
 main() {

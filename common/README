@@ -21,6 +21,12 @@ our copy unmodified.
 https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/usr
 
 
+init.sh
+=======
+
+Common runtime library used by /init scripts.
+
+
 initramfs.mk
 ============
 
