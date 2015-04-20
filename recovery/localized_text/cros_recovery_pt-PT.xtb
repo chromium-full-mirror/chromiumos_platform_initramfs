@@ -1,44 +1,44 @@
 <?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="pt-PT">
-<translation id="3750930141330200643">Está a utilizar uma imagem de recuperação do SO Chrome desatualizada.
-
-Consulte este URL para obter instruções sobre como criar um novo suporte de dados de recuperação:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="8728458033228603970">A recuperação do sistema está em curso...
-
-Esta ação demora alguns minutos. Não desligue o computador nem o desligue da tomada.</translation>
-<translation id="816304391526917903">Está a utilizar uma imagem de recuperação do SO Chrome oficial desatualizada.
-
-A recuperação continuará porque a validação está desativada.
-Se voltar a ativar a validação mais tarde, tem de repetir a recuperação com uma imagem do SO Chrome atualizada.</translation>
-<translation id="544118001572747892">O computador não aparenta ser um sistema SO Chrome!
-
-Esta operação elimina qualquer outro sistema operativo que possa ter instalado e todos os dados. Não existe qualquer outra oportunidade para criar uma cópia de segurança. Se tiver dados neste computador que pretende preservar, deve cancelar a recuperação.</translation>
-<translation id="2701006671590617571">Está prestes a recuperar o computador. Certifique-se de que está ligado a uma fonte de alimentação.
-
-Se pretende cancelar a recuperação, prima o botão ligar/desligar e
-mantenha-o premido até o computador desligar (demora até 8 segundos).
-É seguro efetuar esta ação em qualquer momento durante a validação.</translation>
 <translation id="2731700343119398978">Aguarde...</translation>
-<translation id="537291066186627789">A recuperação do sistema está concluída.
-
-Remova o suporte de dados de recuperação e o computador reiniciará automaticamente.</translation>
 <translation id="3946632524220974380">Para prosseguir, é necessário alterar a chave de programador. O processo demora 5 minutos.</translation>
 <translation id="4905949142713655149">Ocorreu um erro inesperado. Consulte este URL para obter sugestões de resolução de problemas:
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="436588829138218801">A validação do SO Chrome está desativada.
 
-Se isto não for intencional, deve cancelar a recuperação e desativar o modo de programador para ativar a validação. Para obter mais informações, consulte este URL:
+Se isto não for intencional, deve cancelar a recuperação e desativar o modo de programador para ativar a validação. Para mais informações, consulte este URL:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">O proprietário do dispositivo exige que este dispositivo seja executado com a validação do SO Chrome ativada. Está a tentar instalar uma imagem de recuperação do SO Chrome não oficial e que não passa na validação.
+<translation id="3243756202241744259">A validar a integridade do suporte de dados de recuperação...</translation>
+<translation id="300775974721831513">O proprietário do dispositivo exige que este dispositivo seja executado com a validação do SO Chrome ativada. Está a tentar instalar uma imagem de recuperação do SO Chrome não oficial que não passa na validação.
 
 Para mais informações, consulte este URL:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3750930141330200643">Está a utilizar uma imagem de recuperação do SO Chrome desatualizada.
+
+Consulte este URL para obter instruções sobre como criar um novo:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6478314309353607985">A imagem no seu suporte de dados de recuperação é uma imagem de programador não validada.
 
 A recuperação continuará porque o arranque validado está desativado. Se voltar a ativar a validação mais tarde, tem de repetir a recuperação com uma imagem do SO Chrome oficial.</translation>
-<translation id="3243756202241744259">A validar a integridade do suporte de dados de recuperação...</translation>
+<translation id="816304391526917903">Está a utilizar uma imagem de recuperação do SO Chrome oficial desatualizada.
+
+A recuperação continuará porque a validação está desativada.
+Se voltar a ativar a validação mais tarde, tem de repetir a recuperação com uma imagem do SO Chrome atualizada.</translation>
+<translation id="8728458033228603970">A recuperação do sistema está em curso...
+
+Esta ação demora alguns minutos. Não desligue o computador nem o desligue da tomada.</translation>
+<translation id="544118001572747892">O computador não aparenta ser um sistema SO Chrome!
+
+Esta operação elimina qualquer outro sistema operativo que possa ter instalado e todos os dados. Não existe qualquer outra oportunidade para criar uma cópia de segurança. Se tiver dados neste computador que pretende preservar, deve cancelar a recuperação.</translation>
+<translation id="2701006671590617571">Está prestes a recuperar o computador. Certifique-se de que está ligado a uma fonte de alimentação.
+
+Se pretender cancelar a recuperação, prima o botão ligar/desligar e
+mantenha-o premido até o computador desligar (demora até 8 segundos).
+É seguro efetuar esta ação a qualquer momento durante a validação.</translation>
+<translation id="537291066186627789">A recuperação do sistema está concluída.
+
+Remova o suporte de dados de recuperação e o computador reiniciará automaticamente.</translation>
 </translationbundle>

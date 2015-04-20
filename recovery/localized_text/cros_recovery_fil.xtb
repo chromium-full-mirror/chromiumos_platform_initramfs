@@ -1,40 +1,7 @@
 <?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="fil">
-<translation id="3750930141330200643">Gumagamit ka ng lumang larawan sa pag-recover ng Chrome OS.
-
-Mangyaring sumangguni sa URL na ito para sa mga tagubilin sa kung paano gumawa ng bagong
-media sa pag-recover:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="8728458033228603970">Kasalukuyang isinasagawa ang pag-recover ng system...
-
-Tatagal ito nang ilang minuto. Mangyaring huwag i-off ang computer o
-putulin ang koneksyon ng power.</translation>
-<translation id="816304391526917903">Gumagamit ka ng lumang opisyal na larawan sa pag-recover ng Chrome OS.
-
-Magpapatuloy ang pag-recover dahil naka-off ang pag-verify.
-Kung muli mong io-on ang pag-verify sa ibang pagkakaton, kakailanganin mong ulitin
-ang pag-recover gamit ang napapanahong larawan ng Chrome OS.</translation>
-<translation id="544118001572747892">Mukhang hindi isang Chrome OS system ang iyong computer!
-
-Ide-delete ng pagpapatakbong ito ang anumang iba pang operating system na maaaring
-na-install mo at ang lahat ng data; hindi magkakaroon ng pagkakataon para sa pag-backup.
-Kung mayroon kang anumang data sa computer na ito na gusto mong panatilihin, dapat mong
-kanselahin ang pag-recover.</translation>
-<translation id="2701006671590617571">Malapit mo nang i-recover ang iyong computer.  Mangyaring siguruhin na
-naka-plug in ito sa isang pinagmulan ng power.
-
-Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
-hanggang sa ma-off ang computer (tatagal ito nang hanggang 8 segundo).
-Ligtas itong gawin anumang oras sa panahon ng pag-verify.</translation>
 <translation id="2731700343119398978">Mangyaring maghintay...</translation>
-<translation id="537291066186627789">Kumpleto na ang pag-recover ng system.
-
-Pakialis ang media sa pag-recover at mare-restart ang iyong computer
-nang awtomatiko.</translation>
-<translation id="3946632524220974380">Kinakailangan ang pagbago sa developer key upang makapagpatuloy; nangangailangan ang proseso ng
-5 minuto.</translation>
-<translation id="4905949142713655149">May naganap na hindi inaasahang error.  Mangyaring sumangguni sa URL na ito para sa
-mga tip sa pagto-troubleshoot:
+<translation id="3946632524220974380">Kinakailangan ang pagbago sa developer key upang makapagpatuloy; nangangailangan ang proseso ng 5 minuto.</translation>
+<translation id="4905949142713655149">May naganap na hindi inaasahang error.  Mangyaring sumangguni sa URL na ito para sa mga tip sa pagto-troubleshoot:
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="436588829138218801">Naka-off ang pag-verify ng Chrome OS.
@@ -44,17 +11,43 @@ developer mode upang ma-enable ang pag-verify.  Para sa higit pang impormasyon,
 sumangguni sa URL na ito:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">Kinakailangan ng may-ari ng device na gumana ang device na ito na naka-on ang pag-verify ng
-Chrome OS.  Sinusubukan mong mag-install ng hindi opisyal na
+<translation id="3243756202241744259">Vine-verify ang integridad ng iyong media sa pag-recover...</translation>
+<translation id="300775974721831513">Kinakailangan ng may-ari ng device na gumana ang device na ito na naka-on ang pag-verify ng Chrome OS.  Sinusubukan mong mag-install ng hindi opisyal na
 larawan sa pag-recover ng Chrome OS na hindi pumasa sa pag-verify.
 
 Para sa higit pang impormasyon, sumangguni sa URL na ito:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3750930141330200643">Gumagamit ka ng lumang larawan sa pag-recover ng Chrome OS.
+
+Mangyaring sumangguni sa URL na ito para sa mga tagubilin sa kung paano gumawa ng bagong media sa pag-recover:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6478314309353607985">Ang larawan sa iyong media sa pag-recover ay isang hindi na-verify na larawan ng developer.
 
 Magpapatuloy ang pag-recover dahil naka-off ang pag-boot.
 Kung muli mong io-on ang pag-verify sa ibang pagkakaton, kakailanganin mong ulitin
 ang pag-recover gamit ang opisyal na larawan ng Chrome OS.</translation>
-<translation id="3243756202241744259">Bine-verify ang integridad ng iyong media sa pag-recover...</translation>
+<translation id="816304391526917903">Gumagamit ka ng lumang opisyal na larawan sa pag-recover ng Chrome OS.
+
+Magpapatuloy ang pag-recover dahil naka-off ang pag-verify.
+Kung muli mong io-on ang pag-verify sa ibang pagkakaton, kakailanganin mong ulitin
+ang pag-recover gamit ang napapanahong larawan ng Chrome OS.</translation>
+<translation id="8728458033228603970">Kasalukuyang isinasagawa ang pag-recover ng system...
+
+Tatagal ito nang ilang minuto. Mangyaring huwag i-off ang computer o
+putulin ang koneksyon ng power.</translation>
+<translation id="544118001572747892">Mukhang hindi isang Chrome OS system ang iyong computer!
+
+Ide-delete ng pagpapatakbong ito ang anumang iba pang operating system na maaaring na-install mo at ang lahat ng data; hindi magkakaroon ng pagkakataon para sa pag-backup. Kung mayroon kang anumang data sa computer na ito na gusto mong panatilihin, dapat mong kanselahin ang pag-recover.</translation>
+<translation id="2701006671590617571">Malapit mo nang i-recover ang iyong computer.  Mangyaring siguruhin na
+naka-plug in ito sa isang pinagmulan ng power.
+
+Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
+hanggang sa ma-off ang computer (tatagal ito nang hanggang 8 segundo).
+Ligtas itong gawin anumang oras sa panahon ng pag-verify.</translation>
+<translation id="537291066186627789">Kumpleto na ang pag-recover ng system.
+
+Pakialis ang media sa pag-recover at mare-restart ang iyong computer
+nang awtomatiko.</translation>
 </translationbundle>

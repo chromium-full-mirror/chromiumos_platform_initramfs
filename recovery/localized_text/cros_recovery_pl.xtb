@@ -1,35 +1,6 @@
 <?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="pl">
-<translation id="3750930141330200643">Używasz przestarzałego obrazu odzyskiwania Chrome OS.
-
-Na tej stronie znajdziesz instrukcje, jak utworzyć nowy nośnik odzyskiwania:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="8728458033228603970">Trwa odzyskiwanie systemu...
-
-Może to potrwać kilka minut. Nie wyłączaj komputera ani nie odłączaj zasilania.</translation>
-<translation id="816304391526917903">Używasz przestarzałego oficjalnego obrazu odzyskiwania Chrome OS.
-
-Odzyskiwanie zostanie przeprowadzone, bo weryfikacja jest wyłączona.
-Jeśli później z powrotem ją włączysz, musisz powtórzyć
-odzyskiwanie z użyciem aktualnego obrazu Chrome OS.</translation>
-<translation id="544118001572747892">Wygląda na to, że Twój komputer ma inny system niż Chrome OS
-
-Operacja odzyskiwania usunie każdy inny zainstalowany system operacyjny
-oraz wszystkie dane. Nie będzie możliwości wykonania kopii zapasowej.
-Jeśli masz na tym komputerze jakiekolwiek dane, które chcesz zachować,
-anuluj odzyskiwanie.</translation>
-<translation id="2701006671590617571">Zamierzasz przeprowadzić odzyskiwanie systemu na tym komputerze.
-Upewnij się, że komputer jest podłączony do zasilania.
-
-Jeśli chcesz anulować odzyskiwanie, naciśnij przycisk zasilania
-i przytrzymaj go, aż komputer się wyłączy (do 8 sekund).
-Możesz to bezpiecznie zrobić w dowolnym momencie weryfikacji.</translation>
 <translation id="2731700343119398978">Czekaj...</translation>
-<translation id="537291066186627789">Ukończono odzyskiwanie systemu.
-
-Wyjmij nośnik odzyskiwania, a komputer automatycznie
-uruchomi się ponownie.</translation>
-<translation id="3946632524220974380">Aby kontynuować konieczna jest zmiana klucza programisty.
+<translation id="3946632524220974380">Aby kontynuować, konieczna jest zmiana klucza programisty.
 Ten proces zajmuje 5 minut.</translation>
 <translation id="4905949142713655149">Wystąpił nieoczekiwany błąd. Poszukaj na tej stronie wskazówek,
 jak rozwiązać problem:
@@ -41,6 +12,7 @@ Jeśli jest to niezamierzone, anuluj odzyskiwanie i wyłącz tryb programisty,
 by włączyć weryfikację. Więcej informacji znajdziesz na tej stronie:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3243756202241744259">Trwa sprawdzanie poprawności nośnika przywracania...</translation>
 <translation id="300775974721831513">Właściciel tego urządzenia wymaga, aby działało ono z włączoną weryfikacją
 Chrome OS. Próbujesz zainstalować nieoficjalny obraz odzyskiwania
 Chrome OS, którego działanie blokuje weryfikacja.
@@ -48,10 +20,38 @@ Chrome OS, którego działanie blokuje weryfikacja.
 Więcej informacji znajdziesz na tej stronie:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3750930141330200643">Używasz przestarzałego obrazu odzyskiwania Chrome OS.
+
+Na tej stronie znajdziesz instrukcje, jak utworzyć nowy nośnik odzyskiwania:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6478314309353607985">Na nośniku odzyskiwania znajduje się niezweryfikowany obraz dla trybu programisty.
 
 Odzyskiwanie zostanie przeprowadzone, bo weryfikacja rozruchu jest wyłączona.
 Jeśli później z powrotem ją włączysz, musisz powtórzyć odzyskiwanie
 z użyciem oficjalnego obrazu Chrome OS.</translation>
-<translation id="3243756202241744259">Trwa sprawdzanie poprawności nośnika przywracania...</translation>
+<translation id="816304391526917903">Używasz przestarzałego oficjalnego obrazu odzyskiwania Chrome OS.
+
+Odzyskiwanie zostanie przeprowadzone, bo weryfikacja jest wyłączona.
+Jeśli później z powrotem ją włączysz, musisz powtórzyć
+odzyskiwanie z użyciem aktualnego obrazu Chrome OS.</translation>
+<translation id="8728458033228603970">Trwa odzyskiwanie systemu...
+
+Może to potrwać kilka minut. Nie wyłączaj komputera ani nie odłączaj zasilania.</translation>
+<translation id="544118001572747892">Wygląda na to, że Twój komputer ma inny system niż Chrome OS.
+
+Operacja odzyskiwania usunie każdy inny zainstalowany system operacyjny
+oraz wszystkie dane. Nie będzie możliwości wykonania kopii zapasowej.
+Jeśli masz na tym komputerze jakiekolwiek dane, które chcesz zachować,
+anuluj odzyskiwanie.</translation>
+<translation id="2701006671590617571">Zamierzasz przeprowadzić odzyskiwanie systemu na tym komputerze.
+Upewnij się, że komputer jest podłączony do zasilania.
+
+Jeśli chcesz anulować odzyskiwanie, naciśnij przycisk zasilania
+i przytrzymaj go, aż komputer się wyłączy (do 8 sekund).
+Możesz to bezpiecznie zrobić w dowolnym momencie weryfikacji.</translation>
+<translation id="537291066186627789">Ukończono odzyskiwanie systemu.
+
+Wyjmij nośnik odzyskiwania, a komputer automatycznie
+uruchomi się ponownie.</translation>
 </translationbundle>

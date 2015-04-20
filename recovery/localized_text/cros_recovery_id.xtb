@@ -1,60 +1,44 @@
 <?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="id">
-<translation id="3750930141330200643">Anda menggunakan gambar pemulihan Chrome OS yang usang.
-
-Buka URL berikut untuk mendapat petunjuk tentang cara membuat media
-pemulihan baru:
+<translation id="2731700343119398978">Harap tunggu...</translation>
+<translation id="3946632524220974380">Dibutuhkan perubahan kunci pengembang untuk melanjutkan; proses membutuhkan waktu 5 menit.</translation>
+<translation id="4905949142713655149">Terjadi kesalahan tak terduga.  Lihat URL ini untuk kiat pemecahan masalah: 
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="436588829138218801">Verifikasi Chrome OS dinonaktifkan.
+
+ Jika hal ini tidak diinginkan, sebaiknya batalkan pemulihan dan nonaktifkan mode pengembang untuk mengaktifkan verifikasi. Untuk informasi selengkapnya, buka URL ini: 
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="3243756202241744259">Memverifikasi integritas media pemulihan Anda...</translation>
+<translation id="300775974721831513">Pemilik perangkat mewajibkan perangkat agar berjalan dengan mengaktifkan verifikasi Chrome OS.  Anda mencoba memasang gambar pemulihan Chrome OS tidak resmi yang tidak lolos verifikasi. 
+
+Untuk informasi selengkapnya, buka URL ini: 
+
+https://www.google.com/chromeos/devmode</translation>
+<translation id="3750930141330200643">Anda menggunakan gambar pemulihan Chrome OS versi lama. 
+
+Buka URL berikut untuk mendapat petunjuk tentang cara membuat media pemulihan baru: 
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="6478314309353607985">Gambar di media pemulihan Anda adalah gambar pengembang yang belum terverifikasi. 
+
+Pemulihan akan dilanjutkan karena boot yang diverifikasi dinonaktifkan. Jika nanti Anda mengaktifkan verifikasi lagi, Anda perlu mengulangi pemulihan dengan gambar Chrome OS resmi.</translation>
+<translation id="816304391526917903">Anda menggunakan gambar pemulihan Chrome OS resmi versi lama. 
+
+Pemulihan akan berlanjut karena verifikasi dinonaktifkan. Jika nanti akan mengaktifkan verifikasi lagi, Anda perlu mengulang pemulihan dengan gambar Chrome OS terbaru.</translation>
 <translation id="8728458033228603970">Pemulihan sistem sedang berlangsung...
 
-Proses ini akan memakan waktu beberapa menit. Jangan menonaktifkan komputer
-atau memutus sambungan daya.</translation>
-<translation id="816304391526917903">Anda menggunakan gambar pemulihan Chrome OS resmi yang usang.
+Proses ini akan memakan waktu beberapa menit. Jangan menonaktifkan komputer atau memutus sambungan daya.</translation>
+<translation id="544118001572747892">Tampaknya komputer Anda bukan sistem Chrome OS. 
 
-Pemulihan akan berlanjut karena verifikasi dinonaktifkan.
-Jika nanti akan mengaktifkan verifikasi lagi, Anda perlu mengulang
-pemulihan dengan gambar Chrome OS terbaru.</translation>
-<translation id="544118001572747892">Tampaknya komputer Anda bukan sistem Chrome OS!
-
-Operasi ini akan menghapus sistem operasi lain yang mungkin
-telah Anda pasang dan semua datanya; pencadangan tidak dapat dilakukan.
-Jika ada data di komputer ini yang ingin disimpan, sebaiknya
-batalkan pemulihan.</translation>
+Operasi ini akan menghapus sistem operasi lain yang mungkin telah Anda pasang dan semua datanya; pencadangan tidak dapat dilakukan. Jika ada data di komputer ini yang ingin disimpan, sebaiknya batalkan pemulihan.</translation>
 <translation id="2701006671590617571">Anda akan memulihkan komputer.  Pastikan
 komputer tersambung ke sumber daya.
 
 Jika Anda ingin membatalkan pemulihan, tekan tombol daya dan tahan
 sampai komputer mati (butuh waktu sekitar 8 detik).
 Tindakan ini aman dilakukan kapan saja saat verifikasi.</translation>
-<translation id="2731700343119398978">Harap tunggu...</translation>
-<translation id="537291066186627789">Pemulihan sistem selesai.
+<translation id="537291066186627789">Pemulihan sistem selesai. 
 
-Copot media pemulihan dan komputer akan dimulai ulang
-secara otomatis.</translation>
-<translation id="3946632524220974380">Dibutuhkan perubahan kunci pengembang untuk melanjutkan; proses membutuhkan waktu
-5 menit.</translation>
-<translation id="4905949142713655149">Terjadi kesalahan tak terduga.  Lihat URL ini untuk
-kiat pemecahan masalah:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Verifikasi Chrome OS dinonaktifkan.
-
-Jika hal ini tidak diinginkan, sebaiknya batalkan pemulihan dan nonaktifkan
-mode pengembang untuk mengaktifkan verifikasi.  Untuk informasi selengkapnya,
-buka URL ini:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">Pemilik perangkat mewajibkan perangkat agar berjalan dengan mengaktifkan
-verifikasi Chrome OS.  Anda mencoba memasang gambar pemulihan
-Chrome OS tidak resmi yang tidak lolos verifikasi.
-
-Untuk informasi selengkapnya, buka URL ini:
-
-https://www.google.com/chromeos/devmode</translation>
-<translation id="6478314309353607985">Gambar di media pemulihan Anda adalah gambar pengembang yang belum terverifikasi.
-
-Pemulihan akan dilanjutkan karena boot yang diverifikasi dinonaktifkan.
-Jika nanti Anda mengaktifkan verifikasi lagi, Anda perlu mengulangi pemulihan
-dengan gambar Chrome OS resmi.</translation>
-<translation id="3243756202241744259">Memverifikasi integritas media pemulihan Anda...</translation>
+Copot media pemulihan dan komputer akan dimulai ulang secara otomatis.</translation>
 </translationbundle>

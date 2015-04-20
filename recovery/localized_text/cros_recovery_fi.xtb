@@ -1,30 +1,8 @@
 <?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="fi">
-<translation id="3750930141330200643">Käytät vanhentunutta Chrome-käyttöjärjestelmän palautustiedostoa.
-
-Saat lisätietoja uuden palautustietovälineen luomisesta tässä osoitteessa:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="8728458033228603970">Järjestelmän palautus on käynnissä…
-
-Tämä kestää muutaman minuutin. Älä sammuta tietokonetta tai irrota virtalähdettä.</translation>
-<translation id="816304391526917903">Käytät vanhentunutta Chrome-käyttöjärjestelmän virallista palautustiedostoa.
-
-Palautusta jatketaan, koska vahvistus ei ole käytössä.
-Jos otat vahvistuksen myöhemmin käyttöön, sinun täytyy suorittaa palautus uudelleen Chrome-käyttöjärjestelmän ajantasaisen näköistiedoston avulla.</translation>
-<translation id="544118001572747892">Tietokoneesi ei ilmeisesti käytä Chrome-käyttöjärjestelmää.
-
-Tämä toimenpide poistaa kaikki muut käyttöjärjestelmät ja niiden tiedot tietokoneeltasi. Varmuuskopiointiin ei tule enää tilaisuutta, joten keskeytä tarvittaessa palautus ja kopioi säilytettävät tiedot.</translation>
-<translation id="2701006671590617571">Palautusprosessi aloitetaan. Varmista, että tietokone on kytketty virtalähteeseen.
-
-Jos haluat peruuttaa palautuksen, paina virtanäppäintä kunnes tietokone sammuu (noin 8 sekuntia).
-Voit keskeyttää palautuksen koska tahansa vahvistusprosessin aikana.</translation>
-<translation id="2731700343119398978">Odota…</translation>
-<translation id="537291066186627789">Järjestelmän palautus on valmis.
-
-Poista palautustietoväline, niin tietokoneesi käynnistyy uudelleen.</translation>
+<translation id="2731700343119398978">Odota...</translation>
 <translation id="3946632524220974380">Jatkamiseen tarvitaan kehittäjäavaimen vaihto. Prosessi kestää
 5 minuuttia.</translation>
-<translation id="4905949142713655149">Tapahtui odottamaton virhe.  Saat vianetsintäohjeita tässä osoitteessa:
+<translation id="4905949142713655149">Tapahtui odottamaton virhe. Saat vianetsintäohjeita tässä osoitteessa:
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="436588829138218801">Chrome-käyttöjärjestelmän vahvistus on poistettu käytöstä.
@@ -32,14 +10,33 @@ https://www.google.com/chromeos/recovery</translation>
 Jos tämä ei ollut tarkoitus, peruuta palautus ja poistu kehittäjätilasta, jotta voit ottaa vahvistuksen käyttöön. Saat lisätietoja tästä osoitteesta:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3243756202241744259">Vahvistetaan palautustietovälineen eheyttä…</translation>
 <translation id="300775974721831513">Laitteen omistaja edellyttää, että laitteen Chrome-käyttöjärjestelmän vahvistus on käytössä. Yrität asentaa epävirallista Chrome-käyttöjärjestelmän palautustiedostoa, jonka vahvistaminen ei onnistu.
 
 Saat lisätietoja tästä osoitteesta:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3750930141330200643">Käytät vanhentunutta Chrome-käyttöjärjestelmän palautustiedostoa.
+
+Saat lisätietoja uuden palautustietovälineen luomisesta tässä osoitteessa:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6478314309353607985">Palautustietovälineesi sisältää vahvistamattoman kehittäjänäköistiedoston.
 
-Palautusta jatketaan, koska vahvistettu käynnistys ei ole käytössä.
-Jos otat vahvistuksen myöhemmin käyttöön, sinun täytyy suorittaa palautus uudelleen virallisen Chrome-käyttöjärjestelmän näköistiedoston avulla.</translation>
-<translation id="3243756202241744259">Vahvistetaan palautustietovälineen eheyttä…</translation>
+Palautusta jatketaan, koska vahvistettu käynnistys ei ole käytössä. Jos otat vahvistuksen myöhemmin käyttöön, sinun täytyy suorittaa palautus uudelleen virallisen Chrome-käyttöjärjestelmän näköistiedoston avulla.</translation>
+<translation id="816304391526917903">Käytät vanhentunutta Chrome-käyttöjärjestelmän virallista palautustiedostoa.
+
+Palautusta jatketaan, koska vahvistus ei ole käytössä. Jos otat vahvistuksen myöhemmin käyttöön, sinun täytyy suorittaa palautus uudelleen Chrome-käyttöjärjestelmän ajantasaisen näköistiedoston avulla.</translation>
+<translation id="8728458033228603970">Järjestelmän palautus on käynnissä…
+
+Tämä kestää muutaman minuutin. Älä sammuta tietokonetta tai irrota virtalähdettä.</translation>
+<translation id="544118001572747892">Tietokoneesi ei ilmeisesti käytä Chrome-käyttöjärjestelmää.
+
+Tämä toimenpide poistaa kaikki muut käyttöjärjestelmät ja niiden tiedot tietokoneeltasi. Varmuuskopiointiin ei tule enää tilaisuutta, joten keskeytä tarvittaessa palautus ja kopioi säilytettävät tiedot.</translation>
+<translation id="2701006671590617571">Palautusprosessi aloitetaan. Varmista, että tietokone on kytketty virtalähteeseen.
+
+Jos haluat peruuttaa palautuksen, paina virtanäppäintä kunnes tietokone sammuu (noin 8 sekuntia). Voit keskeyttää palautuksen koska tahansa vahvistusprosessin aikana.</translation>
+<translation id="537291066186627789">Järjestelmän palautus on valmis.
+
+Poista palautustietoväline, niin tietokoneesi käynnistyy uudelleen.</translation>
 </translationbundle>

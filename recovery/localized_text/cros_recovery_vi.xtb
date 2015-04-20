@@ -1,35 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="vi">
-<translation id="3750930141330200643">Bạn đang sử dụng hình ảnh khôi phục Chrome OS lỗi thời.
-
-Vui lòng tham khảo URL này để xem hướng dẫn về cách tạo
-phương tiện khôi phục mới:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="8728458033228603970">Đang khôi phục hệ thống...
-
-Quá trình này có thể mất vài phút. Vui lòng không tắt máy tính hoặc
-ngắt kết nối nguồn điện.</translation>
-<translation id="816304391526917903">Bạn đang sử dụng hình ảnh khôi phục Chrome OS chính thức lỗi thời.
-
-Quá trình khôi phục sẽ tiếp tục vì tính năng xác minh đã tắt.
-Nếu sau này bạn bật lại tính năng xác minh, bạn cần lặp lại
-quá trình khôi phục bằng hình ảnh Chrome OS cập nhật.</translation>
-<translation id="544118001572747892">Máy tính của bạn có vẻ không phải là hệ thống Chrome OS!
-
-Thao tác này sẽ xóa mọi hệ điều hành khác mà bạn đã
-cài đặt và tất cả dữ liệu; không có cơ hội sao lưu.
-Nếu bạn có bất kỳ dữ liệu nào trên máy tính này mà bạn muốn giữ lại, bạn
-nên hủy quá trình khôi phục.</translation>
-<translation id="2701006671590617571">Bạn sắp khôi phục máy tính của mình.  Vui lòng đảm bảo máy tính
-được cắm vào nguồn điện.
-
-Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn nút nguồn và giữ
-nút đó cho đến khi máy tính tắt (thao tác này mất tối đa 8 giây).
-Bạn có thể làm việc này an toàn bất kỳ lúc nào trong quá trình xác minh.</translation>
-<translation id="2731700343119398978">Vui lòng đợi...</translation>
-<translation id="537291066186627789">Khôi phục hệ thống đã hoàn tất.
-
-Vui lòng tháo phương tiện khôi phục và máy tính của bạn sẽ tự động khởi động lại.</translation>
+<translation id="2731700343119398978">Vui lòng chờ...</translation>
 <translation id="3946632524220974380">Yêu cầu thay đổi khóa nhà phát triển để tiếp tục; quá trình này mất
 5 phút.</translation>
 <translation id="4905949142713655149">Đã xảy ra lỗi không mong đợi. Vui lòng tham khảo URL này
@@ -43,13 +13,43 @@ chế độ nhà phát triển để bật tính năng xác minh.  Để biết 
 hãy tham khảo URL sau:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3243756202241744259">Đang xác minh tính toàn vẹn của phương tiện khôi phục của bạn...</translation>
 <translation id="300775974721831513">Chủ sở hữu thiết bị yêu cầu thiết bị này để chạy với tính năng xác minh Chrome OS bật.  Bạn đang cố gắng cài đặt hình ảnh khôi phục Chrome OS không chính thức, không thông qua xác minh.
 
 Để biết thêm thông tin, hãy xem URL này:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3750930141330200643">Bạn đang sử dụng hình ảnh khôi phục Chrome OS lỗi thời.
+
+Vui lòng tham khảo URL này để xem hướng dẫn về cách tạo
+phương tiện khôi phục mới:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6478314309353607985">Hình ảnh trên phương tiện khôi phục của bạn là hình ảnh nhà phát triển chưa được xác minh.
 Quá trình khôi phục sẽ tiếp tục vì tính năng khởi động xác minh tắt.
 Nếu sau này bạn bật lại tính năng xác minh, bạn sẽ cần lặp lại quá trình khôi phục bằng hình ảnh Chrome OS chính thức.</translation>
-<translation id="3243756202241744259">Đang xác minh tính toàn vẹn của phương tiện khôi phục của bạn...</translation>
+<translation id="816304391526917903">Bạn đang sử dụng hình ảnh khôi phục Chrome OS chính thức lỗi thời.
+
+Quá trình khôi phục sẽ tiếp tục vì tính năng xác minh đã tắt.
+Nếu sau này bạn bật lại tính năng xác minh, bạn cần lặp lại
+quá trình khôi phục bằng hình ảnh Chrome OS cập nhật.</translation>
+<translation id="8728458033228603970">Đang khôi phục hệ thống...
+
+Quá trình này có thể mất vài phút. Vui lòng không tắt máy tính hoặc
+ngắt kết nối nguồn điện.</translation>
+<translation id="544118001572747892">Máy tính của bạn có vẻ không phải là hệ thống Chrome OS!
+
+Thao tác này sẽ xóa mọi hệ điều hành khác mà bạn đã
+cài đặt và tất cả dữ liệu; không có cơ hội sao lưu.
+Nếu bạn có bất kỳ dữ liệu nào trên máy tính này mà bạn muốn giữ lại, bạn
+nên hủy quá trình khôi phục.</translation>
+<translation id="2701006671590617571">Bạn sắp khôi phục máy tính của mình.  Vui lòng đảm bảo máy tính
+được cắm vào nguồn điện.
+
+Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn nút nguồn và giữ
+nút đó cho đến khi máy tính tắt (thao tác này mất tối đa 8 giây).
+Bạn có thể làm việc này an toàn bất kỳ lúc nào trong quá trình xác minh.</translation>
+<translation id="537291066186627789">Khôi phục hệ thống đã hoàn tất.
+
+Vui lòng tháoxóa phương tiện khôi phục và máy tính của bạn sẽ tự động khởi động lại.</translation>
 </translationbundle>
