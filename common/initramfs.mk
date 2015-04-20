@@ -19,6 +19,12 @@ BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 
 GEN_INIT_CPIO		= $(OUTPUT_DIR)/gen_init_cpio
 
+# Settings for the build system.
+BUILD_CC		?= gcc
+BUILD_CFLAGS		?= -O1 -pipe
+BUILD_CPPFLAGS		?=
+BUILD_LDFLAGS		?=
+
 .PHONY: all
 all:	$(RAMFS_BIN)
 
@@ -29,7 +35,7 @@ clean:
 $(RAMFS_BIN): $(GEN_INIT_CPIO)
 
 $(GEN_INIT_CPIO): ../common/gen_init_cpio.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $< -o $@
+	$(BUILD_CC) $(BUILD_CFLAGS) $(BUILD_CPPFLAGS) $(BUILD_LDFLAGS) $< -o $@
 
 .PHONY: stage_init
 stage_init:
