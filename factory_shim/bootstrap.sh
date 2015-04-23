@@ -254,7 +254,7 @@ export_args() {
   local val=
   local acceptable_set='[A-Za-z0-9]_'
   for arg in "$@"; do
-    key=$(echo "${arg%=*}" | tr 'a-z' 'A-Z' | \
+    key=$(echo "${arg%%=*}" | tr 'a-z' 'A-Z' | \
                    tr -dc "$acceptable_set" '_')
     val="${arg#*=}"
     export "KERN_ARG_$key"="$val"
