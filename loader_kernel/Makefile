@@ -10,6 +10,9 @@ BIN_DEPS= \
 	/usr/sbin/kexec \
 	/usr/bin/futility \
 	/usr/bin/cgpt
+ifeq ($(INCLUDE_FIT_PICKER),1)
+BIN_DEPS += /usr/bin/fitpicker
+endif
 
 $(RAMFS_BIN): stage_init
 	ln -s busybox $(STAGE)/bin/sh
