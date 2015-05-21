@@ -39,9 +39,13 @@ copy_lsb() {
     return 1
   fi
   if [ -f "${src_path}" ]; then
+    # Convert it to upper case and store it to lsb file.
+    local kern_guid=$(echo "${KERN_ARG_KERN_GUID}" |
+                        tr '[:lower:]' '[:upper:]')
     log "Found ${src_path}"
     cp -a "${src_path}" "${dest_path}"
     echo "REAL_USB_DEV=$REAL_USB_DEV" >>"${dest_path}"
+    echo "KERN_ARG_KERN_GUID=${kern_guid}" >>"${dest_path}"
   else
     log "Failed to find ${src_path}!! Failing."
     umount "$STATEFUL_MNT"
