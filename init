@@ -62,13 +62,17 @@ initial_mounts() {
 wait_for_gpt_root() {
   [ -z "$KERN_ARG_KERN_GUID" ] && return 1
   dlog -n "Looking for rootfs using kern_guid..."
+  local try kern_dev kern_num
+  local root_dev root_num
   for try in $(seq 20); do
     dlogf " ."
-    kern=$(cgpt find -1 -u $KERN_ARG_KERN_GUID)
-    # We always try ROOT-A in recovery.
-    newroot="${kern%[0-9]*}3"
-    if [ -b "$newroot" ]; then
-      USB_DEV="$newroot"
+    kern_dev=$(cgpt find -1 -u $KERN_ARG_KERN_GUID)
+    kern_num=${kern_dev##[/a-z]*[/a-z]}
+    # rootfs partition is always in kernel partition + 1.
+    root_num=$(( kern_num + 1 ))
+    root_dev="${kern_dev%${kern_num}}${root_num}"
+    if [ -b "$root_dev" ]; then
+      USB_DEV="$root_dev"
       dlog "Found $USB_DEV"
       return 0
     fi
