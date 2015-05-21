@@ -109,16 +109,19 @@ on_error() {
 wait_for_gpt_root() {
   [ -z "$KERN_ARG_KERN_GUID" ] && return 1
   info -n "Looking for rootfs using kern_guid [${KERN_ARG_KERN_GUID}]... "
-  local try kern newroot
+  local try kern_dev kern_num
+  local root_dev root_num
   for try in $(seq 20); do
     info -n ". "
     # crbug.com/463414: when the cgpt supports MTD (cgpt.bin), redirecting its
     # output will get duplicated data.
-    kern="$(cgpt find -1 -u $KERN_ARG_KERN_GUID 2>/dev/null | uniq)"
-    # We always try ROOT-A in recovery.
-    newroot="${kern%[0-9]*}3"
-    if [ -b "$newroot" ]; then
-      USB_DEV="$newroot"
+    kern_dev="$(cgpt find -1 -u $KERN_ARG_KERN_GUID 2>/dev/null | uniq)"
+    kern_num=${kern_dev##[/a-z]*[/a-z]}
+    # rootfs partition is always in kernel partition + 1.
+    root_num=$(( kern_num + 1 ))
+    root_dev="${kern_dev%${kern_num}}${root_num}"
+    if [ -b "$root_dev" ]; then
+      USB_DEV="$root_dev"
       info "Found ${USB_DEV}"
       return 0
     fi
@@ -292,9 +295,13 @@ copy_lsb() {
   fi
   local ret=0
   if [ -f "${src_path}" ]; then
+    # Convert it to upper case and store it to lsb file.
+    local kern_guid=$(echo "${KERN_ARG_KERN_GUID}" |
+                        tr '[:lower:]' '[:upper:]')
     info "Found ${src_path}"
     cp -a "${src_path}" "${dest_path}"
     echo "REAL_USB_DEV=${REAL_USB_DEV}" >>"${dest_path}"
+    echo "KERN_ARG_KERN_GUID=${kern_guid}" >>"${dest_path}"
   else
     info "Failed to find ${src_path}!! Failing."
     ret=1
