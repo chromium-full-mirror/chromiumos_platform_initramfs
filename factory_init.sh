@@ -27,17 +27,48 @@ copy_contents() {
   return $RES
 }
 
+mount_stateful() {
+  info "Mounting stateful..."
+  if ! mount -n "${STATE_DEV}" "${STATEFUL_MNT}"; then
+    info "Failed to mount ${STATE_DEV}!! Failing."
+    return 1
+  fi
+}
+
+umount_stateful() {
+  umount -n "${STATEFUL_MNT}" || true
+  rmdir "${STATEFUL_MNT}" || true
+}
+
+copy_factory_script() {
+  info "Copying factory scripts"
+
+  local factory_script="dev_image/factory/sh"
+  local dest_path="${NEWROOT_MNT}/mnt/stateful_partition/${factory_script}"
+  local src_path="${STATEFUL_MNT}/${factory_script}"
+
+  mkdir -p "$(dirname ${dest_path})"
+
+  local ret=0
+  if [ -d "${src_path}" ]; then
+    info "Found ${src_path}"
+    cp -a "${src_path}" "${dest_path}"
+  else
+    info "Failed to find ${src_path}!! Failing."
+    ret=1
+  fi
+  return "${ret}"
+}
+
 copy_lsb() {
+  info "Copying lsb"
+
   local lsb_file="dev_image/etc/lsb-factory"
   local dest_path="${NEWROOT_MNT}/mnt/stateful_partition/${lsb_file}"
   local src_path="${STATEFUL_MNT}/${lsb_file}"
 
   mkdir -p "$(dirname $dest_path)"
-  # Mounting ext3 as ext2 since the journal is unneeded in ro.
-  if ! mount -n "${STATE_DEV}" "${STATEFUL_MNT}"; then
-    log "Failed to mount ${STATE_DEV}!! Failing."
-    return 1
-  fi
+
   if [ -f "${src_path}" ]; then
     # Convert it to upper case and store it to lsb file.
     local kern_guid=$(echo "${KERN_ARG_KERN_GUID}" |
@@ -48,11 +79,8 @@ copy_lsb() {
     echo "KERN_ARG_KERN_GUID=${kern_guid}" >>"${dest_path}"
   else
     log "Failed to find ${src_path}!! Failing."
-    umount "$STATEFUL_MNT"
     return 1
   fi
-  umount "$STATEFUL_MNT"
-  rmdir "$STATEFUL_MNT"
 }
 
 copy_bins() {
@@ -148,7 +176,12 @@ factory_install() {
   NEWROOT_MNT=/newroot
   mount_tmpfs || on_error
   copy_contents || on_error
+
+  mount_stateful || on_error
   copy_lsb || on_error
+  copy_factory_script || on_error
+  umount_stateful || on_error
+
   copy_bins || on_error
   # USB device is unmounted, we can remove it now.
   unmount_usb || on_error
