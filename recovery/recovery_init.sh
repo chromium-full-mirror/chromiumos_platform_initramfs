@@ -50,13 +50,12 @@ ERR_DEV_MODE_BLOCKED=3
 # is easily circumvented by installing an unofficial kernel or root that
 # doesn't perform the block_devmode check.
 is_developer_mode_blocked() {
-  # The device should refuse operation in developer mode if
-  # (1) the device owner has flipped the block_devmode flag to 1 and
-  # (2) firmware write protection is enabled.  Disabled write protection
-  #     signals hardware tampering, at which point there's no point in
-  #     trying to restrict image installation to hard disk as the user
-  #     could just hook up a different disk.
-  crossystem block_devmode?1 wpsw_boot?1
+  # The device should refuse operation in developer mode if the device
+  # owner has flipped the block_devmode flag to 1.  We still block
+  # even if firmware write protection is disabled, because removing a
+  # screw is simpler than hooking up a different disk or using a
+  # dediprog to reprogram the flash directly.
+  crossystem block_devmode?1
 }
 
 # Verifies the recovery root by reading all blocks of the dm-verity
