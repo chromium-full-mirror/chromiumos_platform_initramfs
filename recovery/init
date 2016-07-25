@@ -34,6 +34,8 @@ BASE_MOUNTS="/sys /proc /dev"
 # a properly matched root and kernel.
 UNOFFICIAL_ROOT=0
 
+USE_FRECON=0
+
 . /lib/completion_settings.sh
 . /lib/messages.sh
 
@@ -459,6 +461,15 @@ main() {
   # Export the kernel command line as a parsed blob prepending KERN_ARG_ to each
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
+
+  frecon_bin=$(which frecon-lite 2>/dev/null)
+  if [ -n "${frecon_bin}" ]; then
+    # only need to start udev if we're using frecon
+    udevd --daemon
+    udevadm trigger
+    udevadm settle
+    USE_FRECON=1
+  fi
 
   message startup
 
