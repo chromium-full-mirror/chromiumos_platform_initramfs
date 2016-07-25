@@ -75,6 +75,28 @@ select_locale() {
   dlog "selected locale $LANGDIR"
 }
 
+# Encapsulate displaying of images into single function.
+# This makes it easier to maintain and also lets us easily
+# switch between using ply-image/frecon depending on if
+# frecon is available.
+#
+# Arg 1:  the path to the image file
+# Arg 2:  a pair of numbers X,Y representing offset from center
+showimage() {
+  local image=$1
+  local offset=$2
+  shift
+  shift
+
+  if [ "${USE_FRECON}" -eq 1 ]; then
+    echo -ne \
+         "\033]image:file=${image};offset=${offset}\033\\" \
+         > /dev/pts/0
+  else
+    ply-image --offset "${offset}" "${image}" "$@"
+  fi
+}
+
 # Present a message screen horizontally centered at a specified
 # Y-coordinate.
 #
@@ -82,7 +104,6 @@ select_locale() {
 # Arg 2:  a token identifying the message, which is used to form the
 #   file name based on the current locale.  In case the localized version
 #   of the message is unavailable, the en-US version is shown instead.
-# Args 3..$#:  arguments for ply-image.
 showbox() {
   local offset=0,$1
   shift
@@ -96,7 +117,7 @@ showbox() {
     message_file=$SCREENS/en-US/$message_token.png
   fi
 
-  ply-image --offset $offset $message_file "$@"
+  showimage "${message_file}" "${offset}"
 }
 
 # Display an icon next to text in the message box with the given
@@ -104,12 +125,13 @@ showbox() {
 # are used to determine placement of the icon within the box.
 #
 # Arg 1:  the Y-coordinate of the text box.
-# Args 2..$#:  arguments for ply-image.
+# Arg 2:  the path to image file
 showicon() {
   local icon_left=$(( ICON_INSET_LEFT ))
   local icon_top=$(( $1 + ICON_INSET_TOP ))
   shift
-  ply-image --offset $icon_left,$icon_top "$@"
+
+  showimage "$1" "${icon_left},${icon_top}"
 }
 
 # During installation, we show a spinner animation beside the text
@@ -126,7 +148,11 @@ show_install_spinner() {
   trap 'TERMINATED=1' TERM
 
   while [ $TERMINATED -eq 0 ] ; do
-    showicon $INSTRUCTION_BOX_TOP --frame-interval=115 $SCREENS/spinner_*.png
+    # just drawing 1 spinner image for each loop.
+    for counter in 00 01 02 03 04 05 06 07 08 09 10 11; do
+      showicon "${INSTRUCTION_BOX_TOP}" "${SCREENS}/spinner_"*"${counter}.png"
+      sleep 0.115
+    done
   done
 }
 
@@ -161,7 +187,8 @@ dev_notice() {
 progress_bar() {
   local image_left=$(( PROGRESS_BAR_LEFT ))
   local image_top=$(( PROGRESS_BOX_TOP + PROGRESS_BAR_TOP ))
-  ply-image --offset $image_left,$image_top $SCREENS/progress_box.png
+
+  showimage "${SCREENS}/progress_box.png" "${image_left},${image_top}"
 
   local incr_left=$(( PROGRESS_INCREMENT_LEFT ))
   local incr_top=$(( PROGRESS_BOX_TOP + PROGRESS_INCREMENT_TOP ))
@@ -170,7 +197,7 @@ progress_bar() {
   while read percent; do
     local rightmost=$(( incr_left + PROGRESS_INCREMENT * percent ))
     while [ $leftmost -lt $rightmost ]; do
-      ply-image --offset $leftmost,$incr_top $SCREENS/progress_increment.png
+      showimage "${SCREENS}/progress_increment.png" "${leftmost},${incr_top}"
       leftmost=$(( leftmost + PROGRESS_INCREMENT ))
     done
   done
@@ -209,17 +236,23 @@ message_on_error() {
 # This message also appears when booting factory images.
 message_startup() {
   # This printf disables screen blanking and powerdown.  Images
-  # displayed by ply-image would otherwise be erased if the system
-  # were left unattended for long enough.  These escape sequences
-  # are documented in the console_codes(4) man page.
+  # displayed by frecon/ply-image would otherwise be erased if the
+  # system were left unattended for long enough.  These escape
+  # sequences are documented in the console_codes(4) man page.
   printf "\033[9;0]\033[14;0]" >"${TTY_CONSOLE}"
 
   # This 'echo' prevents the text cursor image from showing up after
-  # ply-image has pushed the screen image.
+  # frecon/ply-image have pushed the screen image.
   echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
 
-  ply-image --clear "0x$BACKGROUND"
-  ply-image $SCREENS/boot_message.png
+  if [ "${USE_FRECON}" -eq 1 ]; then
+    frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
+                --enable-vts --clear "0x${BACKGROUND}" \
+                "${SCREENS}/boot_message.png"
+  else
+    ply-image --clear "0x${BACKGROUND}"
+    ply-image "${SCREENS}/boot_message.png"
+  fi
 
   select_locale
 
