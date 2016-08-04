@@ -90,7 +90,7 @@ showimage() {
 
   if [ "${USE_FRECON}" -eq 1 ]; then
     echo -ne \
-         "\033]image:file=${image};offset=${offset}\033\\" \
+         "\033]image:file=${image};offset=${offset};scale=0\033\\" \
          > /dev/pts/0
   else
     ply-image --offset "${offset}" "${image}" "$@"
@@ -247,7 +247,7 @@ message_startup() {
 
   if [ "${USE_FRECON}" -eq 1 ]; then
     frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
-                --enable-vts --clear "0x${BACKGROUND}" \
+                --enable-vts --scale=0 --clear "0x${BACKGROUND}" \
                 "${SCREENS}/boot_message.png"
   else
     ply-image --clear "0x${BACKGROUND}"
