@@ -91,7 +91,7 @@ showimage() {
   if [ "${USE_FRECON}" -eq 1 ]; then
     echo -ne \
          "\033]image:file=${image};offset=${offset};scale=0\033\\" \
-         > /dev/pts/0
+         > /var/run/frecon/vt0
   else
     ply-image --offset "${offset}" "${image}" "$@"
   fi
