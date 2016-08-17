@@ -46,7 +46,7 @@ LOCALES_TABLE		?= $(STAGE)/etc/locales.txt
 include ../common/initramfs.mk
 
 $(RAMFS_BIN): stage_init
-	cp $(SYSROOT)/usr/share/chromeos-assets/images/boot_message*.png \
+	cp "$(SYSROOT)/usr/share/chromeos-assets/images/boot_message.png" \
 		assets/*.png $(STAGE)/etc/screens
 	./make_images localized_text "$(STAGE)/etc/screens" $(LOCALE_LIST)
 	./make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
