@@ -9,7 +9,6 @@
 set -x
 
 # USB card partition and mount point.
-USB_DEVS="sdb3 sdc3 mmcblk1p3"
 USB_MNT=/usb
 REAL_USB_DEV=
 
@@ -131,24 +130,6 @@ wait_for_gpt_root() {
   return 1
 }
 
-# Look for any USB device.
-wait_for_root() {
-  info -n "Waiting for $USB_DEVS to appear"
-  for try in $(seq 20); do
-    info -n " ."
-    for dev in $USB_DEVS; do
-      if [ -b "/dev/$dev" ]; then
-        USB_DEV="/dev/$dev"
-        info "Found $USB_DEV"
-        return 0
-      fi
-    done
-    sleep 1
-  done
-  info "Failed waiting for root!"
-  return 1
-}
-
 # Attempt to find the root defined in the signed factory shim
 # kernel we're booted into to. Exports REAL_USB_DEV if there
 # is a root partition that may be used - on succes or failure.
@@ -156,7 +137,7 @@ find_official_root() {
   info -n "Checking for an official root... "
 
   # Check for a kernel selected root device or one in a well known location.
-  wait_for_gpt_root || wait_for_root || return 1
+  wait_for_gpt_root || return 1
 
   # Now see if it has a Chrome OS rootfs partition.
   cgpt find -t rootfs "$(strip_partition "$USB_DEV")" || return 1
