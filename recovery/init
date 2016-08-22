@@ -9,7 +9,6 @@
 . /lib/init.sh
 
 # USB card partition and mount point.
-USB_DEVS="sdb3 sdc3 mmcblk1p3"
 USB_MNT=/usb
 REAL_USB_DEV=
 DM_NAME=
@@ -67,12 +66,16 @@ wait_for_gpt_root() {
 
 # Look for any USB device.
 wait_for_root() {
-  dlog -n "Waiting for $USB_DEVS to appear"
+  dlog -n "Waiting for removable devices to appear"
   for try in $(seq 20); do
     dlogf " ."
-    for dev in $USB_DEVS; do
-      if [ -b "/dev/$dev" ]; then
-        USB_DEV="/dev/$dev"
+    # The 3 is hardcoded here because we are looking for the rootfs
+    # partition of the removable device.
+    for dev in /dev/*3; do
+      # DEFAULT_ROOTDEV can be a path expansion on some systems,
+      # so it is not quoted.
+      if [ -b "$dev" ] && [ "$dev" != "/dev/$(basename ${DEFAULT_ROOTDEV})*" ]; then
+        USB_DEV="$dev"
         dlog "Found $USB_DEV"
         return 0
       fi
