@@ -66,8 +66,6 @@ RAMFS_LAYOUT_DIRS=\
 
 SERVER_ADDR		?= 10.0.0.1
 
-NAME = netboot
-
 RAMFS_BIN_DEPS = \
 	$(BIN_DEPS) \
 	$(NETBOOT_BIN_DEPS) \
