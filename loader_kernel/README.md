@@ -1,4 +1,4 @@
-loader kernel: handle a/b verified kernels
+# loader kernel: handle a/b verified kernels
 
 If the firmware doesn't support a/b partition selection, and kernels in the
 verified boot format, this initramfs will do that instead.
