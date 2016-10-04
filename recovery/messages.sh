@@ -244,6 +244,7 @@ message_startup() {
   if [ "${USE_FRECON}" -eq 1 ]; then
     frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
                 --enable-vts --scale=0 --clear "0x${BACKGROUND}" \
+                --pre-create-vts \
                 "${SCREENS}/boot_message.png"
   else
     # This 'echo' prevents the text cursor image from showing up after
