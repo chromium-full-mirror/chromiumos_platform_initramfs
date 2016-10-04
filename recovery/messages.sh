@@ -241,15 +241,15 @@ message_startup() {
   # sequences are documented in the console_codes(4) man page.
   printf "\033[9;0]\033[14;0]" >"${TTY_CONSOLE}"
 
-  # This 'echo' prevents the text cursor image from showing up after
-  # frecon/ply-image have pushed the screen image.
-  echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
-
   if [ "${USE_FRECON}" -eq 1 ]; then
     frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
                 --enable-vts --scale=0 --clear "0x${BACKGROUND}" \
                 "${SCREENS}/boot_message.png"
   else
+    # This 'echo' prevents the text cursor image from showing up after
+    # ply-image have pushed the screen image.
+    echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
+
     ply-image --clear "0x${BACKGROUND}"
     ply-image "${SCREENS}/boot_message.png"
   fi
