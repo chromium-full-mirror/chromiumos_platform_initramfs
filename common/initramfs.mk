@@ -13,7 +13,8 @@ NAME			?= $(notdir $(CURDIR))
 OUTPUT_DIR		?= $(CURDIR)
 RAMFS_BIN		?= $(OUTPUT_DIR)/$(NAME)_ramfs.cpio.xz
 STAGE			?= $(OUTPUT_DIR)/stage_$(NAME)
-SYSROOT			?= /
+DEFAULT_SYSROOT	:= $(if $(BOARD),/build/$(BOARD),/)
+SYSROOT			?= $(DEFAULT_SYSROOT)
 BOARD			?= unknown
 BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
 
