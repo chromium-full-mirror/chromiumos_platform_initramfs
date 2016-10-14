@@ -75,6 +75,10 @@ RAMFS_BIN_DEPS = \
 include ../common/initramfs.mk
 
 $(RAMFS_BIN): stage_init
+	mkdir -p $(STAGE)/lib/udev/rules.d
+	cp $(SYSROOT)/lib/udev/rules.d/10-dm.rules $(STAGE)/lib/udev/rules.d
+	cp $(SYSROOT)/lib/udev/rules.d/95-dm-notify.rules \
+		$(STAGE)/lib/udev/rules.d
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)

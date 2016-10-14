@@ -69,6 +69,15 @@ find_best_tty() {
 
   # Enable LOG_TTY if available (currently only works for VT).
   is_valid_tty "/dev/tty2" && LOG_TTY="/dev/tty2"
+
+  # Symbolic links may cause problems when we do move_mounts() then info(),
+  # which will use links pointing to old location.
+  if [ -L "${TTY}" ]; then
+    TTY="$(readlink ${TTY})"
+  fi
+  if [ -L "${LOG_TTY}" ]; then
+    LOG_TTY="$(readlink ${LOG_TTY})"
+  fi
   return 0
 }
 
