@@ -469,6 +469,9 @@ main() {
     udevadm trigger
     udevadm settle
     USE_FRECON=1
+    TTY_CONSOLE=/run/frecon/vt0
+    TTY_LOG=/run/frecon/vt1
+    TTY_DEBUG=/run/frecon/vt2
   fi
 
   message startup
