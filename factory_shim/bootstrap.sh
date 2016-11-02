@@ -8,6 +8,8 @@
 # Note that this script uses the busybox shell (not bash, not dash).
 set -x
 
+. /usr/sbin/factory_tty.sh
+
 # USB card partition and mount point.
 USB_MNT=/usb
 REAL_USB_DEV=
@@ -27,59 +29,7 @@ TMPFS_SIZE=400M
 BASE_MOUNTS="/sys /proc /dev"
 
 # To be updated to keep logging after move_mounts.
-TTY=
-LOG_TTY=/dev/null
 TAIL_PID=
-
-# Checks if given parameter is a valid TTY (or PTS) device file.
-is_valid_tty() {
-  [ -c "$1" ] && (echo "" >"$1") 2>/dev/null
-}
-
-# Determine the right console by following order:
-#  - The last non-empty console= from cmdline.
-#  - /dev/tty1 if available (for Non-Freon boards).
-#  - /dev/null if nothing available.
-find_best_tty() {
-  local entry="$(cat /proc/cmdline)"
-  local ttys=""
-  local tty_name="" tty_path=""
-
-  while echo "${entry}" | grep -q console= ; do
-    entry="${entry#*console=}"
-    ttys="${entry%%[ ,]*} ${ttys}"
-    entry="${entry#* }"
-  done
-
-  for tty_name in ${ttys}; do
-    tty_path="/dev/${tty_name}"
-    if is_valid_tty "${tty_path}"; then
-      TTY="${tty_path}"
-      break
-    fi
-  done
-
-  if [ -z "${TTY}" ]; then
-    if is_valid_tty "/dev/tty1"; then
-      TTY=/dev/tty1
-    else
-      TTY=/dev/null
-    fi
-  fi
-
-  # Enable LOG_TTY if available (currently only works for VT).
-  is_valid_tty "/dev/tty2" && LOG_TTY="/dev/tty2"
-
-  # Symbolic links may cause problems when we do move_mounts() then info(),
-  # which will use links pointing to old location.
-  if [ -L "${TTY}" ]; then
-    TTY="$(readlink ${TTY})"
-  fi
-  if [ -L "${LOG_TTY}" ]; then
-    LOG_TTY="$(readlink ${LOG_TTY})"
-  fi
-  return 0
-}
 
 # Print message on both main TTY and log file.
 info() {
@@ -94,7 +44,7 @@ enable_debug_console() {
   local tty="$1"
   if ! is_cros_debug; then
     info "To debug, add [cros_debug] to your kernel command line."
-  elif [ "${tty}" = /dev/null ] || ! is_valid_tty "${tty}"; then
+  elif [ "${tty}" = /dev/null ] || ! tty_is_valid "${tty}"; then
     # User probably can't see this, but we don't have better way.
     info "Please set a valid [console=XXX] in kernel command line."
   else
@@ -330,16 +280,32 @@ copy_lsb() {
   return "${ret}"
 }
 
-copy_bins() {
+patch_new_root() {
+  info "Patching new root in $NEWROOT_MNT..."
+  local file job
+
   # Copy essential binaries that are in the initramfs, but not in the root FS.
-  info "Copying binaries to $NEWROOT_MNT"
   cp /bin/busybox $NEWROOT_MNT/bin
 
   # Modify some files that does not work (and not required) in tmpfs chroot.
   # This may be removed when we can build factory installer in "embedded" mode.
-  local file="${NEWROOT_MNT}/usr/sbin/mount-encrypted"
+  file="${NEWROOT_MNT}/usr/sbin/mount-encrypted"
   echo '#!/bin/sh' >"${file}"
   echo 'echo "Sorry, $0 is disabled on factory installer image."' >>"${file}"
+
+  # Disable upstart jobs that will block execution for factory shim environment.
+  # Change these jobs to an empty single shot task because there may be services
+  # waiting them to finish.
+  # - pre-startup.conf: will mount a new /tmp and /run, which is not preferred.
+  local disable_jobs="pre-startup"
+  for job in ${disable_jobs}; do
+    file="${NEWROOT_MNT}/etc/init/${job}.conf"
+    sed -i '/^start /!d' "${file}"
+    echo "exec true" >>"${file}"
+  done
+
+  # Replicate running data (/run).
+  tar -cf - /run | tar -xf - -C "${NEWROOT_MNT}"
 
   # We don't want any consoles to be executed.
   rm -f "${NEWROOT_MNT}"/etc/init/console-*.conf
@@ -386,13 +352,17 @@ check_block_dev() {
 
 main() {
   # Setup environment.
-  find_best_tty
+  tty_init
+  if [ -z "${LOG_TTY}" ]; then
+    LOG_TTY=/dev/null
+  fi
+
   mkdir -p "${USB_MNT}" "${STATEFUL_MNT}" "${LOG_DIR}" "${NEWROOT_MNT}"
 
   exec >"${LOG_FILE}" 2>&1
   info "ChromeOS Factory Shim"
   info "----------------------------------------------------------------------"
-  info "TTY: ${TTY}, LOG_TTY: ${LOG_TTY}"
+  info "TTY: ${TTY}, LOG: ${LOG_TTY}, INFO: ${INFO_TTY}, DEBUG: ${DEBUG_TTY}"
 
   # Send all verbose output to debug TTY.
   (tail -f "${LOG_FILE}" >"${LOG_TTY}") &
@@ -402,9 +372,9 @@ main() {
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
-  # TTY4 may be not available, but we don't have better choices on headless
+  # DEBUG_TTY may be not available, but we don't have better choices on headless
   # devices.
-  enable_debug_console "/dev/tty4"
+  enable_debug_console "${DEBUG_TTY}"
 
   check_block_dev
   find_official_root
@@ -420,7 +390,7 @@ main() {
   copy_factory_script
   umount_stateful
 
-  copy_bins
+  patch_new_root
 
   # USB device is unmounted, we can remove it now.
   unmount_usb

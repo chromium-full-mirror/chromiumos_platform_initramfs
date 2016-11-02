@@ -9,46 +9,11 @@ set -x
 
 . /lib/init.sh
 
-kernel_msg () {
-  if [ -e "/dev/kmsg" ]; then
-    echo "$*" >>/dev/kmsg || true
-  fi
-}
-
-# If don't use fbconsole and have frecon-lite, then set frecon links.
-set_frecon() {
-  # Default number of enabled VTs is 4.
-  kernel_msg "Start to set frecon."
-  frecon-lite --enable-vt1 --daemon --no-login --enable-vts --pre-create-vts
-  local loop_time=30
-  while [ ! -e "/run/frecon/vt0" -a ${loop_time} -gt 0 ]; do
-    kernel_msg "/run/frecon/vt0 does not exist. Retry for ${loop_time} seconds."
-    sleep 1s
-    loop_time=$((loop_time - 1))
-  done
-  kernel_msg "Set frecon complete."
-
-  local vti=0
-  while [ -e "/run/frecon/vt${vti}" ]; do
-    ln -s "$(readlink /run/frecon/vt${vti})" "/dev/tty$((vti + 1))"
-    vti=$((vti + 1))
-  done
-}
-
 setup_environment() {
   initialize
 
   # Install additional utility programs.
   /bin/busybox --install /bin || true
-
-  # Only need to start udev and use frecon if we're not using fbconsole
-  frecon_bin=$(which frecon-lite 2>/dev/null || true)
-  if [ -n "${frecon_bin}" -a ! -e "/dev/tty1" ]; then
-    udevd --daemon
-    udevadm trigger
-    udevadm settle
-    set_frecon
-  fi
 }
 
 main() {
