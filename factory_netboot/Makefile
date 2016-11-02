@@ -40,6 +40,7 @@ CROS_DEPS=\
 	/usr/sbin/ectool \
 	/usr/sbin/factory_install_service.sh \
 	/usr/sbin/factory_install.sh \
+	/usr/sbin/factory_tty.sh \
 	/usr/sbin/netboot_postinst.sh \
 	/usr/sbin/ping_shopfloor.sh \
 	/usr/sbin/secure_less.sh \
