@@ -348,6 +348,78 @@ clear_tpm() {
   return 0
 }
 
+verify_rw_vpd() {
+  local tmpfile="$(mktemp ${TMPDIR:-/tmp}/rw_vpd.XXXXXX)"
+  local rc=0
+
+  dlog "Verifying RW_VPD"
+
+  # First method: Check if RW VPD entries have been populated in sysfs by the
+  # kernel. If so, assume everything is good. Otherwise fall back to using
+  # flashrom and vpd utilities (slower).
+  ls -1A "/sys/firmware/vpd/rw" | grep -q .
+  if [ $? -eq 0 ]; then
+    dlog "Found RW VPD in sysfs."
+    return 0
+  fi
+
+  # Test if RW_VPD region exists on system by attempting to read it
+  # using flashrom.
+  flashrom -p host -i RW_VPD:${tmpfile} -r
+  if [ $? -ne 0 ]; then
+    dlog "RW_VPD does not exist on this system, skipping."
+    return 0
+  else
+    rm -f "${tmpfile}"
+  fi
+
+  # vpd utility exit codes defined in vpd/include/lib/lib_vpd.h:
+  # 0:  VPD_OK
+  # 9:  VPD_ERR_NOT_FOUND, meaning VPD was not found.
+  # 10: VPD_ERR_OVERFLOW, meaning VPD is likely corrupt.
+  # 11: VPD_ERR_INVALID, meaning VPD is corrupt.
+  #
+  # All others will be treated as generic failures.
+  vpd -i RW_VPD -l
+  rc=$?
+  case $rc in
+    0)
+      dlog "Successfully read VPD from RW_VPD."
+      return 0
+      ;;
+    9)
+      dlog "VPD not found in RW_VPD."
+      ;;
+    10)
+      dlog "Overflow detected in VPD. May be corrupted."
+      ;;
+    11)
+      dlog "VPD found in RW_VPD, but is corrupted."
+      ;;
+    *)
+      dlog "Unspecified error when reading VPD from RW_VPD: $rc"
+      return 1
+  esac
+
+  # From here, erase the RW_VPD region and re-initialize. If erase fails then
+  # try initializing anyway and hope it works well enough.
+  dlog "Erasing RW_VPD region and re-initializing the VPD."
+
+  flashrom -p host -i RW_VPD -E
+  if [ $? -ne 0 ]; then
+    dlog "Failed to erase RW_VPD region, continuing anyway."
+  fi
+
+  vpd -i RW_VPD -O
+  rc=$?
+  if [ $rc -ne 0 ]; then
+    dlog "Error re-formatting VPD region: $rc"
+    return 1
+  fi
+
+  return 0
+}
+
 recover_system() {
   local source=$(strip_partition "$REAL_USB_DEV")
   dlog "Beginning system recovery from $source"
@@ -362,6 +434,11 @@ recover_system() {
   # Only clear on full installs. Shim scripts can call tpmc if they
   # like.  Only bGlobalLock will be in place in advance.
   clear_tpm || return 1
+
+  # Check if RW_VPD is valid and reinitialize if not. This is intended to
+  # ensure certain functionality such as re-enrollment works. Refer to
+  # crbug.com/660121 for details.
+  verify_rw_vpd || dlog "Could not verify or re-format RW_VPD"
 
   message recovery_start
 
