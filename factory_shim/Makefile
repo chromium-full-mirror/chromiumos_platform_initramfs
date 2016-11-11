@@ -8,6 +8,7 @@ BIN_DEPS= \
 	/bin/sh \
 	/usr/bin/cgpt \
 	/usr/bin/crossystem \
+	/usr/bin/pv \
 	/usr/sbin/factory_tty.sh
 
 # Extra dependency, should be set by builder configuration.

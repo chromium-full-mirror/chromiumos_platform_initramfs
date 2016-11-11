@@ -223,15 +223,8 @@ mount_tmpfs() {
 }
 
 copy_contents() {
-  info -n "Copying contents of USB device to tmpfs... "
-  local ret=0
-  (cd "${USB_MNT}" ; tar cf - . | (cd "${NEWROOT_MNT}" && tar xf -)) || ret=$?
-  if [ ${ret} -eq 0 ]; then
-    info "Copy complete."
-  else
-    info "Copy failed with result ${ret}."
-  fi
-  return ${ret}
+  info "Copying contents of USB device to tmpfs... "
+  tar -cf - -C "${USB_MNT}" . | pv -f 2>"${TTY}" | tar -xf - -C "${NEWROOT_MNT}"
 }
 
 mount_stateful() {
