@@ -311,18 +311,40 @@ patch_new_root() {
   cp /bin/busybox ${NEWROOT_MNT}/bin
   ${NEWROOT_MNT}/bin/busybox --install ${NEWROOT_MNT}/bin
 
+  # Never execute the firmware updater from shim.
+  touch "${NEWROOT_MNT}"/root/.leave_firmware_alone
+
   # Modify some files that does not work (and not required) in tmpfs chroot.
   # This may be removed when we can build factory installer in "embedded" mode.
   file="${NEWROOT_MNT}/usr/sbin/mount-encrypted"
-  echo '#!/bin/sh' >"${file}"
-  echo 'echo "Sorry, $0 is disabled on factory installer image."' >>"${file}"
+  if can_patch_file "${file}"; then
+    echo '#!/bin/sh' >"${file}"
+    echo 'echo "Sorry, $0 is disabled on factory installer image."' >>"${file}"
+  fi
+
+  # Set network to start up another way
+  file="${NEWROOT_MNT}/etc/init/boot-complete.conf"
+  if can_patch_file "${file}"; then
+    sed -i 's/login-prompt-visible/started boot-services/' "${file}"
+  fi
 
   # Disable upstart jobs that will block execution for factory shim environment.
-  # Change these jobs to an empty single shot task because there may be services
-  # waiting them to finish.
-  # - pre-startup.conf: will mount a new /tmp and /run, which is not preferred.
-  local disable_jobs="pre-startup"
-  for job in ${disable_jobs}; do
+  local disabled_jobs="ui powerd update-engine tpm-probe"
+
+  for job in ${disabled_jobs}; do
+    file="${NEWROOT_MNT}/etc/init/${job}.conf"
+    if can_patch_file "${file}"; then
+      # Upstart honors the last 'start on' clause it finds.
+      echo "start on never" >>"${file}"
+    fi
+  done
+
+  # Dummy jobs are empty single shot tasks because there may be services waiting
+  # them to finish.
+  # - pre-startup.conf: will mount new /tmp and /run, which we want to preserve.
+  local dummy_jobs="pre-startup"
+
+  for job in ${dummy_jobs}; do
     file="${NEWROOT_MNT}/etc/init/${job}.conf"
     if can_patch_file "${file}"; then
       sed -i '/^start /!d' "${file}"
@@ -330,11 +352,14 @@ patch_new_root() {
     fi
   done
 
-  # Replicate running data (/run).
-  tar -cf - /run | tar -xf - -C "${NEWROOT_MNT}"
-
   # We don't want any consoles to be executed.
   rm -f "${NEWROOT_MNT}"/etc/init/console-*.conf
+
+  # The laptop_mode may be triggered from udev
+  rm -f "${NEWROOT_MNT}/etc/udev/rules.d/99-laptop-mode.rules"
+
+  # Replicate running data (/run).
+  tar -cf - /run | tar -xf - -C "${NEWROOT_MNT}"
 
   # Create an early debug terminal if available.
   if is_cros_debug && [ -n "${DEBUG_TTY}" ]; then
