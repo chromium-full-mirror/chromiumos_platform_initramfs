@@ -66,13 +66,15 @@ main() {
   # Set up default args based on the target.
   cd "$(dirname "$(readlink -f -- "$0")")"
 
-  local kcmdline="cros_debug panic=3"
+  local usb_kernel_guid="$(cgpt show chromiumos_image_usb.bin -i 2 -u)"
+  local kcmdline="qemu cros_debug panic=3 kern_guid=${usb_kernel_guid}"
   case $(basename "${PWD}") in
   factory_netboot)
     graphics="false"
     ;;
   factory_shim)
     graphics="false"
+    kcmdline+=" cros_factory_install"
     ;;
   loader_kernel)
     graphics="false"

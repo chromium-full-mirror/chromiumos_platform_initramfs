@@ -22,5 +22,18 @@ Artifacts will be placed in the typical `~/trunk/src/build/initramfs/` tree.
 In there you'll find a directory for each target.  In there you'll find all
 the relevant files and a helper `qemu` script.  Run that to boot the system.
 
-Note that `recovery` images require a GUI.  The rest can be tested via the
-command line (as the console will be via an emulated serial port).
+### Target recovery
+- **GUI**: Required.
+
+### Target factory_shim
+- **GUI**: Not required, can be tested via command line (as the console will be via
+  an emulated serial port).
+- **Disk images**: `factory_shim` is simply a bootstrap loader that runs
+  anything in the `chromiumos_image_usb.bin` so you will want to copy a real
+  factory installer image (`build_image factory_install`) for it. For example,
+
+      cp ~/trunk/src/build/images/$BOARD/latest/factory_install_shim.bin \
+         ~/trunk/src/build/initramfs/factory_shim/chromiumos_image_usb.bin
+
+### Target factory_netboot
+- **GUI**: Not required (see target `factory_shim`).
