@@ -17,6 +17,7 @@ NETBOOT_BIN_DEPS= \
 	/bin/ip \
 	/bin/xxd \
 	/sbin/blockdev \
+	/sbin/modprobe \
 	/sbin/resize2fs \
 	/sbin/sfdisk \
 	/usr/bin/coreutils \
