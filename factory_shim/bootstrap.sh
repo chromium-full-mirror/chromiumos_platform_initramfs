@@ -240,6 +240,26 @@ umount_stateful() {
   rmdir "${STATEFUL_MNT}" || true
 }
 
+copy_factory_script() {
+  info -n "Copying factory scripts... "
+
+  local factory_script="dev_image/factory/sh"
+  local dest_path="${NEWROOT_MNT}/mnt/stateful_partition/${factory_script}"
+  local src_path="${STATEFUL_MNT}/${factory_script}"
+
+  mkdir -p "$(dirname ${dest_path})"
+
+  local ret=0
+  if [ -d "${src_path}" ]; then
+    info "Found ${src_path}"
+    cp -a "${src_path}" "${dest_path}"
+  else
+    info "Failed to find ${src_path}!! Failing."
+    ret=1
+  fi
+  return "${ret}"
+}
+
 copy_lsb() {
   info -n "Copying lsb... "
 
@@ -443,6 +463,7 @@ main() {
 
   mount_stateful
   copy_lsb
+  copy_factory_script
   umount_stateful
 
   patch_new_root
