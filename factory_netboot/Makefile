@@ -15,9 +15,9 @@ EXTRA_BIN_DEPS?=
 NETBOOT_BIN_DEPS= \
 	/bin/dd \
 	/bin/ip \
+	/bin/kmod \
 	/bin/xxd \
 	/sbin/blockdev \
-	/sbin/modprobe \
 	/sbin/resize2fs \
 	/sbin/sfdisk \
 	/usr/bin/coreutils \
@@ -99,5 +99,8 @@ $(RAMFS_BIN): stage_init
 	ln -s /mnt/stateful_partition/dev_image/etc/lsb-factory \
 		$(STAGE)/etc/lsb-release
 	chmod a+x $(STAGE)/init $(STAGE)/etc/udhcpc.script
+	for name in lsmod rmmod insmod modinfo modprobe depmod; do \
+	 ln -s kmod $(STAGE)/bin/$${name}; \
+	done
 	./kotree.sh usbnet.ko $(SYSROOT) $(STAGE)
 	$(call generate_ramfs)
