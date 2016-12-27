@@ -86,6 +86,12 @@ main() {
     module_list+=("${module}")
   done < <(find "${module_path}" -name "*.ko" -print0)
   idoko "${sysroot}" "${output}" "${module_list[@]}"
+  # Copy /lib/modules/*/modules.* for dependency list.
+  local module_base_dir="$(realpath \
+    --relative-to="${module_root_path}" "${module_path}")"
+  module_base_dir="${module_base_dir%%/*}"
+  cp -p "${module_root_path}/${module_base_dir}/"modules.* \
+    "${output}/${module_root_path#${sysroot}}/${module_base_dir}"/.
 }
 
 main "$@"
