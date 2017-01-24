@@ -281,14 +281,16 @@ setup_dm_root() {
     [ "${DM_TABLE%$USB_DEV*}" = "$DM_TABLE" ] && return 1
   fi
 
-  if ! dmsetup create -r "$DM_NAME" --major 254 --minor 0 --table "$DM_TABLE"
+  if ! dmsetup create -r "$DM_NAME" --table "$DM_TABLE"
   then
     dlog "Failed to configure device mapper root"
     return 1
   fi
   USB_DEV="/dev/dm-0"
   if [ ! -b "$USB_DEV" ]; then
-    mknod -m 0600 "$USB_DEV" b 254 0
+    local major=$(dmsetup info -c -o major --noheadings "${DM_NAME}")
+    local minor=$(dmsetup info -c -o minor --noheadings "${DM_NAME}")
+    mknod -m 0600 "$USB_DEV" b "${major}" "${minor}"
   fi
   dlog "Created device mapper root $DM_NAME."
   return 0
