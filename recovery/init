@@ -40,6 +40,7 @@ USE_FRECON=0
 
 # Load default settings, which may be overridden by board_recovery.sh.
 . /lib/defaults.sh
+. /lib/recovery_init.sh
 if [ -f /lib/board_recovery.sh ]; then
   . /lib/board_recovery.sh
 fi
@@ -467,6 +468,12 @@ main() {
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
+  # Always lock the TPM first.
+  lock_tpm || on_error
+
+  # Verify FW version.
+  verify_fw_version || handle_error $?
+
   frecon_bin=$(which frecon-lite 2>/dev/null)
   if [ -n "${frecon_bin}" ]; then
     # only need to start udev if we're using frecon
@@ -492,7 +499,6 @@ main() {
   # Extract the real boot source, which may be masked by dm-verity.
   get_stateful_dev || on_error
 
-  . /lib/recovery_init.sh
   recovery_install
 }
 
