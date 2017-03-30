@@ -460,10 +460,6 @@ main() {
 
   initialize
 
-  # Send all verbose output to debug tty.
-  (tail -f "${LOG_FILE}" > "${TTY_DEBUG}") &
-  TAIL_PID=$!
-
   # Export the kernel command line as a parsed blob prepending KERN_ARG_ to each
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
@@ -487,6 +483,11 @@ main() {
   fi
 
   message startup
+  # Send all verbose output to debug tty.
+  (tail -f -n +1 "${LOG_FILE}" > "${TTY_DEBUG}") &
+  TAIL_PID=$!
+
+  message validate
 
   if ! find_official_root ; then
     if find_developer_root; then
