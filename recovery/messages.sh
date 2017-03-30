@@ -254,7 +254,9 @@ message_startup() {
     ply-image --clear "0x${BACKGROUND}"
     ply-image "${SCREENS}/boot_message.png"
   fi
+}
 
+message_validate() {
   select_locale
 
   instructions cancel
