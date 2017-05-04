@@ -656,6 +656,37 @@ handle_error() {
   esac
 }
 
+# Increments the recovery_count in RW_VPD by one if it exists otherwise it sets
+# it to 0. If it fails doing so, it returns.
+increment_recovery_count() {
+  local recovery_count_key="recovery_count"
+  local partition="RW_VPD"
+
+  echo "Incrementing recovery_count."
+  # Attempt to read recovery_image from RW_VPD into rcv.
+  local rcv=""
+  if ! rcv=$(vpd -i "${partition}" -g "${recovery_count_key}"); then
+    echo "Failed to get recovery_count with error: $?"
+    echo "Ignoring this step."
+    return
+  elif [ -z "${rcv}" ]; then
+    # If does not exist, create it and set its value to 1.
+    rcv=1
+  else
+    # If exists, increment its value by one.
+    : $(( rcv += 1 ))
+  fi
+
+  # Set the recovery_count.
+  if ! vpd -i "${partition}" -s "${recovery_count_key}=${rcv}"; then
+    echo "Failed to set ${recovery_count_key}=${rcv} with error: $?"
+    return
+  fi
+  echo "Set ${recovery_count_key} to ${rcv}"
+  # No need to update the vpd cache as it will be updated later in the
+  # installation and login process.
+}
+
 recovery_install() {
   NEWROOT_MNT="${USB_MNT}"
 
@@ -686,6 +717,8 @@ recovery_install() {
 
   unmount_usb
   message recovery_complete
+
+  increment_recovery_count
 
   if [ -n "$usb_node_dir" ]; then
     # Default (interactive) case; wait till the user removes the USB
