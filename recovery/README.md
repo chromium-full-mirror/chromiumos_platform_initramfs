@@ -126,5 +126,129 @@ To do this, you have to:
     `/var/lib/initramfs/recovery/lib/board_recovery.sh`
 
 Note we only allow overriding variables and functions in `defaults.sh`. All
-other variables and functions are reserved internally and may change in
-future.
+other variables and functions are reserved internally and may change in future.
+
+## Debugging a Recovery image
+
+These notes are intended as a bridge until all of this is made less difficult to
+work with. Tracking bug to make this less painful: <https://crbug.com/715162>.
+
+Related reading:
+
+*   [Creating a recovery image that has been modified for
+    test](http://dev.chromium.org/chromium-os/developer-guide#TOC-Getting-an-image-that-has-been-modi)
+*   [Chromium OS \[serial\] Console Debugging
+    HOWTO](https://www.chromium.org/chromium-os/how-tos-and-troubleshooting/serial-debugging-howto)
+*   [Controlling Enabled
+    Consoles](https://www.chromium.org/chromium-os/developer-guide/using-serial-tty)
+*   [Servo](https://www.chromium.org/chromium-os/servo)
+*   [Case Closed Debugging with
+    Suzy-Q](https://docs.google.com/document/d/1tMEXhy9DOWjxn3KowjbEiRA6l_s-GRS9wwIiGX4P5xQ/edit#)
+    (Google-internal and partner only)
+*   Various board-specific “Care and Feeding” documents (Google-internal and
+    partner only)
+
+[Creating a recovery image that has been modified for
+test](http://dev.chromium.org/chromium-os/developer-guide#TOC-Getting-an-image-that-has-been-modi)
+is the starter document for this. However, serial console debugging is not part
+of those instructions yet. Further, the flags that are needed cannot (yet) be
+passed on to the parts of the build system that need changes. Here are the
+changes that are needed to make serial console work inside of Recovery:
+
+1.  Build a serial-console-enabled test image. Doc: [built a test image with
+    serial console debugging
+    enabled](https://www.chromium.org/chromium-os/how-tos-and-troubleshooting/serial-debugging-howto).
+    That page has been updated with a lot of clarifications that help with
+    confusion.
+
+2.  The `mod_image_for_recovery.sh` script takes the test image as input and
+    then invokes parts of the build process to convert this image to a Recovery
+    image. We need to modify this script to enable serial console. Open this
+    script in a text editor (no need to `cros_workon`).
+
+    1.  Look for a section like the following and add the `--enable_serial` line
+        below:
+
+        ```shell
+        ${SCRIPTS_DIR}/build_kernel_image.sh
+          --board="${FLAGS_board}"
+          --arch="${ARCH}"
+          --to="$RECOVERY_KERNEL_IMAGE"
+          --vmlinuz="$vmlinuz"
+          --working_dir="${IMAGE_DIR}"
+          --boot_args="noinitrd panic=60 cros_recovery…
+          --enable_serial=ttyS2
+          --keep_work
+          --keys_dir="${FLAGS_keys_dir}"
+          ${enable_rootfs_verification_flag}
+          --public="recovery_key.vbpubk"
+          --private="recovery_kernel_data_key.vbprivk"
+          --keyblock="recovery_kernel.keyblock" 1>&2 …
+        ```
+
+        The specific *ttyS#* will vary by test board (see “Care and Feeding” doc
+        for the board you are debugging on).
+
+    2.  Look for a line that looks like the following and add the `pcserial` or
+        `samsung_serial` flag like this:
+
+        ```shell
+        RECOVERY_KERNEL_FLAGS="... i2cdev vfat pcserial"
+        ```
+
+        Note that `pcserial` is only for x86 platforms.
+
+3.  Run `cros_workon --board=${BOARD} chromeos-base/chromeos-initramfs`.
+
+4.  Edit the Recovery init script to send debug output to the console (and, in
+    turn, the serial console). Open src/platform/initramfs/recovery/init in a
+    text editor. In the main() function, comment out a line that looks like:
+
+    ```shell
+    #exec >"${LOG_FILE}" 2>&1
+    ```
+
+5.  Finally, build the recovery image from within the chroot:
+
+    ```shell
+    sudo ./mod_image_for_recovery.sh --board=${BOARD} --nominimize_image \
+      --image ~/trunk/src/build/images/${BOARD}/latest/chromiumos_test_image.bin \
+      --to ~/trunk/src/build/images/${BOARD}/latest/recovery_test_image.bin
+    ```
+
+    You _don’t_ need to `build_packages` or `build_image`: initramfs is rebuilt
+    during `mod_image_for_recovery.sh`. (Note: `nominimize_image` allows for the
+    preservation of the contents of the stateful partition during install.)
+
+### Finally, you’re ready to boot your image:
+
+1.  `cros_flash` the
+    `~/trunk/src/build/images/${BOARD}/latest/recovery_test_image.bin` file to
+    USB normally. Note that you _cannot_ network install a recovery image for
+    testing.
+
+2.  On your board, CTRL-U to USB boot. Don’t use the recovery boot mode: we
+    haven’t signed this image. USB boot is sufficient for testing (so long as
+    verified boot is not part of your test).
+
+### Back on your Servo or SuzyQ-connected host:
+
+1.  Make sure that servod is running per the
+    [Servo](https://www.chromium.org/chromium-os/servo) instructions. This also
+    works for SuzyQ.
+
+2.  After it’s running, run `dut-control cpu_uart_pty` to obtain the PTY that
+    has the console output on it.
+
+3.  Run `cu -l /dev/pts/#` to attach.
+
+4.  You should see the console output from the init script. The output is “sh
+    -x”-style shell execution tracing.
+
+## Unpacking an initramfs for inspection
+
+1.  In some directory in chroot: `mkdir ./tmp-initramfs`
+
+2.  `cd tmp-initramfs`
+
+3.  `xzcat /build/${BOARD}/var/lib/initramfs/recovery_ramfs.cpio.xz | cpio -i`
