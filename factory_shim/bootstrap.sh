@@ -20,7 +20,7 @@ NEWROOT_MNT=/newroot
 
 LOG_DEV=
 LOG_DIR=/log
-LOG_FILE=${LOG_DIR}/factory_shim.log
+LOG_FILE=${LOG_DIR}/factory_initramfs.log
 
 # Size of the root ramdisk.
 TMPFS_SIZE=400M
