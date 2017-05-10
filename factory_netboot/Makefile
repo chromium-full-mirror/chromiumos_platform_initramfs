@@ -21,7 +21,10 @@ NETBOOT_BIN_DEPS= \
 	/sbin/resize2fs \
 	/sbin/sfdisk \
 	/usr/bin/coreutils \
+	/usr/bin/curl \
 	/usr/bin/getopt \
+	/usr/bin/jq \
+	/usr/bin/mktemp \
 	/usr/bin/openssl \
 	/usr/bin/setterm \
 	/usr/bin/uudecode \
@@ -35,13 +38,13 @@ NETBOOT_BIN_DEPS= \
 # ChromeOS specific dependency.
 CROS_DEPS=\
 	/usr/bin/cgpt \
+	/usr/bin/cros_payload \
 	/usr/bin/crossystem \
 	/usr/bin/futility \
 	/usr/sbin/chromeos-install \
 	/usr/sbin/ectool \
-	/usr/sbin/factory_install_service.sh \
-	/usr/sbin/factory_install.sh \
-	/usr/sbin/factory_tty.sh \
+	/usr/sbin/factory_*.sh \
+	/usr/sbin/mosys \
 	/usr/sbin/netboot_postinst.sh \
 	/usr/sbin/ping_shopfloor.sh \
 	/usr/sbin/secure_less.sh \

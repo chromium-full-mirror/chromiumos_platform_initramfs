@@ -20,7 +20,7 @@ main() {
   setup_environment
   # In case an error is not handled by factory installer itself, stop here
   # so that an operator can see installation stop.
-  factory_install_service.sh || sleep 1d
+  factory_shim_service.sh || sleep 1d
 }
 
 # Make this source-able for testing.
