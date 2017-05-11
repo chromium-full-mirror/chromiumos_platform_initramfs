@@ -24,8 +24,10 @@ NETBOOT_BIN_DEPS= \
 	/usr/bin/curl \
 	/usr/bin/getopt \
 	/usr/bin/jq \
+	/usr/bin/lbzip2 \
 	/usr/bin/mktemp \
 	/usr/bin/openssl \
+	/usr/bin/pigz \
 	/usr/bin/setterm \
 	/usr/bin/uudecode \
 	/usr/bin/uuidgen \
