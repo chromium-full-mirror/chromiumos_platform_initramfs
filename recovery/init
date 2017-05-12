@@ -33,8 +33,6 @@ BASE_MOUNTS="/sys /proc /dev"
 # a properly matched root and kernel.
 UNOFFICIAL_ROOT=0
 
-USE_FRECON=0
-
 . /lib/completion_settings.sh
 . /lib/messages.sh
 
@@ -470,17 +468,12 @@ main() {
   # Verify FW version.
   verify_fw_version || handle_error $?
 
-  frecon_bin=$(which frecon-lite 2>/dev/null)
-  if [ -n "${frecon_bin}" ]; then
-    # only need to start udev if we're using frecon
-    udevd --daemon
-    udevadm trigger
-    udevadm settle
-    USE_FRECON=1
-    TTY_CONSOLE=/run/frecon/vt0
-    TTY_LOG=/run/frecon/vt1
-    TTY_DEBUG=/run/frecon/vt2
-  fi
+  udevd --daemon
+  udevadm trigger
+  udevadm settle
+  TTY_CONSOLE=/run/frecon/vt0
+  TTY_LOG=/run/frecon/vt1
+  TTY_DEBUG=/run/frecon/vt2
 
   message startup
   # Send all verbose output to debug tty.

@@ -76,9 +76,6 @@ select_locale() {
 }
 
 # Encapsulate displaying of images into single function.
-# This makes it easier to maintain and also lets us easily
-# switch between using ply-image/frecon depending on if
-# frecon is available.
 #
 # Arg 1:  the path to the image file
 # Arg 2:  a pair of numbers X,Y representing offset from center
@@ -88,13 +85,9 @@ showimage() {
   shift
   shift
 
-  if [ "${USE_FRECON}" -eq 1 ]; then
-    echo -ne \
-         "\033]image:file=${image};offset=${offset};scale=0\033\\" \
-         > /var/run/frecon/vt0
-  else
-    ply-image --offset "${offset}" "${image}" "$@"
-  fi
+  echo -ne \
+       "\033]image:file=${image};offset=${offset};scale=0\033\\" \
+       > /var/run/frecon/vt0
 }
 
 # Present a message screen horizontally centered at a specified
@@ -235,25 +228,10 @@ message_on_error() {
 #
 # This message also appears when booting factory images.
 message_startup() {
-  if [ "${USE_FRECON}" -eq 1 ]; then
-    frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
-                --enable-vts --scale=0 --clear "0x${BACKGROUND}" \
-                --pre-create-vts \
-                "${SCREENS}/boot_message.png"
-  else
-    # This printf disables screen blanking and powerdown.  Images
-    # displayed by ply-image would otherwise be erased if the
-    # system were left unattended for long enough.  These escape
-    # sequences are documented in the console_codes(4) man page.
-    printf "\033[9;0]\033[14;0]" >"${TTY_CONSOLE}"
-
-    # This 'echo' prevents the text cursor image from showing up after
-    # ply-image have pushed the screen image.
-    echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
-
-    ply-image --clear "0x${BACKGROUND}"
-    ply-image "${SCREENS}/boot_message.png"
-  fi
+  frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
+              --enable-vts --scale=0 --clear "0x${BACKGROUND}" \
+              --pre-create-vts \
+              "${SCREENS}/boot_message.png"
 }
 
 message_validate() {

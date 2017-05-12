@@ -115,7 +115,7 @@ be right.
 
 The user interface for recovery program was made primarily for systems with
 display. For headless (without display) devices, you may need to override the
-console output and images (ply-image) to serial console and other peripherals
+console output and images (frecon) to serial console and other peripherals
 like LED or speaker.
 
 To do this, you have to:

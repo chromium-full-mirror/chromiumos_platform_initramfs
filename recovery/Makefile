@@ -6,7 +6,6 @@
 BIN_DEPS= \
 	/bin/busybox \
 	/sbin/dmsetup \
-	/usr/bin/ply-image \
 	/usr/bin/pv \
 	/usr/sbin/vpd \
 	/usr/sbin/flashrom \

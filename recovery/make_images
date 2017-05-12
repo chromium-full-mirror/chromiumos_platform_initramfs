@@ -140,13 +140,12 @@ PROGRESS_BAR_HEIGHT = PROGRESS_INCREMENT_HEIGHT + 2*PROGRESS_BAR_INSET
 #     bar increments.
 
 def _OffsetFromCenter(offset, target, reference):
-  """Return the offset needed to align images with ply-image --offset.
+  """Return the offset needed to align images with frecon.
 
-  `ply-image --offset` places the center of an image at an offset
-  from the center of the screen.  In cases where we want to place
-  the _edge_ of a target image A at a location relative to the same
-  edge of a reference image B, the distance to the center of A and B
-  must both be accounted for.
+  frecon places the center of an image at an offset from the center of
+  the screen.  In cases where we want to place the _edge_ of a target
+  image A at a location relative to the same edge of a reference image
+  B, the distance to the center of A and B must both be accounted for.
 
   This function performs the necessary calculations to find the
   offset to apply in either the X or Y direction, given the
@@ -162,12 +161,12 @@ def _OffsetFromCenter(offset, target, reference):
   place the target at `offset`.
   """
   # The two separate rounding expressions here are necessary as is,
-  # to account for the centering from the two separate ply-image
+  # to account for the centering from the two separate frecon
   # invocations.  This rounding may nonetheless do the wrong thing
   # if the screen has an odd number of rows or columns.  :-(
   #
   # Don't try to tweak this unless you really know what you're
-  # doing, you've studied the relevant code in ply-image, and you've
+  # doing, you've studied the relevant code in frecon, and you've
   # tested all four cases of (target, reference) x (even, odd).
   # You have been warned.
   return offset + (target + 1) / 2 - (reference + 1) / 2
