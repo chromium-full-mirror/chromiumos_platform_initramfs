@@ -315,7 +315,8 @@ patch_new_root() {
   # Dummy jobs are empty single shot tasks because there may be services waiting
   # them to finish.
   # - pre-startup.conf: will mount new /tmp and /run, which we want to preserve.
-  local dummy_jobs="pre-startup"
+  # - boot-splash.conf: will try to invoke another frecon instance.
+  local dummy_jobs="pre-startup boot-splash"
 
   for job in ${dummy_jobs}; do
     file="${NEWROOT_MNT}/etc/init/${job}.conf"
