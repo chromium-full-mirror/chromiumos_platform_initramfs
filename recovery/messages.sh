@@ -256,7 +256,7 @@ message_developer_image() {
   dev_notice unverified
 }
 
-# Tell the user that he must endure the 5 minute wait for a
+# Tell the user that they must endure the 5 minute wait for a
 # developer key change.
 message_key_change() {
   progress wait
