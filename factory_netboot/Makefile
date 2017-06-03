@@ -54,7 +54,6 @@ CROS_DEPS=\
 
 # Non-executables.
 DATA_DEPS=\
-	/opt/google/memento_updater/* \
 	/root/.pmbr_code \
 	/usr/share/misc/chromeos-common.sh \
 	/usr/share/misc/shflags
