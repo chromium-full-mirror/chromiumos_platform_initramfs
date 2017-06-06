@@ -63,28 +63,6 @@ wait_for_gpt_root() {
   return 1
 }
 
-# Look for any USB device.
-wait_for_root() {
-  dlog -n "Waiting for removable devices to appear"
-  for try in $(seq 20); do
-    dlogf " ."
-    # The 3 is hardcoded here because we are looking for the rootfs
-    # partition of the removable device.
-    for dev in /dev/*3; do
-      # DEFAULT_ROOTDEV can be a path expansion on some systems,
-      # so it is not quoted.
-      if [ -b "$dev" ] && [ "$dev" != "/dev/$(basename ${DEFAULT_ROOTDEV})*" ]; then
-        USB_DEV="$dev"
-        dlog "Found $USB_DEV"
-        return 0
-      fi
-    done
-    sleep 1
-  done
-  dlog "Failed waiting for root!"
-  return 1
-}
-
 check_if_dm_root() {
   dump_kernel_config "$KERN_B_DEV" | grep -q 'root=/dev/dm-' || return 1
   return 0
@@ -97,7 +75,7 @@ find_official_root() {
   dlogf "Checking for an official recovery image . . ."
 
   # Check for a kernel selected root device or one in a well known location.
-  wait_for_gpt_root || wait_for_root || return 1
+  wait_for_gpt_root || return 1
 
   # Now see if it has a Chrome OS rootfs partition.
   cgpt find -t rootfs "$(strip_partition "$USB_DEV")" || return 1
