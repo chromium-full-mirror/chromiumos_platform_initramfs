@@ -341,6 +341,21 @@ message_secure_module_failure() {
   exit 1
 }
 
+# Tell the user that we're installing a firmware update.
+message_update_firmware() {
+  instructions update_firmware
+  showicon empty
+  progress installing
+}
+
+# Tell the user that the battery is too low to install a firmware
+# update and that they need to charge the device.
+message_update_firmware_low_battery() {
+  instructions update_firmware_low_battery
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
+  progress empty
+}
+
 # Terminate with an error message.  We don't want to do anything
 # else (like start a shell) because it would be trivially easy to
 # get here (just unplug the USB drive after the kernel starts but

@@ -347,8 +347,6 @@ cleanup_install_mounts() {
 }
 
 call_image_recovery_script() {
-  setup_install_mounts || return 1
-
   dlog "Installing software; this will take some time."
   dlog "See the debug log on VT3 for the full output."
 
@@ -373,9 +371,6 @@ call_image_recovery_script() {
       dlog "Missing hardware diagnostics."
     fi
   fi
-
-  # No error check here:  Clean up doesn't need to be successful.
-  cleanup_install_mounts
 
   return $install_status
 }
@@ -687,6 +682,80 @@ increment_recovery_count() {
   # installation and login process.
 }
 
+# Checks whether the root includes a TPM firmware update and installs it if
+# applicable. Note that this must happen before locking TPM physical presence,
+# because this is the only way to recover from a failed previous firmware
+# update.
+update_tpm_firmware() {
+  # Only allow the firmware updater to run from an official root. We don't want
+  # arbitrary code to run with TPM physical presence asserted! If we're running
+  # an unofficial root, return success so it looks like we don't have an update.
+  is_unofficial_root && return 0
+
+  # Images for boards that we don't ship TPM firmware updates for don't carry
+  # the updater. Nothing to do in that case.
+  [ -x "${USB_MNT}/usr/sbin/tpm-firmware-updater" ] || return 0
+
+  while true; do
+    (
+      set +e
+      # TODO(mnissler): Reading the VPD from flash requires CAP_SYS_ADMIN and
+      # CAP_SYS_RAWIO. Figure out whether there's a way around that.
+      chroot "${USB_MNT}" \
+        /sbin/minijail0 -c 0x220000 --ambient -e -l -n -p -r -v --uts -- \
+        /bin/sh -x /usr/sbin/tpm-firmware-updater
+      echo $? > /tmp/tpm-firmware-updater.status
+    ) 2>"${LOG_DIR}/tpm-firmware-updater.log" | (
+      # The dummy read is so we only show the update_firmware message to the
+      # user in case the update actually takes place.
+      if read progress; then
+        message update_firmware
+        progress_bar
+      fi
+    )
+
+    local EXIT_CODE_SUCCESS=0
+    local EXIT_CODE_ERROR=1
+    local EXIT_CODE_NO_UPDATE=3
+    local EXIT_CODE_UPDATE_FAILED=4
+    local EXIT_CODE_LOW_BATTERY=5
+    local EXIT_CODE_NOT_UPDATABLE=6
+    case "$(cat /tmp/tpm-firmware-updater.status)" in
+      ${EXIT_CODE_SUCCESS})
+        # We need to reboot to get the TPM back into operational state.
+        save_log_files
+        reboot -f
+        exit 0
+        ;;
+      ${EXIT_CODE_NO_UPDATE})
+        # Let the recovery process continue.
+        return 0
+        ;;
+      ${EXIT_CODE_UPDATE_FAILED})
+        # Fail and let the caller handle the error.
+        return 1
+        ;;
+      ${EXIT_CODE_LOW_BATTERY})
+        # Show an error screen, sleep a bit, and retry.
+        message update_firmware_low_battery
+        sleep 10
+        ;;
+      ${EXIT_CODE_NOT_UPDATABLE})
+        # No physical presence? This can only happen if we're not booted in
+        # recovery mode.
+        dlog "Attempted TPM firmware update, but no physical presence."
+        return 0
+        ;;
+      ${EXIT_CODE_ERROR}|*)
+        return 1
+        ;;
+    esac
+  done
+
+  # Never reached.
+  return 0
+}
+
 recovery_install() {
   NEWROOT_MNT="${USB_MNT}"
 
@@ -699,6 +768,11 @@ recovery_install() {
   # Check if we have a verified recovery root.
   validate_recovery_root || handle_error $?
 
+  setup_install_mounts || on_error
+
+  # Install a TPM firmware update included in the rootfs if applicable.
+  update_tpm_firmware || message secure_module_failure
+
   # Do not install the system image if the TPM is in failed selftest mode. The
   # installer is not prepared to handle this state and installing a fresh system
   # image will not fix things anyways, so err on the safe side and abort.
@@ -707,6 +781,9 @@ recovery_install() {
   get_dst || on_error
 
   recover_system || handle_error $?
+
+  # No error check here:  Clean up doesn't need to be successful.
+  cleanup_install_mounts
 
   stop_log_file
   # Save the recovery log to the target on success and the USB.
