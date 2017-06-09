@@ -18,6 +18,8 @@ NETBOOT_BIN_DEPS= \
 	/bin/kmod \
 	/bin/xxd \
 	/sbin/blockdev \
+	/sbin/dumpe2fs \
+	/sbin/e2fsck \
 	/sbin/resize2fs \
 	/sbin/sfdisk \
 	/usr/bin/coreutils \
