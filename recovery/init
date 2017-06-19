@@ -431,6 +431,14 @@ export_args() {
   done
 }
 
+# Set panel brightness to maximum level
+set_brightness() {
+  local backlight_device=
+  for backlight_device in /sys/class/backlight/*; do
+    cat ${backlight_device}/max_brightness > ${backlight_device}/brightness
+  done
+}
+
 main() {
   exec >"${LOG_FILE}" 2>&1
 
@@ -470,6 +478,8 @@ main() {
 
   # Extract the real boot source, which may be masked by dm-verity.
   get_stateful_dev || on_error
+
+  set_brightness
 
   recovery_install
 }
