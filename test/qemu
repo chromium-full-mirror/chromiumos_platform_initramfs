@@ -76,10 +76,6 @@ main() {
     graphics="false"
     kcmdline+=" cros_factory_install"
     ;;
-  loader_kernel)
-    graphics="false"
-    kcmdline+=" loader_root=/dev/sda"
-    ;;
   recovery)
     ;;
   esac

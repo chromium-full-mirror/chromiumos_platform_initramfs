@@ -1,7 +1,0 @@
-# loader kernel: handle a/b verified kernels
-
-If the firmware doesn't support a/b partition selection, and kernels in the
-verified boot format, this initramfs will do that instead.
-
-It will use cgpt to locate the active kernel, then use vboot utils to verify
-the integrity of the kernel, before loading it via kexec and running it.
