@@ -699,6 +699,11 @@ recovery_install() {
   # Check if we have a verified recovery root.
   validate_recovery_root || handle_error $?
 
+  # Do not install the system image if the TPM is in failed selftest mode. The
+  # installer is not prepared to handle this state and installing a fresh system
+  # image will not fix things anyways, so err on the safe side and abort.
+  [ -z "${TPM_FAILED_SELFTEST}" ] || message secure_module_failure
+
   get_dst || on_error
 
   recover_system || handle_error $?

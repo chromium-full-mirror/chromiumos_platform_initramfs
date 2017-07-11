@@ -183,6 +183,13 @@ System recovery is in progress...
 This will take a few minutes. Please do not turn off the computer or
 disconnect the power.
       </message>
+      <message name="secure_module_failure" desc="Message shown by the recovery installer when the secure module is in an non-operational state.">
+The secure module in this device is in a non-operational state.
+
+Please refer to this URL for troubleshooting tips:
+
+https://www.google.com/chromeos/recovery
+      </message>
       <message name="unverified" desc="Message shown by the recovery installer in developer mode to alert the user when installing an unverified image.">
 The image on your recovery media is an unverified developer image.
 

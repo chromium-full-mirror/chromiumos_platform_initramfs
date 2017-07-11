@@ -327,6 +327,20 @@ message_block_developer_mode() {
   exit 1
 }
 
+# Tell the user that the secure module is hosed and point them to
+# online resources for further information.
+#
+# This is an error condition equivalent to on_error, below.
+message_secure_module_failure() {
+  instructions secure_module_failure
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
+  progress empty
+  dev_notice empty
+  save_log_files
+  sleep 1d
+  exit 1
+}
+
 # Terminate with an error message.  We don't want to do anything
 # else (like start a shell) because it would be trivially easy to
 # get here (just unplug the USB drive after the kernel starts but

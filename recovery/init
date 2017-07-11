@@ -23,6 +23,7 @@ TAIL_PID=
 
 TPM_B_LOCKED=
 TPM_PP_LOCKED=
+TPM_FAILED_SELFTEST=
 
 REAL_KERN_B_HASH=
 
@@ -100,8 +101,13 @@ find_official_root() {
 
 find_developer_root() {
   is_developer_mode || return 1
+
   # Lock the TPM prior to using an untrusted root.
   lock_tpm || return 1
+
+  # Don't allow an untrusted root when the TPM is in failed selftest mode.
+  [ -n "${TPM_FAILED_SELFTEST}" ] && return 1
+
   dlogf "\nSearching for developer root . . ."
   # If an official root could not be mounted, free up the underlying device
   # if it is claimed by verity.
@@ -393,20 +399,30 @@ lock_tpm() {
     # Don't fail if it doesn't work though.
     tpmc startup >/dev/null 2>&1
     tpmc ctest
-    if ! tpmc block; then
-      if is_nonchrome; then
-        dlog "No security chip appears to exist in this non-Chrome device."
-        dlog "The security of your experience will suffer."
-        # Forge onward.
-      else
-        dlog "An unrecoverable error occurred with your security device"
-        dlog "Please power down and try again."
-        dlog "Failed to lock bGlobalLock."
-        on_error
-        return 1  # Never reached.
-      fi
-    fi
-    TPM_B_LOCKED=y
+    tpmc block
+    case "$?" in
+      0)
+        TPM_B_LOCKED=y
+        ;;
+      28)
+        # TPM is in failed selftest mode, i.e. not operational. Continue so
+        # later code gets a chance to recover the TPM. Don't allow untrusted
+        # code to execute though.
+        TPM_FAILED_SELFTEST=y
+        ;;
+      *)
+        if is_nonchrome; then
+          dlog "No security chip appears to exist in this non-Chrome device."
+          dlog "The security of your experience will suffer."
+          # Forge onward.
+          TPM_B_LOCKED=y
+        else
+          dlog "Failed to lock bGlobalLock."
+          message secure_module_failure
+          return 1  # Never reached.
+        fi
+        ;;
+    esac
   fi
   if [ -z "$TPM_PP_LOCKED" ]; then
     # TODO: tpmc pplock if appropriate
