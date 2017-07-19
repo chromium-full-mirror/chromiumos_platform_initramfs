@@ -720,6 +720,7 @@ update_tpm_firmware() {
     local EXIT_CODE_UPDATE_FAILED=4
     local EXIT_CODE_LOW_BATTERY=5
     local EXIT_CODE_NOT_UPDATABLE=6
+    local EXIT_CODE_MISSING_APPROVAL=7
     case "$(cat /tmp/tpm-firmware-updater.status)" in
       ${EXIT_CODE_SUCCESS})
         # We need to reboot to get the TPM back into operational state.
@@ -727,7 +728,7 @@ update_tpm_firmware() {
         reboot -f
         exit 0
         ;;
-      ${EXIT_CODE_NO_UPDATE})
+      ${EXIT_CODE_NO_UPDATE}|${EXIT_CODE_MISSING_APPROVAL})
         # Let the recovery process continue.
         return 0
         ;;
