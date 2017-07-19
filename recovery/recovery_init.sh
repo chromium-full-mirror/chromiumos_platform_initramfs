@@ -771,12 +771,12 @@ recovery_install() {
   setup_install_mounts || on_error
 
   # Install a TPM firmware update included in the rootfs if applicable.
-  update_tpm_firmware || message secure_module_failure
+  update_tpm_firmware || message security_module_failure
 
   # Do not install the system image if the TPM is in failed selftest mode. The
   # installer is not prepared to handle this state and installing a fresh system
   # image will not fix things anyways, so err on the safe side and abort.
-  [ -z "${TPM_FAILED_SELFTEST}" ] || message secure_module_failure
+  [ -z "${TPM_FAILED_SELFTEST}" ] || message security_module_failure
 
   get_dst || on_error
 

@@ -418,7 +418,7 @@ lock_tpm() {
           TPM_B_LOCKED=y
         else
           dlog "Failed to lock bGlobalLock."
-          message secure_module_failure
+          message security_module_failure
           return 1  # Never reached.
         fi
         ;;

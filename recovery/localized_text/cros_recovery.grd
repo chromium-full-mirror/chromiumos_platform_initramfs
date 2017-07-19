@@ -157,9 +157,6 @@ troubleshooting tips:
 
 https://www.google.com/chromeos/recovery
       </message>
-      <message name="installing" desc="Message shown by the recovery installer to tell the user that software is in the process of being installed.">
-Installing...
-      </message>
       <message name="invalid_kernel" desc="Message shown by the recovery installer on an attempt to install a recovery image that was signed by an outdated signing key.">
 You are using an out-of-date Chrome OS recovery image.
 
@@ -186,10 +183,10 @@ System recovery is in progress...
 This will take a few minutes. Please do not turn off the computer or
 disconnect the power.
       </message>
-      <message name="secure_module_failure" desc="Message shown by the recovery installer when the secure module is in an non-operational state.">
-The secure module in this device is in a non-operational state.
+      <message name="security_module_failure" desc="Message shown by the recovery installer when the security module is in an non-operational state.">
+The security module on this device is not working.
 
-Please refer to this URL for troubleshooting tips:
+Please refer to this URL for more information:
 
 https://www.google.com/chromeos/recovery
       </message>
@@ -201,14 +198,23 @@ If you later turn verification back on, you will need to repeat
 recovery with an official Chrome OS image.
       </message>
       <message name="update_firmware" desc="Message shown by the recovery installer while installing a firmware update.">
-Your system is applying a critical update. Please do not turn it off.
+Installing update...
 
-The system will restart after applying the update.
+Please do not turn off the device.
+It will automatically reboot when the update finishes.
       </message>
-      <message name="update_firmware_low_battery" desc="Message shown by the recovery installer when a firmware update is ready to be installed but the battery isn't sufficiently charged.">
-Your system is ready to apply a critical update, but the battery
-isn't sufficiently charged. Please make sure a charger is connected
-and wait for the battery to charge.
+      <message name="update_firmware_low_battery" desc="Message shown by the recovery installer when a firmware update is ready to be installed but the battery isn't sufficiently charged and no charger is connected.">
+Battery too low for update.
+
+Please connect your Chromebook to a power source. The update
+will automatically begin as soon as the battery has enough charge.
+      </message>
+      <message name="update_firmware_low_battery_charging" desc="Message shown by the recovery installer when a firmware update is ready to be installed but we wait for the battery to be sufficiently charged.">
+Battery too low for update.
+
+Charging...
+
+The update will automatically begin as soon as the battery has enough charge.
       </message>
       <message name="validating" desc="Message shown by the recovery installer while checking the validity of the installation image.">
 Verifying the integrity of your recovery media...

@@ -327,12 +327,12 @@ message_block_developer_mode() {
   exit 1
 }
 
-# Tell the user that the secure module is hosed and point them to
+# Tell the user that the security module is hosed and point them to
 # online resources for further information.
 #
 # This is an error condition equivalent to on_error, below.
-message_secure_module_failure() {
-  instructions secure_module_failure
+message_security_module_failure() {
+  instructions security_module_failure
   showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
   progress empty
   dev_notice empty
@@ -345,7 +345,7 @@ message_secure_module_failure() {
 message_update_firmware() {
   instructions update_firmware
   showicon empty
-  progress installing
+  progress empty
 }
 
 # Tell the user that the battery is too low to install a firmware
