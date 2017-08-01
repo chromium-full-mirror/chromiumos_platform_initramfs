@@ -62,7 +62,10 @@ is_developer_mode_blocked() {
   # even if firmware write protection is disabled, because removing a
   # screw is simpler than hooking up a different disk or using a
   # dediprog to reprogram the flash directly.
-  crossystem block_devmode?1
+  if crossystem 'block_devmode?1'; then
+    return 0
+  fi
+  [ "$(vpd -i RW_VPD -g block_devmode)" = "1" ]
 }
 
 # Verifies the recovery root by reading all blocks of the dm-verity
