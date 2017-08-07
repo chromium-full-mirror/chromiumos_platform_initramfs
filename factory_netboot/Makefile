@@ -16,6 +16,7 @@ NETBOOT_BIN_DEPS= \
 	/bin/dd \
 	/bin/ip \
 	/bin/kmod \
+	/bin/udevadm \
 	/bin/xxd \
 	/sbin/blockdev \
 	/sbin/dumpe2fs \
