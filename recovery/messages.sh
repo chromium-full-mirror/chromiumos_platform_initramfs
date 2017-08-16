@@ -356,6 +356,14 @@ message_update_firmware_low_battery() {
   progress empty
 }
 
+# Tell the user that the battery is too low to install a firmware
+# update and that we're waiting for the battery to charge.
+message_update_firmware_low_battery_charging() {
+  instructions update_firmware_low_battery_charging
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
+  progress empty
+}
+
 # Terminate with an error message.  We don't want to do anything
 # else (like start a shell) because it would be trivially easy to
 # get here (just unplug the USB drive after the kernel starts but

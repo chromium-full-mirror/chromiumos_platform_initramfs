@@ -24,6 +24,8 @@ LOCKBOX_TPM_NV_SPACE=0x20000004
 REC_VER_MAX=0
 # Where chromeos-install will store any related hardware diagnostics data.
 LOG_HARDWARE_DIAGNOSTICS=hardware_diagnostics.log
+# Minimum battery charge required for TPM firmware update.
+MIN_BATTERY_CHARGE_PERCENT=10
 
 
 # Installation Target.
@@ -654,6 +656,29 @@ handle_error() {
   esac
 }
 
+wait_for_battery_to_charge() {
+  while true; do
+    local power_status="$(chroot "${USB_MNT}" /usr/bin/dump_power_status)"
+
+    # Recheck whether charge level is sufficient.
+    local battery_charge=$(echo "${power_status}" |
+                           grep "^battery_display_percent " |
+                           cut -d ' ' -f 2)
+    if [ "${battery_charge%%.*}" -ge "${MIN_BATTERY_CHARGE_PERCENT}" ]; then
+      break
+    fi
+
+    # Display the appropriate low battery message.
+    if echo "${power_status}" | grep -Fqx "line_power_connected 1"; then
+      message update_firmware_low_battery_charging
+    else
+      message update_firmware_low_battery
+    fi
+
+    sleep 1
+  done
+}
+
 # Checks whether the root includes a TPM firmware update and installs it if
 # applicable. Note that this must happen before locking TPM physical presence,
 # because this is the only way to recover from a failed previous firmware
@@ -673,6 +698,7 @@ update_tpm_firmware() {
       set +e
       # TODO(mnissler): Reading the VPD from flash requires CAP_SYS_ADMIN and
       # CAP_SYS_RAWIO. Figure out whether there's a way around that.
+      TPM_FIRMWARE_UPDATE_MIN_BATTERY="${MIN_BATTERY_CHARGE_PERCENT}" \
       chroot "${USB_MNT}" \
         /sbin/minijail0 -c 0x220000 --ambient -e -l -n -p -r -v --uts -- \
         /bin/sh -x /usr/sbin/tpm-firmware-updater
@@ -709,9 +735,7 @@ update_tpm_firmware() {
         return 1
         ;;
       ${EXIT_CODE_LOW_BATTERY})
-        # Show an error screen, sleep a bit, and retry.
-        message update_firmware_low_battery
-        sleep 10
+        wait_for_battery_to_charge
         ;;
       ${EXIT_CODE_NOT_UPDATABLE})
         # No physical presence? This can only happen if we're not booted in
