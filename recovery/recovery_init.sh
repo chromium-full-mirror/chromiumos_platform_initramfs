@@ -703,7 +703,7 @@ update_tpm_firmware() {
         /sbin/minijail0 -c 0x220000 --ambient -e -l -n -p -r -v --uts -- \
         /bin/sh -x /usr/sbin/tpm-firmware-updater
       echo $? > /tmp/tpm-firmware-updater.status
-    ) 2>"${LOG_DIR}/tpm-firmware-updater.log" | (
+    ) 2>>"${LOG_DIR}/tpm-firmware-updater.log" | (
       # The dummy read is so we only show the update_firmware message to the
       # user in case the update actually takes place.
       if read progress; then
