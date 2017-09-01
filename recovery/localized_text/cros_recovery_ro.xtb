@@ -1,19 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="ro">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="ro">
+<translation id="1207194515919037363">Modulul de securitate de pe acest dispozitiv nu funcționează.
+
+Consultă această adresă URL pentru mai multe informații:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Ești pe cale să recuperezi computerul. Asigură-te că este conectat
+la o sursă de alimentare.
+
+Dacă dorești să anulezi recuperarea, apasă lung pe butonul de alimentare
+până când computerul se închide (durează până la 8 secunde).
+Poți să faci acest lucru oricând în timpul verificării.</translation>
 <translation id="2731700343119398978">Așteptați...</translation>
-<translation id="3946632524220974380">Pentru a continua, este necesară modificarea cheii de dezvoltator;
-procesul necesită 5 minute.</translation>
-<translation id="4905949142713655149">A apărut o eroare neașteptată. Pentru sfaturi de remediere
-a problemelor, consultă această adresă URL:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Verificarea sistemului de operare Chrome este dezactivată.
-
-Dacă nu ai intenționat acest lucru, anulează recuperarea și
-dezactivează modul pentru dezvoltatori, pentru a activa verificarea.
-Pentru mai multe informații, consultă această adresă URL:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">Se verifică integritatea suportului de recuperare...</translation>
 <translation id="300775974721831513">Proprietarul dispozitivului solicită ca dispozitivul să ruleze având
 verificarea pentru sistemul de operare Chrome activată. Tu încerci
 să instalezi o imagine de recuperare neoficială a sistemului de operare
@@ -22,12 +21,43 @@ Chrome, care nu trece de faza de verificare.
 Pentru mai multe informații, consultă această adresă URL:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">Se verifică integritatea suportului de recuperare...</translation>
+<translation id="33938768013536853">Bateria este prea descărcată pentru actualizare.
+
+Conectează Chromebookul la o sursă de alimentare. Actualizarea
+va începe automat de îndată ce bateria este încărcată suficient.</translation>
 <translation id="3750930141330200643">Folosești o imagine de recuperare a sistemului de operare Chrome neactualizată.
 
 Pentru instrucțiuni privind modul în care poți să creezi un
 nou suport de recuperare, accesează această adresă URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">Pentru a continua, este necesară modificarea cheii de dezvoltator;
+procesul necesită 5 minute.</translation>
+<translation id="436588829138218801">Verificarea sistemului de operare Chrome este dezactivată.
+
+Dacă nu ai intenționat acest lucru, anulează recuperarea și
+dezactivează modul pentru dezvoltatori, pentru a activa verificarea.
+Pentru mai multe informații, consultă această adresă URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">A apărut o eroare neașteptată. Pentru sfaturi de remediere
+a problemelor, consultă această adresă URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Recuperarea sistemului este finalizată.
+
+Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
+<translation id="544118001572747892">Se pare că computerul nu folosește sistemul de operare Chrome!
+
+Această acțiune va șterge orice alt sistem de operare pe care l-ai
+instalat și toate datele; nu vei avea opțiunea de a face backup.
+Dacă pe computer ai date pe care vrei să le salvezi, anulează recuperarea.</translation>
+<translation id="5512602676102820748">Bateria este prea descărcată pentru actualizare.
+
+Se încarcă...
+
+Actualizarea va începe automat de îndată ce bateria este încărcată suficient.</translation>
 <translation id="6478314309353607985">Imaginea de pe suportul de recuperare este o imagine de dezvoltare neverificată.
 
 Recuperarea va continua, deoarece pornirea verificată este dezactivată.
@@ -38,22 +68,12 @@ folosind o imagine a sistemului de operare Chrome oficială.</translation>
 Recuperarea va continua, deoarece verificarea este dezactivată.
 Dacă ulterior activezi verificarea, va fi necesar să repeți recuperarea
 folosind o imagine a sistemului de operare Chrome actualizată.</translation>
+<translation id="8596190965261846034">Se instalează actualizarea...
+
+Nu opri dispozitivul.
+Acesta va reporni automat când actualizarea se finalizează.</translation>
 <translation id="8728458033228603970">Recuperarea sistemului este în desfășurare...
 
 Procesul va dura câteva minute. Nu închide computerul
 și nu-l deconecta de la sursa de alimentare.</translation>
-<translation id="544118001572747892">Se pare că computerul nu folosește sistemul de operare Chrome!
-
-Această acțiune va șterge orice alt sistem de operare pe care l-ai
-instalat și toate datele; nu vei avea opțiunea de a face backup.
-Dacă pe computer ai date pe care vrei să le salvezi, anulează recuperarea.</translation>
-<translation id="2701006671590617571">Ești pe cale să recuperezi computerul. Asigură-te că este conectat
-la o sursă de alimentare.
-
-Dacă dorești să anulezi recuperarea, apasă lung pe butonul de alimentare
-până când computerul se închide (durează până la 8 secunde).
-Poți să faci acest lucru oricând în timpul verificării.</translation>
-<translation id="537291066186627789">Recuperarea sistemului este finalizată.
-
-Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
 </translationbundle>

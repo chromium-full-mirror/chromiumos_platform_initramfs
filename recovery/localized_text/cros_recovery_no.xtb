@@ -1,19 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="no">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="no">
+<translation id="1207194515919037363">Sikkerhetsmodulen på denne enheten fungerer ikke.
+
+Du finner mer informasjon på denne nettadressen:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Du er i ferd med å gjenopprette datamaskinen. Sjekk at den er
+koblet til en strømkilde.
+
+Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og
+holder den inne til datamaskinen slår seg av (dette tar opptil 8 sekunder).
+Det er trygt å gjøre dette når som helst under bekreftelsen.</translation>
 <translation id="2731700343119398978">Vent litt …</translation>
-<translation id="3946632524220974380">Bytting av utviklernøkkel kreves for å fortsette. Dette tar
-5 minutter.</translation>
-<translation id="4905949142713655149">En uventet feil har oppstått. Se denne nettadressen
-for feilsøkingstips:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Chrome OS-bekreftelse er slått av.
-
-Hvis dette er utilsiktet, bør du avbryte gjenopprettingen og slå av
-utviklermodus for å slå på bekreftelse. Du kan finne mer informasjon
-på denne nettadressen:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">Bekrefter integriteten til gjenopprettingsmediet …</translation>
 <translation id="300775974721831513">Eieren av denne enheten krever at enheten kjører med Chrome OS-bekreftelse
 slått på. Du prøver å installere en uoffisiell gjenoprettingsavbildning for
 Chrome OS som ikke kan bekreftes.
@@ -21,11 +20,43 @@ Chrome OS som ikke kan bekreftes.
 Se denne nettadressen for mer informasjon:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">Bekrefter integriteten til gjenopprettingsmediet …</translation>
+<translation id="33938768013536853">Det er for lite batteri igjen til å starte oppdateringen.
+
+Koble Chromebooken til en strømkilde. Oppdateringen starter automatisk når batteriet er tilstrekkelig ladet.</translation>
 <translation id="3750930141330200643">Du bruker en foreldet gjenopprettingsavbildning for Chrome OS.
 
 På denne nettadressen finner du instruksjoner for hvordan du oppretter nye gjenopprettingsmedier:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">Bytting av utviklernøkkel kreves for å fortsette. Dette tar
+5 minutter.</translation>
+<translation id="436588829138218801">Chrome OS-bekreftelse er slått av.
+
+Hvis dette er utilsiktet, bør du avbryte gjenopprettingen og slå av
+utviklermodus for å slå på bekreftelse. Du kan finne mer informasjon
+på denne nettadressen:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">En uventet feil har oppstått. Se denne nettadressen
+for feilsøkingstips:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Systemgjenopprettingen er fullført.
+
+Datamaskinen starter på nytt automatisk når du fjerner
+gjenopprettingsmediet.</translation>
+<translation id="544118001572747892">Datamaskinen din ser ikke ut til å være en Chrome OS-maskin.
+
+Denne operasjonen sletter et eventuelt annet operativsystem du
+har installert samt alle data. Det blir ikke mulig å sikkerhetskopiere.
+Hvis du har data på denne datamaskinen som du vil beholde,
+må du avbryte gjenopprettingen.</translation>
+<translation id="5512602676102820748">Det er for lite batteri igjen til å starte oppdateringen.
+
+Lader …
+
+Oppdateringen starter automatisk når batteriet er tilstrekkelig ladet.</translation>
 <translation id="6478314309353607985">Avbildningen på gjenopprettingsmediet er en ubekreftet utvikleravbildning.
 
 Gjenopprettingen fortsetter fordi bekreftet oppstart er slått av.
@@ -36,23 +67,11 @@ gjenopprettingen med en oppdatert avbildning for Chrome OS.</translation>
 Gjenopprettingen fortsetter fordi bekreftelse er slått av.
 Hvis du slår på bekreftelse igjen senere, må du gjenta
 gjenopprettingen med en oppdatert avbildning for Chrome OS.</translation>
+<translation id="8596190965261846034">Installerer oppdateringen …
+
+Ikke slå av enheten.
+Den starter på nytt automatisk når oppdateringen er fullført.</translation>
 <translation id="8728458033228603970">Systemgjenoppretting pågår …
 
 Dette tar noen minutter. Ikke slå av datamaskinen eller koble fra strømmen.</translation>
-<translation id="544118001572747892">Datamaskinen din ser ikke ut til å være en Chrome OS-maskin.
-
-Denne operasjonen sletter et eventuelt annet operativsystem du
-har installert samt alle data. Det blir ikke mulig å sikkerhetskopiere.
-Hvis du har data på denne datamaskinen som du vil beholde,
-må du avbryte gjenopprettingen.</translation>
-<translation id="2701006671590617571">Du er i ferd med å gjenopprette datamaskinen. Sjekk at den er
-koblet til en strømkilde.
-
-Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og
-holder den inne til datamaskinen slår seg av (dette tar opptil 8 sekunder).
-Det er trygt å gjøre dette når som helst under bekreftelsen.</translation>
-<translation id="537291066186627789">Systemgjenopprettingen er fullført.
-
-Datamaskinen starter på nytt automatisk når du fjerner
-gjenopprettingsmediet.</translation>
 </translationbundle>

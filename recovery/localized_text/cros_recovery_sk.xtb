@@ -1,17 +1,16 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="sk">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="sk">
+<translation id="1207194515919037363">Bezpečnostný modul v tomto zariadení nefunguje.
+
+Ďalšie informácie získate na webovej adrese
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Chystáte sa obnoviť svoj počítač. Skontrolujte, či je počítač pripojený k zdroju napájania.
+
+Ak chcete obnovenie zrušiť, stlačte a podržte vypínač, dokým sa systém nevypne (trvá to približne osem sekúnd).
+Môžete tak bezpečne urobiť kedykoľvek počas overenia.</translation>
 <translation id="2731700343119398978">Počkajte...</translation>
-<translation id="3946632524220974380">Ak chcete pokračovať, musíte zmeniť kľúč vývojára. Trvá to päť minút.</translation>
-<translation id="4905949142713655149">Vyskytla sa neočakávaná chyba. Tipy na riešenie problémov nájdete na tejto
-webovej adrese:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Overenie operačného systému Chrome OS je vypnuté.
-
-Ak to nie je úmyselné, zrušte obnovenie a zakážte režim pre vývojárov, čím
-overenie systému povolíte. Ďalšie informácie nájdete na tejto webovej adrese:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">Overuje sa integrita média na obnovenie...</translation>
 <translation id="300775974721831513">Vlastník zariadenia vyžaduje, aby bolo na tomto zariadení zapnuté overenie
 operačného systému Chrome OS.  Snažíte sa nainštalovať neoficiálny obraz
  na obnovenie operačného systému Chrome OS, ktorý nesplní overenie.
@@ -19,11 +18,41 @@ operačného systému Chrome OS.  Snažíte sa nainštalovať neoficiálny obraz
 Ďalšie informácie nájdete na tejto webovej adrese:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">Overuje sa integrita média na obnovenie...</translation>
+<translation id="33938768013536853">Batéria je príliš slabá na aktualizáciu.
+
+Pripojte Chromebook k zdroju napájania. Aktualizácia
+sa automaticky spustí, keď bude batéria dostatočne nabitá.</translation>
 <translation id="3750930141330200643">Používate zastaraný obraz na obnovenie operačného systému Chrome OS.
 
 Pokyny na vytvorenie nového média na obnovenie nájdete na tejto webovej adrese:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">Ak chcete pokračovať, musíte zmeniť kľúč vývojára. Trvá to päť minút.</translation>
+<translation id="436588829138218801">Overenie operačného systému Chrome OS je vypnuté.
+
+Ak to nie je úmyselné, zrušte obnovenie a zakážte režim pre vývojárov, čím
+overenie systému povolíte. Ďalšie informácie nájdete na tejto webovej adrese:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">Vyskytla sa neočakávaná chyba. Tipy na riešenie problémov nájdete na tejto
+webovej adrese:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Obnovenie systému je dokončené.
+
+Odoberte médium na obnovenie a počítač sa automaticky reštartuje.</translation>
+<translation id="544118001572747892">Zdá sa, že váš počítač nepoužíva systém Chrome OS.
+
+Táto operácia odstráni všetky ostatné operačné systémy, ktoré ste mohli
+nainštalovať, a všetky dáta. Nebude možné vytvoriť zálohu.
+Ak máte v tomto počítači dáta, ktoré chcete zachovať, mali by ste
+obnovenie zrušiť.</translation>
+<translation id="5512602676102820748">Batéria je príliš slabá na aktualizáciu.
+
+Nabíja sa...
+
+Aktualizácia sa automaticky spustí, keď bude batéria dostatočne nabitá.</translation>
 <translation id="6478314309353607985">Obraz na médiu na obnovenie pochádza od neovereného vývojára.
 
 Obnovenie bude pokračovať, pretože overenie pri štarte je vypnuté.
@@ -34,21 +63,12 @@ s oficiálnym obrazom systému Chrome OS.</translation>
 Obnovenie bude pokračovať, pretože overenie systému je vypnuté.
 Ak overenie neskôr znova zapnete, budete musieť obnovenie zopakovať
 s aktuálnym obrazom systému Chrome OS.</translation>
+<translation id="8596190965261846034">Inštaluje sa aktualizácia...
+
+Zariadenie nevypínajte.
+Po dokončení aktualizácie sa automaticky reštartuje.</translation>
 <translation id="8728458033228603970">Prebieha obnovenie systému...
 
 Táto operácia môže trvať niekoľko minút. Nevypínajte počítač ani ho neodpájajte
 od zdroja napájania.</translation>
-<translation id="544118001572747892">Zdá sa, že váš počítač nepoužíva systém Chrome OS.
-
-Táto operácia odstráni všetky ostatné operačné systémy, ktoré ste mohli
-nainštalovať, a všetky dáta. Nebude možné vytvoriť zálohu.
-Ak máte v tomto počítači dáta, ktoré chcete zachovať, mali by ste
-obnovenie zrušiť.</translation>
-<translation id="2701006671590617571">Chystáte sa obnoviť svoj počítač. Skontrolujte, či je počítač pripojený k zdroju napájania.
-
-Ak chcete obnovenie zrušiť, stlačte tlačidlo napájania a podržte ho, dokým sa systém nevypne (trvá to približne 8 sekúnd).
-Môžete tak bezpečne urobiť kedykoľvek počas overenia.</translation>
-<translation id="537291066186627789">Obnovenie systému je dokončené.
-
-Odoberte médium na obnovenie a počítač sa automaticky reštartuje.</translation>
 </translationbundle>

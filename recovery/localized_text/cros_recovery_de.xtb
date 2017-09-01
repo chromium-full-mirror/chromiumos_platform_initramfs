@@ -1,31 +1,62 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="de">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="de">
+<translation id="1207194515919037363">Das Sicherheitsmodul auf diesem Gerät funktioniert nicht.
+
+Weitere Informationen finden Sie unter dieser URL:
+
+https://www.google.com/chromeos/recovery.</translation>
+<translation id="2701006671590617571">Sie sind im Begriff, Ihren Computer wiederherzustellen. Vergewissern Sie sich bitte, dass er mit einer Stromquelle verbunden ist.
+
+Wenn Sie die Wiederherstellung abbrechen möchten, halten Sie die
+Ein-/Aus-Taste gedrückt, bis der Computer nach etwa 8 Sekunden ausgeschaltet wird.
+Dies kann während der Überprüfung jederzeit problemlos durchgeführt werden.</translation>
 <translation id="2731700343119398978">Bitte warten...</translation>
-<translation id="3946632524220974380">Damit der Vorgang fortgesetzt werden kann, muss der Entwicklerschlüssel geändert werden. Dies dauert 5 Minuten.</translation>
-<translation id="4905949142713655149">Ein unerwarteter Fehler ist aufgetreten. Tipps zur Fehlerbehebung
-finden Sie unter der folgenden URL:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Die Chrome OS-Überprüfung ist deaktiviert.
-
-Falls dies nicht beabsichtigt ist, sollten Sie die Wiederherstellung
-abbrechen und den Entwicklermodus deaktivieren, sodass die Überprüfung
-aktiviert wird. Weitere Informationen finden Sie unter der folgenden URL:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">Die Integrität Ihres Wiederherstellungsmediums wird überprüft...</translation>
 <translation id="300775974721831513">Der Eigentümer des Geräts hat festgelegt, dass auf diesem Gerät
-die Chrome OS-Überprüfung aktiviert sein muss. Sie versuchen, ein inoffizielles
+die Chrome Betriebssystemüberprüfung aktiviert sein muss. Sie versuchen, ein inoffizielles
 Chrome OS-Wiederherstellungsabbild zu installieren, das die Überprüfung nicht besteht.
 
 Weitere Informationen finden Sie unter der folgenden URL:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">Die Integrität Ihres Wiederherstellungsmediums wird überprüft...</translation>
+<translation id="33938768013536853">Der Akku ist für ein Update zu schwach.
+
+Bitte schließen Sie Ihr Chromebook an eine Stromquelle an. Das Update
+beginnt automatisch, sobald der Akku ausreichend geladen ist.</translation>
 <translation id="3750930141330200643">Sie verwenden ein veraltetes Chrome OS-Wiederherstellungsabbild.
 
 Eine Anleitung zur Erstellung neuer
 Wiederherstellungsmedien finden Sie unter der folgenden URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">Damit der Vorgang fortgesetzt werden kann, muss der Entwicklerschlüssel geändert werden. Dies dauert 5 Minuten.</translation>
+<translation id="436588829138218801">Die Chrome Betriebssystemüberprüfung ist deaktiviert.
+
+Falls dies nicht beabsichtigt ist, sollten Sie die Wiederherstellung
+abbrechen und den Entwicklermodus deaktivieren, sodass die Überprüfung
+aktiviert wird. Weitere Informationen finden Sie unter der folgenden URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">Ein unerwarteter Fehler ist aufgetreten. Tipps zur Fehlerbehebung
+finden Sie unter der folgenden URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Die Systemwiederherstellung ist abgeschlossen.
+
+Bitte entfernen Sie das Wiederherstellungsmedium. Ihr Computer wird dann
+automatisch neu gestartet.</translation>
+<translation id="544118001572747892">Bei Ihrem Computer scheint es sich nicht um ein Chrome OS-System zu handeln.
+
+Durch diesen Vorgang werden andere installierte Betriebssysteme
+sowie sämtliche Daten gelöscht. Es besteht keine Sicherungsmöglichkeit.
+Falls Sie auf diesem Computer Daten gespeichert haben, die Sie weiterhin
+benötigen, sollten Sie die Wiederherstellung abbrechen.</translation>
+<translation id="5512602676102820748">Der Akku ist für ein Update zu schwach.
+
+Wird aufgeladen...
+
+Das Update beginnt automatisch, sobald der Akku ausreichend geladen ist.</translation>
 <translation id="6478314309353607985">Bei dem Abbild auf Ihrem Wiederherstellungsmedium handelt es sich um ein nicht überprüftes Entwicklerabbild.
 
 Die Wiederherstellung wird fortgesetzt, da Verified Boot deaktiviert ist.
@@ -35,23 +66,12 @@ Wenn Sie Verified Boot zu einem späteren Zeitpunkt wieder aktivieren, müssen S
 Die Wiederherstellung wird fortgesetzt, da die Überprüfung deaktiviert ist.
 Wenn Sie die Überprüfung zu einem späteren Zeitpunkt wieder aktivieren,
 müssen Sie die Wiederherstellung mit einem aktuellen Chrome OS-Abbild wiederholen.</translation>
+<translation id="8596190965261846034">Update wird installiert...
+
+Schalten Sie das Gerät nicht aus.
+Es startet automatisch neu, sobald das Update beendet ist.</translation>
 <translation id="8728458033228603970">Das System wird wiederhergestellt...
 
 Dieser Vorgang wird einige Minuten dauern. Bitte schalten Sie
 den Computer nicht aus und unterbrechen Sie die Stromversorgung nicht.</translation>
-<translation id="544118001572747892">Bei Ihrem Computer scheint es sich nicht um ein Chrome OS-System zu handeln.
-
-Durch diesen Vorgang werden andere installierte Betriebssysteme
-sowie sämtliche Daten gelöscht. Es besteht keine Sicherungsmöglichkeit.
-Falls Sie auf diesem Computer Daten gespeichert haben, die Sie weiterhin
-benötigen, sollten Sie die Wiederherstellung abbrechen.</translation>
-<translation id="2701006671590617571">Sie sind im Begriff, Ihren Computer wiederherzustellen. Vergewissern Sie sich bitte, dass er mit einer Stromquelle verbunden ist.
-
-Wenn Sie die Wiederherstellung abbrechen möchten, halten Sie die
-Ein-/Aus-Taste gedrückt, bis der Computer nach etwa 8 Sekunden ausgeschaltet wird.
-Dies kann während der Überprüfung jederzeit problemlos durchgeführt werden.</translation>
-<translation id="537291066186627789">Die Systemwiederherstellung ist abgeschlossen.
-
-Bitte entfernen Sie das Wiederherstellungsmedium. Ihr Computer wird dann
-automatisch neu gestartet.</translation>
 </translationbundle>
