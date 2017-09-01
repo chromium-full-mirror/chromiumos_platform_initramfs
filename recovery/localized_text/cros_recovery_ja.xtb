@@ -1,19 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="ja">
-<translation id="2731700343119398978">お待ちください...</translation>
-<translation id="3946632524220974380">続行するためにデベロッパー キーの変更が必要です。
-この処理には 5 分ほどかかります。</translation>
-<translation id="4905949142713655149">予期しないエラーが発生しました。
-以下の URL で解決方法をご覧ください。
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="ja">
+<translation id="1207194515919037363">この端末のセキュリティ モジュールが動作していません。
 
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Chrome OS の確認機能がオフになっています。
-
-意図的にオフにしたのではない場合は、復元をキャンセルして
-デベロッパー モードを無効にすることで、確認機能をオンにする必要があります。
 詳しくは以下の URL をご覧ください。
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">リカバリ メディアの完全性を確認しています...</translation>
+<translation id="2701006671590617571">パソコンを復元しようとしています。電源コードを必ず接続
+してください。
+
+復元をキャンセルしたい場合は、パソコンがオフになるまで
+電源ボタンを押し続けます（最大で 8 秒ほどかかります）。
+確認処理中は必ずこの作業を行うと安全です。</translation>
+<translation id="2731700343119398978">お待ちください...</translation>
 <translation id="300775974721831513">このデバイスの所有者は、Chrome OS の確認機能をオンにして
 デバイスを実行する必要があります。現在、確認に失敗する
 非公式な Chrome OS リカバリ イメージをインストールしようとしています。
@@ -21,12 +20,45 @@ https://www.google.com/chromeos/recovery</translation>
 詳しくは以下の URL をご覧ください。
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">リカバリ メディアの完全性を確認しています...</translation>
+<translation id="33938768013536853">バッテリーの残量が少ないためアップデートを実行できません。
+
+Chromebook を電源に接続してください。バッテリーがある程度まで
+充電されると、自動的にアップデートが始まります。</translation>
 <translation id="3750930141330200643">お使いの Chrome OS リカバリ イメージが最新ではありません。
 
 以下の URL で新しいリカバリ メディアの作成方法を
 ご覧ください。
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">続行するためにデベロッパー キーの変更が必要です。
+この処理には 5 分ほどかかります。</translation>
+<translation id="436588829138218801">Chrome OS の確認機能がオフになっています。
+
+意図的にオフにしたのではない場合は、復元をキャンセルして
+デベロッパー モードを無効にすることで、確認機能をオンにする必要があります。
+詳しくは以下の URL をご覧ください。
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">予期しないエラーが発生しました。
+以下の URL で解決方法をご覧ください。
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">システムの復元が完了しました。
+
+リカバリ メディアを取り出してください。
+パソコンが自動的に再起動します。</translation>
+<translation id="544118001572747892">お使いのパソコンが Chrome OS システムではないようです。
+
+この操作を行うと、インストールされている可能性のある
+他のオペレーティング システムとすべてのデータが削除され、
+バックアップするための機会もなくなります。保存したいデータがこのパソコンに
+ある場合は、復元をキャンセルしてください。</translation>
+<translation id="5512602676102820748">バッテリーの残量が少ないためアップデートを実行できません。
+
+充電しています...
+
+バッテリーがある程度まで充電されると、自動的にアップデートが始まります。</translation>
 <translation id="6478314309353607985">リカバリ メディア上のイメージが、未確認のデベロッパー イメージです。
 
 起動時の確認がオフになっているため、復元を続行します。
@@ -37,24 +69,12 @@ https://www.google.com/chromeos/recovery</translation>
 確認機能がオフのため、復元を続行します。
 後で確認機能をオンにした場合は、最新の Chrome OS イメージで
 もう一度復元する必要があります。</translation>
+<translation id="8596190965261846034">アップデートをインストールしています...
+
+端末の電源を切らないでください。
+アップデートが完了すると端末は自動的に再起動します。</translation>
 <translation id="8728458033228603970">システムを復元しています...
 
 この処理には数分かかることがあります。パソコンの電源をオフにしたり、
 電源コードを抜いたりしないでください。</translation>
-<translation id="544118001572747892">お使いのパソコンが Chrome OS システムではないようです。
-
-この操作を行うと、インストールされている可能性のある
-他のオペレーティング システムとすべてのデータが削除され、
-バックアップするための機会もなくなります。保存したいデータがこのパソコンに
-ある場合は、復元をキャンセルしてください。</translation>
-<translation id="2701006671590617571">パソコンを復元しようとしています。電源コードを必ず接続
-してください。
-
-復元をキャンセルしたい場合は、パソコンがオフになるまで
-電源ボタンを押し続けます（最大で 8 秒ほどかかります）。
-確認処理中は必ずこの作業を行うと安全です。</translation>
-<translation id="537291066186627789">システムの復元が完了しました。
-
-リカバリ メディアを取り出してください。
-パソコンが自動的に再起動します。</translation>
 </translationbundle>

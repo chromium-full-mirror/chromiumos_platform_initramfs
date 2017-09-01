@@ -1,25 +1,51 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="nl">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="nl">
+<translation id="1207194515919037363">De beveiligingsmodule op dit apparaat werkt niet.
+
+Ga naar deze URL voor meer informatie:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Je staat op het punt je computer te herstellen. Zorg ervoor dat de computer is aangesloten op een stroombron.
+
+Als je het herstel wilt annuleren, druk je op de aan/uit-knop en houd je deze ingedrukt totdat de computer wordt uitgeschakeld (dit duurt maximaal acht seconden).
+Dit kan op elk gewenst moment tijdens de verificatie veilig worden gedaan.</translation>
 <translation id="2731700343119398978">Even geduld...</translation>
-<translation id="3946632524220974380">De ontwikkelaarssleutel moet worden gewijzigd om door te gaan. Dit proces duurt vijf minuten.</translation>
-<translation id="4905949142713655149">Er is een onverwachte fout opgetreden. Ga naar de onderstaande URL voor tips voor het oplossen van problemen:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Chrome OS-verificatie is uitgeschakeld.
-
-Als dit niet de bedoeling is, moet je het herstel annuleren en de ontwikkelaarsmodus uitschakelen om verificatie in te schakelen. Ga naar de onderstaande URL voor meer informatie:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">De integriteit van je herstelmedium wordt geverifieerd...</translation>
 <translation id="300775974721831513">De eigenaar van het apparaat vereist dat dit apparaat wordt uitgevoerd met Chrome OS-verificatie ingeschakeld. Je probeert een niet-officiële Chrome OS-herstelimage te installeren die de verificatie niet doorstaat.
 
 Ga naar de onderstaande URL voor meer informatie:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">De integriteit van je herstelmedium wordt geverifieerd...</translation>
+<translation id="33938768013536853">Batterij niet voldoende opgeladen voor update.
+
+Sluit je Chromebook aan op een stroombron. De update wordt automatisch gestart wanneer de batterij voldoende is opgeladen.</translation>
 <translation id="3750930141330200643">Je gebruikt een verouderde Chrome OS-herstelimage.
 
 Ga naar de volgende URL voor instructies voor het maken van een nieuw herstelmedium:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">De ontwikkelaarssleutel moet worden gewijzigd om door te gaan. Dit proces duurt vijf minuten.</translation>
+<translation id="436588829138218801">Chrome OS-verificatie is uitgeschakeld.
+
+Als dit niet de bedoeling is, moet je het herstel annuleren en de ontwikkelaarsmodus uitschakelen om verificatie in te schakelen. Ga naar de onderstaande URL voor meer informatie:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">Er is een onverwachte fout opgetreden. Ga naar de onderstaande URL voor tips voor het oplossen van problemen:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Systeemherstel is voltooid.
+
+Verwijder het herstelmedium. Je computer wordt automatisch opnieuw opgestart.</translation>
+<translation id="544118001572747892">Het lijkt erop dat Chrome OS niet op je computer is geïnstalleerd.
+
+Met deze bewerking wordt een ander besturingssysteem dat mogelijk is geïnstalleerd verwijderd, evenals alle gegevens. Er is geen mogelijkheid om een back-up te maken.
+Als er gegevens op deze computer staan die je wilt behouden, moet je het herstel annuleren.</translation>
+<translation id="5512602676102820748">Batterij niet voldoende opgeladen voor update.
+
+Opladen...
+
+De update wordt automatisch gestart wanneer de batterij voldoende is opgeladen.</translation>
 <translation id="6478314309353607985">De image op je herstelmedium is een niet-geverifieerde ontwikkelaarsimage.
 
 Het herstel wordt voortgezet omdat geverifieerd opstarten is uitgeschakeld.
@@ -28,18 +54,11 @@ Als je verificatie later weer inschakelt, moet je het herstel opnieuw uitvoeren 
 
 Het herstel wordt voortgezet omdat verificatie is uitgeschakeld.
 Als je verificatie later weer inschakelt, moet je het herstel opnieuw uitvoeren met een actuele Chrome OS-image.</translation>
+<translation id="8596190965261846034">Update installeren...
+
+Schakel het apparaat niet uit.
+Het apparaat wordt automatisch opnieuw opgestart wanneer de update is voltooid.</translation>
 <translation id="8728458033228603970">Systeemherstel wordt uitgevoerd...
 
 Dit duurt enkele minuten. Schakel de computer niet uit en haal de stekker niet uit het stopcontact.</translation>
-<translation id="544118001572747892">Het lijkt erop dat Chrome OS niet op je computer is geïnstalleerd.
-
-Met deze bewerking wordt een ander besturingssysteem dat mogelijk is geïnstalleerd verwijderd, evenals alle gegevens. Er is geen mogelijkheid om een back-up te maken.
-Als er gegevens op deze computer staan die je wilt behouden, moet je het herstel annuleren.</translation>
-<translation id="2701006671590617571">Je staat op het punt je computer te herstellen. Zorg ervoor dat de computer is aangesloten op een stroombron.
-
-Als je het herstel wilt annuleren, druk je op de aan/uit-knop en houd je deze ingedrukt totdat de computer wordt uitgeschakeld (dit duurt maximaal acht seconden).
-Dit kan op elk gewenst moment tijdens de verificatie veilig worden gedaan.</translation>
-<translation id="537291066186627789">Systeemherstel is voltooid.
-
-Verwijder het herstelmedium. Je computer wordt automatisch opnieuw opgestart.</translation>
 </translationbundle>

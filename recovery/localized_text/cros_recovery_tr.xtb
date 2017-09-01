@@ -1,19 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="tr">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="tr">
+<translation id="1207194515919037363">Bu cihazdaki güvenlik modülü çalışmıyor.
+
+Daha fazla bilgi edinmek için lütfen bu URL'ye bakın:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Bilgisayarınızda kurtarma işlemi yapmak üzeresiniz. Lütfen bilgisayarın
+bir güç kaynağına bağlı olduğundan emin olun.
+
+Kurtarma işlemini iptal etmek isterseniz güç düğmesine basın ve
+bilgisayar kapanana kadar basılı tutun (8 saniye kadar sürebilir).
+Doğrulama sırasında istediğiniz zaman bunu güvenli bir şekilde yapabilirsiniz.</translation>
 <translation id="2731700343119398978">Lütfen bekleyin...</translation>
-<translation id="3946632524220974380">Devam etmek için geliştirici anahtarında geçiş yapılması gerekir.
-Bu işlem 5 dakika sürer.</translation>
-<translation id="4905949142713655149">Beklenmeyen bir hata oluştu. Sorun giderme ipuçları için lütfen
-şu URL'ye bakın:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Chrome OS doğrulama işlevi kapalı.
-
-Bu istemeden olduysa, doğrulamayı etkinleştirmek için kurtarma işlemini
-iptal etmeli ve geliştirici modunu devre dışı bırakmalısınız. Daha fazla
-bilgi için şu URL'ye bakın:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">Kurtarma medyanızın bütünlüğü doğrulanıyor...</translation>
 <translation id="300775974721831513">Cihazın sahibi, bu cihazın Chrome OS doğrulama işlevi açık olarak
 çalıştırılmasını istiyor. Resmi olmayan ve doğrulama işleminden
 geçmeyen bir Chrome OS kurtarma görüntüsü yüklemeye çalışıyorsunuz.
@@ -21,12 +20,45 @@ geçmeyen bir Chrome OS kurtarma görüntüsü yüklemeye çalışıyorsunuz.
 Daha fazla bilgi için şu URL'ye bakın:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">Kurtarma medyanızın bütünlüğü doğrulanıyor...</translation>
+<translation id="33938768013536853">Pil gücü güncelleme için yeterli değil.
+
+Chromebook'unuzu lütfen bir güç kaynağına takın. Pilin gücü
+yeterli olduğunda güncelleme otomatik olarak başlar.</translation>
 <translation id="3750930141330200643">Eski bir Chrome OS kurtarma imajı kullanıyorsunuz.
 
 Yeni kurtarma medyasının nasıl oluşturulacağına ilişkin talimatlar
 için lütfen şu URL'ye bakın:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">Devam etmek için geliştirici anahtarında geçiş yapılması gerekir.
+Bu işlem 5 dakika sürer.</translation>
+<translation id="436588829138218801">Chrome OS doğrulama işlevi kapalı.
+
+Bu istemeden olduysa, doğrulamayı etkinleştirmek için kurtarma işlemini
+iptal etmeli ve geliştirici modunu devre dışı bırakmalısınız. Daha fazla
+bilgi için şu URL'ye bakın:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">Beklenmeyen bir hata oluştu. Sorun giderme ipuçları için lütfen
+şu URL'ye bakın:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Sistem kurtarma işlemi tamamlandı.
+
+Lütfen kurtarma medyasını çıkarın. Bilgisayarınız otomatik olarak
+yeniden başlayacaktır.</translation>
+<translation id="544118001572747892">Bilgisayarınızın bir Chrome OS sistemi olmadığı görülüyor!
+
+Bu işlem, yüklemiş olabileceğiniz varolan başka işletim sistemini
+ve tüm verileri silecek ve bunları yedekleme fırsatınız olmayacaktır.
+Bu bilgisayarda korumak istediğiniz veriler varsa kurtarma işlemini
+iptal etmelisiniz.</translation>
+<translation id="5512602676102820748">Pil gücü güncelleme için yeterli değil.
+
+Şarj ediliyor...
+
+Pilin gücü yeterli olduğunda güncelleme otomatik olarak başlar.</translation>
 <translation id="6478314309353607985">Kurtarma medyanızdaki görüntü, doğrulanmamış bir geliştirici görüntüsüdür.
 
 Doğrulanmış önyükleme özelliği kapalı olduğundan kurtarma işlemi devam
@@ -37,24 +69,12 @@ resmi bir Chrome OS görüntüsünü kullanarak tekrarlamanız gerekecektir.</tr
 Doğrulama işlevi kapalı olduğundan kurtarma işlemi devam edecek.
 Doğrulama işlevini daha sonra yeniden etkinleştirirseniz kurtarma
 işlemini güncel bir Chrome OS görüntüsüyle tekrar etmeniz gerekecektir.</translation>
+<translation id="8596190965261846034">Güncelleme yükleniyor...
+
+Lütfen cihazı kapatmayın.
+Güncelleme tamamlandığında cihaz otomatik olarak yeniden başlar.</translation>
 <translation id="8728458033228603970">Sistemi kurtarma işlemi devam ediyor...
 
 Bu işlem birkaç dakika sürecektir. Lütfen bilgisayarı kapatmayın
 veya güç bağlantısını kesmeyin.</translation>
-<translation id="544118001572747892">Bilgisayarınızın bir Chrome OS sistemi olmadığı görülüyor!
-
-Bu işlem, yüklemiş olabileceğiniz varolan başka işletim sistemini
-ve tüm verileri silecek ve bunları yedekleme fırsatınız olmayacaktır.
-Bu bilgisayarda korumak istediğiniz veriler varsa kurtarma işlemini
-iptal etmelisiniz.</translation>
-<translation id="2701006671590617571">Bilgisayarınızda kurtarma işlemi yapmak üzeresiniz. Lütfen bilgisayarın
-bir güç kaynağına bağlı olduğundan emin olun.
-
-Kurtarma işlemini iptal etmek isterseniz güç düğmesine basın ve
-bilgisayar kapanana kadar basılı tutun (8 saniye kadar sürebilir).
-Doğrulama sırasında istediğiniz zaman bunu güvenli bir şekilde yapabilirsiniz.</translation>
-<translation id="537291066186627789">Sistem kurtarma işlemi tamamlandı.
-
-Lütfen kurtarma medyasını çıkarın. Bilgisayarınız otomatik olarak
-yeniden başlayacaktır.</translation>
 </translationbundle>
