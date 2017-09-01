@@ -1,41 +1,60 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="es">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="es">
+<translation id="1207194515919037363">El módulo de seguridad de este dispositivo no funciona.
+
+Consulta esta URL para obtener más información:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Estás a punto de recuperar tu equipo. Asegúrate de que esté conectado a una fuente de alimentación.
+
+Si quieres cancelar la recuperación, mantén pulsado el botón de encendido hasta que se apague el equipo (tarda unos ocho segundos). Puedes realizar esta acción en cualquier momento durante el proceso de verificación.</translation>
 <translation id="2731700343119398978">Espera...</translation>
-<translation id="3946632524220974380">Para continuar, hay que cambiar la clave de desarrollador. Este proceso tarda cinco minutos.</translation>
-<translation id="4905949142713655149">Se ha producido un error inesperado. Para obtener consejos sobre la solución de problemas, consulta la URL siguiente:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">La verificación de Chrome OS está desactivada.
-
-Si este modo se ha seleccionado por error, debes cancelar la recuperación del sistema e inhabilitar el modo de desarrollador para habilitar la verificación. Para obtener más información, consulta la URL siguiente:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">Se está verificando la integridad del medio de recuperación...</translation>
 <translation id="300775974721831513">El propietario del dispositivo requiere que el dispositivo se ejecute con la verificación de Chrome OS activada. Estás intentando instalar una imagen de recuperación de Chrome OS no oficial, que no se puede verificar.
 
 Para obtener más información, consulta la URL siguiente:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">Se está verificando la integridad del medio de recuperación...</translation>
+<translation id="33938768013536853">No tienes batería suficiente para instalar la actualización.
+
+Conecta tu Chromebook a una fuente de alimentación. La actualización se iniciará automáticamente cuando la batería tenga suficiente carga.</translation>
 <translation id="3750930141330200643">Estás utilizando una imagen de recuperación de Chrome OS que está obsoleta.
 
 Para obtener instrucciones sobre cómo crear nuevos medios de recuperación, consulta la URL siguiente:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">Para continuar, hay que cambiar la clave de desarrollador. Este proceso tarda cinco minutos.</translation>
+<translation id="436588829138218801">La verificación de Chrome OS está desactivada.
+
+Si este modo se ha seleccionado por error, debes cancelar la recuperación del sistema e inhabilitar el modo de desarrollador para habilitar la verificación. Para obtener más información, consulta la URL siguiente:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">Se ha producido un error inesperado. Para obtener consejos sobre la solución de problemas, consulta la URL siguiente:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Se ha completado la recuperación del sistema.
+
+Elimina el medio de recuperación para que el equipo se reinicie automáticamente.</translation>
+<translation id="544118001572747892">Parece que tu equipo no utiliza el sistema Chrome OS.
+
+Esta operación eliminará cualquier otro sistema operativo que tengas instalado, así como todos los datos que estén almacenados, y no podrás realizar una copia de seguridad. Si tienes datos almacenados en el equipo que quieras conservar, cancela la recuperación.</translation>
+<translation id="5512602676102820748">No tienes batería suficiente para instalar la actualización.
+
+Cargando...
+
+La actualización se iniciará automáticamente cuando la batería tenga suficiente carga.</translation>
 <translation id="6478314309353607985">La imagen del medio de recuperación es una imagen de desarrollador que no se ha verificado.
 
 La recuperación continuará, ya que el inicio verificado está desactivado. Si vuelves a activar la verificación, deberás repetir la recuperación con una imagen oficial de Chrome OS.</translation>
 <translation id="816304391526917903">Estás utilizando una imagen de recuperación oficial de Chrome OS que está obsoleta.
 
 La recuperación continuará, ya que la verificación está desactivada. Si vuelves a activar la verificación, deberás repetir la recuperación con una imagen de Chrome OS actualizada.</translation>
+<translation id="8596190965261846034">Instalando actualización...
+
+No apagues el dispositivo.
+Se reiniciará automáticamente cuando finalice la actualización.</translation>
 <translation id="8728458033228603970">Recuperando el sistema...
 
 Esta tarea tardará algunos minutos. No apagues el equipo ni desconectes el cable de alimentación.</translation>
-<translation id="544118001572747892">Parece que tu equipo no utiliza el sistema Chrome OS.
-
-Esta operación eliminará cualquier otro sistema operativo que tengas instalado, así como todos los datos que estén almacenados, y no podrás realizar una copia de seguridad. Si tienes datos almacenados en el equipo que quieras conservar, cancela la recuperación.</translation>
-<translation id="2701006671590617571">Estás a punto de recuperar tu equipo. Asegúrate de que esté conectado a una fuente de alimentación.
-
-Si quieres cancelar la recuperación, mantén pulsado el botón de encendido hasta que se apague el equipo (tarda unos ocho segundos). Puedes realizar esta acción en cualquier momento durante el proceso de verificación.</translation>
-<translation id="537291066186627789">Se ha completado la recuperación del sistema.
-
-Elimina el medio de recuperación para que el equipo se reinicie automáticamente.</translation>
 </translationbundle>

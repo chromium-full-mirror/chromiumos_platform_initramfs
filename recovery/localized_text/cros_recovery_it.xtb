@@ -1,25 +1,51 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="it">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="it">
+<translation id="1207194515919037363">Il modulo di sicurezza su questo dispositivo non funziona.
+
+Per ulteriori informazioni consulta la pagina all'indirizzo:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Sta per iniziare il ripristino del computer. Assicurati che sia collegato a una presa di corrente.
+
+Se desideri annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del computer (potrebbero essere necessari fino a 8 secondi).
+Puoi svolgere questa operazione in qualsiasi momento durante la verifica.</translation>
 <translation id="2731700343119398978">Attendi...</translation>
-<translation id="3946632524220974380">Per continuare è necessaria una modifica al codice sviluppatore; la procedura richiede cinque minuti.</translation>
-<translation id="4905949142713655149">Si è verificato un errore imprevisto. Visita la pagina al seguente indirizzo per avere suggerimenti per la risoluzione dei problemi:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">La verifica di Chrome OS è disattivata.
-
-Se la disattivazione non è intenzionale e desideri attivare la verifica, devi annullare il ripristino e disattivare la modalità sviluppatore. Per ulteriori informazioni, visita la pagina all'indirizzo:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">Verifica dell'integrità del supporto di ripristino...</translation>
 <translation id="300775974721831513">Il proprietario del dispositivo richiede l'utilizzo del dispositivo con la verifica di Chrome OS attiva. Stai cercando di installare un'immagine di ripristino di Chrome OS non ufficiale che non supera la verifica.
 
 Per ulteriori informazioni, visita la pagina all'indirizzo:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">Verifica dell'integrità del supporto di ripristino...</translation>
+<translation id="33938768013536853">Livello della batteria troppo basso per eseguire l'aggiornamento.
+
+Collega il tuo Chromebook a una fonte di alimentazione. L'aggiornamento avrà inizio non appena la batteria avrà carica sufficiente.</translation>
 <translation id="3750930141330200643">È in uso un'immagine di ripristino di Chrome OS obsoleta.
 
 Visita la pagina al seguente indirizzo per avere istruzioni sulla creazione di nuovi supporti di ripristino:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">Per continuare è necessaria una modifica al codice sviluppatore; la procedura richiede cinque minuti.</translation>
+<translation id="436588829138218801">La verifica di Chrome OS è disattivata.
+
+Se la disattivazione non è intenzionale e desideri attivare la verifica, devi annullare il ripristino e disattivare la modalità sviluppatore. Per ulteriori informazioni, visita la pagina all'indirizzo:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">Si è verificato un errore imprevisto. Visita la pagina al seguente indirizzo per avere suggerimenti per la risoluzione dei problemi:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Ripristino del sistema completato.
+
+Rimuovi il supporto di ripristino; il computer si riavvierà automaticamente.</translation>
+<translation id="544118001572747892">Sembra che sul computer non sia installato un sistema Chrome OS.
+
+Questa operazione comporterà l'eliminazione di qualsiasi altro sistema operativo installato e di tutti i dati; non sarà possibile effettuare il backup.
+Se sul computer hai memorizzato dati che desideri conservare, dovresti annullare il ripristino.</translation>
+<translation id="5512602676102820748">Livello della batteria troppo basso per eseguire l'aggiornamento.
+
+Caricamento in corso…
+
+L'aggiornamento avrà inizio non appena la batteria avrà carica sufficiente.</translation>
 <translation id="6478314309353607985">L'immagine sul supporto di ripristino è di uno sviluppatore non verificato.
 
 Il ripristino continuerà perché l'avvio verificato è disattivato.
@@ -28,18 +54,11 @@ Se in un secondo momento riattiverai la verifica, dovrai ripetere il ripristino 
 
 Il ripristino continuerà perché la verifica è disattivata.
 Se in un secondo momento riattiverai la verifica, dovrai ripetere il ripristino con un'immagine di Chrome OS aggiornata.</translation>
+<translation id="8596190965261846034">Installazione dell'aggiornamento in corso…
+
+Non spegnere il dispositivo. 
+Si riavvierà automaticamente al termine dell'aggiornamento.</translation>
 <translation id="8728458033228603970">Ripristino del sistema in corso...
 
 L'operazione richiederà alcuni minuti. Non spegnere il computer e non staccarlo dalla corrente.</translation>
-<translation id="544118001572747892">Sembra che sul computer non sia installato un sistema Chrome OS.
-
-Questa operazione comporterà l'eliminazione di qualsiasi altro sistema operativo installato e di tutti i dati; non sarà possibile effettuare il backup.
-Se sul computer hai memorizzato dati che desideri conservare, dovresti annullare il ripristino.</translation>
-<translation id="2701006671590617571">Sta per iniziare il ripristino del computer. Assicurati che sia collegato a una presa di corrente.
-
-Se desideri annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del computer (potrebbero essere necessari fino a 8 secondi).
-Puoi svolgere questa operazione in qualsiasi momento durante la verifica.</translation>
-<translation id="537291066186627789">Ripristino del sistema completato.
-
-Rimuovi il supporto di ripristino; il computer si riavvierà automaticamente.</translation>
 </translationbundle>

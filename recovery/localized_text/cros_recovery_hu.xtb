@@ -1,19 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="hu">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="hu">
+<translation id="1207194515919037363">Nem működik az eszközön a biztonsági modul.
+
+Ha további információra van szüksége, keresse fel a következő URL-t:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Arra készül, hogy helyreállítsa számítógépét. Győződjön meg róla, hogy
+számítógépe csatlakoztatva van az áramforráshoz.
+
+Ha szeretné megszakítani a helyreállítást, nyomja meg a bekapcsológombot,
+és tartsa lenyomva addig, amíg a számítógép ki nem kapcsol (legfeljebb  8 másodperc).
+Ezt az ellenőrzés ideje alatt bármikor biztonsággal megteheti.</translation>
 <translation id="2731700343119398978">Kérjük, várjon...</translation>
-<translation id="3946632524220974380">A továbblépéshez a fejlesztői kulcs módosítása szükséges; a folyamat
-5 percet vesz igénybe.</translation>
-<translation id="4905949142713655149">Váratlan hiba történt. Ezt az URL-t felkeresve problémamegoldási
-tippeket talál:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">A Chrome operációs rendszer ellenőrzése ki van kapcsolva.
-
-Ha ez nem szándékos, szakítsa meg a helyreállítást, és kapcsolja ki
-a fejlesztői módot az ellenőrzés aktiválásához. További tájékoztatásért
-keresse fel ezt az URL-t:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">A helyreállítási adathordozó integritásának ellenőrzése...</translation>
 <translation id="300775974721831513">Az eszköz tulajdonosa megköveteli, hogy ezen az eszközön a Chrome
 operációs rendszer bekapcsolt ellenőrző funkcióval fusson. Ön nem hivatalos Chrome operációsrendszer-helyreállítási képfájlt próbál meg telepíteni, amely nem
 felel meg az ellenőrzésen.
@@ -21,12 +20,45 @@ felel meg az ellenőrzésen.
 További tájékoztatásért keresse fel ezt az URL-t:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">A helyreállítási adathordozó integritásának ellenőrzése...</translation>
+<translation id="33938768013536853">Az akkumulátor töltöttségi szintje túl alacsony a frissítéshez.
+
+Csatlakoztassa a Chromebookot áramforráshoz. A frissítés automatikusan
+elkezdődik, amint az akkumulátor eléri a megfelelő töltöttségi szintet.</translation>
 <translation id="3750930141330200643">Elavult Chrome operációsrendszer-helyreállítási képfájlt használ.
 
 Tekintse meg az ezen az URL-en elérhető útmutatót azzal kapcsolatban,
 hogy miként hozhat létre új helyreállítási adathordozót:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">A továbblépéshez a fejlesztői kulcs módosítása szükséges; a folyamat
+5 percet vesz igénybe.</translation>
+<translation id="436588829138218801">A Chrome operációs rendszer ellenőrzése ki van kapcsolva.
+
+Ha ez nem szándékos, szakítsa meg a helyreállítást, és kapcsolja ki
+a fejlesztői módot az ellenőrzés aktiválásához. További tájékoztatásért
+keresse fel ezt az URL-t:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">Váratlan hiba történt. Ezt az URL-t felkeresve problémamegoldási
+tippeket talál:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">A rendszer helyreállítása befejeződött.
+
+Távolítsa el a helyreállítási adathordozót – számítógépe ezt követően
+automatikusan újraindul.</translation>
+<translation id="544118001572747892">Úgy tűnik, számítógépén nem Chrome operációs rendszer fut!
+
+Ez a művelet minden egyéb operációs rendszert töröl, amely esetleg
+telepítve van, és az összes adatot is; biztonsági másolat készítése nem lehetséges.
+Ha van olyan adat a számítógépen, amelyet szeretne megőrizni, akkor
+szakítsa meg a helyreállítást.</translation>
+<translation id="5512602676102820748">Az akkumulátor töltöttségi szintje túl alacsony a frissítéshez.
+
+Töltés…
+
+A frissítés automatikusan elkezdődik, amint az akkumulátor eléri a megfelelő töltöttségi szintet.</translation>
 <translation id="6478314309353607985">Az adathordozón lévő képfájl nem ellenőrzött fejlesztői képfájl.
 
 A helyreállítás folytatódik, mivel az ellenőrzött rendszerbetöltés ki van kapcsolva.
@@ -37,24 +69,12 @@ operációsrendszer-helyreállítási képfájllal kell megismételnie a helyre�
 A helyreállítás folytatódik, mivel az ellenőrzés ki van kapcsolva.
 Ha később ismét bekapcsolná az ellenőrzést, akkor egy naprakész Chrome
 operációsrendszer-helyreállítási képfájllal kell megismételnie a helyreállítást.</translation>
+<translation id="8596190965261846034">Frissítés telepítése…
+
+Ne kapcsolja ki az eszközt.
+A frissítés befejezése után az eszköz automatikusan újraindul.</translation>
 <translation id="8728458033228603970">A rendszer helyreállítása folyamatban van...
 
 Ez néhány percet vesz igénybe. Ne kapcsolja ki a számítógépet, illetve
 ne szüntesse meg a tápellátását.</translation>
-<translation id="544118001572747892">Úgy tűnik, számítógépén nem Chrome operációs rendszer fut!
-
-Ez a művelet minden egyéb operációs rendszert töröl, amely esetleg
-telepítve van, és az összes adatot is; biztonsági másolat készítése nem lehetséges.
-Ha van olyan adat a számítógépen, amelyet szeretne megőrizni, akkor
-szakítsa meg a helyreállítást.</translation>
-<translation id="2701006671590617571">Arra készül, hogy helyreállítsa számítógépét. Győződjön meg róla, hogy
-számítógépe csatlakoztatva van az áramforráshoz.
-
-Ha szeretné megszakítani a helyreállítást, nyomja meg a bekapcsológombot,
-és tartsa lenyomva addig, amíg a számítógép ki nem kapcsol (legfeljebb  8 másodperc).
-Ezt az ellenőrzés ideje alatt bármikor biztonsággal megteheti.</translation>
-<translation id="537291066186627789">A rendszer helyreállítása befejeződött.
-
-Távolítsa el a helyreállítási adathordozót – számítógépe ezt követően
-automatikusan újraindul.</translation>
 </translationbundle>

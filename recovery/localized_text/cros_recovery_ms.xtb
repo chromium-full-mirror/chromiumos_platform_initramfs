@@ -1,19 +1,18 @@
-<?xml version="1.0" ?><!DOCTYPE translationbundle><translationbundle lang="ms">
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="ms">
+<translation id="1207194515919037363">Modul keselamatan pada peranti ini tidak berfungsi.
+
+Sila rujuk URL ini untuk mendapatkan maklumat lanjut:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="2701006671590617571">Anda akan memulihkan komputer anda. Pastikan komputer anda disambungkan
+kepada sumber kuasa.
+
+Jika anda ingin membatalkan pemulihan, tekan butang kuasa dan tahan
+sehingga komputer dimatikan (ini mengambil masa sehingga 8 saat).
+Proses ini boleh dilakukan dengan selamat pada bila-bila masa semasa pengesahan.</translation>
 <translation id="2731700343119398978">Sila tunggu...</translation>
-<translation id="3946632524220974380">Perubahan kunci pembangun diperlukan untuk meneruskan; proses memerlukan 
-5 minit.</translation>
-<translation id="4905949142713655149">Ralat yang tidak dijangka telah berlaku. Sila rujuk URL ini untuk
-melihat petua penyelesaian masalah:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="436588829138218801">Pengesahan OS Chrome dimatikan.
-
-Jika ini dilakukan secara tidak sengaja, anda harus membatalkan pemulihan
-dan melumpuhkan mod pembangun untuk mendayakan pengesahan. Untuk
-mendapatkan maklumat lanjut, rujuk URL ini:
-
-https://www.google.com/chromeos/recovery</translation>
-<translation id="3243756202241744259">Mengesahkan integriti media pemulihan anda...</translation>
 <translation id="300775974721831513">Pemilik peranti memerlukan peranti ini dijalankan dengan pengesahan OS Chrome
 dihidupkan. Anda cuba memasang imej pemulihan OS Chrome tidak rasmi yang
 tidak lulus pengesahan.
@@ -21,12 +20,44 @@ tidak lulus pengesahan.
 Untuk mendapatkan maklumat lanjut, rujuk URL ini:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3243756202241744259">Mengesahkan integriti media pemulihan anda...</translation>
+<translation id="33938768013536853">Bateri terlalu lemah untuk kemas kini.
+
+Sila sambungkan Chromebook anda kepada sumber kuasa. Kemas kini akan dimulakan secara automatik sebaik sahaja cas bateri mencukupi.</translation>
 <translation id="3750930141330200643">Anda menggunakan imej pemulihan OS Chrome yang ketinggalan zaman.
 
 Sila rujuk URL ini untuk mendapatkan arahan mengenai cara untuk membuat
 media pemulihan baharu:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="3946632524220974380">Perubahan kunci pembangun diperlukan untuk meneruskan; proses memerlukan 
+5 minit.</translation>
+<translation id="436588829138218801">Pengesahan OS Chrome dimatikan.
+
+Jika ini dilakukan secara tidak sengaja, anda harus membatalkan pemulihan
+dan melumpuhkan mod pembangun untuk mendayakan pengesahan. Untuk
+mendapatkan maklumat lanjut, rujuk URL ini:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4905949142713655149">Ralat yang tidak dijangka telah berlaku. Sila rujuk URL ini untuk
+melihat petua penyelesaian masalah:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="537291066186627789">Pemulihan sistem selesai.
+
+Sila alih keluar pemulihan media dan komputer anda akan dimulakan semula
+secara automatik.</translation>
+<translation id="544118001572747892">Komputer anda nampaknya bukan sistem OS Chrome!
+
+Kendalian ini akan memadamkan sebarang sistem pengendalian lain yang mungkin
+telah anda pasang dan semua data; anda tidak berpeluang untuk membuat
+sandaran. Jika anda mempunyai sebarang data pada komputer ini yang ingin
+dikekalkan, anda perlu membatalkan pemulihan.</translation>
+<translation id="5512602676102820748">Bateri terlalu lemah untuk kemas kini.
+
+Mengecas...
+
+Kemas kini akan dimulakan secara automatik sebaik sahaja cas bateri mencukupi.</translation>
 <translation id="6478314309353607985">Imej pada media pemulihan anda adalah imej pembangun yang tidak disahkan.
 
 Pemulihan akan diteruskan kerana but yang disahkan dimatikan.
@@ -37,24 +68,12 @@ pemulihan dengan imej OS Chrome rasmi.</translation>
 Pemulihan akan diteruskan kerana pengesahan dimatikan.
 Jika anda menghidupkan pengesahan nanti, anda perlu mengulangi
 pemulihan dengan imej OS Chrome yang terkini.</translation>
+<translation id="8596190965261846034">Memasang kemas kini...
+
+Jangan matikan peranti.
+Peranti ini akan mengebut semula secara automatik apabila kemas kini selesai.</translation>
 <translation id="8728458033228603970">Pemulihan sistem sedang berjalan...
 
 Ini akan mengambil masa beberapa minit. Harap jangan matikan komputer atau
 putuskan sambungan kuasa.</translation>
-<translation id="544118001572747892">Komputer anda nampaknya bukan sistem OS Chrome!
-
-Kendalian ini akan memadamkan sebarang sistem pengendalian lain yang mungkin
-telah anda pasang dan semua data; anda tidak berpeluang untuk membuat
-sandaran. Jika anda mempunyai sebarang data pada komputer ini yang ingin
-dikekalkan, anda perlu membatalkan pemulihan.</translation>
-<translation id="2701006671590617571">Anda akan memulihkan komputer anda. Pastikan komputer anda disambungkan
-kepada sumber kuasa.
-
-Jika anda ingin membatalkan pemulihan, tekan butang kuasa dan tahan
-sehingga komputer dimatikan (ini mengambil masa sehingga 8 saat).
-Proses ini boleh dilakukan dengan selamat pada bila-bila masa semasa pengesahan.</translation>
-<translation id="537291066186627789">Pemulihan sistem selesai.
-
-Sila alih keluar pemulihan media dan komputer anda akan dimulakan semula
-secara automatik.</translation>
 </translationbundle>
