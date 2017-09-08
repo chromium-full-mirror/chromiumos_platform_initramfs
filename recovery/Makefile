@@ -11,6 +11,7 @@ BIN_DEPS= \
 	/usr/sbin/flashrom \
 	/usr/bin/futility \
 	/usr/bin/crossystem \
+	/usr/sbin/mosys \
 	/usr/bin/tpmc \
 	/usr/bin/cgpt
 
