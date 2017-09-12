@@ -351,14 +351,30 @@ save_log_files() {
   cat "${LOG_DIR}"/dmesg >> "${LOG_FILE}"
 
   dlog "Saving log files from: ${LOG_DIR} -> ${log_dev}"
-  err=0
-  [ ${err} -ne 0 ] ||
-    mount -n -t "${log_fs}" -o sync,rw "${log_dev}" /tmp || err=1
-  [ ${err} -ne 0 ] || rm -rf /tmp/recovery_logs || err=1
-  [ ${err} -ne 0 ] || mkdir -p /tmp/recovery_logs || err=1
-  [ ${err} -ne 0 ] || cp "${LOG_DIR}"/* /tmp/recovery_logs || err=1
+  (
+    set -e
+    mount -n -t "${log_fs}" -o sync,rw "${log_dev}" /tmp
+
+    # Purge old recovery logs. This isn't 100% correct for cases where recovery
+    # media gets used across multiple devices that have their clocks set
+    # incorrectly, but it's hopefully good enough in practice.
+    local dir
+    for dir in $(ls -t /tmp/ | grep '^recovery_logs\.[0-9]*$' | tail -n +10); do
+      rm -rf "/tmp/${dir}" || :
+    done
+
+    # Make a new directory and store the logs from this run in it.
+    local log_dev_dir="recovery_logs.$(date '+%s')"
+    rm -rf "/tmp/${log_dev_dir}"
+    mkdir -p "/tmp/${log_dev_dir}"
+    cp "${LOG_DIR}"/* "/tmp/${log_dev_dir}/"
+    rm -f /tmp/recovery_logs
+    ln -sf "${log_dev_dir}" /tmp/recovery_logs
+  )
+  local err=$?
+
   # Attempt umount, even if there was an error to avoid leaking the mount.
-  umount -n /tmp || err=1
+  umount -n /tmp || err=$?
 
   if [ ${err} -eq 0 ] ; then
     dlog "Successfully saved the log file"
