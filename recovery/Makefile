@@ -3,21 +3,13 @@
 # found in the LICENSE file.
 
 # Dependency list of binary programs.
-#
-# NOTE: we explicitly pick the "static" version of futility here not
-# for functionality reasons (we have no problems using the dynamic one) but
-# for size reasons.  Using the static version means we won't end up bringing
-# in libcrypto.so.  That ~780K savings is slightly offset by the fact that we
-# needlessly include a 2nd copy of libc, etc, but that's dwarfed by the
-# huge savings.  If we ever have other users of libcrypto we might want to
-# revisit that.
 BIN_DEPS= \
 	/bin/busybox \
 	/sbin/dmsetup \
 	/usr/bin/pv \
 	/usr/sbin/vpd \
 	/usr/sbin/flashrom \
-	/usr/bin/futility_s \
+	/usr/bin/futility \
 	/usr/bin/crossystem \
 	/usr/sbin/mosys \
 	/usr/bin/tpmc \
@@ -58,7 +50,6 @@ $(RAMFS_BIN): stage_init
 		assets/*.png $(STAGE)/etc/screens
 	./make_images localized_text "$(STAGE)/etc/screens" $(LOCALE_LIST)
 	./make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
-	mv $(STAGE)/bin/futility_s $(STAGE)/bin/futility
 	ln -s busybox $(STAGE)/bin/sh
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
 	ln -s futility "$(STAGE)/bin/vbutil_kernel"
