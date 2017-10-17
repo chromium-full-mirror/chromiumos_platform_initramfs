@@ -719,10 +719,15 @@ update_tpm_firmware() {
     local EXIT_CODE_LOW_BATTERY=5
     local EXIT_CODE_NOT_UPDATABLE=6
     local EXIT_CODE_MISSING_APPROVAL=7
-    case "$(cat /tmp/tpm-firmware-updater.status)" in
-      ${EXIT_CODE_SUCCESS})
+    local EXIT_CODE_SUCCESS_COLD_REBOOT=8
+    local status="$(cat /tmp/tpm-firmware-updater.status)"
+    case "${status}" in
+      ${EXIT_CODE_SUCCESS}|${EXIT_CODE_SUCCESS_COLD_REBOOT})
         # We need to reboot to get the TPM back into operational state.
         save_log_files
+        if [ "${status}" = "${EXIT_CODE_SUCCESS_COLD_REBOOT}" ]; then
+          chroot "${USB_MNT}" /usr/sbin/ectool reboot_ec cold
+        fi
         reboot -f
         exit 0
         ;;
