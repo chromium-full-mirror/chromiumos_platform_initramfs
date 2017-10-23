@@ -616,7 +616,7 @@ maybe_get_debugging_logs() {
     fi
 
     local salt=$(hexdump -v -e '/1 "%02x"' <"$saltfile")
-    local passkey=$(echo -n "${salt}${password}" | sha256sum | cut -c-32)
+    local passkey=$(printf '%s' "${salt}${password}" | sha256sum | cut -c-32)
 
     log "Installing v2 request file . . ."
     cat > "${flagfile}" <<EOM
@@ -626,7 +626,7 @@ $passkey
 EOM
   else
     log "Installing v1 request file . . ."
-    echo -n "1" > "${flagfile}"
+    printf "1" > "${flagfile}"
   fi
   umount "${STATEFUL_MNT}"
 

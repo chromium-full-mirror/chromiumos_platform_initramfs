@@ -85,7 +85,7 @@ showimage() {
   shift
   shift
 
-  echo -ne \
+  printf \
        "\033]image:file=${image};offset=${offset};scale=0\033\\" \
        > /run/frecon/vt0
 }
