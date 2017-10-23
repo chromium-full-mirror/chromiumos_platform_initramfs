@@ -87,7 +87,7 @@ showimage() {
 
   echo -ne \
        "\033]image:file=${image};offset=${offset};scale=0\033\\" \
-       > /var/run/frecon/vt0
+       > /run/frecon/vt0
 }
 
 # Present a message screen horizontally centered at a specified
