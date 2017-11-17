@@ -390,19 +390,6 @@ use_new_root() {
   exec switch_root "${NEWROOT_MNT}" /sbin/init -v --default-console output
 }
 
-check_block_dev() {
-  info "Checking block_devmode flags"
-  if crossystem 'block_devmode?1' 'wpsw_boot?1' 2>/dev/null; then
-    info "
-    crossystem flag 'block_devmode' is set on a write protected device.
-
-    You need to disable hardware write protection to bypass this check.
-    "
-    return 1
-  fi
-  return 0
-}
-
 main() {
   # Setup environment.
   tty_init
@@ -433,7 +420,6 @@ main() {
   # devices.
   enable_debug_console "${DEBUG_TTY}"
 
-  check_block_dev
   find_official_root
   get_stateful_dev
 
