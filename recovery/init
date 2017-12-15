@@ -346,6 +346,13 @@ save_log_files() {
   dlog "Dumping dmesg to ${LOG_DIR}"
   dmesg > "${LOG_DIR}"/dmesg
 
+  if [ -e /sys/firmware/log ]; then
+    dlog "Copying firmware log to ${LOG_DIR}"
+    cp /sys/firmware/log "${LOG_DIR}/firmware.log"
+  else
+    dlog "No firmware log found on this platform"
+  fi
+
   # TODO(sosa): Remove once caller scripts recover all of the log dir. See
   # crbug.com/213731 and crbug.com/212794 for details.
   cat "${LOG_DIR}"/dmesg >> "${LOG_FILE}"
