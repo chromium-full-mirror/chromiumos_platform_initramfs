@@ -45,7 +45,7 @@ invoke_terminal() {
   local title="$2"
   shift
   shift
-  # Copied from factory_installer/factory_install_service.sh.
+  # Copied from factory_installer/factory_shim_service.sh.
   echo "${title}" >>${tty}
   setsid sh -c "exec script -afqc '$*' /dev/null <${tty} >>${tty} 2>&1 &"
 }
@@ -302,7 +302,10 @@ patch_new_root() {
   fi
 
   # Disable upstart jobs that will block execution for factory shim environment.
-  local disabled_jobs="ui powerd update-engine tpm-probe"
+  # syslog is disabled because it expects rsyslogd exists,
+  # but we don't have rsyslogd in factory shim.
+  local disabled_jobs
+  disabled_jobs="arc-oemcrypto powerd swap syslog tpm-probe ui update-engine"
 
   for job in ${disabled_jobs}; do
     file="${NEWROOT_MNT}/etc/init/${job}.conf"
@@ -384,7 +387,7 @@ use_new_root() {
   #     exec <"${TTY}" >"${TTY}" 2>&1
   #     exec switch_root "${NEWROOT_MNT}" /bin/sh
   #  2. Try to invoke factory installer directly
-  #     exec switch_root "${NEWROOT_MNT}" /usr/sbin/factory_install_service.sh
+  #     exec switch_root "${NEWROOT_MNT}" /usr/sbin/factory_shim_service.sh
 
   # -v prints upstart info in kmsg (available in INFO_TTY).
   exec switch_root "${NEWROOT_MNT}" /sbin/init -v --default-console output
