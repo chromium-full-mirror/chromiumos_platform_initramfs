@@ -679,19 +679,48 @@ wait_for_battery_to_charge() {
   done
 }
 
+tpm_firmware_update_applicable() {
+  # Only allow the firmware updater to run from an official root. We don't want
+  # arbitrary code to run with TPM physical presence asserted! If we're running
+  # an unofficial root, return success so it looks like we don't have an update.
+  if is_unofficial_root; then
+    return 1
+  fi
+
+  # Images for boards that we don't ship TPM firmware updates for don't carry
+  # the updater. Nothing to do in that case.
+  if ! [ -x "${USB_MNT}/usr/sbin/tpm-firmware-updater" ]; then
+    return 1
+  fi
+
+  # The TPM is in failed selftest mode after a failed previous TPM firmware
+  # update. Devices in this condition don't boot in normal mode, and recovery is
+  # the supported way to fix this via a TPM firmware update retry.
+  if [ -n "${TPM_FAILED_SELFTEST}" ]; then
+    return 0
+  fi
+
+  # Attempt a TPM firmware update when the VPD key tpm_firmware_update_params
+  # contains mode:recovery. This is mainly useful for testing behavior of the
+  # firmware updater in recovery mode without having to put a device into failed
+  # selftest mode.
+  local vpd_params="$(vpd -i RW_VPD -g tpm_firmware_update_params)"
+  if echo ",${vpd_params}," | grep -qF ',mode:recovery,'; then
+    return 0
+  fi
+
+  # Current default is not to attempt updating, even if an update is available.
+  return 1
+}
+
 # Checks whether the root includes a TPM firmware update and installs it if
 # applicable. Note that this must happen before locking TPM physical presence,
 # because this is the only way to recover from a failed previous firmware
 # update.
 update_tpm_firmware() {
-  # Only allow the firmware updater to run from an official root. We don't want
-  # arbitrary code to run with TPM physical presence asserted! If we're running
-  # an unofficial root, return success so it looks like we don't have an update.
-  is_unofficial_root && return 0
-
-  # Images for boards that we don't ship TPM firmware updates for don't carry
-  # the updater. Nothing to do in that case.
-  [ -x "${USB_MNT}/usr/sbin/tpm-firmware-updater" ] || return 0
+  if ! tpm_firmware_update_applicable; then
+    return 0
+  fi
 
   while true; do
     (
@@ -718,8 +747,9 @@ update_tpm_firmware() {
     local EXIT_CODE_UPDATE_FAILED=4
     local EXIT_CODE_LOW_BATTERY=5
     local EXIT_CODE_NOT_UPDATABLE=6
-    local EXIT_CODE_MISSING_APPROVAL=7
     local EXIT_CODE_SUCCESS_COLD_REBOOT=8
+    local EXIT_CODE_BAD_RETRY=9
+
     local status="$(cat /tmp/tpm-firmware-updater.status)"
     case "${status}" in
       ${EXIT_CODE_SUCCESS}|${EXIT_CODE_SUCCESS_COLD_REBOOT})
@@ -731,7 +761,7 @@ update_tpm_firmware() {
         reboot -f
         exit 0
         ;;
-      ${EXIT_CODE_NO_UPDATE}|${EXIT_CODE_MISSING_APPROVAL})
+      ${EXIT_CODE_NO_UPDATE}|${EXIT_CODE_BAD_RETRY})
         # Let the recovery process continue.
         return 0
         ;;
