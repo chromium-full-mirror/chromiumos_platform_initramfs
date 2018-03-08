@@ -280,6 +280,11 @@ patch_new_root() {
   info -n "Patching new root in ${NEWROOT_MNT}..."
   local file job
 
+  # TODO(hungte) The patch_new_root is so complicated now and hard to change
+  # when debugging factory install shim VT (Frecon) or Upstart problems.
+  # We should move this to src/platform/factory_installer scripts and execute
+  # from ${NEWROOT_MNT}, to allow patching from rootfs.
+
   # Copy essential binaries that are in the initramfs, but not in the root FS.
   cp /bin/busybox ${NEWROOT_MNT}/bin
   ${NEWROOT_MNT}/bin/busybox --install ${NEWROOT_MNT}/bin
@@ -337,6 +342,22 @@ patch_new_root() {
 
   # Replicate running data (/run).
   tar -cf - /run | tar -xf - -C "${NEWROOT_MNT}"
+
+  # frecon[-lite] creates TTY files in /dev/pts and have symlinks in
+  # /run/frecon. However, /dev/pts will be re-created by chromeos_startup after
+  # switch_root. As a result, we want to keep a copy of /dev/pts in /dev/frecon
+  # and change symlinks to use them
+  if [ -d /run/frecon ]; then
+    local new_pts="/dev/frecon-lite"
+    mkdir -p "${new_pts}"
+    mount --bind /dev/pts "${new_pts}"
+    for vt in "${NEWROOT_MNT}"/run/frecon/vt*; do
+      # It is assumed all vt* should refer to /dev/pts/*.
+      file="$(basename $(readlink -f "${vt}"))"
+      rm -f "${vt}"
+      ln -s "${new_pts}/${file}" "${vt}"
+    done
+  fi
 
   # Create an early debug terminal if available.
   if is_cros_debug && [ -n "${DEBUG_TTY}" ]; then
