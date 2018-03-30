@@ -86,7 +86,7 @@ showimage() {
   shift
 
   printf \
-       "\033]image:file=${image};offset=${offset};scale=0\033\\" \
+       "\033]image:file=${image};offset=${offset};scale="${FRECON_SCALING_FACTOR}"\033\\" \
        > /run/frecon/vt0
 }
 
@@ -228,9 +228,18 @@ message_on_error() {
 #
 # This message also appears when booting factory images.
 message_startup() {
+  local resolution="$(frecon-lite --print-resolution)"
+  local x_res="${resolution% *}"
+
+  if [ "${x_res}" -ge 1920 ]; then
+    FRECON_SCALING_FACTOR=0
+  else
+    FRECON_SCALING_FACTOR=1
+  fi
+
   frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
-              --enable-vts --scale=0 --clear "0x${BACKGROUND}" \
-              --pre-create-vts \
+              --enable-vts --scale="${FRECON_SCALING_FACTOR}" \
+              --clear "0x${BACKGROUND}" --pre-create-vts \
               "${SCREENS}/boot_message.png"
 }
 
