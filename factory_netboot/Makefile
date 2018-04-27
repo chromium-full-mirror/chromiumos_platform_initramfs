@@ -11,7 +11,7 @@ BIN_DEPS= \
 # Extra dependency, should be set by builder configuration.
 EXTRA_BIN_DEPS?=
 
-# Programs required by netboot intaller
+# Programs required by netboot installer
 NETBOOT_BIN_DEPS= \
 	/bin/dd \
 	/bin/ip \
@@ -50,8 +50,6 @@ CROS_DEPS=\
 	/usr/sbin/ectool \
 	/usr/sbin/factory_*.sh \
 	/usr/sbin/mosys \
-	/usr/sbin/netboot_postinst.sh \
-	/usr/sbin/ping_shopfloor.sh \
 	/usr/sbin/secure_less.sh \
 	/usr/sbin/vpd
 
@@ -110,4 +108,7 @@ $(RAMFS_BIN): stage_init
 	 ln -s kmod $(STAGE)/bin/$${name}; \
 	done
 	./kotree.sh usbnet.ko $(SYSROOT) $(STAGE)
+	$(foreach rsrc, \
+	 $(wildcard $(SYSROOT)/var/lib/factory/resources/netboot*.tar), \
+	 tar -xf $(rsrc) -C $(STAGE) ${\n})
 	$(call generate_ramfs)
