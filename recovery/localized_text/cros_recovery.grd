@@ -135,7 +135,13 @@ System recovery is complete.
 Please remove the recovery media and your computer will restart
 automatically.
       </message>
-      <message name="dev_invalid_kernel" desc="Message shown by the recovery installer when developer mode is enabled and an image that is signed with outdated signing keys gets installed.">
+      <message name="complete_noninteractive" desc="Message shown by the recovery installer upon completion of the image installation procedure for hands-free installs.">
+System recovery is complete.
+
+It is now safe to remove the recovery media. Your computer will
+automatically restart shortly.
+     </message>
+     <message name="dev_invalid_kernel" desc="Message shown by the recovery installer when developer mode is enabled and an image that is signed with outdated signing keys gets installed.">
 You are using an out-of-date official Chrome OS recovery image.
 
 Recovery will continue because verification is turned off.

@@ -22,6 +22,7 @@ message() {
   #  - key_change
   #  - recovery_start
   #  - recovery_complete
+  #  - recovery_complete_noninteractive
   #  - warn_invalid_install_kernel
   #  - invalid_install_kernel
   #  - block_developer_mode

@@ -830,17 +830,17 @@ recovery_install() {
   local usb_node_dir=$(get_usb_node_dir)
 
   unmount_usb
-  message recovery_complete
 
   if [ -n "$usb_node_dir" ]; then
-    # Default (interactive) case; wait till the user removes the USB
-    # stick.
+    # Default (interactive) case; wait till the user removes the USB stick.
+    message recovery_complete
     while [ -d "$usb_node_dir" ]; do
       sleep 1
     done
   elif [ $(cat /sys/devices/virtual/tty/tty0/active) != tty1 ]; then
     # Special (non-interactive) test case, and the user is watching
     # VT2 or VT3.  Stay up a long time to allow for debugging.
+    message recovery_complete
     dlog "Recovery is complete!  The system will remain up to allow"
     dlog "you to examine VT screen contents.  You must manually"
     dlog "power off when you're done."
@@ -848,7 +848,7 @@ recovery_install() {
   else
     # Special (non-interactive) test case; reboot after a nominal
     # pause to allow a human to observe the screen.
-    sleep 10
+    message recovery_complete_noninteractive
   fi
 
   reboot -f
