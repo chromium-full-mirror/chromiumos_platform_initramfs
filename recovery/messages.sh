@@ -243,6 +243,21 @@ message_startup() {
               "${SCREENS}/boot_message.png"
 }
 
+message_oobe_autoconfig_acknowledgment_keyboard() {
+  instructions oobe_autoconfig_acknowledgment_keyboard
+  progress empty
+}
+
+message_oobe_autoconfig_acknowledgment_switch() {
+  instructions oobe_autoconfig_acknowledgment_switch
+  progress empty
+}
+
+message_oobe_autoconfig_acknowledgment_volume() {
+  instructions oobe_autoconfig_acknowledgment_volume
+  progress empty
+}
+
 message_validate() {
   select_locale
 
@@ -273,17 +288,9 @@ message_key_change() {
   make_user_wait 300
 }
 
-# Announce that recovery is about to start.  This happens after the
-# progress bar is full, and is the user's last chance to cancel.
-# The power button has to be held a full 8 seconds to power off, so
-# we allow a short grace period in case the user started pressing the
-# power button late in the cycle.
-#
-# When the grace period is up, start the moving box animation that
+# Announce that recovery is about to start.  Start the moving box animation that
 # will persist until recovery is complete.
 message_recovery_start() {
-  # The user gets a two seconds grace period to cancel
-  sleep 2
   instructions recovering
   progress empty
   show_install_spinner >$LOG_DIR/spinner.log 2>&1 &

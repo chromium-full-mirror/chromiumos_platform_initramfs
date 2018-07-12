@@ -26,6 +26,8 @@ REC_VER_MAX=0
 LOG_HARDWARE_DIAGNOSTICS=hardware_diagnostics.log
 # Minimum battery charge required for TPM firmware update.
 MIN_BATTERY_CHARGE_PERCENT=10
+# Whether we should proceed with OOBE auto-setup.
+OOBE_AUTO_CONFIG=
 
 
 # Installation Target.
@@ -351,6 +353,79 @@ cleanup_install_mounts() {
   return 0
 }
 
+# If the recovery media was provisioned for OOBE auto-setup, we have to ask the
+# user for confirmation before proceeding.
+request_oobe_autoconfig_acknowledgment() {
+  if ! is_oobe_autoconfig; then
+    return
+  fi
+
+  # Check to see if we have a physical recovery switch. This is fairly tricky:
+  # * recoverysw_is_virtual queries the RECSW_IS_VIRT bit in vboot shared data,
+  #   which will be set for all devices more recent than 2014 that do *not* have
+  #   a physical recovery switch.
+  # * For boards older than 2014 that are not EOL, the bit will always be 0
+  #   regardless of whether a switch exists or not. But if it doesn't,
+  #   recoverysw_cur will return an error code.
+  # Note that recoverysw_cur returning without error is not sufficient to
+  # determine if a board has a recovery switch, e.g. veyron_minnie returns 0
+  # but is a Chromebook without a recovery switch.
+  if crossystem 'recoverysw_is_virtual?0' && crossystem recoverysw_cur; then
+    message oobe_autoconfig_acknowledgment_switch
+
+    dlog "Waiting for user to confirm OOBE auto-setup by recovery switch..."
+
+    # Wait until the switch goes low in case the user kept the recovery switch
+    # pressed too long on entering recovery, so that we actually give them a
+    # chance to confirm.
+    until crossystem 'recoverysw_cur?0'; do
+      sleep 0.1
+    done
+
+    # Wait until user confirms by pressing their recovery switch.
+    until crossystem 'recoverysw_cur?1'; do
+      sleep 0.1
+    done
+
+    # User has no buttons with which to proceed with recovery without accepting
+    # OOBE auto-setup, so if we reach here it means the user has not cancelled
+    # by turning off the device.
+    OOBE_AUTO_CONFIG=1
+  else
+    # evdev mappings for keys determined by `evtest`.
+    local KEY_ESC=1
+    local KEY_ENTER=28
+    local KEY_VOLUMEDOWN=114
+    local KEY_VOLUMEUP=115
+    local key=
+
+    # Board-specific flag specified in board overlay and created in ramfs
+    # Makefile.
+    if [ -f "/.is_detachable" ]; then
+      if evwaitkey --check --keys ${KEY_VOLUMEUP}:${KEY_VOLUMEDOWN}; then
+        message oobe_autoconfig_acknowledgment_volume
+        dlog "Waiting for user to confirm OOBE auto-setup by volume keys..."
+        key=$(evwaitkey --keys ${KEY_VOLUMEUP}:${KEY_VOLUMEDOWN})
+      fi
+    elif evwaitkey --check --keys ${KEY_ESC}:${KEY_ENTER}; then
+      message oobe_autoconfig_acknowledgment_keyboard
+      dlog "Waiting for user to confirm OOBE auto-setup by keyboard..."
+      key=$(evwaitkey --keys ${KEY_ESC}:${KEY_ENTER})
+    fi
+
+    # If we've obtained user acknowledgment, mark ready for OOBE autoconfig.
+    if [ ${key} -eq ${KEY_ENTER} ] || [ ${key} -eq ${KEY_VOLUMEUP} ]; then
+      OOBE_AUTO_CONFIG=1
+    fi
+
+    # This shouldn't ever happen, but provide some feedback just in case.
+    if [ -z "${key}" ]; then
+      dlog "WARNING!!! Could not find method for confirming OOBE auto-setup!"
+      dlog "Recovery will proceed without auto-setup."
+    fi
+  fi
+}
+
 call_image_recovery_script() {
   dlog "Installing software; this will take some time."
   dlog "See the debug log on VT3 for the full output."
@@ -494,6 +569,14 @@ recover_system() {
   # crbug.com/660121 for details.
   verify_rw_vpd || dlog "Could not verify or re-format RW_VPD"
 
+  if [ -z "${OOBE_AUTO_CONFIG}" ]; then
+    # Normal recovery: the progress bar is full, and it is the user's last
+    # chance to cancel. The power button has to be held for a full 8 seconds
+    # to power off, so we allow a short grace period in case the user started
+    # pressing the power button late in the cycle.
+    sleep 2
+  fi
+
   message recovery_start
 
   call_image_recovery_script "$source" || return 1
@@ -532,6 +615,18 @@ get_usb_debugging_flag() {
     umount /tmp
   fi
   echo "$decrypt"
+}
+
+is_oobe_autoconfig() {
+  local has_config=1
+  if get_stateful_dev && mount -n -o sync,ro "${STATE_DEV}" "${STATEFUL_MNT}"
+  then
+    if [ -f "${STATEFUL_MNT}"/unencrypted/oobe_auto_config/config.json ]; then
+      has_config=0
+    fi
+    umount "${STATEFUL_MNT}"
+  fi
+  return ${has_config}
 }
 
 maybe_get_debugging_logs() {

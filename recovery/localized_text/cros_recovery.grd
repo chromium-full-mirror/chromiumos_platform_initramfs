@@ -183,6 +183,27 @@ installed and all the data; there will be no opportunity for backup.
 If you have any data on this computer that you want to preserve, you
 should cancel recovery.
       </message>
+      <message name="oobe_autoconfig_acknowledgment_keyboard" desc="Message shown by the recovery installer before provisioning device for OOBE auto-setup on devices with a keyboard.">
+Your recovery media is configured for automatic setup after it reboots.
+
+To proceed with automatic setup, press Enter, otherwise press Escape.
+If you want to cancel recovery, press the power button and hold it
+down until the device turns off (this takes up to 8 seconds).
+      </message>
+      <message name="oobe_autoconfig_acknowledgment_switch" desc="Message shown by the recovery installer before provisioning device for OOBE auto-setup on devices with a recovery switch.">
+Your recovery media is configured for automatic setup after it reboots.
+
+To proceed with automatic setup, press the device's recovery switch.
+If you want to cancel recovery, press the power button and hold it
+down until the device turns off (this takes up to 8 seconds).
+      </message>
+      <message name="oobe_autoconfig_acknowledgment_volume" desc="Message shown by the recovery installer before provisioning device for OOBE auto-setup on devices with volume buttons.">
+Your recovery media is configured for automatic setup after it reboots.
+
+To proceed with automatic setup, press the Volume Up button, otherwise
+press Volume Down. If you want to cancel recovery, press the power button
+and hold it down until the device turns off (this takes up to 8 seconds).
+      </message>
       <message name="recovering" desc="Message shown by the recovery installer while the recovery image is getting installed on the device.">
 System recovery is in progress...
 

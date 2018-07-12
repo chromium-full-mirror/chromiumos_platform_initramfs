@@ -17,6 +17,9 @@ message() {
   # Currently defined messages (see message.sh for details):
   #  - startup
   #  - on_error
+  #  - oobe_autoconfig_acknowledgment_keyboard
+  #  - oobe_autoconfig_acknowledgment_switch
+  #  - oobe_autoconfig_acknowledgment_volume
   #  - key_change
   #  - developer_image
   #  - key_change

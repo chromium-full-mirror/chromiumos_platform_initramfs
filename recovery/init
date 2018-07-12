@@ -505,8 +505,6 @@ main() {
   (tail -f -n +1 "${LOG_FILE}" > "${TTY_DEBUG}") &
   TAIL_PID=$!
 
-  message validate
-
   if ! find_official_root ; then
     if find_developer_root; then
       message developer_image
@@ -517,6 +515,14 @@ main() {
 
   # Extract the real boot source, which may be masked by dm-verity.
   get_stateful_dev || on_error
+
+  # If recovery media is provisioned for OOBE auto-configuration, we need to ask
+  # the user before we proceed. We ask before validating the recovery rootfs
+  # so that the user does not have to come back to the setup process after
+  # a minute of validation to confirm.
+  request_oobe_autoconfig_acknowledgment
+
+  message validate
 
   set_brightness
 
