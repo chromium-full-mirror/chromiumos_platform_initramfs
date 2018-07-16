@@ -141,6 +141,12 @@ System recovery is complete.
 It is now safe to remove the recovery media. Your computer will
 automatically restart shortly.
      </message>
+     <message name="complete_oobe_autoconfig" desc="Message shown by the recovery installer upon completion of the image installation procedure for OOBE auto-setup.">
+System recovery is complete.
+
+Please keep your recovery media plugged in until automatic setup is complete.
+Your computer will automatically restart shortly to continue setup.
+     </message>
      <message name="dev_invalid_kernel" desc="Message shown by the recovery installer when developer mode is enabled and an image that is signed with outdated signing keys gets installed.">
 You are using an out-of-date official Chrome OS recovery image.
 

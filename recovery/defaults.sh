@@ -26,6 +26,7 @@ message() {
   #  - recovery_start
   #  - recovery_complete
   #  - recovery_complete_noninteractive
+  #  - recovery_complete_oobe_autoconfig
   #  - warn_invalid_install_kernel
   #  - invalid_install_kernel
   #  - block_developer_mode

@@ -593,9 +593,14 @@ recover_system() {
 # interactive removal of the USB stick.  If we detect that
 # condition, we signal it by returning an empty string instead
 # of a path.
+#
+# In the case of OOBE auto-configuration, the presence of OOBE auto-config data
+# on the stateful partition of the recovery USB also flags that the end of
+# recovery should be non-interactive.
 get_usb_node_dir() {
   local usb_node_dir=/sys/block/$(strip_partition "${REAL_USB_DEV##*/}")
-  if [ "$INTERACTIVE_COMPLETE" = false ]; then
+  if [ "$INTERACTIVE_COMPLETE" = false ] || \
+     [ -n "${OOBE_AUTO_CONFIG}" ]; then
     usb_node_dir=""
   elif mount -n -o sync,rw "${REAL_USB_DEV%[0-9]*}1" /tmp; then
     if [ -f /tmp/non_interactive ]; then
@@ -943,7 +948,11 @@ recovery_install() {
   else
     # Special (non-interactive) test case; reboot after a nominal
     # pause to allow a human to observe the screen.
-    message recovery_complete_noninteractive
+    if [ -n "${OOBE_AUTO_CONFIG}" ]; then
+      message recovery_complete_oobe_autoconfig
+    else
+      message recovery_complete_noninteractive
+    fi
   fi
 
   reboot -f

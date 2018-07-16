@@ -320,6 +320,17 @@ message_recovery_complete_noninteractive() {
   make_user_wait 10
 }
 
+# The same as message_recovery_complete, but with a different message notifying
+# the user that their computer will automatically restart.
+message_recovery_complete_oobe_autoconfig() {
+  kill $SPINNER_PID
+  wait $SPINNER_PID
+  instructions complete_oobe_autoconfig
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_check.png
+  progress wait
+  make_user_wait 10
+}
+
 # Warn the user that the current image, although valid for
 # unverified boot, won't boot if verification is re-enabled.
 message_warn_invalid_install_kernel() {
