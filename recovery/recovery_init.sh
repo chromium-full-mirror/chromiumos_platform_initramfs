@@ -19,6 +19,8 @@ FW_VER_TPM_NV_SPACE=0x1007
 KERNEL_VER_TPM_NV_SPACE=0x1008
 # TPM NVRAM index for the lockbox.
 LOCKBOX_TPM_NV_SPACE=0x20000004
+# TPM NVRAM index for OOBE autoconfig public key hashes.
+OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE=0x100c
 # Recovery version is the top nibble of the firmware version.  Lock out the
 # recovery image if the version is greater than this.
 REC_VER_MAX=0
@@ -28,6 +30,9 @@ LOG_HARDWARE_DIAGNOSTICS=hardware_diagnostics.log
 MIN_BATTERY_CHARGE_PERCENT=10
 # Whether we should proceed with OOBE auto-setup.
 OOBE_AUTO_CONFIG=
+# PEM-format keys for signing OOBE configuration data.
+OOBE_PRIVATE_KEY_PEM=
+OOBE_PUBLIC_KEY_PEM=
 
 
 # Installation Target.
@@ -433,7 +438,7 @@ call_image_recovery_script() {
   # Prevent accidentally loading modules from the usb mount
   echo 1 >/proc/sys/kernel/modules_disabled
 
-  chroot "${USB_MNT}" /usr/sbin/chromeos-recovery "$1"
+  chroot "${USB_MNT}" /usr/sbin/chromeos-recovery "$@"
   local install_status=$?
   if [  $install_status -ne 0 ]; then
     dlog "WARNING!!! Installation of software failed. Displaying hw diagnostics"
@@ -569,7 +574,21 @@ recover_system() {
   # crbug.com/660121 for details.
   verify_rw_vpd || dlog "Could not verify or re-format RW_VPD"
 
-  if [ -z "${OOBE_AUTO_CONFIG}" ]; then
+  local extra_flags=
+  if [ -n "${OOBE_AUTO_CONFIG}" ]; then
+    # If we're running for OOBE auto-config, write our keys into the chroot
+    # and add flags to the invocation of chromeos-recovery pointing to them.
+    local pub_key_file="/tmp/oobe_config_key.pub"
+    local priv_key_file="/tmp/oobe_config_key.pem"
+    (
+      # +x in subshell to prevent logging private key.
+      set +x
+      echo "${OOBE_PUBLIC_KEY_PEM}" > "${USB_MNT}${pub_key_file}"
+      echo "${OOBE_PRIVATE_KEY_PEM}" > "${USB_MNT}${priv_key_file}"
+    )
+    extra_flags="--oobe_pub_key=${pub_key_file}
+                 --oobe_priv_key=${priv_key_file}"
+  else
     # Normal recovery: the progress bar is full, and it is the user's last
     # chance to cancel. The power button has to be held for a full 8 seconds
     # to power off, so we allow a short grace period in case the user started
@@ -579,7 +598,7 @@ recover_system() {
 
   message recovery_start
 
-  call_image_recovery_script "$source" || return 1
+  call_image_recovery_script "$source" ${extra_flags} || return 1
 
   return 0
 }
@@ -886,6 +905,35 @@ update_tpm_firmware() {
 
   # Never reached.
   return 0
+}
+
+# Generate a key pair for OOBE auto-setup validation, and write a 32-byte SHA256
+# digest of the public key into a TPM space defined with PPWRITE permissions.
+# The private and public keys are kept in memory as OOBE_PRIVATE_KEY_PEM and
+# OOBE_PUBLIC_KEY_PEM.
+setup_oobe_auto_config_keys() {
+  # +x to prevent logging private key.
+  set +x
+  local key_data="$(cros_oobe_crypto)"
+  # We will need the keys after we've completed installation.
+  OOBE_PRIVATE_KEY_PEM=$(echo "${key_data}" | \
+    sed -n "/BEGIN EC PRIVATE KEY/,/END EC PRIVATE KEY/p")
+  OOBE_PUBLIC_KEY_PEM=$(echo "${key_data}" | \
+    sed -n "/BEGIN PUBLIC KEY/,/END PUBLIC KEY/p")
+  # Restore logging.
+  set -x
+
+  # Split up the hash of the public key into 32 hexadecimal bytes to feed into
+  # `tpmc`.
+  local pub_bytes=$(echo "${OOBE_PUBLIC_KEY_PEM}" | sha256sum | \
+    grep -Eo '[a-zA-Z0-9]{2}' | head -n 32)
+
+  # Define a 32-byte space with the same PPWRITE permission as the vboot kernel
+  # rollback space. This prevents a compromised OS from altering it to load an
+  # arbitrary configuration file without going through recovery.
+  tpmc definespace "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" 0x20 0x1
+  # No quotes; this is intended to split up the bytes.
+  tpmc write "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" ${pub_bytes}
 }
 
 recovery_install() {

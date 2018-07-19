@@ -487,6 +487,10 @@ main() {
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
+  # Write generated public key for verifying OOBE autoconfiguration to the TPM
+  # before we lock it below.
+  setup_oobe_auto_config_keys
+
   # Always lock the TPM first.
   lock_tpm || on_error
 
