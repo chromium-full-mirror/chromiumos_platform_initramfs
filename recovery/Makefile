@@ -14,7 +14,8 @@ BIN_DEPS= \
 	/usr/sbin/mosys \
 	/usr/bin/tpmc \
 	/usr/bin/cgpt \
-	/usr/sbin/evwaitkey
+	/usr/sbin/evwaitkey \
+	/usr/bin/cros_oobe_crypto
 
 # Extra dependency, should be set by builder configuration.
 EXTRA_BIN_DEPS?=
