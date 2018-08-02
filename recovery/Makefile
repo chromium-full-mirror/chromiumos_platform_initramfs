@@ -13,7 +13,8 @@ BIN_DEPS= \
 	/usr/bin/crossystem \
 	/usr/sbin/mosys \
 	/usr/bin/tpmc \
-	/usr/bin/cgpt
+	/usr/bin/cgpt \
+	/usr/sbin/evwaitkey
 
 # Extra dependency, should be set by builder configuration.
 EXTRA_BIN_DEPS?=
