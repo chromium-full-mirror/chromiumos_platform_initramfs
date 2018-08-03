@@ -11,6 +11,8 @@
 TTY_CONSOLE=/dev/tty1
 TTY_LOG=/dev/tty2
 TTY_DEBUG=/dev/tty3
+# Whether we currently have the UI up.
+FRECON_IS_RUNNING=
 
 # Wrapper to provide a hook for every message we print.
 message() {
@@ -32,5 +34,17 @@ message() {
   #  - block_developer_mode
   #
   # By default, calls to the functions defined in message.sh.
+  if [ -z "${FRECON_IS_RUNNING}" ]; then
+    TTY_CONSOLE=/run/frecon/vt0
+    TTY_LOG=/run/frecon/vt1
+    TTY_DEBUG=/run/frecon/vt2
+
+    message_startup
+    FRECON_IS_RUNNING=1
+
+    # Send all verbose output to debug tty.
+    (tail -f -n +1 "${LOG_FILE}" > "${TTY_DEBUG}") &
+    TAIL_PID=$!
+  fi
   message_$1
 }

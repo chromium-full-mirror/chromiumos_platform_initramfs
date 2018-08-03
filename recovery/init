@@ -496,14 +496,6 @@ main() {
   udevd --daemon
   udevadm trigger
   udevadm settle
-  TTY_CONSOLE=/run/frecon/vt0
-  TTY_LOG=/run/frecon/vt1
-  TTY_DEBUG=/run/frecon/vt2
-
-  message startup
-  # Send all verbose output to debug tty.
-  (tail -f -n +1 "${LOG_FILE}" > "${TTY_DEBUG}") &
-  TAIL_PID=$!
 
   if ! find_official_root ; then
     if find_developer_root; then
