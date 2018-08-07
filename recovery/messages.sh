@@ -28,6 +28,7 @@ LANGDIR=
 INSTRUCTION_BOX_TOP=-$MESSAGE_BOX_HEIGHT
 PROGRESS_BOX_TOP=0
 DEVMODE_BOX_TOP=$MESSAGE_BOX_HEIGHT
+LINE_BREAK_WIDTH=70
 
 # User visible message logged w/ 'echo'
 log() {
@@ -73,6 +74,33 @@ select_locale() {
     LANGDIR=en-US
   fi
   dlog "selected locale $LANGDIR"
+}
+
+# Draws text in the center of the screen.
+#
+# Arg 1:  The string to draw
+showtext() {
+  local text="$1"
+  local text_len=${#text}
+  local max_width=$((text_len < LINE_BREAK_WIDTH ? text_len : LINE_BREAK_WIDTH))
+  local max_height=$((text_len / LINE_BREAK_WIDTH + 1))
+  local text_start_h=$((-max_width / 2))
+  local text_start_v=0
+
+  local i=
+  for i in $(seq 1 "${text_len}"); do
+    local char="$(printf "%s" "${text}" | cut -c "${i}")"
+    local ordinal="$(printf "%d" "'${char}'")"
+    local glyph_image="${SCREENS}/glyphs/${ordinal}.png"
+    local glyph_offset_h=$((text_start_h * MONOSPACE_GLYPH_WIDTH))
+    local glyph_offset_v=$((text_start_v * MONOSPACE_GLYPH_HEIGHT))
+    showimage "${glyph_image}" "${glyph_offset_h},${glyph_offset_v}"
+    text_start_h=$((text_start_h + 1))
+    if [ $((i % LINE_BREAK_WIDTH)) -eq 0 ]; then
+      text_start_h=$((-max_width / 2))
+      text_start_v=$((text_start_v + 1))
+    fi
+  done
 }
 
 # Encapsulate displaying of images into single function.
@@ -243,19 +271,20 @@ message_startup() {
               "${SCREENS}/boot_message.png"
 }
 
+message_oobe_autoconfig_domain() {
+  progress oobe_autoconfig_domain
+}
+
 message_oobe_autoconfig_acknowledgment_keyboard() {
   instructions oobe_autoconfig_acknowledgment_keyboard
-  progress empty
 }
 
 message_oobe_autoconfig_acknowledgment_switch() {
   instructions oobe_autoconfig_acknowledgment_switch
-  progress empty
 }
 
 message_oobe_autoconfig_acknowledgment_volume() {
   instructions oobe_autoconfig_acknowledgment_volume
-  progress empty
 }
 
 message_validate() {

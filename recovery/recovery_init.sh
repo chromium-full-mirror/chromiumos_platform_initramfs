@@ -33,6 +33,8 @@ OOBE_AUTO_CONFIG=
 # PEM-format keys for signing OOBE configuration data.
 OOBE_PRIVATE_KEY_PEM=
 OOBE_PUBLIC_KEY_PEM=
+# Domain specified for OOBE auto-enrollment.
+OOBE_ENROLLMENT_DOMAIN=
 
 
 # Installation Target.
@@ -365,6 +367,11 @@ request_oobe_autoconfig_acknowledgment() {
     return
   fi
 
+  if [ -n "${OOBE_ENROLLMENT_DOMAIN}" ]; then
+    message oobe_autoconfig_domain
+    showtext "${OOBE_ENROLLMENT_DOMAIN}"
+  fi
+
   # Check to see if we have a physical recovery switch. This is fairly tricky:
   # * recoverysw_is_virtual queries the RECSW_IS_VIRT bit in vboot shared data,
   #   which will be set for all devices more recent than 2014 that do *not* have
@@ -645,9 +652,21 @@ is_oobe_autoconfig() {
   local has_config=1
   if get_stateful_dev && mount -n -o sync,ro "${STATE_DEV}" "${STATEFUL_MNT}"
   then
-    if [ -f "${STATEFUL_MNT}"/unencrypted/oobe_auto_config/config.json ]; then
+    local oobe_dir="${STATEFUL_MNT}/unencrypted/oobe_auto_config"
+    local config_path="${oobe_dir}/config.json"
+    if [ -f "${config_path}" ]; then
       has_config=0
     fi
+
+    local domain_path="${oobe_dir}/enrollment_domain"
+    if [ -f "${domain_path}" ]; then
+      # Sanitize characters that are not allowed in punycoded domains. Also,
+      # truncate it off at 253 characters so we don't read a potentially massive
+      # string in.
+      OOBE_ENROLLMENT_DOMAIN="$(tr -dc 'a-z0-9.-' < "${domain_path}" | \
+        cut -b-253)"
+    fi
+
     umount "${STATEFUL_MNT}"
   fi
   return ${has_config}

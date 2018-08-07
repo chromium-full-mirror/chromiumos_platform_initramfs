@@ -210,6 +210,10 @@ To proceed with automatic setup, press the Volume Up button, otherwise
 press Volume Down. If you want to cancel recovery, press the power button
 and hold it down until the device turns off (this takes up to 8 seconds).
       </message>
+      <message name="oobe_autoconfig_domain" desc="Message shown by the recovery installer for confirming OOBE auto-setup enrollment domain.">
+Your device will automatically be enrolled into the domain shown below.
+Please verify that it is correct.
+      </message>
       <message name="recovering" desc="Message shown by the recovery installer while the recovery image is getting installed on the device.">
 System recovery is in progress...
 
