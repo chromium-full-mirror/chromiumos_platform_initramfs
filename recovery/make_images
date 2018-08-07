@@ -52,6 +52,13 @@ LOCALE_LINKS = [
 ]
 
 
+# We package some plain ASCII glyphs for basic dynamic text rendering.
+MONOSPACE_FONT = "Monospace,24px"
+MONOSPACE_GLYPH_WIDTH = 14
+MONOSPACE_GLYPH_HEIGHT = 25
+MONOSPACE_GLYPHS = 'abcdefghijklmnopqrstuvwxyz0123456789.-'
+
+
 # Message box dimensions.
 # MESSAGE_BOX_WIDTH:
 #     Width in pixels of an image containing message text.  This
@@ -235,6 +242,27 @@ CRLF_PATTERN = re.compile("\r\n")
 MULTIBLANK_PATTERN = re.compile("   *")
 
 
+def OptimizeImage(src_img, dst_img):
+  """Optimize |src_img|, and save into |dst_img|."""
+  # These pngcrush options won't generate the smallest .png file possible,
+  # instead, the goal here is to generate .png files that the xz step that
+  # compresses the initramfs can compress well, taking advantage of the
+  # redundancy between files. See crbug.com/465647 for details.
+  pngcrush_args = (
+      'pngcrush', '-quiet',
+      # Set the color type to "grayscale without alpha channel".
+      '-c', '0',
+      # Use method 1 (no filtering).
+      '-m', '1',
+      # zlib level 0 (no compression).
+      '-l', '0',
+      # No filter.
+      '-f', '0',
+      src_img, dst_img)
+
+  subprocess.check_call(pngcrush_args)
+
+
 def CreateMessageImage(msgtext, locale, imagename):
   """Create a message image file containing the given text.
 
@@ -284,22 +312,28 @@ def CreateMessageImage(msgtext, locale, imagename):
   new_image.paste(image, (TEXT_INSET_WIDTH, TEXT_INSET_HEIGHT))
   temp_imagename = '%s.tmp%s' % os.path.splitext(imagename)
   new_image.save(temp_imagename)
-  # These pngcrush options won't generate the smallest .png file possible,
-  # instead, the goal here is to generate .png files that the xz step that
-  # compresses the initramfs can compress well, taking advantage of the
-  # redundancy between files. See crbug.com/465647 for details.
-  subprocess.check_call(
-      ['pngcrush', '-quiet',
-      # Set the color type to "grayscale without alpha channel".
-      '-c', '0',
-      # Use method 1 (no filtering).
-      '-m', '1',
-      # zlib level 0 (no compression).
-      '-l', '0',
-      # No filter.
-      '-f', '0',
-      temp_imagename, imagename])
+
+  OptimizeImage(temp_imagename, imagename)
+
   os.unlink(temp_imagename)
+
+
+def CreateMonospaceGlyph(char, glyph_path):
+  """Renders a single |char| into |glyph_path|."""
+  with tempfile.NamedTemporaryFile(suffix=".png") as temp:
+    subprocess.check_call(
+        ['pango-view',
+         '-q',
+         '--pixels',
+         '--hinting=auto',
+         '--margin=0',
+         '--foreground=#%06x' % TEXT_COLOR,
+         '--background=#%06x' % BACKGROUND,
+         '--font=%s' % MONOSPACE_FONT,
+         '--text=%s' % char,
+         '--output=%s' % temp.name])
+
+    OptimizeImage(temp.name, glyph_path)
 
 
 def CreateProgressBar(image_dir):
@@ -447,6 +481,8 @@ def CreateConstantDefs(image_dir):
     ("PROGRESS_INCREMENT",      "%d"),
     ("PROGRESS_INCREMENT_LEFT", "%d"),
     ("PROGRESS_INCREMENT_TOP",  "%d"),
+    ("MONOSPACE_GLYPH_WIDTH",   "%d"),
+    ("MONOSPACE_GLYPH_HEIGHT",  "%d"),
   ]
   fileheader = """\
 # Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
@@ -462,6 +498,16 @@ def CreateConstantDefs(image_dir):
     for var, fmt in export_vars:
       genfile.write(("%s=" + fmt + "\n") % (var, globals()[var]))
   print "wrote %s" % os.path.basename(constants_sh)
+
+
+def CreateMonospaceGlyphs(image_dir):
+  """Creates images for a set of basic ASCII glyphs."""
+  glyph_dir = os.path.join(image_dir, 'glyphs')
+  if not os.path.isdir(glyph_dir):
+    os.mkdir(glyph_dir)
+
+  for char in MONOSPACE_GLYPHS:
+    CreateMonospaceGlyph(char, os.path.join(glyph_dir, '%d.png' % ord(char)))
 
 
 def main(argv):
@@ -495,6 +541,7 @@ def main(argv):
   CreateLinkedLocales(screendir, locale_list, LOCALE_LINKS)
   CreateProgressBar(screendir)
   CreateConstantDefs(screendir)
+  CreateMonospaceGlyphs(screendir)
 
 
 if __name__ == "__main__":
