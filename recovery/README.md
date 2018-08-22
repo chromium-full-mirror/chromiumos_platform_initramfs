@@ -1,5 +1,32 @@
 # Chromium OS Recovery Kernels
 
+This is used to recovery Chrome OS devices. It's responsible going through the
+entire flow and making sure the security of the process is not compromised.
+
+[TOC]
+
+## Code flow overview
+
+The [init](./init) script is responsible for setting up and verifying the
+initial environment.  It's not meant to do much more than that.  It needs to
+make sure the TPM and firmware are in a good state (verified/locked) first.
+Then it hands off execution to [recovery_init.sh].
+
+The [recovery_init.sh] script is where the main execution logic all lives.
+It verifies the rootfs first, then sets up the mounts so it can execute the
+actual recovery logic.  Then it hands off execution to the [chromeos-recovery]
+script which runs off and inside of the verified rootfs.
+
+This means any new recovery logic should be added to the [installer] project.
+The only time the initramfs logic itself should be updated is if code needs to
+run before the rootfs verification step.  This allows the logic to be written
+in a proper language (e.g. C++) rather than untestable shell, and avoids
+bloating the initramfs (which has severe size constraints).
+
+[recovery_init.sh]: ./recovery_init.sh
+[installer]: https://chromium.googlesource.com/chromiumos/platform2/+/master/installer/
+[chromeos-recovery]: https://chromium.googlesource.com/chromiumos/platform2/+/master/installer/chromeos-recovery
+
 ## All about image resources in recovery images
 
 The code in `messages.sh` depends on a collection of PNG files stored in
@@ -17,7 +44,7 @@ Simple instructions if you just want to create images for review:
 Note that the work must be done inside the chroot, in order to guarantee correct
 font selection.
 
-## Contents of /etc/screens, and what it's for
+### Contents of /etc/screens, and what it's for
 
 *   `screens/constants.sh` \
     This is a small shell fragment sourced from `messages.sh`. It contains
@@ -56,7 +83,7 @@ font selection.
     This file comes from the chromeos-assets package; see the ebuild for
     details.
 
-## Adding a new locale
+### Adding a new locale
 
 All available locales are currently stored under localized_text; however, not
 all locales are included in the final output. Each Chrome computer is
@@ -90,7 +117,7 @@ confirm that it looks like the original text. If you can, it would be wise to
 find someone familiar with the target language to confirm there are no glaring
 errors.
 
-## How to generate content
+### How to generate content
 
 All necessary graphic image content is generated automatically in the ebuild; if
 you intend to test simply by booting a device, you don't need to do anything.
@@ -111,7 +138,7 @@ locales not in the current supported list:
 This command will use the default font for unknown locales; this may or may not
 be right.
 
-## How to override user interface
+### How to override user interface
 
 The user interface for recovery program was made primarily for systems with
 display. For headless (without display) devices, you may need to override the
@@ -220,7 +247,7 @@ changes that are needed to make serial console work inside of Recovery:
     during `mod_image_for_recovery.sh`. (Note: `nominimize_image` allows for the
     preservation of the contents of the stateful partition during install.)
 
-### Finally, you’re ready to boot your image:
+Finally, you’re ready to boot your image:
 
 1.  `cros_flash` the
     `~/trunk/src/build/images/${BOARD}/latest/recovery_test_image.bin` file to
@@ -231,7 +258,7 @@ changes that are needed to make serial console work inside of Recovery:
     haven’t signed this image. USB boot is sufficient for testing (so long as
     verified boot is not part of your test).
 
-### Back on your Servo or SuzyQ-connected host:
+Back on your Servo or SuzyQ-connected host:
 
 1.  Make sure that servod is running per the
     [Servo](https://www.chromium.org/chromium-os/servo) instructions. This also
@@ -245,7 +272,7 @@ changes that are needed to make serial console work inside of Recovery:
 4.  You should see the console output from the init script. The output is “sh
     -x”-style shell execution tracing.
 
-## Unpacking an initramfs for inspection
+### Unpacking an initramfs for inspection
 
 1.  In some directory in chroot: `mkdir ./tmp-initramfs`
 
