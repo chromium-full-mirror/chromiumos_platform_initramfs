@@ -950,7 +950,25 @@ setup_oobe_auto_config_keys() {
   # Define a 32-byte space with the same PPWRITE permission as the vboot kernel
   # rollback space. This prevents a compromised OS from altering it to load an
   # arbitrary configuration file without going through recovery.
-  tpmc definespace "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" 0x20 0x1
+  #
+  # For TPM 1.2 set bits:
+  # - 0:  TPM_NV_PER_PPWRITE - Requires physical presence to write.
+  #
+  # For TPM 2.0 set bits:
+  # - 0:  TPM_NV_PPWRITE - Requires physical presence to write.
+  # - 18: TPM_NV_PER_AUTHREAD - Requires authorization to read (in this case
+  #       with empty password)
+  # - 25: TPMA_NV_NO_DA - To avoid TPM lockouts in case of bugs in reading
+  #       logic.
+  # - 30: TPMA_NV_PLATFORMCREATE - The index can be undefined with platform
+  #       authorization but not with owner authorization.
+  local permissions=
+  if [ "$(tpmc tpmver)" == "2.0" ]; then
+    permissions=0x42040001
+  else
+    permissions=0x1
+  fi
+  tpmc definespace "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" 0x20 "${permissions}"
   # No quotes; this is intended to split up the bytes.
   tpmc write "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" ${pub_bytes}
 }
