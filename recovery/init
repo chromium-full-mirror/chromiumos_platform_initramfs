@@ -489,7 +489,8 @@ main() {
 
   # Write generated public key for verifying OOBE autoconfiguration to the TPM
   # before we lock it below.
-  setup_oobe_auto_config_keys
+  # TODO(ahassani): Enable OOBE logic when it is supported on the OOBE side.
+  # setup_oobe_auto_config_keys
 
   # Always lock the TPM first.
   lock_tpm || on_error
@@ -516,7 +517,7 @@ main() {
   # the user before we proceed. We ask before validating the recovery rootfs
   # so that the user does not have to come back to the setup process after
   # a minute of validation to confirm.
-  # TODO(tbrindus): Enable OOBE logic when it is supported on the OOBE side.
+  # TODO(ahassani): Enable OOBE logic when it is supported on the OOBE side.
   # request_oobe_autoconfig_acknowledgment
 
   message validate
