@@ -288,8 +288,6 @@ message_oobe_autoconfig_acknowledgment_volume() {
 }
 
 message_validate() {
-  select_locale
-
   instructions cancel
   progress validating
 

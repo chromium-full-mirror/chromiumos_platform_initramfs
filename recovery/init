@@ -489,8 +489,7 @@ main() {
 
   # Write generated public key for verifying OOBE autoconfiguration to the TPM
   # before we lock it below.
-  # TODO(ahassani): Enable OOBE logic when it is supported on the OOBE side.
-  # setup_oobe_auto_config_keys
+  setup_oobe_auto_config_keys
 
   # Always lock the TPM first.
   lock_tpm || on_error
@@ -501,6 +500,9 @@ main() {
   udevd --daemon
   udevadm trigger
   udevadm settle
+
+  # We should select the locale before showing any messages.
+  select_locale
 
   if ! find_official_root ; then
     if find_developer_root; then
@@ -517,8 +519,7 @@ main() {
   # the user before we proceed. We ask before validating the recovery rootfs
   # so that the user does not have to come back to the setup process after
   # a minute of validation to confirm.
-  # TODO(ahassani): Enable OOBE logic when it is supported on the OOBE side.
-  # request_oobe_autoconfig_acknowledgment
+  request_oobe_autoconfig_acknowledgment
 
   message validate
 
