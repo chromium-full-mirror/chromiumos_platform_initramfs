@@ -6,6 +6,7 @@
 Consultă această adresă URL pentru mai multe informații:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Dispozitivul tău va fi automat înscris în domeniul prezentat mai jos. Verifică dacă este corect.</translation>
 <translation id="2701006671590617571">Ești pe cale să recuperezi computerul. Asigură-te că este conectat
 la o sursă de alimentare.
 
@@ -22,10 +23,20 @@ Pentru mai multe informații, consultă această adresă URL:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Se verifică integritatea suportului de recuperare...</translation>
+<translation id="3283913352572436199">Suportul de recuperare este configurat pentru configurare automată după ce repornește.
+
+Pentru a continua configurarea automată, apasă butonul de creștere a volumului sau
+butonul de reducere a volumului. Dacă dorești să anulezi recuperarea, apasă lung pe
+butonul de alimentare până când computerul se închide (durează până la opt secunde).</translation>
 <translation id="33938768013536853">Bateria este prea descărcată pentru actualizare.
 
 Conectează Chromebookul la o sursă de alimentare. Actualizarea
 va începe automat de îndată ce bateria este încărcată suficient.</translation>
+<translation id="369510862371290019">Suportul de recuperare este configurat pentru configurare automată după ce repornește.
+
+Pentru a continua configurarea automată, apasă comutatorul de recuperare al
+dispozitivului. Dacă dorești să anulezi recuperarea, apasă lung pe
+butonul de alimentare până când computerul se închide (durează până la opt secunde).</translation>
 <translation id="3750930141330200643">Folosești o imagine de recuperare a sistemului de operare Chrome neactualizată.
 
 Pentru instrucțiuni privind modul în care poți să creezi un
@@ -45,6 +56,9 @@ https://www.google.com/chromeos/recovery</translation>
 a problemelor, consultă această adresă URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Recuperarea sistemului s-a încheiat.
+
+Acum poți scoate suportul de recuperare. Computerul va reporni automat în curând.</translation>
 <translation id="537291066186627789">Recuperarea sistemului este finalizată.
 
 Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
@@ -58,6 +72,11 @@ Dacă pe computer ai date pe care vrei să le salvezi, anulează recuperarea.</t
 Se încarcă...
 
 Actualizarea va începe automat de îndată ce bateria este încărcată suficient.</translation>
+<translation id="6037207722716689331">Suportul de recuperare este configurat pentru configurare automată după ce repornește.
+
+Pentru a continua configurarea automată, apasă Enter; altfel, apasă Escape.
+Dacă dorești să anulezi recuperarea, apasă lung pe butonul de alimentare până când
+computerul se închide (durează până la opt secunde).</translation>
 <translation id="6478314309353607985">Imaginea de pe suportul de recuperare este o imagine de dezvoltare neverificată.
 
 Recuperarea va continua, deoarece pornirea verificată este dezactivată.
@@ -76,4 +95,8 @@ Acesta va reporni automat când actualizarea se finalizează.</translation>
 
 Procesul va dura câteva minute. Nu închide computerul
 și nu-l deconecta de la sursa de alimentare.</translation>
+<translation id="8796495438384109098">Recuperarea sistemului s-a încheiat.
+
+Păstrează suportul de recuperare conectat până când se încheie configurarea automată.
+Computerul va reporni automat în curând pentru a continua configurarea.</translation>
 </translationbundle>

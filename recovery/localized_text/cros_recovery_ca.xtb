@@ -6,6 +6,8 @@
 Consulta aquest URL per obtenir més informació:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">El dispositiu s'inscriurà automàticament al domini que hi ha a sota.
+Verifica que sigui correcte.</translation>
 <translation id="2701006671590617571">Abans de començar amb la recuperació de l'ordinador, comproveu que estigui connectat a una font d'alimentació.
 
 Si voleu cancel·lar la recuperació, premeu el botó d'engegada i manteniu-lo premut fins que l'ordinador no s'apagui (tardarà 8 segons com a màxim). Es pot fer de forma segura en qualsevol moment durant la verificació.</translation>
@@ -16,9 +18,19 @@ Per obtenir més informació, consulteu l'URL següent:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">S'està verificant la integritat del mitjà de recuperació...</translation>
+<translation id="3283913352572436199">El mitjà de recuperació s'ha definit de manera que es configuri automàticament després de reiniciar-se.
+
+Per continuar amb la configuració automàtica, prem el botó d'apujar el volum. Per no continuar,
+prem el botó d'abaixar el volum. Si vols cancel·lar la recuperació, mantén premut el botó d'engegada
+fins que el dispositiu s'apagui (pot tardar fins a 8 segons).</translation>
 <translation id="33938768013536853">No hi ha prou bateria per fer l'actualització.
 
 Connecta Chromebook a una font d'alimentació. L'actualització començarà automàticament quan la bateria estigui prou carregada.</translation>
+<translation id="369510862371290019">El mitjà de recuperació s'ha definit de manera que es configuri automàticament després de reiniciar-se.
+
+Per continuar amb la configuració automàtica, prem el botó de recuperació del dispositiu.
+Si vols cancel·lar la recuperació, mantén premut el botó d'engegada
+fins que el dispositiu s'apagui (pot tardar fins a 8 segons).</translation>
 <translation id="3750930141330200643">Esteu utilitzant una imatge de recuperació de Chrome OS obsoleta.
 
 Consulteu l'URL següent per obtenir instruccions sobre com es poden crear mitjans de recuperació nous:
@@ -33,6 +45,9 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">S'ha produït un error inesperat. Consulteu l'URL següent per obtenir consells de resolució de problemes:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">La recuperació del sistema s'ha completat.
+
+Ja pots extreure el mitjà de recuperació de manera segura. L'ordinador es reiniciarà automàticament en breu.</translation>
 <translation id="537291066186627789">La recuperació del sistema s'ha completat.
 
 Extraieu el mitjà de recuperació i l'ordinador es reiniciarà automàticament.</translation>
@@ -44,6 +59,11 @@ Aquesta operació suprimirà qualsevol altre sistema operatiu que tingueu instal
 S'està carregant...
 
 L'actualització començarà automàticament quan la bateria estigui prou carregada.</translation>
+<translation id="6037207722716689331">El mitjà de recuperació s'ha definit de manera que es configuri automàticament després de reiniciar-se.
+
+Per continuar amb la configuració automàtica, prem Retorn. Per no continuar, prem Esc.
+Si vols cancel·lar la recuperació, mantén premut el botó d'engegada
+fins que el dispositiu s'apagui (pot tardar fins a 8 segons).</translation>
 <translation id="6478314309353607985">La imatge del mitjà de recuperació és una imatge de desenvolupador no verificada.
 
 La recuperació continuarà perquè l'inici verificat està desactivat. Si més endavant torneu a activar la verificació, haureu de repetir la recuperació amb una imatge de Chrome OS oficial.</translation>
@@ -57,4 +77,8 @@ Es reiniciarà automàticament un cop finalitzi l'actualització.</translation>
 <translation id="8728458033228603970">Recuperació del sistema en curs...
 
 Aquesta tasca pot tardar uns quants minuts. No apagueu l'ordinador ni el desconnecteu de la font d'alimentació.</translation>
+<translation id="8796495438384109098">La recuperació del sistema s'ha completat.
+
+Mantén el mitjà de recuperació connectat fins que la configuració automàtica es completi.
+L'ordinador es reiniciarà automàticament en breu per continuar amb la configuració.</translation>
 </translationbundle>

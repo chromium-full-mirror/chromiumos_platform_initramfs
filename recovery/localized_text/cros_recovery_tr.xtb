@@ -6,6 +6,8 @@
 Daha fazla bilgi edinmek için lütfen bu URL'ye bakın:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Cihazınız aşağıda gösterilen alana otomatik olarak kaydedilir.
+Lütfen doğru olduğunu onaylayın.</translation>
 <translation id="2701006671590617571">Bilgisayarınızda kurtarma işlemi yapmak üzeresiniz. Lütfen bilgisayarın
 bir güç kaynağına bağlı olduğundan emin olun.
 
@@ -21,10 +23,16 @@ Daha fazla bilgi için şu URL'ye bakın:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Kurtarma medyanızın bütünlüğü doğrulanıyor...</translation>
+<translation id="3283913352572436199">Kurtarma ortamınız, yeniden başlatıldıktan sonra otomatik kurulum işlemini gerçekleştirecek şekilde yapılandırıldı.
+
+Otomatik kurulum ile devam etmek için Sesi Artırma düğmesine; aksi halde, Sesi Azaltma düğmesine basın. Kurtarmayı iptal etmek istiyorsanız güç düğmesine basın ve cihaz kapanıncaya kadar basılı tutun (bu işlem yaklaşık 8 saniye sürer).</translation>
 <translation id="33938768013536853">Pil gücü güncelleme için yeterli değil.
 
 Chromebook'unuzu lütfen bir güç kaynağına takın. Pilin gücü
 yeterli olduğunda güncelleme otomatik olarak başlar.</translation>
+<translation id="369510862371290019">Kurtarma ortamınız, yeniden başlatıldıktan sonra otomatik kurulum işlemini gerçekleştirecek şekilde yapılandırıldı.
+
+Otomatik kurulum ile devam etmek için cihazın kurtarma düğmesine basın. Kurtarmayı iptal etmek istiyorsanız güç düğmesine basın ve cihaz kapanıncaya kadar basılı tutun (bu işlem yaklaşık 8 saniye sürer).</translation>
 <translation id="3750930141330200643">Eski bir Chrome OS kurtarma imajı kullanıyorsunuz.
 
 Yeni kurtarma medyasının nasıl oluşturulacağına ilişkin talimatlar
@@ -44,6 +52,9 @@ https://www.google.com/chromeos/recovery</translation>
 şu URL'ye bakın:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Sistem kurtarma işlemi tamamlandı.
+
+Kurtarma ortamını şimdi güvenle kaldırabilirsiniz. Bilgisayarınız kısa bir süre içinde otomatik olarak yeniden başlatılacak.</translation>
 <translation id="537291066186627789">Sistem kurtarma işlemi tamamlandı.
 
 Lütfen kurtarma medyasını çıkarın. Bilgisayarınız otomatik olarak
@@ -59,6 +70,9 @@ iptal etmelisiniz.</translation>
 Şarj ediliyor...
 
 Pilin gücü yeterli olduğunda güncelleme otomatik olarak başlar.</translation>
+<translation id="6037207722716689331">Kurtarma ortamınız, yeniden başlatıldıktan sonra otomatik kurulum işlemini gerçekleştirecek şekilde yapılandırıldı.
+
+Otomatik kurulum ile devam etmek için Enter tuşuna; aksi halde, Escape tuşuna basın. Kurtarmayı iptal etmek istiyorsanız güç düğmesine basın ve cihaz kapanıncaya kadar basılı tutun (bu işlem yaklaşık 8 saniye sürer).</translation>
 <translation id="6478314309353607985">Kurtarma medyanızdaki görüntü, doğrulanmamış bir geliştirici görüntüsüdür.
 
 Doğrulanmış önyükleme özelliği kapalı olduğundan kurtarma işlemi devam
@@ -77,4 +91,8 @@ Güncelleme tamamlandığında cihaz otomatik olarak yeniden başlar.</translati
 
 Bu işlem birkaç dakika sürecektir. Lütfen bilgisayarı kapatmayın
 veya güç bağlantısını kesmeyin.</translation>
+<translation id="8796495438384109098">Sistem kurtarma işlemi tamamlandı.
+
+Lütfen otomatik kurulum tamamlanıncaya kadar kurtarma ortamını takılı tutun.
+Bilgisayarınız kuruluma devam etmek için kısa bir süre içinde otomatik olarak yeniden başlatılacak.</translation>
 </translationbundle>

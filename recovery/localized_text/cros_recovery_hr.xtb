@@ -6,6 +6,8 @@
 Više informacija potražite na ovom URL-u:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Vaš će se uređaj automatski prijaviti u domenu prikazanu u nastavku.
+Potvrdite da je to točno.</translation>
 <translation id="2701006671590617571">Oporavit ćete svoje računalo. Obavezno ga uključite
 u izvor napajanja.
 
@@ -21,9 +23,19 @@ Više informacija potražite na ovom URL-u:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Provjeravamo integritet vašeg medija za oporavak...</translation>
+<translation id="3283913352572436199">Vaš je medij za oporavak konfiguriran za automatsko postavljanje nakon što se ponovo pokrene.
+
+Da biste nastavili s automatskim postavljanjem, pritisnite tipku za pojačavanje glasnoće, a u suprotnom
+pritisnite tipku za stišavanje. Ako želite otkazati oporavak, pritisnite tipku za uključivanje/isključivanje
+i držite je dok se uređaj ne isključi (to traje najviše osam sekundi).</translation>
 <translation id="33938768013536853">Baterija nije dovoljno napunjena za ažuriranje.
 
 Priključite Chromebook na izvor napajanja. Ažuriranje će se automatski pokrenuti čim se baterija dovoljno napuni.</translation>
+<translation id="369510862371290019">Vaš je medij za oporavak konfiguriran za automatsko postavljanje nakon što se ponovo pokrene.
+
+Da biste nastavili s automatskim postavljanjem, pritisnite prekidač za oporavak na uređaju.
+Ako želite otkazati oporavak, pritisnite tipku za uključivanje/isključivanje i držite je
+dok se uređaj ne isključi (to traje najviše osam sekundi).</translation>
 <translation id="3750930141330200643">Upotrebljavate zastarjelu sliku za oporavak OS-a Chrome.
 
 Upute za izradu novog medija za oporavak potražite na ovom URL-u:
@@ -42,6 +54,9 @@ https://www.google.com/chromeos/recovery</translation>
 potražite na ovom URL-u:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Dovršen je oporavak sustava.
+
+Sada možete sigurno ukloniti medij za oporavak. Računalo će se uskoro automatski ponovo pokrenuti.</translation>
 <translation id="537291066186627789">Dovršen je oporavak sustava.
 
 Uklonite medij za oporavak i računalo će se automatski
@@ -57,6 +72,11 @@ otkažite oporavak.</translation>
 Punjenje...
 
 Ažuriranje će se automatski pokrenuti čim se baterija dovoljno napuni.</translation>
+<translation id="6037207722716689331">Vaš je medij za oporavak konfiguriran za automatsko postavljanje nakon što se ponovo pokrene.
+
+Da biste nastavili s automatskim postavljanjem, pritisnite Enter, a u suprotnom pritisnite Escape.
+Ako želite otkazati oporavak, pritisnite tipku za uključivanje/isključivanje i držite je
+dok se uređaj ne isključi (to traje najviše osam sekundi).</translation>
 <translation id="6478314309353607985">Slika na vašem mediju za oporavak nepotvrđena je slika razvojnog programera.
 
 Oporavak će se nastaviti jer je potvrđeno pokretanje isključeno.
@@ -75,4 +95,8 @@ Automatski će se ponovo pokrenuti nakon dovršetka ažuriranja.</translation>
 
 To će potrajati nekoliko minuta. Ne isključujte računalo
 i napajanje.</translation>
+<translation id="8796495438384109098">Dovršen je oporavak sustava.
+
+Neka medij za oporavak ostane priključen dok se automatsko postavljanje ne dovrši.
+Računalo će se uskoro automatski ponovo pokrenuti da biste nastavili s postavljanjem.</translation>
 </translationbundle>

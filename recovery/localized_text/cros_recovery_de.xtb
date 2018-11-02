@@ -5,7 +5,9 @@
 
 Weitere Informationen finden Sie unter dieser URL:
 
-https://www.google.com/chromeos/recovery.</translation>
+https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Ihr Gerät wird automatisch in der unten angezeigten Domain registriert.
+Bitte überprüfen Sie, ob es sich um die richtige Domain handelt.</translation>
 <translation id="2701006671590617571">Sie sind im Begriff, Ihren Computer wiederherzustellen. Vergewissern Sie sich bitte, dass er mit einer Stromquelle verbunden ist.
 
 Wenn Sie die Wiederherstellung abbrechen möchten, halten Sie die
@@ -20,10 +22,16 @@ Weitere Informationen finden Sie unter der folgenden URL:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Die Integrität Ihres Wiederherstellungsmediums wird überprüft...</translation>
+<translation id="3283913352572436199">Das Wiederherstellungsmedium ist so konfiguriert, dass es nach einem Neustart automatisch eingerichtet wird.
+
+Drücken Sie die Lautertaste, um mit der automatischen Einrichtung fortzufahren. Drücken Sie andernfalls die Leisertaste. Falls Sie die Wiederherstellung abbrechen möchten, halten Sie die Ein-/Aus-Taste gedrückt, bis sich das Gerät ausschaltet. Das kann bis zu acht Sekunden dauern.</translation>
 <translation id="33938768013536853">Der Akku ist für ein Update zu schwach.
 
 Bitte schließen Sie Ihr Chromebook an eine Stromquelle an. Das Update
 beginnt automatisch, sobald der Akku ausreichend geladen ist.</translation>
+<translation id="369510862371290019">Das Wiederherstellungsmedium ist so konfiguriert, dass es nach einem Neustart automatisch eingerichtet wird.
+
+Drücken Sie die Wiederherstellungstaste, um mit der automatischen Einrichtung fortzufahren. Falls Sie die Wiederherstellung abbrechen möchten, halten Sie die Ein-/Aus-Taste gedrückt, bis sich das Gerät ausschaltet. Das kann bis zu acht Sekunden dauern.</translation>
 <translation id="3750930141330200643">Sie verwenden ein veraltetes Chrome OS-Wiederherstellungsabbild.
 
 Eine Anleitung zur Erstellung neuer
@@ -42,6 +50,9 @@ https://www.google.com/chromeos/recovery</translation>
 finden Sie unter der folgenden URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Die Systemwiederherstellung ist abgeschlossen.
+
+Sie können jetzt das Wiederherstellungsmedium entfernen. Der Computer wird bald automatisch neu gestartet.</translation>
 <translation id="537291066186627789">Die Systemwiederherstellung ist abgeschlossen.
 
 Bitte entfernen Sie das Wiederherstellungsmedium. Ihr Computer wird dann
@@ -57,6 +68,9 @@ benötigen, sollten Sie die Wiederherstellung abbrechen.</translation>
 Wird aufgeladen...
 
 Das Update beginnt automatisch, sobald der Akku ausreichend geladen ist.</translation>
+<translation id="6037207722716689331">Das Wiederherstellungsmedium ist so konfiguriert, dass es nach einem Neustart automatisch eingerichtet wird.
+
+Drücken Sie die Eingabetaste, um mit der automatischen Einrichtung fortzufahren. Drücken Sie andernfalls auf die Esc-Taste. Falls Sie die Wiederherstellung abbrechen möchten, halten Sie die Ein-/Aus-Taste gedrückt, bis sich das Gerät ausschaltet. Das kann bis zu acht Sekunden dauern.</translation>
 <translation id="6478314309353607985">Bei dem Abbild auf Ihrem Wiederherstellungsmedium handelt es sich um ein nicht überprüftes Entwicklerabbild.
 
 Die Wiederherstellung wird fortgesetzt, da Verified Boot deaktiviert ist.
@@ -74,4 +88,8 @@ Es startet automatisch neu, sobald das Update beendet ist.</translation>
 
 Dieser Vorgang wird einige Minuten dauern. Bitte schalten Sie
 den Computer nicht aus und unterbrechen Sie die Stromversorgung nicht.</translation>
+<translation id="8796495438384109098">Die Systemwiederherstellung ist abgeschlossen.
+
+Bitte entfernen Sie das Wiederherstellungsmedium erst, wenn die automatische Einrichtung abgeschlossen ist.
+Ihr Computer wird gleich neu gestartet, um die Einrichtung fortzusetzen.</translation>
 </translationbundle>

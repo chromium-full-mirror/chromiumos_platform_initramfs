@@ -6,6 +6,8 @@
 Buka URL ini untuk informasi lebih lanjut:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Perangkat Anda akan otomatis didaftarkan ke domain yang ditampilkan di bawah.
+Harap verifikasi bahwa tindakan ini benar.</translation>
 <translation id="2701006671590617571">Anda akan memulihkan komputer.  Pastikan
 komputer tersambung ke sumber daya.
 
@@ -19,10 +21,20 @@ Untuk informasi selengkapnya, buka URL ini:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Memverifikasi integritas media pemulihan Anda...</translation>
+<translation id="3283913352572436199">Media pemulihan Anda dikonfigurasi untuk disiapkan secara otomatis setelah reboot.
+
+Untuk melanjutkan penyiapan otomatis, tekan tombol Naikkan Volume, jika tidak ingin melanjutkan,
+tekan Kecilkan Volume. Jika ingin membatalkan pemulihan, tekan dan tahan tombol power
+sampai perangkat mati (butuh waktu sekitar 8 detik).</translation>
 <translation id="33938768013536853">Baterai terlalu lemah untuk mengupdate.
 
 Sambungkan Chromebook ke sumber listrik. Update
 akan otomatis dimulai segera setelah baterai memiliki daya yang cukup.</translation>
+<translation id="369510862371290019">Media pemulihan Anda dikonfigurasi untuk disiapkan secara otomatis setelah reboot.
+
+Untuk melanjutkan penyiapan otomatis, tekan tombol pemulihan perangkat.
+Jika ingin membatalkan pemulihan, tekan dan tahan tombol power
+sampai perangkat mati (butuh waktu sekitar 8 detik).</translation>
 <translation id="3750930141330200643">Anda menggunakan gambar pemulihan Chrome OS versi lama. 
 
 Buka URL berikut untuk mendapat petunjuk tentang cara membuat media pemulihan baru: 
@@ -37,17 +49,26 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Terjadi kesalahan tak terduga.  Lihat URL ini untuk kiat pemecahan masalah: 
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Pemulihan sistem selesai.
+
+Media pemulihan dapat dicopot sekarang. Komputer akan
+segera dinyalakan ulang secara otomatis.</translation>
 <translation id="537291066186627789">Pemulihan sistem selesai. 
 
 Copot media pemulihan dan komputer akan dimulai ulang secara otomatis.</translation>
 <translation id="544118001572747892">Tampaknya komputer Anda bukan sistem Chrome OS. 
 
-Operasi ini akan menghapus sistem operasi lain yang mungkin telah Anda instal dan semua datanya; pencadangan tidak dapat dilakukan. Jika ada data di komputer ini yang ingin disimpan, sebaiknya batalkan pemulihan.</translation>
+Operasi ini akan menghapus sistem operasi lain yang mungkin telah Anda instal dan semua datanya; backup tidak dapat dilakukan. Jika ada data di komputer ini yang ingin disimpan, sebaiknya batalkan pemulihan.</translation>
 <translation id="5512602676102820748">Baterai terlalu lemah untuk mengupdate.
 
 Mengisi baterai...
 
 Update akan otomatis dimulai segera setelah baterai memiliki daya yang cukup.</translation>
+<translation id="6037207722716689331">Media pemulihan Anda dikonfigurasi untuk disiapkan secara otomatis setelah reboot.
+
+Untuk melanjutkan penyiapan otomatis, tekan Enter, jika tidak ingin melanjutkan, tekan Escape.
+Jika ingin membatalkan pemulihan, tekan dan tahan tombol power
+sampai perangkat mati (butuh waktu sekitar 8 detik).</translation>
 <translation id="6478314309353607985">Gambar di media pemulihan Anda adalah gambar pengembang yang belum terverifikasi. 
 
 Pemulihan akan dilanjutkan karena boot yang diverifikasi dinonaktifkan. Jika nanti Anda mengaktifkan verifikasi lagi, Anda perlu mengulangi pemulihan dengan gambar Chrome OS resmi.</translation>
@@ -61,4 +82,8 @@ Perangkat akan otomatis melakukan reboot saat update selesai.</translation>
 <translation id="8728458033228603970">Pemulihan sistem sedang berlangsung...
 
 Proses ini akan memakan waktu beberapa menit. Jangan menonaktifkan komputer atau memutus sambungan daya.</translation>
+<translation id="8796495438384109098">Pemulihan sistem selesai.
+
+Harap tetap colokkan media pemulihan sampai penyiapan otomatis selesai.
+Komputer akan segera dinyalakan ulang untuk secara otomatis untuk melanjutkan penyiapan.</translation>
 </translationbundle>

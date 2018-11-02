@@ -6,6 +6,8 @@
 Lisateavet leiate sellelt URL-ilt:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Teie seade registreeritakse automaatselt alloleval domeenil.
+Kinnitage, et see on õige.</translation>
 <translation id="2701006671590617571">Alustate kohe arvuti taastamist. Veenduge, et see oleks
 toiteallikaga ühendatud.
 
@@ -21,10 +23,20 @@ Lisateavet leiate sellelt URL-ilt:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Teie taastemeediumi terviklikkuse kinnitamine ...</translation>
+<translation id="3283913352572436199">Teie taastemeedia on seadistatud pärast taaskäivitamist automaatset seadistust alustama.
+
+Automaatse seadistuse jätkamiseks vajutage helitugevuse suurendamise nuppu, muul
+juhul helitugevuse vähendamise nuppu. Kui soovite taastamise tühistada, vajutage
+toitenuppu ja hoidke seda all, kuni seade välja lülitub (see võib võtta kuni 8 sekundit).</translation>
 <translation id="33938768013536853">Aku on värskendamiseks liiga tühi.
 
 Ühendage oma Chromebook toiteallikaga. Värskendamine
 algab automaatselt kohe, kui aku on piisavalt laetud.</translation>
+<translation id="369510862371290019">Teie taastemeedia on seadistatud pärast taaskäivitamist automaatset seadistust alustama.
+
+Automaatse seadistuse jätkamiseks vajutage seadme taastelülitit.
+Kui soovite taastamise tühistada, vajutage toitenuppu ja hoidke seda all,
+kuni seade välja lülitub (see võib võtta kuni 8 sekundit).</translation>
 <translation id="3750930141330200643">Kasutate Chrome OS-i aegunud taastekujutist.
 
 Sellelt URL-ilt leiate juhised uue taastemeediumi loomiseks:
@@ -43,6 +55,10 @@ https://www.google.com/chromeos/recovery</translation>
 nõuanded vigade otsimiseks:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Süsteemitaaste jõudis lõpule.
+
+Nüüd saate taastemeediumi ohutult eemaldada. Teie arvuti taaskäivitatakse
+peagi automaatselt.</translation>
 <translation id="537291066186627789">Süsteemitaaste on lõpetatud.
 
 Eemaldage taastemeedium ja teie arvuti taaskäivitatakse
@@ -58,6 +74,11 @@ taastamise tühistama.</translation>
 Laadimine …
 
 Värskendamine algab automaatselt kohe, kui aku on piisavalt laetud.</translation>
+<translation id="6037207722716689331">Teie taastemeedia on seadistatud pärast taaskäivitamist automaatset seadistust alustama.
+
+Automaatse seadistuse jätkamiseks vajutage sisestusklahvi, muul juhul
+vajutage paoklahvi. Kui soovite taastamise tühistada, vajutage toitenuppu
+ja hoidke seda all, kuni seade välja lülitub (see võib võtta kuni 8 sekundit).</translation>
 <translation id="6478314309353607985">Taastemeediumi kujutis on arendaja kinnitamata kujutis.
 
 Taastamist jätkatakse, kuna kinnitatud käivitamine on välja lülitatud.
@@ -75,4 +96,8 @@ See taaskäivitub automaatselt, kui värskendamine lõpetatakse.</translation>
 <translation id="8728458033228603970">Süsteemitaaste on pooleli ...
 
 See võtab mõne minuti. Ärge lülitage arvutit välja ega eemaldage toidet.</translation>
+<translation id="8796495438384109098">Süsteemitaaste jõudis lõpule.
+
+Hoidke taastemeedia ühendatuna, kuni automaatne seadistus on lõpule viidud.
+Teie arvuti taaskäivitatakse peagi automaatselt, et seadistust jätkata.</translation>
 </translationbundle>

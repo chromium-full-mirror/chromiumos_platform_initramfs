@@ -6,6 +6,8 @@
 Ga naar deze URL voor meer informatie:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Je apparaat wordt automatisch aangemeld bij het hieronder getoonde domein.
+Controleer of het correct is.</translation>
 <translation id="2701006671590617571">Je staat op het punt je computer te herstellen. Zorg ervoor dat de computer is aangesloten op een stroombron.
 
 Als je het herstel wilt annuleren, druk je op de aan/uit-knop en houd je deze ingedrukt totdat de computer wordt uitgeschakeld (dit duurt maximaal acht seconden).
@@ -17,9 +19,15 @@ Ga naar de onderstaande URL voor meer informatie:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">De integriteit van je herstelmedium wordt geverifieerd...</translation>
+<translation id="3283913352572436199">Je herstelmedium is ingesteld voor automatische configuratie nadat dit opnieuw is opgestart.
+
+Als je wilt doorgaan met de automatische configuratie, druk je op de knop Volume omhoog. Anders druk je op Volume omlaag. Als je het herstel wilt annuleren, druk je op de aan/uit-knop en houd je deze ingedrukt totdat het apparaat wordt uitgeschakeld (dit duurt maximaal acht seconden).</translation>
 <translation id="33938768013536853">Batterij niet voldoende opgeladen voor update.
 
 Sluit je Chromebook aan op een stroombron. De update wordt automatisch gestart wanneer de batterij voldoende is opgeladen.</translation>
+<translation id="369510862371290019">Je herstelmedium is ingesteld voor automatische configuratie nadat dit opnieuw is opgestart.
+
+Als je wilt doorgaan met de automatische configuratie, druk je op de herstelknop van het apparaat. Als je het herstel wilt annuleren, druk je op de aan/uit-knop en houd je deze ingedrukt totdat het apparaat wordt uitgeschakeld (dit duurt maximaal acht seconden).</translation>
 <translation id="3750930141330200643">Je gebruikt een verouderde Chrome OS-herstelimage.
 
 Ga naar de volgende URL voor instructies voor het maken van een nieuw herstelmedium:
@@ -34,6 +42,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Er is een onverwachte fout opgetreden. Ga naar de onderstaande URL voor tips voor het oplossen van problemen:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Systeemherstel is voltooid.
+
+Je kunt het herstelmedium veilig verwijderen.
+Je computer wordt binnenkort automatisch opnieuw opgestart.</translation>
 <translation id="537291066186627789">Systeemherstel is voltooid.
 
 Verwijder het herstelmedium. Je computer wordt automatisch opnieuw opgestart.</translation>
@@ -46,6 +58,9 @@ Als er gegevens op deze computer staan die je wilt behouden, moet je het herstel
 Opladen...
 
 De update wordt automatisch gestart wanneer de batterij voldoende is opgeladen.</translation>
+<translation id="6037207722716689331">Je herstelmedium is ingesteld voor automatische configuratie nadat dit opnieuw is opgestart
+
+Als je wilt doorgaan met de automatische configuratie, druk je op Enter. Anders druk je op Esc. Als je het herstel wilt annuleren, druk je op de aan/uit-knop en houd je deze ingedrukt totdat het apparaat wordt uitgeschakeld (dit duurt maximaal acht seconden).</translation>
 <translation id="6478314309353607985">De image op je herstelmedium is een niet-geverifieerde ontwikkelaarsimage.
 
 Het herstel wordt voortgezet omdat geverifieerd opstarten is uitgeschakeld.
@@ -61,4 +76,8 @@ Het apparaat wordt automatisch opnieuw opgestart wanneer de update is voltooid.<
 <translation id="8728458033228603970">Systeemherstel wordt uitgevoerd...
 
 Dit duurt enkele minuten. Schakel de computer niet uit en haal de stekker niet uit het stopcontact.</translation>
+<translation id="8796495438384109098">Systeemherstel is voltooid.
+
+Laat je herstelmedium aangesloten totdat de automatische configuratie is voltooid.
+Je computer wordt binnenkort automatisch opnieuw opgestart om door te gaan met de configuratie.</translation>
 </translationbundle>

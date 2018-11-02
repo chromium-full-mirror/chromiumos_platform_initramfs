@@ -6,6 +6,8 @@
 Če želite več informacij, obiščite ta URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Vaša naprava bo samodejno včlanjena v spodaj prikazano domeno.
+Potrdite, da je to pravilno.</translation>
 <translation id="2701006671590617571">Obnovili boste sistem v računalniku. Poskrbite,
 da je priklopljen na vir napajanja.
 
@@ -21,9 +23,15 @@ za obnovitev sistema Chrome OS, ki ni prestala preverjanja.
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Preverjanje celovitosti medija za obnovitev ...</translation>
+<translation id="3283913352572436199">Medij za obnovitev je konfiguriran za samodejno nastavitev po vnovičnem zagonu.
+
+Če želite nadaljevati samodejno nastavitev, pritisnite gumb za povečanje glasnosti, v nasprotnem primeru pa gumb za zmanjšanje glasnosti. Če želite preklicati obnovitev, pritisnite gumb za vklop in ga pridržite, dokler se naprava ne izklopi (to traja do 8 sekund).</translation>
 <translation id="33938768013536853">Akumulator ima premalo energije za posodobitev.
 
 Chromebook priklopite na vir napajanja. Posodobitev se bo samodejno začela, ko bo akumulator dovolj napolnjen.</translation>
+<translation id="369510862371290019">Medij za obnovitev je konfiguriran za samodejno nastavitev po vnovičnem zagonu.
+
+Če želite nadaljevati samodejno nastavitev, pritisnite stikalo za obnovitev na napravi. Če želite preklicati obnovitev, pritisnite gumb za vklop in ga pridržite, dokler se naprava ne izklopi (to traja do 8 sekund).</translation>
 <translation id="3750930141330200643">Uporabljate zastarelo sliko za obnovitev sistema Chrome OS.
 
 Navodila za ustvarjanje novega medija za obnovitev so na voljo na tem URL-ju:
@@ -41,6 +49,9 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Prišlo je do nepričakovane napake. Nasveti glede odpravljanja težav so na voljo na tem URL-ju:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Obnovitev sistema je dokončana.
+
+Zdaj lahko odstranite medij za obnovitev. Računalnik se bo kmalu samodejno zagnal.</translation>
 <translation id="537291066186627789">Obnovitev sistema je dokončana.
 
 Odstranite medij za obnovitev in računalnik se bo
@@ -56,6 +67,9 @@ prekličite obnovitev.</translation>
 Polnjenje ...
 
 Posodobitev se bo samodejno začela, ko bo akumulator dovolj napolnjen.</translation>
+<translation id="6037207722716689331">Medij za obnovitev je konfiguriran za samodejno nastavitev po vnovičnem zagonu.
+
+Če želite nadaljevati samodejno nastavitev, pritisnite tipko Enter, v nasprotnem primeru pa tipko Escape. Če želite preklicati obnovitev, pritisnite gumb za vklop in ga pridržite, dokler se naprava ne izklopi (to traja do 8 sekund).</translation>
 <translation id="6478314309353607985">Slika na mediju za obnovitev je nepreverjena slika za razvijalce.
 
 Obnovitev se bo nadaljevala, ker je preverjanje ob zagonu izklopljeno.
@@ -73,4 +87,7 @@ Po končani posodobitvi se bo samodejno znova zagnala.</translation>
 <translation id="8728458033228603970">Obnovitev sistema poteka ...
 
 Trajalo bo nekaj minut. Ne izklopite računalnika ali ga odklopite z vira napajanja.</translation>
+<translation id="8796495438384109098">Obnovitev sistema je dokončana.
+
+Medij za obnovitev naj bo vklopljen v računalnik, dokler se samodejna nastavitev ne dokonča. Računalnik se bo kmalu samodejno zagnal zaradi nadaljevanja nastavitve.</translation>
 </translationbundle>

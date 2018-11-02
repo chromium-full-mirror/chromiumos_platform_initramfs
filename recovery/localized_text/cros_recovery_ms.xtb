@@ -6,6 +6,7 @@
 Sila rujuk URL ini untuk mendapatkan maklumat lanjut:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Peranti anda akan didaftarkan ke domain yang ditunjukkan di bawah secara automatik. Sila sahkan bahawa perkara ini betul.</translation>
 <translation id="2701006671590617571">Anda akan memulihkan komputer anda. Pastikan komputer anda disambungkan
 kepada sumber kuasa.
 
@@ -21,9 +22,19 @@ Untuk mendapatkan maklumat lanjut, rujuk URL ini:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Mengesahkan integriti media pemulihan anda...</translation>
+<translation id="3283913352572436199">Media pemulihan anda dikonfigurasi untuk persediaan automatik selepas but semula.
+
+Untuk meneruskan persediaan automatik, tekan butang Naikkan Kelantangan, jika tidak
+tekan Kurangkan Kelantangan. Jika anda ingin membatalkan pemulihan, tekan butang kuasa
+dan tahan hingga peranti dimatikan (proses ini mengambil masa sehingga 8 saat).</translation>
 <translation id="33938768013536853">Bateri terlalu lemah untuk kemas kini.
 
 Sila sambungkan Chromebook anda kepada sumber kuasa. Kemas kini akan dimulakan secara automatik sebaik sahaja cas bateri mencukupi.</translation>
+<translation id="369510862371290019">Media pemulihan anda dikonfigurasi untuk persediaan automatik selepas but semula.
+
+Untuk meneruskan persediaan automatik, tekan suis pemulihan peranti.
+Jika anda ingin membatalkan pemulihan, tekan butang kuasa dan tahan
+hingga peranti dimatikan (proses ini mengambil masa sehingga 8 saat).</translation>
 <translation id="3750930141330200643">Anda menggunakan imej pemulihan OS Chrome yang ketinggalan zaman.
 
 Sila rujuk URL ini untuk mendapatkan arahan mengenai cara untuk membuat
@@ -43,6 +54,9 @@ https://www.google.com/chromeos/recovery</translation>
 melihat petua penyelesaian masalah:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Pemulihan sistem selesai.
+
+Media pemulihan boleh dikeluarkan dengan selamat sekarang. Komputer anda akan dimulakan semula secara automatik sebentar lagi.</translation>
 <translation id="537291066186627789">Pemulihan sistem selesai.
 
 Sila alih keluar pemulihan media dan komputer anda akan dimulakan semula
@@ -58,6 +72,11 @@ dikekalkan, anda perlu membatalkan pemulihan.</translation>
 Mengecas...
 
 Kemas kini akan dimulakan secara automatik sebaik sahaja cas bateri mencukupi.</translation>
+<translation id="6037207722716689331">Media pemulihan anda dikonfigurasi untuk persediaan automatik selepas but semula.
+
+Untuk meneruskan persediaan automatik, tekan Enter, jika tidak tekan Escape.
+Jika anda ingin membatalkan pemulihan, tekan butang kuasa dan tahan
+hingga peranti dimatikan (proses ini mengambil masa sehingga 8 saat).</translation>
 <translation id="6478314309353607985">Imej pada media pemulihan anda adalah imej pembangun yang tidak disahkan.
 
 Pemulihan akan diteruskan kerana but yang disahkan dimatikan.
@@ -76,4 +95,8 @@ Peranti ini akan mengebut semula secara automatik apabila kemas kini selesai.</t
 
 Ini akan mengambil masa beberapa minit. Harap jangan matikan komputer atau
 putuskan sambungan kuasa.</translation>
+<translation id="8796495438384109098">Pemulihan sistem selesai.
+
+Jangan keluarkan media pemulihan anda sehinggalah persediaan automatik selesai.
+Komputer anda akan dimulakan semula secara automatik sebentar lagi untuk meneruskan persediaan.</translation>
 </translationbundle>

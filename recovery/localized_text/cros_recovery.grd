@@ -6,6 +6,7 @@
          files are processed by make_images to render the translated message
          text to PNG image files. These are used by the recovery installer
          script to display messages on screen. -->
+    <output filename="am.json" type="chrome_messages_json" lang="am" />
     <output filename="ar.json" type="chrome_messages_json" lang="ar" />
     <output filename="bg.json" type="chrome_messages_json" lang="bg" />
     <output filename="bn.json" type="chrome_messages_json" lang="bn" />
@@ -49,6 +50,7 @@
     <output filename="sl.json" type="chrome_messages_json" lang="sl" />
     <output filename="sr.json" type="chrome_messages_json" lang="sr" />
     <output filename="sv.json" type="chrome_messages_json" lang="sv" />
+    <output filename="sw.json" type="chrome_messages_json" lang="sw" />
     <output filename="ta.json" type="chrome_messages_json" lang="ta" />
     <output filename="te.json" type="chrome_messages_json" lang="te" />
     <output filename="th.json" type="chrome_messages_json" lang="th" />
@@ -59,6 +61,7 @@
     <output filename="zh-TW.json" type="chrome_messages_json" lang="zh-TW" />
   </outputs>
   <translations>
+    <file path="cros_recovery_am.xtb" lang="am" />
     <file path="cros_recovery_ar.xtb" lang="ar" />
     <file path="cros_recovery_bg.xtb" lang="bg" />
     <file path="cros_recovery_bn.xtb" lang="bn" />
@@ -101,6 +104,7 @@
     <file path="cros_recovery_sl.xtb" lang="sl" />
     <file path="cros_recovery_sr.xtb" lang="sr" />
     <file path="cros_recovery_sv.xtb" lang="sv" />
+    <file path="cros_recovery_sw.xtb" lang="sw" />
     <file path="cros_recovery_ta.xtb" lang="ta" />
     <file path="cros_recovery_te.xtb" lang="te" />
     <file path="cros_recovery_th.xtb" lang="th" />
@@ -140,14 +144,14 @@ System recovery is complete.
 
 It is now safe to remove the recovery media. Your computer will
 automatically restart shortly.
-     </message>
-     <message name="complete_oobe_autoconfig" desc="Message shown by the recovery installer upon completion of the image installation procedure for OOBE auto-setup.">
+      </message>
+      <message name="complete_oobe_autoconfig" desc="Message shown by the recovery installer upon completion of the image installation procedure for OOBE auto-setup.">
 System recovery is complete.
 
 Please keep your recovery media plugged in until automatic setup is complete.
 Your computer will automatically restart shortly to continue setup.
-     </message>
-     <message name="dev_invalid_kernel" desc="Message shown by the recovery installer when developer mode is enabled and an image that is signed with outdated signing keys gets installed.">
+      </message>
+      <message name="dev_invalid_kernel" desc="Message shown by the recovery installer when developer mode is enabled and an image that is signed with outdated signing keys gets installed.">
 You are using an out-of-date official Chrome OS recovery image.
 
 Recovery will continue because verification is turned off.

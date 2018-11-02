@@ -6,6 +6,8 @@
 Ha további információra van szüksége, keresse fel a következő URL-t:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Eszköze automatikusan regisztrál az alábbi domainre.
+Ellenőrizze a domain helyességét.</translation>
 <translation id="2701006671590617571">Arra készül, hogy helyreállítsa számítógépét. Győződjön meg róla, hogy
 számítógépe csatlakoztatva van az áramforráshoz.
 
@@ -21,10 +23,21 @@ További tájékoztatásért keresse fel ezt az URL-t:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">A helyreállítási adathordozó integritásának ellenőrzése...</translation>
+<translation id="3283913352572436199">A helyreállítási adathordozó automatikus beállításba kezd az újraindítás után.
+
+Az automatikus beállítás megkezdéséhez nyomja meg a hangerő növelése
+gombot, egyébként a hangerő csökkentése gombot. A helyreállítás
+megszakításához a bekapcsológombot (kb. 8 másodpercig)
+nyomva tartva kapcsolja ki az eszközt.</translation>
 <translation id="33938768013536853">Az akkumulátor töltöttségi szintje túl alacsony a frissítéshez.
 
 Csatlakoztassa a Chromebookot áramforráshoz. A frissítés automatikusan
 elkezdődik, amint az akkumulátor eléri a megfelelő töltöttségi szintet.</translation>
+<translation id="369510862371290019">A helyreállítási adathordozó automatikus beállításba kezd az újraindítás után.
+
+Az automatikus beállítás megkezdéséhez nyomja meg az eszköz helyreállítási
+gombját. A helyreállítás megszakításához a bekapcsológombot (kb. 8 másodpercig)
+nyomva tartva kapcsolja ki az eszközt.</translation>
 <translation id="3750930141330200643">Elavult Chrome operációsrendszer-helyreállítási képfájlt használ.
 
 Tekintse meg az ezen az URL-en elérhető útmutatót azzal kapcsolatban,
@@ -44,6 +57,10 @@ https://www.google.com/chromeos/recovery</translation>
 tippeket talál:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">A rendszer helyreállítása befejeződött.
+
+Most már biztonságosan eltávolíthatja a helyreállítási adathordozót. Számítógépe
+hamarosan automatikusan újraindul.</translation>
 <translation id="537291066186627789">A rendszer helyreállítása befejeződött.
 
 Távolítsa el a helyreállítási adathordozót – számítógépe ezt követően
@@ -59,6 +76,10 @@ szakítsa meg a helyreállítást.</translation>
 Töltés…
 
 A frissítés automatikusan elkezdődik, amint az akkumulátor eléri a megfelelő töltöttségi szintet.</translation>
+<translation id="6037207722716689331">A helyreállítási adathordozó automatikus beállításba kezd az újraindítás után.
+
+Az automatikus beállítás megkezdéséhez nyomja meg az Enter billentyűt,
+egyébként az Escape billentyűt. A helyreállítás megszakításához a bekapcsológombot (kb. 8 másodpercig) nyomva tartva kapcsolja ki az eszközt.</translation>
 <translation id="6478314309353607985">Az adathordozón lévő képfájl nem ellenőrzött fejlesztői képfájl.
 
 A helyreállítás folytatódik, mivel az ellenőrzött rendszerbetöltés ki van kapcsolva.
@@ -77,4 +98,9 @@ A frissítés befejezése után az eszköz automatikusan újraindul.</translatio
 
 Ez néhány percet vesz igénybe. Ne kapcsolja ki a számítógépet, illetve
 ne szüntesse meg a tápellátását.</translation>
+<translation id="8796495438384109098">A rendszer helyreállítása befejeződött.
+
+Ne távolítsa el a helyreállítási adathordozót, amíg az automatikus beállítás
+be nem fejeződött.
+A számítógép rövidesen automatikusan újraindul, hogy folytathassa a beállítást.</translation>
 </translationbundle>

@@ -6,6 +6,8 @@
 Plašāku informāciju skatiet šeit:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Jūsu ierīce automātiski tiks reģistrēta tālāk norādītajā domēnā.
+Lūdzu, apstipriniet, ka tas ir pareizs.</translation>
 <translation id="2701006671590617571">Jūs grasāties atkopt datoru. Tam ir jābūt pieslēgtam
 pie barošanas avota.
 
@@ -19,9 +21,16 @@ Plašāku informāciju skatiet šeit:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Tiek pārbaudīta datu nesēja integritāte...</translation>
+<translation id="3283913352572436199">Jūsu atkopšanas datu nesējs pēc atkārtotas palaišanas ir konfigurēts automātiskai iestatīšanai.
+
+Lai turpinātu automātisko iestatīšanu, nospiediet skaļuma palielināšanas pogu, pretējā gadījumā nospiediet skaļuma samazināšanas pogu. Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu, līdz ierīce izslēdzas (izslēgšana ilgst līdz 8 sekundēm).</translation>
 <translation id="33938768013536853">Nepietiek akumulatora jaudas, lai veiktu atjauninājumu.
 
 Pievienojiet Chromebook datoru strāvas avotam. Atjauninājums tiks sākts automātiski, tiklīdz akumulatorā būs pietiekami daudz jaudas.</translation>
+<translation id="369510862371290019">Jūsu atkopšanas datu nesējs pēc atkārtotas palaišanas ir konfigurēts automātiskai iestatīšanai.
+
+Lai turpinātu automātisko iestatīšanu, nospiediet ierīces atkopšanas slēdzi.
+Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu, līdz ierīce izslēdzas (izslēgšana ilgst līdz 8 sekundēm).</translation>
 <translation id="3750930141330200643">Jūs izmantojat novecojušu Chrome OS atkopšanas attēlu.
 
 Norādījumus par jauna atkopšanas datu nesēja izveidi skatiet šeit:
@@ -36,6 +45,9 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Radās neparedzēta kļūda. Skatiet problēmu novēršanas padomus šeit:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Sistēmas atkopšana ir pabeigta.
+
+Tagad varat noņemt atkopšanas datu nesēju. Pēc brīža dators tiks automātiski tiks restartēts.</translation>
 <translation id="537291066186627789">Sistēmas atkopšana ir pabeigta.
 
 Lūdzu, noņemiet atkopšanas datu nesēju. Dators tiks automātiski restartēts.</translation>
@@ -47,6 +59,10 @@ Veicot šo darbību, tiks izdzēsta jebkura cita šajā datorā instalētā oper
 Notiek uzlāde...
 
 Atjauninājums tiks sākts automātiski, tiklīdz akumulatorā būs pietiekami daudz jaudas.</translation>
+<translation id="6037207722716689331">Jūsu atkopšanas datu nesējs pēc atkārtotas palaišanas ir konfigurēts automātiskai iestatīšanai.
+
+Lai turpinātu automātisko iestatīšanu, nospiediet taustiņu Enter, pretējā gadījumā nospiediet taustiņu Escape.
+Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu, līdz ierīce izslēdzas (izslēgšana ilgst līdz 8 sekundēm).</translation>
 <translation id="6478314309353607985">Atkopšanas datu nesējā esošais attēls nav verificēts izstrādātāja attēls.
 
 Atkopšana tiks turpināta, jo verificētā palaišana ir izslēgta. Ja vēlāk ieslēgsiet verifikāciju, atkopšana būs jāatkārto, izmantojot oficiālu Chrome OS attēlu.</translation>
@@ -60,4 +76,8 @@ Kad atjaunināšana būs pabeigta, ierīce tiks automātiski atkārtoti palaista
 <translation id="8728458033228603970">Notiek sistēmas atkopšana...
 
 Tas aizņems dažas minūtes. Lūdzu, neizslēdziet datoru un neatvienojiet to no barošanas avota.</translation>
+<translation id="8796495438384109098">Sistēmas atkopšana ir pabeigta.
+
+Lūdzu, atstājiet atkopšanas datu nesēju pievienotu, līdz automātiskā iestatīšana ir pabeigta.
+Pēc brīža dators tiks automātiski restartēts, lai turpinātu iestatīšanu.</translation>
 </translationbundle>

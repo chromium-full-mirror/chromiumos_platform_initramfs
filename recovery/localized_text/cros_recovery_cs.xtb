@@ -3,9 +3,11 @@
 <translationbundle lang="cs">
 <translation id="1207194515919037363">Bezpečnostní modul na tomto zařízení nefunguje.
 
-Další informace naleznete na této adrese URL:
+Další informace najdete na této adrese URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Vaše zařízení bude automaticky zaregistrováno do níže uvedené domény.
+Ověřte, zda je to správně.</translation>
 <translation id="2701006671590617571">Chystáte se obnovit počítač. Zkontrolujte prosím, zda je připojen ke zdroji napájení. 
 
 Chcete-li obnovení zrušit, stiskněte a podržte tlačítko napájení, dokud se počítač nevypne (Trvá to asi 8 sekund). 
@@ -15,14 +17,21 @@ Můžete to bez obav udělat kdykoli, dokud nebude dokončeno ověření.</trans
 se zapnutým ověřením systému Chrome OS. Pokoušíte se nainstalovat
 neoficiální obraz pro obnovení systému Chrome OS, který ověřením neprojde.
 
-Další informace naleznete na této adrese:
+Další informace najdete na této adrese:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Ověřování integrity média pro obnovení...</translation>
+<translation id="3283913352572436199">Médium pro obnovení je nakonfigurováno na automatické nastavení po resetování.
+
+Chcete-li pokračovat v automatickém nastavení, stiskněte tlačítko zvýšení hlasitosti, v opačném případě stiskněte tlačítko snížení hlasitosti. Chcete-li obnovení zrušit, stiskněte a podržte vypínač, dokud se zařízení nevypne. (Trvá to asi 8 sekund.)</translation>
 <translation id="33938768013536853">Aktualizaci nelze spustit, protože je baterie příliš vybitá.
 
 Připojte Chromebook ke zdroji napájení. Jakmile bude baterie dostatečně nabitá, aktualizace se automaticky
 spustí.</translation>
+<translation id="369510862371290019">Médium pro obnovení je nakonfigurováno na automatické nastavení po resetování.
+
+Chcete-li pokračovat v automatickém nastavení, stiskněte na zařízení přepínač pro obnovení.
+Chcete-li obnovení zrušit, stiskněte a podržte vypínač, dokud se zařízení nevypne. (Trvá to asi 8 sekund.)</translation>
 <translation id="3750930141330200643">Používáte zastaralý obraz pro obnovení systému Chrome OS.
 
 Pokyny k vytvoření nového média pro obnovení naleznete
@@ -35,13 +44,16 @@ Tento proces trvá 5 minut.</translation>
 
 Pokud se nejedná o záměr, zrušte obnovení a zakažte
 režim pro vývojáře, čímž ověření systému zapnete.
-Další informace naleznete na této adrese:
+Další informace najdete na této adrese:
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Došlo k neočekávané chybě. Tipy k odstraňování problémů
 naleznete na této adrese:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Obnovení systému je dokončeno.
+
+Médium pro obnovení teď lze bezpečně odebrat. Počítač se za chvíli automaticky restartuje.</translation>
 <translation id="537291066186627789">Obnovení systému je dokončeno.
 
 Odeberte prosím médium pro obnovení.
@@ -58,6 +70,10 @@ Nabíjení...
 
 Jakmile bude baterie dostatečně nabitá, aktualizace se automaticky
 spustí.</translation>
+<translation id="6037207722716689331">Médium pro obnovení je nakonfigurováno na automatické nastavení po resetování.
+
+Chcete-li pokračovat v automatickém nastavení, stiskněte Enter, v opačném případě stiskněte Escape.
+Chcete-li obnovení zrušit, stiskněte a podržte vypínač, dokud se zařízení nevypne. (Trvá to asi 8 sekund.)</translation>
 <translation id="6478314309353607985">Obraz na médiu pro obnovení pochází od neověřeného vývojáře.
 
 Obnovení bude pokračovat, protože ověření při startu je vypnuto. Pokud ověření
@@ -76,4 +92,8 @@ Po dokončení aktualizace se automaticky restartuje.</translation>
 
 Tato operace může trvat několik minut. Nevypínejte počítač
 ani jej neodpojujte od zdroje napájení.</translation>
+<translation id="8796495438384109098">Obnovení systému je dokončeno.
+
+Médium pro obnovení ponechte zapojené, dokud nebude automatické nastavení dokončeno.
+Počítač se za chvilku automaticky restartuje, aby mohl pokračovat v nastavení.</translation>
 </translationbundle>

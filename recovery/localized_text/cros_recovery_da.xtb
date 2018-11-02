@@ -6,6 +6,8 @@
 Få flere oplysninger på webadressen nedenfor:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Din enhed tilmeldes automatisk det domæne, der vises nedenfor.
+Bekræft, at det er korrekt.</translation>
 <translation id="2701006671590617571">Du er ved at gendanne din computer. Sørg for, at den er tilsluttet en strømkilde.
 
 Hvis du vil annullere gendannelsen, skal du trykke på afbryderknappen og holde den nede, indtil computeren slukkes (dette kan tage op til 8 sekunder).
@@ -19,10 +21,19 @@ Få flere oplysninger på webadressen nedenfor:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Bekræfter integriteten af dit gendannelsesmedie...</translation>
+<translation id="3283913352572436199">Dit gendannelsesmedie er konfigureret til automatisk konfiguration efter genstart.
+
+Hvis du vil fortsætte med automatisk konfiguration, skal du trykke på knappen Lydstyrke op. Ellers skal du
+trykke på Lydstyrke ned. Hvis du vil annullere gendannelsen, skal du trykke på afbryderknappen og holde den nede, indtil enheden slukkes (dette kan tage op til 8 sekunder).</translation>
 <translation id="33938768013536853">Batteriniveauet er for lavt til at opdatere.
 
 Slut din Chromebook til en strømkilde. Opdateringen
 starter automatisk, så snart batteriet er tilstrækkeligt opladet.</translation>
+<translation id="369510862371290019">Dit gendannelsesmedie er konfigureret til automatisk konfiguration efter genstart.
+
+Hvis du vil fortsætte med automatisk konfiguration, skal du trykke på enhedens gendannelsesknap.
+Hvis du vil annullere gendannelsen, skal du trykke på afbryderknappen og holde den
+nede, indtil enheden slukkes (dette kan tage op til 8 sekunder).</translation>
 <translation id="3750930141330200643">Du bruger et forældet gendannelsesbillede for Chrome OS.
 
 Få hjælp til at oprette et nyt gendannelsesmedie på webadressen nedenfor:
@@ -37,6 +48,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Der opstod en uventet fejl. Få tips til fejlfinding på webadressen nedenfor:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Systemgendannelsen blev gennemført.
+
+Det er nu sikkert at fjerne gendannelsesmediet. Din computer
+genstartes automatisk om et øjeblik.</translation>
 <translation id="537291066186627789">Systemgendannelsen blev gennemført.
 
 Din computer genstartes automatisk, når du fjerner gendannelsesmediet.</translation>
@@ -49,6 +64,11 @@ Hvis du har nogen data på denne computer, som du gerne vil bevare, bør du annu
 Oplader...
 
 Opdateringen starter automatisk, så snart batteriet er tilstrækkeligt opladet.</translation>
+<translation id="6037207722716689331">Dit gendannelsesmedie er konfigureret til automatisk konfiguration efter genstart.
+
+Hvis du vil fortsætte med automatisk konfiguration, skal du trykke på Enter. Ellers skal du trykke på Escape.
+Hvis du vil annullere gendannelsen, skal du trykke på afbryderknappen og holde den
+nede, indtil enheden slukkes (dette kan tage op til 8 sekunder).</translation>
 <translation id="6478314309353607985">Billedet på dit gendannelsesmedie er et ubekræftet udviklerbillede.
 
 Gendannelsen fortsætter, da bekræftet start er slået fra.
@@ -67,4 +87,8 @@ Den genstarter automatisk, når opdateringen er færdig.</translation>
 
 Dette kan tage nogle minutter. Undlad at slukke for computeren eller
 afbryde strømforbindelsen.</translation>
+<translation id="8796495438384109098">Systemgendannelsen er gennemført.
+
+Sørg for, at dit gendannelsesmedie forbliver tilsluttet, indtil den automatiske konfiguration er gennemført.
+Din computer genstarter automatisk om et øjeblik for at fortsætte konfigurationen.</translation>
 </translationbundle>

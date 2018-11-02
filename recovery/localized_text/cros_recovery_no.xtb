@@ -6,6 +6,8 @@
 Du finner mer informasjon på denne nettadressen:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Enheten din blir automatisk registrert på domenet som vises nedenfor.
+Bekreft at informasjonen stemmer.</translation>
 <translation id="2701006671590617571">Du er i ferd med å gjenopprette datamaskinen. Sjekk at den er
 koblet til en strømkilde.
 
@@ -21,9 +23,16 @@ Se denne nettadressen for mer informasjon:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Bekrefter integriteten til gjenopprettingsmediet …</translation>
+<translation id="3283913352572436199">Gjenopprettingsmediet er konfigurert for automatisk konfigurering etter at det er startet på nytt.
+
+For å gå videre med automatisk konfigurering, trykk på volum opp-knappen. Ellers trykker du på volum ned. Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og holder den inne til enheten slås av (dette tar opptil åtte sekunder).</translation>
 <translation id="33938768013536853">Det er for lite batteri igjen til å starte oppdateringen.
 
 Koble Chromebooken til en strømkilde. Oppdateringen starter automatisk når batteriet er tilstrekkelig ladet.</translation>
+<translation id="369510862371290019">Gjenopprettingsmediet ditt er konfigurert for automatisk konfigurering etter at det er startet på nytt.
+
+For å gå videre med automatisk konfigurering, trykk på enhetens gjenopprettingsbryter.
+Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og holder den inne til enheten slås av (dette tar opptil åtte sekunder).</translation>
 <translation id="3750930141330200643">Du bruker en foreldet gjenopprettingsavbildning for Chrome OS.
 
 På denne nettadressen finner du instruksjoner for hvordan du oppretter nye gjenopprettingsmedier:
@@ -42,6 +51,9 @@ https://www.google.com/chromeos/recovery</translation>
 for feilsøkingstips:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Systemgjenopprettingen er fullført.
+
+Nå kan du fjerne gjenopprettingsmediet. Datamaskinen starter automatisk på nytt om kort tid.</translation>
 <translation id="537291066186627789">Systemgjenopprettingen er fullført.
 
 Datamaskinen starter på nytt automatisk når du fjerner
@@ -57,6 +69,10 @@ må du avbryte gjenopprettingen.</translation>
 Lader …
 
 Oppdateringen starter automatisk når batteriet er tilstrekkelig ladet.</translation>
+<translation id="6037207722716689331">Gjenopprettingsmediet ditt er konfigurert for automatisk konfigurering etter at det er startet på nytt.
+
+For å gå videre med automatisk konfigurering, trykk på Enter. Ellers trykker du på Escape.
+Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og holder den inne til enheten slås av (dette tar opptil åtte sekunder).</translation>
 <translation id="6478314309353607985">Avbildningen på gjenopprettingsmediet er en ubekreftet utvikleravbildning.
 
 Gjenopprettingen fortsetter fordi bekreftet oppstart er slått av.
@@ -74,4 +90,8 @@ Den starter på nytt automatisk når oppdateringen er fullført.</translation>
 <translation id="8728458033228603970">Systemgjenoppretting pågår …
 
 Dette tar noen minutter. Ikke slå av datamaskinen eller koble fra strømmen.</translation>
+<translation id="8796495438384109098">Gjenoppretting av systemet er fullført.
+
+Ikke ta ut gjenopprettingsmediet før den automatiske konfigureringen er fullført.
+Datamaskinen din starter snart på nytt automatisk for å fullføre konfigureringen.</translation>
 </translationbundle>

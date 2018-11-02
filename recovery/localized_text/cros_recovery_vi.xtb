@@ -6,6 +6,8 @@
 Vui lòng tham khảo URL này để biết thêm thông tin:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Thiết bị của bạn sẽ tự động được đăng ký vào miền hiển thị dưới đây.
+Vui lòng xác minh miền này là chính xác.</translation>
 <translation id="2701006671590617571">Bạn sắp khôi phục máy tính của mình.  Vui lòng đảm bảo máy tính
 được cắm vào nguồn điện.
 
@@ -19,10 +21,20 @@ Bạn có thể làm việc này an toàn bất kỳ lúc nào trong quá trình
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Đang xác minh tính toàn vẹn của phương tiện khôi phục của bạn...</translation>
+<translation id="3283913352572436199">Phương tiện khôi phục của bạn được định cấu hình để tự động thiết lập sau khi khởi động lại.
+
+Để tiếp tục quá trình thiết lập tự động, hãy nhấn vào nút Tăng âm lượng, hoặc
+nhấn vào nút Giảm âm lượng. Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn và giữ nút
+nguồn cho tới khi thiết bị tắt (thao tác này mất tối đa 8 giây).</translation>
 <translation id="33938768013536853">Pin quá yếu để thực hiện thao tác cập nhật.
 
 Vui lòng kết nối Chromebook của bạn với nguồn điện. Quá trình cập nhật
 sẽ tự động bắt đầu ngay khi sạc đủ pin.</translation>
+<translation id="369510862371290019">Phương tiện khôi phục của bạn được định cấu hình để tự động thiết lập sau khi khởi động lại.
+
+Để tiếp tục quá trình thiết lập tự động, hãy nhấn vào nút chuyển khôi phục của thiết bị.
+Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn và giữ nút hủy
+cho tới khi thiết bị tắt (thao tác này mất tối đa 8 giây).</translation>
 <translation id="3750930141330200643">Bạn đang sử dụng hình ảnh khôi phục Chrome OS lỗi thời.
 
 Vui lòng tham khảo URL này để xem hướng dẫn về cách tạo
@@ -42,6 +54,9 @@ https://www.google.com/chromeos/recovery</translation>
 để biết các mẹo khắc phục sự cố:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Quá trình khôi phục hệ thống đã hoàn tất.
+
+Bây giờ, bạn có thể yên tâm tháo phương tiện khôi phục. Máy tính sẽ sớm tự động khởi động lại.</translation>
 <translation id="537291066186627789">Khôi phục hệ thống đã hoàn tất.
 
 Vui lòng tháoxóa phương tiện khôi phục và máy tính của bạn sẽ tự động khởi động lại.</translation>
@@ -56,6 +71,11 @@ nên hủy quá trình khôi phục.</translation>
 Đang sạc...
 
 Quá trình cập nhật sẽ tự động bắt đầu ngay khi sạc đủ pin.</translation>
+<translation id="6037207722716689331">Phương tiện khôi phục của bạn được định cấu hình để tự động thiết lập sau khi khởi động lại.
+
+Để tiếp tục quá trình thiết lập tự động, hãy nhấn vào nút Enter hoặc nút Escape.
+Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn và giữ nút nguồn
+cho tới khi thiết bị tắt (thao tác này mất tối đa 8 giây).</translation>
 <translation id="6478314309353607985">Hình ảnh trên phương tiện khôi phục của bạn là hình ảnh nhà phát triển chưa được xác minh.
 Quá trình khôi phục sẽ tiếp tục vì tính năng khởi động xác minh tắt.
 Nếu sau này bạn bật lại tính năng xác minh, bạn sẽ cần lặp lại quá trình khôi phục bằng hình ảnh Chrome OS chính thức.</translation>
@@ -72,4 +92,8 @@ Thiết bị sẽ tự động khởi động lại khi quá trình cập nhật
 
 Quá trình này có thể mất vài phút. Vui lòng không tắt máy tính hoặc
 ngắt kết nối nguồn điện.</translation>
+<translation id="8796495438384109098">Quá trình khôi phục hệ thống đã hoàn tất.
+
+Vui lòng tiếp tục cắm phương tiện khôi phục cho tới khi quá trình thiết lập tự động hoàn tất.
+Máy tính của bạn sẽ sớm tự động khởi động lại để tiếp tục thiết lập.</translation>
 </translationbundle>

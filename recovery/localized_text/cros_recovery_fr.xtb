@@ -6,6 +6,8 @@
 Pour plus d'informations, veuillez consulter l'article disponible à cette adresse :
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Votre appareil sera automatiquement enregistré dans le domaine indiqué ci-dessous.
+Veuillez confirmer que cette information est correcte.</translation>
 <translation id="2701006671590617571">Vous êtes sur le point de lancer le processus de récupération
 sur votre ordinateur. Veuillez vous assurer qu'il est branché à
 une source d'alimentation.
@@ -23,9 +25,17 @@ Pour plus d'informations, veuillez consulter l'article disponible à l'adresse c
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Validation de l'intégrité de votre support de récupération en cours…</translation>
+<translation id="3283913352572436199">Votre support de récupération est configuré pour une installation automatique après le redémarrage.
+
+Si vous voulez poursuivre l'installation automatique, appuyez sur le bouton Volume+, sinon, appuyez sur le bouton Volume-.
+Si vous voulez annuler la récupération, appuyez sur le bouton Marche/Arrêt jusqu'à ce que l'appareil s'éteigne (cela peut prendre jusqu'à huit secondes).</translation>
 <translation id="33938768013536853">La batterie est trop faible pour que vous puissiez installer la mise à jour.
 
 Veuillez brancher votre Chromebook à une source d'alimentation. La mise à jour se lancera automatiquement dès que la batterie sera suffisamment chargée.</translation>
+<translation id="369510862371290019">Votre support de récupération est configuré pour une installation automatique après le redémarrage.
+
+Si vous voulez poursuivre l'installation automatique, appuyez sur le bouton de récupération de l'appareil.
+Si vous voulez annuler la récupération, appuyez sur le bouton Marche/Arrêt jusqu'à ce que l'ordinateur s'éteigne (cela peut prendre jusqu'à huit secondes).</translation>
 <translation id="3750930141330200643">L'image de récupération Chrome OS que vous utilisez est obsolète.
 
 Pour obtenir des instructions sur la manière de créer un support de récupération,
@@ -45,6 +55,9 @@ https://www.google.com/chromeos/recovery</translation>
 de dépannage, veuillez consulter l'article disponible à l'adresse ci-dessous :
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">La récupération du système est terminée.
+
+Le support de récupération peut être maintenant retiré en toute sécurité. Votre ordinateur va bientôt redémarrer automatiquement.</translation>
 <translation id="537291066186627789">La récupération du système est à présent terminée.
 
 Veuillez retirer le support de récupération. Votre ordinateur redémarrera
@@ -61,6 +74,10 @@ ne procédez pas à la récupération.</translation>
 Chargement…
 
 La mise à jour se lancera automatiquement dès que la batterie sera suffisamment chargée.</translation>
+<translation id="6037207722716689331">Votre support de récupération est configuré pour une installation automatique après le redémarrage.
+
+Si vous voulez poursuivre l'installation automatique, appuyez sur Entrée, sinon, appuyez sur Échap.
+Si vous voulez annuler la récupération, appuyez sur le bouton Marche/Arrêt jusqu'à ce que l'ordinateur s'éteigne (cela peut prendre jusqu'à huit secondes).</translation>
 <translation id="6478314309353607985">L'image sur votre support de récupération est une image de développeur
 non validée.
 
@@ -81,4 +98,8 @@ Il redémarrera automatiquement une fois la mise à jour installée.</translatio
 
 Cette opération prend quelques minutes. Veuillez ne pas éteindre l'ordinateur
 ni couper l'alimentation.</translation>
+<translation id="8796495438384109098">La récupération du système est terminée.
+
+Veuillez laisser votre support de récupération branché jusqu'à ce que l'installation automatique soit terminée.
+Votre ordinateur va bientôt redémarrer automatiquement pour poursuivre l'installation.</translation>
 </translationbundle>

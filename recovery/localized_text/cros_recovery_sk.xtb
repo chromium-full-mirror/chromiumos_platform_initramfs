@@ -6,6 +6,7 @@
 Ďalšie informácie získate na webovej adrese
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Vaše zariadenie bude automaticky zaregistrované do domény zobrazenej nižšie. Overte, či je správna.</translation>
 <translation id="2701006671590617571">Chystáte sa obnoviť svoj počítač. Skontrolujte, či je počítač pripojený k zdroju napájania.
 
 Ak chcete obnovenie zrušiť, stlačte a podržte vypínač, dokým sa systém nevypne (trvá to približne osem sekúnd).
@@ -19,10 +20,16 @@ operačného systému Chrome OS.  Snažíte sa nainštalovať neoficiálny obraz
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Overuje sa integrita média na obnovenie...</translation>
+<translation id="3283913352572436199">Vaše médium na obnovenie je nakonfigurované tak, aby sa po reštartovaní automaticky nastavilo.
+
+Ak chcete pokračovať s automatickým nastavením, stlačte tlačidlo zvýšenia hlasitosti, inak stlačte tlačidlo zníženia hlasitosti. Ak chcete obnovenie zrušiť, pridržte vypínač, dokým sa zariadenie nevypne (trvá to max. 8 sekúnd).</translation>
 <translation id="33938768013536853">Batéria je príliš slabá na aktualizáciu.
 
 Pripojte Chromebook k zdroju napájania. Aktualizácia
 sa automaticky spustí, keď bude batéria dostatočne nabitá.</translation>
+<translation id="369510862371290019">Vaše médium na obnovenie je nakonfigurované tak, aby sa po reštartovaní automaticky nastavilo.
+
+Ak chcete pokračovať s automatickým nastavením, stlačte prepínač obnovenia. Ak chcete obnovenie zrušiť, pridržte vypínač, dokým sa zariadenie nevypne (trvá to max. 8 sekúnd).</translation>
 <translation id="3750930141330200643">Používate zastaraný obraz na obnovenie operačného systému Chrome OS.
 
 Pokyny na vytvorenie nového média na obnovenie nájdete na tejto webovej adrese:
@@ -39,6 +46,10 @@ https://www.google.com/chromeos/recovery</translation>
 webovej adrese:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Obnovenie systému je dokončené.
+
+Teraz môžete médium na obnovenie bezpečne odobrať. Počítač sa čoskoro
+automaticky reštartuje.</translation>
 <translation id="537291066186627789">Obnovenie systému je dokončené.
 
 Odoberte médium na obnovenie a počítač sa automaticky reštartuje.</translation>
@@ -53,6 +64,9 @@ obnovenie zrušiť.</translation>
 Nabíja sa...
 
 Aktualizácia sa automaticky spustí, keď bude batéria dostatočne nabitá.</translation>
+<translation id="6037207722716689331">Vaše médium na obnovenie je nakonfigurované tak, aby sa po reštartovaní automaticky nastavilo.
+
+Ak chcete pokračovať s automatickým nastavením, stlačte Enter, inak stlačte Escape. Ak chcete obnovenie zrušiť, pridržte vypínač, dokým sa zariadenie nevypne (trvá to max. 8 sekúnd).</translation>
 <translation id="6478314309353607985">Obraz na médiu na obnovenie pochádza od neovereného vývojára.
 
 Obnovenie bude pokračovať, pretože overenie pri štarte je vypnuté.
@@ -71,4 +85,7 @@ Po dokončení aktualizácie sa automaticky reštartuje.</translation>
 
 Táto operácia môže trvať niekoľko minút. Nevypínajte počítač ani ho neodpájajte
 od zdroja napájania.</translation>
+<translation id="8796495438384109098">Obnovenie systému je dokončené.
+
+Médium na obnovenie ponechajte zapojené, dokým sa nedokončí automatické nastavenie. Počítač sa čoskoro automaticky reštartuje a bude pokračovať s nastavením.</translation>
 </translationbundle>

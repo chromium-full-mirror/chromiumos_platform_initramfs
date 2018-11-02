@@ -6,9 +6,10 @@
 Acesse o URL abaixo para ver mais informações:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Seu dispositivo será automaticamente inscrito no domínio mostrado abaixo. Verifique se está correto.</translation>
 <translation id="2701006671590617571">Você está prestes a realizar uma operação de recuperação no seu computador. Certifique-se de que ele esteja conectado a uma fonte de energia.
 
-Se desejar cancelar a recuperação, pressione o botão liga/desliga e
+Se quiser cancelar a recuperação, pressione o botão liga/desliga e
 mantenha-o pressionado até que o computador desligue (isso pode demorar até oito segundos).
 Esse procedimento pode ser feito com segurança a qualquer momento durante a verificação.</translation>
 <translation id="2731700343119398978">Aguarde...</translation>
@@ -20,9 +21,19 @@ Para ver mais informações, consulte este URL:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Verificando a integridade da sua mídia de recuperação...</translation>
+<translation id="3283913352572436199">A mídia de recuperação está definida para configuração automática após a reinicialização.
+
+Para prosseguir com a configuração automática, pressione o botão Aumentar volume, caso contrário,
+pressione Diminuir volume. Se você quiser cancelar a recuperação, pressione o botão liga/desliga
+e mantenha-o pressionado até que o dispositivo desligue. Isso pode demorar até oito segundos.</translation>
 <translation id="33938768013536853">Bateria muito fraca para atualizar.
 
 Conecte o Chromebook a uma fonte de alimentação. A atualização iniciará automaticamente assim que houver carga suficiente.</translation>
+<translation id="369510862371290019">A mídia de recuperação está definida para configuração automática após a reinicialização.
+
+Para prosseguir com a configuração automática, pressione o botão de recuperação do dispositivo.
+Se você quiser cancelar a recuperação, pressione o botão liga/desliga e mantenha-o
+pressionado até que o dispositivo desligue. Isso pode demorar até oito segundos.</translation>
 <translation id="3750930141330200643">Você está usando uma imagem de recuperação do Chrome OS desatualizada.
 
 Consulte este URL para ver instruções sobre como criar uma nova
@@ -42,6 +53,9 @@ https://www.google.com/chromeos/recovery</translation>
 dicas de solução de problemas:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">A recuperação do sistema foi concluída.
+
+Você pode remover a mídia de recuperação com segurança. Seu computador será reiniciado automaticamente.</translation>
 <translation id="537291066186627789">A recuperação do sistema foi concluída.
 
 Remova a mídia de recuperação. Seu computador será reiniciado
@@ -57,6 +71,11 @@ cancele a recuperação.</translation>
 Carregando...
 
 A atualização iniciará automaticamente assim que houver carga suficiente.</translation>
+<translation id="6037207722716689331">A mídia de recuperação está definida para configuração automática após a reinicialização.
+
+Para continuar com a configuração automática, pressione Enter, caso contrário, pressione Escape.
+Se você quiser cancelar a recuperação, pressione o botão liga/desliga e
+mantenha-o pressionado até que o dispositivo desligue. Isso pode demorar até oito segundos.</translation>
 <translation id="6478314309353607985">A imagem na sua mídia de recuperação é uma imagem de desenvolvedor não verificada.
 
 A recuperação continuará porque a inicialização verificada foi desativada.
@@ -74,4 +93,8 @@ Ele será automaticamente reinicializado quando a atualização for concluída.<
 <translation id="8728458033228603970">A recuperação do sistema está em andamento...
 
 Isso levará alguns minutos. Não desligue o computador nem desconecte-o da fonte de energia.</translation>
+<translation id="8796495438384109098">A recuperação do sistema foi concluída.
+
+Mantenha a mídia de recuperação conectada até que a configuração automática seja concluída.
+O computador será reiniciado automaticamente em breve para continuar a configuração.</translation>
 </translationbundle>

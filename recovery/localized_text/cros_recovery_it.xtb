@@ -6,6 +6,8 @@
 Per ulteriori informazioni consulta la pagina all'indirizzo:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Il dispositivo verrà registrato automaticamente nel dominio mostrato sotto.
+Verifica che sia corretto.</translation>
 <translation id="2701006671590617571">Sta per iniziare il ripristino del computer. Assicurati che sia collegato a una presa di corrente.
 
 Se desideri annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del computer (potrebbero essere necessari fino a 8 secondi).
@@ -17,9 +19,16 @@ Per ulteriori informazioni, visita la pagina all'indirizzo:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Verifica dell'integrità del supporto di ripristino...</translation>
+<translation id="3283913352572436199">È impostata la configurazione automatica del supporto di ripristino dopo il riavvio.
+
+Per procedere con la configurazione automatica, premi il pulsante Alza il volume, altrimenti il pulsante Abbassa il volume. Se vuoi annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del dispositivo (potrebbero essere necessari fino a 8 secondi).</translation>
 <translation id="33938768013536853">Livello della batteria troppo basso per eseguire l'aggiornamento.
 
 Collega il tuo Chromebook a una fonte di alimentazione. L'aggiornamento avrà inizio non appena la batteria avrà carica sufficiente.</translation>
+<translation id="369510862371290019">È impostata la configurazione automatica del supporto di ripristino dopo il riavvio.
+
+Per procedere con la configurazione automatica, premi l'interruttore per il ripristino del dispositivo.
+Se vuoi annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del dispositivo (potrebbero essere necessari fino a 8 secondi).</translation>
 <translation id="3750930141330200643">È in uso un'immagine di ripristino di Chrome OS obsoleta.
 
 Visita la pagina al seguente indirizzo per avere istruzioni sulla creazione di nuovi supporti di ripristino:
@@ -34,6 +43,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Si è verificato un errore imprevisto. Visita la pagina al seguente indirizzo per avere suggerimenti per la risoluzione dei problemi:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Ripristino del sistema completato.
+
+È ora possibile rimuovere il supporto di ripristino. Tra poco il computer si
+riavvierà automaticamente.</translation>
 <translation id="537291066186627789">Ripristino del sistema completato.
 
 Rimuovi il supporto di ripristino; il computer si riavvierà automaticamente.</translation>
@@ -46,6 +59,10 @@ Se sul computer hai memorizzato dati che desideri conservare, dovresti annullare
 Caricamento in corso…
 
 L'aggiornamento avrà inizio non appena la batteria avrà carica sufficiente.</translation>
+<translation id="6037207722716689331">È impostata la configurazione automatica del supporto di ripristino dopo il riavvio.
+
+Per procedere con la configurazione automatica, premi INVIO, altrimenti premi ESC.
+Se vuoi annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del dispositivo (potrebbero essere necessari fino a 8 secondi).</translation>
 <translation id="6478314309353607985">L'immagine sul supporto di ripristino è di uno sviluppatore non verificato.
 
 Il ripristino continuerà perché l'avvio verificato è disattivato.
@@ -61,4 +78,8 @@ Si riavvierà automaticamente al termine dell'aggiornamento.</translation>
 <translation id="8728458033228603970">Ripristino del sistema in corso...
 
 L'operazione richiederà alcuni minuti. Non spegnere il computer e non staccarlo dalla corrente.</translation>
+<translation id="8796495438384109098">Ripristino del sistema completato.
+
+Lascia collegato il supporto di ripristino fino al termine della configurazione automatica.
+Tra poco il computer si riavvierà automaticamente per continuare la configurazione.</translation>
 </translationbundle>

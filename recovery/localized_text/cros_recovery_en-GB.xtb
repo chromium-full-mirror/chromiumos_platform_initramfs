@@ -6,6 +6,8 @@
 Please refer to this URL for more information:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Your device will automatically be enrolled into the domain shown below.
+Please verify that it is correct.</translation>
 <translation id="2701006671590617571">You are about to recover your computer. Please make sure that it is
 plugged in to a power source.
 
@@ -21,10 +23,20 @@ For more information, refer to this URL:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Verifying the integrity of your recovery media…</translation>
+<translation id="3283913352572436199">Your recovery media is configured for automatic setup after it reboots.
+
+To proceed with automatic setup, press the Volume Up button. Otherwise,
+press Volume Down. If you want to cancel recovery, press the power button
+and hold it down until the device turns off (this takes up to 8 seconds).</translation>
 <translation id="33938768013536853">Battery too low for update.
 
 Please connect your Chromebook to a power socket. The update
 will automatically begin as soon as the battery has enough charge.</translation>
+<translation id="369510862371290019">Your recovery media is configured for automatic setup after it reboots.
+
+To proceed with automatic setup, press the device's recovery switch.
+If you want to cancel recovery, press the power button and hold it
+down until the device turns off (this takes up to 8 seconds).</translation>
 <translation id="3750930141330200643">You are using an out-of-date Chrome OS recovery image.
 
 Please refer to this URL for instructions on how to create new
@@ -44,6 +56,10 @@ https://www.google.com/chromeos/recovery</translation>
 troubleshooting tips:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">System recovery is complete.
+
+It is now safe to remove the recovery media. Your computer will
+automatically restart shortly.</translation>
 <translation id="537291066186627789">System recovery is complete.
 
 Please remove the recovery media and your computer will restart
@@ -59,6 +75,11 @@ should cancel recovery.</translation>
 Charging...
 
 The update will automatically begin as soon as the battery has enough charge.</translation>
+<translation id="6037207722716689331">Your recovery media is configured for automatic setup after it reboots.
+
+To proceed with automatic setup, press Enter. Otherwise, press Escape.
+If you want to cancel recovery, press the power button and hold it
+down until the device turns off (this takes up to 8 seconds).</translation>
 <translation id="6478314309353607985">The image on your recovery media is an unverified developer image.
 
 Recovery will continue because verified boot is turned off.
@@ -77,4 +98,8 @@ It will automatically reboot when the update finishes.</translation>
 
 This will take a few minutes. Please do not turn off the computer or
 disconnect the power.</translation>
+<translation id="8796495438384109098">System recovery is complete.
+
+Please keep your recovery media plugged in until automatic setup is complete.
+Your computer will automatically restart shortly to continue setup.</translation>
 </translationbundle>

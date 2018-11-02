@@ -6,6 +6,8 @@
 Sumangguni sa URL na ito para sa higit pang impormasyon:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Awtomatikong mae-enroll sa domain na ipinapakita sa ibaba ang iyong device.
+Paki-verify na tama ito.</translation>
 <translation id="2701006671590617571">Malapit mo nang i-recover ang iyong computer.  Mangyaring siguruhin na
 naka-plug in ito sa isang pinagmulan ng power.
 
@@ -20,10 +22,20 @@ Para sa higit pang impormasyon, sumangguni sa URL na ito:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Vine-verify ang integridad ng iyong media sa pag-recover...</translation>
+<translation id="3283913352572436199">Naka-configure na awtomatikong mag-set up ang iyong media sa pag-recover pagkatapos nitong mag-reboot.
+
+Para magpatuloy sa awtomatikong pag-set up, pindutin ang button na Pataas na Volume, o kaya ay
+pindutin ang Pababang Volume. Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
+hanggang sa mag-off ang device (tatagal ito nang hanggang 8 segundo).</translation>
 <translation id="33938768013536853">Masyadong mababa ang charge ng baterya para sa update.
 
 Pakikonekta ang iyong Chromebook sa mapagkukunan ng power. Awtomatikong
 magsisimula ang pag-update sa sandaling magkaroon ng sapat na charge ang baterya.</translation>
+<translation id="369510862371290019">Naka-configure na awtomatikong mag-set up ang iyong media sa pag-recover pagkatapos nitong mag-reboot.
+
+Para magpatuloy sa awtomatikong pag-set up, pindutin ang switch sa pag-recover ng device.
+Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
+hanggang sa mag-off ang device (tatagal ito nang hanggang 8 segundo).</translation>
 <translation id="3750930141330200643">Gumagamit ka ng lumang larawan sa pag-recover ng Chrome OS.
 
 Mangyaring sumangguni sa URL na ito para sa mga tagubilin sa kung paano gumawa ng bagong media sa pag-recover:
@@ -40,6 +52,9 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">May naganap na hindi inaasahang error.  Mangyaring sumangguni sa URL na ito para sa mga tip sa pagto-troubleshoot:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Tapos na ang pag-recover ng system.
+
+Ligtas nang alisin ang media sa pag-recover. Awtomatikong magre-restart ang iyong computer sa ilang sandali.</translation>
 <translation id="537291066186627789">Kumpleto na ang pag-recover ng system.
 
 Pakialis ang media sa pag-recover at mare-restart ang iyong computer
@@ -52,6 +67,11 @@ Ide-delete ng pagpapatakbong ito ang anumang iba pang operating system na maaari
 Nagcha-charge...
 
 Awtomatikong magsisimula ang pag-update sa sandaling magkaroon ng sapat na charge ang baterya.</translation>
+<translation id="6037207722716689331">Naka-configure na awtomatikong mag-set up ang iyong media sa pag-recover pagkatapos nitong mag-reboot.
+
+Para magpatuloy sa awtomatikong pag-set up, pindutin ang Enter, o kaya ay pindutin ang Escape.
+Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
+hanggang sa mag-off ang device (tatagal ito nang hanggang 8 segundo).</translation>
 <translation id="6478314309353607985">Ang larawan sa iyong media sa pag-recover ay isang hindi na-verify na larawan ng developer.
 
 Magpapatuloy ang pag-recover dahil naka-off ang pag-boot.
@@ -70,4 +90,8 @@ Awtomatiko itong magre-reboot kapag tapos na ang pag-update.</translation>
 
 Tatagal ito nang ilang minuto. Mangyaring huwag i-off ang computer o
 putulin ang koneksyon ng power.</translation>
+<translation id="8796495438384109098">Tapos na ang pag-recover ng system.
+
+Panatilihing nakasaksak ang iyong media sa pag-recover hanggang sa matapos ang pag-set up.
+Awtomatikong magre-restart ang iyong computer sa ilang sandali para ituloy ang pag-set up.</translation>
 </translationbundle>

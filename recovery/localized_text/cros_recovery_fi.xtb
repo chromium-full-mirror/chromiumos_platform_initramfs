@@ -6,6 +6,8 @@
 Saat lisätietoja tästä URL-osoitteesta:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Laitteesi rekisteröidään alla näkyvään verkkotunnukseen automaattisesti.
+Tarkista, että se on oikein.</translation>
 <translation id="2701006671590617571">Palautusprosessi aloitetaan. Varmista, että tietokone on kytketty virtalähteeseen.
 
 Jos haluat peruuttaa palautuksen, paina virtanäppäintä kunnes tietokone sammuu (noin 8 sekuntia). Voit keskeyttää palautuksen koska tahansa vahvistusprosessin aikana.</translation>
@@ -16,9 +18,15 @@ Saat lisätietoja tästä osoitteesta:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Vahvistetaan palautustietovälineen eheyttä…</translation>
+<translation id="3283913352572436199">Palautusvälineen asetukset on valittu niin, että määritys aloitetaan automaattisesti uudelleenkäynnistyksen jälkeen.
+
+Jatka automaattista määritystä painamalla äänenvoimakkuuden lisäyspainiketta. Muussa tapauksessa paina äänenvoimakkuuden vähennyspainiketta. Jos haluat peruuttaa palautuksen, pidä virtapainiketta painettuna, kunnes laite sammuu (tässä kestää enintään kahdeksan sekuntia).</translation>
 <translation id="33938768013536853">Akun varaus ei riitä päivittämiseen.
 
 Yhdistä Chromebook virtalähteeseen. Päivitys alkaa automaattisesti heti, kun akussa on tarpeeksi virtaa.</translation>
+<translation id="369510862371290019">Palautusvälineen asetukset on valittu niin, että määritys aloitetaan automaattisesti uudelleenkäynnistyksen jälkeen.
+
+Jatka automaattista määritystä painamalla laitteen palautuskytkintä. Jos haluat peruuttaa palautuksen, pidä virtapainiketta painettuna, kunnes laite sammuu (tässä kestää enintään kahdeksan sekuntia).</translation>
 <translation id="3750930141330200643">Käytät vanhentunutta Chrome-käyttöjärjestelmän palautustiedostoa.
 
 Saat lisätietoja uuden palautustietovälineen luomisesta tässä osoitteessa:
@@ -34,6 +42,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Tapahtui odottamaton virhe. Saat vianetsintäohjeita tässä osoitteessa:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Järjestelmän palautus on valmis.
+
+Voit nyt poistaa palautustietovälineen. Tietokoneesi käynnistyy
+pian automaattisesti uudelleen.</translation>
 <translation id="537291066186627789">Järjestelmän palautus on valmis.
 
 Poista palautustietoväline, niin tietokoneesi käynnistyy uudelleen.</translation>
@@ -45,6 +57,9 @@ Tämä toimenpide poistaa kaikki muut käyttöjärjestelmät ja niiden tiedot ti
 Ladataan…
 
 Päivitys alkaa automaattisesti heti, kun akussa on tarpeeksi virtaa.</translation>
+<translation id="6037207722716689331">Palautusvälineen asetukset on valittu niin, että määritys aloitetaan automaattisesti uudelleenkäynnistyksen jälkeen.
+
+Jatka automaattista määritystä painamalla Enter. Muussa tapauksessa paina Esc. Jos haluat peruuttaa palautuksen, pidä virtapainiketta painettuna, kunnes laite sammuu (tässä kestää enintään kahdeksan sekuntia).</translation>
 <translation id="6478314309353607985">Palautustietovälineesi sisältää vahvistamattoman kehittäjänäköistiedoston.
 
 Palautusta jatketaan, koska vahvistettu käynnistys ei ole käytössä. Jos otat vahvistuksen myöhemmin käyttöön, sinun täytyy suorittaa palautus uudelleen virallisen Chrome-käyttöjärjestelmän näköistiedoston avulla.</translation>
@@ -58,4 +73,8 @@ Se käynnistyy automaattisesti, kun päivitys päättyy.</translation>
 <translation id="8728458033228603970">Järjestelmän palautus on käynnissä…
 
 Tämä kestää muutaman minuutin. Älä sammuta tietokonetta tai irrota virtalähdettä.</translation>
+<translation id="8796495438384109098">Järjestelmän palautus on valmis.
+
+Älä irrota palautusvälinettä, ennen kuin automaattinen määritys on valmis.
+Tietokoneesi käynnistyy pian automaattisesti uudelleen, jotta määritystä voidaan jatkaa.</translation>
 </translationbundle>

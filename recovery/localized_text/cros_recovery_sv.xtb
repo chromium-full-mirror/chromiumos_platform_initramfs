@@ -6,6 +6,8 @@
 Mer information finns på den här webbadressen:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Enheten registreras automatiskt på domänen nedan.
+Kontrollera att det är rätt domän.</translation>
 <translation id="2701006671590617571">Datorn kommer nu att återställas. Kontrollera att den är ansluten
 till en strömkälla.
 
@@ -21,10 +23,21 @@ Mer information finns på den här webbadressen:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Återställningsmediets säkerhetsstatus verifieras …</translation>
+<translation id="3283913352572436199">Återställningsmediet är inställt på automatisk konfigurering efter omstart.
+
+Om du vill fortsätta med den automatiska konfigureringen trycker du på knappen
+Höj volymen. Annars trycker du på knappen Sänk volymen. Om du vill avbryta
+återställningen håller du strömbrytaren nedtryckt tills datorn stängs av (detta tar
+upp till åtta sekunder).</translation>
 <translation id="33938768013536853">Batterinivån är för låg för uppdateringen.
 
 Anslut Chromebook till en strömkälla. Uppdateringen startar automatiskt
 när batteriet har laddats upp tillräckligt.</translation>
+<translation id="369510862371290019">Återställningsmediet är inställt på automatisk konfigurering efter omstart.
+
+Om du vill fortsätta med den automatiska konfigureringen trycker du på enhetens
+återställningsreglage. Om du vill avbryta återställningen håller du strömbrytaren
+nedtryckt tills datorn stängs av (detta tar upp till åtta sekunder).</translation>
 <translation id="3750930141330200643">Du använder en inaktuell återställningsavbildning av Chrome OS.
 
 På den här webbadressen hittar du anvisningar om hur du skapar
@@ -44,6 +57,9 @@ https://www.google.com/chromeos/recovery</translation>
 den här webbadressen:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Systemåterställningen är klar.
+
+Nu kan du ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
 <translation id="537291066186627789">Systemåterställningen är klar.
 
 Ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
@@ -57,6 +73,11 @@ data som du vill ha kvar på datorn avbryter du återställningen.</translation>
 Laddar …
 
 Uppdateringen startar automatiskt när batteriet har laddats upp tillräckligt.</translation>
+<translation id="6037207722716689331">Återställningsmediet är inställt på automatisk konfigurering efter omstart.
+
+Om du vill fortsätta med den automatiska konfigureringen trycker du på Retur.
+Annars trycker du på Esc. Om du vill avbryta återställningen håller du
+strömbrytaren nedtryckt tills datorn stängs av (detta tar upp till åtta sekunder).</translation>
 <translation id="6478314309353607985">Avbildningen på återställningsmediet är en overifierad
 utvecklaravbildning.
 
@@ -77,4 +98,8 @@ Den startas om automatiskt när uppdateringen är klar.</translation>
 
 Detta tar en stund. Stäng inte av datorn och koppla inte från
 strömsladden.</translation>
+<translation id="8796495438384109098">Systemåterställningen är klar.
+
+Låt återställningsmediet sitta kvar i datorn tills den automatiska konfigureringen är klar.
+Datorn startas snart om automatiskt för konfigureringen.</translation>
 </translationbundle>

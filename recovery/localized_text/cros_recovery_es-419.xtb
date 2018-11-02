@@ -6,6 +6,7 @@
 Para obtener más información, consulta esta URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Tu dispositivo se inscribirá automáticamente en el dominio que se muestra a continuación. Verifica que este información sea correcta.</translation>
 <translation id="2701006671590617571">Estás a punto de recuperar el equipo. Asegúrate de que esté conectado a una fuente de alimentación.
 
 Si quieres cancelar la recuperación, mantén presionado el botón de encendido hasta que se apague el equipo (este proceso puede tardar hasta ocho segundos).
@@ -19,9 +20,15 @@ Para obtener más información, consulta esta URL:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Verificando la integridad de tus medios de recuperación...</translation>
+<translation id="3283913352572436199">El medio de recuperación se configurará automáticamente después del reinicio.
+
+Para comenzar con la configuración automática, presiona el botón Subir volumen. De lo contrario, presiona Bajar volumen. Si quieres cancelar la recuperación, mantén presionado el botón de encendido hasta que se apague el dispositivo (puede tardar hasta 8 segundos).</translation>
 <translation id="33938768013536853">No se puede actualizar porque la batería tiene poca carga.
 
 Conecta tu Chromebook a una fuente de alimentación. La actualización se iniciará automáticamente cuando la batería tenga suficiente carga.</translation>
+<translation id="369510862371290019">El medio de recuperación se configurará automáticamente después del reinicio.
+
+Para comenzar con la configuración automática, presiona el interruptor de recuperación del dispositivo. Si quieres cancelar la recuperación, mantén presionado el botón de encendido hasta que se apague el dispositivo (puede tardar hasta 8 segundos).</translation>
 <translation id="3750930141330200643">Estás usando una versión desactualizada de la imagen de recuperación del Sistema operativo Chrome.
 
 Para obtener instrucciones para crear un nuevo medio de recuperación, consulta esta URL:
@@ -36,6 +43,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Se produjo un error inesperado. Consulta esta URL para obtener sugerencias para solucionar problemas:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Se completó la recuperación del sistema.
+
+Ya es seguro quitar el medio de recuperación. Pronto se reiniciará tu computadora
+automáticamente.</translation>
 <translation id="537291066186627789">Se completó la recuperación del sistema.
 
 Elimina el medio de recuperación, y el equipo se reiniciará automáticamente.</translation>
@@ -48,6 +59,10 @@ Si tienes datos que quieres conservar en este equipo, deberías cancelar la recu
 Cargando…
 
 La actualización se iniciará automáticamente cuando la batería tenga suficiente carga.</translation>
+<translation id="6037207722716689331">El medio de recuperación se configurará automáticamente después del reinicio.
+
+Para comenzar con la configuración automática, presiona la tecla Intro. De lo contrario, presiona Escape.
+Si quieres cancelar la recuperación, mantén presionado el botón de encendido hasta que se apague el dispositivo (puede tardar hasta 8 segundos).</translation>
 <translation id="6478314309353607985">La imagen de tu medio de recuperación es una imagen de programador no verificada.
 
 El proceso de recuperación continuará, ya que el inicio verificado está desactivado.
@@ -63,4 +78,7 @@ Se reiniciará automáticamente cuando finalice la actualización.</translation>
 <translation id="8728458033228603970">Recuperación del sistema en curso...
 
 Este proceso tardará unos minutos. No apagues el equipo ni desconectes la alimentación.</translation>
+<translation id="8796495438384109098">Se completó la recuperación del sistema.
+
+No desconectes el medio de recuperación hasta que finalice la configuración automática. La computadora se reiniciará en breve para continuar con la configuración.</translation>
 </translationbundle>

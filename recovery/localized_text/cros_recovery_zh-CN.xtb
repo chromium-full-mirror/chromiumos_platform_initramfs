@@ -6,6 +6,8 @@
 如需了解更多信息，请前往以下网址：
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">您的设备将会自动注册到如下所示的网域。
+请检查该网域是否正确。</translation>
 <translation id="2701006671590617571">您打算对自己的计算机执行恢复操作，请确保它已接通电源。
 
 如果您要取消恢复操作，请按住电源按钮，直到计算机关闭（这最多需要 8 秒钟的时间）。
@@ -17,9 +19,16 @@ https://www.google.com/chromeos/recovery</translation>
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">正在检验恢复媒体是否完整...</translation>
+<translation id="3283913352572436199">您的恢复媒体已配置为在设备重新启动后自动进行设置。
+
+要继续进行自动设置，请按“调高音量”按钮，否则请按“调低音量”按钮。如果您要取消当前的恢复操作，请按住电源按钮直到设备关闭（这最多需要 8 秒钟的时间）。</translation>
 <translation id="33938768013536853">电量太低，无法更新。
 
 请将您的 Chromebook 连接到电源。待电池蓄有足够的电量后，更新即会自动开始。</translation>
+<translation id="369510862371290019">您的恢复媒体已配置为在设备重新启动后自动进行设置。
+
+要继续进行自动设置，请按设备的恢复开关。
+如果您要取消当前的恢复操作，请按住电源按钮直到设备关闭（这最多需要 8 秒钟的时间）。</translation>
 <translation id="3750930141330200643">您使用的 Chrome OS 恢复媒体已过时。
 
 如需了解如何制作新的恢复媒体，请前往以下网址：
@@ -34,6 +43,9 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">出现意外错误，如需问题排查提示，请前往以下网址：
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">系统恢复已完成。
+
+现在，您可以放心地移除所用的恢复媒体了。您的计算机很快就会自动重启。</translation>
 <translation id="537291066186627789">系统恢复完毕。
 
 请取走恢复媒体，您的计算机会自动重新启动。</translation>
@@ -45,6 +57,10 @@ https://www.google.com/chromeos/recovery</translation>
 正在充电…
 
 待电池蓄有足够的电量后，更新即会自动开始。</translation>
+<translation id="6037207722716689331">您的恢复媒体已配置为在设备重新启动后自动进行设置。
+
+要继续进行自动设置，请按 Enter 键，否则请按 Esc 键。
+如果您要取消当前的恢复操作，请按住电源按钮直到设备关闭（这最多需要 8 秒钟的时间）。</translation>
 <translation id="6478314309353607985">您的恢复媒体上的映像属于未验证的开发者模式下的映像。
 
 由于停用了验证启动功能，恢复过程将继续。
@@ -60,4 +76,8 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8728458033228603970">正在恢复系统...
 
 此过程需要几分钟时间。请不要关闭计算机或断开电源。</translation>
+<translation id="8796495438384109098">系统恢复已完成。
+
+请让您的恢复媒体保持插入状态，直到完成自动设置。
+您的计算机很快就会自动重启以继续进行设置。</translation>
 </translationbundle>

@@ -6,6 +6,8 @@
 Otwórz ten adres URL, by uzyskać więcej informacji:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Twoje urządzenie zostanie automatycznie zarejestrowane w poniższej domenie.
+Sprawdź, czy jest ona poprawna.</translation>
 <translation id="2701006671590617571">Zamierzasz przeprowadzić odzyskiwanie systemu na tym komputerze.
 Upewnij się, że komputer jest podłączony do zasilania.
 
@@ -21,9 +23,19 @@ Więcej informacji znajdziesz na tej stronie:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Trwa sprawdzanie poprawności nośnika przywracania...</translation>
+<translation id="3283913352572436199">Nośnik odzyskiwania jest skonfigurowany do automatycznej konfiguracji po ponownym uruchomieniu.
+
+Aby kontynuować automatyczną konfigurację, naciśnij przycisk zwiększania głośności.
+W przeciwnym razie naciśnij przycisk zmniejszania głośności. Jeśli chcesz anulować odzyskiwanie,
+naciśnij przycisk zasilania i przytrzymaj go, aż urządzenie się wyłączy (do 8 sekund).</translation>
 <translation id="33938768013536853">Poziom naładowania baterii jest zbyt niski, by zainstalować aktualizację.
 
 Podłącz Chromebooka do źródła zasilania. Instalacja aktualizacji rozpocznie się automatycznie, gdy tylko bateria zostanie wystarczająco naładowana.</translation>
+<translation id="369510862371290019">Nośnik odzyskiwania jest skonfigurowany do automatycznej konfiguracji po ponownym uruchomieniu.
+
+Aby kontynuować automatyczną konfigurację, naciśnij przełącznik odzyskiwania na urządzeniu.
+Jeśli chcesz anulować odzyskiwanie, naciśnij przycisk zasilania i przytrzymaj go,
+aż urządzenie się wyłączy (do 8 sekund).</translation>
 <translation id="3750930141330200643">Używasz przestarzałego obrazu odzyskiwania Chrome OS.
 
 Na tej stronie znajdziesz instrukcje, jak utworzyć nowy nośnik odzyskiwania:
@@ -41,6 +53,10 @@ https://www.google.com/chromeos/recovery</translation>
 jak rozwiązać problem:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Ukończono odzyskiwanie systemu.
+
+Możesz teraz wyjąć nośnik. Za chwilę komputer
+automatycznie uruchomi się ponownie.</translation>
 <translation id="537291066186627789">Ukończono odzyskiwanie systemu.
 
 Wyjmij nośnik odzyskiwania, a komputer automatycznie
@@ -56,6 +72,11 @@ anuluj odzyskiwanie.</translation>
 Ładuję…
 
 Instalacja aktualizacji rozpocznie się automatycznie, gdy tylko bateria zostanie wystarczająco naładowana.</translation>
+<translation id="6037207722716689331">Nośnik odzyskiwania jest skonfigurowany do automatycznej konfiguracji po ponownym uruchomieniu.
+
+Aby kontynuować automatyczną konfigurację, naciśnij Enter. W przeciwnym razie naciśnij Escape.
+Jeśli chcesz anulować odzyskiwanie, naciśnij przycisk zasilania i przytrzymaj go,
+aż urządzenie się wyłączy (do 8 sekund).</translation>
 <translation id="6478314309353607985">Na nośniku odzyskiwania znajduje się niezweryfikowany obraz dla trybu programisty.
 
 Odzyskiwanie zostanie przeprowadzone, bo weryfikacja rozruchu jest wyłączona.
@@ -73,4 +94,8 @@ Po zakończeniu instalacji urządzenie automatycznie uruchomi się ponownie.</tr
 <translation id="8728458033228603970">Trwa odzyskiwanie systemu...
 
 Może to potrwać kilka minut. Nie wyłączaj komputera ani nie odłączaj zasilania.</translation>
+<translation id="8796495438384109098">Ukończono odzyskiwanie systemu.
+
+Nie wyjmuj nośnika odzyskiwania do momentu zakończenia automatycznej konfiguracji.
+Za chwilę komputer automatycznie uruchomi się ponownie, by kontynuować konfigurację.</translation>
 </translationbundle>

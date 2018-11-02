@@ -6,6 +6,7 @@
 Consulta esta URL para obtener más información:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Tu dispositivo se registrará automáticamente en el dominio que se muestra a continuación. Comprueba que sea correcto.</translation>
 <translation id="2701006671590617571">Estás a punto de recuperar tu equipo. Asegúrate de que esté conectado a una fuente de alimentación.
 
 Si quieres cancelar la recuperación, mantén pulsado el botón de encendido hasta que se apague el equipo (tarda unos ocho segundos). Puedes realizar esta acción en cualquier momento durante el proceso de verificación.</translation>
@@ -16,9 +17,15 @@ Para obtener más información, consulta la URL siguiente:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Se está verificando la integridad del medio de recuperación...</translation>
+<translation id="3283913352572436199">Tus medios de recuperación están configurados para realizar la configuración automática después de reiniciar.
+
+Para continuar con la configuración automática, pulsa el botón de subir o bajar el volumen. Si quieres cancelar la recuperación, mantén pulsado el botón de encendido durante 8 segundos hasta que se apague el dispositivo.</translation>
 <translation id="33938768013536853">No tienes batería suficiente para instalar la actualización.
 
 Conecta tu Chromebook a una fuente de alimentación. La actualización se iniciará automáticamente cuando la batería tenga suficiente carga.</translation>
+<translation id="369510862371290019">Tus medios de recuperación están configurados para realizar la configuración automática después de reiniciar.
+
+Para continuar con la configuración automática, pulsa el interruptor de recuperación del dispositivo. Si quieres cancelar la recuperación, mantén pulsado el botón de encendido durante 8 segundos hasta que se apague el dispositivo.</translation>
 <translation id="3750930141330200643">Estás utilizando una imagen de recuperación de Chrome OS que está obsoleta.
 
 Para obtener instrucciones sobre cómo crear nuevos medios de recuperación, consulta la URL siguiente:
@@ -33,6 +40,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">Se ha producido un error inesperado. Para obtener consejos sobre la solución de problemas, consulta la URL siguiente:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Se ha completado la recuperación del sistema.
+
+Es seguro retirar el medio de recuperación. En breve,
+tu ordenador se reiniciará automáticamente.</translation>
 <translation id="537291066186627789">Se ha completado la recuperación del sistema.
 
 Elimina el medio de recuperación para que el equipo se reinicie automáticamente.</translation>
@@ -44,6 +55,9 @@ Esta operación eliminará cualquier otro sistema operativo que tengas instalado
 Cargando...
 
 La actualización se iniciará automáticamente cuando la batería tenga suficiente carga.</translation>
+<translation id="6037207722716689331">Tus medios de recuperación están configurados para realizar la configuración automática después de reiniciar.
+
+Para continuar con la configuración automática, pulsa Intro o Escape. Si quieres cancelar la recuperación, mantén pulsado el botón de encendido durante 8 segundos hasta que se apague el dispositivo.</translation>
 <translation id="6478314309353607985">La imagen del medio de recuperación es una imagen de desarrollador que no se ha verificado.
 
 La recuperación continuará, ya que el inicio verificado está desactivado. Si vuelves a activar la verificación, deberás repetir la recuperación con una imagen oficial de Chrome OS.</translation>
@@ -57,4 +71,7 @@ Se reiniciará automáticamente cuando finalice la actualización.</translation>
 <translation id="8728458033228603970">Recuperando el sistema...
 
 Esta tarea tardará algunos minutos. No apagues el equipo ni desconectes el cable de alimentación.</translation>
+<translation id="8796495438384109098">Se ha completado la recuperación del sistema.
+
+Deja tus medios de recuperación conectados hasta que finalice la configuración automática. En breve, tu ordenador se reiniciará automáticamente para continuar con la configuración.</translation>
 </translationbundle>

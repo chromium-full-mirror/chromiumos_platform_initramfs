@@ -6,6 +6,8 @@
 Jei reikia daugiau informacijos, apsilankykite šiuo URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">Įrenginys bus automatiškai užregistruotas toliau nurodytame domene.
+Patvirtinkite, kad tai teisinga.</translation>
 <translation id="2701006671590617571">Ketinate atkurti kompiuterį. Įsitikinkite, kad jis
 prijungtas prie maitinimo šaltinio.
 
@@ -21,9 +23,19 @@ Jei reikia daugiau informacijos, apsilankykite šiuo URL:
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">Tvirtinamas atkūrimo medijos tinkamumas...</translation>
+<translation id="3283913352572436199">Atkūrimo medija automatinei sąrankai sukonfigūruojama ją paleidus iš naujo.
+
+Norėdami pradėti automatinę sąranką, paspauskite garsumo padidinimo mygtuką, o
+ priešingu atveju – garsumo sumažinimo mygtuką. Jei norite atšaukti atkūrimą, 
+paspauskite maitinimo mygtuką ir laikykite, kol įrenginys išsijungs (tai truks iki 8 sek.).</translation>
 <translation id="33938768013536853">Akumuliatorius per daug išsikrovęs, kad būtų galima atnaujinti.
 
 Prijunkite „Chromebook“ įrenginį prie maitinimo šaltinio. Atnaujinimo procesas prasidės automatiškai, kai akumuliatorius bus pakankamai įkrautas.</translation>
+<translation id="369510862371290019">Atkūrimo medija automatinei sąrankai sukonfigūruojama ją paleidus iš naujo.
+
+Norėdami pradėti automatinę sąranką, paspauskite įrenginio atkūrimo jungiklį.
+Jei norite atšaukti atkūrimą, paspauskite maitinimo mygtuką ir laikykite, kol 
+įrenginys išsijungs (tai truks iki 8 sek.).</translation>
 <translation id="3750930141330200643">Naudojate pasenusį „Chrome“ OS atkūrimo vaizdą.
 
 Jei reikia instrukcijų, kaip kurti naują atkūrimo mediją,
@@ -43,6 +55,9 @@ https://www.google.com/chromeos/recovery</translation>
 apsilankę šiuo URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Sistemos atkūrimas baigtas.
+
+Dabar saugu pašalinti atkūrimo mediją. Kompiuteris netrukus bus automatiškai paleistas iš naujo.</translation>
 <translation id="537291066186627789">Sistemos atkūrimas baigtas.
 
 Pašalinkite atkūrimo mediją ir kompiuteris bus automatiškai paleistas
@@ -58,6 +73,11 @@ turite atšaukti atkūrimą.</translation>
 Įkraunama...
 
 Atnaujinimo procesas prasidės automatiškai, kai akumuliatorius bus pakankamai įkrautas.</translation>
+<translation id="6037207722716689331">Atkūrimo medija automatinei sąrankai sukonfigūruojama ją paleidus iš naujo.
+
+Norėdami pradėti automatinę sąranką, paspauskite „Enter“, o priešingu atveju – 
+„Escape“. Jei norite atšaukti atkūrimą, paspauskite maitinimo mygtuką ir laikykite, 
+kol įrenginys išsijungs (tai truks iki 8 sek.).</translation>
 <translation id="6478314309353607985">Atkūrimo medijos vaizdas yra nepatvirtintas kūrėjo vaizdas.
 
 Atkūrimas toliau bus vykdomas, nes patvirtintas paleidimas išjungtas.
@@ -76,4 +96,8 @@ Jis bus automatiškai paleistas iš naujo, kai atnaujinimo procesas bus baigtas.
 
 Tai truks kelias minutes. Neišjunkite kompiuterio arba
 neatjunkite maitinimo.</translation>
+<translation id="8796495438384109098">Sistemos atkūrimas baigtas.
+
+Atkūrimo mediją palikite prijungtą, kol bus baigta automatinė sąranka.
+Kompiuteris netrukus bus automatiškai paleistas iš naujo, kad galėtumėte tęsti sąranką.</translation>
 </translationbundle>

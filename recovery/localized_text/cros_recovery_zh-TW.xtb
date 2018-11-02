@@ -6,6 +6,8 @@
 詳情請見以下網址：
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1600199746926806589">你的裝置將自動在以下網域中註冊。
+請確認網域是否正確。</translation>
 <translation id="2701006671590617571">您即將在電腦上執行復原作業。請確認電腦已接上電源。
 
 如要取消復原作業，請按住電源按鈕直到電腦關閉為止 (最多需要 8 秒鐘)。
@@ -18,10 +20,17 @@ https://www.google.com/chromeos/recovery</translation>
 
 https://www.google.com/chromeos/devmode</translation>
 <translation id="3243756202241744259">正在驗證復原媒體的完整性...</translation>
+<translation id="3283913352572436199">你的還原媒體已在重新啟動後設置為自動設定。
+
+如要繼續執行自動設定，請按下提高音量鍵；如不繼續，則請按下調低音量鍵。如要取消復原作業，請按住電源按鈕直到裝置關閉為止 (最多需要 8 秒鐘)。</translation>
 <translation id="33938768013536853">電量過低，無法進行更新。
 
 請將 Chromebook 接上電源。一旦電量足夠，
 Chromebook 就會自動開始進行更新。</translation>
+<translation id="369510862371290019">你的還原媒體已在重新啟動後設置為自動設定。
+
+如要繼續執行自動設定，請按下裝置的復原開關。
+如要取消復原作業，請按住電源按鈕直到裝置關閉為止 (最多需要 8 秒鐘)。</translation>
 <translation id="3750930141330200643">您使用的 Chrome 作業系統復原映像檔已過期。
 
 請前往下列網址，瞭解如何建立新的復原媒體：
@@ -36,6 +45,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4905949142713655149">發生未預期的錯誤，請前往下列網址查看疑難排解提示：
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">系統已復原。
+
+現在可安心移除復原媒體。電腦隨即會
+自動重新啟動。</translation>
 <translation id="537291066186627789">系統已復原。
 
 請移除復原媒體，移除後電腦會自動重新啟動。</translation>
@@ -48,6 +61,10 @@ https://www.google.com/chromeos/recovery</translation>
 充電中…
 
 一旦電量足夠，Chromebook 就會自動開始進行更新。</translation>
+<translation id="6037207722716689331">你的還原媒體已在重新啟動後設置為自動設定。
+
+如要繼續執行自動設定，請按下 Enter 鍵；如不繼續，則請按下 Escape 鍵。
+如要取消復原作業，請按住電源按鈕直到裝置關閉為止 (最多需要 8 秒鐘)。</translation>
 <translation id="6478314309353607985">復原媒體中的映像檔是未經驗證的開發人員映像檔。
 
 由於驗證開機模式已關閉，因此復原作業將繼續進行。
@@ -64,4 +81,8 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8728458033228603970">系統正在復原...
 
 這個程序需要幾分鐘才能完成。請勿關閉電腦或切斷電源。</translation>
+<translation id="8796495438384109098">系統已復原。
+
+在自動設定作業完成前，請勿拔除還原媒體。
+系統稍後將重新啟動電腦以繼續設定作業。</translation>
 </translationbundle>
