@@ -16,6 +16,7 @@
     <output filename="de.json" type="chrome_messages_json" lang="de" />
     <output filename="el.json" type="chrome_messages_json" lang="el" />
     <output filename="en-GB.json" type="chrome_messages_json" lang="en-GB" />
+    <output filename="en.json" type="chrome_messages_json" lang="en" />
     <output filename="en-US.json" type="chrome_messages_json" lang="en-US" />
     <output filename="es.json" type="chrome_messages_json" lang="es" />
     <output filename="es-419.json" type="chrome_messages_json" lang="es-419" />

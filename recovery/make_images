@@ -368,6 +368,12 @@ def CreateProgressBar(image_dir):
   print "wrote %s" % os.path.basename(filename)
 
 
+def _LoadMessages(filename):
+  """Load messaages from |filename|."""
+  with io.open(filename, encoding='utf-8-sig') as fp:
+    return json.load(fp)
+
+
 def CreateLocales(textdir, screendir, locale_list):
   """Create message images for all locales.
 
@@ -399,6 +405,9 @@ def CreateLocales(textdir, screendir, locale_list):
         '-o', os.path.join(tmpdir)
     ])
 
+    # Newer grit will omit fallback messages, so we have to provide them.
+    en_translations = _LoadMessages(os.path.join(tmpdir, 'en.json'))
+
     for locale in locale_list:
       print 'Locale %s' % locale
       locale_screen = os.path.join(screendir, locale)
@@ -409,9 +418,15 @@ def CreateLocales(textdir, screendir, locale_list):
         os.link(empty_file, locale_empty)
 
       # Read the JSON file to obtain translated messages.
-      msgfilename = os.path.join(tmpdir, locale + '.json')
-      with io.open(msgfilename, encoding='utf-8-sig') as msgfile:
-        translations = json.load(msgfile)
+      translations = _LoadMessages(os.path.join(tmpdir, '%s.json' % (locale,)))
+      # Overlay the English fallbacks.
+      missing = set()
+      for msgid in en_translations.keys():
+        if msgid not in translations:
+          missing.add(str(msgid))
+          translations[msgid] = en_translations[msgid]
+      if missing and locale not in {'en-US'}:
+        print('  missing translations: %s' % (' '.join(sorted(missing)),))
 
       # Generate an image file for translated message.
       for (tag, msgdict) in translations.iteritems():
