@@ -851,6 +851,13 @@ tpm_firmware_update_applicable() {
   return 1
 }
 
+cold_reset() {
+  # Issue cold reset via Chromium EC if ectool is available.
+  if [ -x "${USB_MNT}/usr/sbin/ectool" ]; then
+    chroot "${USB_MNT}" /usr/sbin/ectool reboot_ec cold
+  fi
+}
+
 # Checks whether the root includes a TPM firmware update and installs it if
 # applicable. Note that this must happen before locking TPM physical presence,
 # because this is the only way to recover from a failed previous firmware
@@ -893,9 +900,7 @@ update_tpm_firmware() {
       ${EXIT_CODE_SUCCESS}|${EXIT_CODE_SUCCESS_COLD_REBOOT})
         # We need to reboot to get the TPM back into operational state.
         save_log_files
-        if [ "${status}" = "${EXIT_CODE_SUCCESS_COLD_REBOOT}" ]; then
-          chroot "${USB_MNT}" /usr/sbin/ectool reboot_ec cold
-        fi
+        [ "${status}" = "${EXIT_CODE_SUCCESS_COLD_REBOOT}" ] && cold_reset
         reboot -f
         exit 0
         ;;

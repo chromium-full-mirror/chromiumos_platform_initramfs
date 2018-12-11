@@ -47,11 +47,15 @@ CROS_DEPS=\
 	/usr/bin/crossystem \
 	/usr/bin/futility \
 	/usr/sbin/chromeos-install \
-	/usr/sbin/ectool \
 	/usr/sbin/factory_*.sh \
 	/usr/sbin/mosys \
 	/usr/sbin/secure_less.sh \
 	/usr/sbin/vpd
+
+# Conditionally depend on Chromium EC utility.
+ifeq ($(INCLUDE_ECTOOL),1)
+	CROS_DEPS += /usr/sbin/ectool
+endif
 
 # Non-executables.
 DATA_DEPS=\
