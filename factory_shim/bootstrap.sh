@@ -14,8 +14,6 @@ set -x
 USB_MNT=/usb
 REAL_USB_DEV=
 
-STATEFUL_MNT=/stateful
-STATE_DEV=
 NEWROOT_MNT=/newroot
 
 LOG_DEV=
@@ -134,15 +132,6 @@ mount_usb() {
   return 1
 }
 
-get_stateful_dev() {
-  STATE_DEV=${REAL_USB_DEV%[0-9]*}1
-  if [ ! -b "$STATE_DEV" ]; then
-    info "Failed to determine stateful device."
-    return 1
-  fi
-  return 0
-}
-
 unmount_usb() {
   info "Unmounting ${USB_MNT}..."
   umount -n "${USB_MNT}"
@@ -227,44 +216,6 @@ copy_contents() {
   tar -cf - -C "${USB_MNT}" . | pv -f 2>"${TTY}" | tar -xf - -C "${NEWROOT_MNT}"
 }
 
-mount_stateful() {
-  info "Mounting stateful..."
-  if ! mount -n "${STATE_DEV}" "${STATEFUL_MNT}"; then
-    info "Failed to mount ${STATE_DEV}!! Failing."
-    return 1
-  fi
-}
-
-umount_stateful() {
-  umount -n "${STATEFUL_MNT}" || true
-  rmdir "${STATEFUL_MNT}" || true
-}
-
-# TODO(hungte) We should move this to factory_bootstrap.sh.
-copy_lsb() {
-  info -n "Copying lsb... "
-
-  local lsb_file="dev_image/etc/lsb-factory"
-  local dest_path="${NEWROOT_MNT}/mnt/stateful_partition/${lsb_file}"
-  local src_path="${STATEFUL_MNT}/${lsb_file}"
-
-  mkdir -p "$(dirname ${dest_path})"
-
-  local ret=0
-  if [ -f "${src_path}" ]; then
-    # Convert it to upper case and store it to lsb file.
-    local kern_guid=$(echo "${KERN_ARG_KERN_GUID}" | tr '[:lower:]' '[:upper:]')
-    info "Found ${src_path}"
-    cp -a "${src_path}" "${dest_path}"
-    echo "REAL_USB_DEV=${REAL_USB_DEV}" >>"${dest_path}"
-    echo "KERN_ARG_KERN_GUID=${kern_guid}" >>"${dest_path}"
-  else
-    info "Failed to find ${src_path}!! Failing."
-    ret=1
-  fi
-  return "${ret}"
-}
-
 patch_new_root() {
   # Create an early debug terminal if available.
   if is_cros_debug && [ -n "${DEBUG_TTY}" ]; then
@@ -289,7 +240,7 @@ patch_new_root() {
     info "Running ${bootstrap}..."
     # Return code of "a|b" is will be b instead of a, so we have to touch a flag
     # file to check results.
-    ("${bootstrap}" "${NEWROOT_MNT}" || touch "${flag}") \
+    ("${bootstrap}" "${NEWROOT_MNT}" "${REAL_USB_DEV}" || touch "${flag}") \
       | tee -a "${TTY}" "${LOG_FILE}"
     if [ -e "${flag}" ]; then
       return 1
@@ -341,7 +292,7 @@ main() {
     LOG_TTY=/dev/null
   fi
 
-  mkdir -p "${USB_MNT}" "${STATEFUL_MNT}" "${LOG_DIR}" "${NEWROOT_MNT}"
+  mkdir -p "${USB_MNT}" "${LOG_DIR}" "${NEWROOT_MNT}"
 
   exec >"${LOG_FILE}" 2>&1
   info "...:::||| Bootstrapping ChromeOS Factory Shim |||:::..."
@@ -365,22 +316,17 @@ main() {
   enable_debug_console "${DEBUG_TTY}"
 
   find_official_root
-  get_stateful_dev
 
   info "Bootstrapping factory shim."
   # Copy rootfs contents to tmpfs, then unmount USB device.
   mount_tmpfs
   copy_contents
 
-  mount_stateful
-  copy_lsb
-  umount_stateful
+  # Apply all patches for bootstrap into new rootfs.
+  patch_new_root
 
   # USB device is unmounted, we can remove it now.
   unmount_usb
-
-  # Apply all patches for bootstrap into new rootfs.
-  patch_new_root
 
   # Kill all running terminals. Comment this line if you need to keep debug
   # console open for debugging.
