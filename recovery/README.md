@@ -163,7 +163,7 @@ work with. Tracking bug to make this less painful: <https://crbug.com/715162>.
 Related reading:
 
 *   [Creating a recovery image that has been modified for
-    test](http://dev.chromium.org/chromium-os/developer-guide#TOC-Getting-an-image-that-has-been-modi)
+    test](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_guide.md#Creating-a-recovery-image-that-has-been-modified-for-test)
 *   [Chromium OS \[serial\] Console Debugging
     HOWTO](https://www.chromium.org/chromium-os/how-tos-and-troubleshooting/serial-debugging-howto)
 *   [Controlling Enabled
@@ -176,7 +176,7 @@ Related reading:
     partner only)
 
 [Creating a recovery image that has been modified for
-test](http://dev.chromium.org/chromium-os/developer-guide#TOC-Getting-an-image-that-has-been-modi)
+test](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_guide.md#Creating-a-recovery-image-that-has-been-modified-for-test)
 is the starter document for this. However, serial console debugging is not part
 of those instructions yet. Further, the flags that are needed cannot (yet) be
 passed on to the parts of the build system that need changes. Here are the
@@ -225,7 +225,7 @@ changes that are needed to make serial console work inside of Recovery:
 
         Note that `pcserial` is only for x86 platforms.
 
-3.  Run `cros_workon --board=${BOARD} chromeos-base/chromeos-initramfs`.
+3.  Run `cros_workon start --board=${BOARD} chromeos-base/chromeos-initramfs`.
 
 4.  Edit the Recovery init script to send debug output to the console (and, in
     turn, the serial console). Open src/platform/initramfs/recovery/init in a
