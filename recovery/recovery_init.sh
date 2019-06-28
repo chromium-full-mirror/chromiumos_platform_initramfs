@@ -1027,14 +1027,6 @@ recovery_install() {
     while [ -d "$usb_node_dir" ]; do
       sleep 1
     done
-  elif [ $(cat /sys/devices/virtual/tty/tty0/active) != tty1 ]; then
-    # Special (non-interactive) test case, and the user is watching
-    # VT2 or VT3.  Stay up a long time to allow for debugging.
-    message recovery_complete
-    dlog "Recovery is complete!  The system will remain up to allow"
-    dlog "you to examine VT screen contents.  You must manually"
-    dlog "power off when you're done."
-    sleep 1d
   else
     # Special (non-interactive) test case; reboot after a nominal
     # pause to allow a human to observe the screen.
