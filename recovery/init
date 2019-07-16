@@ -25,6 +25,7 @@ TPM_B_LOCKED=
 TPM_PP_LOCKED=
 TPM_FAILED_SELFTEST=
 
+KERN_B_CACHE=/tmp/kern_b_cache.bin
 REAL_KERN_B_HASH=
 
 # Special file systems required in addition to the root file system.
@@ -65,7 +66,7 @@ wait_for_gpt_root() {
 }
 
 check_if_dm_root() {
-  dump_kernel_config "$KERN_B_DEV" | grep -q 'root=/dev/dm-' || return 1
+  dump_kernel_config "$KERN_B_CACHE" | grep -q 'root=/dev/dm-' || return 1
   return 0
 }
 
@@ -133,24 +134,25 @@ is_old_style_verity_argv() {
   return 1
 }
 
-get_kern_b_device() {
-  # TODO(wad) By changing boot priority, we could end up checking the recovery
-  # image or the recovery image could not be in slot A. In that case, it should
-  # fail in normal mode.
-  KERN_B_DEV=${REAL_USB_DEV%[0-9]*}4
-  if [ ! -b "$KERN_B_DEV" ]; then
+init_kern_b_cache() {
+  if [ -e "$KERN_B_CACHE" ]; then
+    return 0
+  fi
+  local dev="${REAL_USB_DEV%[0-9]*}4"
+  if [ ! -b "$dev" ]; then
     return 1
   fi
+  dd if="$dev" of="$KERN_B_CACHE" || return 1
   return 0
 }
 
 get_real_kern_b_hash() {
-  REAL_KERN_B_HASH=$(dd if="$KERN_B_DEV" | sha1sum | cut -f1 -d' ')
+  REAL_KERN_B_HASH=$(sha1sum "$KERN_B_CACHE" | cut -f1 -d' ')
   [ -n "$REAL_KERN_B_HASH" ]
 }
 
 verify_install_kernel_hash() {
-  get_kern_b_device || return 1
+  init_kern_b_cache || return 1
   get_real_kern_b_hash || return 1
 
   # TODO(wad) Check signatures from stateful on kern-b using the root of trust
@@ -242,7 +244,7 @@ setup_dm_root() {
   dlog -n "Extracting the device mapper configuration..."
   # export_args can't handle dm="..." at present.
   # We have to substitute the GUID of the recovery kernel for the %U variable.
-  DMARG=$(dump_kernel_config "$KERN_B_DEV" |
+  DMARG=$(dump_kernel_config "$KERN_B_CACHE" |
     sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d' |
     sed -e "s/%U/$KERN_ARG_KERN_GUID/g")
 

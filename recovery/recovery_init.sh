@@ -252,13 +252,8 @@ verify_kernel_signature() {
   local kern_dev="$1"
   local keyblock="$2"
 
-  if ! dd if="$kern_dev" of="/tmp/kern.bin"; then
-    return 1
-  fi
-
   # Validates the signature and outputs a keyblock.
-  if ! vbutil_kernel --verify "/tmp/kern.bin" \
-                     --keyblock "$keyblock"; then
+  if ! vbutil_kernel --verify "$kern_dev" --keyblock "$keyblock"; then
     return 1
   fi
   return 0
@@ -283,16 +278,12 @@ verify_kernel_version() {
   local kern_dev="$1"
   local minversion="$KERNEL_VER_MIN"
 
-  if ! dd if="$kern_dev" of="/tmp/kern.bin"; then
-    return 1
-  fi
-
   # Get the currently set TPM NVRAM rollback versions.
   minversion=$(crossystem tpm_kernver || get_kernelver_from_tpmc)
   dlog "Rollback version stored in the TPM: $minversion"
 
   # Validate the signature and rollback versions.
-  if ! vbutil_kernel --verify "/tmp/kern.bin" --minversion "$minversion"; then
+  if ! vbutil_kernel --verify "$kern_dev" --minversion "$minversion"; then
     return 1
   fi
   return 0
@@ -313,14 +304,14 @@ verify_install_kernel() {
 
     # Extract the kernel so that vbutil_kernel will happily consume it.
     dlog "Checking the install kernel for a valid developer signature . . ."
-    verify_kernel_signature "$KERN_B_DEV" "/tmp/kern_b.keyblock" || return 1
+    verify_kernel_signature "$KERN_B_CACHE" "/tmp/kern_b.keyblock" || return 1
     check_install_kernel_key_match /tmp/kern_b.keyblock || message key_change
     return 0
   fi
 
   # Looks like we have an official recovery image. Check for version rollback.
   dlog "Checking the install kernel for valid versions and signature . . ."
-  if ! verify_kernel_version "$KERN_B_DEV"; then
+  if ! verify_kernel_version "$KERN_B_CACHE"; then
     # Rollback version check failure is fatal if we are not in developer mode.
     is_developer_mode || return $ERR_INVALID_INSTALL_KERNEL
 
