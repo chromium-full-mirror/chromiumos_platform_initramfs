@@ -19,7 +19,6 @@ STATE_DEV=
 LOG_DEV=
 LOG_DIR=/log
 LOG_FILE=${LOG_DIR}/recovery.log
-TAIL_PID=
 
 TPM_B_LOCKED=
 TPM_PP_LOCKED=
@@ -353,10 +352,6 @@ save_log_files() {
     dlog "No firmware log found on this platform"
   fi
 
-  # TODO(sosa): Remove once caller scripts recover all of the log dir. See
-  # crbug.com/213731 and crbug.com/212794 for details.
-  cat "${LOG_DIR}"/dmesg >> "${LOG_FILE}"
-
   dlog "Saving log files from: ${LOG_DIR} -> ${log_dev}"
   (
     set -e
@@ -388,12 +383,6 @@ save_log_files() {
   else
     dlog "Failures seen trying to save log file"
   fi
-}
-
-stop_log_file() {
-  # Drop logging
-  exec >"${TTY_DEBUG}" 2>&1
-  [ -n "$TAIL_PID" ] && kill $TAIL_PID
 }
 
 is_unofficial_root() {
@@ -482,6 +471,9 @@ main() {
   exec >"${LOG_FILE}" 2>&1 </dev/null
 
   initialize
+
+  # Now that /dev is up, mirror all logs to UART (if it's available).
+  (tail -f -n +1 "${LOG_FILE}" > /dev/console) &
 
   # Export the kernel command line as a parsed blob prepending KERN_ARG_ to each
   # argument.

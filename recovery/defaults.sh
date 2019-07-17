@@ -49,7 +49,6 @@ message() {
 
     # Send all verbose output to debug tty.
     (tail -f -n +1 "${LOG_FILE}" > "${TTY_DEBUG}") &
-    TAIL_PID=$!
   fi
   message_"$1"
 }

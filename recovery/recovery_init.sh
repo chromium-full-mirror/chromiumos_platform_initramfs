@@ -998,7 +998,6 @@ recovery_install() {
   # No error check here:  Clean up doesn't need to be successful.
   cleanup_install_mounts
 
-  stop_log_file
   # Save the recovery log to the target on success and the USB.
   save_log_files "${DST_DEV_BASE}"1 ext4
   save_log_files "${SRC_DEV_BASE}"12 vfat
