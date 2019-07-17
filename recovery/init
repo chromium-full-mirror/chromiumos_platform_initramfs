@@ -147,7 +147,7 @@ init_kern_b_cache() {
 }
 
 get_real_kern_b_hash() {
-  REAL_KERN_B_HASH=$(sha1sum "$KERN_B_CACHE" | cut -f1 -d' ')
+  REAL_KERN_B_HASH=$(sha256sum "$KERN_B_CACHE" | cut -f1 -d' ')
   [ -n "$REAL_KERN_B_HASH" ]
 }
 
@@ -155,8 +155,6 @@ verify_install_kernel_hash() {
   init_kern_b_cache || return 1
   get_real_kern_b_hash || return 1
 
-  # TODO(wad) Check signatures from stateful on kern-b using the root of trust
-  # instead of using a baked in cmdline.
   if [ "$REAL_KERN_B_HASH" != "$KERN_ARG_KERN_B_HASH" ]; then
     if ! is_developer_mode; then
       dlog "The recovery kernel cannot be verified."
