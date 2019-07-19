@@ -489,10 +489,6 @@ main() {
   # Verify FW version.
   verify_fw_version || handle_error $?
 
-  udevd --daemon
-  udevadm trigger
-  udevadm settle
-
   # We should select the locale before showing any messages.
   select_locale
 
