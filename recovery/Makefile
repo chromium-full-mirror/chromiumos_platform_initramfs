@@ -6,6 +6,7 @@
 BIN_DEPS= \
 	/bin/busybox \
 	/sbin/dmsetup \
+	/sbin/frecon-lite \
 	/usr/bin/pv \
 	/usr/sbin/vpd \
 	/usr/sbin/flashrom \
@@ -59,9 +60,6 @@ $(RAMFS_BIN): stage_init
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
 	cp *.sh $(STAGE)/lib
-	mkdir -p $(STAGE)/lib/udev/rules.d
-	cp $(SYSROOT)/lib/udev/rules.d/10-dm.rules $(STAGE)/lib/udev/rules.d
-	cp $(SYSROOT)/lib/udev/rules.d/95-dm-notify.rules $(STAGE)/lib/udev/rules.d
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
 	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
