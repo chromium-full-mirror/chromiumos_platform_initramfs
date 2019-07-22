@@ -30,24 +30,24 @@ PROGRESS_BOX_TOP=0
 DEVMODE_BOX_TOP=$MESSAGE_BOX_HEIGHT
 LINE_BREAK_WIDTH=70
 
-# User visible message logged w/ 'echo'
+# User visible message overlaid on the screen. Only use for debug features!
 log() {
   echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
 }
 
-# User visible message logged w/ 'printf'
+# Like log() but with printf() semantics.
 logf() {
   printf "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
 }
 
-# Debug console message logged w/ 'echo'
+# Debug messages logged to VT1 and log file.
 dlog() {
-  echo "$@" | tee -a "${TTY_LOG}" "${TTY_DEBUG}"
+  echo "$@" > "${TTY_LOG}"
 }
 
-# Debug console message logged w/ 'printf'
+# Like dlog() but with printf() semantics.
 dlogf() {
-  printf "$@" | tee -a "${TTY_LOG}" "${TTY_DEBUG}"
+  printf "$@" > "${TTY_LOG}"
 }
 
 clear_console() {
