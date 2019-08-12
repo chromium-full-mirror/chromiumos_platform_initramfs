@@ -969,6 +969,26 @@ setup_oobe_auto_config_keys() {
   tpmc write "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" ${pub_bytes}
 }
 
+# Detect whether the USB device containing the recovery image is a phone
+# with "our" app on it.
+recovering_using_phone_app() {
+  local devpath="/sys/block/$(strip_partition "${REAL_USB_DEV##*/}")/device"
+  if [ "$(cat "$devpath/vendor")" == "GOOGLE  " ]; then
+    if [ "$(cat "$devpath/model")" == "Chrome OS AOA   " ]; then
+      return 0
+    fi
+  fi
+  return 1
+}
+
+# In case the boot media is an Android phone with our app, tell the app that
+# we are done with the process, by "ejecting" the block device.
+signal_completion() {
+  if recovering_using_phone_app; then
+    /usr/bin/eject -m -s "$REAL_USB_DEV"
+  fi
+}
+
 recovery_install() {
   NEWROOT_MNT="${USB_MNT}"
 
@@ -1010,6 +1030,7 @@ recovery_install() {
   local usb_node_dir=$(get_usb_node_dir)
 
   unmount_usb
+  signal_completion
 
   if [ -n "$usb_node_dir" ]; then
     # Default (interactive) case; wait till the user removes the USB stick.

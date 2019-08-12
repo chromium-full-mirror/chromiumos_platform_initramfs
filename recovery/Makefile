@@ -7,6 +7,7 @@ BIN_DEPS= \
 	/bin/busybox \
 	/sbin/dmsetup \
 	/sbin/frecon-lite \
+	/usr/bin/eject \
 	/usr/bin/pv \
 	/usr/sbin/vpd \
 	/usr/sbin/flashrom \
