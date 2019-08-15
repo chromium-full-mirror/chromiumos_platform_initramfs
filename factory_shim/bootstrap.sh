@@ -301,6 +301,12 @@ patch_new_root() {
     sed -i 's/login-prompt-visible/started boot-services/' "${file}"
   fi
 
+  # Run cr50-clear-fwmp before trunksd.
+  file="${NEWROOT_MNT}/etc/init/trunksd.conf"
+  if can_patch_file "${file}"; then
+    sed -i '/^start / s/$/ and stopped cr50-clear-fwmp/' "${file}"
+  fi
+
   # Disable upstart jobs that will block execution for factory shim environment.
   # syslog is disabled because it expects rsyslogd exists,
   # but we don't have rsyslogd in factory shim.
