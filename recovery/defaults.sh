@@ -24,11 +24,17 @@ message() {
   #  - oobe_autoconfig_acknowledgment_volume
   #  - key_change
   #  - developer_image
+  #  - disk_wipe_start
+  #  - disk_wipe_end
   #  - key_change
   #  - recovery_start
   #  - recovery_complete
   #  - recovery_complete_noninteractive
   #  - recovery_complete_oobe_autoconfig
+  #  - recovery_complete_wipe_fail
+  #  - recovery_complete_wipe_successful
+  #  - recovery_error_wipe_fail
+  #  - recovery_error_wipe_success
   #  - warn_invalid_install_kernel
   #  - invalid_install_kernel
   #  - block_developer_mode

@@ -26,6 +26,7 @@ LANGDIR=
 
 . $SCREENS/constants.sh
 INSTRUCTION_BOX_TOP=-$MESSAGE_BOX_HEIGHT
+INSTRUCTION_SECOND_TOP_BOX=$(( $INSTRUCTION_BOX_TOP + 30 ))
 PROGRESS_BOX_TOP=0
 DEVMODE_BOX_TOP=$MESSAGE_BOX_HEIGHT
 LINE_BREAK_WIDTH=70
@@ -315,13 +316,27 @@ message_key_change() {
   make_user_wait 300
 }
 
-# Announce that recovery is about to start.  Start the moving box animation that
+# Announce that recovery is about to start. Start the moving box animation that
 # will persist until recovery is complete.
 message_recovery_start() {
   instructions recovering
   progress empty
   show_install_spinner >$LOG_DIR/spinner.log 2>&1 &
   SPINNER_PID=$!
+}
+
+# Announce that enhanced disk wipe is started.
+message_disk_wipe_start() {
+  instructions disk_wipe_started
+  progress empty
+  show_install_spinner >$LOG_DIR/spinner.log 2>&1 &
+  DISK_WIPE_SPINNER_PID=$!
+}
+
+# Kill the spinner for disk wipe.
+message_disk_wipe_end() {
+  kill $DISK_WIPE_SPINNER_PID
+  wait $DISK_WIPE_SPINNER_PID
 }
 
 # Kill the spinner animation and announce that recovery is
@@ -356,6 +371,54 @@ message_recovery_complete_oobe_autoconfig() {
   showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_check.png
   progress wait
   make_user_wait 10
+}
+
+# Kill the spinner animation and announce that recovery is
+# complete and enhanced disk wipe is successful.
+message_recovery_complete_wipe_successful() {
+  kill $SPINNER_PID
+  wait $SPINNER_PID
+  instructions recovery_complete_wipe_success
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_check.png
+  showicon $INSTRUCTION_SECOND_TOP_BOX  $SCREENS/icon_check.png
+  progress empty
+}
+
+
+# Kill the spinner animation and announce that recovery is
+# complete and enhanced disk wipe is failed.
+message_recovery_complete_wipe_fail() {
+  kill $SPINNER_PID
+  wait $SPINNER_PID
+  instructions recovery_complete_wipe_fail
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
+  showicon $INSTRUCTION_SECOND_TOP_BOX $SCREENS/icon_check.png
+  progress empty
+}
+
+
+# Kill the spinner animation and inform user that an error occured
+# during recovery but enhanced disk wipe is successful.
+message_recovery_error_wipe_fail() {
+  kill $SPINNER_PID
+  wait $SPINNER_PID
+  instructions recovery_error_wipe_fail
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
+  showicon $INSTRUCTION_SECOND_TOP_BOX $SCREENS/icon_warning.png
+  progress empty
+  dev_notice empty
+}
+
+# Kill the spinner animation and inform user that an error occured
+# during both recovery and enhanced disk wipe.
+message_recovery_error_wipe_success() {
+  kill $SPINNER_PID
+  wait $SPINNER_PID
+  instructions recovery_error_wipe_success
+  showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_check.png
+  showicon $INSTRUCTION_SECOND_TOP_BOX $SCREENS/icon_warning.png
+  progress empty
+  dev_notice empty
 }
 
 # Warn the user that the current image, although valid for
@@ -434,8 +497,17 @@ message_update_firmware_low_battery_charging() {
 # get here (just unplug the USB drive after the kernel starts but
 # before the USB drives are probed by the kernel) and starting a
 # shell here would be a BIG security hole.
+# Also if enhanced disk wipe is executed, report its result to user.
 on_error() {
-  message on_error
+  if [ -n "${DISK_WIPE_RESULT}" ]; then
+    if [ ${DISK_WIPE_RESULT} -eq 0 ]; then
+      message recovery_error_wipe_success
+    else
+      message recovery_error_wipe_fail
+    fi
+  else
+    message on_error
+  fi
   save_log_files
   sleep 1d
   exit 1

@@ -35,6 +35,12 @@ OOBE_PRIVATE_KEY_PEM=
 OOBE_PUBLIC_KEY_PEM=
 # Domain specified for OOBE auto-enrollment.
 OOBE_ENROLLMENT_DOMAIN=
+# "E" key on the keyboard
+EVWAITKEY_KEY=18
+# Path of the file where the EVWAITKEY is written if it is pressed.
+EVWAITKEY_FILE=/tmp/check_for_reload_key
+# If disk wipe is requested, the result is stored here.
+DISK_WIPE_RESULT=
 
 
 # Installation Target.
@@ -200,6 +206,25 @@ check_install_kernel_key_match() {
 
   dlog " failed."
   return 1
+}
+
+clear_eventlog() {
+  flashrom -E -i RW_ELOG
+}
+
+# Check EVWAITKEY is pressed and if it is, perfom full disk wipe.
+check_disk_wipe_requested() {
+  local evwaitkey_output=$(cat "${EVWAITKEY_FILE}")
+  if [ "${evwaitkey_output}" = "${EVWAITKEY_KEY}" ]; then
+    # If EVWAITKEY is pressed, perform full disk wipe.
+    dlog "Key is pressed, disks will be physically wiped."
+    message disk_wipe_start
+    chroot "${USB_MNT}" /usr/sbin/wipe_disk
+    DISK_WIPE_RESULT=$?
+    clear_eventlog
+    message disk_wipe_end
+  fi
+  rm "${EVWAITKEY_FILE}"
 }
 
 # Get the firmware version by directly reading the TPM NVRAM spaces.
@@ -592,6 +617,12 @@ recover_system() {
     # to power off, so we allow a short grace period in case the user started
     # pressing the power button late in the cycle.
     sleep 2
+  fi
+
+  # TODO: Since our final UX design is not confirmed, disable "Enhanced Disk
+  #       Wipe" on beta and stable channels.
+  if is_dev_channel; then
+    check_disk_wipe_requested
   fi
 
   message recovery_start
@@ -989,6 +1020,16 @@ signal_completion() {
   fi
 }
 
+# Check if the current channel is whitelisted for wipe disk. Since our final UX
+# design is not confirmed, disable "Enhanced Disk Wipe" on beta and stable
+# channels.
+is_dev_channel() {
+  local channel=$(sed -n 's/^CHROMEOS_RELEASE_TRACK=//p' \
+     "${USB_MNT}/etc/lsb-release")
+  test "${channel}" = "dev-channel" -o "${channel}" = "testimage-channel" \
+    -o "${channel}" = "canary-channel"
+}
+
 recovery_install() {
   NEWROOT_MNT="${USB_MNT}"
 
@@ -997,6 +1038,13 @@ recovery_install() {
 
   # Check if we're really doing debugging log extraction.
   maybe_get_debugging_logs || return 1
+
+  # Since our final UX design is not confirmed, disable "Enhanced Disk Wipe" on
+  # beta and stable channels.
+  if is_dev_channel; then
+    # Listen for EVWAITKEY_KEY
+    evwaitkey --include_usb --keys "${EVWAITKEY_KEY}" > "${EVWAITKEY_FILE}" &
+  fi
 
   # Check if we have a verified recovery root.
   validate_recovery_root || handle_error $?
@@ -1033,19 +1081,24 @@ recovery_install() {
   signal_completion
 
   if [ -n "$usb_node_dir" ]; then
-    # Default (interactive) case; wait till the user removes the USB stick.
-    message recovery_complete
+    # Default (interactive) case.
+    if [ -z "$DISK_WIPE_RESULT" ]; then
+      message recovery_complete
+    elif [ "$DISK_WIPE_RESULT" -eq 0 ]; then
+      message recovery_complete_wipe_successful
+    else
+      message_recovery_complete_wipe_fail
+    fi
+    # Wait until the user removes the USB stick.
     while [ -d "$usb_node_dir" ]; do
       sleep 1
     done
-  else
+  elif [ -n "${OOBE_AUTO_CONFIG}" ]; then
     # Special (non-interactive) test case; reboot after a nominal
     # pause to allow a human to observe the screen.
-    if [ -n "${OOBE_AUTO_CONFIG}" ]; then
-      message recovery_complete_oobe_autoconfig
-    else
-      message recovery_complete_noninteractive
-    fi
+    message recovery_complete_oobe_autoconfig
+  else
+    message recovery_complete_noninteractive
   fi
 
   reboot -f

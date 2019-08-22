@@ -127,8 +127,8 @@ For more information, refer to this URL:
 https://www.google.com/chromeos/devmode
       </message>
       <message name="cancel" desc="Message shown by the recovery installer before actual installation, providing instructions on how to cancel.">
-You are about to recover your computer.  Please make sure it is
-plugged in to a power source.
+ You are about to recover your computer. Please make sure it is
+ plugged in to a power source.
 
 If you want to cancel recovery, press the power button and hold it
 down until the computer turns off (this takes up to 8 seconds).
@@ -263,6 +263,37 @@ Verifying the integrity of your recovery media...
       </message>
       <message name="wait" desc="Message shown by the recovery installer to inform the user to wait for completion of an ongoing operation.">
 Please wait...
+      </message>
+      <message name="disk_wipe_started" desc="Message shown by the recovery installer to inform the user that disks are being wiped.">
+Enhanced disk deletion is in progress...
+
+This may take a lot of time.
+      </message>
+      <message name="recovery_complete_wipe_success" desc="Message shown by the recovery installer to inform the user that disks wipe and recovery are successfully executed.">
+Enhanced disk deletion was successful.
+
+System recovery is complete.
+Please remove the recovery media and your computer will restart automatically.
+      </message>
+      <message name="recovery_complete_wipe_fail" desc="Message shown by the recovery installer to inform the user that disks wipe is failed and recovery is successfully executed.">
+There was an error during enhanced disk deletion.
+
+System recovery is complete.
+Please remove the recovery media and your computer will restart automatically.
+      </message>
+      <message name="recovery_error_wipe_fail" desc="Message shown by the recovery installer when encountering an error during recovery and disk wipe is failed.">
+There was an error during enhanced disk deletion.
+
+An unexpected error has occurred during recovery. Please refer to this URL for troubleshooting tips:
+
+https://www.google.com/chromeos/recovery
+      </message>
+      <message name="recovery_error_wipe_success" desc="Message shown by the recovery installer when encountering an error during recovery and disk wipe is succeed.">
+Enhanced disk deletion was successful.
+
+An unexpected error has occurred during recovery. Please refer to this URL for troubleshooting tips:
+
+https://www.google.com/chromeos/recovery
       </message>
     </messages>
   </release>
