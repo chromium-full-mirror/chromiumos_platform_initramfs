@@ -25,6 +25,9 @@ EXTRA_BIN_DEPS?=
 DATA_DEPS= \
 	/usr/share/misc/chromeos-common.sh
 
+LOCAL_BIN_DEPS= \
+	$(AOA_SWITCH)
+
 # Layout of directories to be created in initramfs.
 RAMFS_LAYOUT_DIRS=\
 	etc/screens \

@@ -47,8 +47,23 @@ fi
 # Look for a device with our GPT ID.
 wait_for_gpt_root() {
   [ -z "$KERN_ARG_KERN_GUID" ] && return 1
+
+  # If we're booting via AOA (Android Recovery), initialize the storage driver.
+  if [ -n "${KERN_ARG_CROS_AOA}" ]; then
+    dlog "Switching ${KERN_ARG_CROS_AOA} into AOA mode"
+    aoa_switch -b "${KERN_ARG_CROS_AOA}" \
+               -d usb-storage \
+               -F "Google" \
+               -M "Chrome OS Recovery" \
+               -D "Chrome OS device in recovery mode" \
+               -V "1.0" \
+               -U "https://google.com/chromeos/recovery_android"
+  fi
+
   dlog -n "Looking for rootfs using kern_guid..."
-  for try in $(seq 20); do
+  local try=0
+  # Wait up to a minute, in AOA case user may have to accept dialog on phone.
+  while [ $(( try += 1 )) -lt 600 ]; do
     dlogf " ."
     kern=$(cgpt find -1 -u $KERN_ARG_KERN_GUID)
     # We always try ROOT-A in recovery.
@@ -58,7 +73,7 @@ wait_for_gpt_root() {
       dlog "Found $USB_DEV"
       return 0
     fi
-    sleep 1
+    sleep 0.1
   done
   dlog "Failed waiting for kern_guid"
   return 1
