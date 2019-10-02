@@ -1,0 +1,49 @@
+#!/bin/busybox sh
+# Copyright 2019 The Chromium OS Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+#
+# /init script for use in the hypervisor initramfs.
+
+setup_environment() {
+  # Install additional utility programs.
+  /bin/busybox --install /bin || true
+
+  mount -n -t sysfs -o nodev,noexec,nosuid sysfs /sys
+  mount -t proc -o nodev,noexec,nosuid none /proc
+  mount -t devtmpfs -o mode=0755,nosuid devtmpfs /dev
+}
+
+main() {
+  setup_environment
+
+  echo 144d a806 > /sys/bus/pci/drivers/vfio-pci/new_id
+  echo 8086 591e > /sys/bus/pci/drivers/vfio-pci/new_id
+  echo 8086 095a > /sys/bus/pci/drivers/vfio-pci/new_id
+  echo 8086 9d2f > /sys/bus/pci/drivers/vfio-pci/new_id
+
+  /usr/bin/qemu-system-x86_64 \
+    -serial mon:stdio \
+    -m 4G \
+    -smp 2 \
+    -M pc \
+    -vga none \
+    -cpu host,-invpcid,-tsc-deadline,check \
+    -net none \
+    -display none \
+    -enable-kvm \
+    -device vfio-pci,x-igd-opregion=on,host=00:02.0,rombar=0 \
+    -device vfio-pci,host=01:00.0 \
+    -device vfio-pci,host=02:00.0 \
+    -device vfio-pci,host=00:14.0 \
+    -device virtio-rng-pci \
+    -kernel /boot/vmlinuz \
+    -append "$(cat /proc/cmdline)"
+}
+
+# Make this source-able for testing.
+if [ "$0" = "/init" ]; then
+  main "$@"
+  # Should never reach here.
+  exit 1
+fi
