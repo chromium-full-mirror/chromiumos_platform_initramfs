@@ -5,15 +5,11 @@
 # Dependency list of binary programs.
 BIN_DEPS= \
 	/bin/busybox \
-	/usr/bin/qemu-system-x86_64
+	/usr/bin/crosvm
 
 # Additional data files to copy from the sysroot.
 DATA_DEPS= \
-	/boot/vmlinuz \
-	/usr/share/qemu/bios-256k.bin \
-	/usr/share/qemu/keymaps/en-us \
-	/usr/share/qemu/linuxboot_dma.bin \
-	/usr/share/qemu/kvmvapic.bin
+	/boot/vmlinuz
 
 include ../common/initramfs.mk
 
