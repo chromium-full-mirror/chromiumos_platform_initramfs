@@ -53,10 +53,7 @@ CONFIG_FOLDER		?= $(STAGE)/etc/cros-initramfs
 
 include ../common/initramfs.mk
 
-$(RAMFS_BIN): stage_init
-	cp "$(SYSROOT)/usr/share/chromeos-assets/images/boot_message.png" \
-		assets/*.png $(STAGE)/etc/screens
-	./make_images localized_text "$(STAGE)/etc/screens" $(LOCALE_LIST)
+$(RAMFS_BIN): legacy_ui stage_init
 	./make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
 	ln -s busybox $(STAGE)/bin/sh
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
@@ -64,7 +61,6 @@ $(RAMFS_BIN): stage_init
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
-	cp *.sh $(STAGE)/lib
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
 	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
@@ -78,3 +74,11 @@ $(RAMFS_BIN): stage_init
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
 	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
 	$(call generate_ramfs)
+
+.PHONY: legacy_ui
+legacy_ui: stage_init
+	cp "$(SYSROOT)/usr/share/chromeos-assets/images/boot_message.png" \
+		legacy_ui/assets/*.png "$(STAGE)/etc/screens"
+	legacy_ui/make_images localized_text "$(STAGE)/etc/screens" \
+		$(LOCALE_LIST)
+	cp *.sh legacy_ui/*.sh "$(STAGE)/lib"

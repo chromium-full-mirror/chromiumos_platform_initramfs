@@ -114,9 +114,8 @@ showimage() {
   shift
   shift
 
-  printf \
-       "\033]image:file=${image};offset=${offset};scale="${FRECON_SCALING_FACTOR}"\033\\" \
-       > /run/frecon/vt0
+  printf "\033]image:file=%s;offset=%s;scale=%d\033\\" \
+      "${image}" "${offset}" "${FRECON_SCALING_FACTOR}" > /run/frecon/vt0
 }
 
 # Present a message screen horizontally centered at a specified
