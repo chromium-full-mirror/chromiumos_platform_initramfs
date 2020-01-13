@@ -67,7 +67,7 @@ $(RAMFS_BIN): stage_init
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
 	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
-	[ "$(DEVICE_IS_DETACHABLE)" -eq 0 ] || touch "$(STAGE)/.is_detachable"
+	[ "$(DETACHABLE)" -eq 0 ] || touch "$(STAGE)/.is_detachable"
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
 	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
