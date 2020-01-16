@@ -388,17 +388,14 @@ request_oobe_autoconfig_acknowledgment() {
     showtext "${OOBE_ENROLLMENT_DOMAIN}"
   fi
 
-  # Check to see if we have a physical recovery switch. This is fairly tricky:
-  # * recoverysw_is_virtual queries the RECSW_IS_VIRT bit in vboot shared data,
-  #   which will be set for all devices more recent than 2014 that do *not* have
-  #   a physical recovery switch.
-  # * For boards older than 2014 that are not EOL, the bit will always be 0
-  #   regardless of whether a switch exists or not. But if it doesn't,
-  #   recoverysw_cur will return an error code.
-  # Note that recoverysw_cur returning without error is not sufficient to
-  # determine if a board has a recovery switch, e.g. veyron_minnie returns 0
-  # but is a Chromebook without a recovery switch.
-  if crossystem 'recoverysw_is_virtual?0' && crossystem recoverysw_cur; then
+  local CONFIG_FOLDER="/etc/cros-initramfs"
+  # Check to see if we have a physical recovery switch. Physical presence may
+  # be confirmed by keyboard, power button, or recovery switch (decided by USE
+  # flags physical_presence_power and physical_presence_recovery).
+  # TODO(b/129882380): We currently don't have an acknowledgement screen for
+  # physical presence confirmation by power button (is_physical_presence_power),
+  # so just fallback to using the screen for keyboard (the 'else' block).
+  if [ -f "${CONFIG_FOLDER}/is_physical_presence_recovery" ]; then
     message oobe_autoconfig_acknowledgment_switch
 
     dlog "Waiting for user to confirm OOBE auto-setup by recovery switch..."
@@ -429,7 +426,7 @@ request_oobe_autoconfig_acknowledgment() {
 
     # Board-specific flag specified in board overlay and created in ramfs
     # Makefile.
-    if [ -f "/.is_detachable" ]; then
+    if [ -f "${CONFIG_FOLDER}/is_detachable" ]; then
       if evwaitkey --check --keys ${KEY_VOLUMEUP}:${KEY_VOLUMEDOWN}; then
         message oobe_autoconfig_acknowledgment_volume
         dlog "Waiting for user to confirm OOBE auto-setup by volume keys..."

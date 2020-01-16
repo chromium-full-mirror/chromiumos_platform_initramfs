@@ -49,6 +49,7 @@ LOCALE_LIST		=
 # generate the locales table.
 CROS_REGIONS_DATABASE	?= $(SYSROOT)/usr/share/misc/cros-regions.json
 LOCALES_TABLE		?= $(STAGE)/etc/locales.txt
+CONFIG_FOLDER		?= $(STAGE)/etc/cros-initramfs
 
 include ../common/initramfs.mk
 
@@ -67,7 +68,12 @@ $(RAMFS_BIN): stage_init
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
 	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
-	[ "$(DETACHABLE)" -eq 0 ] || touch "$(STAGE)/.is_detachable"
+	mkdir -p "$(CONFIG_FOLDER)"
+	[ "$(DETACHABLE)" -eq 0 ] || touch "$(CONFIG_FOLDER)/is_detachable"
+	[ "$(PHYSICAL_PRESENCE)" != "power" ] || \
+		touch "$(CONFIG_FOLDER)/is_physical_presence_power"
+	[ "$(PHYSICAL_PRESENCE)" != "recovery" ] || \
+		touch "$(CONFIG_FOLDER)/is_physical_presence_recovery"
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
 	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
