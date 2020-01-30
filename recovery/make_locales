@@ -1,4 +1,5 @@
-#!/usr/bin/python2
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 # Copyright 2015 The Chromium OS Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
@@ -18,12 +19,12 @@ CROS_REGION_DATABASE = '/usr/share/misc/cros-regions.json'
 def main():
   db_path = sys.argv[1] if len(sys.argv) > 1 else CROS_REGION_DATABASE
 
-  with open(db_path) as f:
+  with open(db_path, 'rb') as f:
     db = json.load(f)
 
   # In recovery image we can't afford to put JSON programs so we want to provide
   # a simple database.
-  for key, value in db.iteritems():
+  for key, value in db.items():
     print('%s\t%s' % (key, value['locales'][0]))
 
 
