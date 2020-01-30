@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Copyright (c) 2012 The Chromium OS Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
@@ -18,7 +18,7 @@ import subprocess
 import sys
 import tempfile
 
-import Image
+from PIL import Image
 
 # The list of supported locales, and their associated fonts.  Fonts should
 # generally match the list of families in Chrome's IDS_UI_FONT_FAMILY_CROS
@@ -176,7 +176,7 @@ def _OffsetFromCenter(offset, target, reference):
   # doing, you've studied the relevant code in frecon, and you've
   # tested all four cases of (target, reference) x (even, odd).
   # You have been warned.
-  return offset + (target + 1) / 2 - (reference + 1) / 2
+  return offset + (target + 1) // 2 - (reference + 1) // 2
 
 
 _ICON_WIDTH = 22
@@ -358,13 +358,13 @@ def CreateProgressBar(image_dir):
       (PROGRESS_BAR_OUTER_BORDER, PROGRESS_BAR_OUTER_BORDER))
   filename = os.path.join(image_dir, 'progress_box.png')
   progress_box.save(filename)
-  print('wrote %s' % os.path.basename(filename))
+  print(f'wrote {os.path.basename(filename)}')
 
   progress_increment = Image.new(
       'RGB', (PROGRESS_INCREMENT, PROGRESS_INCREMENT_HEIGHT), PROGRESS_COLOR)
   filename = os.path.join(image_dir, 'progress_increment.png')
   progress_increment.save(filename)
-  print('wrote %s' % os.path.basename(filename))
+  print(f'wrote {os.path.basename(filename)}')
 
 
 def _LoadMessages(filename):
@@ -407,10 +407,9 @@ def CreateLocales(textdir, screendir, locale_list):
     en_translations = _LoadMessages(os.path.join(tmpdir, 'en.json'))
 
     for locale in locale_list:
-      print('Locale %s' % locale)
+      print(f'Locale {locale}')
       locale_screen = os.path.join(screendir, locale)
-      if not os.path.isdir(locale_screen):
-        os.mkdir(locale_screen)
+      os.makedirs(locale_screen, exist_ok=True)
       locale_empty = os.path.join(locale_screen, empty_base)
       if not os.path.exists(locale_empty):
         os.link(empty_file, locale_empty)
@@ -424,7 +423,7 @@ def CreateLocales(textdir, screendir, locale_list):
           missing.add(str(msgid))
           translations[msgid] = en_translations[msgid]
       if missing and locale not in {'en-US'}:
-        print('  missing translations: %s' % (' '.join(sorted(missing)),))
+        print(f'  missing translations: {" ".join(sorted(missing))}')
 
       # Generate an image file for translated message.
       for (tag, msgdict) in translations.items():
@@ -459,11 +458,10 @@ def CreateLinkedLocales(screendir, locale_list, link_list):
   for target, orig in link_list:
     if orig not in locale_list:
       continue
-    print('Locale %s linked to %s' % (target, orig))
+    print(f'Locale {target} linked to {orig}')
     locale_screen = os.path.join(screendir, target)
     orig_screen = os.path.join(screendir, orig)
-    if not os.path.isdir(locale_screen):
-      os.mkdir(locale_screen)
+    os.makedirs(locale_screen, exist_ok=True)
     for _, _, filenames in os.walk(orig_screen):
       for filename in filenames:
         orig_file = os.path.join(orig_screen, filename)
@@ -508,14 +506,13 @@ def CreateConstantDefs(image_dir):
     genfile.write(fileheader % os.path.basename(sys.argv[0]))
     for var, fmt in export_vars:
       genfile.write(('%s=' + fmt + '\n') % (var, globals()[var]))
-  print('wrote %s' % os.path.basename(constants_sh))
+  print(f'wrote {os.path.basename(constants_sh)}')
 
 
 def CreateMonospaceGlyphs(image_dir):
   """Creates images for a set of basic ASCII glyphs."""
   glyph_dir = os.path.join(image_dir, 'glyphs')
-  if not os.path.isdir(glyph_dir):
-    os.mkdir(glyph_dir)
+  os.makedirs(glyph_dir, exist_ok=True)
 
   for char in MONOSPACE_GLYPHS:
     CreateMonospaceGlyph(char, os.path.join(glyph_dir, '%d.png' % ord(char)))
@@ -530,7 +527,7 @@ def main(argv):
   This command is also invoked by the ebuild; be sure you understand
   that usage before you tinker with the command line syntax.
   """
-  locale_list = SUPPORTED_LOCALES.keys()
+  locale_list = list(SUPPORTED_LOCALES)
   if not argv:
     textdir = 'localized_text'
     screendir = 'screens'
@@ -543,8 +540,7 @@ def main(argv):
     sys.stderr.write('usage: make_images [ <dir> <dir> [ <locale> ... ] ]\n')
     return 1
 
-  if not os.path.isdir(screendir):
-    os.mkdir(screendir)
+  os.makedirs(screendir, exist_ok=True)
 
   CreateLocales(textdir, screendir, locale_list)
   CreateLinkedLocales(screendir, locale_list, LOCALE_LINKS)
