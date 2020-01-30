@@ -1,4 +1,5 @@
-#!/usr/bin/python2
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 # Copyright 2015 The Chromium OS Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
@@ -18,15 +19,6 @@ import argparse
 import errno
 import os
 import sys
-
-
-def makedirs(path):
-  """Like os.makedirs, but ignore existing errors"""
-  try:
-    os.makedirs(path)
-  except OSError as e:
-    if e.errno != errno.EEXIST:
-      raise
 
 
 def symlink(src, dst):
@@ -54,7 +46,7 @@ def ProcessLayout(layout):
       'sock': (5,),
   }
 
-  with open(layout) as f:
+  with open(layout, encoding='utf-8') as f:
     for line in f:
       line = line.split('#', 1)[0].strip()
       if not line:
@@ -100,14 +92,14 @@ def main(argv):
           assert ('0', '0') == (uid, gid)
           mode = int(mode, 8)
           path = os.path.join(opts.output, path.lstrip('/'))
-          makedirs(path)
+          os.makedirs(path, exist_ok=True)
           os.chmod(path, mode)
         elif etype == 'slink':
           path, target, mode, uid, gid = elements
           mode = int(mode, 8)
           assert ('0', '0', 0o755) == (uid, gid, mode)
           path = os.path.join(opts.output, path.lstrip('/'))
-          makedirs(os.path.dirname(path))
+          os.makedirs(os.path.dirname(path), exist_ok=True)
           symlink(target, path)
       except Exception:
         print('While processing line: %s %s' % (etype, elements))
@@ -117,7 +109,7 @@ def main(argv):
     # Filter out all the paths that 'make' above created.  The stuff that is
     # left often requires root access (which we don't have), but the cpio gen
     # tool can take care of this for us.
-    with open(opts.output, 'a') as f:
+    with open(opts.output, 'a', encoding='utf-8') as f:
       for elements in ProcessLayout(opts.layout):
         if elements[0] not in ('dir', 'slink'):
           f.write(' '.join(elements) + '\n')
