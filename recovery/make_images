@@ -8,6 +8,7 @@
 
 from __future__ import print_function
 
+import argparse
 import io
 import json
 import multiprocessing
@@ -518,6 +519,20 @@ def CreateMonospaceGlyphs(image_dir):
     CreateMonospaceGlyph(char, os.path.join(glyph_dir, '%d.png' % ord(char)))
 
 
+def get_parser():
+  """Return a CLI parser for this program."""
+  parser = argparse.ArgumentParser(description=__doc__)
+  parser.add_argument('textdir', default='localized_text', nargs='?',
+                      help='Input dir full of xtb translations '
+                           '(default: %(default)s)')
+  parser.add_argument('screendir', default='screens', nargs='?',
+                      help='Output dir to write all the screen images '
+                           '(default: %(default)s)')
+  parser.add_argument('locales', default=sorted(SUPPORTED_LOCALES), nargs='*',
+                      help='The languages to process (default: %(default)s)')
+  return parser
+
+
 def main(argv):
   """Create message images for given locales.
 
@@ -527,18 +542,11 @@ def main(argv):
   This command is also invoked by the ebuild; be sure you understand
   that usage before you tinker with the command line syntax.
   """
-  locale_list = list(SUPPORTED_LOCALES)
-  if not argv:
-    textdir = 'localized_text'
-    screendir = 'screens'
-  elif len(argv) >= 2:
-    textdir = argv[0]
-    screendir = argv[1]
-    if argv[2:]:
-      locale_list = argv[2:]
-  else:
-    sys.stderr.write('usage: make_images [ <dir> <dir> [ <locale> ... ] ]\n')
-    return 1
+  parser = get_parser()
+  opts = parser.parse_args(argv)
+  textdir = opts.textdir
+  screendir = opts.screendir
+  locale_list = opts.locales
 
   os.makedirs(screendir, exist_ok=True)
 
