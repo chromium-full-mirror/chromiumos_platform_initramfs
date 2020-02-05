@@ -8,6 +8,8 @@ dir	/dev		755	0	0
 dir	/etc		755	0	0
 dir	/lib		755	0	0
 dir	/log		755	0	0
+dir	/mnt		755	0	0
+dir	/mnt/empty	755	0	0
 dir	/proc		755	0	0
 dir	/root		755	0	0
 dir	/run		755	0	0
@@ -15,7 +17,6 @@ dir	/run/lock	755	0	0
 dir	/sys		755	0	0
 dir	/tmp		755	0	0
 dir	/var		755	0	0
-dir	/var/empty	755	0	0
 
 # nod	name		mode	uid	gid	type	maj	min
 nod	/dev/null	666	0	0	c	1	3
