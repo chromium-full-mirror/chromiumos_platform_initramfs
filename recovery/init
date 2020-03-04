@@ -507,6 +507,9 @@ main() {
   # We should select the locale before showing any messages.
   select_locale
 
+  # Show a welcome page first.
+  message recovery_in_progress
+
   if ! find_official_root ; then
     if find_developer_root; then
       message developer_image

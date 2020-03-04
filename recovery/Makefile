@@ -51,9 +51,15 @@ CROS_REGIONS_DATABASE	?= $(SYSROOT)/usr/share/misc/cros-regions.json
 LOCALES_TABLE		?= $(STAGE)/etc/locales.txt
 CONFIG_FOLDER		?= $(STAGE)/etc/cros-initramfs
 
+ifeq ($(MENU_UI),1)
+UI=menu_ui
+else
+UI=legacy_ui
+endif
+
 include ../common/initramfs.mk
 
-$(RAMFS_BIN): legacy_ui stage_init
+$(RAMFS_BIN): $(UI) stage_init
 	./make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
 	ln -s busybox $(STAGE)/bin/sh
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
@@ -82,3 +88,10 @@ legacy_ui: stage_init
 	legacy_ui/make_images localized_text "$(STAGE)/etc/screens" \
 		$(LOCALE_LIST)
 	cp *.sh legacy_ui/*.sh "$(STAGE)/lib"
+
+.PHONY: menu_ui
+menu_ui: stage_init
+	cp menu_ui/assets/*.png "$(STAGE)/etc/screens"
+	menu_ui/make_images localized_text "$(STAGE)/etc/screens" \
+		$(LOCALE_LIST)
+	cp *.sh menu_ui/*.sh "$(STAGE)/lib"
