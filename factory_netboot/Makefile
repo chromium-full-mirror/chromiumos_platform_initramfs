@@ -112,6 +112,6 @@ $(RAMFS_BIN): stage_init
 	done
 	./kotree.sh usbnet.ko $(SYSROOT) $(STAGE)
 	$(foreach rsrc, \
-	 $(wildcard $(SYSROOT)/var/lib/factory/resources/netboot*.tar), \
+	 $(wildcard $(SYSROOT)/usr/share/factory/resources/netboot*.tar), \
 	 tar -xf $(rsrc) -C $(STAGE) ${\n})
 	$(call generate_ramfs)
