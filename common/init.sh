@@ -32,6 +32,21 @@ init_mounts() {
   mount -n -t debugfs debugfs /sys/kernel/debug
 }
 
+CHROMEOS_CONFIG_MOUNTPOINT="/run/chromeos-config"
+CHROMEOS_CONFIG_IMAGE="/usr/share/chromeos-config/configfs.img"
+
+# This should be called before chromeos-config is used.  Most notably,
+# mosys and futility are users of chromeos-config to be aware of here.
+init_chromeos_config() {
+  mkdir -p "${CHROMEOS_CONFIG_MOUNTPOINT}"
+  if [ -f "${CHROMEOS_CONFIG_IMAGE}" ]; then
+    cros_configfs mount "${CHROMEOS_CONFIG_IMAGE}" \
+      "${CHROMEOS_CONFIG_MOUNTPOINT}"
+  else
+    cros_configfs mount-fallback "${CHROMEOS_CONFIG_MOUNTPOINT}"
+  fi
+}
+
 # Run all the common init functions.
 initialize() {
   init_check_clock

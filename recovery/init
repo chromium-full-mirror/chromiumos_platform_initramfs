@@ -28,7 +28,7 @@ KERN_B_CACHE=/tmp/kern_b_cache.bin
 REAL_KERN_B_HASH=
 
 # Special file systems required in addition to the root file system.
-BASE_MOUNTS="/sys /proc /dev"
+BASE_MOUNTS="/sys /proc /dev /run/chromeos-config/v1"
 
 # Used to ensure the factory check only occurs with
 # a properly matched root and kernel.
@@ -506,6 +506,9 @@ main() {
 
   # We should select the locale before showing any messages.
   select_locale
+
+  # Set up chromeos-config.
+  init_chromeos_config || on_error
 
   if ! find_official_root ; then
     if find_developer_root; then

@@ -13,17 +13,18 @@ BIN_DEPS= \
 	/usr/sbin/flashrom \
 	/usr/bin/futility \
 	/usr/bin/crossystem \
-	/usr/sbin/mosys \
 	/usr/bin/tpmc \
 	/usr/bin/cgpt \
 	/usr/sbin/evwaitkey \
-	/usr/bin/cros_oobe_crypto
+	/usr/bin/cros_oobe_crypto \
+	$(CHROMEOS_CONFIG_BIN_DEPS)
 
 # Extra dependency, should be set by builder configuration.
 EXTRA_BIN_DEPS?=
 
 DATA_DEPS= \
-	/usr/share/misc/chromeos-common.sh
+	/usr/share/misc/chromeos-common.sh \
+	$(CHROMEOS_CONFIG_DATA_DEPS)
 
 LOCAL_BIN_DEPS= \
 	$(AOA_SWITCH)

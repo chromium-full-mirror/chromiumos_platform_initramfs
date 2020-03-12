@@ -49,9 +49,9 @@ CROS_DEPS=\
 	/usr/bin/futility \
 	/usr/sbin/chromeos-install \
 	/usr/sbin/factory_*.sh \
-	/usr/sbin/mosys \
 	/usr/sbin/secure_less.sh \
-	/usr/sbin/vpd
+	/usr/sbin/vpd \
+	$(CHROMEOS_CONFIG_BIN_DEPS)
 
 # Conditionally depend on Chromium EC utility.
 ifeq ($(INCLUDE_ECTOOL),1)
@@ -63,7 +63,8 @@ DATA_DEPS=\
 	/root/.pmbr_code \
 	/usr/share/misc/chromeos-common.sh \
 	/usr/share/misc/shflags \
-	/usr/share/misc/storage-info-common.sh
+	/usr/share/misc/storage-info-common.sh \
+	$(CHROMEOS_CONFIG_DATA_DEPS)
 
 # Directories to be cloned into initramfs.
 DATA_DIR_DEPS= \

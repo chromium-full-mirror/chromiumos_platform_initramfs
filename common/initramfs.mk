@@ -24,6 +24,17 @@ RAMFS_BIN_DEPS		?= $(BIN_DEPS) $(EXTRA_BIN_DEPS)
 GEN_INIT_CPIO		= $(OUTPUT_DIR)/gen_init_cpio
 AOA_SWITCH		= $(OUTPUT_DIR)/aoa_switch
 
+# Files used by chromeos-config. Mosys is required for non-unibuild
+# support.
+CHROMEOS_CONFIG_BIN_DEPS = \
+	/usr/sbin/cros_configfs \
+	/usr/sbin/mosys
+ifeq ($(UNIBUILD),1)
+CHROMEOS_CONFIG_DATA_DEPS = /usr/share/chromeos-config/configfs.img
+else
+CHROMEOS_CONFIG_DATA_DEPS =
+endif
+
 # Settings for the build system.
 BUILD_CC		?= gcc
 BUILD_CFLAGS		?= -O1 -pipe

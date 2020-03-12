@@ -12,6 +12,8 @@ set -x
 setup_environment() {
   initialize
 
+  init_chromeos_config
+
   # Install additional utility programs.
   /bin/busybox --install /bin || true
 }
