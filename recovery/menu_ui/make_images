@@ -64,9 +64,9 @@ GREY_TEXT_COLOR = '#9aa0a6' # used in footers
 PROGRESS_COLOR = '#bbbbbb'
 BLUE = '#8ab4f8' # button text/background color
 
-TITLE_FONT_SIZE = 36
+TITLE_FONT_SIZE = 32
 DEFAULT_FONT_SIZE = 18
-FOOTER_FONT_SIZE = 14
+FOOTER_FONT_SIZE = 16
 DESC_IMAGE_HEIGHT = 144  # 20% of screen height
 
 # Input text files are broken into paragraphs like so:
@@ -140,7 +140,7 @@ def CreateMessageImage(msgtext, locale, imagename,
         '--background=%s' % background,
         '--font=%s' % font,
         '--output=%s' % temp_image.name,
-        '--width=%d' % width,  # size of btn_bg minus some padding
+        '--width=%d' % width,
         '--height=%d' % height,
         '--markup',
         text_file.name)
@@ -333,8 +333,7 @@ def ConvertSvg(assetsdir, screendir):
     png = os.path.join(screendir, name + '.png')
     print('%s -> %s' % (svg, png))
     subprocess.check_call(
-        ['rsvg-convert', '-b', BACKGROUND, '-o', png, svg,
-         '--x-zoom', '1', '--y-zoom', '1'])
+        ['rsvg-convert', '-b', BACKGROUND, '-o', png, svg])
 
 
 def main(argv):

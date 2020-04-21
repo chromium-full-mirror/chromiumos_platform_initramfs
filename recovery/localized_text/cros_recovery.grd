@@ -319,14 +319,14 @@ Help center
       <message name="footer_left_3" desc="See footer_left_1">
 http://google.com/chromeos/recovery
       </message>
-      <message name="footer_right_1" desc="Combined with footer_right_2/3, the right half of footer">
-Navigate using
+      <message name="footer_right_1" desc="Combined with footer_right_2_*, the right half of footer">
+To navigate:
       </message>
-      <message name="footer_right_2" desc="See footer_right_1">
-Power button, and up &amp;amp; down arrow keys on a laptop
+      <message name="footer_right_2_clamshell" desc="See footer_right_1">
+Enter key and up &amp;amp; down arrow keys.
       </message>
-      <message name="footer_right_3" desc="See footer_right_1">
-Power button and volume buttons on a tablet
+      <message name="footer_right_2_tablet" desc="See footer_right_1">
+Use power button and volume buttons on the side of the device.
       </message>
       <message name="title_recovery_failed" desc="Title of the general error screen">
 Error recovering your device

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
-    <title>ic_stepper_error</title>
-    <desc>Created with Sketch.</desc>
-    <g id="ic_stepper_error" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M10,20 C4.4771525,20 0,15.5228475 0,10 C0,4.4771525 4.4771525,0 10,0 C15.5228475,0 20,4.4771525 20,10 C20,15.5228475 15.5228475,20 10,20 Z M10,17.5 C14.1421356,17.5 17.5,14.1421356 17.5,10 C17.5,5.85786438 14.1421356,2.5 10,2.5 C5.85786438,2.5 2.5,5.85786438 2.5,10 C2.5,14.1421356 5.85786438,17.5 10,17.5 Z M9,11 L9,5 L11,5 L11,11 L9,11 Z M9,15 L9,13 L11,13 L11,15 L9,15 Z" id="Combined-Shape" fill="#F28B82"></path>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(94.901961%,54.509807%,50.980395%);fill-opacity:1;" d="M 12 0 C 18.628906 0 24 5.371094 24 12 C 24 18.628906 18.628906 24 12 24 C 5.371094 24 0 18.628906 0 12 C 0 5.371094 5.371094 0 12 0 Z M 12 3 C 7.03125 3 3 7.03125 3 12 C 3 16.96875 7.03125 21 12 21 C 16.96875 21 21 16.96875 21 12 C 21 7.03125 16.96875 3 12 3 Z M 13.199219 15.601562 L 13.199219 18 L 10.800781 18 L 10.800781 15.601562 Z M 13.199219 6 L 13.199219 13.199219 L 10.800781 13.199219 L 10.800781 6 Z M 13.199219 6 "/>
+</g>
 </svg>

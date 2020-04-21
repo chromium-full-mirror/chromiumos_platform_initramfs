@@ -1,3 +1,4 @@
+#!/bin/sh
 # Copyright 2020 The Chromium OS Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
@@ -25,21 +26,22 @@ LANGDIR=
 # the order cited above.  The locations are selected so that the
 # box ensemble is centered horizontally and vertically.
 
-# common color codes
+# Common color codes
 MENU_UI_BLACK="0x202124"
 MENU_UI_GREY="0x3F4042"
 MENU_UI_BLUE="0x8AB4F8"
 BACKGROUND="${MENU_UI_BLACK}"
 
-CANVAS_SIZE=720
+# Initialized in message_startup()
 FRECON_SCALING_FACTOR=
-
-INSTRUCTION_TITLE_Y=-197
-INSTRUCTION_DESC_Y=-35
-TITLE_Y_WITHOUT_STEPPER=-285
+CANVAS_SIZE=
 
 BUTTON_HEIGHT=60  # box height plus padding
 
+# Default width of screens/{lang}/*.png, used in most messages except buttons
+DEFAULT_MESSAGE_WIDTH=720
+
+BUTTON_WIDTH=200
 
 # User visible message overlaid on the screen. Only use for debug features!
 log() {
@@ -66,7 +68,9 @@ clear_console() {
 }
 
 read_vpd_locale() {
-  local region="$(vpd -g region)"
+  local region
+
+  region="$(vpd -g region)"
   if [ -n "${region}" ]; then
     # Lookup correct value from locale list.
     sed -nre "s/^${region}\t(.*)$/\1/p" "${LOCALES_TXT}"
@@ -90,8 +94,8 @@ select_locale() {
 #
 # Arg 1:  The string to draw
 showtext() {
-  local monospace_line_height=20
-  local monospace_glyph_width=11
+  local monospace_line_height=19
+  local monospace_glyph_width=10
   local text="$1"
   local text_start_h="$2"
   local glyph_offset_h="$2"
@@ -118,14 +122,11 @@ showtext() {
 # Arg 2:  a pair of numbers X,Y representing offset from center
 showimage() {
   local image="$1"
-  local rel_x="$2"
-  local rel_y="$3"
-
-  local abs_x=$(( rel_x * CANVAS_SIZE / 1000 ))
-  local abs_y=$(( rel_y * CANVAS_SIZE / 1000 ))
+  local x="$2"
+  local y="$3"
 
   printf "\033]image:file=%s;offset=%s;scale=%d\033\\" \
-    "${image}" "${abs_x},${abs_y}" "${FRECON_SCALING_FACTOR}" \
+    "${image}" "${x},${y}" "${FRECON_SCALING_FACTOR}" \
     > "${TTY_CONSOLE}"
   }
 
@@ -142,14 +143,9 @@ showbox() {
   local size_y="$4"
   local color="$5"
 
-  offset_x="$(( offset_x * CANVAS_SIZE / 1000 ))"
-  offset_y="$(( offset_y * CANVAS_SIZE / 1000 ))"
-
-  size_x="$(( size_x * CANVAS_SIZE / 1000 ))"
   if [ "${size_x}" -lt 1 ]; then
     size_x=1
   fi
-  size_y="$(( size_y * CANVAS_SIZE / 1000 ))"
   if [ "${size_y}" -lt 1 ]; then
     size_y=1
   fi
@@ -180,12 +176,21 @@ showmessage() {
 # Arg 1:  a token identifying the message, which is used to form the
 #   file name based on the current locale.
 instructions() {
-  showmessage "$1" 0 "${INSTRUCTION_DESC_Y}"
+  local x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
+  local y="$(( -CANVAS_SIZE / 2 + 291 ))"
+
+  showmessage "$1" "${x}" "${y}"
 }
 
 instructions_with_title() {
-  showmessage "title_$1" 0 "${INSTRUCTION_TITLE_Y}"
-  showmessage "desc_$1" 0 "${INSTRUCTION_DESC_Y}"
+  local title_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
+  local title_height=36
+  local desc_height=144
+  local title_y="$(( -CANVAS_SIZE / 2 + 228 + title_height / 2 ))"
+  local desc_y="$(( title_y + title_height / 2 + 16 + desc_height / 2 ))"
+
+  showmessage "title_$1" "${title_x}" "${title_y}"
+  showmessage "desc_$1" "${title_x}" "${desc_y}"
 }
 
 # Handle display of a simple progress bar in the 'progress' box.
@@ -235,7 +240,7 @@ make_user_wait() {
   local ms_per_update="$(( (2 * 1000 * seconds / num_updates + 1) / 2 ))"
   local delay_sec="$(( ms_per_update / 1000 ))"
   local delay_ms="$(( ms_per_update % 1000 ))"
-  local delay=
+  local delay
   delay=$(printf "%d.%03d" "${delay_sec}" "${delay_ms}")
 
   for i in $(seq 1 "${num_updates}"); do
@@ -253,7 +258,7 @@ wait_menu_input() {
   local KEY_VOLUP=115
   local KEY_POWER=116
 
-  local all_keys=
+  local all_keys
 
   if evwaitkey --check --keys "${KEY_DOWN}:${KEY_UP}:${KEY_ENTER}"; then
     # arrow key/enter found, assuming clamshell
@@ -262,8 +267,8 @@ wait_menu_input() {
     all_keys="${KEY_VOLDOWN}:${KEY_VOLUP}:${KEY_POWER}"
   fi
 
-  local key=
-  key="$(evwaitkey --include_usb --keys "${all_keys}")"
+  local key
+  key="$(evwaitkey --keys "${all_keys}")"
 
   case "${key}" in
     "${KEY_UP}"|"${KEY_VOLUP}")
@@ -282,17 +287,17 @@ wait_menu_input() {
 }
 
 showbutton() {
-  local message_token=$1
-  local offset_h=$2
-  local offset_v=$3
-  local focused=$4
+  local message_token="$1"
+  local offset_x="$(( -CANVAS_SIZE / 2 + BUTTON_WIDTH / 2 ))"
+  local offset_y="$2"
+  local focused="$3"
 
   if [ "${focused}" -ne 0 ]; then
-    showimage "${SCREENS}/btn_bg_focused.png" "${offset_h}" "${offset_v}"
-    showmessage "${message_token}_focused" "${offset_h}" "$(( offset_v + 1 ))"
+    showimage "${SCREENS}/btn_bg_focused.png" "${offset_x}" "${offset_y}"
+    showmessage "${message_token}_focused" "${offset_x}" "$(( offset_y + 1 ))"
   else
-    showimage "${SCREENS}/btn_bg.png" "${offset_h}" "${offset_v}"
-    showmessage "${message_token}" "${offset_h}" "$(( offset_v + 1 ))"
+    showimage "${SCREENS}/btn_bg.png" "${offset_x}" "${offset_y}"
+    showmessage "${message_token}" "${offset_x}" "$(( offset_y + 1 ))"
   fi
 }
 
@@ -328,19 +333,18 @@ on_error_onselect() {
 
 on_error_onchange() {
   local selected_index=$1
-  local btn_x=-372
-  local btn_y=-30
+  local btn_x="$(( -CANVAS_SIZE / 2 + BUTTON_WIDTH / 2 ))"
+  local btn_y="$(( -CANVAS_SIZE / 2 + 388 ))"
+  local adv_y="$(( CANVAS_SIZE / 2 - 182 ))"
 
   echo "message_on_error, index: ${selected_index}"
   message_base_screen
   instructions_with_title recovery_failed
   show_stepper_error
 
-  showbutton btn_try_again "${btn_x}" "${btn_y}" \
-    "$(( selected_index == 0 ))"
-      # put this to the bottom (5th) button
+  showbutton btn_try_again "${btn_y}" "$(( selected_index == 0 ))"
   showadvoption btn_debug_options \
-    "${btn_x}" "$(( btn_y + BUTTON_HEIGHT * 4 ))" \
+    "${btn_x}" "${adv_y}" \
     "$(( selected_index == 1 ))"
 }
 
@@ -393,7 +397,7 @@ recovery_debug_options_onselect() {
 
   case "${selected_index}" in
     0)
-      # TODO: eror page not implemented, save_log_files does not return errors
+      # TODO: error page not implemented, save_log_files does not return errors
       save_log_files
       echo 'copy log'
       ;;
@@ -404,9 +408,6 @@ recovery_debug_options_onselect() {
       message_view_log title_message_log /var/log/messages
       ;;
     3)
-      message_view_log title_tpm_log /var/log/tpm-firmware-updater.log
-      ;;
-    4)
       clear_screen
       return 1
       ;;
@@ -417,33 +418,31 @@ recovery_debug_options_onselect() {
 
 recovery_debug_options_onchange() {
   local selected_index=$1
-  local btn_x=-372
+  local text_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
+  local title_y="$(( -CANVAS_SIZE / 2 + 228 + 18 ))"
 
   echo "message_debug_options, index: ${selected_index}"
 
   message_base_screen
-  showmessage title_debug_options 0 "${TITLE_Y_WITHOUT_STEPPER}"
+  showmessage title_debug_options "${text_x}" "${title_y}"
 
-  local btn_y=$(( TITLE_Y_WITHOUT_STEPPER + 90 ))
-  showmessage tip_copy_logs 0 "${btn_y}"
-  btn_y=$(( btn_y + 55 ))
-  showbutton btn_copy_logs "${btn_x}" "${btn_y}" "$(( selected_index == 0 ))"
-  btn_y=$(( btn_y + BUTTON_HEIGHT + 30 ))
+  local btn_y="$(( title_y + 18 + 40 ))" # padding 40
+  showmessage tip_copy_logs "${text_x}" "${btn_y}"
+  btn_y=$(( btn_y + 48 ))
+  showbutton btn_copy_logs "${btn_y}" "$(( selected_index == 0 ))"
+  btn_y=$(( btn_y + BUTTON_HEIGHT + 50 ))
 
-  showmessage tip_view_logs 0 "${btn_y}"
-  btn_y=$(( btn_y + 55 ))
-  showbutton btn_recovery_log "${btn_x}" "${btn_y}" \
-    "$(( selected_index == 1 ))"
-  showbutton btn_message_log "${btn_x}" "$(( btn_y + BUTTON_HEIGHT * 1 ))" \
-     "$(( selected_index == 2 ))"
-  showbutton btn_tpm_log "${btn_x}" "$(( btn_y + BUTTON_HEIGHT * 2 ))" \
-     "$(( selected_index == 3 ))"
-  showbutton btn_back "${btn_x}" "$(( btn_y + BUTTON_HEIGHT * 3 ))" \
-    "$(( selected_index == 4 ))"
+  showmessage tip_view_logs "${text_x}" "${btn_y}"
+  btn_y=$(( btn_y + 48 ))
+  showbutton btn_recovery_log "${btn_y}" "$(( selected_index == 1 ))"
+  btn_y=$(( btn_y + 38 ))
+  showbutton btn_message_log "${btn_y}" "$(( selected_index == 2 ))"
+  btn_y=$(( btn_y + 38 ))
+  showbutton btn_back "${btn_y}" "$(( selected_index == 3 ))"
 }
 
 message_recovery_debug_options() {
-  menu_event_loop 5 recovery_debug_options_onchange \
+  menu_event_loop 4 recovery_debug_options_onchange \
     recovery_debug_options_onselect
 }
 
@@ -458,12 +457,12 @@ update_log_area() {
   local txt
 
   # clear old texts
-  showbox 0 -20 1000 360 "${BACKGROUND}"
+  showbox 0 -20 "${CANVAS_SIZE}" 360 "${BACKGROUND}"
 
   # assume 100x10
   txt=$(sed "${log_line_pos},+$(( LOG_PAGE_HEIGHT - 1 )) !d" "${log_path}" \
     | cut -c "1-${LOG_PAGE_WIDTH}")
-  showtext "${txt}" -493 -192 'white'
+  showtext "${txt}" "$(( -CANVAS_SIZE / 2 + 5 ))" -192 'white'
 }
 
 view_log_onselect() {
@@ -494,25 +493,26 @@ view_log_onselect() {
 
 view_log_onchange() {
   local selected_index=$1
-  local btn_x=-372
   local btn_y_begin=190
 
-  showbutton btn_page_up "${btn_x}" "${btn_y_begin}" \
-    "$(( selected_index == 0 ))"
-  showbutton btn_page_down "${btn_x}" "$(( btn_y_begin + BUTTON_HEIGHT ))" \
+  showbutton btn_page_up "${btn_y_begin}" "$(( selected_index == 0 ))"
+  showbutton btn_page_down "$(( btn_y_begin + BUTTON_HEIGHT ))" \
     "$(( selected_index == 1 ))"
-  showbutton btn_back "${btn_x}" "$(( btn_y_begin + BUTTON_HEIGHT * 2 ))" \
+  showbutton btn_back "$(( btn_y_begin + BUTTON_HEIGHT * 2 ))" \
     "$(( selected_index == 2 ))"
 }
 
 message_view_log() {
+  local title_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
+  local title_y=-285
+
   title=$1
   log_path=$2
   log_line_pos=1
   log_num_lines=$(wc -l "${log_path}")
 
   clear_screen
-  showmessage "${title}" 0 "${TITLE_Y_WITHOUT_STEPPER}"
+  showmessage "${title}" "${title_x}" "${title_y}"
   update_log_area
   menu_event_loop 3 view_log_onchange view_log_onselect
 }
@@ -526,20 +526,24 @@ message_startup() {
   local x_res="${resolution% *}"
   local y_res="${resolution#* }"
 
-  local raw_canvas_size=
   if [ "${x_res}" -le "${y_res}" ]; then
-    raw_canvas_size="${x_res}"
+    # for tablet mode, add 20px margin for left and right edge.
+    CANVAS_SIZE="$(( x_res - 40 ))"
   else
-    raw_canvas_size="${y_res}"
+    CANVAS_SIZE="${y_res}"
   fi
 
-  FRECON_SCALING_FACTOR="$(( raw_canvas_size / CANVAS_SIZE ))"
+  if [ "${x_res}" -ge 1920 ]; then
+    FRECON_SCALING_FACTOR=0
+  else
+    FRECON_SCALING_FACTOR=1
+  fi
 
   frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
     --enable-vts --scale="${FRECON_SCALING_FACTOR}" \
     --clear "${BACKGROUND}" --pre-create-vts \
     /dev/null
-      printf "\033]input:off\a" > "${TTY_CONSOLE}"
+  printf "\033]input:off\a" > "${TTY_CONSOLE}"
 }
 
 # not used, was smething like
@@ -727,18 +731,30 @@ on_error() {
 }
 
 show_stepper() {
-  local stepper_x=-485
-  local stepper_x_step=100
-  local stepper_y=-285
-  local stepper_bg="${MENU_UI_GREY}"
+  # the icon real size is 24x24, but it occupies a 36x36 block.
+  # use 36 here for simplicity.
+  local icon_size=36
+  local separator_length=46
+  local padding=6
 
-  showbox "$(( stepper_x + stepper_x_step ))" "${stepper_y}" \
-    170 1 "${stepper_bg}"
+  local stepper_x="$(( -CANVAS_SIZE / 2 + icon_size / 2 ))"
+  local stepper_x_step="$(( icon_size + separator_length + padding * 2 ))"
+  local stepper_y="$(( 152 - CANVAS_SIZE / 2 ))"
+  local separator_x="$(( -CANVAS_SIZE / 2 + icon_size + padding + \
+    separator_length / 2 ))"
+  local separator_color="${MENU_UI_GREY}"
+
   showimage "${SCREENS}/ic_$1.png" "${stepper_x}" "${stepper_y}"
   showimage "${SCREENS}/ic_$2.png" \
     "$(( stepper_x + stepper_x_step ))" "${stepper_y}"
   showimage "${SCREENS}/ic_$3.png" \
     "$(( stepper_x + stepper_x_step * 2 ))" "${stepper_y}"
+
+  showbox "${separator_x}" "${stepper_y}" "${separator_length}" 1 \
+    "${separator_color}"
+  showbox "$(( separator_x + stepper_x_step ))" "${stepper_y}" \
+    "${separator_length}" 1 \
+    "${separator_color}"
 }
 
 show_stepper_done() {
@@ -770,29 +786,33 @@ show_string_locale() {
 }
 
 show_footer() {
-  local footer_line_height=24
-  local footer_y=273
-  local footer_left_x=110
-  local footer_right_x=550
-  local tablet_icon_width=30
+  local qr_code_size=86
+  local qr_code_x="$(( -CANVAS_SIZE / 2 + qr_code_size / 2 ))"
+  local qr_code_y="$(( CANVAS_SIZE / 2 - 56 - qr_code_size / 2 ))"
+
+  local seperator_x=-130
+  local seperator_y="${qr_code_y}"
+
+  local footer_line_height=18
+  local footer_y="$(( CANVAS_SIZE / 2 - 56 - qr_code_size + 9 ))"
+  local footer_left_x="$(( qr_code_x + qr_code_size / 2 + 16 + \
+      DEFAULT_MESSAGE_WIDTH / 2 ))"
+  local footer_right_x="$(( seperator_x + 32 + DEFAULT_MESSAGE_WIDTH / 2 ))"
 
   show_string_locale "${footer_left_x}" "${footer_y}" footer_left_1
   show_string_locale "${footer_left_x}" \
-    "$(( footer_y + footer_line_height * 2 ))" footer_left_2
+    "$(( footer_y + footer_line_height * 2 + 14 ))" footer_left_2
   show_string_locale "${footer_left_x}" \
-    "$(( footer_y + footer_line_height * 3 ))" footer_left_3
+    "$(( footer_y + footer_line_height * 3 + 14 ))" footer_left_3
   show_string_locale "${footer_right_x}" "${footer_y}" footer_right_1
-  show_string_locale "$(( footer_right_x + tablet_icon_width ))" \
-    "$(( footer_y + footer_line_height * 2 ))" footer_right_2
-  show_string_locale "$(( footer_right_x + tablet_icon_width ))" \
-    "$(( footer_y + footer_line_height * 3 ))" footer_right_3
-  showimage "${SCREENS}/ic_laptop.png" 63 \
-    "$(( footer_y + footer_line_height * 2 ))"
-  showimage "${SCREENS}/ic_tablet.png" 63 \
-    "$(( footer_y + footer_line_height * 3 ))"
-  showimage "${SCREENS}/qr_code.png" -435 305
-  showtext "$(crossystem hwid)" -385 \
-    "$(( footer_y + footer_line_height + 2 ))" grey
+  show_string_locale "${footer_right_x}" \
+    "$(( footer_y + footer_line_height + 8 ))" footer_right_2_clamshell
+  showimage "${SCREENS}/qr_code.png" "${qr_code_x}" "${qr_code_y}"
+  showtext "$(crossystem hwid)" \
+    "$(( qr_code_x + qr_code_size / 2 + 16 + 5 ))" \
+    "$(( footer_y + footer_line_height ))" grey
+  showbox "${seperator_x}" "${seperator_y}" 1 "${qr_code_size}" \
+    "${MENU_UI_GREY}"
 }
 
 message_base_screen() {
