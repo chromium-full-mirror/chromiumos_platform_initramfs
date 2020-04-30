@@ -39,7 +39,8 @@ NETBOOT_BIN_DEPS= \
 	/usr/sbin/flashrom \
 	/usr/sbin/fsck.vfat \
 	/usr/sbin/htpdate \
-	/usr/sbin/partprobe
+	/usr/sbin/partprobe \
+	/usr/sbin/uftpd
 
 # ChromeOS specific dependency.
 CROS_DEPS=\
