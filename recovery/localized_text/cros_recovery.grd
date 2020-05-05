@@ -311,22 +311,25 @@ Unplug your external disk to restart.
 Recovery Debug Options
       </message>
       <message name="footer_left_1" desc="Combined with footer_left_2/3, the left half of footer">
-Model
+Model:
       </message>
       <message name="footer_left_2" desc="See footer_left_1">
-Help center
+Help center:
       </message>
       <message name="footer_left_3" desc="See footer_left_1">
 http://google.com/chromeos/recovery
       </message>
-      <message name="footer_right_1" desc="Combined with footer_right_2_*, the right half of footer">
-To navigate:
+      <message name="footer_right_1_clamshell" desc="Combined with footer_right_2_clamshell, the right half of footer for clamshell device">
+Use the arrow keys to navigate up or down.
       </message>
-      <message name="footer_right_2_clamshell" desc="See footer_right_1">
-Enter key and up &amp;amp; down arrow keys.
+      <message name="footer_right_2_clamshell" desc="See footer_right_1_clamshell">
+Use the enter key to select an option.
       </message>
-      <message name="footer_right_2_tablet" desc="See footer_right_1">
-Use power button and volume buttons on the side of the device.
+      <message name="footer_right_1_tablet" desc="Combined with footer_right_2_tablet, the right half of footer for tablet device">
+Use the volume buttons to navigate up or down.
+      </message>
+      <message name="footer_right_2_tablet" desc="See footer_right_2_tablet">
+Use the power button to select an option.
       </message>
       <message name="title_recovery_failed" desc="Title of the general error screen">
 Error recovering your device

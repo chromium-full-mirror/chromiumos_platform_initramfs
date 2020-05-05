@@ -249,6 +249,10 @@ make_user_wait() {
   done | progress_bar "$2"
 }
 
+is_detachable() {
+  [ -f /etc/cros-initramfs/is_detachable ]
+}
+
 wait_menu_input() {
   local KEY_UP=103
   local KEY_DOWN=108
@@ -260,11 +264,11 @@ wait_menu_input() {
 
   local all_keys
 
-  if evwaitkey --check --keys "${KEY_DOWN}:${KEY_UP}:${KEY_ENTER}"; then
+  if is_detachable; then
+    all_keys="${KEY_VOLDOWN}:${KEY_VOLUP}:${KEY_POWER}"
+  else
     # arrow key/enter found, assuming clamshell
     all_keys="${KEY_DOWN}:${KEY_UP}:${KEY_ENTER}"
-  else
-    all_keys="${KEY_VOLDOWN}:${KEY_VOLUP}:${KEY_POWER}"
   fi
 
   local key
@@ -790,7 +794,7 @@ show_footer() {
   local qr_code_x="$(( -CANVAS_SIZE / 2 + qr_code_size / 2 ))"
   local qr_code_y="$(( CANVAS_SIZE / 2 - 56 - qr_code_size / 2 ))"
 
-  local seperator_x=-130
+  local seperator_x="$(( 410 - CANVAS_SIZE / 2 ))"
   local seperator_y="${qr_code_y}"
 
   local footer_line_height=18
@@ -804,9 +808,38 @@ show_footer() {
     "$(( footer_y + footer_line_height * 2 + 14 ))" footer_left_2
   show_string_locale "${footer_left_x}" \
     "$(( footer_y + footer_line_height * 3 + 14 ))" footer_left_3
-  show_string_locale "${footer_right_x}" "${footer_y}" footer_right_1
+
+  local nav_btn_height=24
+  local nav_btn_x="$(( seperator_x + 32 ))"
+  local nav_btn_y="$(( CANVAS_SIZE / 2 - 56 - nav_btn_height / 2 ))"
+  local footer_type=clamshell
+  local nav_key_enter=key_enter
+  local nav_key_up=key_up
+  local nav_key_down=key_down
+  local enter_icon_width=66
+  local up_down_icon_width=24
+  local icon_padding=8
+
+  if is_detachable; then
+    footer_type=tablet
+    nav_key_enter=button_power
+    nav_key_up=button_volume_up
+    nav_key_down=button_volume_down
+    enter_icon_width=40
+  fi
+  show_string_locale "${footer_right_x}" "${footer_y}" \
+    "footer_right_1_${footer_type}"
   show_string_locale "${footer_right_x}" \
-    "$(( footer_y + footer_line_height + 8 ))" footer_right_2_clamshell
+    "$(( footer_y + footer_line_height + 8 ))" "footer_right_2_${footer_type}"
+
+  nav_btn_x="$(( nav_btn_x + enter_icon_width / 2 ))"
+  showimage "${SCREENS}/nav-${nav_key_enter}.png" "${nav_btn_x}" "${nav_btn_y}"
+  nav_btn_x="$(( nav_btn_x + enter_icon_width / 2 + icon_padding + \
+    up_down_icon_width / 2 ))"
+  showimage "${SCREENS}/nav-${nav_key_up}.png" "${nav_btn_x}" "${nav_btn_y}"
+  nav_btn_x="$(( nav_btn_x + icon_padding + up_down_icon_width ))"
+  showimage "${SCREENS}/nav-${nav_key_down}.png" "${nav_btn_x}" "${nav_btn_y}"
+
   showimage "${SCREENS}/qr_code.png" "${qr_code_x}" "${qr_code_y}"
   showtext "$(crossystem hwid)" \
     "$(( qr_code_x + qr_code_size / 2 + 16 + 5 ))" \
