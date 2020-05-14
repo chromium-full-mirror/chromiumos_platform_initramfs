@@ -30,18 +30,19 @@ LANGDIR=
 MENU_UI_BLACK="0x202124"
 MENU_UI_GREY="0x3F4042"
 MENU_UI_BLUE="0x8AB4F8"
+MENU_UI_BTN_FRAME="0x9AA0A6"
 BACKGROUND="${MENU_UI_BLACK}"
+ADV_BTN_BACKGROUND="0x2B2F37"
 
 # Initialized in message_startup()
 FRECON_SCALING_FACTOR=
 CANVAS_SIZE=
 
-BUTTON_HEIGHT=60  # box height plus padding
+BUTTON_HEIGHT=32
+BUTTON_MARGIN=8 # 8 pixels between buttons
 
 # Default width of screens/{lang}/*.png, used in most messages except buttons
 DEFAULT_MESSAGE_WIDTH=720
-
-BUTTON_WIDTH=200
 
 # User visible message overlaid on the screen. Only use for debug features!
 log() {
@@ -87,6 +88,8 @@ select_locale() {
     dlog "initial locale '${LANGDIR}' not found"
     LANGDIR=en-US
   fi
+
+  . "${SCREENS}/${LANGDIR}/constants.sh"
   dlog "selected locale ${LANGDIR}"
 }
 
@@ -295,31 +298,81 @@ wait_menu_input() {
 
 showbutton() {
   local message_token="$1"
-  local offset_x="$(( -CANVAS_SIZE / 2 + BUTTON_WIDTH / 2 ))"
   local offset_y="$2"
   local focused="$3"
+  local inner_width="$4"
+  local btn_padding=32 # left and right padding
+  local left_padding_x="$(( -CANVAS_SIZE / 2 + btn_padding / 2 ))"
+  local offset_x="$(( left_padding_x + btn_padding / 2 + inner_width / 2 ))"
+  local right_padding_x="$(( offset_x + btn_padding / 2 + inner_width / 2 ))"
+
+  # clear previous state
+  showbox "${offset_x}" "${offset_y}" "$(( btn_padding * 2 + inner_width ))" \
+    "${BUTTON_HEIGHT}" "${BACKGROUND}"
 
   if [ "${focused}" -ne 0 ]; then
-    showimage "${SCREENS}/btn_bg_focused.png" "${offset_x}" "${offset_y}"
-    showmessage "${message_token}_focused" "${offset_x}" "$(( offset_y + 1 ))"
+    showimage "${SCREENS}/btn_bg_left_focused.png" \
+      "${left_padding_x}" "${offset_y}"
+    showimage "${SCREENS}/btn_bg_right_focused.png" \
+      "${right_padding_x}" "${offset_y}"
+    showbox "${offset_x}" "${offset_y}" "${inner_width}" "${BUTTON_HEIGHT}" \
+      "${MENU_UI_BLUE}"
+
+    showmessage "${message_token}_focused" "${offset_x}" "${offset_y}"
   else
-    showimage "${SCREENS}/btn_bg.png" "${offset_x}" "${offset_y}"
-    showmessage "${message_token}" "${offset_x}" "$(( offset_y + 1 ))"
+    showimage "${SCREENS}/btn_bg_left.png" \
+      "${left_padding_x}" "${offset_y}"
+    showimage "${SCREENS}/btn_bg_right.png" \
+      "${right_padding_x}" "${offset_y}"
+
+    showmessage "${message_token}" "${offset_x}" "${offset_y}"
+
+    # drow top/down border on top of the message
+    showbox "${offset_x}" "$(( offset_y - BUTTON_HEIGHT / 2 ))" \
+      "${inner_width}" 1 "${MENU_UI_BTN_FRAME}"
+    showbox "${offset_x}" "$(( offset_y + BUTTON_HEIGHT / 2 - 1 ))" \
+      "${inner_width}" 1 "${MENU_UI_BTN_FRAME}"
   fi
 }
 
 showadvoption() {
   local message_token=$1
-  local offset_h=$2
-  local offset_v=$3
-  local focused=$4
+  local offset_y=$2
+  local focused=$3
+  # text width + 12px spacing + 20px arrow icon
+  local inner_width="$(( ADV_OPTION_BTN_WIDTH + 32 ))"
+  local left_padding=16
+  local right_padding=12
+  local left_padding_x="$(( -CANVAS_SIZE / 2 - left_padding / 2 ))"
+  local offset_x="$(( -CANVAS_SIZE / 2 + ADV_OPTION_BTN_WIDTH / 2 ))"
+  local right_padding_x="$(( -CANVAS_SIZE / 2 + inner_width +
+      right_padding / 2 ))"
+
+  # clear previous state
+  showbox "${offset_x}" "${offset_y}" \
+    "$(( left_padding + right_padding + inner_width ))" "${BUTTON_HEIGHT}" \
+    "${BACKGROUND}"
 
   if [ "${focused}" -ne 0 ]; then
-    showimage "${SCREENS}/btn_bg_focused.png" "${offset_h}" "${offset_v}"
-    showmessage "${message_token}_focused" "${offset_h}" "$(( offset_v + 1 ))"
+    showimage "${SCREENS}/adv_btn_bg_left.png" \
+      "${left_padding_x}" "${offset_y}"
+    showimage "${SCREENS}/adv_btn_bg_right.png" \
+      "${right_padding_x}" "${offset_y}"
+    showbox "$(( -CANVAS_SIZE / 2 + inner_width / 2 ))" "${offset_y}" \
+      "$(( inner_width + 2 ))" "${BUTTON_HEIGHT}" "${MENU_UI_BLUE}"
+    showbox "$(( -CANVAS_SIZE / 2 + inner_width / 2 ))" "${offset_y}" \
+      "$(( inner_width + 2 ))" "$(( BUTTON_HEIGHT - 4 ))" \
+      "${ADV_BTN_BACKGROUND}"
+
+    showmessage "${message_token}_focused" "${offset_x}" "${offset_y}"
+    showimage "${SCREENS}/ic_dropright-blue.png" \
+      "$(( -CANVAS_SIZE / 2 + ADV_OPTION_BTN_WIDTH + 22 ))" \
+      "${offset_y}"
   else
-    showbox "${offset_h}" "${offset_v}" 200 30 "${BACKGROUND}"
-    showmessage "${message_token}" "${offset_h}" "$(( offset_v + 1 ))"
+    showmessage "${message_token}" "${offset_x}" "${offset_y}"
+    showimage "${SCREENS}/ic_dropright-blue.png" \
+      "$(( -CANVAS_SIZE / 2 + ADV_OPTION_BTN_WIDTH + 22 ))" \
+      "${offset_y}"
   fi
 }
 
@@ -340,7 +393,6 @@ on_error_onselect() {
 
 on_error_onchange() {
   local selected_index=$1
-  local btn_x="$(( -CANVAS_SIZE / 2 + BUTTON_WIDTH / 2 ))"
   local btn_y="$(( -CANVAS_SIZE / 2 + 388 ))"
   local adv_y="$(( CANVAS_SIZE / 2 - 182 ))"
 
@@ -349,10 +401,9 @@ on_error_onchange() {
   instructions_with_title recovery_failed
   show_stepper_error
 
-  showbutton btn_try_again "${btn_y}" "$(( selected_index == 0 ))"
-  showadvoption btn_debug_options \
-    "${btn_x}" "${adv_y}" \
-    "$(( selected_index == 1 ))"
+  showbutton btn_try_again "${btn_y}" "$(( selected_index == 0 ))" \
+    "${ON_ERROR_BTN_WIDTH}"
+  showadvoption btn_debug_options "${adv_y}" "$(( selected_index == 1 ))"
 }
 
 # Generic message to report an error.
@@ -434,18 +485,23 @@ recovery_debug_options_onchange() {
   showmessage title_debug_options "${text_x}" "${title_y}"
 
   local btn_y="$(( title_y + 18 + 40 ))" # padding 40
+  local btn_y_step="$(( BUTTON_HEIGHT + BUTTON_MARGIN ))"
   showmessage tip_copy_logs "${text_x}" "${btn_y}"
-  btn_y=$(( btn_y + 48 ))
-  showbutton btn_copy_logs "${btn_y}" "$(( selected_index == 0 ))"
-  btn_y=$(( btn_y + BUTTON_HEIGHT + 50 ))
+  btn_y=$(( btn_y + btn_y_step ))
+  showbutton btn_copy_logs "${btn_y}" "$(( selected_index == 0 ))" \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
 
+  btn_y=$(( btn_y + btn_y_step * 2 ))
   showmessage tip_view_logs "${text_x}" "${btn_y}"
-  btn_y=$(( btn_y + 48 ))
-  showbutton btn_recovery_log "${btn_y}" "$(( selected_index == 1 ))"
-  btn_y=$(( btn_y + 38 ))
-  showbutton btn_message_log "${btn_y}" "$(( selected_index == 2 ))"
-  btn_y=$(( btn_y + 38 ))
-  showbutton btn_back "${btn_y}" "$(( selected_index == 3 ))"
+  btn_y=$(( btn_y + btn_y_step ))
+  showbutton btn_recovery_log "${btn_y}" "$(( selected_index == 1 ))" \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
+  btn_y=$(( btn_y + btn_y_step ))
+  showbutton btn_message_log "${btn_y}" "$(( selected_index == 2 ))" \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
+  btn_y=$(( btn_y + btn_y_step ))
+  showbutton btn_back "${btn_y}" "$(( selected_index == 3 ))" \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
 }
 
 message_recovery_debug_options() {
@@ -500,13 +556,16 @@ view_log_onselect() {
 
 view_log_onchange() {
   local selected_index=$1
-  local btn_y_begin=190
+  local btn_y=190
 
-  showbutton btn_page_up "${btn_y_begin}" "$(( selected_index == 0 ))"
-  showbutton btn_page_down "$(( btn_y_begin + BUTTON_HEIGHT ))" \
-    "$(( selected_index == 1 ))"
-  showbutton btn_back "$(( btn_y_begin + BUTTON_HEIGHT * 2 ))" \
-    "$(( selected_index == 2 ))"
+  showbutton btn_page_up "${btn_y}" "$(( selected_index == 0 ))" \
+    "${VIEW_LOG_BTN_WIDTH}"
+  btn_y="$(( btn_y + BUTTON_HEIGHT + BUTTON_MARGIN ))"
+  showbutton btn_page_down "${btn_y}" "$(( selected_index == 1 ))" \
+    "${VIEW_LOG_BTN_WIDTH}"
+  btn_y="$(( btn_y + BUTTON_HEIGHT + BUTTON_MARGIN ))"
+  showbutton btn_back "${btn_y}" "$(( selected_index == 2 ))" \
+    "${VIEW_LOG_BTN_WIDTH}"
 }
 
 message_view_log() {

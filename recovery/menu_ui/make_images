@@ -13,6 +13,7 @@ from __future__ import print_function
 
 import glob
 import io
+import itertools
 import json
 import multiprocessing
 import os
@@ -22,6 +23,8 @@ import string
 import subprocess
 import sys
 import tempfile
+
+from PIL import Image
 
 # The list of supported locales, and their associated fonts.  Fonts should
 # generally match the list of families in Chrome's IDS_UI_FONT_FAMILY_CROS
@@ -48,10 +51,10 @@ SUPPORTED_LOCALES = {
 # A handful of locales reuse the texts from other locales.
 # (With apologies to our Aussie and Canadian friends, who really
 # deserve locales of their own ;-) ).
-LOCALE_LINKS = (
-    ('en-CA', 'en-US'),
-    ('en-AU', 'en-GB'),
-)
+LOCALE_LINKS = {
+    'en-CA': 'en-US',
+    'en-AU': 'en-GB',
+}
 
 
 # We package some plain ASCII glyphs for basic dynamic text rendering.
@@ -59,6 +62,7 @@ MONOSPACE_FONT = 'Monospace %dpx'
 MONOSPACE_GLYPHS = string.digits + string.ascii_letters + string.punctuation
 
 BACKGROUND = '#202124'
+ADV_BTN_FOCUSED_BACKGROUND = '#2B2F37'
 TEXT_COLOR = '#ffffff'
 GREY_TEXT_COLOR = '#9aa0a6' # used in footers
 PROGRESS_COLOR = '#bbbbbb'
@@ -176,17 +180,6 @@ def _LoadMessages(filename):
     return json.load(fp)
 
 def _GetTextStyles(tag):
-  button_style = {'foreground': BLUE, 'background': BACKGROUND,
-                  'align': 'center', 'width': 180,
-                  'fontsize': FOOTER_FONT_SIZE}
-  advanced_options_style = {'foreground': BLUE, 'background': BACKGROUND,
-                            'width': 180, 'fontsize': FOOTER_FONT_SIZE}
-
-  if tag.startswith('btn_'):
-    if tag in ('btn_diagnostics', 'btn_debug_options'):
-      return advanced_options_style
-    return button_style
-
   if tag.startswith('title_'):
     return {'fontsize': TITLE_FONT_SIZE, 'height': TITLE_LINE_HEIGHT}
 
@@ -200,13 +193,24 @@ def _GetTextStyles(tag):
 
 
 def _GetButtonStyles(tag):
-  normal_style = _GetTextStyles(tag)
+  button_style = {'foreground': BLUE, 'background': BACKGROUND,
+                  'align': 'center', 'width': 0,
+                  'fontsize': FOOTER_FONT_SIZE}
+  advanced_options_style = {
+      'foreground': BLUE, 'background': BACKGROUND,
+      'width': 0, 'fontsize': FOOTER_FONT_SIZE}
+  advanced_options_style_focused = {
+      'foreground': BLUE, 'background': ADV_BTN_FOCUSED_BACKGROUND,
+      'width': 0, 'fontsize': FOOTER_FONT_SIZE}
 
-  focused_style = normal_style.copy()
+  if tag in ('btn_diagnostics', 'btn_debug_options'):
+    return advanced_options_style, advanced_options_style_focused
+
+  focused_style = button_style.copy()
   focused_style['foreground'], focused_style['background'] = (
       focused_style['background'], focused_style['foreground'])
 
-  return normal_style, focused_style
+  return button_style, focused_style
 
 
 def CreateLocales(textdir, screendir, locale_list):
@@ -295,14 +299,14 @@ def CreateLinkedLocales(screendir, locale_list, link_list):
   """Created locales that are linked to pre-existing locales.
 
   `locale_list` is a list of locales that already exist, and
-  `link_list` is a list of (`target`, `orig`) tuples.  For each
+  `link_list` is mapping of {`target`: `orig`}.  For each
   `orig` that is also in `locale_list`, the corresponding `target`
   is created as a linked copy of `orig`.
 
   `orig` is expected to exist under the directory `screendir` and
   `target` is created there.
   """
-  for target, orig in link_list:
+  for target, orig in link_list.items():
     if orig not in locale_list:
       continue
     print('Locale %s linked to %s' % (target, orig))
@@ -326,6 +330,47 @@ def CreateMonospaceGlyphs(glyph_dir, text_color):
   for char in MONOSPACE_GLYPHS:
     CreateMonospaceGlyph(char, os.path.join(glyph_dir, '%d.png' % ord(char)),
                          FOOTER_FONT_SIZE, text_color)
+
+
+def GetImageWidth(imgpath):
+  return Image.open(imgpath).size[0]
+
+def CalculateButtonWidth(screendir, locale, *buttons):
+  """Returns the maximum width of given buttons."""
+
+  width = 64
+  for button in buttons:
+    pngfile = button + '.png'
+    if os.path.exists(os.path.join(screendir, locale, pngfile)):
+      width = max(width, GetImageWidth(
+          os.path.join(screendir, locale, pngfile)))
+    else:
+      # fallback to en-US
+      width = max(width, GetImageWidth(
+          os.path.join(screendir, 'en-US', pngfile)))
+  return width
+
+def CreateConstantDefs(screendir, all_locales):
+  for locale in all_locales:
+    with open(os.path.join(screendir, locale, 'constants.sh'), 'w') as out:
+      on_error_btn_width = CalculateButtonWidth(
+          screendir, locale, 'btn_try_again')
+      print('ON_ERROR_BTN_WIDTH=%d' % on_error_btn_width, file=out)
+
+      debug_options_btn_width = CalculateButtonWidth(
+          screendir, locale, 'btn_copy_logs', 'btn_recovery_log',
+          'btn_message_log', 'btn_back')
+      print('DEBUG_OPTIONS_BTN_WIDTH=%d' % debug_options_btn_width, file=out)
+
+      view_log_btn_width = CalculateButtonWidth(
+          screendir, locale, 'btn_page_up', 'btn_page_down', 'btn_back')
+      print('VIEW_LOG_BTN_WIDTH=%d' % view_log_btn_width, file=out)
+
+      adv_option_btn_width = CalculateButtonWidth(screendir, locale,
+                                                  'btn_debug_options')
+      print('ADV_OPTION_BTN_WIDTH=%d' % adv_option_btn_width, file=out)
+
+      out.flush()
 
 
 def ConvertSvg(assetsdir, screendir):
@@ -369,6 +414,8 @@ def main(argv):
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/white'), TEXT_COLOR)
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/grey'),
                         GREY_TEXT_COLOR)
+  CreateConstantDefs(screendir,
+                     itertools.chain(SUPPORTED_LOCALES, LOCALE_LINKS))
   ConvertSvg(assetsdir, screendir)
 
 
