@@ -185,12 +185,15 @@ instructions() {
 instructions_with_title() {
   local title_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
   local title_height=36
-  local desc_height=144
+  local desc_height=21
   local title_y="$(( -CANVAS_SIZE / 2 + 228 + title_height / 2 ))"
   local desc_y="$(( title_y + title_height / 2 + 16 + desc_height / 2 ))"
+  local line_spacing=4 # 20% of desc line height
 
   showmessage "title_$1" "${title_x}" "${title_y}"
-  showmessage "desc_$1" "${title_x}" "${desc_y}"
+  showmessage "desc_$1_1" "${title_x}" "${desc_y}"
+  desc_y="$(( desc_y + desc_height + line_spacing ))"
+  showmessage "desc_$1_2" "${title_x}" "${desc_y}"
 }
 
 # Handle display of a simple progress bar in the 'progress' box.

@@ -298,13 +298,13 @@ https://www.google.com/chromeos/recovery
       <message name="title_recovery_in_progress" desc="Title shown by the recovery installer when recovery begins">
 External disk with recovery image detected
       </message>
-      <message name="desc_recovery_in_progress" desc="Detailed description by the recovery installer when recovery begins">
+      <message name="desc_recovery_in_progress_1" desc="Detailed description by the recovery installer when recovery begins">
 This process may take a few minutes
       </message>
       <message name="title_recovery_complete" desc="Title shown by the recovery installer when recovery finished">
 Recovery is now complete
       </message>
-      <message name="desc_recovery_complete" desc="Detailed description shown by the recovery installer when recovery finished">
+      <message name="desc_recovery_complete_1" desc="Detailed description shown by the recovery installer when recovery finished">
 Unplug your external disk to restart.
       </message>
       <message name="title_debug_options" desc="Title of the deug info screen">
@@ -334,8 +334,10 @@ Use the power button to select an option.
       <message name="title_recovery_failed" desc="Title of the general error screen">
 Error recovering your device
       </message>
-      <message name="desc_recovery_failed" desc="Detailed description for general error screen">
+      <message name="desc_recovery_failed_1" desc="Detailed description for general error screen (first line)">
 There was error while recovering your device, Refer to
+      </message>
+      <message name="desc_recovery_failed_2" desc="Detailed description for general error screen (second line)">
 http://google.com/chromeos/recovery for possible solutions or try again.
       </message>
       <message name="btn_try_again" desc="In the error screen, button that tells user to reboot and try again">
