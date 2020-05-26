@@ -55,8 +55,8 @@ wait_for_gpt_root() {
                -d usb-storage \
                -F "Google" \
                -M "Chrome OS Recovery" \
-               -D "Chrome OS device in recovery mode" \
-               -V "1.0" \
+               -D "Chrome OS device in Recovery Mode" \
+               -V "1.1" \
                -U "https://google.com/chromeos/recovery_android"
   fi
 
