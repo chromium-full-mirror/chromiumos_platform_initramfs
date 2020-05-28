@@ -434,9 +434,7 @@ message_warn_invalid_install_kernel() {
 message_invalid_install_kernel() {
   instructions invalid_kernel
   showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
-  save_log_files
-  sleep 1d
-  exit 1
+  signal_fatal_error
 }
 
 # Tell the user that installation can't continue because the device
@@ -449,9 +447,7 @@ message_block_developer_mode() {
   showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
   progress empty
   dev_notice empty
-  save_log_files
-  sleep 1d
-  exit 1
+  signal_fatal_error
 }
 
 # Tell the user that the security module is hosed and point them to
@@ -463,9 +459,7 @@ message_security_module_failure() {
   showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
   progress empty
   dev_notice empty
-  save_log_files
-  sleep 1d
-  exit 1
+  signal_fatal_error
 }
 
 # Tell the user that we're installing a firmware update.
@@ -489,25 +483,4 @@ message_update_firmware_low_battery_charging() {
   instructions update_firmware_low_battery_charging
   showicon $INSTRUCTION_BOX_TOP $SCREENS/icon_warning.png
   progress empty
-}
-
-# Terminate with an error message.  We don't want to do anything
-# else (like start a shell) because it would be trivially easy to
-# get here (just unplug the USB drive after the kernel starts but
-# before the USB drives are probed by the kernel) and starting a
-# shell here would be a BIG security hole.
-# Also if enhanced disk wipe is executed, report its result to user.
-on_error() {
-  if [ -n "${DISK_WIPE_RESULT}" ]; then
-    if [ ${DISK_WIPE_RESULT} -eq 0 ]; then
-      message recovery_error_wipe_success
-    else
-      message recovery_error_wipe_fail
-    fi
-  else
-    message on_error
-  fi
-  save_log_files
-  sleep 1d
-  exit 1
 }

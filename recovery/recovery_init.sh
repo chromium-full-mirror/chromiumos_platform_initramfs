@@ -997,6 +997,25 @@ setup_oobe_auto_config_keys() {
   tpmc write "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" ${pub_bytes}
 }
 
+# Terminate with an error message.  We don't want to do anything
+# else (like start a shell) because it would be trivially easy to
+# get here (just unplug the USB drive after the kernel starts but
+# before the USB drives are probed by the kernel) and starting a
+# shell here would be a BIG security hole.
+# Also if enhanced disk wipe is executed, report its result to user.
+on_error() {
+  if [ -n "${DISK_WIPE_RESULT}" ]; then
+    if [ "${DISK_WIPE_RESULT}" -eq 0 ]; then
+      message recovery_error_wipe_success
+    else
+      message recovery_error_wipe_fail
+    fi
+  else
+    message on_error
+  fi
+  signal_fatal_error
+}
+
 # Detect whether the USB device containing the recovery image is a phone
 # with "our" app on it.
 recovering_using_phone_app() {
@@ -1012,9 +1031,19 @@ recovering_using_phone_app() {
 # In case the boot media is an Android phone with our app, tell the app that
 # we are done with the process, by "ejecting" the block device.
 signal_completion() {
+  unmount_usb
   if recovering_using_phone_app; then
     /usr/bin/eject -m -s "$REAL_USB_DEV"
   fi
+}
+
+# Called after displaying some fatal error message.  This method will sync
+# disks, and never return.  In the future, if the boot media is an Android
+# phone, it will also tell the app that progress has halted.
+signal_fatal_error() {
+  save_log_files
+  sleep 1d
+  exit 1
 }
 
 # Check if the current channel is whitelisted for wipe disk. Since our final UX
@@ -1074,7 +1103,6 @@ recovery_install() {
   # USB stick from that moment forward.
   local usb_node_dir=$(get_usb_node_dir)
 
-  unmount_usb
   signal_completion
 
   if [ -n "$usb_node_dir" ]; then
