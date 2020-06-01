@@ -68,10 +68,20 @@ clear_console() {
   clear >"${TTY_CONSOLE}"
 }
 
+vpd_get_value() {
+  local file="/sys/firmware/vpd/ro/$1"
+
+  if [ -e "${file}" ]; then
+    cat "${file}"
+  else
+    vpd -g "$1"
+  fi
+}
+
 read_vpd_locale() {
   local region
 
-  region="$(vpd -g region)"
+  region="$(vpd_get_value region)"
   if [ -n "${region}" ]; then
     # Lookup correct value from locale list.
     sed -nre "s/^${region}\t(.*)$/\1/p" "${LOCALES_TXT}"
