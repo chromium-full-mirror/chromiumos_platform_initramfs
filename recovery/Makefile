@@ -91,7 +91,6 @@ legacy_ui: stage_init
 
 .PHONY: menu_ui
 menu_ui: stage_init
-	cp menu_ui/assets/*.png "$(STAGE)/etc/screens"
 	menu_ui/make_images localized_text "$(STAGE)/etc/screens" \
 		$(LOCALE_LIST)
 	cp *.sh menu_ui/*.sh "$(STAGE)/lib"
