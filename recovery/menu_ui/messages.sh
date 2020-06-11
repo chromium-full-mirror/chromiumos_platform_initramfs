@@ -190,7 +190,7 @@ showmessage() {
 #   file name based on the current locale.
 instructions() {
   local x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
-  local y="$(( -CANVAS_SIZE / 2 + 291 ))"
+  local y="$(( -CANVAS_SIZE / 2 + 283 ))"
 
   showmessage "$1" "${x}" "${y}"
 }
@@ -199,7 +199,7 @@ instructions_with_title() {
   local title_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
   local title_height=36
   local desc_height=21
-  local title_y="$(( -CANVAS_SIZE / 2 + 228 + title_height / 2 ))"
+  local title_y="$(( -CANVAS_SIZE / 2 + 220 + title_height / 2 ))"
   local desc_y="$(( title_y + title_height / 2 + 16 + desc_height / 2 ))"
   local line_spacing=4 # 20% of desc line height
 
@@ -346,24 +346,33 @@ showbutton() {
 }
 
 showadvoption() {
-  local message_token=$1
-  local offset_y=$2
-  local focused=$3
-  # text width + 12px spacing + 20px arrow icon
-  local inner_width="$(( ADV_OPTION_BTN_WIDTH + 32 ))"
+  local icon_token=$1
+  local message_token=$2
+  local offset_y=$3
+  # text width + 16px and 12px spacing + 20px icon * 2
+  local inner_width="$(( ADV_OPTION_BTN_WIDTH + 68 ))"
   local left_padding=16
   local right_padding=12
   local left_padding_x="$(( -CANVAS_SIZE / 2 - left_padding / 2 ))"
-  local offset_x="$(( -CANVAS_SIZE / 2 + ADV_OPTION_BTN_WIDTH / 2 ))"
   local right_padding_x="$(( -CANVAS_SIZE / 2 + inner_width +
       right_padding / 2 ))"
 
   # clear previous state
-  showbox "${offset_x}" "${offset_y}" \
-    "$(( left_padding + right_padding + inner_width ))" "${BUTTON_HEIGHT}" \
+  showbox "$(( -CANVAS_SIZE / 2 + inner_width / 2 ))" "${offset_y}" \
+    "$(( inner_width + 40 ))" "${BUTTON_HEIGHT}" \
     "${BACKGROUND}"
 
-  if [ "${focused}" -ne 0 ]; then
+  eval "local msg_width=\${BUTTON_${message_token}_WIDTH}"
+  local icon_x="$(( -CANVAS_SIZE / 2 + 10 ))"
+  local msg_x="$(( icon_x + 26 + msg_width / 2 ))"
+  local arrow_x="$(( msg_x + msg_width / 2 + 22 ))"
+
+  local focused
+  if [ "$4" -ne 0 ]; then
+    focused=_focused
+  fi
+
+  if [ -n "${focused}" ]; then
     showimage "${SCREENS}/adv_btn_bg_left.png" \
       "${left_padding_x}" "${offset_y}"
     showimage "${SCREENS}/adv_btn_bg_right.png" \
@@ -373,17 +382,12 @@ showadvoption() {
     showbox "$(( -CANVAS_SIZE / 2 + inner_width / 2 ))" "${offset_y}" \
       "$(( inner_width + 2 ))" "$(( BUTTON_HEIGHT - 4 ))" \
       "${ADV_BTN_BACKGROUND}"
-
-    showmessage "${message_token}_focused" "${offset_x}" "${offset_y}"
-    showimage "${SCREENS}/ic_dropright-blue_focused.png" \
-      "$(( -CANVAS_SIZE / 2 + ADV_OPTION_BTN_WIDTH + 22 ))" \
-      "${offset_y}"
-  else
-    showmessage "${message_token}" "${offset_x}" "${offset_y}"
-    showimage "${SCREENS}/ic_dropright-blue.png" \
-      "$(( -CANVAS_SIZE / 2 + ADV_OPTION_BTN_WIDTH + 22 ))" \
-      "${offset_y}"
   fi
+
+  showimage "${SCREENS}/${icon_token}${focused}.png" "${icon_x}" "${offset_y}"
+  showmessage "${message_token}${focused}" "${msg_x}" "${offset_y}"
+  showimage "${SCREENS}/ic_dropright-blue${focused}.png" \
+    "${arrow_x}" "${offset_y}"
 }
 
 on_error_onselect() {
@@ -391,9 +395,12 @@ on_error_onselect() {
 
   case "${selected_index}" in
     0)
-      echo 'reboot ???'
+      reboot now
       ;;
     1)
+      shutdown now
+      ;;
+    2)
       message recovery_debug_options
       ;;
   esac
@@ -403,8 +410,10 @@ on_error_onselect() {
 
 on_error_onchange() {
   local selected_index=$1
-  local btn_y="$(( -CANVAS_SIZE / 2 + 388 ))"
-  local adv_y="$(( CANVAS_SIZE / 2 - 182 ))"
+  local btn_y="$(( -CANVAS_SIZE / 2 + 380 ))"
+  local adv_y="$(( CANVAS_SIZE / 2 - 222 ))"
+  local adv_btn_height=32
+  local adv_btn_padding=8
 
   echo "message_on_error, index: ${selected_index}"
   message_base_screen
@@ -413,7 +422,10 @@ on_error_onchange() {
 
   showbutton btn_try_again "${btn_y}" "$(( selected_index == 0 ))" \
     "${ON_ERROR_BTN_WIDTH}"
-  showadvoption btn_debug_options "${adv_y}" "$(( selected_index == 1 ))"
+  showadvoption power btn_power_off "${adv_y}" "$(( selected_index == 1 ))"
+  adv_y="$(( adv_y + adv_btn_height + adv_btn_padding ))"
+  showadvoption settings btn_debug_options "${adv_y}" \
+    "$(( selected_index == 2 ))"
 }
 
 # Generic message to report an error.
@@ -487,7 +499,7 @@ recovery_debug_options_onselect() {
 recovery_debug_options_onchange() {
   local selected_index=$1
   local text_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
-  local title_y="$(( -CANVAS_SIZE / 2 + 228 + 18 ))"
+  local title_y="$(( -CANVAS_SIZE / 2 + 220 + 18 ))"
 
   echo "message_debug_options, index: ${selected_index}"
 
@@ -566,7 +578,7 @@ view_log_onselect() {
 
 view_log_onchange() {
   local selected_index=$1
-  local btn_y=190
+  local btn_y=182
 
   showbutton btn_page_up "${btn_y}" "$(( selected_index == 0 ))" \
     "${VIEW_LOG_BTN_WIDTH}"
@@ -788,7 +800,7 @@ show_stepper() {
 
   local stepper_x="$(( -CANVAS_SIZE / 2 + icon_size / 2 ))"
   local stepper_x_step="$(( icon_size + separator_length + padding * 2 ))"
-  local stepper_y="$(( 152 - CANVAS_SIZE / 2 ))"
+  local stepper_y="$(( 144 - CANVAS_SIZE / 2 ))"
   local separator_x="$(( -CANVAS_SIZE / 2 + icon_size + padding + \
     separator_length / 2 ))"
   local separator_color="${MENU_UI_GREY}"

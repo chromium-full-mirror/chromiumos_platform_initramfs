@@ -203,7 +203,7 @@ def _GetButtonStyles(tag):
       'foreground': BLUE, 'background': ADV_BTN_FOCUSED_BACKGROUND,
       'width': 0, 'fontsize': FOOTER_FONT_SIZE}
 
-  if tag in ('btn_diagnostics', 'btn_debug_options'):
+  if tag in ('btn_diagnostics', 'btn_debug_options', 'btn_power_off'):
     return advanced_options_style, advanced_options_style_focused
 
   focused_style = button_style.copy()
@@ -366,9 +366,15 @@ def CreateConstantDefs(screendir, all_locales):
           screendir, locale, 'btn_page_up', 'btn_page_down', 'btn_back')
       print('VIEW_LOG_BTN_WIDTH=%d' % view_log_btn_width, file=out)
 
-      adv_option_btn_width = CalculateButtonWidth(screendir, locale,
-                                                  'btn_debug_options')
+      # the secondary buttons are left-aligned, so we need information about
+      # their maximum width and individual width.
+      adv_buttons = ['btn_debug_options', 'btn_power_off']
+      adv_option_btn_width = CalculateButtonWidth(
+          screendir, locale, *adv_buttons)
       print('ADV_OPTION_BTN_WIDTH=%d' % adv_option_btn_width, file=out)
+      for button in adv_buttons:
+        width = CalculateButtonWidth(screendir, locale, button)
+        print('BUTTON_%s_WIDTH=%d' % (button, width), file=out)
 
       out.flush()
 

@@ -346,8 +346,11 @@ Try Again
       <message name="btn_diagnostics" desc="In the error screen, button that sends user to the diagnistics menu">
 Diagnostics
       </message>
+      <message name="btn_power_off" desc="Power off button">
+Power off
+      </message>
       <message name="btn_debug_options" desc="In the error screen, button that sends user to the debug options menu">
-Recovery debug options
+Advanced options
       </message>
       <message name="tip_copy_logs" desc="In the debug options menu, tooltip before btn_copy_logs">
 Copy logs to your external disk
