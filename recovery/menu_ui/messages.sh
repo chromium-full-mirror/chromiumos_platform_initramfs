@@ -283,12 +283,19 @@ wait_menu_input() {
   if is_detachable; then
     all_keys="${KEY_VOLDOWN}:${KEY_VOLUP}:${KEY_POWER}"
   else
-    # arrow key/enter found, assuming clamshell
     all_keys="${KEY_DOWN}:${KEY_UP}:${KEY_ENTER}"
   fi
 
   local key
-  key="$(evwaitkey --keys "${all_keys}")"
+  while true; do
+    if evwaitkey --check --keys "${all_keys}" --include_usb; then
+      key="$(evwaitkey --keys "${all_keys}" --include_usb)"
+      break
+    fi
+
+    # Sleep 1 second and probe again if no valid device found.
+    sleep 1s
+  done
 
   case "${key}" in
     "${KEY_UP}"|"${KEY_VOLUP}")
