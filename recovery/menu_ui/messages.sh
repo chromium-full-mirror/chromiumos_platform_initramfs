@@ -375,7 +375,7 @@ showadvoption() {
       "${ADV_BTN_BACKGROUND}"
 
     showmessage "${message_token}_focused" "${offset_x}" "${offset_y}"
-    showimage "${SCREENS}/ic_dropright-blue.png" \
+    showimage "${SCREENS}/ic_dropright-blue_focused.png" \
       "$(( -CANVAS_SIZE / 2 + ADV_OPTION_BTN_WIDTH + 22 ))" \
       "${offset_y}"
   else
