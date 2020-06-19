@@ -609,8 +609,15 @@ message_view_log() {
 #
 # This message also appears when booting factory images.
 message_startup() {
+  # b/158282097: force reprobe since type-c to DP connectors
+  # seems not detected at boot
+  for f in $(ls /sys/class/drm/*/status); do
+    echo detect > "${f}"
+  done
+  sleep 1s
+
   local resolution
-  resolution="$(frecon-lite --print-resolution)"
+  resolution="$(frecon-lite --print-resolution || echo 1000 1000)"
   local x_res="${resolution% *}"
   local y_res="${resolution#* }"
 
