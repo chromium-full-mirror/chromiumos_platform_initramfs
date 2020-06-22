@@ -104,7 +104,7 @@ may go wrong:
     otherwise mis-formatted.
 *   Text may be truncated for lack of space.
 *   Writing systems that display right-to-left are untested, and may not render
-    properly. Most notable in this class are 'ar' (Arabic) and 'iw' (Hebrew).
+    properly. Most notable in this class are 'ar' (Arabic) and 'he' (Hebrew).
     Give these special attention when/if they're added.
 *   Fonts may be missing, incomplete, or just plain illegible.
 *   The default font may or may not render the text correctly for the locale.
