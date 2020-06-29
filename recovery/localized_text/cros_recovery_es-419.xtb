@@ -6,12 +6,18 @@
 Para obtener más información, consulta esta URL:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="1600199746926806589">Tu dispositivo se inscribirá automáticamente en el dominio que se muestra a continuación. Verifica que este información sea correcta.</translation>
-<translation id="2701006671590617571">Estás a punto de recuperar el equipo. Asegúrate de que esté conectado a una fuente de alimentación.
+<translation id="1483971085438511843">Usa la tecla Intro para seleccionar una opción.</translation>
+<translation id="1486534340494484631">Se produjo un error durante el borrado mejorado del disco.
 
-Si quieres cancelar la recuperación, mantén presionado el botón de encendido hasta que se apague el equipo (este proceso puede tardar hasta ocho segundos).
-Puedes realizar esta acción en cualquier momento durante la verificación.</translation>
+Se completó la recuperación del sistema.
+Quita los medios de recuperación y la computadora se reiniciará automáticamente.</translation>
+<translation id="1600199746926806589">Tu dispositivo se inscribirá automáticamente en el dominio que se muestra a continuación. Verifica que este información sea correcta.</translation>
+<translation id="1638626287317244115">Copiar registros</translation>
+<translation id="2238107357612570504">Opciones de depuración durante la recuperación</translation>
+<translation id="2596600434078055015">Opciones de depuración durante la recuperación</translation>
 <translation id="2731700343119398978">Espera...</translation>
+<translation id="2904079386864173492">Modelo:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">El propietario del dispositivo requiere que el dispositivo se ejecute con la
 verificación del Sistema operativo Chrome desactivada. Estás intentando instalar
 una imagen de recuperación del Sistema operativo Chrome no oficial que no se puede verificar.
@@ -34,12 +40,24 @@ Para comenzar con la configuración automática, presiona el interruptor de recu
 Para obtener instrucciones para crear un nuevo medio de recuperación, consulta esta URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Atrás</translation>
+<translation id="3942420633017001071">Diagnóstico</translation>
 <translation id="3946632524220974380">Es necesario que el programador realice un cambio clave para continuar; el proceso tarda cinco minutos.</translation>
+<translation id="4006102694824401878">Este proceso puede tardar unos minutos</translation>
+<translation id="4007898787815310968">Se produjo un error durante el borrado mejorado del disco.
+
+Se produjo un error inesperado durante la recuperación. Obtén sugerencias para solucionar problemas en el siguiente vínculo:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Registro de mensajes</translation>
+<translation id="4287891348859705498">Copiar los registros al disco externo</translation>
 <translation id="436588829138218801">La verificación del Sistema operativo Chrome está desactivada.
 
 Si este modo no es intencional, debes cancelar la recuperación e inhabilitar el modo de programador para habilitar la verificación. Para mas información, consulta esta URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Usa los botones de volumen para navegar hacia arriba o abajo.</translation>
+<translation id="4791159253869531619">Se detectó un disco externo con una imagen de recuperación</translation>
 <translation id="4905949142713655149">Se produjo un error inesperado. Consulta esta URL para obtener sugerencias para solucionar problemas:
 
 https://www.google.com/chromeos/recovery</translation>
@@ -47,6 +65,12 @@ https://www.google.com/chromeos/recovery</translation>
 
 Ya es seguro quitar el medio de recuperación. Pronto se reiniciará tu computadora
 automáticamente.</translation>
+<translation id="5080881219404532322">Estás a punto de recuperar tu computadora. Asegúrate de que esté
+ conectada a una fuente de alimentación.
+
+Si deseas cancelar la recuperación, mantén presionado el botón de encendido
+hasta que se apague la computadora (esto puede demorar hasta 8 segundos).
+Es seguro hacer esto en cualquier momento durante la verificación.</translation>
 <translation id="537291066186627789">Se completó la recuperación del sistema.
 
 Elimina el medio de recuperación, y el equipo se reiniciará automáticamente.</translation>
@@ -59,18 +83,41 @@ Si tienes datos que quieres conservar en este equipo, deberías cancelar la recu
 Cargando…
 
 La actualización se iniciará automáticamente cuando la batería tenga suficiente carga.</translation>
+<translation id="5592705604979238266">Centro de ayuda:</translation>
 <translation id="6037207722716689331">El medio de recuperación se configurará automáticamente después del reinicio.
 
 Para comenzar con la configuración automática, presiona la tecla Intro. De lo contrario, presiona Escape.
 Si quieres cancelar la recuperación, mantén presionado el botón de encendido hasta que se apague el dispositivo (puede tardar hasta 8 segundos).</translation>
+<translation id="6185696379715117369">Retroceder página</translation>
+<translation id="635783852215913562">Usa las flechas para navegar hacia arriba y abajo.</translation>
+<translation id="6363786367719063276">Ver registros</translation>
+<translation id="6374469231428023295">Volver a intentar</translation>
+<translation id="6451786478565057499">El borrado mejorado del disco está en curso…
+
+Es posible que demore mucho tiempo.</translation>
 <translation id="6478314309353607985">La imagen de tu medio de recuperación es una imagen de programador no verificada.
 
 El proceso de recuperación continuará, ya que el inicio verificado está desactivado.
 Si vuelves a activar la verificación en otro momento, tendrás que repetir la recuperación con una imagen oficial del Sistema operativo Chrome.</translation>
+<translation id="6630033970080307657">Desconecta el disco externo para reiniciar el sistema.</translation>
+<translation id="6868586188416530903">Registro tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Utiliza el botón de encendido para seleccionar una opción.</translation>
+<translation id="7684530127758861598">Registro de recuperación</translation>
+<translation id="7709095358410921767">Se completó el borrado mejorado del disco.
+
+Se produjo un error inesperado durante la recuperación. Obtén sugerencias para solucionar problemas en el siguiente vínculo:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Se completó el borrado mejorado del disco.
+
+Se completó la recuperación del sistema.
+Quita los medios de recuperación y la computadora se reiniciará automáticamente.</translation>
 <translation id="816304391526917903">Estás usando una versión desactualizada oficial de la imagen de recuperación del Sistema operativo Chrome.
 
 El proceso de recuperación continuará, ya que la verificación está desactivada.
 Si vuelves a activar la verificación en otro momento, tendrás que repetir la recuperación con una imagen actualizada del Sistema operativo Chrome.</translation>
+<translation id="8361934271307901704">Se produjo un error al recuperar el dispositivo. Consulta</translation>
+<translation id="8518545754265418610">Prueba las posibles soluciones que se encuentran en http://google.com/chromeos/recovery o vuelve a intentarlo.</translation>
 <translation id="8596190965261846034">Instalando actualización…
 
 No apagues el dispositivo.
@@ -81,4 +128,7 @@ Este proceso tardará unos minutos. No apagues el equipo ni desconectes la alime
 <translation id="8796495438384109098">Se completó la recuperación del sistema.
 
 No desconectes el medio de recuperación hasta que finalice la configuración automática. La computadora se reiniciará en breve para continuar con la configuración.</translation>
+<translation id="88986195241502842">Avanzar página</translation>
+<translation id="9146946647152579011">Se completó la recuperación</translation>
+<translation id="9156766649956178343">Se produjo un error al recuperar el dispositivo</translation>
 </translationbundle>

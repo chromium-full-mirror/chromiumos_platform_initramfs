@@ -6,14 +6,18 @@
 Consultă această adresă URL pentru mai multe informații:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="1600199746926806589">Dispozitivul tău va fi automat înscris în domeniul prezentat mai jos. Verifică dacă este corect.</translation>
-<translation id="2701006671590617571">Ești pe cale să recuperezi computerul. Asigură-te că este conectat
-la o sursă de alimentare.
+<translation id="1483971085438511843">Folosește tasta Enter pentru a selecta o opțiune.</translation>
+<translation id="1486534340494484631">A apărut o eroare în timpul ștergerii avansate a discurilor.
 
-Dacă dorești să anulezi recuperarea, apasă lung pe butonul de alimentare
-până când computerul se închide (durează până la 8 secunde).
-Poți să faci acest lucru oricând în timpul verificării.</translation>
+Recuperarea sistemului s-a finalizat.
+Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
+<translation id="1600199746926806589">Dispozitivul tău va fi automat înscris în domeniul prezentat mai jos. Verifică dacă este corect.</translation>
+<translation id="1638626287317244115">Copiază jurnalele</translation>
+<translation id="2238107357612570504">Opțiuni de remediere a erorilor legate de recuperare</translation>
+<translation id="2596600434078055015">Opțiuni de remediere a erorilor legate de recuperare</translation>
 <translation id="2731700343119398978">Așteptați...</translation>
+<translation id="2904079386864173492">Model:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Proprietarul dispozitivului solicită ca dispozitivul să ruleze având
 verificarea pentru sistemul de operare Chrome activată. Tu încerci
 să instalezi o imagine de recuperare neoficială a sistemului de operare
@@ -43,8 +47,18 @@ Pentru instrucțiuni privind modul în care poți să creezi un
 nou suport de recuperare, accesează această adresă URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Înapoi</translation>
+<translation id="3942420633017001071">Diagnosticare</translation>
 <translation id="3946632524220974380">Pentru a continua, este necesară modificarea cheii de dezvoltator;
 procesul necesită 5 minute.</translation>
+<translation id="4006102694824401878">Acest proces poate dura câteva minute</translation>
+<translation id="4007898787815310968">A apărut o eroare în timpul ștergerii avansate a discurilor.
+
+A apărut o eroare neașteptată în timpul recuperării. Consultă această adresă URL pentru sfaturi de remediere a erorilor:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Jurnalul de mesaje</translation>
+<translation id="4287891348859705498">Copiază jurnalele pe discul extern</translation>
 <translation id="436588829138218801">Verificarea sistemului de operare Chrome este dezactivată.
 
 Dacă nu ai intenționat acest lucru, anulează recuperarea și
@@ -52,6 +66,8 @@ dezactivează modul pentru dezvoltatori, pentru a activa verificarea.
 Pentru mai multe informații, consultă această adresă URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Folosește butoanele de volum pentru a naviga în sus sau în jos.</translation>
+<translation id="4791159253869531619">A fost detectat discul extern cu imaginea de recuperare</translation>
 <translation id="4905949142713655149">A apărut o eroare neașteptată. Pentru sfaturi de remediere
 a problemelor, consultă această adresă URL:
 
@@ -59,6 +75,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">Recuperarea sistemului s-a încheiat.
 
 Acum poți scoate suportul de recuperare. Computerul va reporni automat în curând.</translation>
+<translation id="5080881219404532322">Urmează să îți recuperezi datele de pe computer. Asigură-te că acesta este conectat la o sursă de alimentare.
+
+Dacă vrei să anulezi recuperarea, apasă pe butonul de alimentare și ține-l apăsat până când computerul se oprește (procesul durează aproximativ 8 secunde).
+Poți face în siguranță acest lucru oricând în timpul verificării.</translation>
 <translation id="537291066186627789">Recuperarea sistemului este finalizată.
 
 Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
@@ -72,21 +92,44 @@ Dacă pe computer ai date pe care vrei să le salvezi, anulează recuperarea.</t
 Se încarcă...
 
 Actualizarea va începe automat de îndată ce bateria este încărcată suficient.</translation>
+<translation id="5592705604979238266">Centrul de ajutor:</translation>
 <translation id="6037207722716689331">Suportul de recuperare este configurat pentru configurare automată după ce repornește.
 
 Pentru a continua configurarea automată, apasă Enter; altfel, apasă Escape.
 Dacă dorești să anulezi recuperarea, apasă lung pe butonul de alimentare până când
 computerul se închide (durează până la opt secunde).</translation>
+<translation id="6185696379715117369">O pagină mai sus</translation>
+<translation id="635783852215913562">Folosește tastele săgeată pentru a naviga în sus sau în jos.</translation>
+<translation id="6363786367719063276">Consultă jurnalele</translation>
+<translation id="6374469231428023295">Încearcă din nou</translation>
+<translation id="6451786478565057499">Are loc ștergerea avansată a discurilor...
+
+Procesul poate dura mult.</translation>
 <translation id="6478314309353607985">Imaginea de pe suportul de recuperare este o imagine de dezvoltare neverificată.
 
 Recuperarea va continua, deoarece pornirea verificată este dezactivată.
 Dacă ulterior activezi verificarea, va fi necesar să repeți recuperarea
 folosind o imagine a sistemului de operare Chrome oficială.</translation>
+<translation id="6630033970080307657">Pentru a reporni, deconectează discul extern.</translation>
+<translation id="6868586188416530903">Jurnalul tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Folosește butonul de pornire pentru a selecta o opțiune.</translation>
+<translation id="7684530127758861598">Jurnalul de recuperare</translation>
+<translation id="7709095358410921767">Ștergerea avansată a discurilor s-a încheiat.
+
+A apărut o eroare neașteptată în timpul recuperării. Consultă această adresă URL pentru sfaturi de remediere a erorilor:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Ștergerea avansată a discurilor s-a încheiat.
+
+Recuperarea sistemului s-a finalizat.
+Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
 <translation id="816304391526917903">Folosești o imagine de recuperare a sistemului de operare Chrome oficială neactualizată.
 
 Recuperarea va continua, deoarece verificarea este dezactivată.
 Dacă ulterior activezi verificarea, va fi necesar să repeți recuperarea
 folosind o imagine a sistemului de operare Chrome actualizată.</translation>
+<translation id="8361934271307901704">A apărut o eroare în timpul recuperării dispozitivului. Consultă</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery pentru soluții posibile sau încearcă din nou.</translation>
 <translation id="8596190965261846034">Se instalează actualizarea...
 
 Nu opri dispozitivul.
@@ -99,4 +142,7 @@ Procesul va dura câteva minute. Nu închide computerul
 
 Păstrează suportul de recuperare conectat până când se încheie configurarea automată.
 Computerul va reporni automat în curând pentru a continua configurarea.</translation>
+<translation id="88986195241502842">O pagină mai jos</translation>
+<translation id="9146946647152579011">Recuperarea s-a finalizat</translation>
+<translation id="9156766649956178343">Eroare la recuperarea dispozitivului</translation>
 </translationbundle>

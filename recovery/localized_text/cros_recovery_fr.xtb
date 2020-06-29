@@ -6,17 +6,19 @@
 Pour plus d'informations, veuillez consulter l'article disponible à cette adresse :
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1483971085438511843">Utilisez la touche Entrée pour sélectionner une option.</translation>
+<translation id="1486534340494484631">Une erreur s'est produite lors de la suppression avancée du disque.
+
+La récupération du système est terminée.
+Veuillez retirer le support de récupération. Votre ordinateur va redémarrer automatiquement.</translation>
 <translation id="1600199746926806589">Votre appareil sera automatiquement enregistré dans le domaine indiqué ci-dessous.
 Veuillez confirmer que cette information est correcte.</translation>
-<translation id="2701006671590617571">Vous êtes sur le point de lancer le processus de récupération
-sur votre ordinateur. Veuillez vous assurer qu'il est branché à
-une source d'alimentation.
-
-Si vous souhaitez annuler la récupération, appuyez sur le bouton
-Marche/Arrêt jusqu'à ce que l'ordinateur s'éteigne (cela peut prendre
-jusqu'à huit secondes).
-Vous pouvez réaliser cette opération sans danger à tout moment lors de la validation.</translation>
+<translation id="1638626287317244115">Copier les journaux</translation>
+<translation id="2238107357612570504">Options de débogage de la récupération</translation>
+<translation id="2596600434078055015">Options de débogage de la récupération</translation>
 <translation id="2731700343119398978">Veuillez patienter…</translation>
+<translation id="2904079386864173492">Modèle :</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Le propriétaire de cet appareil exige que la validation Chrome OS
 soit activée sur celui-ci. Vous tentez d'installer une image de récupération
 Chrome OS non officielle qui ne peut pas être validée.
@@ -42,8 +44,18 @@ Pour obtenir des instructions sur la manière de créer un support de récupéra
 veuillez consulter l'article disponible à l'adresse ci-dessous :
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Retour</translation>
+<translation id="3942420633017001071">Diagnostics</translation>
 <translation id="3946632524220974380">Un changement de la clé développeur est nécessaire pour continuer. Ce processus
 prend cinq minutes.</translation>
+<translation id="4006102694824401878">Ce processus peut prendre quelques minutes</translation>
+<translation id="4007898787815310968">Une erreur s'est produite lors de la suppression avancée du disque.
+
+Un problème inattendu est survenu pendant la récupération. Pour obtenir des conseils de dépannage, veuillez consulter cette page :
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Journal des messages</translation>
+<translation id="4287891348859705498">Copier les journaux sur votre disque externe</translation>
 <translation id="436588829138218801">La validation de Chrome OS est désactivée.
 
 Si ce n'est pas volontaire, ne procédez pas à la récupération
@@ -51,6 +63,8 @@ et désactivez le mode développeur afin d'activer la validation.
 Pour plus d'informations, veuillez consulter l'article disponible à l'adresse ci-dessous :
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Utilisez les boutons de volume pour vous déplacer vers le haut ou vers le bas.</translation>
+<translation id="4791159253869531619">Disque externe avec image de récupération détecté</translation>
 <translation id="4905949142713655149">Une erreur inattendue s'est produite. Pour obtenir des conseils
 de dépannage, veuillez consulter l'article disponible à l'adresse ci-dessous :
 
@@ -58,6 +72,11 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">La récupération du système est terminée.
 
 Le support de récupération peut être maintenant retiré en toute sécurité. Votre ordinateur va bientôt redémarrer automatiquement.</translation>
+<translation id="5080881219404532322">Vous allez lancer la procédure de récupération de votre ordinateur. Veuillez vous assurer
+ qu'il est branché sur une source d'alimentation.
+
+Si vous souhaitez annuler la récupération, appuyez de manière prolongée sur le bouton Marche/Arrêt jusqu'à l'arrêt de l'ordinateur (ce qui peut prendre jusqu'à huit secondes).
+Vous pouvez effectuer cette opération sans danger à tout moment au cours de la vérification.</translation>
 <translation id="537291066186627789">La récupération du système est à présent terminée.
 
 Veuillez retirer le support de récupération. Votre ordinateur redémarrera
@@ -74,10 +93,18 @@ ne procédez pas à la récupération.</translation>
 Chargement…
 
 La mise à jour se lancera automatiquement dès que la batterie sera suffisamment chargée.</translation>
+<translation id="5592705604979238266">Centre d'aide :</translation>
 <translation id="6037207722716689331">Votre support de récupération est configuré pour une installation automatique après le redémarrage.
 
 Si vous voulez poursuivre l'installation automatique, appuyez sur Entrée, sinon, appuyez sur Échap.
 Si vous voulez annuler la récupération, appuyez sur le bouton Marche/Arrêt jusqu'à ce que l'ordinateur s'éteigne (cela peut prendre jusqu'à huit secondes).</translation>
+<translation id="6185696379715117369">Accéder à la page précédente</translation>
+<translation id="635783852215913562">Utilisez les touches fléchées pour vous déplacer vers le haut ou vers le bas.</translation>
+<translation id="6363786367719063276">Afficher les journaux</translation>
+<translation id="6374469231428023295">Réessayer</translation>
+<translation id="6451786478565057499">Suppression avancée du disque…
+
+Cette opération peut prendre du temps.</translation>
 <translation id="6478314309353607985">L'image sur votre support de récupération est une image de développeur
 non validée.
 
@@ -85,11 +112,26 @@ Le processus de récupération va se poursuivre, car le système
 de validation au démarrage est désactivé.
 Si vous réactivez la validation ultérieurement, vous devrez répéter
 le processus de récupération à l'aide d'une image Chrome OS officielle.</translation>
+<translation id="6630033970080307657">Débranchez le disque externe pour redémarrer l'appareil.</translation>
+<translation id="6868586188416530903">Journal tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Utilisez le bouton Marche/Arrêt pour sélectionner une option.</translation>
+<translation id="7684530127758861598">Journal des récupérations</translation>
+<translation id="7709095358410921767">La suppression avancée du disque a bien été effectuée.
+
+Une erreur inattendue s'est produite lors de la récupération. Pour obtenir des conseils de dépannage, veuillez consulter cette page :
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">La suppression avancée du disque a bien été effectuée.
+
+La récupération du système est terminée.
+Veuillez retirer le support de récupération. Votre ordinateur va redémarrer automatiquement.</translation>
 <translation id="816304391526917903">L'image de récupération Chrome OS officielle que vous utilisez est obsolète.
 
 Le processus de récupération va se poursuivre, car la validation est désactivée.
 Si vous la réactivez ultérieurement, vous devrez répéter le processus de
 récupération à l'aide d'une image Chrome OS à jour.</translation>
+<translation id="8361934271307901704">Une erreur s'est produite lors de la récupération de votre appareil. Consultez la page</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery pour connaître les solutions possibles, ou réessayez.</translation>
 <translation id="8596190965261846034">Installation de la mise à jour…
 
 Veuillez ne pas éteindre l'appareil.
@@ -102,4 +144,7 @@ ni couper l'alimentation.</translation>
 
 Veuillez laisser votre support de récupération branché jusqu'à ce que l'installation automatique soit terminée.
 Votre ordinateur va bientôt redémarrer automatiquement pour poursuivre l'installation.</translation>
+<translation id="88986195241502842">Accéder à la page suivante</translation>
+<translation id="9146946647152579011">La récupération est terminée</translation>
+<translation id="9156766649956178343">Erreur lors de la récupération de votre appareil</translation>
 </translationbundle>

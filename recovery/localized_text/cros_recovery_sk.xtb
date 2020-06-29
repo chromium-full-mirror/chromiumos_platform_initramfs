@@ -6,12 +6,18 @@
 Ďalšie informácie získate na webovej adrese
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="1600199746926806589">Vaše zariadenie bude automaticky zaregistrované do domény zobrazenej nižšie. Overte, či je správna.</translation>
-<translation id="2701006671590617571">Chystáte sa obnoviť svoj počítač. Skontrolujte, či je počítač pripojený k zdroju napájania.
+<translation id="1483971085438511843">Klávesom Enter vyberte požadovanú možnosť.</translation>
+<translation id="1486534340494484631">Pri rozšírenom vymazaní disku sa vyskytla chyba.
 
-Ak chcete obnovenie zrušiť, stlačte a podržte vypínač, dokým sa systém nevypne (trvá to približne osem sekúnd).
-Môžete tak bezpečne urobiť kedykoľvek počas overenia.</translation>
+Obnovenie systému je dokončené.
+Odstráňte médium na obnovenie a počítač sa automaticky reštartuje.</translation>
+<translation id="1600199746926806589">Vaše zariadenie bude automaticky zaregistrované do domény zobrazenej nižšie. Overte, či je správna.</translation>
+<translation id="1638626287317244115">Kopírovať denníky</translation>
+<translation id="2238107357612570504">Možnosti ladenia obnovy</translation>
+<translation id="2596600434078055015">Možnosti ladenia obnovy</translation>
 <translation id="2731700343119398978">Počkajte...</translation>
+<translation id="2904079386864173492">Model:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Vlastník zariadenia vyžaduje, aby bolo na tomto zariadení zapnuté overenie
 operačného systému Chrome OS.  Snažíte sa nainštalovať neoficiálny obraz
  na obnovenie operačného systému Chrome OS, ktorý nesplní overenie.
@@ -35,13 +41,25 @@ Ak chcete pokračovať s automatickým nastavením, stlačte prepínač obnoven
 Pokyny na vytvorenie nového média na obnovenie nájdete na tejto webovej adrese:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Naspäť</translation>
+<translation id="3942420633017001071">Diagnostika</translation>
 <translation id="3946632524220974380">Ak chcete pokračovať, musíte zmeniť kľúč vývojára. Trvá to päť minút.</translation>
+<translation id="4006102694824401878">Tento proces môže trvať niekoľko minút</translation>
+<translation id="4007898787815310968">Pri rozšírenom vymazaní disku sa vyskytla chyba.
+
+Pri obnovovaní sa vyskytla neočakávaná chyba. Tipy na riešenie problémov nájdete na tejto webovej adrese:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Denník správ</translation>
+<translation id="4287891348859705498">Kopírovať denníky na externý disk</translation>
 <translation id="436588829138218801">Overenie operačného systému Chrome OS je vypnuté.
 
 Ak to nie je úmyselné, zrušte obnovenie a zakážte režim pre vývojárov, čím
 overenie systému povolíte. Ďalšie informácie nájdete na tejto webovej adrese:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Tlačidlami hlasitosti prechádzajte nahor alebo nadol.</translation>
+<translation id="4791159253869531619">Bol rozpoznaný externý disk s obrazom na obnovenie</translation>
 <translation id="4905949142713655149">Vyskytla sa neočakávaná chyba. Tipy na riešenie problémov nájdete na tejto
 webovej adrese:
 
@@ -50,6 +68,10 @@ https://www.google.com/chromeos/recovery</translation>
 
 Teraz môžete médium na obnovenie bezpečne odobrať. Počítač sa čoskoro
 automaticky reštartuje.</translation>
+<translation id="5080881219404532322">Chystáte sa obnoviť počítač. Skontrolujte, či je pripojený k zdroju napájania.
+
+Ak chcete obnovenie zrušiť, pridržte vypínač, dokým sa systém nevypne (trvá to približne osem sekúnd).
+Môžete tak bezpečne urobiť kedykoľvek počas overenia.</translation>
 <translation id="537291066186627789">Obnovenie systému je dokončené.
 
 Odoberte médium na obnovenie a počítač sa automaticky reštartuje.</translation>
@@ -64,19 +86,42 @@ obnovenie zrušiť.</translation>
 Nabíja sa...
 
 Aktualizácia sa automaticky spustí, keď bude batéria dostatočne nabitá.</translation>
+<translation id="5592705604979238266">Centrum pomoci:</translation>
 <translation id="6037207722716689331">Vaše médium na obnovenie je nakonfigurované tak, aby sa po reštartovaní automaticky nastavilo.
 
 Ak chcete pokračovať s automatickým nastavením, stlačte Enter, inak stlačte Escape. Ak chcete obnovenie zrušiť, pridržte vypínač, dokým sa zariadenie nevypne (trvá to max. 8 sekúnd).</translation>
+<translation id="6185696379715117369">Posunúť o stránku nahor</translation>
+<translation id="635783852215913562">Klávesmi so šípkami prechádzajte nahor a nadol.</translation>
+<translation id="6363786367719063276">Zobraziť denníky</translation>
+<translation id="6374469231428023295">Skúsiť znova</translation>
+<translation id="6451786478565057499">Prebieha rozšírené vymazanie disku…
+
+Môže to trvať veľmi dlho.</translation>
 <translation id="6478314309353607985">Obraz na médiu na obnovenie pochádza od neovereného vývojára.
 
 Obnovenie bude pokračovať, pretože overenie pri štarte je vypnuté.
 Ak overenie neskôr znova zapnete, budete musieť obnovenie zopakovať
 s oficiálnym obrazom systému Chrome OS.</translation>
+<translation id="6630033970080307657">Reštartujte odpojením externého disku.</translation>
+<translation id="6868586188416530903">denník tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Vypínačom vyberte požadovanú možnosť.</translation>
+<translation id="7684530127758861598">Denník obnovy</translation>
+<translation id="7709095358410921767">Rozšírené vymazanie disku bolo úspešné.
+
+Pri obnovovaní sa vyskytla neočakávaná chyba. Tipy na riešenie problémov nájdete na tejto webovej adrese:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Rozšírené vymazanie disku bolo úspešné.
+
+Obnovenie systému je dokončené.
+Odstráňte médium na obnovenie a počítač sa automaticky reštartuje.</translation>
 <translation id="816304391526917903">Používate zastaraný oficiálny obraz na obnovenie operačného systému Chrome OS.
 
 Obnovenie bude pokračovať, pretože overenie systému je vypnuté.
 Ak overenie neskôr znova zapnete, budete musieť obnovenie zopakovať
 s aktuálnym obrazom systému Chrome OS.</translation>
+<translation id="8361934271307901704">Pri obnovovaní zariadenia sa vyskytla chyba. Prejdite na</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery, kde nájdete možné riešenia, alebo to skúste znova.</translation>
 <translation id="8596190965261846034">Inštaluje sa aktualizácia...
 
 Zariadenie nevypínajte.
@@ -88,4 +133,7 @@ od zdroja napájania.</translation>
 <translation id="8796495438384109098">Obnovenie systému je dokončené.
 
 Médium na obnovenie ponechajte zapojené, dokým sa nedokončí automatické nastavenie. Počítač sa čoskoro automaticky reštartuje a bude pokračovať s nastavením.</translation>
+<translation id="88986195241502842">Posunúť stránku nadol</translation>
+<translation id="9146946647152579011">Obnovenie je dokončené</translation>
+<translation id="9156766649956178343">Pri obnovovaní vášho zariadenia sa vyskytla chyba</translation>
 </translationbundle>

@@ -6,15 +6,19 @@
 Du finner mer informasjon på denne nettadressen:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1483971085438511843">Bruk Enter-tasten for å velge et alternativ.</translation>
+<translation id="1486534340494484631">En feil oppsto under forbedret disksletting.
+
+Systemgjenopprettingen er fullført.
+Fjern gjenopprettingsmediet, så blir datamaskinen automatisk startet på nytt.</translation>
 <translation id="1600199746926806589">Enheten din blir automatisk registrert på domenet som vises nedenfor.
 Bekreft at informasjonen stemmer.</translation>
-<translation id="2701006671590617571">Du er i ferd med å gjenopprette datamaskinen. Sjekk at den er
-koblet til en strømkilde.
-
-Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og
-holder den inne til datamaskinen slår seg av (dette tar opptil 8 sekunder).
-Det er trygt å gjøre dette når som helst under bekreftelsen.</translation>
+<translation id="1638626287317244115">Kopiér logger</translation>
+<translation id="2238107357612570504">Feilsøkingsalternativer for gjenoppretting</translation>
+<translation id="2596600434078055015">Feilsøkingsalternativer for gjenoppretting</translation>
 <translation id="2731700343119398978">Vent litt …</translation>
+<translation id="2904079386864173492">Modell:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Eieren av denne enheten krever at enheten kjører med Chrome OS-bekreftelse
 slått på. Du prøver å installere en uoffisiell gjenoprettingsavbildning for
 Chrome OS som ikke kan bekreftes.
@@ -38,8 +42,18 @@ Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og holder de
 På denne nettadressen finner du instruksjoner for hvordan du oppretter nye gjenopprettingsmedier:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Tilbake</translation>
+<translation id="3942420633017001071">Diagnostikk</translation>
 <translation id="3946632524220974380">Bytting av utviklernøkkel kreves for å fortsette. Dette tar
 5 minutter.</translation>
+<translation id="4006102694824401878">Denne prosessen kan ta noen minutter</translation>
+<translation id="4007898787815310968">En feil oppsto under forbedret disksletting.
+
+En uventet feil oppsto under gjenopprettingen. Se denne nettadressen for feilsøkingstips:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Meldingslogg</translation>
+<translation id="4287891348859705498">Kopiér logger til den eksterne disken</translation>
 <translation id="436588829138218801">Chrome OS-bekreftelse er slått av.
 
 Hvis dette er utilsiktet, bør du avbryte gjenopprettingen og slå av
@@ -47,6 +61,8 @@ utviklermodus for å slå på bekreftelse. Du kan finne mer informasjon
 på denne nettadressen:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Bruk volumknappene for å navigere opp eller ned.</translation>
+<translation id="4791159253869531619">Fant en ekstern disk med en gjenopprettingsavbildning</translation>
 <translation id="4905949142713655149">En uventet feil har oppstått. Se denne nettadressen
 for feilsøkingstips:
 
@@ -54,6 +70,12 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">Systemgjenopprettingen er fullført.
 
 Nå kan du fjerne gjenopprettingsmediet. Datamaskinen starter automatisk på nytt om kort tid.</translation>
+<translation id="5080881219404532322">Du er i ferd med å gjenopprette datamaskinen din. Kontrollér at datamaskinen er
+koblet til en strømkilde.
+
+Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og holder den
+inne til datamaskinen slår seg av (dette kan ta opptil åtte sekunder).
+Du kan trygt gjøre dette når som helst under verifiseringen.</translation>
 <translation id="537291066186627789">Systemgjenopprettingen er fullført.
 
 Datamaskinen starter på nytt automatisk når du fjerner
@@ -69,20 +91,43 @@ må du avbryte gjenopprettingen.</translation>
 Lader …
 
 Oppdateringen starter automatisk når batteriet er tilstrekkelig ladet.</translation>
+<translation id="5592705604979238266">Brukerstøtte:</translation>
 <translation id="6037207722716689331">Gjenopprettingsmediet ditt er konfigurert for automatisk konfigurering etter at det er startet på nytt.
 
 For å gå videre med automatisk konfigurering, trykk på Enter. Ellers trykker du på Escape.
 Hvis du vil avbryte gjenopprettingen, trykker du på av/på-knappen og holder den inne til enheten slås av (dette tar opptil åtte sekunder).</translation>
+<translation id="6185696379715117369">Opp én side</translation>
+<translation id="635783852215913562">Bruk piltastene for å navigere opp eller ned.</translation>
+<translation id="6363786367719063276">Se loggene</translation>
+<translation id="6374469231428023295">Prøv på nytt</translation>
+<translation id="6451786478565057499">Forbedret disksletting pågår …
+
+Dette kan ta lang tid.</translation>
 <translation id="6478314309353607985">Avbildningen på gjenopprettingsmediet er en ubekreftet utvikleravbildning.
 
 Gjenopprettingen fortsetter fordi bekreftet oppstart er slått av.
 Hvis du slår på bekreftelse igjen senere, må du gjenta
 gjenopprettingen med en oppdatert avbildning for Chrome OS.</translation>
+<translation id="6630033970080307657">Koble fra den eksterne disken for å starte på nytt.</translation>
+<translation id="6868586188416530903">Logg for tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Bruk av/på-knappen for å velge et alternativ.</translation>
+<translation id="7684530127758861598">Gjenopprettingslogg</translation>
+<translation id="7709095358410921767">Forbedret disksletting var vellykket.
+
+En uventet feil oppsto under gjenopprettingen. Se denne nettadressen for feilsøkingstips:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Forbedret disksletting var vellykket.
+
+Systemgjenopprettingen er fullført.
+Fjern gjenopprettingsmediet, så blir datamaskinen automatisk startet på nytt.</translation>
 <translation id="816304391526917903">Du bruker en foreldet offisiell gjenopprettingsavbildning for Chrome OS.
 
 Gjenopprettingen fortsetter fordi bekreftelse er slått av.
 Hvis du slår på bekreftelse igjen senere, må du gjenta
 gjenopprettingen med en oppdatert avbildning for Chrome OS.</translation>
+<translation id="8361934271307901704">En feil oppsto under gjenoppretting av enheten. Se</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery for mulige løsninger, eller prøv på nytt.</translation>
 <translation id="8596190965261846034">Installerer oppdateringen …
 
 Ikke slå av enheten.
@@ -94,4 +139,7 @@ Dette tar noen minutter. Ikke slå av datamaskinen eller koble fra strømmen.</t
 
 Ikke ta ut gjenopprettingsmediet før den automatiske konfigureringen er fullført.
 Datamaskinen din starter snart på nytt automatisk for å fullføre konfigureringen.</translation>
+<translation id="88986195241502842">Ned én side</translation>
+<translation id="9146946647152579011">Gjenopprettingen er nå fullført</translation>
+<translation id="9156766649956178343">Feil under gjenoppretting av enheten</translation>
 </translationbundle>

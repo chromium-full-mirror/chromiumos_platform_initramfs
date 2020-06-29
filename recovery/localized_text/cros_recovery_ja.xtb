@@ -1,20 +1,24 @@
 <?xml version="1.0" ?>
 <!DOCTYPE translationbundle>
 <translationbundle lang="ja">
-<translation id="1207194515919037363">この端末のセキュリティ モジュールが動作していません。
+<translation id="1207194515919037363">このデバイスのセキュリティ モジュールが動作していません。
 
 詳しくは以下の URL をご覧ください。
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="1600199746926806589">ご使用の端末は自動的に以下のドメインに登録されます。
-情報が正しいかご確認ください。</translation>
-<translation id="2701006671590617571">パソコンを復元しようとしています。電源コードを必ず接続
-してください。
+<translation id="1483971085438511843">Enter キーを使用して、オプションを選択します。</translation>
+<translation id="1486534340494484631">拡張ディスクの削除中にエラーが発生しました。
 
-復元をキャンセルしたい場合は、パソコンがオフになるまで
-電源ボタンを押し続けます（最大で 8 秒ほどかかります）。
-確認処理中は必ずこの作業を行うと安全です。</translation>
+システムの復元が完了しました。
+リカバリ メディアを取り外してください。パソコンは自動的に再起動します。</translation>
+<translation id="1600199746926806589">ご使用のデバイスは自動的に以下のドメインに登録されます。
+情報が正しいかご確認ください。</translation>
+<translation id="1638626287317244115">ログをコピー</translation>
+<translation id="2238107357612570504">復元デバッグ オプション</translation>
+<translation id="2596600434078055015">復元デバッグ オプション</translation>
 <translation id="2731700343119398978">お待ちください...</translation>
+<translation id="2904079386864173492">モデル:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">このデバイスの所有者は、Chrome OS の確認機能をオンにして
 デバイスを実行する必要があります。現在、確認に失敗する
 非公式な Chrome OS リカバリ イメージをインストールしようとしています。
@@ -27,15 +31,15 @@ https://www.google.com/chromeos/devmode</translation>
 
 自動セットアップに進むには音量大のボタンを押し、それ以外の場合は音量小の
 ボタンを押してください。復元をキャンセルするには、電源ボタンを長押しして
-端末の電源をオフにしてください（電源がオフになるまで最大 8 秒かかります）。</translation>
+デバイスの電源をオフにしてください（電源がオフになるまで最大 8 秒かかります）。</translation>
 <translation id="33938768013536853">バッテリーの残量が少ないためアップデートを実行できません。
 
 Chromebook を電源に接続してください。バッテリーがある程度まで
 充電されると、自動的にアップデートが始まります。</translation>
 <translation id="369510862371290019">ご使用のリカバリ メディアは再起動後に自動セットアップを開始するよう設定されています。
 
-自動セットアップに進むには端末の復元スイッチを押してください。
-復元をキャンセルするには、電源ボタンを長押しして端末の電源を
+自動セットアップに進むにはデバイスの復元スイッチを押してください。
+復元をキャンセルするには、電源ボタンを長押ししてデバイスの電源を
 オフにしてください（電源がオフになるまで最大 8 秒かかります）。</translation>
 <translation id="3750930141330200643">お使いの Chrome OS リカバリ イメージが最新ではありません。
 
@@ -43,8 +47,18 @@ Chromebook を電源に接続してください。バッテリーがある程度
 ご覧ください。
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">戻る</translation>
+<translation id="3942420633017001071">診断</translation>
 <translation id="3946632524220974380">続行するためにデベロッパー キーの変更が必要です。
 この処理には 5 分ほどかかります。</translation>
+<translation id="4006102694824401878">この処理には数分かかる場合があります</translation>
+<translation id="4007898787815310968">拡張ディスクの削除中にエラーが発生しました。
+
+復元中に予期しないエラーが発生しました。以下の URL で問題の解決方法をご確認ください。
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">メッセージログ</translation>
+<translation id="4287891348859705498">外部ディスクにログをコピー</translation>
 <translation id="436588829138218801">Chrome OS の確認機能がオフになっています。
 
 意図的にオフにしたのではない場合は、復元をキャンセルして
@@ -52,6 +66,8 @@ https://www.google.com/chromeos/recovery</translation>
 詳しくは以下の URL をご覧ください。
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">音量ボタンを使用して、上または下に移動します。</translation>
+<translation id="4791159253869531619">リカバリ イメージのある外部ディスクが検出されました</translation>
 <translation id="4905949142713655149">予期しないエラーが発生しました。
 以下の URL で解決方法をご覧ください。
 
@@ -60,6 +76,12 @@ https://www.google.com/chromeos/recovery</translation>
 
 リカバリ メディアを安全に取り出すことができます。
 まもなくパソコンが自動的に再起動します。</translation>
+<translation id="5080881219404532322">パソコンを復元しようとしています。電源に接続されていることを
+確認してください。
+
+復元をキャンセルする場合は、パソコンの電源が切れるまで
+電源ボタンを押し続けてください（約 8 秒間）。
+確認時であれば、いつでもこの操作を安全に行うことができます。</translation>
 <translation id="537291066186627789">システムの復元が完了しました。
 
 リカバリ メディアを取り出してください。
@@ -75,25 +97,48 @@ https://www.google.com/chromeos/recovery</translation>
 充電しています...
 
 バッテリーがある程度まで充電されると、自動的にアップデートが始まります。</translation>
+<translation id="5592705604979238266">ヘルプセンター:</translation>
 <translation id="6037207722716689331">ご使用のリカバリ メディアは再起動後に自動セットアップを開始するよう設定されています。
 
 自動セットアップに進むには Enter キーを押し、それ以外の場合は Esc キーを
-押してください。復元をキャンセルするには、電源ボタンを長押しして端末の
+押してください。復元をキャンセルするには、電源ボタンを長押ししてデバイスの
 電源をオフにしてください（電源がオフになるまで最大 8 秒かかります）。</translation>
+<translation id="6185696379715117369">ページ内を上に移動</translation>
+<translation id="635783852215913562">上下に移動するには矢印キーを使用します。</translation>
+<translation id="6363786367719063276">ログを表示</translation>
+<translation id="6374469231428023295">再試行</translation>
+<translation id="6451786478565057499">拡張ディスクを削除しています...
+
+この処理には時間がかかることがあります。</translation>
 <translation id="6478314309353607985">リカバリ メディア上のイメージが、未確認のデベロッパー イメージです。
 
 起動時の確認がオフになっているため、復元を続行します。
 後で確認機能をオンにした場合は、
 公式 Chrome OS イメージでもう一度復元する必要があります。</translation>
+<translation id="6630033970080307657">再起動するには外部ディスクを取り外します。</translation>
+<translation id="6868586188416530903">tpm-firmware-updater のログ</translation>
+<translation id="7126032376876878896">電源ボタンを使用して、オプションを選択します。</translation>
+<translation id="7684530127758861598">リカバリログ</translation>
+<translation id="7709095358410921767">拡張ディスクの削除が完了しました。
+
+復元中に予期しないエラーが発生しました。以下の URL で問題の解決方法をご確認ください。
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">拡張ディスクの削除が完了しました。
+
+システムの復元が完了しました。
+リカバリ メディアを取り外してください。パソコンは自動的に再起動します。</translation>
 <translation id="816304391526917903">お使いの公式 Chrome OS リカバリ イメージが最新ではありません。
 
 確認機能がオフのため、復元を続行します。
 後で確認機能をオンにした場合は、最新の Chrome OS イメージで
 もう一度復元する必要があります。</translation>
+<translation id="8361934271307901704">デバイスの復元中にエラーが発生しました。以下をご確認ください。</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery で解決方法を確認するか、もう一度お試しください。</translation>
 <translation id="8596190965261846034">アップデートをインストールしています...
 
-端末の電源を切らないでください。
-アップデートが完了すると端末は自動的に再起動します。</translation>
+デバイスの電源を切らないでください。
+アップデートが完了するとデバイスは自動的に再起動します。</translation>
 <translation id="8728458033228603970">システムを復元しています...
 
 この処理には数分かかることがあります。パソコンの電源をオフにしたり、
@@ -102,4 +147,7 @@ https://www.google.com/chromeos/recovery</translation>
 
 自動セットアップが完了するまでリカバリ メディアを取り外さないでください。
 まもなくパソコンが自動的に再起動し、セットアップが始まります。</translation>
+<translation id="88986195241502842">ページ内を下に移動</translation>
+<translation id="9146946647152579011">復元が完了しました</translation>
+<translation id="9156766649956178343">デバイスの復元中にエラーが発生しました</translation>
 </translationbundle>

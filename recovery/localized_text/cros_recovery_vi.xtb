@@ -6,15 +6,19 @@
 Vui lòng tham khảo URL này để biết thêm thông tin:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1483971085438511843">Dùng phím Enter để chọn một tùy chọn.</translation>
+<translation id="1486534340494484631">Đã xảy ra lỗi trong khi xóa ổ đĩa nâng cao.
+
+Đã khôi phục xong hệ thống.
+Vui lòng xóa phương tiện khôi phục. Sau đó, máy tính của bạn sẽ tự động khởi động lại.</translation>
 <translation id="1600199746926806589">Thiết bị của bạn sẽ tự động được đăng ký vào miền hiển thị dưới đây.
 Vui lòng xác minh miền này là chính xác.</translation>
-<translation id="2701006671590617571">Bạn sắp khôi phục máy tính của mình.  Vui lòng đảm bảo máy tính
-được cắm vào nguồn điện.
-
-Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn nút nguồn và giữ
-nút đó cho đến khi máy tính tắt (thao tác này mất tối đa 8 giây).
-Bạn có thể làm việc này an toàn bất kỳ lúc nào trong quá trình xác minh.</translation>
+<translation id="1638626287317244115">Sao chép nhật ký</translation>
+<translation id="2238107357612570504">Tùy chọn gỡ lỗi khôi phục</translation>
+<translation id="2596600434078055015">Tùy chọn gỡ lỗi khôi phục</translation>
 <translation id="2731700343119398978">Vui lòng chờ...</translation>
+<translation id="2904079386864173492">Mẫu:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Chủ sở hữu thiết bị yêu cầu thiết bị này để chạy với tính năng xác minh Chrome OS bật.  Bạn đang cố gắng cài đặt hình ảnh khôi phục Chrome OS không chính thức, không thông qua xác minh.
 
 Để biết thêm thông tin, hãy xem URL này:
@@ -41,8 +45,18 @@ Vui lòng tham khảo URL này để xem hướng dẫn về cách tạo
 phương tiện khôi phục mới:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Quay lại</translation>
+<translation id="3942420633017001071">Chẩn đoán</translation>
 <translation id="3946632524220974380">Yêu cầu thay đổi khóa nhà phát triển để tiếp tục; quá trình này mất
 5 phút.</translation>
+<translation id="4006102694824401878">Quá trình này có thể mất vài phút</translation>
+<translation id="4007898787815310968">Đã xảy ra lỗi trong khi xóa ổ đĩa nâng cao.
+
+Đã xảy ra lỗi không mong muốn trong khi khôi phục. Vui lòng tham khảo URL sau để biết các mẹo khắc phục sự cố:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Nhật ký tin nhắn</translation>
+<translation id="4287891348859705498">Sao chép nhật ký vào ổ đĩa ngoài</translation>
 <translation id="436588829138218801">Đã tắt tính năng xác minh Chrome OS.
 
 Nếu điều này là vô tình, bạn cần hủy khôi phục và tắt
@@ -50,6 +64,8 @@ chế độ nhà phát triển để bật tính năng xác minh.  Để biết 
 hãy tham khảo URL sau:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Dùng các nút âm lượng để di chuyển lên trên hoặc xuống dưới.</translation>
+<translation id="4791159253869531619">Đã phát hiện thấy ổ đĩa ngoài có hình ảnh khôi phục</translation>
 <translation id="4905949142713655149">Đã xảy ra lỗi không mong đợi. Vui lòng tham khảo URL này
 để biết các mẹo khắc phục sự cố:
 
@@ -57,6 +73,12 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">Quá trình khôi phục hệ thống đã hoàn tất.
 
 Bây giờ, bạn có thể yên tâm tháo phương tiện khôi phục. Máy tính sẽ sớm tự động khởi động lại.</translation>
+<translation id="5080881219404532322">Bạn sắp khôi phục máy tính. Hãy nhớ cắm máy tính
+ vào nguồn điện.
+
+Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn và giữ nút nguồn
+cho đến khi máy tính tắt (thao tác này mất tối đa 8 giây).
+Bạn có thể làm việc này kỳ lúc nào trong khi xác minh mà vẫn đảm bảo độ an toàn.</translation>
 <translation id="537291066186627789">Khôi phục hệ thống đã hoàn tất.
 
 Vui lòng tháoxóa phương tiện khôi phục và máy tính của bạn sẽ tự động khởi động lại.</translation>
@@ -71,19 +93,42 @@ nên hủy quá trình khôi phục.</translation>
 Đang sạc...
 
 Quá trình cập nhật sẽ tự động bắt đầu ngay khi sạc đủ pin.</translation>
+<translation id="5592705604979238266">Trung tâm trợ giúp:</translation>
 <translation id="6037207722716689331">Phương tiện khôi phục của bạn được định cấu hình để tự động thiết lập sau khi khởi động lại.
 
 Để tiếp tục quá trình thiết lập tự động, hãy nhấn vào nút Enter hoặc nút Escape.
 Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn và giữ nút nguồn
 cho tới khi thiết bị tắt (thao tác này mất tối đa 8 giây).</translation>
+<translation id="6185696379715117369">Trang trên</translation>
+<translation id="635783852215913562">Sử dụng các phím mũi tên để di chuyển lên trên hoặc xuống dưới.</translation>
+<translation id="6363786367719063276">Xem nhật ký</translation>
+<translation id="6374469231428023295">Thử lại</translation>
+<translation id="6451786478565057499">Đang xóa ổ đĩa nâng cao...
+
+Quá trình này có thể mất nhiều thời gian.</translation>
 <translation id="6478314309353607985">Hình ảnh trên phương tiện khôi phục của bạn là hình ảnh nhà phát triển chưa được xác minh.
 Quá trình khôi phục sẽ tiếp tục vì tính năng khởi động xác minh tắt.
 Nếu sau này bạn bật lại tính năng xác minh, bạn sẽ cần lặp lại quá trình khôi phục bằng hình ảnh Chrome OS chính thức.</translation>
+<translation id="6630033970080307657">Rút ổ đĩa ngoài ra để khởi động lại.</translation>
+<translation id="6868586188416530903">nhật ký tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Dùng nút nguồn để chọn một tùy chọn.</translation>
+<translation id="7684530127758861598">Nhật ký khôi phục</translation>
+<translation id="7709095358410921767">Đã xóa thành công ổ đĩa nâng cao.
+
+Đã xảy ra lỗi không mong muốn trong khi khôi phục. Vui lòng tham khảo URL sau để biết các mẹo khắc phục sự cố:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Đã xóa thành công ổ đĩa nâng cao.
+
+Đã khôi phục xong hệ thống.
+Vui lòng xóa phương tiện khôi phục. Sau đó, máy tính của bạn sẽ tự động khởi động lại.</translation>
 <translation id="816304391526917903">Bạn đang sử dụng hình ảnh khôi phục Chrome OS chính thức lỗi thời.
 
 Quá trình khôi phục sẽ tiếp tục vì tính năng xác minh đã tắt.
 Nếu sau này bạn bật lại tính năng xác minh, bạn cần lặp lại
 quá trình khôi phục bằng hình ảnh Chrome OS cập nhật.</translation>
+<translation id="8361934271307901704">Đã xảy ra lỗi trong khi khôi phục thiết bị của bạn. Hãy tham khảo</translation>
+<translation id="8518545754265418610">Vui lòng tham khảo http://google.com/chromeos/recovery để biết các giải pháp có thể áp dụng hoặc thử lại.</translation>
 <translation id="8596190965261846034">Đang cài đặt bản cập nhật...
 
 Vui lòng không tắt thiết bị.
@@ -96,4 +141,7 @@ ngắt kết nối nguồn điện.</translation>
 
 Vui lòng tiếp tục cắm phương tiện khôi phục cho tới khi quá trình thiết lập tự động hoàn tất.
 Máy tính của bạn sẽ sớm tự động khởi động lại để tiếp tục thiết lập.</translation>
+<translation id="88986195241502842">Trang dưới</translation>
+<translation id="9146946647152579011">Đã khôi phục xong</translation>
+<translation id="9156766649956178343">Lỗi khôi phục thiết bị</translation>
 </translationbundle>

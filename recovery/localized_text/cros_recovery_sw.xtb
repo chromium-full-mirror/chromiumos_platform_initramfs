@@ -6,12 +6,18 @@
 Kwa maelezo zaidi, tafadhali rejelea URL hii:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="1600199746926806589">Kifaa chako kitasajiliwa kiotomatiki kwenye kikoa kilichoonyeshwa hapa chini. Tafadhali thibitisha kuwa kiko sahihi.</translation>
-<translation id="2701006671590617571">Unakaribia kurejsha kompyuta yako. Tafadhali hakikisha imetiwa katika eneo lenye nishati.
+<translation id="1483971085438511843">Tumia kitufe cha Enter ili kuteua chaguo.</translation>
+<translation id="1486534340494484631">Hitilafu imetokea wakati wa shughuli iliyoboreshwa ya kufuta diski.
 
-Ikiwa unataka kughairi kurejesha uwezo wa kufikia akaunti, bonyeza kitufe cha kuwasha/kuzima na ukishikilie chini hadi kompyuta izimike (hii inachukua hadi sekunde 8).
-Ni salama kufanya hili wakati wowote unapothibitisha.</translation>
+Shughuli ya urejeshaji wa mfumo imekamilika.
+Tafadhali ondoa kifaa cha kurejesha na kompyuta yako itazima kisha kuwaka kiotomatiki.</translation>
+<translation id="1600199746926806589">Kifaa chako kitasajiliwa kiotomatiki kwenye kikoa kilichoonyeshwa hapa chini. Tafadhali thibitisha kuwa kiko sahihi.</translation>
+<translation id="1638626287317244115">Nakili kumbukumbu</translation>
+<translation id="2238107357612570504">Chaguo za utatuzi wa urejeshaji</translation>
+<translation id="2596600434078055015">Chaguo za Utatuzi wa Urejeshaji</translation>
 <translation id="2731700343119398978">Tafadhali subiri...</translation>
+<translation id="2904079386864173492">Aina:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Mmiliki wa kifaa anahitaji kifaa kifanye kazi uthibitishaji Mfumo wa Uendeshaji wa Chrome ukiwa umewashwa. Unajaribu kusakinisha picha ya urejeshaji wa Mfumo wa Uendeshaji wa Chrome usio rasmi, picha hiyo haitimizi mahitaji ya uthibitishaji.
 
 Kwa maelezo zaidi, rejelea URL hii:
@@ -33,18 +39,36 @@ Ikiwa unataka kughairi urejeshaji, bonyeza kitufe cha kuwasha/kuzima na ukishiki
 Tafadhali rejelea URL hii kwa maagizo kuhusu jinsi ya kuunda data mpya ya hifadhi ya kurejesha mfumo:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Rudi nyuma</translation>
+<translation id="3942420633017001071">Vichunguzi</translation>
 <translation id="3946632524220974380">Mabadiliko ya ufunguo wa msanidi programu yanahitajika ili kuendelea; mchakato unahitaji dakika 5.</translation>
+<translation id="4006102694824401878">Huenda mchakato huu utachukua dakika kadhaa</translation>
+<translation id="4007898787815310968">Hitilafu imetokea wakati wa shughuli iliyoboreshwa ya kufuta diski.
+
+Hitilafu isiyotarajiwa imetokea wakati wa urejeshaji. Tafadhali rejelea URL hii ili upate vidokezo vya utatuzi:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Kumbukumbu ya ujumbe</translation>
+<translation id="4287891348859705498">Nakili kumbukumbu kwenye diski yako ya nje</translation>
 <translation id="436588829138218801">Uthibitishaji wa Mfumo wa Uendeshaji wa Chrome umezimwa.
 
 Ikiwa hili halijakusudiwa, unapaswa kughairi urejeshaji wa mfumo na kuzima hali ya msanidi programu ili kuwasha uthibitishaji. Kwa maelezo zaidi, rejelea URL hii:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Tumia vitufe vya sauti ili kusogeza juu au chini.</translation>
+<translation id="4791159253869531619">Imetambua diski ya nje yenye picha ya kurejesha</translation>
 <translation id="4905949142713655149">Hitilafu isiyojulikana imetokea. Tafadhali rejelea URL hii kwa vidokezo vya kutatua matatizo:
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">Imemaliza kurejesha mfumo.
 
 Sasa ni salama kuondoa kipengele cha kurejesha. Kompyuta yako itazima kisha iwake kiotomatiki baada ya muda mfupi.</translation>
+<translation id="5080881219404532322">Unakaribia kurejesha kompyuta yako. Tafadhali hakikisha
+ kuwa umeiweka kwenye chaji.
+
+Iwapo ungependa kughairi urejeshaji, bonyeza kitufe cha kuwasha/kuzima na ukishikilie
+hadi kompyuta itakapozima (shughuli hii huchukua hadi sekunde nane).
+Ni salama kufanya shughuli hii wakati wowote unapothibitisha.</translation>
 <translation id="537291066186627789">Urejeshaji wa mfumo umekamilika.
 
 Tafadhali ondoa data ya hifadhi ya kurejesha mfumo, kompyuta yako itazimika na kuwaka tena kiotomatiki.</translation>
@@ -57,18 +81,41 @@ Ikiwa una data yoyote kwenye kompyuta hii unayotaka kuhifadhi, unapaswa kughairi
 Inachaji...
 
 Itaanza kusasisha kiotomatiki pindi betri itakapopata chaji ya kutosha.</translation>
+<translation id="5592705604979238266">Kituo cha usaidizi:</translation>
 <translation id="6037207722716689331">Hifadhi yako ya urejeshaji imesanidiwa ili iweke mipangilio kiotomatiki baada ya kuwaka tena.
 
 Ili kuendelea na uwekaji wa mipangilio kiotomatiki, bonyeza kitufe cha Enter, vinginevyo bonyeza kitufe cha Escape. 
 Ikiwa unataka kughairi urejeshaji, bonyeza kitufe cha kuwasha/kuzima na ukishikilie hadi kifaa kizime (inachukua hadi sekunde 8).</translation>
+<translation id="6185696379715117369">Ukurasa mmoja juu</translation>
+<translation id="635783852215913562">Tumia vitufe vya vishale ili kusogeza juu au chini.</translation>
+<translation id="6363786367719063276">Angalia kumbukumbu</translation>
+<translation id="6374469231428023295">Jaribu Tena</translation>
+<translation id="6451786478565057499">Shughuli iliyoboreshwa ya kufuta diski inaendelea...
+
+Huenda shughuli hii itachukua muda mwingi.</translation>
 <translation id="6478314309353607985">Picha iliyo kwenye maudhui ya kurejesha mfumo ni picha ya msanidi programu ambayo haijathibitishwa.
 
 Urejeshaji utaendelea kwa sababu uwashaji uliothibitishwa umezimwa.
 Ukiwasha uthibitishaji baadaye, utahitaji kurudia kuwasha urejeshaji kwa picha rasmi ya Mfumo wa Uendeshaji wa Chrome.</translation>
+<translation id="6630033970080307657">Chomoa diski yako ya nje ili uzime kisha uwashe.</translation>
+<translation id="6868586188416530903">Kumbukumbu ya tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Tumia kitufe cha kuwasha/kuzima ili kuteua chaguo.</translation>
+<translation id="7684530127758861598">Kumbukumbu ya urejeshaji</translation>
+<translation id="7709095358410921767">Shughuli iliyoboreshwa ya kufuta diski imekamilika.
+
+Hitilafu isiyotarajiwa imetokea wakati wa urejeshaji. Tafadhali rejelea URL hii ili upate vidokezo vya utatuzi:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Shughuli iliyoboreshwa ya kufuta diski imekamilika.
+
+Shughuli ya urejeshaji wa mfumo imekamilika.
+Tafadhali ondoa kifaa cha kurejesha na kompyuta yako itazima kisha kuwaka kiotomatiki.</translation>
 <translation id="816304391526917903">Unatumia picha ya kurejesha Mfumo wa Uendeshaji wa Chrome iliyokwisha muda.
 
 Urejeshaji utaendelea kwa sababu uthibitishaji umezimwa.
 Ukiwasha uthibitishaji baadaye, utahitajika kurudia urejeshaji kwa picha iliyosasishwa ya Mfumo wa Uendeshaji wa Chrome.</translation>
+<translation id="8361934271307901704">Hitilafu imetokea wakati wa kurejesha kifaa chako, Rejelea</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery ili upate suluhu zinazoweza kutekelezwa au ujaribu tena.</translation>
 <translation id="8596190965261846034">Inasakinisha sasisho...
 
 Tafadhali usizime kifaa.
@@ -80,4 +127,7 @@ Hii itachukua dakika chache. Tafadhali usizime kompyuta wala kuondoa nishati.</t
 
 Tafadhali hakikisha kifaa chako cha urejeshaji kimewekwa kwenye chaji hadi ikamilishe kuweka mipangilio ya kiotomatiki.
 Kompyuta yako itazimika kisha iwake kiotomatiki baada ya muda mfupi ili iendelee kuweka mipangilio.</translation>
+<translation id="88986195241502842">Ukurasa mmoja chini</translation>
+<translation id="9146946647152579011">Sasa shughuli ya kurejesha imekamilika</translation>
+<translation id="9156766649956178343">Hitilafu imetokea wakati wa kurejesha kifaa chako</translation>
 </translationbundle>

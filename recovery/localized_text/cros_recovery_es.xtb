@@ -6,11 +6,18 @@
 Consulta esta URL para obtener más información:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="1600199746926806589">Tu dispositivo se registrará automáticamente en el dominio que se muestra a continuación. Comprueba que sea correcto.</translation>
-<translation id="2701006671590617571">Estás a punto de recuperar tu equipo. Asegúrate de que esté conectado a una fuente de alimentación.
+<translation id="1483971085438511843">Usa la tecla Intro para seleccionar una opción.</translation>
+<translation id="1486534340494484631">No se ha podido realizar el borrado mejorado del disco.
 
-Si quieres cancelar la recuperación, mantén pulsado el botón de encendido hasta que se apague el equipo (tarda unos ocho segundos). Puedes realizar esta acción en cualquier momento durante el proceso de verificación.</translation>
+Se ha completado la recuperación del sistema.
+Retira el medio de recuperación para que el ordenador se reinicie automáticamente.</translation>
+<translation id="1600199746926806589">Tu dispositivo se registrará automáticamente en el dominio que se muestra a continuación. Comprueba que sea correcto.</translation>
+<translation id="1638626287317244115">Copiar registros</translation>
+<translation id="2238107357612570504">Opciones de depuración para la recuperación</translation>
+<translation id="2596600434078055015">Opciones de depuración para la recuperación</translation>
 <translation id="2731700343119398978">Espera...</translation>
+<translation id="2904079386864173492">Modelo:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">El propietario del dispositivo requiere que el dispositivo se ejecute con la verificación de Chrome OS activada. Estás intentando instalar una imagen de recuperación de Chrome OS no oficial, que no se puede verificar.
 
 Para obtener más información, consulta la URL siguiente:
@@ -31,12 +38,24 @@ Para continuar con la configuración automática, pulsa el interruptor de recupe
 Para obtener instrucciones sobre cómo crear nuevos medios de recuperación, consulta la URL siguiente:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Atrás</translation>
+<translation id="3942420633017001071">Diagnósticos</translation>
 <translation id="3946632524220974380">Para continuar, hay que cambiar la clave de desarrollador. Este proceso tarda cinco minutos.</translation>
+<translation id="4006102694824401878">Este proceso puede tardar unos minutos</translation>
+<translation id="4007898787815310968">No se ha podido realizar el borrado mejorado del disco.
+
+Se ha producido un error inesperado durante la recuperación. Consulta esta URL para ver consejos sobre cómo solucionar problemas:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Registro de mensajes</translation>
+<translation id="4287891348859705498">Copiar registros a tu disco externo</translation>
 <translation id="436588829138218801">La verificación de Chrome OS está desactivada.
 
 Si este modo se ha seleccionado por error, debes cancelar la recuperación del sistema e inhabilitar el modo de desarrollador para habilitar la verificación. Para obtener más información, consulta la URL siguiente:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Usa los botones de volumen para desplazarte hacia arriba o hacia abajo.</translation>
+<translation id="4791159253869531619">Se ha detectado un disco externo con una imagen de recuperación</translation>
 <translation id="4905949142713655149">Se ha producido un error inesperado. Para obtener consejos sobre la solución de problemas, consulta la URL siguiente:
 
 https://www.google.com/chromeos/recovery</translation>
@@ -44,6 +63,11 @@ https://www.google.com/chromeos/recovery</translation>
 
 Es seguro retirar el medio de recuperación. En breve,
 tu ordenador se reiniciará automáticamente.</translation>
+<translation id="5080881219404532322">Estás a punto de recuperar tu ordenador. Asegúrate de que esté
+ enchufado a una fuente de alimentación.
+
+Si quieres cancelar la recuperación, mantén pulsado el botón de encendido hasta que se apague el ordenador (tarda un máximo de 8 segundos).
+Puedes realizar esta acción en cualquier momento durante el proceso de verificación.</translation>
 <translation id="537291066186627789">Se ha completado la recuperación del sistema.
 
 Elimina el medio de recuperación para que el equipo se reinicie automáticamente.</translation>
@@ -55,15 +79,38 @@ Esta operación eliminará cualquier otro sistema operativo que tengas instalado
 Cargando...
 
 La actualización se iniciará automáticamente cuando la batería tenga suficiente carga.</translation>
+<translation id="5592705604979238266">Centro de Ayuda:</translation>
 <translation id="6037207722716689331">Tus medios de recuperación están configurados para realizar la configuración automática después de reiniciar.
 
 Para continuar con la configuración automática, pulsa Intro o Escape. Si quieres cancelar la recuperación, mantén pulsado el botón de encendido durante 8 segundos hasta que se apague el dispositivo.</translation>
+<translation id="6185696379715117369">Retroceder página</translation>
+<translation id="635783852215913562">Usa las teclas de flecha para desplazarte hacia arriba o hacia abajo.</translation>
+<translation id="6363786367719063276">Ver registros</translation>
+<translation id="6374469231428023295">Volver a intentarlo</translation>
+<translation id="6451786478565057499">Borrado mejorado del disco en curso...
+
+Este proceso puede tardar mucho tiempo.</translation>
 <translation id="6478314309353607985">La imagen del medio de recuperación es una imagen de desarrollador que no se ha verificado.
 
 La recuperación continuará, ya que el inicio verificado está desactivado. Si vuelves a activar la verificación, deberás repetir la recuperación con una imagen oficial de Chrome OS.</translation>
+<translation id="6630033970080307657">Desconecta tu disco externo para reiniciar.</translation>
+<translation id="6868586188416530903">Registro de tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Usa el botón de encendido para seleccionar una opción.</translation>
+<translation id="7684530127758861598">Registro de recuperación</translation>
+<translation id="7709095358410921767">El borrado mejorado del disco se ha realizado correctamente.
+
+Se ha producido un error inesperado durante la recuperación. Consulta esta URL para ver consejos sobre cómo solucionar problemas:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">El borrado mejorado del disco se ha realizado correctamente.
+
+Se ha completado la recuperación del sistema.
+Retira el medio de recuperación para que el ordenador se reinicie automáticamente.</translation>
 <translation id="816304391526917903">Estás utilizando una imagen de recuperación oficial de Chrome OS que está obsoleta.
 
 La recuperación continuará, ya que la verificación está desactivada. Si vuelves a activar la verificación, deberás repetir la recuperación con una imagen de Chrome OS actualizada.</translation>
+<translation id="8361934271307901704">No se ha podido recuperar tu dispositivo. Consulta</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery para obtener posibles soluciones o inténtalo de nuevo.</translation>
 <translation id="8596190965261846034">Instalando actualización...
 
 No apagues el dispositivo.
@@ -74,4 +121,7 @@ Esta tarea tardará algunos minutos. No apagues el equipo ni desconectes el cabl
 <translation id="8796495438384109098">Se ha completado la recuperación del sistema.
 
 Deja tus medios de recuperación conectados hasta que finalice la configuración automática. En breve, tu ordenador se reiniciará automáticamente para continuar con la configuración.</translation>
+<translation id="88986195241502842">Avanzar página</translation>
+<translation id="9146946647152579011">La recuperación se ha completado</translation>
+<translation id="9156766649956178343">No se ha podido recuperar tu dispositivo</translation>
 </translationbundle>
