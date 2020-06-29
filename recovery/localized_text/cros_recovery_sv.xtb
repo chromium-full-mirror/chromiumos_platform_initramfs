@@ -6,15 +6,19 @@
 Mer information finns på den här webbadressen:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1483971085438511843">Använd returtangenten till tv:n och välj ett alternativ.</translation>
+<translation id="1486534340494484631">Ett fel uppstod under den utökade raderingen av disken.
+
+Systemåterställningen är klar.
+Ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
 <translation id="1600199746926806589">Enheten registreras automatiskt på domänen nedan.
 Kontrollera att det är rätt domän.</translation>
-<translation id="2701006671590617571">Datorn kommer nu att återställas. Kontrollera att den är ansluten
-till en strömkälla.
-
-Om du vill avbryta återställningen håller du strömbrytaren nedtryckt
-tills datorn stängs av (detta tar upp till åtta sekunder). Du kan göra
-detta när som helst medan verifieringen pågår.</translation>
+<translation id="1638626287317244115">Kopiera loggar</translation>
+<translation id="2238107357612570504">Felsökningsalternativ för återställning</translation>
+<translation id="2596600434078055015">Felsökningsalternativ för återställning</translation>
 <translation id="2731700343119398978">Vänta ...</translation>
+<translation id="2904079386864173492">Modell:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Enhetens ägare kräver att enheten körs med verifiering av Chrome OS
 aktiverat. Du försöker installera en inofficiell återställningsavbildning
 av Chrome OS som inte godkänns vid verifieringen.
@@ -44,8 +48,18 @@ På den här webbadressen hittar du anvisningar om hur du skapar
 nya återställningsmedia:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Bakåt</translation>
+<translation id="3942420633017001071">Diagnostik</translation>
 <translation id="3946632524220974380">Du måste ange en utvecklarnyckel innan proceduren kan fortsätta.
 Den tar fem minuter</translation>
+<translation id="4006102694824401878">Detta kan ta några minuter</translation>
+<translation id="4007898787815310968">Ett fel uppstod under den utökade raderingen av disken.
+
+Ett oväntat fel har uppstått under återställningen. Du hittar felsökningstips på den här webbadressen:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Meddelandelogg</translation>
+<translation id="4287891348859705498">Kopiera till din externa disk</translation>
 <translation id="436588829138218801">Verifiering av Chrome OS är avstängt.
 
 Om detta inte är avsiktligt bör du avbryta återställningen och inaktivera
@@ -53,6 +67,8 @@ utvecklarläget så att verifieringen aktiveras. Mer information finns på
 den här webbadressen:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Navigera uppåt eller nedåt med volymknapparna.</translation>
+<translation id="4791159253869531619">Extern disk med återställningsavbildning upptäcktes</translation>
 <translation id="4905949142713655149">Ett oväntat fel har uppstått. Du hittar felsökningstips på
 den här webbadressen:
 
@@ -60,6 +76,12 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">Systemåterställningen är klar.
 
 Nu kan du ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
+<translation id="5080881219404532322">Datorn kommer att startas om. Kontrollera att datorn
+ är ansluten till ett eluttag.
+
+Om du vill avbryta återställningen håller du strömbrytaren nedtryckt
+tills datorn stängs av (detta tar upp till åtta sekunder).
+Du kan göra detta när som helst medan verifieringen genomförs.</translation>
 <translation id="537291066186627789">Systemåterställningen är klar.
 
 Ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
@@ -73,23 +95,46 @@ data som du vill ha kvar på datorn avbryter du återställningen.</translation>
 Laddar …
 
 Uppdateringen startar automatiskt när batteriet har laddats upp tillräckligt.</translation>
+<translation id="5592705604979238266">Hjälpcenter:</translation>
 <translation id="6037207722716689331">Återställningsmediet är inställt på automatisk konfigurering efter omstart.
 
 Om du vill fortsätta med den automatiska konfigureringen trycker du på Retur.
 Annars trycker du på Esc. Om du vill avbryta återställningen håller du
 strömbrytaren nedtryckt tills datorn stängs av (detta tar upp till åtta sekunder).</translation>
+<translation id="6185696379715117369">Uppåt en sida</translation>
+<translation id="635783852215913562">Navigera uppåt eller nedåt med piltangenterna.</translation>
+<translation id="6363786367719063276">Visa loggar</translation>
+<translation id="6374469231428023295">Försök igen</translation>
+<translation id="6451786478565057499">Utökad radering av disk pågår …
+
+Detta kan ta lång tid.</translation>
 <translation id="6478314309353607985">Avbildningen på återställningsmediet är en overifierad
 utvecklaravbildning.
 
 Återställningen fortsätter eftersom verifierad uppstart har stängts
 av. Om du aktiverar verifieringen igen senare måste du göra om
 återställningen med en officiell avbildning av Chrome OS.</translation>
+<translation id="6630033970080307657">Starta om genom att dra ur kontakten till den externa disken.</translation>
+<translation id="6868586188416530903">Loggfilen tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Välj ett alternativ genom att trycka på strömbrytaren.</translation>
+<translation id="7684530127758861598">Återställningslogg</translation>
+<translation id="7709095358410921767">Den utökade raderingen av disk har genomförts.
+
+Ett oväntat fel har uppstått under återställningen. Du hittar felsökningstips på den här webbadressen:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Den utökade raderingen av disk har genomförts.
+
+Systemåterställningen är klar.
+Ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
 <translation id="816304391526917903">Du använder en officiell återställningsavbildning av Chrome OS som
 är inaktuell.
 
 Återställningen fortsätter eftersom verifieringen har stängts av.
 Om du aktiverar verifieringen igen senare måste du göra om
 återställningen med en aktuell avbildning av Chrome OS.</translation>
+<translation id="8361934271307901704">Det uppstod ett fel under återställningen av enheten. Se</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery för möjliga lösningar eller försök igen.</translation>
 <translation id="8596190965261846034">Uppdateringen installeras …
 
 Stäng inte av enheten.
@@ -102,4 +147,7 @@ strömsladden.</translation>
 
 Låt återställningsmediet sitta kvar i datorn tills den automatiska konfigureringen är klar.
 Datorn startas snart om automatiskt för konfigureringen.</translation>
+<translation id="88986195241502842">Nedåt en sida</translation>
+<translation id="9146946647152579011">Återställningen har nu slutförts</translation>
+<translation id="9156766649956178343">Ett fel uppstod när enheten skulle återställas</translation>
 </translationbundle>

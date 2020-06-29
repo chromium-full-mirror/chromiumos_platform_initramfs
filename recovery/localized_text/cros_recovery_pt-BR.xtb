@@ -6,13 +6,18 @@
 Acesse o URL abaixo para ver mais informações:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="1600199746926806589">Seu dispositivo será automaticamente inscrito no domínio mostrado abaixo. Verifique se está correto.</translation>
-<translation id="2701006671590617571">Você está prestes a realizar uma operação de recuperação no seu computador. Certifique-se de que ele esteja conectado a uma fonte de energia.
+<translation id="1483971085438511843">Use a tecla Enter para selecionar uma opção.</translation>
+<translation id="1486534340494484631">Ocorreu um erro durante a exclusão avançada do disco.
 
-Se quiser cancelar a recuperação, pressione o botão liga/desliga e
-mantenha-o pressionado até que o computador desligue (isso pode demorar até oito segundos).
-Esse procedimento pode ser feito com segurança a qualquer momento durante a verificação.</translation>
+A recuperação do sistema foi concluída.
+Remova a mídia de recuperação. O sistema será reiniciado automaticamente.</translation>
+<translation id="1600199746926806589">Seu dispositivo será automaticamente inscrito no domínio mostrado abaixo. Verifique se está correto.</translation>
+<translation id="1638626287317244115">Copiar registros</translation>
+<translation id="2238107357612570504">Opções de depuração de recuperação</translation>
+<translation id="2596600434078055015">Opções de depuração de recuperação</translation>
 <translation id="2731700343119398978">Aguarde...</translation>
+<translation id="2904079386864173492">Modelo:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">O proprietário do dispositivo exige que este dispositivo funcione com a verificação
 do Chrome OS ativada. Você está tentando instalar uma imagem
 de recuperação não oficial do Chrome OS que não passa na verificação.
@@ -40,8 +45,18 @@ Consulte este URL para ver instruções sobre como criar uma nova
 mídia de recuperação:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Voltar</translation>
+<translation id="3942420633017001071">Diagnóstico</translation>
 <translation id="3946632524220974380">É necessária uma alteração da chave de desenvolvedor para prosseguir.
 Esse processo leva cinco minutos.</translation>
+<translation id="4006102694824401878">O processo pode levar alguns minutos</translation>
+<translation id="4007898787815310968">Ocorreu um erro durante a exclusão avançada do disco.
+
+Ocorreu um erro inesperado durante a recuperação. Acesse o seguinte URL para ver dicas de solução de problemas:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Registro de mensagens</translation>
+<translation id="4287891348859705498">Copiar registros para o disco externo</translation>
 <translation id="436588829138218801">A verificação do Chrome OS está desativada.
 
 Se isso não for intencional, cancele a recuperação e desative
@@ -49,6 +64,8 @@ o modo de desenvolvedor para ativar a verificação. Para ver mais informações
 consulte este URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Use os botões de volume para navegar para cima ou para baixo.</translation>
+<translation id="4791159253869531619">Disco externo com imagem de recuperação detectado</translation>
 <translation id="4905949142713655149">Ocorreu um erro inesperado. Consulte este URL para ver
 dicas de solução de problemas:
 
@@ -56,6 +73,10 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">A recuperação do sistema foi concluída.
 
 Você pode remover a mídia de recuperação com segurança. Seu computador será reiniciado automaticamente.</translation>
+<translation id="5080881219404532322">Você está prestes a recuperar seu computador. Verifique se ele está conectado a uma fonte de energia.
+
+Se quiser cancelar a recuperação, mantenha o botão liga/desliga pressionado até desligar o computador. Isso pode demorar até oito segundos.
+É seguro fazer isso a qualquer momento durante a verificação.</translation>
 <translation id="537291066186627789">A recuperação do sistema foi concluída.
 
 Remova a mídia de recuperação. Seu computador será reiniciado
@@ -71,21 +92,44 @@ cancele a recuperação.</translation>
 Carregando...
 
 A atualização iniciará automaticamente assim que houver carga suficiente.</translation>
+<translation id="5592705604979238266">Central de Ajuda:</translation>
 <translation id="6037207722716689331">A mídia de recuperação está definida para configuração automática após a reinicialização.
 
 Para continuar com a configuração automática, pressione Enter, caso contrário, pressione Escape.
 Se você quiser cancelar a recuperação, pressione o botão liga/desliga e
 mantenha-o pressionado até que o dispositivo desligue. Isso pode demorar até oito segundos.</translation>
+<translation id="6185696379715117369">Página para cima</translation>
+<translation id="635783852215913562">Use as teclas de seta para navegar para cima ou para baixo.</translation>
+<translation id="6363786367719063276">Ver registros</translation>
+<translation id="6374469231428023295">Repetir</translation>
+<translation id="6451786478565057499">A exclusão avançada do disco está em andamento…
+
+Isso pode demorar.</translation>
 <translation id="6478314309353607985">A imagem na sua mídia de recuperação é uma imagem de desenvolvedor não verificada.
 
 A recuperação continuará porque a inicialização verificada foi desativada.
 Se você reativar a verificação, será necessário repetir
 a recuperação com uma imagem oficial do Chrome OS.</translation>
+<translation id="6630033970080307657">Desconecte o disco externo para reiniciar.</translation>
+<translation id="6868586188416530903">Registro tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Use o botão liga/desliga para selecionar uma opção.</translation>
+<translation id="7684530127758861598">Registro de recuperação</translation>
+<translation id="7709095358410921767">A exclusão avançada do disco foi concluída.
+
+Ocorreu um erro inesperado durante a recuperação. Acesse o seguinte URL para ver dicas de solução de problemas:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">A exclusão avançada do disco foi concluída.
+
+A recuperação do sistema foi concluída.
+Remova a mídia de recuperação. O sistema será reiniciado automaticamente.</translation>
 <translation id="816304391526917903">Você está usando uma imagem de recuperação oficial do Chrome OS desatualizada.
 
 A recuperação continuará porque a verificação foi desativada.
 Se você reativar a verificação, será necessário repetir
 a recuperação com uma imagem atualizada do Chrome OS.</translation>
+<translation id="8361934271307901704">Ocorreu um erro ao recuperar seu dispositivo. Acesse</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery para ver soluções possíveis ou tente novamente.</translation>
 <translation id="8596190965261846034">Instalando atualização...
 
 Não desligue o dispositivo.
@@ -97,4 +141,7 @@ Isso levará alguns minutos. Não desligue o computador nem desconecte-o da font
 
 Mantenha a mídia de recuperação conectada até que a configuração automática seja concluída.
 O computador será reiniciado automaticamente em breve para continuar a configuração.</translation>
+<translation id="88986195241502842">Página para baixo</translation>
+<translation id="9146946647152579011">Recuperação concluída</translation>
+<translation id="9156766649956178343">Erro ao recuperar o dispositivo</translation>
 </translationbundle>

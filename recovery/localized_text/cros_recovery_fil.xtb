@@ -6,15 +6,19 @@
 Sumangguni sa URL na ito para sa higit pang impormasyon:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1483971085438511843">Gamitin ang enter key para pumili ng opsyon.</translation>
+<translation id="1486534340494484631">Nagka-error habang isinasagawa ang pinahusay na pag-delete ng disk.
+
+Tapos na ang pag-recover ng system.
+Pakialis ang media sa pag-recover at awtomatikong magre-restart ang iyong computer.</translation>
 <translation id="1600199746926806589">Awtomatikong mae-enroll sa domain na ipinapakita sa ibaba ang iyong device.
 Paki-verify na tama ito.</translation>
-<translation id="2701006671590617571">Malapit mo nang i-recover ang iyong computer.  Mangyaring siguruhin na
-naka-plug in ito sa isang pinagmulan ng power.
-
-Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
-hanggang sa ma-off ang computer (tatagal ito nang hanggang 8 segundo).
-Ligtas itong gawin anumang oras sa panahon ng pag-verify.</translation>
+<translation id="1638626287317244115">Kopyahin ang mga log</translation>
+<translation id="2238107357612570504">Mga opsyon sa pag-debug sa pag-recover</translation>
+<translation id="2596600434078055015">Mga Opsyon sa Pag-debug sa Pag-recover</translation>
 <translation id="2731700343119398978">Mangyaring maghintay...</translation>
+<translation id="2904079386864173492">Modelo:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Kinakailangan ng may-ari ng device na gumana ang device na ito na naka-on ang pag-verify ng Chrome OS.  Sinusubukan mong mag-install ng hindi opisyal na
 larawan sa pag-recover ng Chrome OS na hindi pumasa sa pag-verify.
 
@@ -41,7 +45,17 @@ hanggang sa mag-off ang device (tatagal ito nang hanggang 8 segundo).</translati
 Mangyaring sumangguni sa URL na ito para sa mga tagubilin sa kung paano gumawa ng bagong media sa pag-recover:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Bumalik</translation>
+<translation id="3942420633017001071">Diagnostics</translation>
 <translation id="3946632524220974380">Kinakailangan ang pagbago sa developer key upang makapagpatuloy; nangangailangan ang proseso ng 5 minuto.</translation>
+<translation id="4006102694824401878">Posibleng abutin nang ilang minuto ang prosesong ito</translation>
+<translation id="4007898787815310968">Nagka-error habang isinasagawa ang pinahusay na pag-delete ng disk.
+
+Nagkaroon ng hindi inaasahang error habang isinasagawa ang pag-recover. Sumangguni sa URL na ito para sa mga tip sa pag-troubleshoot:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Log ng mga mensahe</translation>
+<translation id="4287891348859705498">Kopyahin ang mga log sa iyong external na disk</translation>
 <translation id="436588829138218801">Naka-off ang pag-verify ng Chrome OS.
 
 Kung hindi ito sinasadya, dapat mong kanselahin ang pag-recover at i-disable ang
@@ -49,12 +63,20 @@ developer mode upang ma-enable ang pag-verify.  Para sa higit pang impormasyon,
 sumangguni sa URL na ito:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Gamitin ang mga button ng volume para mag-navigate pataas o pababa.</translation>
+<translation id="4791159253869531619">May na-detect na external na disk na may imahe ng pag-recover</translation>
 <translation id="4905949142713655149">May naganap na hindi inaasahang error.  Mangyaring sumangguni sa URL na ito para sa mga tip sa pagto-troubleshoot:
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">Tapos na ang pag-recover ng system.
 
 Ligtas nang alisin ang media sa pag-recover. Awtomatikong magre-restart ang iyong computer sa ilang sandali.</translation>
+<translation id="5080881219404532322">Mare-recover mo na ang iyong computer. Pakitiyak na
+ naka-plug ito sa isang power source.
+
+Kung gusto mong kanselahin ang pag-recover, pindutin ang power button at i-hold ito
+hanggang sa mag-off ang computer (puwede itong tumagal nang 8 segundo).
+Ligtas na gawin ito anumang oras habang isinasagawa ang pag-verify.</translation>
 <translation id="537291066186627789">Kumpleto na ang pag-recover ng system.
 
 Pakialis ang media sa pag-recover at mare-restart ang iyong computer
@@ -67,21 +89,44 @@ Ide-delete ng pagpapatakbong ito ang anumang iba pang operating system na maaari
 Nagcha-charge...
 
 Awtomatikong magsisimula ang pag-update sa sandaling magkaroon ng sapat na charge ang baterya.</translation>
+<translation id="5592705604979238266">Help center:</translation>
 <translation id="6037207722716689331">Naka-configure na awtomatikong mag-set up ang iyong media sa pag-recover pagkatapos nitong mag-reboot.
 
 Para magpatuloy sa awtomatikong pag-set up, pindutin ang Enter, o kaya ay pindutin ang Escape.
 Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
 hanggang sa mag-off ang device (tatagal ito nang hanggang 8 segundo).</translation>
+<translation id="6185696379715117369">Pataas sa pahina</translation>
+<translation id="635783852215913562">Gamitin ang mga arrow key para mag-navigate pataas o pababa.</translation>
+<translation id="6363786367719063276">Tingnan ang mga log</translation>
+<translation id="6374469231428023295">Subukang Muli</translation>
+<translation id="6451786478565057499">Kasalukuyang isinasagawa ang pinahusay na pag-delete ng disk...
+
+Puwede itong magtagal.</translation>
 <translation id="6478314309353607985">Ang larawan sa iyong media sa pag-recover ay isang hindi na-verify na larawan ng developer.
 
 Magpapatuloy ang pag-recover dahil naka-off ang pag-boot.
 Kung muli mong io-on ang pag-verify sa ibang pagkakaton, kakailanganin mong ulitin
 ang pag-recover gamit ang opisyal na larawan ng Chrome OS.</translation>
+<translation id="6630033970080307657">I-unplug ang iyong external na disk para mag-restart.</translation>
+<translation id="6868586188416530903">log ng tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Gamitin ang power button para pumili ng opsyon.</translation>
+<translation id="7684530127758861598">Log ng pag-recover</translation>
+<translation id="7709095358410921767">Matagumpay ang pinahusay na pag-delete ng disk.
+
+Nagkaroon ng hindi inaasahang error habang isinasagawa ang pag-recover. Sumangguni sa URL na ito para sa mga tip sa pag-troubleshoot:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Matagumpay ang pinahusay na pag-delete ng disk.
+
+Tapos na ang pag-recover ng system.
+Pakialis ang media sa pag-recover at awtomatikong magre-restart ang iyong computer.</translation>
 <translation id="816304391526917903">Gumagamit ka ng lumang opisyal na larawan sa pag-recover ng Chrome OS.
 
 Magpapatuloy ang pag-recover dahil naka-off ang pag-verify.
 Kung muli mong io-on ang pag-verify sa ibang pagkakaton, kakailanganin mong ulitin
 ang pag-recover gamit ang napapanahong larawan ng Chrome OS.</translation>
+<translation id="8361934271307901704">Nagka-error habang nire-recover ang iyong device, Sumangguni sa</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery para sa mga posibleng solusyon o subukan ulit.</translation>
 <translation id="8596190965261846034">Ini-install ang update...
 
 Huwag i-off ang device.
@@ -94,4 +139,7 @@ putulin ang koneksyon ng power.</translation>
 
 Panatilihing nakasaksak ang iyong media sa pag-recover hanggang sa matapos ang pag-set up.
 Awtomatikong magre-restart ang iyong computer sa ilang sandali para ituloy ang pag-set up.</translation>
+<translation id="88986195241502842">Pababa sa pahina</translation>
+<translation id="9146946647152579011">Tapos na ang pag-recover</translation>
+<translation id="9156766649956178343">Error sa pag-recover ng iyong device</translation>
 </translationbundle>

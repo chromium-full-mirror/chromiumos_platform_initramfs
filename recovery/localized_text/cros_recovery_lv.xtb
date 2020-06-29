@@ -6,15 +6,19 @@
 Plašāku informāciju skatiet šeit:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1483971085438511843">Opcijas atlasīšanai izmantojiet ievadīšanas taustiņu.</translation>
+<translation id="1486534340494484631">Diska uzlabotās dzēšanas laikā radās kļūda.
+
+Sistēmas atkopšana ir pabeigta.
+Lūdzu, noņemiet atkopšanas datu nesēju, un dators automātiski tiks restartēts.</translation>
 <translation id="1600199746926806589">Jūsu ierīce automātiski tiks reģistrēta tālāk norādītajā domēnā.
 Lūdzu, apstipriniet, ka tas ir pareizs.</translation>
-<translation id="2701006671590617571">Jūs grasāties atkopt datoru. Tam ir jābūt pieslēgtam
-pie barošanas avota.
-
-Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu,
-līdz dators izslēdzas (izslēgšana ilgst līdz 8 sekundēm).
-Verifikācijas laikā šo darbību var droši veikt jebkurā brīdī.</translation>
+<translation id="1638626287317244115">Kopēt žurnālus</translation>
+<translation id="2238107357612570504">Atkopšanas atkļūdošanas opcijas</translation>
+<translation id="2596600434078055015">Atkopšanas atkļūdošanas opcijas</translation>
 <translation id="2731700343119398978">Lūdzu, uzgaidiet...</translation>
+<translation id="2904079386864173492">Modelis:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Ierīces īpašnieks ir noteicis, ka šī ierīce darbojas ar ieslēgtu Chrome OS verifikāciju. Jūs mēģināt instalēt neoficiālu Chrome OS atkopšanas attēlu, kuru nevar verificēt.
 
 Plašāku informāciju skatiet šeit:
@@ -36,18 +40,36 @@ Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu, līdz ier�
 Norādījumus par jauna atkopšanas datu nesēja izveidi skatiet šeit:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Atpakaļ</translation>
+<translation id="3942420633017001071">Diagnostika</translation>
 <translation id="3946632524220974380">Lai turpinātu, ir nepieciešama izstrādātāja atslēga; process aizņems 5 minūtes.</translation>
+<translation id="4006102694824401878">Šis process var ilgt dažas minūtes.</translation>
+<translation id="4007898787815310968">Diska uzlabotās dzēšanas laikā radās kļūda.
+
+Atkopšanas laikā radās neparedzēta kļūda. Problēmu novēršanas padomus varat skatīt, izmantojot šo vietrādi URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Ziņojumu žurnāls</translation>
+<translation id="4287891348859705498">Kopējiet žurnālus uz ārējo disku</translation>
 <translation id="436588829138218801">Chrome OS verifikācija ir izslēgta.
 
 Ja verifikācija ir izslēgta bez nolūka, atceliet atkopšanu un atspējojiet izstrādātāja režīmu, lai iespējotu verifikāciju. Plašāku informāciju skatiet šeit:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Izmantojiet skaļuma pogas, lai pārietu uz augšu vai uz leju.</translation>
+<translation id="4791159253869531619">Tika atrasts ārējais disks ar atkopšanas attēlu</translation>
 <translation id="4905949142713655149">Radās neparedzēta kļūda. Skatiet problēmu novēršanas padomus šeit:
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">Sistēmas atkopšana ir pabeigta.
 
 Tagad varat noņemt atkopšanas datu nesēju. Pēc brīža dators tiks automātiski tiks restartēts.</translation>
+<translation id="5080881219404532322">Jūs gatavojaties veikt datora atkopšanu. Gādājiet, lai tas
+būtu pievienots strāvas avotam.
+
+Lai atceltu atkopšanu, nospiediet barošanas pogu un turiet to nospiestu,
+līdz dators izslēdzas (var ilgt līdz 8 sekundēm).
+To var droši darīt jebkurā laikā, kamēr tiek veikta verifikācija.</translation>
 <translation id="537291066186627789">Sistēmas atkopšana ir pabeigta.
 
 Lūdzu, noņemiet atkopšanas datu nesēju. Dators tiks automātiski restartēts.</translation>
@@ -59,16 +81,39 @@ Veicot šo darbību, tiks izdzēsta jebkura cita šajā datorā instalētā oper
 Notiek uzlāde...
 
 Atjauninājums tiks sākts automātiski, tiklīdz akumulatorā būs pietiekami daudz jaudas.</translation>
+<translation id="5592705604979238266">Palīdzības centrs:</translation>
 <translation id="6037207722716689331">Jūsu atkopšanas datu nesējs pēc atkārtotas palaišanas ir konfigurēts automātiskai iestatīšanai.
 
 Lai turpinātu automātisko iestatīšanu, nospiediet taustiņu Enter, pretējā gadījumā nospiediet taustiņu Escape.
 Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu, līdz ierīce izslēdzas (izslēgšana ilgst līdz 8 sekundēm).</translation>
+<translation id="6185696379715117369">Augšup</translation>
+<translation id="635783852215913562">Lai pārietu uz augšu vai leju, izmantojiet bulttaustiņus.</translation>
+<translation id="6363786367719063276">Skatīt žurnālus</translation>
+<translation id="6374469231428023295">Mēģināt vēlreiz</translation>
+<translation id="6451786478565057499">Notiek diska uzlabotā dzēšana...
+
+Tā var būt ilgstoša.</translation>
 <translation id="6478314309353607985">Atkopšanas datu nesējā esošais attēls nav verificēts izstrādātāja attēls.
 
 Atkopšana tiks turpināta, jo verificētā palaišana ir izslēgta. Ja vēlāk ieslēgsiet verifikāciju, atkopšana būs jāatkārto, izmantojot oficiālu Chrome OS attēlu.</translation>
+<translation id="6630033970080307657">Lai restartētu ierīci, atvienojiet ārējo disku.</translation>
+<translation id="6868586188416530903">tpm-firmware-updater žurnāls</translation>
+<translation id="7126032376876878896">Izmantojiet barošanas pogu, lai atlasītu kādu no opcijām.</translation>
+<translation id="7684530127758861598">Atkopšanas žurnāls</translation>
+<translation id="7709095358410921767">Diska uzlabotā dzēšana bija sekmīga.
+
+Atkopšanas laikā radās neparedzēta kļūda. Problēmu novēršanas padomus varat skatīt, izmantojot šo vietrādi URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Diska uzlabotā dzēšana bija sekmīga.
+
+Sistēmas atkopšana ir pabeigta.
+Lūdzu, noņemiet atkopšanas datu nesēju, un dators automātiski tiks restartēts.</translation>
 <translation id="816304391526917903">Jūs izmantojat novecojušu oficiālo Chrome OS atkopšanas attēlu.
 
 Atkopšana tiks turpināta, jo verifikācija ir izslēgta. Ja vēlāk ieslēgsiet verifikāciju, atkopšana būs jāatkārto, izmantojot atjauninātu Chrome OS attēlu.</translation>
+<translation id="8361934271307901704">Atkopjot jūsu ierīci, radās kļūda. Plašāka informācija:</translation>
+<translation id="8518545754265418610">Mēģiniet vēlreiz vai skatiet iespējamos risinājumus vietnē http://google.com/chromeos/recovery</translation>
 <translation id="8596190965261846034">Notiek atjauninājuma instalēšana...
 
 Lūdzu, neizslēdziet ierīci.
@@ -80,4 +125,7 @@ Tas aizņems dažas minūtes. Lūdzu, neizslēdziet datoru un neatvienojiet to n
 
 Lūdzu, atstājiet atkopšanas datu nesēju pievienotu, līdz automātiskā iestatīšana ir pabeigta.
 Pēc brīža dators tiks automātiski restartēts, lai turpinātu iestatīšanu.</translation>
+<translation id="88986195241502842">Lejup</translation>
+<translation id="9146946647152579011">Atkopšana pabeigta</translation>
+<translation id="9156766649956178343">Atkopjot jūsu ierīci, radās kļūda</translation>
 </translationbundle>

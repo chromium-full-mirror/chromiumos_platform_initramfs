@@ -6,13 +6,18 @@
 Consulte este URL para obter mais informações:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="1600199746926806589">O seu dispositivo vai ser inscrito automaticamente no domínio apresentado abaixo. Confirme se está correto.</translation>
-<translation id="2701006671590617571">Está prestes a recuperar o computador. Certifique-se de que está ligado a uma fonte de alimentação.
+<translation id="1483971085438511843">Utilize a tecla Enter para selecionar uma opção.</translation>
+<translation id="1486534340494484631">Ocorreu um erro durante a eliminação do disco otimizada.
 
-Se pretender cancelar a recuperação, prima o botão ligar/desligar e
-mantenha-o premido até o computador desligar (demora até 8 segundos).
-É seguro efetuar esta ação em qualquer altura durante a validação.</translation>
+A recuperação do sistema está concluída.
+Remova o suporte de dados de recuperação e o computador reiniciará automaticamente.</translation>
+<translation id="1600199746926806589">O seu dispositivo vai ser inscrito automaticamente no domínio apresentado abaixo. Confirme se está correto.</translation>
+<translation id="1638626287317244115">Copiar registos</translation>
+<translation id="2238107357612570504">Opções de depuração de recuperação</translation>
+<translation id="2596600434078055015">Opções de depuração de recuperação</translation>
 <translation id="2731700343119398978">Aguarde...</translation>
+<translation id="2904079386864173492">Modelo:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">O proprietário do dispositivo exige que este dispositivo seja executado com a validação do Chrome OS ativada. Está a tentar instalar uma imagem de recuperação do Chrome OS não oficial que não passa na validação.
 
 Para mais informações, consulte este URL:
@@ -37,12 +42,24 @@ até o dispositivo se desligar (demora até 8 segundos).</translation>
 Consulte este URL para obter instruções sobre como criar um novo:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Anterior</translation>
+<translation id="3942420633017001071">Diagnósticos</translation>
 <translation id="3946632524220974380">Para prosseguir, é necessário alterar a chave de programador. O processo demora 5 minutos.</translation>
+<translation id="4006102694824401878">Este processo pode demorar alguns minutos.</translation>
+<translation id="4007898787815310968">Ocorreu um erro durante a eliminação do disco otimizada.
+
+Ocorreu um erro inesperado durante a recuperação. Consulte este URL para obter sugestões de resolução de problemas:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Registo de mensagens</translation>
+<translation id="4287891348859705498">Copie registos para o seu disco externo</translation>
 <translation id="436588829138218801">A validação do Chrome OS está desativada.
 
 Se isto não for intencional, deve cancelar a recuperação e desativar o modo de programador para ativar a validação. Para mais informações, consulte este URL:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Utilize os botões de volume para navegar para cima ou para baixo.</translation>
+<translation id="4791159253869531619">Disco externo com imagem de recuperação detetado</translation>
 <translation id="4905949142713655149">Ocorreu um erro inesperado. Consulte este URL para obter sugestões de resolução de problemas:
 
 https://www.google.com/chromeos/recovery</translation>
@@ -50,6 +67,12 @@ https://www.google.com/chromeos/recovery</translation>
 
 Já pode remover o suporte de dados de recuperação em segurança. O
 computador reiniciará automaticamente dentro de momentos.</translation>
+<translation id="5080881219404532322">Está prestes a recuperar o seu computador. Certifique-se de que está ligado
+a uma fonte de alimentação.
+
+Se pretender cancelar a recuperação, mantenha premido o botão ligar/desligar
+até que o computador se desligue (esta ação demora cerca de 8 segundos).
+É seguro fazê-lo em qualquer altura durante a validação.</translation>
 <translation id="537291066186627789">A recuperação do sistema está concluída.
 
 Remova o suporte de dados de recuperação e o computador reiniciará automaticamente.</translation>
@@ -61,18 +84,41 @@ Esta operação elimina qualquer outro sistema operativo que possa ter instalado
 A carregar...
 
 A atualização começará automaticamente quando a bateria tiver carga suficiente.</translation>
+<translation id="5592705604979238266">Centro de Ajuda:</translation>
 <translation id="6037207722716689331">O seu suporte de dados de recuperação está definido para a configuração automática após reiniciar.
 
 Para prosseguir com a configuração automática, prima Enter ou Escape.
 Se pretender cancelar a recuperação, prima o botão ligar/desligar e mantenha-o premido
 até o dispositivo se desligar (demora até 8 segundos).</translation>
+<translation id="6185696379715117369">Página para cima</translation>
+<translation id="635783852215913562">Utilize as teclas de seta para navegar para cima ou para baixo.</translation>
+<translation id="6363786367719063276">Veja registos</translation>
+<translation id="6374469231428023295">Tentar novamente</translation>
+<translation id="6451786478565057499">A eliminação otimizada do disco está em curso…
+
+Esta ação pode demorar bastante tempo.</translation>
 <translation id="6478314309353607985">A imagem no seu suporte de dados de recuperação é uma imagem de programador não validada.
 
 A recuperação continuará porque o arranque validado está desativado. Se voltar a ativar a validação mais tarde, tem de repetir a recuperação com uma imagem do Chrome OS oficial.</translation>
+<translation id="6630033970080307657">Desligue o disco externo para reiniciar.</translation>
+<translation id="6868586188416530903">Registo tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Utilize o botão ligar/desligar para selecionar uma opção.</translation>
+<translation id="7684530127758861598">Registo de recuperação</translation>
+<translation id="7709095358410921767">A eliminação otimizada do disco foi efetuada com êxito.
+
+Ocorreu um erro inesperado durante a recuperação. Consulte este URL para obter sugestões de resolução de problemas:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">A eliminação otimizada do disco foi efetuada com êxito.
+
+A recuperação do sistema está concluída.
+Remova o suporte de dados de recuperação e o computador reiniciará automaticamente.</translation>
 <translation id="816304391526917903">Está a utilizar uma imagem de recuperação do Chrome OS oficial desatualizada.
 
 A recuperação continuará porque a validação está desativada.
 Se voltar a ativar a validação mais tarde, tem de repetir a recuperação com uma imagem do Chrome OS atualizada.</translation>
+<translation id="8361934271307901704">Ocorreu um erro ao recuperar o seu dispositivo, consulte</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery para obter possíveis soluções ou tente novamente.</translation>
 <translation id="8596190965261846034">A instalar a atualização...
 
 Não desligue o dispositivo.
@@ -84,4 +130,7 @@ Esta ação demora alguns minutos. Não desligue o computador nem o desligue da 
 
 Mantenha o suporte de dados de recuperação ligado até à conclusão da configuração automática.
 O computador reiniciará automaticamente dentro de momentos para continuar a configuração.</translation>
+<translation id="88986195241502842">Página para baixo</translation>
+<translation id="9146946647152579011">A recuperação está agora concluída</translation>
+<translation id="9156766649956178343">Ocorreu um erro ao recuperar o seu dispositivo</translation>
 </translationbundle>

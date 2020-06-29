@@ -6,15 +6,19 @@
 Otwórz ten adres URL, by uzyskać więcej informacji:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1483971085438511843">Aby wybrać opcję, naciśnij Enter.</translation>
+<translation id="1486534340494484631">Podczas rozszerzonego usuwania dysku wystąpił błąd.
+
+System został przywrócony.
+Wyjmij nośnik przywracania. Komputer automatycznie uruchomi się ponownie.</translation>
 <translation id="1600199746926806589">Twoje urządzenie zostanie automatycznie zarejestrowane w poniższej domenie.
 Sprawdź, czy jest ona poprawna.</translation>
-<translation id="2701006671590617571">Zamierzasz przeprowadzić odzyskiwanie systemu na tym komputerze.
-Upewnij się, że komputer jest podłączony do zasilania.
-
-Jeśli chcesz anulować odzyskiwanie, naciśnij przycisk zasilania
-i przytrzymaj go, aż komputer się wyłączy (do 8 sekund).
-Możesz to bezpiecznie zrobić w dowolnym momencie weryfikacji.</translation>
+<translation id="1638626287317244115">Kopiuj dzienniki</translation>
+<translation id="2238107357612570504">Opcje debugowania dotyczące przywracania</translation>
+<translation id="2596600434078055015">Opcje debugowania dotyczące przywracania</translation>
 <translation id="2731700343119398978">Czekaj...</translation>
+<translation id="2904079386864173492">Model:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Właściciel tego urządzenia wymaga, aby działało ono z włączoną weryfikacją
 Chrome OS. Próbujesz zainstalować nieoficjalny obraz odzyskiwania
 Chrome OS, którego działanie blokuje weryfikacja.
@@ -41,14 +45,26 @@ aż urządzenie się wyłączy (do 8 sekund).</translation>
 Na tej stronie znajdziesz instrukcje, jak utworzyć nowy nośnik odzyskiwania:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="3946632524220974380">Aby kontynuować, konieczna jest zmiana klucza programisty.
+<translation id="385051799172605136">Wstecz</translation>
+<translation id="3942420633017001071">Diagnostyka</translation>
+<translation id="3946632524220974380">Aby kontynuować, konieczna jest zmiana klucza dewelopera.
 Ten proces zajmuje 5 minut.</translation>
+<translation id="4006102694824401878">Może to potrwać kilka minut</translation>
+<translation id="4007898787815310968">Podczas rozszerzonego usuwania dysku wystąpił błąd.
+
+Podczas przywracania wystąpił nieoczekiwany błąd. Poszukaj na tej stronie wskazówek, jak rozwiązać problem:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4261250127007881003">Dziennik wiadomości</translation>
+<translation id="4287891348859705498">Skopiuj dzienniki na dysk zewnętrzny</translation>
 <translation id="436588829138218801">Weryfikacja Chrome OS jest wyłączona.
 
-Jeśli jest to niezamierzone, anuluj odzyskiwanie i wyłącz tryb programisty,
+Jeśli jest to niezamierzone, anuluj odzyskiwanie i wyłącz tryb dewelopera,
 by włączyć weryfikację. Więcej informacji znajdziesz na tej stronie:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Aby przejść w górę lub w dół, użyj przycisków głośności.</translation>
+<translation id="4791159253869531619">Wykryto zewnętrzny dysk z obrazem odzyskiwania</translation>
 <translation id="4905949142713655149">Wystąpił nieoczekiwany błąd. Poszukaj na tej stronie wskazówek,
 jak rozwiązać problem:
 
@@ -57,6 +73,13 @@ https://www.google.com/chromeos/recovery</translation>
 
 Możesz teraz wyjąć nośnik. Za chwilę komputer
 automatycznie uruchomi się ponownie.</translation>
+<translation id="5080881219404532322">Za chwilę rozpocznie się przywracanie systemu.  Upewnij się,
+że komputer jest podłączony do zasilania.
+
+Aby anulować przywracanie systemu, naciśnij i przytrzymaj
+przycisk zasilania (przez ok. 8 sekund), aż komputer się wyłączy.
+
+Możesz to bezpiecznie zrobić w dowolnej chwili podczas sprawdzania systemu.</translation>
 <translation id="537291066186627789">Ukończono odzyskiwanie systemu.
 
 Wyjmij nośnik odzyskiwania, a komputer automatycznie
@@ -72,21 +95,44 @@ anuluj odzyskiwanie.</translation>
 Ładuję…
 
 Instalacja aktualizacji rozpocznie się automatycznie, gdy tylko bateria zostanie wystarczająco naładowana.</translation>
+<translation id="5592705604979238266">Centrum pomocy:</translation>
 <translation id="6037207722716689331">Nośnik odzyskiwania jest skonfigurowany do automatycznej konfiguracji po ponownym uruchomieniu.
 
 Aby kontynuować automatyczną konfigurację, naciśnij Enter. W przeciwnym razie naciśnij Escape.
 Jeśli chcesz anulować odzyskiwanie, naciśnij przycisk zasilania i przytrzymaj go,
 aż urządzenie się wyłączy (do 8 sekund).</translation>
-<translation id="6478314309353607985">Na nośniku odzyskiwania znajduje się niezweryfikowany obraz dla trybu programisty.
+<translation id="6185696379715117369">Strona do góry</translation>
+<translation id="635783852215913562">Użyj klawiszy strzałek, by przechodzić w górę lub w dół.</translation>
+<translation id="6363786367719063276">Wyświetl logi</translation>
+<translation id="6374469231428023295">Spróbuj jeszcze raz</translation>
+<translation id="6451786478565057499">Trwa rozszerzone usuwanie dysku…
+
+Może to zająć sporo czasu.</translation>
+<translation id="6478314309353607985">Na nośniku odzyskiwania znajduje się niezweryfikowany obraz dla trybu dewelopera.
 
 Odzyskiwanie zostanie przeprowadzone, bo weryfikacja rozruchu jest wyłączona.
 Jeśli później z powrotem ją włączysz, musisz powtórzyć odzyskiwanie
 z użyciem oficjalnego obrazu Chrome OS.</translation>
+<translation id="6630033970080307657">Aby uruchomić ponownie, odłącz dysk zewnętrzny.</translation>
+<translation id="6868586188416530903">dziennik tpm-firmware-updater</translation>
+<translation id="7126032376876878896">Naciśnij przycisk zasilania, by wybrać opcję.</translation>
+<translation id="7684530127758861598">Dziennik przywracania</translation>
+<translation id="7709095358410921767">Rozszerzone usuwanie dysku zostało ukończone.
+
+Podczas przywracania wystąpił nieoczekiwany błąd. Poszukaj na tej stronie wskazówek, jak rozwiązać problem:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="8114187014283095781">Rozszerzone usuwanie dysku zostało ukończone.
+
+System został przywrócony.
+Wyjmij nośnik przywracania. Komputer automatycznie uruchomi się ponownie.</translation>
 <translation id="816304391526917903">Używasz przestarzałego oficjalnego obrazu odzyskiwania Chrome OS.
 
 Odzyskiwanie zostanie przeprowadzone, bo weryfikacja jest wyłączona.
 Jeśli później z powrotem ją włączysz, musisz powtórzyć
 odzyskiwanie z użyciem aktualnego obrazu Chrome OS.</translation>
+<translation id="8361934271307901704">Podczas przywracania systemu na urządzeniu wystąpił błąd. Poszukaj rozwiązań na stronie</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery lub spróbuj jeszcze raz.</translation>
 <translation id="8596190965261846034">Instaluję aktualizację…
 
 Nie wyłączaj urządzenia.
@@ -98,4 +144,7 @@ Może to potrwać kilka minut. Nie wyłączaj komputera ani nie odłączaj zasil
 
 Nie wyjmuj nośnika odzyskiwania do momentu zakończenia automatycznej konfiguracji.
 Za chwilę komputer automatycznie uruchomi się ponownie, by kontynuować konfigurację.</translation>
+<translation id="88986195241502842">Strona w dół</translation>
+<translation id="9146946647152579011">Zakończono przywracanie</translation>
+<translation id="9156766649956178343">Podczas przywracania systemu na urządzeniu wystąpił błąd</translation>
 </translationbundle>
