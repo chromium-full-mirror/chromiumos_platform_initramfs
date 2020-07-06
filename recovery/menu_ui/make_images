@@ -222,6 +222,10 @@ def _GetButtonStyles(tag):
   return button_style, focused_style
 
 
+def IsRightToLeftLanguage(locale):
+  return locale in ('ar', 'fa', 'he')
+
+
 def CreateLocales(textdir, screendir, locale_list):
   """Create message images for all locales.
 
@@ -294,6 +298,10 @@ def CreateLocales(textdir, screendir, locale_list):
                            (msgtext, locale, focused_filename), style_focused)
         else:
           style = _GetTextStyles(tag)
+          # footer_left_3 (Chrome OS website url) should be right-aligned
+          # for rtl languages.
+          if IsRightToLeftLanguage(locale) and tag == 'footer_left_3':
+            style['align'] = 'right'
           pool.apply_async(CreateMessageImage,
                            (msgtext, locale, pngfilename), style)
 

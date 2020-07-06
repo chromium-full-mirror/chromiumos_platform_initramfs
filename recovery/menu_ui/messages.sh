@@ -41,6 +41,9 @@ CANVAS_SIZE=
 BUTTON_HEIGHT=32
 BUTTON_MARGIN=8 # 8 pixels between buttons
 
+MONOSPACE_LINE_HEIGHT=19
+MONOSPACE_GLYPH_WIDTH=10
+
 # Default width of screens/{lang}/*.png, used in most messages except buttons
 DEFAULT_MESSAGE_WIDTH=720
 
@@ -106,6 +109,10 @@ select_locale() {
   dlog "selected locale ${LANGDIR}"
 }
 
+rtl() {
+  [ "${LANGDIR}" = ar -o "${LANGDIR}" = fa -o "${LANGDIR}" = he ]
+}
+
 # Draws text in the center of the screen.
 #
 # Arg 1:  The string to draw
@@ -124,7 +131,13 @@ showtext() {
       glyph_offset_v="$(( glyph_offset_v + MONOSPACE_GLYPH_HEIGHT ))"
       glyph_offset_h="${text_start_h}"
     else
-      showimage "${glyph_image}" "${glyph_offset_h}" "${glyph_offset_v}"
+      if rtl; then
+        # cancel the negation in showimage()
+        showimage "${glyph_image}" "$(( -glyph_offset_h ))" "${glyph_offset_v}"
+      else
+        showimage "${glyph_image}" "${glyph_offset_h}" "${glyph_offset_v}"
+      fi
+
       glyph_offset_h="$(( glyph_offset_h + MONOSPACE_GLYPH_WIDTH ))"
     fi
   done
@@ -139,10 +152,14 @@ showimage() {
   local x="$2"
   local y="$3"
 
+  if rtl; then
+    x="$(( -x ))"
+  fi
+
   printf "\033]image:file=%s;offset=%s;scale=%d\033\\" \
     "${image}" "${x},${y}" "${FRECON_SCALING_FACTOR}" \
     > "${TTY_CONSOLE}"
-  }
+}
 
 # Draw a single color box on the specified position
 # Y-coordinate.
@@ -162,6 +179,9 @@ showbox() {
   fi
   if [ "${size_y}" -lt 1 ]; then
     size_y=1
+  fi
+  if rtl; then
+    offset_x="$(( -offset_x ))"
   fi
 
   printf \
@@ -328,6 +348,13 @@ showbutton() {
   showbox "${offset_x}" "${offset_y}" "$(( btn_padding * 2 + inner_width ))" \
     "${BUTTON_HEIGHT}" "${BACKGROUND}"
 
+  if rtl; then
+    # swap left and right border
+    local temp="${left_padding_x}"
+    left_padding_x="${right_padding_x}"
+    right_padding_x="${temp}"
+  fi
+
   if [ "${focused}" -ne 0 ]; then
     showimage "${SCREENS}/btn_bg_left_focused.png" \
       "${left_padding_x}" "${offset_y}"
@@ -380,6 +407,16 @@ showadvoption() {
     focused=_focused
   fi
 
+  local arrow_dir=right
+  if rtl; then
+    # swap left and right border
+    local temp="${left_padding_x}"
+    left_padding_x="${right_padding_x}"
+    right_padding_x="${temp}"
+
+    arrow_dir=left
+  fi
+
   if [ -n "${focused}" ]; then
     showimage "${SCREENS}/adv_btn_bg_left.png" \
       "${left_padding_x}" "${offset_y}"
@@ -394,7 +431,7 @@ showadvoption() {
 
   showimage "${SCREENS}/${icon_token}${focused}.png" "${icon_x}" "${offset_y}"
   showmessage "${message_token}${focused}" "${msg_x}" "${offset_y}"
-  showimage "${SCREENS}/ic_dropright-blue${focused}.png" \
+  showimage "${SCREENS}/ic_drop${arrow_dir}-blue${focused}.png" \
     "${arrow_x}" "${offset_y}"
 }
 
@@ -936,9 +973,16 @@ show_footer() {
   showimage "${SCREENS}/nav-${nav_key_down}.png" "${nav_btn_x}" "${nav_btn_y}"
 
   showimage "${SCREENS}/qr_code.png" "${qr_code_x}" "${qr_code_y}"
-  showtext "$(crossystem hwid)" \
-    "$(( qr_code_x + qr_code_size / 2 + 16 + 5 ))" \
-    "$(( footer_y + footer_line_height ))" grey
+
+  local hwid="$(crossystem hwid)"
+  local hwid_len="$(echo "${hwid}" | wc -c)"
+  local hwid_x="$(( qr_code_x + qr_code_size / 2 + 16 + 5 ))"
+  local hwid_y="$(( footer_y + footer_line_height ))"
+  if rtl; then
+    hwid_x="$(( -hwid_x - MONOSPACE_GLYPH_WIDTH * (hwid_len - 2) ))"
+  fi
+
+  showtext "${hwid}" "${hwid_x}" "${hwid_y}" grey
   showbox "${seperator_x}" "${seperator_y}" 1 "${qr_code_size}" \
     "${MENU_UI_GREY}"
 }
