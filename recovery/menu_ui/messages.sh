@@ -97,6 +97,10 @@ read_vpd_locale() {
   fi
 }
 
+read_truncated_hwid() {
+  echo "$(crossystem hwid | cut -f 1 -d ' ')"
+}
+
 select_locale() {
   # The region (fetched via VPD) is only available on Chrome systems.
   is_nonchrome || LANGDIR="$(read_vpd_locale)"
@@ -974,7 +978,7 @@ show_footer() {
 
   showimage "${SCREENS}/qr_code.png" "${qr_code_x}" "${qr_code_y}"
 
-  local hwid="$(crossystem hwid)"
+  local hwid="$(read_truncated_hwid)"
   local hwid_len="$(echo "${hwid}" | wc -c)"
   local hwid_x="$(( qr_code_x + qr_code_size / 2 + 16 + 5 ))"
   local hwid_y="$(( footer_y + footer_line_height ))"
