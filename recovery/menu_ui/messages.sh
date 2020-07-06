@@ -431,7 +431,7 @@ on_error_onchange() {
 # Generic message to report an error.
 message_on_error() {
   message_base_screen
-  menu_event_loop 2 on_error_onchange on_error_onselect
+  menu_event_loop 3 on_error_onchange on_error_onselect
 }
 
 menu_event_loop() {
