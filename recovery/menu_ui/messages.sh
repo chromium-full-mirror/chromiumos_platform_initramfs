@@ -164,8 +164,9 @@ showbox() {
   fi
 
   printf \
-    "\033]box:color=%s;size=%s;offset=%s\033\\" \
+    "\033]box:color=%s;size=%s;offset=%s;scale=%d\033\\" \
     "${color}" "${size_x},${size_y}" "${offset_x},${offset_y}" \
+    "${FRECON_SCALING_FACTOR}" \
     > "${TTY_CONSOLE}"
 }
 
@@ -234,14 +235,12 @@ progress_bar() {
 }
 
 clear_main_area() {
-  # clearing y-coord -500 to 260, everything above footer
-  showbox 0 -120 1100 760 "${BACKGROUND}"
-}
-
-clear_screen() {
-  # clear whole screen
-  showbox 0 -250 1100 600 "${BACKGROUND}"
-  showbox 0 250 1100 600 "${BACKGROUND}"
+  # clear everything above footer
+  local footer_height=142
+  showbox \
+    0 "$(( -footer_height / 2 ))" \
+    "$(( CANVAS_SIZE + 100 ))" "$(( CANVAS_SIZE - footer_height ))" \
+    "${BACKGROUND}"
 }
 
 # Enforce a delay on the user for security's sake.  A progress bar
@@ -576,7 +575,7 @@ view_log_onselect() {
       update_log_area
       ;;
     2)
-      clear_screen
+      clear_main_area
       return 1
       ;;
   esac
@@ -606,7 +605,7 @@ message_view_log() {
   log_line_pos=1
   log_num_lines=$(wc -l "${log_path}")
 
-  clear_screen
+  clear_main_area
   showmessage "${title}" "${title_x}" "${title_y}"
   update_log_area
   menu_event_loop 3 view_log_onchange view_log_onselect
@@ -635,8 +634,9 @@ message_startup() {
     CANVAS_SIZE="${y_res}"
   fi
 
-  if [ "${x_res}" -ge 1920 ]; then
-    FRECON_SCALING_FACTOR=0
+  if [ "${CANVAS_SIZE}" -ge 1920 ]; then
+    FRECON_SCALING_FACTOR=2
+    CANVAS_SIZE="$(( CANVAS_SIZE / 2 ))"
   else
     FRECON_SCALING_FACTOR=1
   fi
