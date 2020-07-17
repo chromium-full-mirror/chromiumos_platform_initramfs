@@ -44,6 +44,9 @@ BUTTON_MARGIN=8 # 8 pixels between buttons
 # Default width of screens/{lang}/*.png, used in most messages except buttons
 DEFAULT_MESSAGE_WIDTH=720
 
+MONOSPACE_GLYPH_HEIGHT=20
+MONOSPACE_GLYPH_WIDTH=10
+
 # User visible message overlaid on the screen. Only use for debug features!
 log() {
   echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
@@ -107,8 +110,6 @@ select_locale() {
 #
 # Arg 1:  The string to draw
 showtext() {
-  local monospace_line_height=19
-  local monospace_glyph_width=10
   local text="$1"
   local text_start_h="$2"
   local glyph_offset_h="$2"
@@ -120,11 +121,11 @@ showtext() {
     local glyph_image="${glyph_dir}/${char}.png"
 
     if [ "${char}" -eq 10 ]; then
-      glyph_offset_v="$(( glyph_offset_v + monospace_line_height ))"
+      glyph_offset_v="$(( glyph_offset_v + MONOSPACE_GLYPH_HEIGHT ))"
       glyph_offset_h="${text_start_h}"
     else
       showimage "${glyph_image}" "${glyph_offset_h}" "${glyph_offset_v}"
-      glyph_offset_h="$(( glyph_offset_h + monospace_glyph_width ))"
+      glyph_offset_h="$(( glyph_offset_h + MONOSPACE_GLYPH_WIDTH ))"
     fi
   done
 }
@@ -488,10 +489,17 @@ recovery_debug_options_onselect() {
       echo 'copy log'
       ;;
     1)
+      # In the error handling flow we should not assume external USB drive is
+      # accessible, thus we use the original log file instead of the copy in
+      # LOG_DIR here.
       message_view_log title_recovery_log /var/log/recovery.log
       ;;
     2)
-      message_view_log title_message_log /var/log/messages
+      # Dump dmesg in /tmp for the same reason above.
+      local tmpfile="$(mktemp)"
+      dmesg > "${tmpfile}"
+      message_view_log title_message_log "${tmpfile}"
+      rm "${tmpfile}"
       ;;
     3)
       clear_screen
@@ -538,22 +546,27 @@ message_recovery_debug_options() {
 }
 
 # variables shared between log related functions
-LOG_PAGE_WIDTH=90
-LOG_PAGE_HEIGHT=15
+LOG_LINES_PER_PAGE=13
+LOG_CHAR_PER_LINE=79
+LOG_AREA_Y=196  # y-coord of the upper edge of the log area, 16px below title
+LOG_AREA_WIDTH="$(( MONOSPACE_GLYPH_WIDTH * LOG_CHAR_PER_LINE ))"
+LOG_AREA_HEIGHT="$(( MONOSPACE_GLYPH_HEIGHT * LOG_LINES_PER_PAGE ))"
+
 log_path=
 log_line_pos=1
 log_num_lines=
 
 update_log_area() {
+  showimage "${SCREENS}/log_area_border.png" \
+    "$(( -CANVAS_SIZE / 2 + (LOG_AREA_WIDTH + 10) / 2 ))" \
+    "$(( -CANVAS_SIZE / 2 + LOG_AREA_Y + LOG_AREA_HEIGHT / 2 ))"
+
   local txt
-
-  # clear old texts
-  showbox 0 -20 "${CANVAS_SIZE}" 360 "${BACKGROUND}"
-
-  # assume 100x10
-  txt=$(sed "${log_line_pos},+$(( LOG_PAGE_HEIGHT - 1 )) !d" "${log_path}" \
-    | cut -c "1-${LOG_PAGE_WIDTH}")
-  showtext "${txt}" "$(( -CANVAS_SIZE / 2 + 5 ))" -192 'white'
+  txt=$(sed "${log_line_pos},+$(( LOG_LINES_PER_PAGE - 1 )) !d" "${log_path}" \
+    | cut -c "1-${LOG_CHAR_PER_LINE}")
+  showtext "${txt}" "$(( -CANVAS_SIZE / 2 + MONOSPACE_GLYPH_WIDTH ))" \
+    "$(( -CANVAS_SIZE / 2 + LOG_AREA_Y + MONOSPACE_GLYPH_HEIGHT / 2 ))" \
+    'white'
 }
 
 view_log_onselect() {
@@ -561,14 +574,14 @@ view_log_onselect() {
 
   case "${selected_index}" in
     0)
-      log_line_pos="$(( log_line_pos - LOG_PAGE_HEIGHT ))"
+      log_line_pos="$(( log_line_pos - LOG_LINES_PER_PAGE ))"
       if [ "${log_line_pos}" -lt 1 ]; then
         log_line_pos=1
       fi
       update_log_area
       ;;
     1)
-      log_line_pos="$(( log_line_pos + LOG_PAGE_HEIGHT ))"
+      log_line_pos="$(( log_line_pos + LOG_LINES_PER_PAGE ))"
       if [ "${log_line_pos}" -gt "${log_num_lines}" ]; then
         log_line_pos="${log_num_lines}"
       fi
@@ -584,7 +597,9 @@ view_log_onselect() {
 
 view_log_onchange() {
   local selected_index=$1
-  local btn_y=182
+  local btn_y="$(( -CANVAS_SIZE / 2 + LOG_AREA_Y + LOG_AREA_HEIGHT +
+                   16 + BUTTON_HEIGHT / 2 ))"
+  local adv_y="$(( CANVAS_SIZE / 2 - 182 ))"
 
   showbutton btn_page_up "${btn_y}" "$(( selected_index == 0 ))" \
     "${VIEW_LOG_BTN_WIDTH}"
@@ -594,21 +609,23 @@ view_log_onchange() {
   btn_y="$(( btn_y + BUTTON_HEIGHT + BUTTON_MARGIN ))"
   showbutton btn_back "${btn_y}" "$(( selected_index == 2 ))" \
     "${VIEW_LOG_BTN_WIDTH}"
+  showadvoption power btn_power_off "${adv_y}" "$(( selected_index == 3 ))"
 }
 
 message_view_log() {
   local title_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
-  local title_y=-285
+  local title_y="$(( -CANVAS_SIZE / 2 + 162 ))"
 
-  title=$1
-  log_path=$2
+  local title="$1"
+  # global variables
+  log_path="$2"
   log_line_pos=1
   log_num_lines=$(wc -l "${log_path}")
 
-  clear_main_area
+  message_base_screen
   showmessage "${title}" "${title_x}" "${title_y}"
   update_log_area
-  menu_event_loop 3 view_log_onchange view_log_onselect
+  menu_event_loop 4 view_log_onchange view_log_onselect
 }
 
 # First message we display at start up.
