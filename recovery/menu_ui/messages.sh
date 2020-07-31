@@ -662,7 +662,11 @@ message_startup() {
     --enable-vts --scale="${FRECON_SCALING_FACTOR}" \
     --clear "${BACKGROUND}" --pre-create-vts \
     /dev/null
-  printf "\033]input:off\a" > "${TTY_CONSOLE}"
+
+  # Turn of keyboard input processing.
+  # We can't use ${TTY_CONSOLE} here since it is initialized after
+  # this function.
+  printf "\033]input:off\a" > /run/frecon/vt0
 }
 
 # not used, was smething like
