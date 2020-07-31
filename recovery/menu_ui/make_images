@@ -184,8 +184,7 @@ def _GetTextStyles(tag):
     return {'fontsize': TITLE_FONT_SIZE, 'height': TITLE_LINE_HEIGHT}
 
   if tag.startswith('desc_'):
-    # 5 lines should be enough for descriptions.
-    return {'height': DEFAULT_LINE_HEIGHT * 5}
+    return {'height': 0}
 
   if tag.startswith('footer_'):
     return {'foreground': GREY_TEXT_COLOR, 'fontsize': FOOTER_FONT_SIZE}
@@ -334,7 +333,14 @@ def CreateMonospaceGlyphs(glyph_dir, text_color):
 
 
 def GetImageWidth(imgpath):
-  return Image.open(imgpath).size[0]
+  with Image.open(imgpath) as image:
+    return image.size[0]
+
+
+def GetImageHeight(imgpath):
+  with Image.open(imgpath) as image:
+    return image.size[1]
+
 
 def CalculateButtonWidth(screendir, locale, *buttons):
   """Returns the maximum width of given buttons."""
@@ -376,6 +382,20 @@ def CreateConstantDefs(screendir, all_locales):
       for button in adv_buttons:
         width = CalculateButtonWidth(screendir, locale, button)
         print('BUTTON_%s_WIDTH=%d' % (button, width), file=out)
+
+      instructions = ['recovery_in_progress', 'recovery_complete',
+                      'recovery_failed']
+      for instruction in instructions:
+        title_img_path = os.path.join(screendir, locale,
+                                      'title_' + instruction + '.png')
+        desc_img_path = os.path.join(screendir, locale,
+                                     'desc_' + instruction + '.png')
+        print('TITLE_%s_HEIGHT=%d' %
+                (instruction, GetImageHeight(title_img_path)),
+              file=out)
+        print('DESC_%s_HEIGHT=%d' %
+                (instruction, GetImageHeight(desc_img_path)),
+              file=out)
 
       out.flush()
 

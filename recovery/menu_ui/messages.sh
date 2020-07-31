@@ -198,15 +198,18 @@ instructions() {
 }
 
 instructions_with_title() {
+  local message_token=$1
+
   local title_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
-  local title_height=36
-  local desc_height=105
+
+  eval "local title_height=\${TITLE_${message_token}_HEIGHT}"
+  eval "local desc_height=\${DESC_${message_token}_HEIGHT}"
   local title_y="$(( -CANVAS_SIZE / 2 + 220 + title_height / 2 ))"
   local desc_y="$(( title_y + title_height / 2 + 16 + desc_height / 2 ))"
   local line_spacing=4 # 20% of desc line height
 
-  showmessage "title_$1" "${title_x}" "${title_y}"
-  showmessage "desc_$1" "${title_x}" "${desc_y}"
+  showmessage "title_${message_token}" "${title_x}" "${title_y}"
+  showmessage "desc_${message_token}" "${title_x}" "${desc_y}"
 }
 
 # Handle display of a simple progress bar in the 'progress' box.
@@ -415,9 +418,9 @@ on_error_onselect() {
 
 on_error_onchange() {
   local selected_index=$1
-  # TODO: Adjust btn_y dynamically.
-  # It should be 40px below description by design.
-  local btn_y="$(( -CANVAS_SIZE / 2 + 380 ))"
+  # 40px below description.
+  local btn_y="$(( -CANVAS_SIZE / 2 + 220 + TITLE_recovery_failed_HEIGHT +
+    DESC_recovery_failed_HEIGHT + 40 + BUTTON_HEIGHT / 2 ))"
   local adv_y="$(( CANVAS_SIZE / 2 - 222 ))"
   local adv_btn_height=32
   local adv_btn_padding=8
