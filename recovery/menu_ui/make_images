@@ -184,7 +184,8 @@ def _GetTextStyles(tag):
     return {'fontsize': TITLE_FONT_SIZE, 'height': TITLE_LINE_HEIGHT}
 
   if tag.startswith('desc_'):
-    return {'height': DEFAULT_LINE_HEIGHT}
+    # 5 lines should be enough for descriptions.
+    return {'height': DEFAULT_LINE_HEIGHT * 5}
 
   if tag.startswith('footer_'):
     return {'foreground': GREY_TEXT_COLOR, 'fontsize': FOOTER_FONT_SIZE}
