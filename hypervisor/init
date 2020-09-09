@@ -132,8 +132,8 @@ run_crosvm_mini() {
 # Start serial bash access.
 run_console() {
   local serial=
-  if [ -c "/dev/ttyAMA0" ]; then
-    serial="/dev/ttyAMA0"
+  if [ -c "/dev/ttyMSM0" ]; then
+    serial="/dev/ttyMSM0"
   elif [ -c "/dev/ttyS0" ]; then
     serial="/dev/ttyS0"
   else
