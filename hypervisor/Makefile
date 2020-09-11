@@ -5,6 +5,7 @@
 # Dependency list of binary programs.
 BIN_DEPS= \
 	/bin/busybox \
+	/build/initramfs/trichechus \
 	/usr/bin/crosvm
 
 # Additional data files to copy from the sysroot.
