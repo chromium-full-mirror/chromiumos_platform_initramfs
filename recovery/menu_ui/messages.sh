@@ -403,10 +403,10 @@ on_error_onselect() {
 
   case "${selected_index}" in
     0)
-      reboot now
+      reboot -f
       ;;
     1)
-      shutdown now
+      poweroff -f
       ;;
     2)
       message recovery_debug_options
