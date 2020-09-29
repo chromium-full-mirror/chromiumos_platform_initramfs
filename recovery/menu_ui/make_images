@@ -70,12 +70,14 @@ LOCALE_LINKS = {
 MONOSPACE_FONT = 'Monospace %dpx'
 MONOSPACE_GLYPHS = string.digits + string.ascii_letters + string.punctuation
 
+BLACK = '#000000'
 BACKGROUND = '#202124'
 ADV_BTN_FOCUSED_BACKGROUND = '#2B2F37'
 TEXT_COLOR = '#ffffff'
 GREY_TEXT_COLOR = '#9aa0a6' # used in footers
 PROGRESS_COLOR = '#bbbbbb'
 BLUE = '#8ab4f8' # button text/background color
+DROPDOWN_BG_COLOR = '#2d2e30'
 
 TITLE_FONT_SIZE = 32
 TITLE_LINE_HEIGHT = 36
@@ -222,6 +224,16 @@ def _GetButtonStyles(tag):
   return button_style, focused_style
 
 
+def _GetMenuItemStyles(tag):
+  # for items inside expanded dropdown menu
+  normal_style = {'width': 0, 'background': DROPDOWN_BG_COLOR}
+  focused_style = dict(normal_style, background=BLUE, foreground=BACKGROUND)
+  # for the selected item in a folded dropdown
+  folded_style = dict(normal_style, background=BLACK)
+
+  return normal_style, focused_style, folded_style
+
+
 def IsRightToLeftLanguage(locale):
   return locale in ('ar', 'fa', 'he')
 
@@ -304,6 +316,20 @@ def CreateLocales(textdir, screendir, locale_list):
             style['align'] = 'right'
           pool.apply_async(CreateMessageImage,
                            (msgtext, locale, pngfilename), style)
+
+    with open(os.path.join(textdir, 'locale_names.json'), 'r',
+              encoding='utf-8-sig') as f:
+      for locale, text in json.load(f).items():
+        style_normal, style_focused, style_folded = _GetMenuItemStyles(
+            'language')
+
+        for style, name in zip((style_normal, style_focused, style_folded),
+                               ('language', 'language_focused',
+                                'language_folded')):
+          pool.apply_async(
+              CreateMessageImage,
+              (text, locale, os.path.join(screendir, locale, name + '.png')),
+              style)
 
   finally:
     pool.close()
@@ -416,6 +442,15 @@ def CreateConstantDefs(screendir, all_locales):
 
       out.flush()
 
+def CreateLanguageDefs(screendir, all_locales):
+  with open(os.path.join(screendir, 'lang_constants.sh'), 'w') as out:
+    for locale in all_locales:
+      language_img_width = GetImageWidth(
+          os.path.join(screendir, locale, 'language.png'))
+      locale_var_name = locale.replace('-', '_')
+      print('LANGUAGE_%s_WIDTH=%d' % (locale_var_name, language_img_width),
+            file=out)
+    print('SUPPORTED_LOCALES="%s"' % ' '.join(all_locales), file=out)
 
 def ConvertSvg(assetsdir, screendir):
   for svg in glob.glob(os.path.join(assetsdir, '*.svg')):
@@ -460,6 +495,7 @@ def main(argv):
                         GREY_TEXT_COLOR)
   CreateConstantDefs(screendir,
                      itertools.chain(SUPPORTED_LOCALES, LOCALE_LINKS))
+  CreateLanguageDefs(screendir, SUPPORTED_LOCALES)
   ConvertSvg(assetsdir, screendir)
 
 
