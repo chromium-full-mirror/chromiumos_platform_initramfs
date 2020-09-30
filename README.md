@@ -37,12 +37,16 @@ without having to create a full image for every iteration.
 
 After `emerge-$BOARD`, find your initramfs package from chroot
 `/build/$BOARD/var/lib/initramfs` and copy to a running DUT, for example
-`/tmp/recovery_ramfs.cpio.xz`, then do followings on DUT:
+`/tmp/recovery_ramfs.cpio.xz`, then do followings on DUT over SSH:
 
-1. `mount -o remount,exec /mnt/stateful_partition`
-2. `mkdir /mnt/stateful_partition/test; cd /mnt/stateful_partition/test`
-3. `xzcat /tmp/XXXXXX_ramfs.cpio.xz | cpio -iv`
-4. `stop ui; kill $(pidof frecon)`
-5. `bind mount /dev, /proc, /sys and /tmp in /mnt/stateful_partition/test`
-6. `chroot /mnt/stateful_partition/test/init`
-7. Iterate.
+1. `mkdir /usr/local/test/; cd /usr/local/test`
+2. `xzcat /tmp/XXXXXX_ramfs.cpio.xz | toybox cpio -iv`
+3. `stop ui; kill $(pidof frecon)`
+4. bind mount /dev, /proc, /sys and /tmp in /usr/local/test:
+```
+for d in dev proc sys tmp; do
+   mount --bind /${d} /usr/local/test/${d}
+done
+```
+5. `chroot /usr/local/test /init`
+6. Iterate.
