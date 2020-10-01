@@ -23,42 +23,37 @@ setup_environment() {
 
 # Attach allowed PCI devices to VFIO bus driver.
 setup_vfio() {
-  local loc= vid= did=
+  # Device Id based ignored devices.
+  local did_skip="02a8 02aa 02ab 02b0 9d64 9d31"
+
+  # Location based ignored devices.
+  # 00:00.0 PCI Host bridge
+  local loc_skip="00:00.0"
+
+  local loc= vid= did= drv=
+
+  # Disable functional reset at bind.
+  echo 1 > /sys/module/vfio_pci/parameters/disable_function_reset
+
   # Try to attach all PCI devices to vfio bus driver.
-  lspci -mnk | sort | cut -d ' ' -f 1,4,5 | tr -d '"' | \
-      while read loc vid did; do
-    # List of devices not forwarded to the guest.
-    case "${did}" in
-    "9d2b")  # 00:1e.4 - eMMC Controller
-      # Comment out if eMMC initialziation is unstable.
+  lspci -mnk | sort | cut -d ' ' -f 1,4,5,8 | tr -d '"' | \
+      while read loc vid did drv; do
+    local ignore=
+    if [[ -z "${loc_skip//*${loc}*}" ]]; then
+      ignore=1
+    fi
+    if [[ -z "${did_skip//*${did}*}" ]]; then
+      ignore=1
+    fi
+    if [[ -z "${ignore}" ]]; then
+      if [[ -n "${drv}" ]]; then
+        echo "0000:${loc}" > /sys/bus/pci/drivers/${drv}/unbind
+      fi
       echo "${vid} ${did}" > /sys/bus/pci/drivers/vfio-pci/new_id
-      ;;
-    "9d2f" | "9d31")
-      # 00:14.0 - USB Controller
-      # 00:14.2 - SP-LP Thermal
-      # Comment out to disable guest access to USB devices.
-      echo "${vid} ${did}" > /sys/bus/pci/drivers/vfio-pci/new_id
-      ;;
-    "9d64" | "9d66")
-      # 00:19.0 - LPSS, UART Controller, debug console.
-      # 00:19.2 - LPSS, I2C
-      # Uncomment to forward all LPSS devices to the guest VM.
-      # echo "0000:${loc}" > /sys/bus/pci/drivers/intel-lpss/unbind
-      # echo "${vid} ${did}" > /sys/bus/pci/drivers/vfio-pci/new_id
-      ;;
-    "9d27" | "9d29")
-      # 00:1e.0 - LPSS
-      # 00:1e.2 - LPSS
-      # Comment out to disable guest access to LPSS devices.
-      echo "0000:${loc}" > /sys/bus/pci/drivers/intel-lpss/unbind
-      echo "${vid} ${did}" > /sys/bus/pci/drivers/vfio-pci/new_id
-      ;;
-    *)
-      # allowed, attach to vfio bus driver.
-      echo "${vid} ${did}" > /sys/bus/pci/drivers/vfio-pci/new_id
-      ;;
-    esac
+    fi
   done
+  # Re-enable functional reset.
+  # echo 0 > /sys/module/vfio_pci/parameters/disable_function_reset
 }
 
 # Get guest kernel command line options.
@@ -92,41 +87,25 @@ acpi_list() {
 run_crosvm() {
   setup_vfio
 
-  # FIXME: virtio-net hungs up guest running 5.4 kernel.
-  # --host_ip 192.168.8.1 --netmask 255.255.255.252 --mac d2:47:f7:c5:9e:53 \
+  # Use all available CPUs for primary VM.
+  local nproc=$(nproc)
+  local affinity=$(for n in $(seq 0 $((nproc - 1))); do echo -n "$n=$n:"; done)
 
-  # TODO: fix memory and cpu resources allocation for primary guest.
+  # Reserve 512MB of total system memory for hypervisor.
+  local mem_total=$(grep MemTotal /proc/meminfo)
+  local mem_kb=${mem_total//[^0-9]/}
+  local mem_vm=$((mem_kb/1024 - 512))
+
+  # TODO: add $(acpi_list) when 1:1 mapping enabled on crosvm side.
   /sbin/crosvm run -s /run/crosvm.sock --cid 3 \
-    --disable-sandbox --mem 4192 --cpus 4 $(vfio_list) $(acpi_list) \
-    --proxy-edge-irq 1 --proxy-edge-irq 24 \
-    --proxy-level-irq 31 --proxy-level-irq 51 \
+    --disable-sandbox --mem ${mem_vm} $(vfio_list) \
+    --cpus ${nproc} --cpu-affinity ${affinity%?} \
     --params "$(cmdline)" /boot/vmlinuz
 }
 
 # Resume primary guest VM.
 resume_crosvm() {
   /sbin/crosvm resume -s /run/crosvm.sock
-}
-
-# Start primary guest VM with restricted set of devivces (failover mode).
-run_crosvm_mini() {
-  setup_vfio
-
-  # TODO: fix memory and cpu resources allocation for primary guest.
-  /sbin/crosvm run -s /run/crosvm.sock --cid 3 \
-    --disable-sandbox --mem 4192 --cpus 4 \
-    --vfio /sys/bus/pci/devices/0000:00:02.0/ \
-    --vfio /sys/bus/pci/devices/0000:00:04.0/ \
-    --vfio /sys/bus/pci/devices/0000:00:14.0/ \
-    --vfio /sys/bus/pci/devices/0000:00:14.2/ \
-    --vfio /sys/bus/pci/devices/0000:00:1f.0/ \
-    --vfio /sys/bus/pci/devices/0000:00:1f.2/ \
-    --vfio /sys/bus/pci/devices/0000:00:1f.3/ \
-    --vfio /sys/bus/pci/devices/0000:00:1f.4/ \
-    --vfio /sys/bus/pci/devices/0000:00:1f.5/ \
-    --vfio /sys/bus/pci/devices/0000:01:00.0/ \
-    --vfio /sys/bus/pci/devices/0000:02:00.0/ \
-    --params "$(cmdline)" /boot/vmlinuz
 }
 
 # Start serial bash access.
@@ -166,10 +145,6 @@ debug_tty() {
       cp /sbin/crosvm.stable /sbin/crosvm
     fi
     ;;
-  "m" | "M")
-    # failover to mini version.
-    run_crosvm_mini 2>&1 | tee -a /var/log/crosvm.log && die
-    ;;
   *)
     ;;
   esac
@@ -190,8 +165,8 @@ main() {
   # Start primary guest VM, terminate on successful VM exit.
   run_crosvm 2>&1 | tee -a /var/log/crosvm.log && die
 
-  # Failover to reduced guest VM, terminate on successful VM exit.
-  run_crosvm_mini 2>&1 | tee -a /var/log/crosvm.log && die
+  # Failover to debug console
+  run_console
 }
 
 # Make this source-able for testing.
