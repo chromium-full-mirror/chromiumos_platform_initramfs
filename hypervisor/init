@@ -96,7 +96,7 @@ run_crosvm() {
   # --host_ip 192.168.8.1 --netmask 255.255.255.252 --mac d2:47:f7:c5:9e:53 \
 
   # TODO: fix memory and cpu resources allocation for primary guest.
-  /sbin/crosvm run -s /run/crosvm.sock \
+  /sbin/crosvm run -s /run/crosvm.sock --cid 3 \
     --disable-sandbox --mem 4192 --cpus 4 $(vfio_list) $(acpi_list) \
     --proxy-edge-irq 1 --proxy-edge-irq 24 \
     --proxy-level-irq 31 --proxy-level-irq 51 \
@@ -113,7 +113,7 @@ run_crosvm_mini() {
   setup_vfio
 
   # TODO: fix memory and cpu resources allocation for primary guest.
-  /sbin/crosvm run -s /run/crosvm.sock \
+  /sbin/crosvm run -s /run/crosvm.sock --cid 3 \
     --disable-sandbox --mem 4192 --cpus 4 \
     --vfio /sys/bus/pci/devices/0000:00:02.0/ \
     --vfio /sys/bus/pci/devices/0000:00:04.0/ \
