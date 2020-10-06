@@ -925,6 +925,26 @@ show_string_locale() {
   showimage "${message_file}" "${offset_x}" "${offset_y}"
 }
 
+show_language_menu() {
+  local focused="$1"
+
+  local offset_y="$(( -CANVAS_SIZE / 2 + 40 ))"
+  local bg_x="$(( -CANVAS_SIZE / 2 + 145 ))"
+  local globe_x="$(( -CANVAS_SIZE / 2 + 20 ))"
+  local arrow_x="$(( -CANVAS_SIZE / 2 + 268 ))"
+  local text_x="$(( -CANVAS_SIZE / 2 + 40 + LANGUAGE_WIDTH / 2 ))"
+
+  local menu_bg="${SCREENS}/language_menu_bg_focused.png"
+  if [ -z "${focused}" -o "${focused}" -eq 0 ]; then
+    menu_bg="${SCREENS}/language_menu_bg.png"
+  fi
+
+  showimage "${menu_bg}" "${bg_x}" "${offset_y}"
+  showimage "${SCREENS}/ic_language-globe.png" "${globe_x}" "${offset_y}"
+  showimage "${SCREENS}/ic_dropdown.png" "${arrow_x}" "${offset_y}"
+  showmessage "language_folded" "${text_x}" "${offset_y}"
+}
+
 show_footer() {
   local qr_code_size=86
   local qr_code_x="$(( -CANVAS_SIZE / 2 + qr_code_size / 2 ))"
@@ -993,6 +1013,7 @@ show_footer() {
 
 message_base_screen() {
   clear_main_area
+  show_language_menu
   show_footer
 }
 
