@@ -31,6 +31,8 @@ MENU_UI_BLACK="0x202124"
 MENU_UI_GREY="0x3F4042"
 MENU_UI_BLUE="0x8AB4F8"
 MENU_UI_BTN_FRAME="0x9AA0A6"
+MENU_UI_DROPDOWN_BG="0x2D2E30"
+MENU_UI_DROPDOWN_FRAME="0x435066"
 BACKGROUND="${MENU_UI_BLACK}"
 ADV_BTN_BACKGROUND="0x2B2F37"
 
@@ -711,6 +713,8 @@ message_startup() {
   # We can't use ${TTY_CONSOLE} here since it is initialized after
   # this function.
   printf "\033]input:off\a" > /run/frecon/vt0
+
+  . "${SCREENS}/lang_constants.sh"
 }
 
 # not used, was smething like
@@ -868,6 +872,44 @@ message_update_firmware_low_battery_charging() {
   message_base_screen
   instructions update_firmware_low_battery_charging
   show_stepper_error
+}
+
+show_language_dropdown() {
+  local selected_index="$1"
+  shift
+
+  local item_height=40
+  local item_per_page="$(( (CANVAS_SIZE - 260) / item_height ))"
+  local item_count="$#"
+
+  # put the focused item on middle of the screen if possible
+  local begin_index="$(( selected_index - item_per_page / 2 ))"
+  if [ "${begin_index}" -lt 0 ]; then
+    begin_index=0
+  fi
+  shift "${begin_index}"
+
+  local i="${begin_index}"
+  local offset_y="$(( -CANVAS_SIZE / 2 + 88 ))"
+  local background_x="$(( -CANVAS_SIZE / 2 + 360 ))"
+  local lang_x lang_width
+  while [ "${i}" -lt "$(( begin_index + item_per_page ))" -a \
+          "${i}" -lt "${item_count}" ]; do
+    eval "lang_width=\${LANGUAGE_$(echo $1 | tr - _)_WIDTH}"
+    lang_x="$(( -CANVAS_SIZE / 2 + lang_width / 2 + 40 ))"
+    if [ "${selected_index}" -eq "${i}" ]; then
+      showbox "${background_x}" "${offset_y}" 720 40 "${MENU_UI_BLUE}"
+      showimage "${SCREENS}/$1/language_focused.png" "${lang_x}" "${offset_y}"
+    else
+      showbox "${background_x}" "${offset_y}" 720 40 "${MENU_UI_DROPDOWN_FRAME}"
+      showbox "${background_x}" "${offset_y}" 718 38 "${MENU_UI_DROPDOWN_BG}"
+      showimage "${SCREENS}/$1/language.png" "${lang_x}" "${offset_y}"
+    fi
+
+    i="$(( i + 1 ))"
+    offset_y="$(( offset_y + item_height ))"
+    shift
+  done
 }
 
 show_stepper() {
