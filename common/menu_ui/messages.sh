@@ -104,11 +104,17 @@ read_truncated_hwid() {
 }
 
 select_locale() {
-  # The region (fetched via VPD) is only available on Chrome systems.
-  is_nonchrome || LANGDIR="$(read_vpd_locale)"
-  if [ -z "${LANGDIR}" -o ! -d "${SCREENS}/${LANGDIR}" ]; then
-    dlog "initial locale '${LANGDIR}' not found"
-    LANGDIR=en-US
+  local override_locale="$1"
+
+  if [ -n "${override_locale}" ]; then
+    LANGDIR="${override_locale}"
+  else
+    # The region (fetched via VPD) is only available on Chrome systems.
+    is_nonchrome || LANGDIR="$(read_vpd_locale)"
+    if [ -z "${LANGDIR}" -o ! -d "${SCREENS}/${LANGDIR}" ]; then
+      dlog "initial locale '${LANGDIR}' not found"
+      LANGDIR=en-US
+    fi
   fi
 
   . "${SCREENS}/${LANGDIR}/constants.sh"
@@ -269,6 +275,11 @@ clear_main_area() {
     0 "$(( -footer_height / 2 ))" \
     "$(( CANVAS_SIZE + 100 ))" "$(( CANVAS_SIZE - footer_height ))" \
     "${BACKGROUND}"
+}
+
+clear_screen() {
+  # clear all
+  showbox 0 0 "$(( CANVAS_SIZE + 100 ))" "${CANVAS_SIZE}" "${BACKGROUND}"
 }
 
 # Enforce a delay on the user for security's sake.  A progress bar
@@ -446,12 +457,15 @@ on_error_onselect() {
 
   case "${selected_index}" in
     0)
-      reboot -f
+      message language_menu
       ;;
     1)
-      poweroff -f
+      reboot -f
       ;;
     2)
+      poweroff -f
+      ;;
+    3)
       message recovery_debug_options
       ;;
   esac
@@ -473,25 +487,26 @@ on_error_onchange() {
   instructions_with_title recovery_failed
   show_stepper_error
 
-  showbutton btn_try_again "${btn_y}" "$(( selected_index == 0 ))" \
+  show_language_menu "$(( selected_index == 0 ))"
+  showbutton btn_try_again "${btn_y}" "$(( selected_index == 1 ))" \
     "${ON_ERROR_BTN_WIDTH}"
-  showadvoption power btn_power_off "${adv_y}" "$(( selected_index == 1 ))"
+  showadvoption power btn_power_off "${adv_y}" "$(( selected_index == 2 ))"
   adv_y="$(( adv_y + adv_btn_height + adv_btn_padding ))"
   showadvoption settings btn_debug_options "${adv_y}" \
-    "$(( selected_index == 2 ))"
+    "$(( selected_index == 3 ))"
 }
 
 # Generic message to report an error.
 message_on_error() {
   message_base_screen
-  menu_event_loop 3 on_error_onchange on_error_onselect
+  menu_event_loop 4 1 on_error_onchange on_error_onselect
 }
 
 menu_event_loop() {
   local menu_count=$1
-  local onchange=$2
-  local onselect=$3
-  local selected_index=0
+  local selected_index=$2
+  local onchange=$3
+  local onselect=$4
 
   while true; do
     local action
@@ -530,24 +545,27 @@ recovery_debug_options_onselect() {
 
   case "${selected_index}" in
     0)
+      message language_menu
+      ;;
+    1)
       # TODO: error page not implemented, save_log_files does not return errors
       save_log_files
       echo 'copy log'
       ;;
-    1)
+    2)
       # In the error handling flow we should not assume external USB drive is
       # accessible, thus we use the original log file instead of the copy in
       # LOG_DIR here.
       message_view_log title_recovery_log /var/log/recovery.log
       ;;
-    2)
+    3)
       # Dump dmesg in /tmp for the same reason above.
       local tmpfile="$(mktemp)"
       dmesg > "${tmpfile}"
       message_view_log title_message_log "${tmpfile}"
       rm "${tmpfile}"
       ;;
-    3)
+    4)
       clear_screen
       return 1
       ;;
@@ -566,28 +584,30 @@ recovery_debug_options_onchange() {
   message_base_screen
   showmessage title_debug_options "${text_x}" "${title_y}"
 
+  show_language_menu "$(( selected_index == 0 ))"
+
   local btn_y="$(( title_y + 18 + 40 ))" # padding 40
   local btn_y_step="$(( BUTTON_HEIGHT + BUTTON_MARGIN ))"
   showmessage tip_copy_logs "${text_x}" "${btn_y}"
   btn_y=$(( btn_y + btn_y_step ))
-  showbutton btn_copy_logs "${btn_y}" "$(( selected_index == 0 ))" \
+  showbutton btn_copy_logs "${btn_y}" "$(( selected_index == 1 ))" \
     "${DEBUG_OPTIONS_BTN_WIDTH}"
 
   btn_y=$(( btn_y + btn_y_step * 2 ))
   showmessage tip_view_logs "${text_x}" "${btn_y}"
   btn_y=$(( btn_y + btn_y_step ))
-  showbutton btn_recovery_log "${btn_y}" "$(( selected_index == 1 ))" \
+  showbutton btn_recovery_log "${btn_y}" "$(( selected_index == 2 ))" \
     "${DEBUG_OPTIONS_BTN_WIDTH}"
   btn_y=$(( btn_y + btn_y_step ))
-  showbutton btn_message_log "${btn_y}" "$(( selected_index == 2 ))" \
+  showbutton btn_message_log "${btn_y}" "$(( selected_index == 3 ))" \
     "${DEBUG_OPTIONS_BTN_WIDTH}"
   btn_y=$(( btn_y + btn_y_step ))
-  showbutton btn_back "${btn_y}" "$(( selected_index == 3 ))" \
+  showbutton btn_back "${btn_y}" "$(( selected_index == 4 ))" \
     "${DEBUG_OPTIONS_BTN_WIDTH}"
 }
 
 message_recovery_debug_options() {
-  menu_event_loop 4 recovery_debug_options_onchange \
+  menu_event_loop 5 1 recovery_debug_options_onchange \
     recovery_debug_options_onselect
 }
 
@@ -671,7 +691,7 @@ message_view_log() {
   message_base_screen
   showmessage "${title}" "${title_x}" "${title_y}"
   update_log_area
-  menu_event_loop 4 view_log_onchange view_log_onselect
+  menu_event_loop 4 0 view_log_onchange view_log_onselect
 }
 
 # First message we display at start up.
@@ -874,6 +894,43 @@ message_update_firmware_low_battery_charging() {
   show_stepper_error
 }
 
+language_onselect() {
+  local selected_index=$1
+
+  if [ "${selected_index}" -gt 0 ]; then
+    local override_locale="$(echo "${SUPPORTED_LOCALES}" | \
+                             cut -d' ' -f"${selected_index}")"
+    select_locale "${override_locale}"
+  fi
+
+  clear_screen
+  return 1
+}
+
+language_onchange() {
+  local selected_index=$1
+
+  show_language_dropdown "$(( selected_index - 1 ))" ${SUPPORTED_LOCALES}
+}
+
+message_language_menu() {
+  message_base_screen
+
+  local selected_index=0
+  local i=0
+  for locale in ${SUPPORTED_LOCALES}; do
+    i="$(( i + 1 ))"
+    if [ "${locale}" == "${LANGDIR}" ]; then
+      selected_index="${i}"
+      break
+    fi
+  done
+
+  local locale_count="$(echo "${SUPPORTED_LOCALES}" | wc -w)"
+  menu_event_loop "$(( locale_count + 1 ))" "${selected_index}" \
+    language_onchange language_onselect
+}
+
 show_language_dropdown() {
   local selected_index="$1"
   shift
@@ -886,6 +943,8 @@ show_language_dropdown() {
   local begin_index="$(( selected_index - item_per_page / 2 ))"
   if [ "${begin_index}" -lt 0 ]; then
     begin_index=0
+  elif [ "$(( begin_index + item_per_page ))" -gt "${item_count}" ]; then
+    begin_index="$(( item_count - item_per_page ))"
   fi
   shift "${begin_index}"
 
@@ -977,7 +1036,7 @@ show_language_menu() {
   local text_x="$(( -CANVAS_SIZE / 2 + 40 + LANGUAGE_WIDTH / 2 ))"
 
   local menu_bg="${SCREENS}/language_menu_bg_focused.png"
-  if [ -z "${focused}" -o "${focused}" -eq 0 ]; then
+  if [ "${focused:-0}" -eq 0 ]; then
     menu_bg="${SCREENS}/language_menu_bg.png"
   fi
 
