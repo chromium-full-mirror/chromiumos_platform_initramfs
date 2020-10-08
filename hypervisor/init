@@ -24,7 +24,7 @@ setup_environment() {
 # Attach allowed PCI devices to VFIO bus driver.
 setup_vfio() {
   # Device Id based ignored devices.
-  local did_skip="02a8 02aa 02ab 02b0 9d64 9d31"
+  local did_skip="02a8 02aa 02ab 02b0 9d64 9d66"
 
   # Location based ignored devices.
   # 00:00.0 PCI Host bridge
