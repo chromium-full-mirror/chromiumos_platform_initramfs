@@ -83,6 +83,13 @@ acpi_list() {
   done
 }
 
+# Start ManaTEE Monitor.
+run_trichechus() {
+  if [[ -x "/sbin/trichechus" ]]; then
+    start-stop-daemon -S -b -x "/sbin/trichechus"
+  fi
+}
+
 # Start primary guest VM.
 run_crosvm() {
   setup_vfio
@@ -161,6 +168,9 @@ main() {
   setup_environment
   debug_tty
   debug_net
+
+  # Start ManaTEE Monitor.
+  run_trichechus
 
   # Start primary guest VM, terminate on successful VM exit.
   run_crosvm 2>&1 | tee -a /var/log/crosvm.log && die
