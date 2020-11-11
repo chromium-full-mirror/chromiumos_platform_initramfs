@@ -87,10 +87,10 @@ legacy_ui: stage_init
 		legacy_ui/assets/*.png "$(STAGE)/etc/screens"
 	legacy_ui/make_images localized_text "$(STAGE)/etc/screens" \
 		$(LOCALE_LIST)
-	cp *.sh ../common/legacy_ui/*.sh "$(STAGE)/lib"
+	cp *.sh legacy_ui/*.sh "$(STAGE)/lib"
 
 .PHONY: menu_ui
 menu_ui: stage_init
 	menu_ui/make_images localized_text "$(STAGE)/etc/screens" \
 		$(LOCALE_LIST)
-	cp *.sh ../common/menu_ui/*.sh "$(STAGE)/lib"
+	cp *.sh menu_ui/*.sh "$(STAGE)/lib"
