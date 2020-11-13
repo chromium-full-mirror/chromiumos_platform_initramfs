@@ -19,6 +19,9 @@ BIN_DEPS = \
 	/usr/sbin/evwaitkey \
 	/usr/bin/cros_oobe_crypto
 
+# Override this value when including this Makefile.
+RECOVERY_DIR ?= $(CURDIR)
+
 # Extra dependency, should be set by builder configuration.
 EXTRA_BIN_DEPS ?=
 
@@ -53,14 +56,20 @@ CONFIG_FOLDER ?= $(STAGE)/etc/cros-initramfs
 
 ifeq ($(MENU_UI),1)
 UI = menu_ui
+ifeq ($(MINIOS),1)
+UI = minios_ui
+endif
 else
 UI = legacy_ui
+ifeq ($(MINIOS),1)
+$(error "Cannot build miniOS on legacy_ui")
+endif
 endif
 
 include ../common/initramfs.mk
 
 $(RAMFS_BIN): $(UI) stage_init
-	./make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
+	$(RECOVERY_DIR)/make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
 	ln -s busybox $(STAGE)/bin/sh
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
 	ln -s futility "$(STAGE)/bin/vbutil_kernel"
@@ -91,6 +100,9 @@ legacy_ui: stage_init
 
 .PHONY: menu_ui
 menu_ui: stage_init
-	menu_ui/make_images localized_text "$(STAGE)/etc/screens" \
-		$(LOCALE_LIST)
-	cp *.sh menu_ui/*.sh "$(STAGE)/lib"
+	$(RECOVERY_DIR)/menu_ui/make_images $(RECOVERY_DIR)/localized_text \
+		"$(STAGE)/etc/screens" $(LOCALE_LIST)
+	cp $(RECOVERY_DIR)/*.sh $(RECOVERY_DIR)/menu_ui/*.sh "$(STAGE)/lib"
+
+.PHONY: minios_ui
+minios_ui: menu_ui stage_init
