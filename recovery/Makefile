@@ -19,6 +19,10 @@ BIN_DEPS = \
 	/usr/sbin/evwaitkey \
 	/usr/bin/cros_oobe_crypto
 
+ifdef MINIOS_BIN_DEPS
+BIN_DEPS += $(MINIOS_BIN_DEPS)
+endif
+
 # Override this value when including this Makefile.
 RECOVERY_DIR ?= $(CURDIR)
 
@@ -105,4 +109,30 @@ menu_ui: stage_init
 	cp $(RECOVERY_DIR)/*.sh $(RECOVERY_DIR)/menu_ui/*.sh "$(STAGE)/lib"
 
 .PHONY: minios_ui
-minios_ui: menu_ui stage_init
+minios_ui: menu_ui minios stage_init
+
+.PHONY: minios
+minios: stage_init
+	# FIRMWARE
+	mkdir -p "$(STAGE)/lib/firmware"
+	cp -av "$(SYSROOT)/lib/firmware/ath10k" \
+		"$(SYSROOT)/lib/firmware/iwl"* \
+		"$(STAGE)/lib/firmware"
+	# KERNEL MODULES
+	mkdir -p "$(STAGE)/lib/modules"
+	cp -av "$(SYSROOT)/lib/modules/"* "$(STAGE)/lib/modules"
+	(cd "$(STAGE)/lib/modules/"*"/kernel" && \
+		find -maxdepth 1 \
+		! -name drivers \
+		! -name net \
+		! -name crypto \
+		! -name . -exec rm -rf {} +)
+	(cd "$(STAGE)/lib/modules/"*"/kernel/drivers" && \
+		find -maxdepth 1 \
+		! -name net \
+		! -name . -exec rm -rf {} +)
+	# MISC.
+	cp "$(SYSROOT)/etc/nsswitch.conf" "$(STAGE)/etc"
+	# MISSING SHARED LIBS
+	mkdir -p "$(STAGE)/lib64"
+	cp -av "$(SYSROOT)/lib64/libnss"* "$(STAGE)/lib64"

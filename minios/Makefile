@@ -13,6 +13,19 @@ export RECOVERY_DIR = ../recovery
 # Override so recovery/Makefile used miniOS initramfs folder.
 export OVERLAY_FOLDER = $(SYSROOT)/var/lib/initramfs/minios
 
+# Extra dependencies miniOS requires.
+export MINIOS_BIN_DEPS = \
+	/usr/bin/strace \
+	/usr/bin/curl \
+	/sbin/dhclient \
+	/sbin/dhclient-script \
+	/sbin/dhcpcd \
+	/sbin/minijail0 \
+	/usr/sbin/wpa_supplicant \
+	/usr/bin/wpa_passphrase \
+	/usr/bin/wpa_cli \
+	/usr/bin/wpa_debug
+
 .PHONY: all
 all:
 	$(MAKE) -C $(RECOVERY_DIR) $(MAKECMDGOALS)

@@ -3,8 +3,95 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+. /lib/completion_settings.sh
+. /lib/defaults.sh
+. /lib/init.sh
+. /lib/messages.sh
+
+# Set panel brightness to maximum level.
+set_brightness() {
+  local backlight_device=
+  local brightness=
+  local i=
+  for backlight_device in /sys/class/backlight/*; do
+
+    # In order to set a backlight to maximum brightness, we do the following:
+    # - Turn the backlight device on (using bl_power).
+    # - Read max_brightness and pipe that into the desired brightness.
+    # - Verify that the backlight's actual brightness matches our expectation.
+    #
+    # The hardware is particularly volatile during startup due to modeset and
+    # hw initialization. We want to give ourselves the best chance of success,
+    # so we'll try up to 5 times before continuing with recovery.
+    for i in $(seq 1 5); do
+      echo 0 > "${backlight_device}/bl_power" # 0 = FB_BLANK_UNBLANK (ie: on)
+      brightness=$(cat "${backlight_device}/max_brightness")
+      echo "${brightness}" > "${backlight_device}/brightness"
+      if [ "$(cat "${backlight_device}/actual_brightness")" = \
+           "${brightness}" ]; then
+        break
+      fi
+      sleep 0.5
+    done
+  done
+}
+
+load_wifi_modules() {
+  # Top level for wifi modules.
+  modprobe iwlmvm
+
+  # Necessary crypto for WPA.
+  modprobe crypto-ccm
+}
+
+setup_static_ssid() {
+  # Create the WPA passphrase.
+  # This creates a static SSID connection with parameters:
+  #  SSID=cros-minios
+  #  PSK=test0000
+  # Note: Create a wifi name is "cros-minios" and password as "test0000"
+  wpa_passphrase "cros-minios" "test0000" > /etc/wpa_supplicant.conf
+}
+
+start_wpa_supplicant() {
+  # TODO: Dynamic wireless interface pickup.
+  wpa_supplicant -B -i wlan0 \
+    -c /etc/wpa_supplicant.conf \
+    -O /run/wpa_supplicant \
+    -d -f /tmp/wpa_supplicant.log
+
+  # Get inet address.
+  mkdir -p /var/lib/dhcp
+  dhclient wlan0
+}
+
+init_wireless() {
+  echo "Please wait..."
+  load_wifi_modules
+  setup_static_ssid
+  # Start in background to not hang on static SSID connection.
+  start_wpa_supplicant &
+}
+
 main() {
-  true
+  initialize
+  select_locale
+
+  # Simple welcome screen,
+  message recovery_in_progress
+
+  set_brightness
+
+  # IO from console. [Switch to with Ctrl + Alt + F3]
+  exec <${TTY_DEBUG} >>${TTY_DEBUG} 2>&1
+
+  init_wireless
+
+  # Keep looping on shell [testing].
+  while true; do
+    echo "Starting a shell for you to explore minios!"
+    /bin/sh
+  done
 }
 
 if [ "$0" = "/init" ]; then
