@@ -3,16 +3,16 @@
 # found in the LICENSE file.
 
 # Dependency list of binary programs.
-BIN_DEPS= \
+BIN_DEPS = \
 	/bin/bash \
 	/bin/busybox \
 	/bin/sh
 
 # Extra dependency, should be set by builder configuration.
-EXTRA_BIN_DEPS?=
+EXTRA_BIN_DEPS ?=
 
 # Programs required by netboot installer
-NETBOOT_BIN_DEPS= \
+NETBOOT_BIN_DEPS = \
 	/bin/dd \
 	/bin/ip \
 	/bin/kmod \
@@ -43,7 +43,7 @@ NETBOOT_BIN_DEPS= \
 	/usr/sbin/uftpd
 
 # ChromeOS specific dependency.
-CROS_DEPS=\
+CROS_DEPS = \
 	/usr/bin/cgpt \
 	/usr/bin/cros_payload \
 	/usr/bin/crossystem \
@@ -60,25 +60,25 @@ ifeq ($(INCLUDE_ECTOOL),1)
 endif
 
 # Non-executables.
-DATA_DEPS=\
+DATA_DEPS = \
 	/root/.pmbr_code \
 	/usr/share/misc/chromeos-common.sh \
 	/usr/share/misc/shflags \
 	/usr/share/misc/storage-info-common.sh
 
 # Directories to be cloned into initramfs.
-DATA_DIR_DEPS= \
+DATA_DIR_DEPS = \
 	/etc/terminfo
 
 # Layout of directories to be created in initramfs.
-RAMFS_LAYOUT_DIRS=\
+RAMFS_LAYOUT_DIRS = \
 	usr/share/misc \
 	mnt/stateful_partition/dev_image/etc \
 	newroot \
 	stateful \
 	usb
 
-SERVER_ADDR		?= 10.0.0.1
+SERVER_ADDR ?= 10.0.0.1
 
 RAMFS_BIN_DEPS = \
 	$(BIN_DEPS) \

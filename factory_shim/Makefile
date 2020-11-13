@@ -3,7 +3,7 @@
 # found in the LICENSE file.
 
 # Dependency list of binary programs.
-BIN_DEPS= \
+BIN_DEPS = \
 	/bin/busybox \
 	/bin/sh \
 	/sbin/frecon-lite \
@@ -13,10 +13,10 @@ BIN_DEPS= \
 	/usr/sbin/factory_tty.sh
 
 # Extra dependency, should be set by builder configuration.
-EXTRA_BIN_DEPS?=
+EXTRA_BIN_DEPS ?=
 
 # Layout of directories to be created in initramfs.
-RAMFS_LAYOUT_DIRS=\
+RAMFS_LAYOUT_DIRS = \
 	usr/share/misc
 
 include ../common/initramfs.mk

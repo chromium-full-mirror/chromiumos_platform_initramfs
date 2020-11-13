@@ -3,7 +3,7 @@
 # found in the LICENSE file.
 
 # Dependency list of binary programs.
-BIN_DEPS= \
+BIN_DEPS = \
 	/bin/busybox \
 	/sbin/dmsetup \
 	/sbin/frecon-lite \
@@ -20,41 +20,41 @@ BIN_DEPS= \
 	/usr/bin/cros_oobe_crypto
 
 # Extra dependency, should be set by builder configuration.
-EXTRA_BIN_DEPS?=
+EXTRA_BIN_DEPS ?=
 
-DATA_DEPS= \
+DATA_DEPS = \
 	/usr/share/misc/chromeos-common.sh
 
-LOCAL_BIN_DEPS= \
+LOCAL_BIN_DEPS = \
 	$(AOA_SWITCH)
 
 # Layout of directories to be created in initramfs.
-RAMFS_LAYOUT_DIRS=\
+RAMFS_LAYOUT_DIRS = \
 	etc/screens \
 	usr/share/misc \
 	newroot \
 	stateful \
 	usb
 
-INTERACTIVE_COMPLETE	?= true
+INTERACTIVE_COMPLETE ?= true
 
 # Any files here will be overlayed to the initramfs folder.
-OVERLAY_FOLDER		?= $(SYSROOT)/var/lib/initramfs/recovery
+OVERLAY_FOLDER ?= $(SYSROOT)/var/lib/initramfs/recovery
 
 # LOCALE_LIST can be overridden on the command line.  This feature
 # is used in the ebuild to allow board-specific locale lists.
-LOCALE_LIST		=
+LOCALE_LIST =
 
 # The region database installed by virtual/chromeos-regions, and will be used to
 # generate the locales table.
-CROS_REGIONS_DATABASE	?= $(SYSROOT)/usr/share/misc/cros-regions.json
-LOCALES_TABLE		?= $(STAGE)/etc/locales.txt
-CONFIG_FOLDER		?= $(STAGE)/etc/cros-initramfs
+CROS_REGIONS_DATABASE ?= $(SYSROOT)/usr/share/misc/cros-regions.json
+LOCALES_TABLE ?= $(STAGE)/etc/locales.txt
+CONFIG_FOLDER ?= $(STAGE)/etc/cros-initramfs
 
 ifeq ($(MENU_UI),1)
-UI=menu_ui
+UI = menu_ui
 else
-UI=legacy_ui
+UI = legacy_ui
 endif
 
 include ../common/initramfs.mk

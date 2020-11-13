@@ -9,29 +9,29 @@
 COMPRESS = xz -9 --check=crc32
 
 # Staging and build toolchain.
-NAME			?= $(notdir $(CURDIR))
-OUTPUT_DIR		?= $(CURDIR)
-RAMFS_BIN		?= $(OUTPUT_DIR)/$(NAME)_ramfs.cpio.xz
-STAGE			?= $(OUTPUT_DIR)/stage_$(NAME)
-DEFAULT_SYSROOT	:= $(if $(BOARD),/build/$(BOARD),/)
-SYSROOT			?= $(DEFAULT_SYSROOT)
-BOARD			?= unknown
-BUILD_LIBRARY_DIR	?= $(HOME)/trunk/src/scripts/build_library
+NAME ?= $(notdir $(CURDIR))
+OUTPUT_DIR ?= $(CURDIR)
+RAMFS_BIN ?= $(OUTPUT_DIR)/$(NAME)_ramfs.cpio.xz
+STAGE ?= $(OUTPUT_DIR)/stage_$(NAME)
+DEFAULT_SYSROOT := $(if $(BOARD),/build/$(BOARD),/)
+SYSROOT ?= $(DEFAULT_SYSROOT)
+BOARD ?= unknown
+BUILD_LIBRARY_DIR ?= $(HOME)/trunk/src/scripts/build_library
 
 # These are common paths we want to install files into.
-RAMFS_LAYOUT_DIRS	+= bin etc lib root
-RAMFS_BIN_DEPS		?= $(BIN_DEPS) $(EXTRA_BIN_DEPS)
-GEN_INIT_CPIO		= $(OUTPUT_DIR)/gen_init_cpio
-AOA_SWITCH		= $(OUTPUT_DIR)/aoa_switch
+RAMFS_LAYOUT_DIRS += bin etc lib root
+RAMFS_BIN_DEPS ?= $(BIN_DEPS) $(EXTRA_BIN_DEPS)
+GEN_INIT_CPIO = $(OUTPUT_DIR)/gen_init_cpio
+AOA_SWITCH = $(OUTPUT_DIR)/aoa_switch
 
 # Settings for the build system.
-BUILD_CC		?= gcc
-BUILD_CFLAGS		?= -O1 -pipe
-BUILD_CPPFLAGS		?=
-BUILD_LDFLAGS		?=
+BUILD_CC ?= gcc
+BUILD_CFLAGS ?= -O1 -pipe
+BUILD_CPPFLAGS ?=
+BUILD_LDFLAGS ?=
 
 .PHONY: all
-all:	$(RAMFS_BIN)
+all: $(RAMFS_BIN)
 
 .PHONY: clean
 clean:
