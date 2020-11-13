@@ -9,8 +9,9 @@
 COMPRESS = xz -9 --check=crc32
 
 # Staging and build toolchain.
-NAME ?= $(notdir $(CURDIR))
-OUTPUT_DIR ?= $(CURDIR)
+SRCDIR ?= $(CURDIR)
+NAME ?= $(notdir $(SRCDIR))
+OUTPUT_DIR ?= $(SRCDIR)
 RAMFS_BIN ?= $(OUTPUT_DIR)/$(NAME)_ramfs.cpio.xz
 STAGE ?= $(OUTPUT_DIR)/stage_$(NAME)
 DEFAULT_SYSROOT := $(if $(BOARD),/build/$(BOARD),/)
@@ -66,7 +67,7 @@ ifneq ($(LOCAL_BIN_DEPS),)
 		$(notdir $(LOCAL_BIN_DEPS)) \
 	)
 endif
-	cp init "$(STAGE)/init"
+	cp $(SRCDIR)/init "$(STAGE)/init"
 	cp ../common/init.sh "$(STAGE)/lib/"
 
 define generate_initramfs
