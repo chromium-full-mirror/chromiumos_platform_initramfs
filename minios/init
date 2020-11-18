@@ -3,6 +3,8 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+LOG_FILE=/log/recovery.log
+
 . /lib/completion_settings.sh
 . /lib/defaults.sh
 . /lib/init.sh
@@ -45,11 +47,12 @@ load_wifi_modules() {
 }
 
 main() {
+  exec >"${LOG_FILE}" 2>&1 </dev/null
   initialize
   select_locale
 
-  # Simple welcome screen.
-  message recovery_in_progress
+  # Simple welcome screen,
+  message minios_welcome
 
   # IO from console. [Switch to with Ctrl + Alt + F3]
   exec <${TTY_DEBUG} >>${TTY_DEBUG} 2>&1

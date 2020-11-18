@@ -167,7 +167,8 @@ def CreateMessageImage(msgtext, locale, imagename,
     OptimizeImage(temp_image.name, imagename)
 
 
-def CreateMonospaceGlyph(char, glyph_path, fontsize, fg_color):
+def CreateMonospaceGlyph(char, glyph_path, fontsize, fg_color,
+                         background_color):
   """Renders a single |char| into |glyph_path|."""
   with tempfile.NamedTemporaryFile(suffix='.png') as temp:
     subprocess.check_call(
@@ -177,7 +178,7 @@ def CreateMonospaceGlyph(char, glyph_path, fontsize, fg_color):
          '--hinting=auto',
          '--margin=0',
          '--foreground=%s' % fg_color,
-         '--background=%s' % BACKGROUND,
+         '--background=%s' % background_color,
          '--font=%s' % (MONOSPACE_FONT % fontsize),
          '--text=%s' % char,
          '--output=%s' % temp.name])
@@ -366,13 +367,13 @@ def CreateLinkedLocales(screendir, locale_list, link_list):
         os.link(orig_file, locale_file)
 
 
-def CreateMonospaceGlyphs(glyph_dir, text_color):
+def CreateMonospaceGlyphs(glyph_dir, text_color, background_color):
   """Creates images for a set of basic ASCII glyphs."""
   os.makedirs(glyph_dir, exist_ok=True)
 
   for char in MONOSPACE_GLYPHS:
     CreateMonospaceGlyph(char, os.path.join(glyph_dir, '%d.png' % ord(char)),
-                         FOOTER_FONT_SIZE, text_color)
+                         FOOTER_FONT_SIZE, text_color, background_color)
 
 
 def GetImageWidth(imgpath):
@@ -427,7 +428,10 @@ def CreateConstantDefs(screendir, all_locales):
         print('BUTTON_%s_WIDTH=%d' % (button, width), file=out)
 
       instructions = ['recovery_in_progress', 'recovery_complete',
-                      'recovery_failed']
+                      'recovery_failed', 'MiniOS_general_error',
+                      'MiniOS_password', 'MiniOS_error',
+                      'MiniOS_pick_image', 'MiniOS_downloading',
+                      'MiniOS_welcome']
       for instruction in instructions:
         title_img_path = os.path.join(screendir, locale,
                                       'title_' + instruction + '.png')
@@ -490,9 +494,14 @@ def main(argv):
 
   CreateLocales(textdir, screendir, locale_list)
   CreateLinkedLocales(screendir, locale_list, LOCALE_LINKS)
-  CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/white'), TEXT_COLOR)
+  CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/white'), TEXT_COLOR,
+                        BACKGROUND)
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/grey'),
-                        GREY_TEXT_COLOR)
+                        GREY_TEXT_COLOR, BACKGROUND)
+  # For dynamic text on focused buttons.
+  CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/black'),
+                     BACKGROUND, BLUE)
+
   CreateConstantDefs(screendir,
                      itertools.chain(SUPPORTED_LOCALES, LOCALE_LINKS))
   CreateLanguageDefs(screendir, SUPPORTED_LOCALES)

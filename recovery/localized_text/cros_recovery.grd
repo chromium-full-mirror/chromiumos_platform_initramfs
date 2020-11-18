@@ -386,6 +386,61 @@ Messages log
       <message name="title_tpm_log" desc="Title shown to the user when viewing tpm log">
 tpm-firmware-updater log
       </message>
+ <!-- MiniOS string translations. Do not copy or update in other locales. -->
+<message name="btn_next" desc="Next Page button">
+Next
+      </message>
+      <message name="btn_enter" desc="Enter button">
+Enter
+      </message>
+      <message name="title_MiniOS_password" desc="Title shown to the user to enter their password">
+Enter your password
+      </message>
+      <message name="desc_MiniOS_password" desc="Detailed description for entering password">
+Begin typing now. Hit Enter to submit.
+      </message>
+      <message name="title_MiniOS_welcome" desc="Title shown to the user when beginning recovery">
+Now ready to recover your device
+      </message>
+      <message name="desc_MiniOS_welcome" desc="Detailed description shown to the user when beginning recovery">
+If you want to choose a different recovery method, please reboot your device to return to the home screen.
+      </message>
+      <message name="title_MiniOS_dropdown" desc="Title shown to the user when starting process">
+Let's get connected and begin recovery
+      </message>
+      <message name="title_MiniOS_downloading" desc="Title shown to the user when downloading">
+Preforming recovery
+      </message>
+      <message name="desc_MiniOS_downloading" desc="Title shown to the user when downloading">
+This will take a few minutes. Please do not turn off the computer or disconnect the power.
+      </message>
+      <message name="title_MiniOS_complete" desc="Title shown to the user when finished with recovery">
+System recovery is now complete, device rebooting in 15 seconds
+      </message>
+      <message name="title_MiniOS_pick_image" desc="Title shown to the user about recovery version">
+You will now be updated to the latest stable version (Recommended)
+      </message>
+      <message name="desc_MiniOS_pick_image" desc="Detailed description about recovery version">
+Select advanced options below to change.
+      </message>
+      <message name="title_MiniOS_error" desc="Title shown to the user when there is an error">
+The recovery process could not be started
+      </message>
+      <message name="desc_MiniOS_error" desc="Detailed description for error">
+Only ASCII characters are supported in name and password.
+      </message>
+      <message name="title_MiniOS_advanced_options" desc="Title shown to the user in image advanced options">
+Select OS channel and version to continue recovery
+      </message>
+      <message name="title_MiniOS_general_error" desc="Title shown to the user when there is an error">
+Sorry, something went wrong
+      </message>
+      <message name="desc_MiniOS_general_error" desc="Detailed description for error">
+Please try again. Make sure the device is plugged in and charging.
+      </message>
+      <message name="btn_MiniOS_display_options" desc="Button for options menu">
+Available Items
+      </message>
     </messages>
   </release>
 </grit>

@@ -52,6 +52,10 @@ DEFAULT_MESSAGE_WIDTH=720
 MONOSPACE_GLYPH_HEIGHT=20
 MONOSPACE_GLYPH_WIDTH=10
 
+# Available options and chosen one.
+NAME_LIST=
+NAME=
+
 # User visible message overlaid on the screen. Only use for debug features!
 log() {
   echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
@@ -390,9 +394,9 @@ showbutton() {
     showmessage "${message_token}" "${offset_x}" "${offset_y}"
 
     # drow top/down border on top of the message
-    showbox "${offset_x}" "$(( offset_y - BUTTON_HEIGHT / 2 ))" \
+    showbox "${offset_x}" "$(( offset_y - BUTTON_HEIGHT / 2 + 1 ))" \
       "${inner_width}" 1 "${MENU_UI_BTN_FRAME}"
-    showbox "${offset_x}" "$(( offset_y + BUTTON_HEIGHT / 2 - 1 ))" \
+    showbox "${offset_x}" "$(( offset_y + BUTTON_HEIGHT / 2  ))" \
       "${inner_width}" 1 "${MENU_UI_BTN_FRAME}"
   fi
 }
@@ -1123,3 +1127,391 @@ message_recovery_in_progress() {
   instructions_with_title recovery_in_progress
   show_stepper_in_progress
 }
+
+# MINIOS SCREENS AND FUNCTIONS.
+
+show_button_text() {
+  local text="$1"
+  local offset_y="$2"
+  local focused="$3"
+  local inner_width="$4"
+
+  local btn_padding=32 # Left and right padding.
+  local left_padding_x="$(( -CANVAS_SIZE / 2 + btn_padding / 2 ))"
+  local offset_x="$(( left_padding_x + btn_padding / 2 + inner_width / 2 ))"
+  local right_padding_x="$(( offset_x + btn_padding / 2 + inner_width / 2 ))"
+
+  # Clear previous state.
+  showbox "${offset_x}" "${offset_y}" "$(( btn_padding * 2 + inner_width ))" \
+     "${BUTTON_HEIGHT}" "${BACKGROUND}"
+  if rtl; then
+    # Swap left and right border.
+    local temp="${left_padding_x}"
+    left_padding_x="${right_padding_x}"
+    right_padding_x="${temp}"
+  fi
+
+  if [ "${focused}" -ne 0 ]; then
+    showimage "${SCREENS}/btn_bg_left_focused.png" \
+      "${left_padding_x}" "${offset_y}"
+    showimage "${SCREENS}/btn_bg_right_focused.png" \
+      "${right_padding_x}" "${offset_y}"
+    showbox "${offset_x}" "$((offset_y))" "${inner_width}" "${BUTTON_HEIGHT}" \
+       "${MENU_UI_BLUE}"
+    showtext "${text}" "$((left_padding_x))" "${offset_y}" 'black'
+
+  else
+    showimage "${SCREENS}/btn_bg_left.png" \
+      "${left_padding_x}" "${offset_y}"
+    showimage "${SCREENS}/btn_bg_right.png" \
+      "${right_padding_x}" "${offset_y}"
+    # Draw top/down border on top of the message.
+    showbox "${offset_x}" "$(( offset_y - (BUTTON_HEIGHT / 2) + 1))" \
+      "${inner_width}" 1 "${MENU_UI_BTN_FRAME}"
+    showbox "${offset_x}" "$(( offset_y + (BUTTON_HEIGHT / 2) ))" \
+      "${inner_width}" 1 "${MENU_UI_BTN_FRAME}"
+    showtext "${text}" "$((left_padding_x))" "${offset_y}" 'white'
+  fi
+}
+
+minios_welcome_onselect () {
+  local selected_index=$1
+  case "${selected_index}" in
+    0)
+      message language_menu
+      ;;
+    1)
+      message minios_dropdown
+      ;;
+    2)
+      message minios_welcome
+      ;;
+  esac
+
+  return 0
+}
+
+minios_welcome_onchange() {
+  local selected_index=$1
+  local title_y="$(( (-CANVAS_SIZE / 2) + 220 + 18 ))"
+
+  message_base_screen
+  instructions_with_title MiniOS_welcome
+  show_stepper '1' '2' '3'
+  show_language_menu "$(( selected_index == 0 ))"
+
+  local btn_y="$(( title_y +80 ))"
+  local btn_y_step="$(( BUTTON_HEIGHT + BUTTON_MARGIN ))"
+  btn_y=$(( btn_y + btn_y_step * 2 ))
+  showbutton btn_next "${btn_y}" "$(( selected_index == 1 ))" \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
+  btn_y=$(( btn_y + btn_y_step ))
+  showbutton btn_back "${btn_y}" "$(( selected_index == 2 ))" \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
+}
+
+message_minios_welcome() {
+  message_base_screen
+  REGION="$(vpd_get_value region)"
+  dlog "MiniOS_welcome: VPD region is $REGION"
+  menu_event_loop 3 1 minios_welcome_onchange minios_welcome_onselect
+  return 0
+}
+
+show_item_menu(){
+  local focused="$1"
+
+  local offset_y="$(( (-CANVAS_SIZE / 2) + 350 ))"
+  local bg_x="$(( (-CANVAS_SIZE / 2) + 145 ))"
+  local globe_x="$(( (-CANVAS_SIZE / 2 )+ 20 ))"
+  local arrow_x="$(( (-CANVAS_SIZE / 2) + 268 ))"
+  local text_x="$(( (-CANVAS_SIZE / 2) + 100 ))"
+
+  local menu_bg="${SCREENS}/language_menu_bg_focused.png"
+  if [ "${focused:-0}" -eq 0 ]; then
+    menu_bg="${SCREENS}/language_menu_bg.png"
+  fi
+
+  showimage "${menu_bg}" "${bg_x}" "${offset_y}"
+  showimage "${SCREENS}/ic_language-globe.png" "${globe_x}" "${offset_y}"
+  showimage "${SCREENS}/ic_dropdown.png" "${arrow_x}" "${offset_y}"
+  showmessage "btn_MiniOS_display_options" "${text_x}" "${offset_y}"
+}
+
+item_dropdown_onselect() {
+  local selected_index=$1
+
+  NAME="$(echo "${NAME_LIST}" | \
+                  cut -d\' -f"$((selected_index * 2))")"
+
+  clear_screen
+  return 1
+}
+
+item_dropdown_onchange() {
+  local selected_index=$1
+  local func="show_item_dropdown "$(( selected_index - 1 ))" ${NAME_LIST}"
+  eval "${func}"
+}
+
+get_item_count(){
+  echo $#
+}
+
+message_item_dropdown_menu() {
+  clear_main_area
+  instructions title_MiniOS_dropdown
+  show_stepper '1-done' '2' '3'
+  show_item_menu 1
+  show_footer
+
+  # Remove once recovery begins. Writing to the file myself to mock.
+  # Needs single quotes & space or new line between each.
+  echo "'item 1' 'item2_public' 'testing!! 123' 'test_option' " \
+  "'32_char_is_the_longest_item_name' 'SELECT_ITEM' 'item 101'" > /tmp/list.txt
+   NAME_LIST=""
+  local func="get_item_count "
+  while IFS= read -r item; do
+       func=${func}" $item"
+       NAME_LIST=${NAME_LIST}" $item"
+  done < /tmp/list.txt
+  unset IFS
+
+  local item_count=$(eval "$func")
+  dlog "Items_dropdown_menu: number of items given $item_count"
+  dlog "Items_dropdown_menu: items given $NAME_LIST"
+
+  menu_event_loop "$(( item_count + 1 ))" "${selected_index}" \
+  item_dropdown_onchange item_dropdown_onselect
+}
+
+show_item_dropdown() {
+  local selected_index="$1"
+  shift
+
+  local item_height=40
+  local item_per_page="$(( (CANVAS_SIZE - 260) / item_height ))"
+  local item_count="$#"
+
+  # Put the focused item on middle of the screen if possible.
+  local begin_index="$(( selected_index - (item_per_page / 2) ))"
+  if [ "${begin_index}" -lt 0 ]; then
+    begin_index=0
+  elif [ "$(( begin_index + item_per_page ))" -gt "${item_count}" ]; then
+    begin_index="$(( item_count - item_per_page ))"
+  fi
+  shift "${begin_index}"
+
+  local i="${begin_index}"
+  local offset_y="$((  (-CANVAS_SIZE / 2) + 350 + item_height ))"
+  local background_x="$(( (-CANVAS_SIZE / 2) + 360 ))"
+  local lang_x lang_width
+
+  while [ "${i}" -lt "$(( begin_index + item_per_page ))" -a \
+          "${i}" -lt "${item_count}" ]; do
+    lang_x="$(( (-CANVAS_SIZE / 2) + 60 ))"
+    if [ "${selected_index}" -eq "${i}" ]; then
+      # Button focused.
+      showbox "${background_x}" "${offset_y}" 720 40 "${MENU_UI_BLUE}"
+      showtext "$1" "${lang_x}" "${offset_y}" 'black'
+    else
+      showbox "${background_x}" "${offset_y}" 720 40 "${MENU_UI_DROPDOWN_FRAME}"
+      showbox "${background_x}" "${offset_y}" 718 38 "${MENU_UI_DROPDOWN_BG}"
+      showtext "$1" "${lang_x}" "${offset_y}" 'grey'
+    fi
+
+    i="$(( i + 1 ))"
+    offset_y="$(( offset_y + item_height ))"
+    shift
+  done
+}
+
+dropdown_screen_onchange() {
+  local selected_index=$1
+  local title_y="$(( (-CANVAS_SIZE / 2) + 238 ))"
+  echo "${selected_index}"
+  message_base_screen
+  instructions title_MiniOS_dropdown
+  show_stepper '1-done' '2' '3'
+  show_language_menu "$(( selected_index == 0 ))"
+
+  local btn_y="$(( title_y +  58 ))" # padding 40
+  local btn_y_step="$(( BUTTON_HEIGHT + BUTTON_MARGIN ))"
+
+  show_item_menu "$(( selected_index == 1 ))"
+
+  # Back button.
+  btn_y=$(( btn_y + (btn_y_step * 4) ))
+  showbutton btn_back "${btn_y}" "$(( selected_index == 2 ))" \
+     "${DEBUG_OPTIONS_BTN_WIDTH}"
+}
+
+dropdown_screen_onselect() {
+  local selected_index=$1
+  case "${selected_index}" in
+    0)
+      message language_menu
+      ;;
+    1)
+      message item_dropdown_menu
+      message password
+      ;;
+    2)
+      message minios_welcome
+      ;;
+  esac
+  return 0
+}
+
+message_minios_dropdown() {
+  message_base_screen
+  menu_event_loop 3 1 dropdown_screen_onchange dropdown_screen_onselect
+}
+
+password_onselect () {
+  local selected_index=$1
+  case "${selected_index}" in
+    0)
+      message language_menu
+      ;;
+    1)
+      message downloading
+      ;;
+    2)
+      message minios_dropdown
+      ;;
+    3)
+      message minios_advanced
+      ;;
+  esac
+
+  return 0
+}
+
+password_onchange() {
+  local selected_index=$1
+  local title_y="$(( (-CANVAS_SIZE / 2) + 238 ))"
+
+  echo "${selected_index}"
+
+  message_base_screen
+  instructions_with_title MiniOS_pick_image
+  show_stepper 'done' '2-done' '3'
+  show_language_menu "$(( selected_index == 0 ))"
+
+
+  local btn_y_step="$(( BUTTON_HEIGHT + BUTTON_MARGIN ))"
+  local btn_y="$(( title_y + 58 + (btn_y_step * 2) ))" # padding 40
+
+  showbutton btn_enter "${btn_y}" "$(( selected_index == 1 ))" \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
+
+  btn_y=$(( btn_y + (btn_y_step * 1) ))
+  showbutton btn_back "${btn_y}" "$(( selected_index == 2 ))" \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
+
+  local adv_y="$(( (CANVAS_SIZE / 2) - 222 ))"
+  showadvoption settings btn_debug_options "${adv_y}" \
+    "$(( selected_index == 3 ))"
+}
+
+get_keyinput() {
+  local btn_y="$(( -CANVAS_SIZE / 2 + 400 ))"
+  local start="enter recovery password"
+
+  show_button_text "${start}" "${btn_y}" 0 \
+  "$((DEBUG_OPTIONS_BTN_WIDTH *3 - 10))"
+
+  key_reader --country_code="${REGION}" --include_usb --print_length |
+  while IFS= read -r line; do
+  if [  ${#line} -ge 3 ]
+  then
+    echo "${line}"
+  else
+    local pass=$(printf '%.0s*' $(seq 1 "$line"))
+    show_button_text "${pass}" "${btn_y}" 0 \
+    "$((DEBUG_OPTIONS_BTN_WIDTH *3 - 10))"
+  fi
+  done
+}
+
+message_password() {
+  # shellcheck disable=SC2039
+  dlog "message_password: option picked is '$NAME'"
+  message_base_screen
+  show_stepper 'done' '2-done' '3'
+  instructions_with_title MiniOS_password
+
+  # Get password from key_reader.
+  local password="$(get_keyinput)"
+  dlog "Message_password: password entered is'$password'"
+  menu_event_loop 4 1 password_onchange password_onselect
+}
+
+message_downloading() {
+  message_base_screen
+  instructions_with_title MiniOS_downloading
+  show_stepper 'done' 'done' '3-done'
+  # For testing purposes wait on screen.
+  make_user_wait 7
+  message_complete
+}
+
+message_minios_advanced() {
+  message_base_screen
+  instructions title_MiniOS_advanced_options
+  make_user_wait 10
+  message downloading
+}
+
+message_complete() {
+  message_base_screen
+  instructions title_MiniOS_complete
+  show_stepper 'done' 'done' 'done'
+
+  make_user_wait 7
+  # reboot -f
+  show_button_text "Reboot" -100 1 \
+  "$((DEBUG_OPTIONS_BTN_WIDTH))"
+
+  # Remove later, just for seeing all the screens together.
+  message_dropdown_selection_error
+}
+
+errorstate_onselect() {
+  while true; do
+    case "$(wait_menu_input)" in
+      enter)
+        eval "${BACK_PAGE}"
+        ;;
+      *)
+        dlog "Minios error: ignore unknown key"
+        ;;
+    esac
+  done
+}
+
+message_dropdown_selection_error() {
+  # Change back_page to drop down screen later,
+  # just for seeing all the screens together for testing.
+  BACK_PAGE="message_minios_error"
+  message_base_screen
+  instructions_with_title MiniOS_error
+  show_stepper 'done' 'done' 'stepper_error'
+
+  showbutton btn_try_again -100 1 \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
+  errorstate_onselect
+}
+
+message_minios_error() {
+  BACK_PAGE="message_minios_welcome"
+  message_base_screen
+  show_stepper 'done' 'done' 'stepper_error'
+  instructions_with_title MiniOS_general_error
+
+  showbutton btn_try_again -100 1 \
+    "${DEBUG_OPTIONS_BTN_WIDTH}"
+  errorstate_onselect
+}
+
