@@ -10,21 +10,39 @@ export SRCDIR = $(CURDIR)
 # Override so recovery/Makefile uses files with relative path to miniOS.
 export RECOVERY_DIR = ../recovery
 
-# Override so recovery/Makefile used miniOS initramfs folder.
+# Override so recovery/Makefile uses miniOS initramfs folder.
 export OVERLAY_FOLDER = $(SYSROOT)/var/lib/initramfs/minios
+
+# Override so recovery/Makefile creates extra directories.
+export MINIOS_RAMFS_LAYOUT_DIRS = \
+	run/dbus
 
 # Extra dependencies miniOS requires.
 export MINIOS_BIN_DEPS = \
-	/usr/bin/strace \
-	/usr/bin/curl \
+	/sbin/chromeos_startup \
 	/sbin/dhclient \
 	/sbin/dhclient-script \
 	/sbin/dhcpcd \
+	/sbin/init \
+	/sbin/initctl \
 	/sbin/minijail0 \
-	/usr/sbin/wpa_supplicant \
-	/usr/bin/wpa_passphrase \
+	/sbin/start \
+	/sbin/status \
+	/sbin/stop \
+	/usr/bin/curl \
+	/usr/bin/dbus-daemon \
+	/usr/bin/dbus-monitor \
+	/usr/bin/dbus-send \
+	/usr/bin/logger \
+	/usr/bin/shill \
+	/usr/bin/strace \
+	/usr/bin/update_engine_client \
 	/usr/bin/wpa_cli \
-	/usr/bin/wpa_debug
+	/usr/bin/wpa_debug \
+	/usr/bin/wpa_passphrase \
+	/usr/sbin/bootstat \
+	/usr/sbin/update_engine \
+	/usr/sbin/wpa_supplicant
 
 .PHONY: all
 all:

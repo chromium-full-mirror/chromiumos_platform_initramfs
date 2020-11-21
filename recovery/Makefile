@@ -43,6 +43,10 @@ RAMFS_LAYOUT_DIRS = \
 	stateful \
 	usb
 
+ifdef MINIOS_RAMFS_LAYOUT_DIRS
+RAMFS_LAYOUT_DIRS += $(MINIOS_RAMFS_LAYOUT_DIRS)
+endif
+
 INTERACTIVE_COMPLETE ?= true
 
 # Any files here will be overlayed to the initramfs folder.
@@ -132,7 +136,32 @@ minios: stage_init
 		! -name net \
 		! -name . -exec rm -rf {} +)
 	# MISC.
-	cp "$(SYSROOT)/etc/nsswitch.conf" "$(STAGE)/etc"
+	cp "$(SYSROOT)/etc/passwd" \
+		"$(SYSROOT)/etc/group" \
+		"$(SYSROOT)/etc/nsswitch.conf" "$(STAGE)/etc"
 	# MISSING SHARED LIBS
 	mkdir -p "$(STAGE)/lib64"
-	cp -av "$(SYSROOT)/lib64/libnss"* "$(STAGE)/lib64"
+	cp -av "$(SYSROOT)/lib64/libnss"* "$(STAGE)/lib64/"
+	cp -av "$(SYSROOT)/lib64/libminijail"* "$(STAGE)/lib64/"
+	# DBUS
+	mkdir -p "$(STAGE)/etc/dbus-1"
+	cp -av "$(SYSROOT)/etc/dbus-1/"* \
+		"$(STAGE)/etc/dbus-1/"
+	mkdir -p "$(STAGE)/usr/share/dbus-1"
+	cp -av "$(SYSROOT)/usr/share/dbus-1/"* \
+		"$(STAGE)/usr/share/dbus-1/"
+	# SHILL
+	mkdir -p "$(STAGE)/usr/share/cros/init"
+	cp -av "$(SYSROOT)/usr/share/cros/init/shill-pre-start.sh" \
+		"$(SYSROOT)/usr/share/cros/init/shill.sh" \
+		"$(SYSROOT)/usr/share/cros/init/shill-event.sh" \
+		"$(STAGE)/usr/share/cros/init/"
+	mkdir -p "$(STAGE)/usr/include/chromeos/dbus"
+	cp -ab "$(SYSROOT)/usr/include/chromeos/dbus/shill" \
+		"$(STAGE)/usr/include/chromeos/dbus/"
+	mkdir -p "$(STAGE)/usr/share/shill"
+	cp -av "$(SYSROOT)/usr/share/shill/"* \
+		"$(STAGE)/usr/share/shill/"
+	mkdir -p "$(STAGE)/usr/lib64/shill"
+	cp -av "$(SYSROOT)/usr/lib64/shill/"* \
+		"$(STAGE)/usr/lib64/shill/"

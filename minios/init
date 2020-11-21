@@ -44,54 +44,31 @@ load_wifi_modules() {
   modprobe crypto-ccm
 }
 
-setup_static_ssid() {
-  # Create the WPA passphrase.
-  # This creates a static SSID connection with parameters:
-  #  SSID=cros-minios
-  #  PSK=test0000
-  # Note: Create a wifi name is "cros-minios" and password as "test0000"
-  wpa_passphrase "cros-minios" "test0000" > /etc/wpa_supplicant.conf
-}
-
-start_wpa_supplicant() {
-  # TODO: Dynamic wireless interface pickup.
-  wpa_supplicant -B -i wlan0 \
-    -c /etc/wpa_supplicant.conf \
-    -O /run/wpa_supplicant \
-    -d -f /tmp/wpa_supplicant.log
-
-  # Get inet address.
-  mkdir -p /var/lib/dhcp
-  dhclient wlan0
-}
-
-init_wireless() {
-  echo "Please wait..."
-  load_wifi_modules
-  setup_static_ssid
-  # Start in background to not hang on static SSID connection.
-  start_wpa_supplicant &
-}
-
 main() {
   initialize
   select_locale
 
-  # Simple welcome screen,
+  # Simple welcome screen.
   message recovery_in_progress
-
-  set_brightness
 
   # IO from console. [Switch to with Ctrl + Alt + F3]
   exec <${TTY_DEBUG} >>${TTY_DEBUG} 2>&1
 
-  init_wireless
+  # Start the dbus daemon.
+  dbus-daemon --system --fork
 
-  # Keep looping on shell [testing].
-  while true; do
-    echo "Starting a shell for you to explore minios!"
-    /bin/sh
-  done
+  # Start shill (pre-upstart).
+  load_wifi_modules
+  /usr/share/cros/init/shill-pre-start.sh
+  /usr/share/cros/init/shill.sh
+
+  # Start update_engine.
+  update_engine
+
+  set_brightness
+
+  echo "Starting a shell for you to explore minios!"
+  exec /bin/sh
 }
 
 if [ "$0" = "/init" ]; then
