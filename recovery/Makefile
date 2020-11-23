@@ -58,15 +58,15 @@ CROS_REGIONS_DATABASE ?= $(SYSROOT)/usr/share/misc/cros-regions.json
 LOCALES_TABLE ?= $(STAGE)/etc/locales.txt
 CONFIG_FOLDER ?= $(STAGE)/etc/cros-initramfs
 
-ifeq ($(MENU_UI),1)
-UI = menu_ui
-ifeq ($(MINIOS),1)
-UI = minios_ui
-endif
-else
+ifeq ($(LEGACY_UI),1)
 UI = legacy_ui
 ifeq ($(MINIOS),1)
 $(error "Cannot build miniOS on legacy_ui")
+endif
+else
+UI = menu_ui
+ifeq ($(MINIOS),1)
+UI = minios_ui
 endif
 endif
 
