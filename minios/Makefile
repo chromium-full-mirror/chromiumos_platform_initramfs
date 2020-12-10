@@ -42,6 +42,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/wpa_passphrase \
 	/usr/sbin/bootstat \
 	/usr/sbin/update_engine \
+	/usr/sbin/key_reader \
 	/usr/sbin/wpa_supplicant
 
 .PHONY: all

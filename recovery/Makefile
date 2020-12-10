@@ -139,6 +139,8 @@ minios: stage_init
 	cp "$(SYSROOT)/etc/passwd" \
 		"$(SYSROOT)/etc/group" \
 		"$(SYSROOT)/etc/nsswitch.conf" "$(STAGE)/etc"
+	mkdir -p "$(STAGE)/usr/share/X11/xkb"
+	cp -r "$(SYSROOT)/usr/share/X11/xkb"* "$(STAGE)/usr/share/X11"
 	# MISSING SHARED LIBS
 	mkdir -p "$(STAGE)/lib64"
 	cp -av "$(SYSROOT)/lib64/libnss"* "$(STAGE)/lib64/"
