@@ -1424,14 +1424,17 @@ get_keyinput() {
 
   key_reader --country_code="${REGION}" --include_usb --print_length |
   while IFS= read -r line; do
-  if [  ${#line} -ge 3 ]
-  then
-    echo "${line}"
-  else
-    local pass=$(printf '%.0s*' $(seq 1 "$line"))
+    if [  ${#line} -ge 3 ]; then
+      echo "${line}"
+      return
+    elif [ "${line}" -eq 0 ]; then
+      local pass=""
+    else
+      local pass
+      pass=$(printf '%.0s*' $(seq 1 "$line"))
+    fi
     show_button_text "${pass}" "${btn_y}" 0 \
     "$((DEBUG_OPTIONS_BTN_WIDTH *3 - 10))"
-  fi
   done
 }
 
