@@ -955,6 +955,10 @@ update_tpm_firmware() {
 # The private and public keys are kept in memory as OOBE_PRIVATE_KEY_PEM and
 # OOBE_PUBLIC_KEY_PEM.
 setup_oobe_auto_config_keys() {
+  if [ ! -f "${CONFIG_FOLDER}/use_oobe_config" ]; then
+    return
+  fi
+
   # +x to prevent logging private key.
   set +x
   local key_data="$(cros_oobe_crypto)"

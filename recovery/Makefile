@@ -93,6 +93,7 @@ $(RAMFS_BIN): $(UI) stage_init
 		touch "$(CONFIG_FOLDER)/is_physical_presence_power"
 	[ "$(PHYSICAL_PRESENCE)" != "recovery" ] || \
 		touch "$(CONFIG_FOLDER)/is_physical_presence_recovery"
+	[ "$(OOBE_CONFIG)" -eq 0 ] || touch "$(CONFIG_FOLDER)/use_oobe_config"
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
 	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
