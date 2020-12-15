@@ -62,13 +62,13 @@ MONOSPACE_GLYPHS = 'abcdefghijklmnopqrstuvwxyz0123456789.-'
 # Message box dimensions.
 # MESSAGE_BOX_WIDTH:
 #     Width in pixels of an image containing message text.  This
-#     width must not exceed the width of the "boot_message.png"
+#     width must not exceed the width of the "boot_message_light.png"
 #     image.  At the time of this comment, the limit is 1024 pixels.
 # MESSAGE_BOX_HEIGHT:
 #     Height in pixels of an image containing message text.  This
 #     height must not exceed one third of the height of the frame
-#     allocated for messages in "boot_message.png".  At the time of
-#     this comment, the limit is 115 pixels.
+#     allocated for messages in "boot_message_light.png".  At the time
+#     of this comment, the limit is 115 pixels.
 # TEXT_INSET_WIDTH:
 #     Message images will have a margin of this many pixels on the
 #     right and left of the text.
@@ -203,9 +203,9 @@ PROGRESS_INCREMENT_TOP = _OffsetFromCenter(
 # Color parameters:
 # BACKGROUND:
 #     This is the background color.  N.B.:  This color must be the
-#     same as the background color of the "boot_message.png" image
-#     file from chromeos-assets; if that image changes, this color
-#     will need to change.
+#     same as the background color of the "boot_message_light.png"
+#     image file from chromeos-assets; if that image changes, this
+#     color will need to change.
 # TEXT_COLOR:
 #     This is the foreground color for message text.
 # PROGRESS_COLOR:

@@ -268,7 +268,7 @@ message_startup() {
   frecon-lite --enable-vt1 --daemon --no-login --enable-gfx \
               --enable-vts --scale="${FRECON_SCALING_FACTOR}" \
               --clear "0x${BACKGROUND}" --pre-create-vts \
-              "${SCREENS}/boot_message.png"
+              "${SCREENS}/boot_message_light.png"
 }
 
 message_oobe_autoconfig_domain() {
