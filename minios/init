@@ -70,8 +70,9 @@ main() {
 
   set_brightness
 
-  echo "Starting a shell for you to explore minios!"
-  exec /bin/sh
+  # Eventually this executable will be the init process for miniOS instead of
+  # this shell script.
+  exec /usr/bin/minios
 }
 
 if [ "$0" = "/init" ]; then

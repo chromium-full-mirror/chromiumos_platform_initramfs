@@ -34,6 +34,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/dbus-monitor \
 	/usr/bin/dbus-send \
 	/usr/bin/logger \
+	/usr/bin/minios \
 	/usr/bin/shill \
 	/usr/bin/strace \
 	/usr/bin/update_engine_client \
