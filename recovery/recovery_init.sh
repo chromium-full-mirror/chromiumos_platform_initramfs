@@ -668,6 +668,10 @@ get_usb_debugging_flag() {
 }
 
 is_oobe_autoconfig() {
+  if [ ! -f "${CONFIG_FOLDER}/use_oobe_config" ]; then
+    return 1
+  fi
+
   local has_config=1
   if get_stateful_dev && mount -n -o sync,ro "${STATE_DEV}" "${STATEFUL_MNT}"
   then
