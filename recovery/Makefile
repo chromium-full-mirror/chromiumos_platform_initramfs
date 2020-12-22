@@ -101,7 +101,7 @@ $(RAMFS_BIN): $(UI) stage_init
 
 .PHONY: legacy_ui
 legacy_ui: stage_init
-	cp "$(SYSROOT)/usr/share/chromeos-assets/images/boot_message.png" \
+	cp "$(SYSROOT)/usr/share/chromeos-assets/images/boot_message_light.png" \
 		legacy_ui/assets/*.png "$(STAGE)/etc/screens"
 	legacy_ui/make_images localized_text "$(STAGE)/etc/screens" \
 		$(LOCALE_LIST)
