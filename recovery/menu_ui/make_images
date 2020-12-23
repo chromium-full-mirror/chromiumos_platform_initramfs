@@ -50,24 +50,15 @@ FONT_MAPPING = {
   'zh-TW': 'Noto Sans CJK TC',
 }
 SUPPORTED_LOCALES = (
-  'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en-GB', 'en-US', 'es',
-  'es-419', 'et', 'fa', 'fi', 'fil', 'fr', 'gu', 'he', 'hi', 'hr', 'hu', 'id',
-  'it', 'ja', 'kn', 'ko', 'lt', 'lv', 'ml', 'mr', 'ms', 'nb', 'nl', 'pl',
-  'pt-BR', 'pt-PT', 'ro', 'ru', 'sk', 'sl', 'sr', 'sv', 'ta', 'te', 'th', 'tr',
-  'uk', 'vi', 'zh-CN', 'zh-TW'
+  'en-US', 'bn', 'ca', 'da', 'de', 'et', 'es', 'es-419', 'fil', 'fr', 'hr',
+  'id', 'it', 'lv', 'lt', 'hu', 'ms', 'nl', 'nb', 'pl', 'pt-PT', 'pt-BR', 'ro',
+  'sk', 'sl', 'fi', 'sv', 'vi', 'tr', 'cs', 'el', 'bg', 'ru', 'sr', 'uk', 'he',
+  'ar', 'fa', 'mr', 'hi', 'gu', 'ta', 'te', 'kn', 'ml', 'th', 'zh-CN', 'zh-TW',
+  'ja', 'ko',
 )
 
-# A handful of locales reuse the texts from other locales.
-# (With apologies to our Aussie and Canadian friends, who really
-# deserve locales of their own ;-) ).
-LOCALE_LINKS = {
-  'en-CA': 'en-US',
-  'en-AU': 'en-GB',
-}
-
-
 # We package some plain ASCII glyphs for basic dynamic text rendering.
-MONOSPACE_FONT = 'Monospace %dpx'
+MONOSPACE_FONT = 'Cousine %dpx'
 MONOSPACE_GLYPHS = string.digits + string.ascii_letters + string.punctuation
 
 BLACK = '#000000'
@@ -339,34 +330,6 @@ def CreateLocales(textdir, screendir, locale_list):
     shutil.rmtree(tmpdir)
 
 
-def CreateLinkedLocales(screendir, locale_list, link_list):
-  """Created locales that are linked to pre-existing locales.
-
-  `locale_list` is a list of locales that already exist, and
-  `link_list` is mapping of {`target`: `orig`}.  For each
-  `orig` that is also in `locale_list`, the corresponding `target`
-  is created as a linked copy of `orig`.
-
-  `orig` is expected to exist under the directory `screendir` and
-  `target` is created there.
-  """
-  for target, orig in link_list.items():
-    if orig not in locale_list:
-      continue
-    print('Locale %s linked to %s' % (target, orig))
-    locale_screen = os.path.join(screendir, target)
-    orig_screen = os.path.join(screendir, orig)
-    if not os.path.isdir(locale_screen):
-      os.mkdir(locale_screen)
-    for _, _, filenames in os.walk(orig_screen):
-      for filename in filenames:
-        orig_file = os.path.join(orig_screen, filename)
-        locale_file = os.path.join(locale_screen, filename)
-        if os.path.exists(locale_file):
-          os.unlink(locale_file)
-        os.link(orig_file, locale_file)
-
-
 def CreateMonospaceGlyphs(glyph_dir, text_color, background_color):
   """Creates images for a set of basic ASCII glyphs."""
   os.makedirs(glyph_dir, exist_ok=True)
@@ -493,7 +456,6 @@ def main(argv):
     os.mkdir(screendir)
 
   CreateLocales(textdir, screendir, locale_list)
-  CreateLinkedLocales(screendir, locale_list, LOCALE_LINKS)
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/white'), TEXT_COLOR,
                         BACKGROUND)
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/grey'),
@@ -502,8 +464,7 @@ def main(argv):
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/black'),
                      BACKGROUND, BLUE)
 
-  CreateConstantDefs(screendir,
-                     itertools.chain(SUPPORTED_LOCALES, LOCALE_LINKS))
+  CreateConstantDefs(screendir, SUPPORTED_LOCALES)
   CreateLanguageDefs(screendir, SUPPORTED_LOCALES)
   ConvertSvg(assetsdir, screendir)
 
