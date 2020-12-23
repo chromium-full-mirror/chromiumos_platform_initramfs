@@ -915,6 +915,7 @@ language_onselect() {
 language_onchange() {
   local selected_index=$1
 
+  show_language_menu "$(( selected_index == 0 ))"
   # shellcheck disable=SC2086
   show_language_dropdown "$(( selected_index - 1 ))" ${SUPPORTED_LOCALES}
 }
@@ -936,6 +937,14 @@ message_language_menu() {
   locale_count="$(echo "${SUPPORTED_LOCALES}" | wc -w)"
   menu_event_loop "$(( locale_count + 1 ))" "${selected_index}" \
     language_onchange language_onselect
+}
+
+get_language_string_width() {
+  local locale="$1"
+
+  local lang_width
+  eval "lang_width=\${LANGUAGE_$(echo "$1" | tr - _)_WIDTH}"
+  echo "${lang_width}"
 }
 
 show_language_dropdown() {
@@ -961,7 +970,7 @@ show_language_dropdown() {
   local lang_x lang_width
   while [ "${i}" -lt "$(( begin_index + item_per_page ))" ] && \
         [ "${i}" -lt "${item_count}" ]; do
-    eval "lang_width=\${LANGUAGE_$(echo "$1" | tr - _)_WIDTH}"
+    lang_width="$(get_language_string_width "$1")"
     lang_x="$(( -CANVAS_SIZE / 2 + lang_width / 2 + 40 ))"
     if [ "${selected_index}" -eq "${i}" ]; then
       showbox "${background_x}" "${offset_y}" 720 40 "${MENU_UI_BLUE}"
@@ -1040,7 +1049,9 @@ show_language_menu() {
   local bg_x="$(( -CANVAS_SIZE / 2 + 145 ))"
   local globe_x="$(( -CANVAS_SIZE / 2 + 20 ))"
   local arrow_x="$(( -CANVAS_SIZE / 2 + 268 ))"
-  local text_x="$(( -CANVAS_SIZE / 2 + 40 + LANGUAGE_WIDTH / 2 ))"
+  local lang_width
+  lang_width="$(get_language_string_width "${LANGDIR}")"
+  local text_x="$(( -CANVAS_SIZE / 2 + 40 + lang_width / 2 ))"
 
   local menu_bg="${SCREENS}/language_menu_bg_focused.png"
   if [ "${focused:-0}" -eq 0 ]; then
