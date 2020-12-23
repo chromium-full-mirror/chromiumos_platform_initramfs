@@ -43,9 +43,6 @@ CANVAS_SIZE=
 BUTTON_HEIGHT=32
 BUTTON_MARGIN=8 # 8 pixels between buttons
 
-MONOSPACE_LINE_HEIGHT=19
-MONOSPACE_GLYPH_WIDTH=10
-
 # Default width of screens/{lang}/*.png, used in most messages except buttons
 DEFAULT_MESSAGE_WIDTH=720
 
@@ -63,6 +60,7 @@ log() {
 
 # Like log() but with printf() semantics.
 logf() {
+  # shellcheck disable=SC2059
   printf "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
 }
 
@@ -73,6 +71,7 @@ dlog() {
 
 # Like dlog() but with printf() semantics.
 dlogf() {
+  # shellcheck disable=SC2059
   printf "$@" > "${TTY_LOG}"
 }
 
@@ -104,7 +103,7 @@ read_vpd_locale() {
 }
 
 read_truncated_hwid() {
-  echo "$(crossystem hwid | cut -f 1 -d ' ')"
+  crossystem hwid | cut -f 1 -d ' '
 }
 
 select_locale() {
@@ -115,7 +114,7 @@ select_locale() {
   else
     # The region (fetched via VPD) is only available on Chrome systems.
     is_nonchrome || LANGDIR="$(read_vpd_locale)"
-    if [ -z "${LANGDIR}" -o ! -d "${SCREENS}/${LANGDIR}" ]; then
+    if [ -z "${LANGDIR}" ] || [ ! -d "${SCREENS}/${LANGDIR}" ]; then
       dlog "initial locale '${LANGDIR}' not found"
       LANGDIR=en-US
     fi
@@ -126,7 +125,7 @@ select_locale() {
 }
 
 rtl() {
-  [ "${LANGDIR}" = ar -o "${LANGDIR}" = fa -o "${LANGDIR}" = he ]
+  [ "${LANGDIR}" = ar ] || [ "${LANGDIR}" = fa ] || [ "${LANGDIR}" = he ]
 }
 
 # Draws text in the center of the screen.
@@ -238,11 +237,11 @@ instructions_with_title() {
 
   local title_x="$(( -CANVAS_SIZE / 2 + DEFAULT_MESSAGE_WIDTH / 2 ))"
 
-  eval "local title_height=\${TITLE_${message_token}_HEIGHT}"
-  eval "local desc_height=\${DESC_${message_token}_HEIGHT}"
+  local title_height desc_height
+  eval "title_height=\${TITLE_${message_token}_HEIGHT}"
+  eval "desc_height=\${DESC_${message_token}_HEIGHT}"
   local title_y="$(( -CANVAS_SIZE / 2 + 220 + title_height / 2 ))"
   local desc_y="$(( title_y + title_height / 2 + 16 + desc_height / 2 ))"
-  local line_spacing=4 # 20% of desc line height
 
   showmessage "title_${message_token}" "${title_x}" "${title_y}"
   showmessage "desc_${message_token}" "${title_x}" "${desc_y}"
@@ -564,7 +563,8 @@ recovery_debug_options_onselect() {
       ;;
     3)
       # Dump dmesg in /tmp for the same reason above.
-      local tmpfile="$(mktemp)"
+      local tmpfile
+      tmpfile="$(mktemp)"
       dmesg > "${tmpfile}"
       message_view_log title_message_log "${tmpfile}"
       rm "${tmpfile}"
@@ -704,7 +704,7 @@ message_view_log() {
 message_startup() {
   # b/158282097: force reprobe since type-c to DP connectors
   # seems not detected at boot
-  for f in $(ls /sys/class/drm/*/status); do
+  for f in /sys/class/drm/*/status; do
     echo detect > "${f}"
   done
   sleep 1s
@@ -902,8 +902,9 @@ language_onselect() {
   local selected_index=$1
 
   if [ "${selected_index}" -gt 0 ]; then
-    local override_locale="$(echo "${SUPPORTED_LOCALES}" | \
-                             cut -d' ' -f"${selected_index}")"
+    local override_locale
+    override_locale="$(echo "${SUPPORTED_LOCALES}" | \
+                       cut -d' ' -f"${selected_index}")"
     select_locale "${override_locale}"
   fi
 
@@ -914,6 +915,7 @@ language_onselect() {
 language_onchange() {
   local selected_index=$1
 
+  # shellcheck disable=SC2086
   show_language_dropdown "$(( selected_index - 1 ))" ${SUPPORTED_LOCALES}
 }
 
@@ -924,13 +926,14 @@ message_language_menu() {
   local i=0
   for locale in ${SUPPORTED_LOCALES}; do
     i="$(( i + 1 ))"
-    if [ "${locale}" == "${LANGDIR}" ]; then
+    if [ "${locale}" = "${LANGDIR}" ]; then
       selected_index="${i}"
       break
     fi
   done
 
-  local locale_count="$(echo "${SUPPORTED_LOCALES}" | wc -w)"
+  local locale_count
+  locale_count="$(echo "${SUPPORTED_LOCALES}" | wc -w)"
   menu_event_loop "$(( locale_count + 1 ))" "${selected_index}" \
     language_onchange language_onselect
 }
@@ -956,9 +959,9 @@ show_language_dropdown() {
   local offset_y="$(( -CANVAS_SIZE / 2 + 88 ))"
   local background_x="$(( -CANVAS_SIZE / 2 + 360 ))"
   local lang_x lang_width
-  while [ "${i}" -lt "$(( begin_index + item_per_page ))" -a \
-          "${i}" -lt "${item_count}" ]; do
-    eval "lang_width=\${LANGUAGE_$(echo $1 | tr - _)_WIDTH}"
+  while [ "${i}" -lt "$(( begin_index + item_per_page ))" ] && \
+        [ "${i}" -lt "${item_count}" ]; do
+    eval "lang_width=\${LANGUAGE_$(echo "$1" | tr - _)_WIDTH}"
     lang_x="$(( -CANVAS_SIZE / 2 + lang_width / 2 + 40 ))"
     if [ "${selected_index}" -eq "${i}" ]; then
       showbox "${background_x}" "${offset_y}" 720 40 "${MENU_UI_BLUE}"
@@ -1103,8 +1106,9 @@ show_footer() {
 
   showimage "${SCREENS}/qr_code.png" "${qr_code_x}" "${qr_code_y}"
 
-  local hwid="$(read_truncated_hwid)"
-  local hwid_len="$(echo "${hwid}" | wc -c)"
+  local hwid
+  hwid="$(read_truncated_hwid)"
+  local hwid_len="${#hwid}"
   local hwid_x="$(( qr_code_x + qr_code_size / 2 + 16 + 5 ))"
   local hwid_y="$(( footer_y + footer_line_height ))"
   if rtl; then
@@ -1213,7 +1217,7 @@ minios_welcome_onchange() {
 message_minios_welcome() {
   message_base_screen
   REGION="$(vpd_get_value region)"
-  dlog "MiniOS_welcome: VPD region is $REGION"
+  dlog "MiniOS_welcome: VPD region is ${REGION}"
   menu_event_loop 3 1 minios_welcome_onchange minios_welcome_onselect
   return 0
 }
@@ -1272,14 +1276,15 @@ message_item_dropdown_menu() {
    NAME_LIST=""
   local func="get_item_count "
   while IFS= read -r item; do
-       func=${func}" $item"
-       NAME_LIST=${NAME_LIST}" $item"
+       func="${func} ${item}"
+       NAME_LIST=${NAME_LIST}" ${item}"
   done < /tmp/list.txt
   unset IFS
 
-  local item_count=$(eval "$func")
-  dlog "Items_dropdown_menu: number of items given $item_count"
-  dlog "Items_dropdown_menu: items given $NAME_LIST"
+  local item_count
+  item_count=$(eval "${func}")
+  dlog "Items_dropdown_menu: number of items given ${item_count}"
+  dlog "Items_dropdown_menu: items given ${NAME_LIST}"
 
   menu_event_loop "$(( item_count + 1 ))" "${selected_index}" \
   item_dropdown_onchange item_dropdown_onselect
@@ -1307,8 +1312,8 @@ show_item_dropdown() {
   local background_x="$(( (-CANVAS_SIZE / 2) + 360 ))"
   local lang_x lang_width
 
-  while [ "${i}" -lt "$(( begin_index + item_per_page ))" -a \
-          "${i}" -lt "${item_count}" ]; do
+  while [ "${i}" -lt "$(( begin_index + item_per_page ))" ] && \
+        [ "${i}" -lt "${item_count}" ]; do
     lang_x="$(( (-CANVAS_SIZE / 2) + 60 ))"
     if [ "${selected_index}" -eq "${i}" ]; then
       # Button focused.
@@ -1431,7 +1436,7 @@ get_keyinput() {
       local pass=""
     else
       local pass
-      pass=$(printf '%.0s*' $(seq 1 "$line"))
+      pass=$(printf '%.0s*' $(seq 1 "${line}"))
     fi
     show_button_text "${pass}" "${btn_y}" 0 \
     "$((DEBUG_OPTIONS_BTN_WIDTH *3 - 10))"
@@ -1439,15 +1444,15 @@ get_keyinput() {
 }
 
 message_password() {
-  # shellcheck disable=SC2039
-  dlog "message_password: option picked is '$NAME'"
+  dlog "message_password: option picked is '${NAME}'"
   message_base_screen
   show_stepper 'done' '2-done' '3'
   instructions_with_title MiniOS_password
 
   # Get password from key_reader.
-  local password="$(get_keyinput)"
-  dlog "Message_password: password entered is'$password'"
+  local password
+  password="$(get_keyinput)"
+  dlog "Message_password: password entered is'${password}'"
   menu_event_loop 4 1 password_onchange password_onselect
 }
 
