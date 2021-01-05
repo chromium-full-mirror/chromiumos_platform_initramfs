@@ -24,56 +24,42 @@ setup_environment() {
   echo "always" > /sys/kernel/mm/transparent_hugepage/shmem_enabled
 }
 
-# Attach allowed PCI devices to VFIO bus driver.
-setup_vfio() {
-  # Device Id based ignored devices.
-  local did_skip="02a8 02aa 02ab 02b0 9d64 9d66"
+# Bind PCI device to VFIO-PCI passthrough bus.
+vfio_pci() {
+  local sysfs=$1
+  local bdf=$(basename "${sysfs}")
+  local vendor_id=$(cat "${sysfs}/vendor")
+  local device_id=$(cat "${sysfs}/device")
+  local class=$(cat "${sysfs}/class")
 
-  # Location based ignored devices.
-  # 00:00.0 PCI Host bridge
-  local loc_skip="00:00.0"
+  # Filter by CLASS
+  case "${class}" in
+  0x060000)
+    return 1  # Ignore PCI Host Bridge.
+    ;;
+  0x060400)
+    return 1  # Ignore PCI-PCI Bridge.
+    ;;
+  esac
 
-  local loc= vid= did= drv=
+  # Filter by BDF.
+  case "${bdf}" in
+  0000:00:1e.?)
+    # Ignore LPSS/UART Communication device group.
+    return 1
+    ;;
+  esac
 
-  # Disable functional reset at bind.
+  # Detach from current driver if any.
+  local driver="${sysfs}/driver"
+  if [[ -f "${driver}/unbind" ]]; then
+    echo "${bdf}" > "${driver}/unbind"
+  fi
+
+  # Disable VFIO functional reset.
   echo 1 > /sys/module/vfio_pci/parameters/disable_function_reset
-
-  # Try to attach all PCI devices to vfio bus driver.
-  lspci -mnk | sort | cut -d ' ' -f 1,4,5,8 | tr -d '"' | \
-      while read loc vid did drv; do
-    local ignore=
-    if [[ -z "${loc_skip//*${loc}*}" ]]; then
-      ignore=1
-    fi
-    if [[ -z "${did_skip//*${did}*}" ]]; then
-      ignore=1
-    fi
-    if [[ -z "${ignore}" ]]; then
-      if [[ -n "${drv}" ]]; then
-        echo "0000:${loc}" > /sys/bus/pci/drivers/${drv}/unbind
-      fi
-      echo "${vid} ${did}" > /sys/bus/pci/drivers/vfio-pci/new_id
-    fi
-  done
-  # Re-enable functional reset.
-  # echo 0 > /sys/module/vfio_pci/parameters/disable_function_reset
-}
-
-# Get guest kernel command line options.
-# Added options:
-#  * force optional PCI bus discovery, PCI-PCIe bridge work in progress
-#  * disable use of ACPI resource settings, resource reservation in progress.
-#  * disable ACPI for IRQ routing, using MPTABLE for now.
-cmdline() {
-  echo "pci=lastbus=8 pci=nocrs acpi=noirq apic=verbose $(cat /proc/cmdline)"
-}
-
-# Get a list of vfio attached devices.
-vfio_list() {
-  local bdf=
-  lspci -mnk | grep vfio- | sort | cut -d ' ' -f 1 | while read bdf; do
-    echo " --vfio /sys/bus/pci/devices/0000:${bdf}"
-  done
+  # Attach pci device to VFIO-PCI bus driver.
+  echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci/new_id
 }
 
 # Generate ACPI table list argument.
@@ -86,6 +72,25 @@ acpi_list() {
   done
 }
 
+# Get guest kernel command line options.
+cmdline() {
+  local cmd="$(cat /proc/cmdline)"
+
+  # ACPI workarounds
+  cmd="acpi_enforce_resources=no acpi=noirq acpi=verbose ${cmd}"
+
+  # PCI workaround
+  cmd="pci=lastbus=64 pci=nocrs ${cmd}"
+
+  # Uncomment to disable standard boot flow.
+  # cmd="${cmd/init=*root=/root=} init=/bin/bash"
+
+  # Uncomment for incorrect rootfs UUID workaround
+  # cmd="${cmd/root=*\ rootwait/root=\/dev\/nvme0n1p3}"
+
+  echo "${cmd}"
+}
+
 # Start ManaTEE Monitor.
 run_trichechus() {
   if [[ -x "/sbin/trichechus" ]]; then
@@ -95,22 +100,34 @@ run_trichechus() {
 
 # Start primary guest VM.
 run_crosvm() {
-  setup_vfio
+  local args="-s /run/crosvm.sock --cid 3"
+
+  # TODO: enable minijail sandboxing.
+  args="${args} --disable-sandbox"
 
   # Use all available CPUs for primary VM.
   local nproc=$(nproc)
   local affinity=$(for n in $(seq 0 $((nproc - 1))); do echo -n "$n=$n:"; done)
+  args="${args} --cpus ${nproc} --cpu-affinity ${affinity%?}"
 
   # Reserve 512MB of total system memory for hypervisor.
   local mem_total=$(grep MemTotal /proc/meminfo)
   local mem_kb=${mem_total//[^0-9]/}
   local mem_vm=$((mem_kb/1024 - 512))
+  args="${args} --mem ${mem_vm}"
 
-  # TODO: add $(acpi_list) when 1:1 mapping enabled on crosvm side.
-  /sbin/crosvm run -s /run/crosvm.sock --cid 3 \
-    --disable-sandbox --mem ${mem_vm} $(vfio_list) \
-    --cpus ${nproc} --cpu-affinity ${affinity%?} \
-    --params "$(cmdline)" /boot/vmlinuz
+  # Direct attach all available PCI devices.
+  for dev in `find /sys/bus/pci/devices -type l | sort`; do
+    vfio_pci "${dev}"
+    if [[ $? -eq 0 ]]; then
+      args="${args} --vfio ${dev}"
+    fi
+  done
+
+  # TODO: enable ACPI table parser and GSI forwarding.
+  # args="${args} $(acpi_list)"
+
+  /sbin/crosvm run ${args} --params "$(cmdline)" /boot/vmlinuz
 }
 
 # Resume primary guest VM.
@@ -132,12 +149,6 @@ run_console() {
   sh >"${serial}" <"${serial}" 2>&1
 }
 
-# Enable network debug access.
-# TODO: run SSH instead simple telnet.
-debug_net() {
-  telnetd -l /bin/sh
-}
-
 # Suzy-Q debug access.
 debug_tty() {
   local reply=
@@ -147,13 +158,6 @@ debug_tty() {
   "y" | "Y" | "yes" | "YES")
     # Start console, continue to crosvm boot
     run_console
-    ;;
-  "s" | "S")
-    # Use stable crosvm version if available.
-    if [ -f /sbin/crosvm.stable ]; then
-      echo "Using stable crosvm version."
-      cp /sbin/crosvm.stable /sbin/crosvm
-    fi
     ;;
   *)
     ;;
@@ -170,7 +174,6 @@ die() {
 main() {
   setup_environment
   debug_tty
-  debug_net
 
   # Start ManaTEE Monitor.
   run_trichechus
