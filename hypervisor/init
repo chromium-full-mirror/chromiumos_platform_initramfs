@@ -19,6 +19,9 @@ setup_environment() {
 
   mkdir /dev/pts
   mount -n -t devpts -o noexec,nosuid,mode=0600 devpts /dev/pts
+
+  # enable huge page shared memory allocations
+  echo "always" > /sys/kernel/mm/transparent_hugepage/shmem_enabled
 }
 
 # Attach allowed PCI devices to VFIO bus driver.
