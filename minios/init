@@ -51,9 +51,8 @@ main() {
   initialize
   select_locale
 
-  # Simple welcome screen,
-  message minios_welcome
-
+  message base_screen
+  
   # IO from console. [Switch to with Ctrl + Alt + F3]
   exec <${TTY_DEBUG} >>${TTY_DEBUG} 2>&1
 
