@@ -168,3 +168,6 @@ minios: stage_init
 	mkdir -p "$(STAGE)/usr/lib64/shill"
 	cp -av "$(SYSROOT)/usr/lib64/shill/"* \
 		"$(STAGE)/usr/lib64/shill/"
+	# Change init script name to have suffix.
+	mv "$(STAGE)/init" "$(STAGE)/init.sh"
+	ln -s "/bin/minios_init" "$(STAGE)/init"

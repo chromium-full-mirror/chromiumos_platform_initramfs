@@ -3,11 +3,8 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-LOG_FILE=/log/recovery.log
-
 . /lib/completion_settings.sh
 . /lib/defaults.sh
-. /lib/init.sh
 . /lib/messages.sh
 
 # Set panel brightness to maximum level.
@@ -47,8 +44,6 @@ load_wifi_modules() {
 }
 
 main() {
-  exec >"${LOG_FILE}" 2>&1 </dev/null
-  initialize
   select_locale
 
   message base_screen
@@ -74,7 +69,7 @@ main() {
   exec /usr/bin/minios
 }
 
-if [ "$0" = "/init" ]; then
+if [ "$0" = "/init.sh" ]; then
   main "$@"
   # Should never reach here.
   exit 1
