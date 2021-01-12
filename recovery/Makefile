@@ -171,3 +171,5 @@ minios: stage_init
 	# Change init script name to have suffix.
 	mv "$(STAGE)/init" "$(STAGE)/init.sh"
 	ln -s "/bin/minios_init" "$(STAGE)/init"
+	# Rename upstart as it's not the init for minios.
+	mv "$(STAGE)/bin/init" "$(STAGE)/bin/upstart"
