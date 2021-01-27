@@ -173,3 +173,5 @@ minios: stage_init
 	ln -s "/bin/minios_init" "$(STAGE)/init"
 	# Rename upstart as it's not the init for minios.
 	mv "$(STAGE)/bin/init" "$(STAGE)/bin/upstart"
+	# Add json mapping from region to xkb layout.
+	cp -av "$(CROS_REGIONS_DATABASE)" "$(STAGE)/usr/share/misc/cros-regions.json"
