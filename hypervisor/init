@@ -80,7 +80,7 @@ cmdline() {
   cmd="acpi_enforce_resources=no acpi=noirq acpi=verbose ${cmd}"
 
   # PCI workaround
-  cmd="pci=lastbus=64 pci=nocrs ${cmd}"
+  cmd="pci=lastbus=255 pci=nocrs ${cmd}"
 
   # Uncomment to disable standard boot flow.
   # cmd="${cmd/init=*root=/root=} init=/bin/bash"
