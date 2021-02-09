@@ -10,7 +10,8 @@ BIN_DEPS= \
 
 # Additional data files to copy from the sysroot.
 DATA_DEPS= \
-	/boot/vmlinuz
+	/boot/vmlinuz \
+	/lib64/libminijailpreload.so
 
 include ../common/initramfs.mk
 
