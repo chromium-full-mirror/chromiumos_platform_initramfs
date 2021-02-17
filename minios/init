@@ -51,9 +51,6 @@ main() {
   # IO from console. [Switch to with Ctrl + Alt + F3]
   exec <${TTY_DEBUG} >>${TTY_DEBUG} 2>&1
 
-  # Start the dbus daemon.
-  dbus-daemon --system --fork
-
   # Start shill (pre-upstart).
   load_wifi_modules
   /usr/share/cros/init/shill-pre-start.sh
@@ -64,9 +61,7 @@ main() {
 
   set_brightness
 
-  # Eventually this executable will be the init process for miniOS instead of
-  # this shell script.
-  exec /usr/bin/minios
+  exec /bin/upstart -v
 }
 
 if [ "$0" = "/init.sh" ]; then

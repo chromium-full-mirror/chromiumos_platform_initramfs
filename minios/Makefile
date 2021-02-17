@@ -44,7 +44,15 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/wpa_passphrase \
 	/usr/sbin/bootstat \
 	/usr/sbin/update_engine \
-	/usr/sbin/wpa_supplicant
+	/usr/sbin/wpa_supplicant \
+	/usr/bin/dbus-uuidgen \
+	/usr/bin/metrics_client \
+	/usr/bin/logger \
+	/bin/systemd-tmpfiles \
+	/usr/bin/uptime \
+	/usr/bin/awk \
+	/usr/sbin/rsyslogd \
+	/sbin/net_poll_tool
 
 .PHONY: all
 all:

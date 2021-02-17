@@ -168,10 +168,30 @@ minios: stage_init
 	mkdir -p "$(STAGE)/usr/lib64/shill"
 	cp -av "$(SYSROOT)/usr/lib64/shill/"* \
 		"$(STAGE)/usr/lib64/shill/"
+	# Add json mapping from region to xkb layout.
+	cp -av "$(CROS_REGIONS_DATABASE)" "$(STAGE)/usr/share/misc/cros-regions.json"
 	# Change init script name to have suffix.
 	mv "$(STAGE)/init" "$(STAGE)/init.sh"
 	ln -s "/bin/minios_init" "$(STAGE)/init"
 	# Rename upstart as it's not the init for minios.
 	mv "$(STAGE)/bin/init" "$(STAGE)/bin/upstart"
-	# Add json mapping from region to xkb layout.
-	cp -av "$(CROS_REGIONS_DATABASE)" "$(STAGE)/usr/share/misc/cros-regions.json"
+	# Add conf files for upstart to pickup.
+	mkdir -p "$(STAGE)/etc/init"
+	cp -av "$(SYSROOT)/etc/init/dbus.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/boot-services.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/tmpfile.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/minios.conf" "$(STAGE)/etc/init/"
+	# D-Bus dependencies for upstart.
+	mkdir -p "$(STAGE)/var/lib/metrics"
+	mkdir -p "$(STAGE)/usr/lib/tmpfiles.d"
+	cp -av "$(SYSROOT)/usr/lib/tmpfiles.d/dbus.conf" "$(STAGE)/usr/lib/tmpfiles.d/"
+	# Add logging for upstart.
+	mkdir -p "$(STAGE)/usr/lib64/rsyslog"
+	cp -av "$(SYSROOT)/usr/lib64/rsyslog/"* "$(STAGE)/usr/lib64/rsyslog"
+	cp -av "$(SYSROOT)/etc/rsyslog.chromeos" "$(STAGE)/etc"
+	# Add policy files for init.
+	cp -av "$(SYSROOT)/lib64/libselinux"* "$(STAGE)/lib64/"
+	cp -av "$(SYSROOT)/usr/lib64/libselinux"* "$(STAGE)/usr/lib64/"
+	mkdir -p "$(STAGE)/etc/selinux"
+	rsync -av --exclude 'intermediates' --exclude 'intermediates.raw' \
+		"$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"
