@@ -36,6 +36,11 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/logger \
 	/usr/bin/minios \
 	/usr/bin/minios_init \
+	/usr/bin/openssl \
+	/usr/bin/python2 \
+	/usr/bin/python2.7 \
+	/usr/bin/python3 \
+	/usr/bin/python3.6 \
 	/usr/bin/shill \
 	/usr/bin/strace \
 	/usr/bin/update_engine_client \
@@ -43,6 +48,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/wpa_debug \
 	/usr/bin/wpa_passphrase \
 	/usr/sbin/bootstat \
+	/usr/sbin/rfkill \
 	/usr/sbin/update_engine \
 	/usr/sbin/wpa_supplicant \
 	/usr/bin/dbus-uuidgen \

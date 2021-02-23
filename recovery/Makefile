@@ -195,3 +195,29 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/selinux"
 	rsync -av --exclude 'intermediates' --exclude 'intermediates.raw' \
 		"$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"
+
+	# Connecting to wifi.
+	# TODO(b/169261043): Cleanup and organize these dependencies.
+	#   Look into target-initramfs as the final solution.
+	mkdir -p "$(STAGE)/usr/local"
+	cp -av "$(SYSROOT)/usr/local/autotest" \
+		"$(STAGE)/usr/local/"
+	mkdir -p "$(STAGE)/usr/lib64"
+	cp -av "$(SYSROOT)/usr/lib64/python"* \
+		"$(STAGE)/usr/lib64/"
+	sudo cp -av "$(SYSROOT)/usr/lib64/libdbus-glib"* \
+		"$(SYSROOT)/usr/lib64/libgio"* \
+		"$(SYSROOT)/usr/lib64/libgobject"* \
+		"$(SYSROOT)/usr/lib64/libgmodule"* \
+		"$(SYSROOT)/usr/lib64/libffi"* \
+		"$(SYSROOT)/usr/lib64/libpy"* \
+		"$(SYSROOT)/usr/lib64/libgthread"* \
+		"$(SYSROOT)/usr/lib64/libz"* \
+		"$(SYSROOT)/usr/lib64/libssl"* \
+		"$(SYSROOT)/usr/lib64/engine"* \
+		"$(SYSROOT)/usr/lib64/libchaps"* \
+		"$(SYSROOT)/usr/lib64/libp11"* \
+		"$(STAGE)/usr/lib64/"
+	mkdir -p "$(STAGE)/etc/ssl"
+	sudo cp -av "$(SYSROOT)/etc/ssl/openssl"* \
+		"$(STAGE)/etc/ssl/"

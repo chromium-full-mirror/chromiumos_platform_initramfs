@@ -47,7 +47,7 @@ main() {
   select_locale
 
   message base_screen
-  
+
   # IO from console. [Switch to with Ctrl + Alt + F3]
   exec <${TTY_DEBUG} >>${TTY_DEBUG} 2>&1
 
@@ -60,6 +60,13 @@ main() {
   update_engine
 
   set_brightness
+
+  local run_wpa="/run/wpa_supplicant"
+  mkdir -p -m 0750 "${run_wpa}"
+  chown wpa:wpa "${run_wpa}"
+  minijail0 -u wpa -g wpa -c 3000 -n -i -- \
+    /usr/sbin/wpa_supplicant -u -O"${run_wpa}" \
+    -ddd > /var/log/wpa_supplicant.log
 
   exec /bin/upstart -v
 }
