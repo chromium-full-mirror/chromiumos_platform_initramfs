@@ -120,7 +120,7 @@ minios_ui: menu_ui minios stage_init
 minios: stage_init
 	# FIRMWARE
 	mkdir -p "$(STAGE)/lib/firmware"
-	cp -av "$(SYSROOT)/lib/firmware/ath10k" \
+	cp -av "$(SYSROOT)/lib/firmware/rt"* \
 		"$(SYSROOT)/lib/firmware/iwl"* \
 		"$(STAGE)/lib/firmware"
 	# KERNEL MODULES
