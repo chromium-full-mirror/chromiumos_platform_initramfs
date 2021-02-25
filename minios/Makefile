@@ -19,6 +19,7 @@ export MINIOS_RAMFS_LAYOUT_DIRS = \
 
 # Extra dependencies miniOS requires.
 export MINIOS_BIN_DEPS = \
+	/bin/systemd-tmpfiles \
 	/sbin/chromeos_startup \
 	/sbin/dhclient \
 	/sbin/dhclient-script \
@@ -26,14 +27,19 @@ export MINIOS_BIN_DEPS = \
 	/sbin/init \
 	/sbin/initctl \
 	/sbin/minijail0 \
+	/sbin/net_poll_tool \
 	/sbin/start \
 	/sbin/status \
 	/sbin/stop \
+	/usr/bin/awk \
 	/usr/bin/curl \
 	/usr/bin/dbus-daemon \
 	/usr/bin/dbus-monitor \
 	/usr/bin/dbus-send \
+	/usr/bin/dbus-uuidgen \
+	/usr/bin/ionice \
 	/usr/bin/logger \
+	/usr/bin/metrics_client \
 	/usr/bin/minios \
 	/usr/bin/minios_init \
 	/usr/bin/openssl \
@@ -41,24 +47,20 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/python2.7 \
 	/usr/bin/python3 \
 	/usr/bin/python3.6 \
+	/usr/bin/rootdev \
 	/usr/bin/shill \
 	/usr/bin/strace \
+	/usr/bin/systemd-cat \
 	/usr/bin/update_engine_client \
+	/usr/bin/uptime \
 	/usr/bin/wpa_cli \
 	/usr/bin/wpa_debug \
 	/usr/bin/wpa_passphrase \
 	/usr/sbin/bootstat \
 	/usr/sbin/rfkill \
+	/usr/sbin/rsyslogd \
 	/usr/sbin/update_engine \
 	/usr/sbin/wpa_supplicant \
-	/usr/bin/dbus-uuidgen \
-	/usr/bin/metrics_client \
-	/usr/bin/logger \
-	/bin/systemd-tmpfiles \
-	/usr/bin/uptime \
-	/usr/bin/awk \
-	/usr/sbin/rsyslogd \
-	/sbin/net_poll_tool
 
 .PHONY: all
 all:

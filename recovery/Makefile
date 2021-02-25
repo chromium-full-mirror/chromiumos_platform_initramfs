@@ -177,24 +177,33 @@ minios: stage_init
 	mv "$(STAGE)/bin/init" "$(STAGE)/bin/upstart"
 	# Add conf files for upstart to pickup.
 	mkdir -p "$(STAGE)/etc/init"
-	cp -av "$(SYSROOT)/etc/init/dbus.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/build/initramfs/boot-services.conf" "$(STAGE)/etc/init/"
-	cp -av "$(SYSROOT)/build/initramfs/tmpfile.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/frecon.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/journald.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/build/initramfs/minios.conf" "$(STAGE)/etc/init/"
-	# D-Bus dependencies for upstart.
-	mkdir -p "$(STAGE)/var/lib/metrics"
+	cp -av "$(SYSROOT)/build/initramfs/syslog.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/tmpfile.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/update-engine.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/etc/init/dbus.conf" "$(STAGE)/etc/init/"
 	mkdir -p "$(STAGE)/usr/lib/tmpfiles.d"
 	cp -av "$(SYSROOT)/usr/lib/tmpfiles.d/dbus.conf" "$(STAGE)/usr/lib/tmpfiles.d/"
-	# Add logging for upstart.
+	cp -av "$(SYSROOT)/usr/lib/tmpfiles.d/syslog.conf" \
+		"$(STAGE)/usr/lib/tmpfiles.d/"
+	# D-Bus and logging dependencies for upstart.
+	mkdir -p "$(STAGE)/var/lib/metrics"
 	mkdir -p "$(STAGE)/usr/lib64/rsyslog"
 	cp -av "$(SYSROOT)/usr/lib64/rsyslog/"* "$(STAGE)/usr/lib64/rsyslog"
 	cp -av "$(SYSROOT)/etc/rsyslog.chromeos" "$(STAGE)/etc"
+	mkdir -p "$(STAGE)/usr/lib/systemd"
+	cp -av "$(SYSROOT)/usr/lib/systemd/"* "$(STAGE)/usr/lib/systemd"
 	# Add policy files for init.
 	cp -av "$(SYSROOT)/lib64/libselinux"* "$(STAGE)/lib64/"
 	cp -av "$(SYSROOT)/usr/lib64/libselinux"* "$(STAGE)/usr/lib64/"
 	mkdir -p "$(STAGE)/etc/selinux"
 	rsync -av --exclude 'intermediates' --exclude 'intermediates.raw' \
 		"$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"
+	# Add marker file to indcate we are running from MiniOs.
+	touch "$(STAGE)/etc/minios"
 
 	# Connecting to wifi.
 	# TODO(b/169261043): Cleanup and organize these dependencies.
