@@ -205,8 +205,21 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/selinux"
 	rsync -av --exclude 'intermediates' --exclude 'intermediates.raw' \
 		"$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"
-	# Add marker file to indcate we are running from MiniOs.
+	# Add marker file to indicate we are running from MiniOs.
 	touch "$(STAGE)/etc/minios"
+	# CrOS-install dependencies.
+	cp -av "$(SYSROOT)/usr/share/misc/shflags" "$(STAGE)/usr/share/misc"
+	cp -av "$(SYSROOT)/usr/share/misc/lvm-utils.sh" "$(STAGE)/usr/share/misc"
+	cp -av "$(SYSROOT)/usr/share/misc/chromeos-common.sh" \
+		"$(STAGE)/usr/share/misc"
+	mkdir -p "$(STAGE)/usr/share/syslinux"
+	cp -av "$(SYSROOT)/usr/share/syslinux/gptmbr.bin" \
+		"$(STAGE)/usr/share/syslinux/"
+	# Update engine dependencies.
+	mkdir -p "$(STAGE)/usr/share/update_engine"
+	cp -av "$(SYSROOT)/build/initramfs/update-payload-key.pub.pem" \
+		"$(STAGE)/usr/share/update_engine"
+	cp -av "$(SYSROOT)/usr/share/chromeos-ca-certificates" "$(STAGE)/usr/share"
 
 	# Connecting to wifi.
 	# TODO(b/169261043): Cleanup and organize these dependencies.

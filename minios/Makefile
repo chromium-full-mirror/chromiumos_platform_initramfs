@@ -17,9 +17,14 @@ export OVERLAY_FOLDER = $(SYSROOT)/var/lib/initramfs/minios
 export MINIOS_RAMFS_LAYOUT_DIRS = \
 	run/dbus
 
+# TODO(b/182786679): finish install without setgoodfirmware and
+# setgoodkernel when in recovery.
+
 # Extra dependencies miniOS requires.
 export MINIOS_BIN_DEPS = \
 	/bin/systemd-tmpfiles \
+	/bin/udevadm \
+	/sbin/blockdev \
 	/sbin/chromeos_startup \
 	/sbin/dhclient \
 	/sbin/dhclient-script \
@@ -44,6 +49,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/minios_init \
 	/usr/bin/openssl \
 	/usr/bin/rootdev \
+	/usr/bin/root_partition_for_recovery \
 	/usr/bin/shill \
 	/usr/bin/strace \
 	/usr/bin/systemd-cat \
@@ -53,8 +59,12 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/wpa_debug \
 	/usr/bin/wpa_passphrase \
 	/usr/sbin/bootstat \
+	/usr/sbin/chromeos-install \
+	/usr/sbin/chromeos-setgoodfirmware \
+	/usr/sbin/chromeos-setgoodkernel \
 	/usr/sbin/rfkill \
 	/usr/sbin/rsyslogd \
+	/usr/sbin/update-ca-certificates \
 	/usr/sbin/update_engine \
 	/usr/sbin/wpa_supplicant \
 
