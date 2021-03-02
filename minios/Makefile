@@ -43,10 +43,6 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/minios \
 	/usr/bin/minios_init \
 	/usr/bin/openssl \
-	/usr/bin/python2 \
-	/usr/bin/python2.7 \
-	/usr/bin/python3 \
-	/usr/bin/python3.6 \
 	/usr/bin/rootdev \
 	/usr/bin/shill \
 	/usr/bin/strace \
