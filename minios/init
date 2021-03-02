@@ -47,19 +47,9 @@ main() {
   # IO from console. [Switch to with Ctrl + Alt + F3]
   exec <${TTY_DEBUG} >>${TTY_DEBUG} 2>&1
 
-  # Start shill (pre-upstart).
   load_wifi_modules
-  /usr/share/cros/init/shill-pre-start.sh
-  /usr/share/cros/init/shill.sh
 
   set_brightness
-
-  local run_wpa="/run/wpa_supplicant"
-  mkdir -p -m 0750 "${run_wpa}"
-  chown wpa:wpa "${run_wpa}"
-  minijail0 -u wpa -g wpa -c 3000 -n -i -- \
-    /usr/sbin/wpa_supplicant -u -O"${run_wpa}" \
-    -ddd > /var/log/wpa_supplicant.log
 
   exec /bin/upstart -v
 }
