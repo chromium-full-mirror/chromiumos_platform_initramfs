@@ -5,6 +5,7 @@
 # Dependency list of binary programs.
 BIN_DEPS= \
 	/bin/busybox \
+	/build/initramfs/demo_app \
 	/build/initramfs/trichechus \
 	/usr/bin/crosvm
 
