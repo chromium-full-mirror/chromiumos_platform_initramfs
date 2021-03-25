@@ -394,19 +394,19 @@ Next
 Enter
       </message>
       <message name="title_MiniOS_password" desc="Title shown to the user to enter their password">
-Enter your password
+Enter the network password
       </message>
       <message name="desc_MiniOS_password" desc="Detailed description for entering password">
-Begin typing now. Hit Enter to submit.
+Begin typing now. Hit Enter to submit
       </message>
       <message name="title_MiniOS_welcome" desc="Title shown to the user when beginning recovery">
 Now ready to recover your device
       </message>
       <message name="desc_MiniOS_welcome" desc="Detailed description shown to the user when beginning recovery">
-If you want to choose a different recovery method, please reboot your device to return to the home screen.
+If you want to choose a different recovery method, please reboot your device to return to the home screen
       </message>
       <message name="title_MiniOS_dropdown" desc="Title shown to the user when starting process">
-Let's get connected and begin recovery
+Connect to a network to begin recovery
       </message>
       <message name="title_MiniOS_downloading" desc="Title shown to the user when downloading">
 Preforming recovery
@@ -421,16 +421,37 @@ System recovery is now complete, device rebooting in 15 seconds
 You will now be updated to the latest stable version (Recommended)
       </message>
       <message name="desc_MiniOS_pick_image" desc="Detailed description about recovery version">
-Select advanced options below to change.
-      </message>
-      <message name="title_MiniOS_error" desc="Title shown to the user when there is an error">
-The recovery process could not be started
-      </message>
-      <message name="desc_MiniOS_error" desc="Detailed description for error">
-Only ASCII characters are supported in name and password.
+Select advanced options below to change
       </message>
       <message name="title_MiniOS_advanced_options" desc="Title shown to the user in image advanced options">
 Select OS channel and version to continue recovery
+      </message>
+      <message name="title_MiniOS_wait_for_connection" desc="Title shown to the user while waiting for the network connection status">
+Connecting to the network. Please wait.
+      </message>
+      <message name="title_MiniOS_network_error" desc="Title shown to the user when there is an error getting networks">
+Could not find any networks
+      </message>
+      <message name="desc_MiniOS_network_error" desc="Detailed description for network error">
+There was an issue getting available networks, please retry
+      </message>
+       <message name="title_MiniOS_connection_error" desc="Title shown to the user when there is an error connecting to the network">
+Could not connect to the network
+      </message>
+      <message name="desc_MiniOS_connection_error" desc="Detailed description for connection error">
+Please select a new network or try again
+      </message>
+      <message name="title_MiniOS_password_error" desc="Title shown to the user when unable to connect to chosen network">
+Incorrect Credentials
+      </message>
+      <message name="desc_MiniOS_password_error" desc="Detailed description when unable to connect to chosen network">
+Please enter your password again. Only ASCII characters are supported.
+      </message>
+      <message name="title_MiniOS_download_error" desc="Title shown to the user when there is a download error during recovery">
+Could not finish the recovery process
+      </message>
+      <message name="desc_MiniOS_download_error" desc="Detailed description for error when there is a download error during recovery">
+Please reboot and try again
       </message>
       <message name="title_MiniOS_general_error" desc="Title shown to the user when there is an error">
 Sorry, something went wrong

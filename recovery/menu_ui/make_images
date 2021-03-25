@@ -392,9 +392,10 @@ def CreateConstantDefs(screendir, all_locales):
 
       instructions = ['recovery_in_progress', 'recovery_complete',
                       'recovery_failed', 'MiniOS_general_error',
-                      'MiniOS_password', 'MiniOS_error',
+                      'MiniOS_password', 'MiniOS_download_error',
+                      'MiniOS_network_error', 'MiniOS_password_error',
                       'MiniOS_pick_image', 'MiniOS_downloading',
-                      'MiniOS_welcome']
+                      'MiniOS_welcome', 'MiniOS_connection_error']
       for instruction in instructions:
         title_img_path = os.path.join(screendir, locale,
                                       'title_' + instruction + '.png')
