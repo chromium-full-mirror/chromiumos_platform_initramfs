@@ -52,7 +52,6 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/root_partition_for_recovery \
 	/usr/bin/shill \
 	/usr/bin/strace \
-	/usr/bin/systemd-cat \
 	/usr/bin/update_engine_client \
 	/usr/bin/uptime \
 	/usr/bin/wpa_cli \
@@ -64,6 +63,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/sbin/chromeos-setgoodkernel \
 	/usr/sbin/rfkill \
 	/usr/sbin/rsyslogd \
+	/usr/sbin/syslog-cat \
 	/usr/sbin/update-ca-certificates \
 	/usr/sbin/update_engine \
 	/usr/sbin/wpa_supplicant \
