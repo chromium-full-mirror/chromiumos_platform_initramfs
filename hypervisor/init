@@ -127,7 +127,7 @@ run_crosvm() {
   # TODO: enable ACPI table parser and GSI forwarding.
   # args="${args} $(acpi_list)"
 
-  /sbin/crosvm run ${args} --params "$(cmdline)" /boot/vmlinuz
+  /sbin/crosvm-direct run ${args} --params "$(cmdline)" /boot/vmlinuz
 }
 
 # Resume primary guest VM.
@@ -164,12 +164,6 @@ debug_tty() {
   esac
 }
 
-# Force host system reboot.
-# TODO: handle ACPI reboot/shutdown requests.
-die() {
-  reboot -f
-}
-
 # Main.
 main() {
   setup_environment
@@ -179,10 +173,10 @@ main() {
   run_trichechus
 
   # Start primary guest VM, terminate on successful VM exit.
-  run_crosvm 2>&1 | tee -a /var/log/crosvm.log && die
+  run_crosvm 2>&1 | tee -a /var/log/crosvm.log
 
-  # Failover to debug console
-  run_console
+  # Force system reboot
+  reboot -f
 }
 
 # Make this source-able for testing.

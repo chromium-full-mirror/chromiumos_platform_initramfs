@@ -7,7 +7,7 @@ BIN_DEPS= \
 	/bin/busybox \
 	/build/initramfs/demo_app \
 	/build/initramfs/trichechus \
-	/usr/bin/crosvm
+	/build/manatee/bin/crosvm-direct
 
 # Additional data files to copy from the sysroot.
 DATA_DEPS= \
