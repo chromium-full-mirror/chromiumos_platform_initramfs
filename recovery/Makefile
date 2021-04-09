@@ -186,6 +186,8 @@ minios: stage_init
 	cp -av "$(SYSROOT)/build/initramfs/update-engine.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/dbus.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/network-services.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/etc/init/pre-shutdown.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/etc/init/reboot.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/shill.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/wpasupplicant.conf" "$(STAGE)/etc/init/"
 	mkdir -p "$(STAGE)/usr/lib/tmpfiles.d"

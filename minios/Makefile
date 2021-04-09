@@ -33,6 +33,8 @@ export MINIOS_BIN_DEPS = \
 	/sbin/initctl \
 	/sbin/minijail0 \
 	/sbin/net_poll_tool \
+	/sbin/reboot \
+	/sbin/shutdown \
 	/sbin/start \
 	/sbin/status \
 	/sbin/stop \
