@@ -22,73 +22,9 @@ setup_environment() {
 
   # enable huge page shared memory allocations
   echo "always" > /sys/kernel/mm/transparent_hugepage/shmem_enabled
-}
 
-# Bind PCI device to VFIO-PCI passthrough bus.
-vfio_pci() {
-  local sysfs=$1
-  local bdf=$(basename "${sysfs}")
-  local vendor_id=$(cat "${sysfs}/vendor")
-  local device_id=$(cat "${sysfs}/device")
-  local class=$(cat "${sysfs}/class")
-
-  # Filter by CLASS
-  case "${class}" in
-  0x060000)
-    return 1  # Ignore PCI Host Bridge.
-    ;;
-  0x060400)
-    return 1  # Ignore PCI-PCI Bridge.
-    ;;
-  esac
-
-  # Filter by BDF.
-  case "${bdf}" in
-  0000:00:1e.?)
-    # Ignore LPSS/UART Communication device group.
-    return 1
-    ;;
-  esac
-
-  # Detach from current driver if any.
-  local driver="${sysfs}/driver"
-  if [[ -f "${driver}/unbind" ]]; then
-    echo "${bdf}" > "${driver}/unbind"
-  fi
-
-  # Disable VFIO functional reset.
-  echo 1 > /sys/module/vfio_pci/parameters/disable_function_reset
-  # Attach pci device to VFIO-PCI bus driver.
-  echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci/new_id
-}
-
-# Generate ACPI table list argument.
-acpi_list() {
-  local acpi=
-  for acpi in DSDT SSDT NHLT TPM2 HPET DBG2; do
-    if [ -f "/sys/firmware/acpi/tables/${acpi}" ]; then
-      echo " --acpi-table /sys/firmware/acpi/tables/${acpi}"
-    fi
-  done
-}
-
-# Get guest kernel command line options.
-cmdline() {
-  local cmd="$(cat /proc/cmdline)"
-
-  # ACPI workarounds
-  cmd="acpi_enforce_resources=no acpi=noirq acpi=verbose ${cmd}"
-
-  # PCI workaround
-  cmd="pci=lastbus=255 pci=nocrs ${cmd}"
-
-  # Uncomment to disable standard boot flow.
-  # cmd="${cmd/init=*root=/root=} init=/bin/bash"
-
-  # Uncomment for incorrect rootfs UUID workaround
-  # cmd="${cmd/root=*\ rootwait/root=\/dev\/nvme0n1p3}"
-
-  echo "${cmd}"
+  # Disable console logging.
+  dmesg -n 1
 }
 
 # Start ManaTEE Monitor.
@@ -96,43 +32,6 @@ run_trichechus() {
   if [[ -x "/sbin/trichechus" ]]; then
     start-stop-daemon -S -b -x "/sbin/trichechus"
   fi
-}
-
-# Start primary guest VM.
-run_crosvm() {
-  local args="-s /run/crosvm.sock --cid 3"
-
-  # TODO: enable minijail sandboxing.
-  args="${args} --disable-sandbox"
-
-  # Use all available CPUs for primary VM.
-  local nproc=$(nproc)
-  local affinity=$(for n in $(seq 0 $((nproc - 1))); do echo -n "$n=$n:"; done)
-  args="${args} --cpus ${nproc} --cpu-affinity ${affinity%?}"
-
-  # Reserve 512MB of total system memory for hypervisor.
-  local mem_total=$(grep MemTotal /proc/meminfo)
-  local mem_kb=${mem_total//[^0-9]/}
-  local mem_vm=$((mem_kb/1024 - 512))
-  args="${args} --mem ${mem_vm}"
-
-  # Direct attach all available PCI devices.
-  for dev in `find /sys/bus/pci/devices -type l | sort`; do
-    vfio_pci "${dev}"
-    if [[ $? -eq 0 ]]; then
-      args="${args} --vfio ${dev}"
-    fi
-  done
-
-  # TODO: enable ACPI table parser and GSI forwarding.
-  # args="${args} $(acpi_list)"
-
-  /sbin/crosvm-direct run ${args} --params "$(cmdline)" /boot/vmlinuz
-}
-
-# Resume primary guest VM.
-resume_crosvm() {
-  /sbin/crosvm resume -s /run/crosvm.sock
 }
 
 # Start serial bash access.
@@ -167,13 +66,20 @@ debug_tty() {
 # Main.
 main() {
   setup_environment
-  debug_tty
+# Uncomment for debug access.
+# debug_tty
 
-  # Start ManaTEE Monitor.
+  # Start Trichechus.
   run_trichechus
 
-  # Start primary guest VM, terminate on successful VM exit.
-  run_crosvm 2>&1 | tee -a /var/log/crosvm.log
+  if [[ -x /bin/crosvm-direct.sh ]]; then
+    # Try to run crosvm-direct
+    nohup /bin/crosvm-direct.sh
+    exec sleep 1d
+  else
+    # Failover to serial console. Development only.
+    run_console
+  fi
 
   # Force system reboot
   reboot -f
