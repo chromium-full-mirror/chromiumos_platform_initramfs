@@ -22,6 +22,7 @@ export MINIOS_RAMFS_LAYOUT_DIRS = \
 
 # Extra dependencies miniOS requires.
 export MINIOS_BIN_DEPS = \
+	/bin/mount \
 	/bin/systemd-tmpfiles \
 	/bin/udevadm \
 	/sbin/blockdev \
@@ -31,7 +32,9 @@ export MINIOS_BIN_DEPS = \
 	/sbin/dhcpcd \
 	/sbin/init \
 	/sbin/initctl \
+	/sbin/losetup \
 	/sbin/minijail0 \
+	/sbin/mkfs.ext4 \
 	/sbin/net_poll_tool \
 	/sbin/reboot \
 	/sbin/shutdown \
