@@ -3,11 +3,7 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-. /lib/completion_settings.sh
-. /lib/defaults.sh
-. /lib/messages.sh
-
-# Set panel brightness to maximum level.
+# Set panel brightness to maximum level
 set_brightness() {
   local backlight_device=
   local brightness=
@@ -30,32 +26,11 @@ set_brightness() {
            "${brightness}" ]; then
         break
       fi
-      sleep 0.5
     done
   done
 }
 
-load_wifi_modules() {
-  # Top level for wifi modules.
-  modprobe iwlmvm
-
-  # Necessary crypto for WPA.
-  modprobe crypto-ccm
-}
-
-main() {
-  # IO from console. [Switch to with Ctrl + Alt + F3]
-  exec <${TTY_DEBUG} >>${TTY_DEBUG} 2>&1
-
-  load_wifi_modules
-
-  set_brightness
-
-  exec /bin/upstart -v
-}
-
-if [ "$0" = "/init.sh" ]; then
-  main "$@"
-  # Should never reach here.
-  exit 1
-fi
+. /lib/init.sh
+initialize
+set_brightness
+exec /bin/init

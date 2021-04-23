@@ -51,7 +51,6 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/logger \
 	/usr/bin/metrics_client \
 	/usr/bin/minios \
-	/usr/bin/minios_init \
 	/usr/bin/openssl \
 	/usr/bin/rootdev \
 	/usr/bin/root_partition_for_recovery \
