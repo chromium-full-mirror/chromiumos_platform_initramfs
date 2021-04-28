@@ -415,7 +415,7 @@ Preforming recovery
 This will take a few minutes. Please do not turn off the computer or disconnect the power.
       </message>
       <message name="title_MiniOS_complete" desc="Title shown to the user when finished with recovery">
-System recovery is now complete, device rebooting in 15 seconds
+System recovery is now complete. Please reboot manually if the system does not automatically restart.
       </message>
       <message name="title_MiniOS_pick_image" desc="Title shown to the user about recovery version">
 You will now be updated to the latest stable version (Recommended)
