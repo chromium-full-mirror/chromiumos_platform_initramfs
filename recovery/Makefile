@@ -9,15 +9,15 @@ BIN_DEPS = \
 	/sbin/frecon-lite \
 	/usr/bin/eject \
 	/usr/bin/pv \
-	/usr/sbin/vpd \
-	/usr/sbin/flashrom \
 	/usr/bin/futility \
 	/usr/bin/crossystem \
-	/usr/sbin/mosys \
 	/usr/bin/tpmc \
 	/usr/bin/cgpt \
+	/usr/bin/cros_oobe_crypto \
 	/usr/sbin/evwaitkey \
-	/usr/bin/cros_oobe_crypto
+	/usr/sbin/flashrom \
+	/usr/sbin/mosys \
+	/usr/sbin/vpd
 
 ifdef MINIOS_BIN_DEPS
 BIN_DEPS += $(MINIOS_BIN_DEPS)
