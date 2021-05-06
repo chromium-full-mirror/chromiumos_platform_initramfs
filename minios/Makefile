@@ -35,12 +35,16 @@ export MINIOS_BIN_DEPS = \
 	/sbin/losetup \
 	/sbin/minijail0 \
 	/sbin/mkfs.ext4 \
+	/sbin/modprobe \
 	/sbin/net_poll_tool \
 	/sbin/reboot \
 	/sbin/shutdown \
+	/sbin/static_node_tool \
 	/sbin/start \
 	/sbin/status \
 	/sbin/stop \
+	/sbin/udevd \
+	/sbin/usermode-helper \
 	/usr/bin/awk \
 	/usr/bin/curl \
 	/usr/bin/dbus-daemon \
@@ -65,6 +69,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/sbin/chromeos-install \
 	/usr/sbin/chromeos-setgoodfirmware \
 	/usr/sbin/chromeos-setgoodkernel \
+	/usr/sbin/crda \
 	/usr/sbin/rfkill \
 	/usr/sbin/rsyslogd \
 	/usr/sbin/syslog-cat \

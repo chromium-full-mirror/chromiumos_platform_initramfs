@@ -194,8 +194,7 @@ minios: stage_init
 	cp -av "$(SYSROOT)/lib64/libselinux"* "$(STAGE)/lib64/"
 	cp -av "$(SYSROOT)/usr/lib64/libselinux"* "$(STAGE)/usr/lib64/"
 	mkdir -p "$(STAGE)/etc/selinux"
-	rsync -av --exclude 'intermediates' --exclude 'intermediates.raw' \
-		"$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"
+	rsync -av "$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"
 	# Add marker file to indicate we are running from MiniOs.
 	touch "$(STAGE)/etc/minios"
 	# CrOS-install dependencies.
@@ -212,6 +211,16 @@ minios: stage_init
 		"$(STAGE)/usr/share/update_engine"
 	cp -av "$(SYSROOT)/usr/share/chromeos-ca-certificates" "$(STAGE)/usr/share"
 
+	# Udev trigger loading modules + saving networking modules for preloading.
+	cp -av "$(SYSROOT)/lib/udev" "$(STAGE)/lib/"
+	cp -av "$(SYSROOT)/etc/init/failsafe.conf" \
+		"$(SYSROOT)/etc/init/failsafe-delay.conf" \
+		"$(SYSROOT)/etc/init/preload-network.conf" \
+		"$(SYSROOT)/etc/init/udev.conf" \
+		"$(SYSROOT)/etc/init/udev-boot.conf" \
+		"$(SYSROOT)/etc/init/udev-trigger.conf" \
+		"$(SYSROOT)/etc/init/udev-trigger-early.conf" \
+		"$(STAGE)/etc/init/"
 	# Connecting to wifi.
 	# TODO(b/169261043): Cleanup and organize these dependencies.
 	#   Look into target-initramfs as the final solution.
