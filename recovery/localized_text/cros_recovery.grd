@@ -429,6 +429,12 @@ Select OS channel and version to continue recovery
       <message name="title_MiniOS_wait_for_connection" desc="Title shown to the user while waiting for the network connection status">
 Connecting to the network. Please wait.
       </message>
+      <message name="title_MiniOS_user_confirm" desc="Title shown to the user asking for permission to recover">
+Please confirm to continue
+      </message>
+      <message name="desc_MiniOS_user_confirm" desc="Detailed description presented to the user asking for permission to recover">
+This process will wipe your personal data. This will take several minutes. Do not power off the device.
+      </message>
       <message name="title_MiniOS_network_error" desc="Title shown to the user when there is an error getting networks">
 Could not find any networks
       </message>

@@ -395,6 +395,7 @@ def CreateConstantDefs(screendir, all_locales):
                       'MiniOS_password', 'MiniOS_download_error',
                       'MiniOS_network_error', 'MiniOS_password_error',
                       'MiniOS_pick_image', 'MiniOS_downloading',
+                      'MiniOS_user_confirm',
                       'MiniOS_welcome', 'MiniOS_connection_error']
       for instruction in instructions:
         title_img_path = os.path.join(screendir, locale,
