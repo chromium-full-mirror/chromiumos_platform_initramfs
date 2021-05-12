@@ -38,11 +38,17 @@ vfio_pci() {
   echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci/new_id
 }
 
+# Port I/O forwarding.
+get_platform_pmio() {
+  local pmio="${BOARD_PMIO:-128}"
+  echo "--no-legacy --direct-pmio /dev/port@${pmio}"
+}
+
 # Interrupt forwarding argument helper.
-get_irqs() {
-  local path
+get_platform_irqs() {
+  local irq
   local args=""
-  local irqs="edge:1 level:14 edge:35 edge:51 level:59 level:100 level:116"
+  local irqs="${BOARD_IRQS:-edge:1}"
   for irq in ${irqs}; do
     args="${args} --direct-${irq%:*}-irq ${irq#*:}"
   done
@@ -117,20 +123,18 @@ run() {
     fi
   done
 
-  # IOs
-  local pmio="128"               # POST
-  pmio="${pmio},178"             # SMI
-  pmio="${pmio},46-47,78-79"     # Super I/O
-  pmio="${pmio},96,98,100,102"   # KBD
-  pmio="${pmio},112-119"         # EC
-  pmio="${pmio},512,516,2048-2559,6144-6399"
-  args="${args} --direct-pmio /dev/port@${pmio}"
+  # Platform IOs
+  args="${args} $(get_platform_pmio)"
 
   # Platform IRQs
-  args="${args} $(get_irqs)"
+  args="${args} $(get_platform_irqs)"
 
   exec /sbin/crosvm-direct run ${args} --params "$(get_cmdline)" /boot/vmlinuz
 }
+
+if [[ -f "/etc/manatee.conf" ]]; then
+  source "/etc/manatee.conf"
+fi
 
 run
 

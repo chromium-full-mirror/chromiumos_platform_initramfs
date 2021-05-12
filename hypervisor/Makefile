@@ -21,5 +21,6 @@ $(RAMFS_BIN): stage_init
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
+	cp "$(SRCDIR)/boards/$(BOARD)/manatee.conf" "$(STAGE)/etc/manatee.conf"
 	cp "$(SRCDIR)/crosvm-direct.sh" "$(STAGE)/bin/crosvm-direct.sh"
 	$(call generate_ramfs)
