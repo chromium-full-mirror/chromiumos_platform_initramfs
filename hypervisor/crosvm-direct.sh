@@ -24,7 +24,8 @@ vfio_pci() {
   case "${bdf}" in
     0000:00:1e.?)
 # Uncomment to keep hypervisor access to serial console.
-#      return 1
+# FIME/keep hypervisor console to enable guest kernel bringup
+      return 1
       ;;
   esac
 
@@ -61,6 +62,9 @@ get_cmdline() {
 
   # PCI workaround
   cmd="pci=lastbus=255 pci=nocrs pci=realloc=off ${cmd}"
+
+  # Disable strict IOMMU for guest kernel.
+  cmd="${cmd/iommu=on\ /iommu=off\ }"
 
   # Uncomment to disable standard boot flow.
   # cmd="${cmd/init=*root=/root=} init=/bin/bash"
@@ -102,7 +106,7 @@ run() {
   for acpi in `find /sys/firmware/acpi/tables/ -type f`; do
     # Filter by name
     case "${acpi##*/}" in
-    DMAR | FACS)
+    DMAR | FACS | APIC)
       ;;
     *)
       args="${args} --acpi-table ${acpi}"

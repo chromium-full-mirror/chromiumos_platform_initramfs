@@ -24,7 +24,7 @@ setup_environment() {
   echo "always" > /sys/kernel/mm/transparent_hugepage/shmem_enabled
 
   # Disable console logging.
-  dmesg -n 1
+#  dmesg -n 1
 }
 
 # Start ManaTEE Monitor.
@@ -67,15 +67,14 @@ debug_tty() {
 main() {
   setup_environment
 # Uncomment for debug access.
-# debug_tty
+  debug_tty
 
   # Start Trichechus.
   run_trichechus
 
   if [[ -x /bin/crosvm-direct.sh ]]; then
     # Try to run crosvm-direct
-    nohup /bin/crosvm-direct.sh
-    exec sleep 1d
+    /bin/crosvm-direct.sh
   else
     # Failover to serial console. Development only.
     run_console
