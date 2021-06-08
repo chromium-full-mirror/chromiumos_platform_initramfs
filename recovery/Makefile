@@ -239,3 +239,6 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/ssl"
 	sudo cp -av "$(SYSROOT)/etc/ssl/openssl"* \
 		"$(STAGE)/etc/ssl/"
+	# DHCPCD related files.
+	cp -av "$(SYSROOT)/lib64/dhcpcd"* "$(STAGE)/lib64/"
+	cp -av "$(SYSROOT)/etc/resolv.conf" "$(STAGE)/etc/"
