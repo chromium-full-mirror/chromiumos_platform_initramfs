@@ -146,12 +146,6 @@ System recovery is complete.
 It is now safe to remove the recovery media. Your computer will
 automatically restart shortly.
       </message>
-      <message name="complete_oobe_autoconfig" desc="Message shown by the recovery installer upon completion of the image installation procedure for OOBE auto-setup.">
-System recovery is complete.
-
-Please keep your recovery media plugged in until automatic setup is complete.
-Your computer will automatically restart shortly to continue setup.
-      </message>
       <message name="dev_invalid_kernel" desc="Message shown by the recovery installer when developer mode is enabled and an image that is signed with outdated signing keys gets installed.">
 You are using an out-of-date official Chrome OS recovery image.
 
@@ -193,31 +187,6 @@ This operation will delete any other operating system you may have
 installed and all the data; there will be no opportunity for backup.
 If you have any data on this computer that you want to preserve, you
 should cancel recovery.
-      </message>
-      <message name="oobe_autoconfig_acknowledgment_keyboard" desc="Message shown by the recovery installer before provisioning device for OOBE auto-setup on devices with a keyboard.">
-Your recovery media is configured for automatic setup after it reboots.
-
-To proceed with automatic setup, press Enter, otherwise press Escape.
-If you want to cancel recovery, press the power button and hold it
-down until the device turns off (this takes up to 8 seconds).
-      </message>
-      <message name="oobe_autoconfig_acknowledgment_switch" desc="Message shown by the recovery installer before provisioning device for OOBE auto-setup on devices with a recovery switch.">
-Your recovery media is configured for automatic setup after it reboots.
-
-To proceed with automatic setup, press the device's recovery switch.
-If you want to cancel recovery, press the power button and hold it
-down until the device turns off (this takes up to 8 seconds).
-      </message>
-      <message name="oobe_autoconfig_acknowledgment_volume" desc="Message shown by the recovery installer before provisioning device for OOBE auto-setup on devices with volume buttons.">
-Your recovery media is configured for automatic setup after it reboots.
-
-To proceed with automatic setup, press the Volume Up button, otherwise
-press Volume Down. If you want to cancel recovery, press the power button
-and hold it down until the device turns off (this takes up to 8 seconds).
-      </message>
-      <message name="oobe_autoconfig_domain" desc="Message shown by the recovery installer for confirming OOBE auto-setup enrollment domain.">
-Your device will automatically be enrolled into the domain shown below.
-Please verify that it is correct.
       </message>
       <message name="recovering" desc="Message shown by the recovery installer while the recovery image is getting installed on the device.">
 System recovery is in progress...

@@ -13,7 +13,6 @@ BIN_DEPS = \
 	/usr/bin/crossystem \
 	/usr/bin/tpmc \
 	/usr/bin/cgpt \
-	/usr/bin/cros_oobe_crypto \
 	/usr/sbin/evwaitkey \
 	/usr/sbin/flashrom \
 	/usr/sbin/mosys \

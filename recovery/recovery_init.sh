@@ -19,8 +19,6 @@ FW_VER_TPM_NV_SPACE=0x1007
 KERNEL_VER_TPM_NV_SPACE=0x1008
 # TPM NVRAM index for the lockbox.
 LOCKBOX_TPM_NV_SPACE=0x20000004
-# TPM NVRAM index for OOBE autoconfig public key hashes.
-OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE=0x100c
 # Recovery version is the top nibble of the firmware version.  Lock out the
 # recovery image if the version is greater than this.
 REC_VER_MAX=0
@@ -28,13 +26,6 @@ REC_VER_MAX=0
 LOG_HARDWARE_DIAGNOSTICS=hardware_diagnostics.log
 # Minimum battery charge required for TPM firmware update.
 MIN_BATTERY_CHARGE_PERCENT=10
-# Whether we should proceed with OOBE auto-setup.
-OOBE_AUTO_CONFIG=
-# PEM-format keys for signing OOBE configuration data.
-OOBE_PRIVATE_KEY_PEM=
-OOBE_PUBLIC_KEY_PEM=
-# Domain specified for OOBE auto-enrollment.
-OOBE_ENROLLMENT_DOMAIN=
 # "E" key on the keyboard
 EVWAITKEY_KEY=18
 # Path of the file where the EVWAITKEY is written if it is pressed.
@@ -376,81 +367,6 @@ cleanup_install_mounts() {
   return 0
 }
 
-# If the recovery media was provisioned for OOBE auto-setup, we have to ask the
-# user for confirmation before proceeding.
-request_oobe_autoconfig_acknowledgment() {
-  if ! is_oobe_autoconfig; then
-    return
-  fi
-
-  if [ -n "${OOBE_ENROLLMENT_DOMAIN}" ]; then
-    message oobe_autoconfig_domain
-    showtext "${OOBE_ENROLLMENT_DOMAIN}"
-  fi
-
-  local CONFIG_FOLDER="/etc/cros-initramfs"
-  # Check to see if we have a physical recovery switch. Physical presence may
-  # be confirmed by keyboard, power button, or recovery switch (decided by USE
-  # flags physical_presence_power and physical_presence_recovery).
-  # TODO(b/129882380): We currently don't have an acknowledgement screen for
-  # physical presence confirmation by power button (is_physical_presence_power),
-  # so just fallback to using the screen for keyboard (the 'else' block).
-  if [ -f "${CONFIG_FOLDER}/is_physical_presence_recovery" ]; then
-    message oobe_autoconfig_acknowledgment_switch
-
-    dlog "Waiting for user to confirm OOBE auto-setup by recovery switch..."
-
-    # Wait until the switch goes low in case the user kept the recovery switch
-    # pressed too long on entering recovery, so that we actually give them a
-    # chance to confirm.
-    until crossystem 'recoverysw_cur?0'; do
-      sleep 0.1
-    done
-
-    # Wait until user confirms by pressing their recovery switch.
-    until crossystem 'recoverysw_cur?1'; do
-      sleep 0.1
-    done
-
-    # User has no buttons with which to proceed with recovery without accepting
-    # OOBE auto-setup, so if we reach here it means the user has not cancelled
-    # by turning off the device.
-    OOBE_AUTO_CONFIG=1
-  else
-    # evdev mappings for keys determined by `evtest`.
-    local KEY_ESC=1
-    local KEY_ENTER=28
-    local KEY_VOLUMEDOWN=114
-    local KEY_VOLUMEUP=115
-    local key=
-
-    # Board-specific flag specified in board overlay and created in ramfs
-    # Makefile.
-    if [ -f "${CONFIG_FOLDER}/is_detachable" ]; then
-      if evwaitkey --check --keys ${KEY_VOLUMEUP}:${KEY_VOLUMEDOWN}; then
-        message oobe_autoconfig_acknowledgment_volume
-        dlog "Waiting for user to confirm OOBE auto-setup by volume keys..."
-        key=$(evwaitkey --keys ${KEY_VOLUMEUP}:${KEY_VOLUMEDOWN})
-      fi
-    elif evwaitkey --check --keys ${KEY_ESC}:${KEY_ENTER}; then
-      message oobe_autoconfig_acknowledgment_keyboard
-      dlog "Waiting for user to confirm OOBE auto-setup by keyboard..."
-      key=$(evwaitkey --keys ${KEY_ESC}:${KEY_ENTER})
-    fi
-
-    # If we've obtained user acknowledgment, mark ready for OOBE autoconfig.
-    if [ ${key} -eq ${KEY_ENTER} ] || [ ${key} -eq ${KEY_VOLUMEUP} ]; then
-      OOBE_AUTO_CONFIG=1
-    fi
-
-    # This shouldn't ever happen, but provide some feedback just in case.
-    if [ -z "${key}" ]; then
-      dlog "WARNING!!! Could not find method for confirming OOBE auto-setup!"
-      dlog "Recovery will proceed without auto-setup."
-    fi
-  fi
-}
-
 call_image_recovery_script() {
   dlog "Installing software; this will take some time."
   dlog "See the debug log on VT3 for the full output."
@@ -595,32 +511,18 @@ recover_system() {
   verify_rw_vpd || dlog "Could not verify or re-format RW_VPD"
 
   local extra_flags=
-  if [ -n "${OOBE_AUTO_CONFIG}" ]; then
-    # If we're running for OOBE auto-config, write our keys into the chroot
-    # and add flags to the invocation of chromeos-recovery pointing to them.
-    local pub_key_file="/tmp/oobe_config_key.pub"
-    local priv_key_file="/tmp/oobe_config_key.pem"
-    (
-      # +x in subshell to prevent logging private key.
-      set +x
-      echo "${OOBE_PUBLIC_KEY_PEM}" > "${USB_MNT}${pub_key_file}"
-      echo "${OOBE_PRIVATE_KEY_PEM}" > "${USB_MNT}${priv_key_file}"
-    )
-    extra_flags="--oobe_pub_key=${pub_key_file}
-                 --oobe_priv_key=${priv_key_file}"
-  else
-    # Normal recovery: the progress bar is full, and it is the user's last
-    # chance to cancel. The power button has to be held for a full 8 seconds
-    # to power off, so we allow a short grace period in case the user started
-    # pressing the power button late in the cycle.
-    sleep 2
-  fi
 
   # TODO: Since our final UX design is not confirmed, disable "Enhanced Disk
   #       Wipe" on beta and stable channels.
   if is_dev_channel; then
     check_disk_wipe_requested
   fi
+
+  # The progress bar is full, and it is the user's last chance to cancel. The
+  # power button has to be held for a full 8 seconds to power off, so we allow
+  # a short grace period in case the user started pressing the power button
+  # late in the cycle.
+  sleep 2
 
   message recovery_start
 
@@ -638,14 +540,9 @@ recover_system() {
 # interactive removal of the USB stick.  If we detect that
 # condition, we signal it by returning an empty string instead
 # of a path.
-#
-# In the case of OOBE auto-configuration, the presence of OOBE auto-config data
-# on the stateful partition of the recovery USB also flags that the end of
-# recovery should be non-interactive.
 get_usb_node_dir() {
   local usb_node_dir=/sys/block/$(strip_partition "${REAL_USB_DEV##*/}")
-  if [ "$INTERACTIVE_COMPLETE" = false ] || \
-     [ -n "${OOBE_AUTO_CONFIG}" ]; then
+  if [ "$INTERACTIVE_COMPLETE" = false ]; then
     usb_node_dir=""
   elif mount -n -o sync,rw "${REAL_USB_DEV%[0-9]*}1" /tmp; then
     if [ -f /tmp/non_interactive ]; then
@@ -665,34 +562,6 @@ get_usb_debugging_flag() {
     umount /tmp
   fi
   echo "$decrypt"
-}
-
-is_oobe_autoconfig() {
-  if [ ! -f "${CONFIG_FOLDER}/use_oobe_config" ]; then
-    return 1
-  fi
-
-  local has_config=1
-  if get_stateful_dev && mount -n -o sync,ro "${STATE_DEV}" "${STATEFUL_MNT}"
-  then
-    local oobe_dir="${STATEFUL_MNT}/unencrypted/oobe_auto_config"
-    local config_path="${oobe_dir}/config.json"
-    if [ -f "${config_path}" ]; then
-      has_config=0
-    fi
-
-    local domain_path="${oobe_dir}/enrollment_domain"
-    if [ -f "${domain_path}" ]; then
-      # Sanitize characters that are not allowed in punycoded domains. Also,
-      # truncate it off at 253 characters so we don't read a potentially massive
-      # string in.
-      OOBE_ENROLLMENT_DOMAIN="$(tr -dc 'a-z0-9.-' < "${domain_path}" | \
-        cut -b-253)"
-    fi
-
-    umount "${STATEFUL_MNT}"
-  fi
-  return ${has_config}
 }
 
 maybe_get_debugging_logs() {
@@ -954,57 +823,6 @@ update_tpm_firmware() {
   return 0
 }
 
-# Generate a key pair for OOBE auto-setup validation, and write a 32-byte SHA256
-# digest of the public key into a TPM space defined with PPWRITE permissions.
-# The private and public keys are kept in memory as OOBE_PRIVATE_KEY_PEM and
-# OOBE_PUBLIC_KEY_PEM.
-setup_oobe_auto_config_keys() {
-  if [ ! -f "${CONFIG_FOLDER}/use_oobe_config" ]; then
-    return
-  fi
-
-  # +x to prevent logging private key.
-  set +x
-  local key_data="$(cros_oobe_crypto)"
-  # We will need the keys after we've completed installation.
-  OOBE_PRIVATE_KEY_PEM=$(echo "${key_data}" | \
-    sed -n "/BEGIN EC PRIVATE KEY/,/END EC PRIVATE KEY/p")
-  OOBE_PUBLIC_KEY_PEM=$(echo "${key_data}" | \
-    sed -n "/BEGIN PUBLIC KEY/,/END PUBLIC KEY/p")
-  # Restore logging.
-  set -x
-
-  # Split up the hash of the public key into 32 hexadecimal bytes to feed into
-  # `tpmc`.
-  local pub_bytes=$(echo "${OOBE_PUBLIC_KEY_PEM}" | sha256sum | \
-    grep -Eo '[a-zA-Z0-9]{2}' | head -n 32)
-
-  # Define a 32-byte space with the same PPWRITE permission as the vboot kernel
-  # rollback space. This prevents a compromised OS from altering it to load an
-  # arbitrary configuration file without going through recovery.
-  #
-  # For TPM 1.2 set bits:
-  # - 0:  TPM_NV_PER_PPWRITE - Requires physical presence to write.
-  #
-  # For TPM 2.0 set bits:
-  # - 0:  TPM_NV_PPWRITE - Requires physical presence to write.
-  # - 18: TPM_NV_PER_AUTHREAD - Requires authorization to read (in this case
-  #       with empty password)
-  # - 25: TPMA_NV_NO_DA - To avoid TPM lockouts in case of bugs in reading
-  #       logic.
-  # - 30: TPMA_NV_PLATFORMCREATE - The index can be undefined with platform
-  #       authorization but not with owner authorization.
-  local permissions=
-  if [ "$(tpmc tpmver)" == "2.0" ]; then
-    permissions=0x42040001
-  else
-    permissions=0x1
-  fi
-  tpmc definespace "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" 0x20 "${permissions}"
-  # No quotes; this is intended to split up the bytes.
-  tpmc write "${OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE}" ${pub_bytes}
-}
-
 # Terminate with an error message.  We don't want to do anything
 # else (like start a shell) because it would be trivially easy to
 # get here (just unplug the USB drive after the kernel starts but
@@ -1126,10 +944,6 @@ recovery_install() {
     while [ -d "$usb_node_dir" ]; do
       sleep 1
     done
-  elif [ -n "${OOBE_AUTO_CONFIG}" ]; then
-    # Special (non-interactive) test case; reboot after a nominal
-    # pause to allow a human to observe the screen.
-    message recovery_complete_oobe_autoconfig
   else
     message recovery_complete_noninteractive
   fi

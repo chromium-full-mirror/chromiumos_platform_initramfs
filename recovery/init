@@ -514,10 +514,6 @@ main() {
   # argument.
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
-  # Write generated public key for verifying OOBE autoconfiguration to the TPM
-  # before we lock it below.
-  setup_oobe_auto_config_keys
-
   # Always lock the TPM first.
   lock_tpm || on_error
 
@@ -540,12 +536,6 @@ main() {
 
   # Extract the real boot source, which may be masked by dm-verity.
   get_stateful_dev || on_error
-
-  # If recovery media is provisioned for OOBE auto-configuration, we need to ask
-  # the user before we proceed. We ask before validating the recovery rootfs
-  # so that the user does not have to come back to the setup process after
-  # a minute of validation to confirm.
-  request_oobe_autoconfig_acknowledgment
 
   message validate
 

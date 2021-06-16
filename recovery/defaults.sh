@@ -19,9 +19,6 @@ message() {
   # Currently defined messages (see message.sh for details):
   #  - startup
   #  - on_error
-  #  - oobe_autoconfig_acknowledgment_keyboard
-  #  - oobe_autoconfig_acknowledgment_switch
-  #  - oobe_autoconfig_acknowledgment_volume
   #  - key_change
   #  - developer_image
   #  - disk_wipe_start
@@ -30,7 +27,6 @@ message() {
   #  - recovery_start
   #  - recovery_complete
   #  - recovery_complete_noninteractive
-  #  - recovery_complete_oobe_autoconfig
   #  - recovery_complete_wipe_fail
   #  - recovery_complete_wipe_successful
   #  - recovery_error_wipe_fail
