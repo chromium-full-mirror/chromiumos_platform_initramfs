@@ -36,16 +36,7 @@ run_trichechus() {
 
 # Start serial bash access.
 run_console() {
-  local serial=
-  if [ -c "/dev/ttyMSM0" ]; then
-    serial="/dev/ttyMSM0"
-  elif [ -c "/dev/ttyS0" ]; then
-    serial="/dev/ttyS0"
-  else
-    # No serial device found.
-    return
-  fi
-  sh >"${serial}" <"${serial}" 2>&1
+  setsid cttyhack sh
 }
 
 # Suzy-Q debug access.
