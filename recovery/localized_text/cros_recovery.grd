@@ -414,6 +414,12 @@ Preforming recovery
       <message name="desc_MiniOS_downloading" desc="Title shown to the user when downloading">
 This will take a few minutes. Please do not turn off the computer or disconnect the power.
       </message>
+      <message name="title_MiniOS_finalizing" desc="Title shown to the user when almost done with installation">
+Finishing Up
+      </message>
+      <message name="desc_MiniOS_finalizing" desc="Title shown to the user when almost done with installation">
+Please wait, recovery is almost complete
+      </message>
       <message name="title_MiniOS_complete" desc="Title shown to the user when finished with recovery">
 System recovery is now complete. Please reboot manually if the system does not automatically restart.
       </message>
