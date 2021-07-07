@@ -76,6 +76,15 @@ DEFAULT_FONT_SIZE = 18
 DEFAULT_LINE_HEIGHT = 21
 FOOTER_FONT_SIZE = 16
 
+# Localized text tags to sort UI elements.
+MINIOS_STRING = 'MiniOS'
+BASE_ELEMENTS = ['btn', 'footer', 'debug', 'log']
+
+# UI options. MINIOS_UI for network based recovery flow and RECOVERY_UI for
+# the external disk recovery flow.
+MINIOS_UI = 'minios_ui'
+RECOVERY_UI = 'menu_ui'
+
 # Input text files are broken into paragraphs like so:
 #   This is a sample line of text in the first paragraph.
 #   This is a second line in the same paragraph.
@@ -230,7 +239,7 @@ def IsRightToLeftLanguage(locale):
   return locale in ('ar', 'fa', 'he')
 
 
-def CreateLocales(textdir, screendir, locale_list):
+def CreateLocales(textdir, screendir, locale_list, ui_type):
   """Create message images for all locales.
 
   The per-locale XTB files containing translations are found in `textdir`.  The
@@ -238,7 +247,9 @@ def CreateLocales(textdir, screendir, locale_list):
   used are specified in `locale_list`.
 
   All locales share a distinguished image named "empty.png" that
-  contains no text.
+  contains no text. If `ui_type` is true, then only include strings in the
+  textdir that are tagged `MINIOS_STRING`. For the recovery ui, ignore
+  everything with that tag. Base elements are always included.
   """
   # Need to create the empty image before processing the others.
   empty_base = 'empty.png'
@@ -285,6 +296,14 @@ def CreateLocales(textdir, screendir, locale_list):
 
       # Generate an image file for translated message.
       for (tag, msgdict) in translations.items():
+        if not any(substring in tag for substring in BASE_ELEMENTS):
+          # Other than base element tags, only include `MiniOS` strings when
+          # running the `minios_ui` and the recovery strings when running
+          # `menu_ui`.
+          if ui_type == MINIOS_UI and not MINIOS_STRING in tag:
+            continue
+          elif ui_type == RECOVERY_UI and MINIOS_STRING in tag:
+            continue
         msgtext = msgdict['message']
         msgtext = re.sub(CRLF_PATTERN, '\n', msgtext)
         msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
@@ -364,7 +383,7 @@ def CalculateButtonWidth(screendir, locale, *buttons):
           os.path.join(screendir, 'en-US', pngfile)))
   return width
 
-def CreateConstantDefs(screendir, all_locales):
+def CreateConstantDefs(screendir, all_locales, ui_type):
   for locale in all_locales:
     with open(os.path.join(screendir, locale, 'constants.sh'), 'w') as out:
       on_error_btn_width = CalculateButtonWidth(
@@ -390,13 +409,17 @@ def CreateConstantDefs(screendir, all_locales):
         width = CalculateButtonWidth(screendir, locale, button)
         print('BUTTON_%s_WIDTH=%d' % (button, width), file=out)
 
-      instructions = ['recovery_in_progress', 'recovery_complete',
-                      'recovery_failed', 'MiniOS_general_error',
-                      'MiniOS_password', 'MiniOS_download_error',
-                      'MiniOS_network_error', 'MiniOS_password_error',
-                      'MiniOS_pick_image', 'MiniOS_downloading',
-                      'MiniOS_user_confirm', 'MiniOS_finalizing',
-                      'MiniOS_welcome', 'MiniOS_connection_error']
+      if ui_type == MINIOS_UI:
+        instructions = ['MiniOS_general_error',
+                        'MiniOS_password', 'MiniOS_download_error',
+                        'MiniOS_network_error', 'MiniOS_password_error',
+                        'MiniOS_pick_image', 'MiniOS_downloading',
+                        'MiniOS_user_confirm', 'MiniOS_finalizing',
+                        'MiniOS_welcome', 'MiniOS_connection_error']
+      else:
+        instructions = ['recovery_in_progress', 'recovery_complete',
+                        'recovery_failed']
+
       for instruction in instructions:
         title_img_path = os.path.join(screendir, locale,
                                       'title_' + instruction + '.png')
@@ -441,23 +464,30 @@ def main(argv):
   """
   locale_list = list(SUPPORTED_LOCALES)
   if len(argv) == 1:
+    ui_type = RECOVERY_UI
     textdir = 'localized_text'
     screendir = 'screens'
   elif len(argv) > 2:
-    textdir = argv[1]
-    screendir = argv[2]
-    if argv[3:]:
-      locale_list = argv[3:]
+    if argv[1] not in (MINIOS_UI, RECOVERY_UI):
+      sys.stderr.write('usage: first argument must be either minios_ui or '
+                       'menu_ui')
+      sys.exit(1)
+    else:
+      ui_type = argv[1]
+    textdir = argv[2]
+    screendir = argv[3]
+    if argv[4:]:
+      locale_list = argv[4:]
   else:
-    sys.stderr.write('usage: %s [ <dir> <dir> [ <locale> ... ] ]\n' %
-                     os.path.basename(argv[0]))
+    sys.stderr.write('usage: %s [ (minios_ui/menu_ui) <dir> <dir> '
+                     '[ <locale> ... ] ]\n' % os.path.basename(argv[0]))
     sys.exit(1)
   assetsdir = 'menu_ui/assets'
 
   if not os.path.isdir(screendir):
     os.mkdir(screendir)
 
-  CreateLocales(textdir, screendir, locale_list)
+  CreateLocales(textdir, screendir, locale_list, ui_type)
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/white'), TEXT_COLOR,
                         BACKGROUND)
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/grey'),
@@ -471,7 +501,7 @@ def main(argv):
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/black'),
                      BACKGROUND, BLUE)
 
-  CreateConstantDefs(screendir, SUPPORTED_LOCALES)
+  CreateConstantDefs(screendir, SUPPORTED_LOCALES, ui_type)
   CreateLanguageDefs(screendir, SUPPORTED_LOCALES)
   ConvertSvg(assetsdir, screendir)
 

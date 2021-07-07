@@ -109,7 +109,8 @@ legacy_ui: stage_init
 
 .PHONY: menu_ui
 menu_ui: stage_init
-	$(RECOVERY_DIR)/menu_ui/make_images $(RECOVERY_DIR)/localized_text \
+	$(RECOVERY_DIR)/menu_ui/make_images $(UI) \
+		$(RECOVERY_DIR)/localized_text \
 		"$(STAGE)/etc/screens" $(LOCALE_LIST)
 	cp $(RECOVERY_DIR)/*.sh $(RECOVERY_DIR)/menu_ui/*.sh "$(STAGE)/lib"
 
