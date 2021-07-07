@@ -462,6 +462,11 @@ def main(argv):
                         BACKGROUND)
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/grey'),
                         GREY_TEXT_COLOR, BACKGROUND)
+
+  # For dynamic text on dropdown menu.
+  CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/dropdown_grey'),
+                        GREY_TEXT_COLOR, DROPDOWN_BG_COLOR)
+
   # For dynamic text on focused buttons.
   CreateMonospaceGlyphs(os.path.join(screendir, 'glyphs/black'),
                      BACKGROUND, BLUE)
