@@ -240,6 +240,9 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/ssl"
 	sudo cp -av "$(SYSROOT)/etc/ssl/openssl"* \
 		"$(STAGE)/etc/ssl/"
+	mkdir -p "$(STAGE)/usr/share/policy"
+	sudo cp -av "$(SYSROOT)/usr/share/policy/wpa_supplicant.bpf" \
+		"$(STAGE)/usr/share/policy/"
 	# DHCPCD related files.
 	cp -av "$(SYSROOT)/lib64/dhcpcd"* "$(STAGE)/lib64/"
 	cp -av "$(SYSROOT)/etc/resolv.conf" "$(STAGE)/etc/"
