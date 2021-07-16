@@ -64,15 +64,15 @@ main() {
   run_trichechus
 
   if [[ -x /bin/crosvm-direct.sh ]]; then
-    # Try to run crosvm-direct
-    /bin/crosvm-direct.sh
+    # Start ManaTEE Primary VM
+    start-stop-daemon -S -b -x "/bin/crosvm-direct.sh"
   else
     # Failover to serial console. Development only.
     run_console
   fi
 
-  # Force system reboot
-  reboot -f
+  # Poor man's init: keep running for 30 days
+  exec sleep 27648000
 }
 
 # Make this source-able for testing.

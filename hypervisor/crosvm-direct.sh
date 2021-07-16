@@ -21,14 +21,6 @@ vfio_pci() {
     ;;
   esac
 
-  case "${bdf}" in
-    0000:00:1e.?)
-# Uncomment to keep hypervisor access to serial console.
-# FIME/keep hypervisor console to enable guest kernel bringup
-      return 1
-      ;;
-  esac
-
   # Detach from current driver if any.
   local driver="${sysfs}/driver"
   if [[ -f "${driver}/unbind" ]]; then
