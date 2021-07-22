@@ -410,7 +410,7 @@ def CreateConstantDefs(screendir, all_locales, ui_type):
         print('BUTTON_%s_WIDTH=%d' % (button, width), file=out)
 
       if ui_type == MINIOS_UI:
-        instructions = ['MiniOS_general_error',
+        instructions = ['MiniOS_general_error', 'MiniOS_complete',
                         'MiniOS_password', 'MiniOS_download_error',
                         'MiniOS_network_error', 'MiniOS_password_error',
                         'MiniOS_pick_image', 'MiniOS_downloading',

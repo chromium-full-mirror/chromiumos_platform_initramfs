@@ -308,7 +308,7 @@ Recovery is now complete
 Unplug your external disk to restart.
       </message>
       <message name="title_debug_options" desc="Title of the deug info screen">
-Recovery Debug Options
+Recovery debug options
       </message>
       <message name="footer_left_1" desc="Combined with footer_left_2/3, the left half of footer">
 Model:
@@ -393,35 +393,44 @@ Next
       <message name="btn_enter" desc="Enter button">
 Enter
       </message>
+      <message name="btn_choose_network" desc="To go back to the network selection screen from the error screen.">
+Choose network
+      </message>
+      <message name="btn_start_recovery" desc="Start recovery button on user confirmation screen">
+Start recovery?
+      </message>
       <message name="title_MiniOS_password" desc="Title shown to the user to enter their password">
 Enter the network password
       </message>
       <message name="desc_MiniOS_password" desc="Detailed description for entering password">
-Begin typing now. Hit Enter to submit
+Type your password. Press Tab to show or hide the password. Press Enter to submit.
       </message>
       <message name="title_MiniOS_welcome" desc="Title shown to the user when beginning recovery">
-Now ready to recover your device
+Recover using an internet connection
       </message>
       <message name="desc_MiniOS_welcome" desc="Detailed description shown to the user when beginning recovery">
-If you want to choose a different recovery method, please reboot your device to return to the home screen
+If you want to choose a different recovery method, go back by pressing Esc + Refresh + Power
       </message>
       <message name="title_MiniOS_dropdown" desc="Title shown to the user when starting process">
 Connect to a network to begin recovery
       </message>
       <message name="title_MiniOS_downloading" desc="Title shown to the user when downloading">
-Preforming recovery
+Recovery in progress
       </message>
       <message name="desc_MiniOS_downloading" desc="Title shown to the user when downloading">
-This will take a few minutes. Please do not turn off the computer or disconnect the power.
+This may take a few minutes. Do not turn off the device or disconnect the power.
       </message>
       <message name="title_MiniOS_finalizing" desc="Title shown to the user when almost done with installation">
-Finishing Up
+Finishing recovery
       </message>
       <message name="desc_MiniOS_finalizing" desc="Title shown to the user when almost done with installation">
-Please wait, recovery is almost complete
+This will take a few minutes
       </message>
       <message name="title_MiniOS_complete" desc="Title shown to the user when finished with recovery">
-System recovery is now complete. Please reboot manually if the system does not automatically restart.
+Recovery completed
+      </message>
+      <message name="desc_MiniOS_complete" desc="Detailed description shown when finished with recovery">
+Restart manually if the device doesn’t automatically restart
       </message>
       <message name="title_MiniOS_pick_image" desc="Title shown to the user about recovery version">
 You will now be updated to the latest stable version (Recommended)
@@ -433,13 +442,13 @@ Select advanced options below to change
 Select OS channel and version to continue recovery
       </message>
       <message name="title_MiniOS_wait_for_connection" desc="Title shown to the user while waiting for the network connection status">
-Connecting to the network. Please wait.
+Connecting to the network. This may take up to a minute.
       </message>
       <message name="title_MiniOS_user_confirm" desc="Title shown to the user asking for permission to recover">
-Please confirm to continue
+Start recovery
       </message>
       <message name="desc_MiniOS_user_confirm" desc="Detailed description presented to the user asking for permission to recover">
-This process will wipe your personal data. This will take several minutes. Do not power off the device.
+This process will wipe your personal data. This will take several minutes. Do not turn off the device.
       </message>
       <message name="title_MiniOS_network_error" desc="Title shown to the user when there is an error getting networks">
 Could not find any networks
