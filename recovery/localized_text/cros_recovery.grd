@@ -450,7 +450,7 @@ Sorry, something went wrong
 Please try again. Make sure the device is plugged in and charging.
       </message>
       <message name="btn_MiniOS_display_options" desc="Button for options menu">
-Available Items
+Available Networks
       </message>
     </messages>
   </release>
