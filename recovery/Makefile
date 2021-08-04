@@ -170,9 +170,13 @@ minios: stage_init
 		"$(STAGE)/usr/lib64/shill/"
 	# Add json mapping from region to xkb layout.
 	cp -av "$(CROS_REGIONS_DATABASE)" "$(STAGE)/usr/share/misc/cros-regions.json"
+	# Copy the /etc/lsb-release file, during non-build_image flows this file might
+	# be missing.
+	mkdir -p "$(STAGE)/etc"
+	cp -av "$(SYSROOT)/build/initramfs/etc/lsb-release" "$(STAGE)/etc/" | true
 	# Add conf files for upstart to pickup.
 	mkdir -p "$(STAGE)/etc/init"
-	cp -av "$(SYSROOT)/build/initramfs/"* "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/etc/init"* "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/dbus.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/network-services.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/pre-shutdown.conf" "$(STAGE)/etc/init/"
