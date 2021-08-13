@@ -176,7 +176,7 @@ minios: stage_init
 	cp -av "$(SYSROOT)/build/initramfs/etc/lsb-release" "$(STAGE)/etc/" | true
 	# Add conf files for upstart to pickup.
 	mkdir -p "$(STAGE)/etc/init"
-	cp -av "$(SYSROOT)/build/initramfs/etc/init"* "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/etc/init/"* "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/dbus.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/network-services.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/pre-shutdown.conf" "$(STAGE)/etc/init/"
