@@ -16,11 +16,19 @@ DATA_DEPS= \
 
 include ../common/initramfs.mk
 
-$(RAMFS_BIN): stage_init
+CONFIG_DEPS=$(wildcard $(SRCDIR)/*.json)
+
+$(RAMFS_BIN): stage_init ${CONFIG_DEPS}
 	ln -s busybox $(STAGE)/bin/sh
 	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
 	cp "$(SRCDIR)/boards/$(BOARD)/manatee.conf" "$(STAGE)/etc/manatee.conf"
 	cp "$(SRCDIR)/crosvm-direct.sh" "$(STAGE)/bin/crosvm-direct.sh"
+
+	mkdir -p "$(STAGE)/usr/share/manatee"
+	tee_app_info_lint -R "$(SYSROOT)" \
+		-o "$(STAGE)/usr/share/manatee/manatee.flex.bin" \
+		${CONFIG_DEPS}
+
 	$(call generate_ramfs)
