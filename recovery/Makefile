@@ -150,6 +150,8 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/dbus-1"
 	cp -av "$(SYSROOT)/etc/dbus-1/"* \
 		"$(STAGE)/etc/dbus-1/"
+	cp -av "$(SYSROOT)/build/initramfs/etc/dbus-1/"* \
+		"$(STAGE)/etc/dbus-1/"
 	mkdir -p "$(STAGE)/usr/share/dbus-1"
 	cp -av "$(SYSROOT)/usr/share/dbus-1/"* \
 		"$(STAGE)/usr/share/dbus-1/"

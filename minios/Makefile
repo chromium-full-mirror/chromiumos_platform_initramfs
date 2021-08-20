@@ -25,6 +25,8 @@ export MINIOS_BIN_DEPS = \
 	/bin/mount \
 	/bin/systemd-tmpfiles \
 	/bin/udevadm \
+	/build/initramfs/bin/minios \
+	/build/initramfs/bin/root_partition_for_recovery \
 	/sbin/blockdev \
 	/sbin/chromeos_startup \
 	/sbin/dhclient \
@@ -54,10 +56,8 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/ionice \
 	/usr/bin/logger \
 	/usr/bin/metrics_client \
-	/usr/bin/minios \
 	/usr/bin/openssl \
 	/usr/bin/rootdev \
-	/usr/bin/root_partition_for_recovery \
 	/usr/bin/shill \
 	/usr/bin/strace \
 	/usr/bin/update_engine_client \
