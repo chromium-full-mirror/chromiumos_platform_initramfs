@@ -359,6 +359,12 @@ patch_new_root() {
     done
   fi
 
+  # Some daemons are run in minijail with `--profile=minimalistic-mountns`
+  # argument, which requires /dev/log to exist.
+  if [ ! -e /dev/log ]; then
+    touch /dev/log
+  fi
+
   # Create an early debug terminal if available.
   if is_cros_debug && [ -n "${DEBUG_TTY}" ]; then
     file="${NEWROOT_MNT}/etc/init/debug_console.conf"
