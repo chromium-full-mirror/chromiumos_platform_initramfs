@@ -48,12 +48,14 @@ export MINIOS_BIN_DEPS = \
 	/sbin/udevd \
 	/sbin/usermode-helper \
 	/usr/bin/awk \
+	/usr/bin/cros_region_data \
 	/usr/bin/curl \
 	/usr/bin/dbus-daemon \
 	/usr/bin/dbus-monitor \
 	/usr/bin/dbus-send \
 	/usr/bin/dbus-uuidgen \
 	/usr/bin/ionice \
+	/usr/bin/jq \
 	/usr/bin/logger \
 	/usr/bin/metrics_client \
 	/usr/bin/openssl \
