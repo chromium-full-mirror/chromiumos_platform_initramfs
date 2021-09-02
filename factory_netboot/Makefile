@@ -40,6 +40,7 @@ NETBOOT_BIN_DEPS = \
 	/usr/sbin/fsck.vfat \
 	/usr/sbin/htpdate \
 	/usr/sbin/partprobe \
+	/usr/sbin/tpm_version \
 	/usr/sbin/uftpd
 
 # ChromeOS specific dependency.
@@ -68,7 +69,8 @@ DATA_DEPS = \
 
 # Directories to be cloned into initramfs.
 DATA_DIR_DEPS = \
-	/etc/terminfo
+	/etc/terminfo \
+	/usr/share/factory_installer/tpm/
 
 # Layout of directories to be created in initramfs.
 RAMFS_LAYOUT_DIRS = \
@@ -93,6 +95,7 @@ $(RAMFS_BIN): stage_init
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
 	for data in $(DATA_DIR_DEPS); do \
+		mkdir -p "$(STAGE)/$$(dirname "$${data}")"; \
 		cp -r $(SYSROOT)/$${data} $(STAGE)/$${data}; \
 	done
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
