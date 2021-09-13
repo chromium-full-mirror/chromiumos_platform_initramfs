@@ -243,7 +243,7 @@ minios: stage_init
 		"$(SYSROOT)/usr/lib64/libp11"* \
 		"$(STAGE)/usr/lib64/"
 	mkdir -p "$(STAGE)/etc/ssl"
-	sudo cp -av "$(SYSROOT)/etc/ssl/openssl"* \
+	sudo cp -av "$(SYSROOT)/etc/ssl/"* \
 		"$(STAGE)/etc/ssl/"
 	mkdir -p "$(STAGE)/usr/share/policy"
 	sudo cp -av "$(SYSROOT)/usr/share/policy/wpa_supplicant.bpf" \
