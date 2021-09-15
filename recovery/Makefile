@@ -116,13 +116,16 @@ menu_ui: stage_init
 .PHONY: minios_ui
 minios_ui: menu_ui minios stage_init
 
+# TODO(b/177025106): Improve the build process to be more generic.
 .PHONY: minios
 minios: stage_init
 	# FIRMWARE
 	mkdir -p "$(STAGE)/lib/firmware"
-	cp -av "$(SYSROOT)/lib/firmware/rt"* \
-		"$(SYSROOT)/lib/firmware/iwl"* \
-		"$(STAGE)/lib/firmware"
+	find "$(SYSROOT)/lib/firmware/" \
+		\( -iname "rt*" \
+		-o -iname "iwl*" \
+		-o -iname "ath*" \) \
+		-exec cp -r "{}" "$(STAGE)/lib/firmware" \;
 	# KERNEL MODULES
 	mkdir -p "$(STAGE)/lib/modules"
 	cp -av "$(SYSROOT)/lib/modules/"* "$(STAGE)/lib/modules"
