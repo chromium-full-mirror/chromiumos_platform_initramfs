@@ -17,7 +17,7 @@ vfio_pci() {
     return 1  # Ignore PCI Host Bridge.
     ;;
   0x060400)
-    return 1  # Ignore PCI-PCI Bridge.
+    return 2  #link phyiscal pcie root port to virtual pcie root port
     ;;
   esac
 
@@ -253,8 +253,11 @@ run() {
     fi
 
     vfio_pci "${dev}"
-    if [[ $? -eq 0 ]]; then
+    local val=$?
+    if [[ $val -eq 0 ]]; then
       args="${args} --vfio ${dev},iommu=coiommu"
+    elif [[ $val -eq 2 ]]; then
+      args="${args} --pcie-root-port ${dev}"
     fi
   done
 
