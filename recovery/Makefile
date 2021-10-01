@@ -189,8 +189,9 @@ minios: stage_init
 	cp -av "$(SYSROOT)/etc/init/shill.conf" "$(STAGE)/etc/init/"
 	cp -av "$(SYSROOT)/etc/init/wpasupplicant.conf" "$(STAGE)/etc/init/"
 	mkdir -p "$(STAGE)/usr/lib/tmpfiles.d"
-	cp -av "$(SYSROOT)/usr/lib/tmpfiles.d/dbus.conf" "$(STAGE)/usr/lib/tmpfiles.d/"
-	cp -av "$(SYSROOT)/usr/lib/tmpfiles.d/syslog.conf" \
+	cp -av "$(SYSROOT)/usr/lib/tmpfiles.d/dbus.conf" \
+		"$(SYSROOT)/usr/lib/tmpfiles.d/syslog.conf" \
+		"$(SYSROOT)/usr/lib/tmpfiles.d/shill.conf" \
 		"$(STAGE)/usr/lib/tmpfiles.d/"
 	# D-Bus and logging dependencies for upstart.
 	mkdir -p "$(STAGE)/var/lib/metrics"
