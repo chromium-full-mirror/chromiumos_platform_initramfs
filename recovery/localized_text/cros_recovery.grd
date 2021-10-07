@@ -452,6 +452,9 @@ Please try again. Make sure the device is plugged in and charging.
       <message name="btn_MiniOS_display_options" desc="Button for options menu">
 Available Networks
       </message>
+      <message name="btn_MiniOS_advanced_options" desc="Button for advanced options menu">
+Advanced Options
+      </message>
     </messages>
   </release>
 </grit>
