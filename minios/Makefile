@@ -34,6 +34,8 @@ export MINIOS_BIN_DEPS = \
 	/sbin/dhcpcd \
 	/sbin/init \
 	/sbin/initctl \
+	/sbin/iptables \
+	/sbin/ip6tables \
 	/sbin/losetup \
 	/sbin/minijail0 \
 	/sbin/mkfs.ext4 \
@@ -62,6 +64,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/openssl \
 	/usr/bin/rootdev \
 	/usr/bin/shill \
+	/usr/bin/ssh-keygen \
 	/usr/bin/strace \
 	/usr/bin/update_engine_client \
 	/usr/bin/uptime \
@@ -75,10 +78,11 @@ export MINIOS_BIN_DEPS = \
 	/usr/sbin/crda \
 	/usr/sbin/rfkill \
 	/usr/sbin/rsyslogd \
+	/usr/sbin/sshd \
 	/usr/sbin/syslog-cat \
 	/usr/sbin/update-ca-certificates \
 	/usr/sbin/update_engine \
-	/usr/sbin/wpa_supplicant \
+	/usr/sbin/wpa_supplicant
 
 .PHONY: all
 all:

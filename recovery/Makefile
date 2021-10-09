@@ -181,13 +181,16 @@ minios: stage_init
 	cp -av "$(SYSROOT)/build/initramfs/etc/lsb-release" "$(STAGE)/etc/" | true
 	# Add conf files for upstart to pickup.
 	mkdir -p "$(STAGE)/etc/init"
-	cp -av "$(SYSROOT)/build/initramfs/etc/init/"* "$(STAGE)/etc/init/"
-	cp -av "$(SYSROOT)/etc/init/dbus.conf" "$(STAGE)/etc/init/"
-	cp -av "$(SYSROOT)/etc/init/network-services.conf" "$(STAGE)/etc/init/"
-	cp -av "$(SYSROOT)/etc/init/pre-shutdown.conf" "$(STAGE)/etc/init/"
-	cp -av "$(SYSROOT)/etc/init/reboot.conf" "$(STAGE)/etc/init/"
-	cp -av "$(SYSROOT)/etc/init/shill.conf" "$(STAGE)/etc/init/"
-	cp -av "$(SYSROOT)/etc/init/wpasupplicant.conf" "$(STAGE)/etc/init/"
+	cp -av "$(SYSROOT)/build/initramfs/etc/init/"* \
+		"$(SYSROOT)/etc/init/dbus.conf" \
+		"$(SYSROOT)/etc/init/iptables.conf" \
+		"$(SYSROOT)/etc/init/ip6tables.conf" \
+		"$(SYSROOT)/etc/init/network-services.conf" \
+		"$(SYSROOT)/etc/init/pre-shutdown.conf" \
+		"$(SYSROOT)/etc/init/reboot.conf" \
+		"$(SYSROOT)/etc/init/shill.conf" \
+		"$(SYSROOT)/etc/init/wpasupplicant.conf" \
+		"$(STAGE)/etc/init/"
 	mkdir -p "$(STAGE)/usr/lib/tmpfiles.d"
 	cp -av "$(SYSROOT)/usr/lib/tmpfiles.d/dbus.conf" \
 		"$(SYSROOT)/usr/lib/tmpfiles.d/syslog.conf" \
@@ -249,6 +252,9 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/ssl"
 	sudo cp -av "$(SYSROOT)/etc/ssl/"* \
 		"$(STAGE)/etc/ssl/"
+	mkdir -p "$(STAGE)/etc/ssh"
+	sudo cp -av "$(SYSROOT)/build/initramfs/etc/ssh/"* \
+		"$(STAGE)/etc/ssh/"
 	mkdir -p "$(STAGE)/usr/share/policy"
 	sudo cp -av "$(SYSROOT)/usr/share/policy/wpa_supplicant.bpf" \
 		"$(STAGE)/usr/share/policy/"
