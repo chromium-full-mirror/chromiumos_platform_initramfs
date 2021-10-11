@@ -39,6 +39,7 @@ export MINIOS_BIN_DEPS = \
 	/sbin/mkfs.ext4 \
 	/sbin/modprobe \
 	/sbin/net_poll_tool \
+	/sbin/poweroff \
 	/sbin/reboot \
 	/sbin/shutdown \
 	/sbin/static_node_tool \
