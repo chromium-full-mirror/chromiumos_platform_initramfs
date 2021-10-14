@@ -5,7 +5,6 @@
 # Dependency list of binary programs.
 BIN_DEPS= \
 	/bin/busybox \
-	/build/initramfs/demo_app \
 	/build/initramfs/trichechus \
 	/build/manatee/bin/crosvm-direct
 
@@ -16,7 +15,7 @@ DATA_DEPS= \
 
 include ../common/initramfs.mk
 
-CONFIG_DEPS=$(wildcard $(SRCDIR)/*.json)
+CONFIG_DEPS=$(wildcard $(SYSROOT)/usr/share/manatee/templates/*.json)
 
 $(RAMFS_BIN): stage_init ${CONFIG_DEPS}
 	ln -s busybox $(STAGE)/bin/sh
