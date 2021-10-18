@@ -254,4 +254,6 @@ minios: stage_init
 		"$(STAGE)/usr/share/policy/"
 	# DHCPCD related files.
 	cp -av "$(SYSROOT)/lib64/dhcpcd"* "$(STAGE)/lib64/"
-	cp -av "$(SYSROOT)/etc/resolv.conf" "$(STAGE)/etc/"
+	cp -av "$(SYSROOT)/etc/resolv.conf" \
+		"$(SYSROOT)/etc/dhcpcd.conf" \
+		"$(STAGE)/etc/"
