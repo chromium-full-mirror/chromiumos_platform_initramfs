@@ -254,20 +254,17 @@ instructions_with_title() {
 progress_bar() {
   local progress_increment=10
   local progress_height=4
-  local incr_left=-500
+  local progress_full_width="${CANVAS_SIZE}"
+  local incr_left="$(( -progress_full_width / 2 ))"
   local leftmost="${incr_left}"
   local percent=""
 
-  showbox 0 0 "$(( progress_increment * 100 ))" "${progress_height}" \
-    "${MENU_UI_GREY}"
+  showbox 0 0 "${progress_full_width}" "${progress_height}" "${MENU_UI_GREY}"
 
   while read -r percent; do
-    local rightmost="$(( incr_left + progress_increment * percent ))"
-    while [ "${leftmost}" -lt "${rightmost}" ]; do
-      showbox "$(( leftmost + progress_increment / 2 ))" 0 \
-        "$(( progress_increment + 2 ))" "${progress_height}" "${MENU_UI_BLUE}"
-      leftmost="$(( leftmost + progress_increment ))"
-    done
+    local progress_width="$(( progress_full_width * percent / 100 ))"
+    showbox "$(( leftmost + progress_width / 2 ))" 0 \
+        "${progress_width}" "${progress_height}" "${MENU_UI_BLUE}"
   done
 }
 
@@ -1539,4 +1536,3 @@ message_minios_error() {
     "${DEBUG_OPTIONS_BTN_WIDTH}"
   errorstate_onselect
 }
-
