@@ -22,6 +22,8 @@ export MINIOS_RAMFS_LAYOUT_DIRS = \
 
 # Extra dependencies miniOS requires.
 export MINIOS_BIN_DEPS = \
+	/bin/bash \
+	/bin/ls \
 	/bin/mount \
 	/bin/systemd-tmpfiles \
 	/bin/udevadm \
@@ -83,6 +85,11 @@ export MINIOS_BIN_DEPS = \
 	/usr/sbin/update-ca-certificates \
 	/usr/sbin/update_engine \
 	/usr/sbin/wpa_supplicant
+
+export MINIOS_DATA_DEPS = \
+	/usr/share/chromeos-ssh-config/keys/authorized_keys \
+	/usr/share/chromeos-ssh-config/keys/id_rsa \
+	/usr/share/chromeos-ssh-config/keys/id_rsa.pub
 
 .PHONY: all
 all:

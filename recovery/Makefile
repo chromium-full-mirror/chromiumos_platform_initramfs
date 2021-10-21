@@ -31,6 +31,10 @@ EXTRA_BIN_DEPS ?=
 DATA_DEPS = \
 	/usr/share/misc/chromeos-common.sh
 
+ifdef MINIOS_DATA_DEPS
+DATA_DEPS += $(MINIOS_DATA_DEPS)
+endif
+
 LOCAL_BIN_DEPS = \
 	$(AOA_SWITCH)
 
@@ -80,7 +84,7 @@ $(RAMFS_BIN): $(UI) stage_init
 	ln -s busybox $(STAGE)/bin/sh
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
 	ln -s futility "$(STAGE)/bin/vbutil_kernel"
-	lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
+	sudo lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
 		--copy-to-tree=$(STAGE) \
 		$(DATA_DEPS)
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
@@ -248,6 +252,7 @@ minios: stage_init
 		"$(SYSROOT)/usr/lib64/engine"* \
 		"$(SYSROOT)/usr/lib64/libchaps"* \
 		"$(SYSROOT)/usr/lib64/libp11"* \
+		"$(SYSROOT)/usr/lib64/xtables"* \
 		"$(STAGE)/usr/lib64/"
 	mkdir -p "$(STAGE)/etc/ssl"
 	sudo cp -av "$(SYSROOT)/etc/ssl/"* \
@@ -255,6 +260,9 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/ssh"
 	sudo cp -av "$(SYSROOT)/build/initramfs/etc/ssh/"* \
 		"$(STAGE)/etc/ssh/"
+	mkdir -p "$(STAGE)/root/.ssh"
+	sudo cp -av "$(SYSROOT)/root/.ssh/"* \
+		"$(STAGE)/root/.ssh"
 	mkdir -p "$(STAGE)/usr/share/policy"
 	sudo cp -av "$(SYSROOT)/usr/share/policy/wpa_supplicant.bpf" \
 		"$(STAGE)/usr/share/policy/"
