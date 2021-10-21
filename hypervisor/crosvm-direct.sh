@@ -67,6 +67,11 @@ get_cmdline() {
   echo "${cmd}"
 }
 
+get_platform_arch() {
+  local arch=$(uname -m)
+  echo "${arch}"
+}
+
 # Start primary guest VM.
 run() {
   # Crosvm-direct command line.
@@ -80,8 +85,15 @@ run() {
 
   # Use all available CPUs for primary VM.
   local nproc=$(nproc)
-  local affinity=$(for n in $(seq 0 $((nproc - 1))); do echo -n "$n=$n:"; done)
-  args="${args} --cpus ${nproc} --cpu-affinity ${affinity%?}"
+
+  local arch=$(get_platform_arch)
+  if [[ $(arch) == "x86_64" ]]; then
+   # crosvm now only supports "--host-cpu-topology" on x86_64
+   args="${args} --cpus ${nproc} --host-cpu-topology"
+  else
+   local affinity=$(for n in $(seq 0 $((nproc - 1))); do echo -n "$n=$n:"; done)
+   args="${args} --cpus ${nproc} --cpu-affinity ${affinity%?}"
+  fi
 
   # Reserve 512MB of total system memory for hypervisor.
   local mem_total=$(grep MemTotal /proc/meminfo)
@@ -133,4 +145,3 @@ if [[ -f "/etc/manatee.conf" ]]; then
 fi
 
 run
-
