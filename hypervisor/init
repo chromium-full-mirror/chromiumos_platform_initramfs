@@ -26,6 +26,32 @@ setup_environment() {
   mount -n -t devpts -o noexec,nosuid,mode=0600 devpts /dev/pts
 }
 
+# Calculate how much memory to give the CrOS guest
+get_cros_guest_memory() {
+  # Reserve 512MB of total system memory for hypervisor.
+  local mem_total=$(grep MemTotal /proc/meminfo)
+  local mem_kb=${mem_total//[^0-9]/}
+  local mem_mb=$((mem_kb/1024 - 512))
+  echo "${mem_mb}"
+}
+
+MMS_BRIDGE="/run/mms-bridge"
+
+# TODO: use inotify
+wait_for_socket() {
+  while [ ! -S "$1" ]; do sleep .05; done
+}
+
+# Start ManaTEE Monitor.
+run_hypervisor_services() {
+  /sbin/trichechus "-M" "$MMS_BRIDGE" &
+  wait_for_socket "$MMS_BRIDGE"
+  wait_for_socket "/dev/log"
+
+  /sbin/manatee_memory_service "$1" "$MMS_BRIDGE" &
+  wait_for_socket "/run/mms_control_0.sock"
+}
+
 # add pcieport and vfio-pci driver into allowlist
 setup_pci_allowlist() {
   if [[ -w "/sys/bus/pci/drivers_allowlist_lockdown" ]]; then
@@ -83,8 +109,12 @@ hypervisor userspace and experimentation, e.g. to invoke the OS VM differently.
 Note that the ManaTEE jobs aren't started automatically, but you can do so as
 follows:
 
- trichechus &       # launch the dispatcher / OS interface in the background
- crosvm-direct.sh   # start the OS guest
+ # launch the dispatcher / OS interface in the background
+ trichechus -M /run/mms-bridge &
+ # launch the memory management service
+ manatee_memory_service <CrOS guest MiB> /run/mms-bridge &
+ # launch the OS guest
+ crosvm-direct.sh <CrOS guest MiB>
 
 Closing this shell will result in init terminating, causing a kernel panic,
 which in turn leads to a reboot.
@@ -105,11 +135,13 @@ main() {
 
   setup_serial
 
-  # Start Trichechus.
-  /sbin/trichechus &
+  local cros_guest_memory="$(get_cros_guest_memory)"
+
+  # Start hypervisor services.
+  run_hypervisor_services "${cros_guest_memory}"
 
   # Start ManaTEE Primary VM.
-  /bin/crosvm-direct.sh
+  /bin/crosvm-direct.sh "${cros_guest_memory}"
   case "$?" in
     0)
       poweroff -f

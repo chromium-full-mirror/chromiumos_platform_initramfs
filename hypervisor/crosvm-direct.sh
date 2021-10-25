@@ -3,6 +3,13 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <CrOS guest memory in MiB>"
+  exit 1
+fi
+
+CROS_GUEST_MEMORY=$1
+
 # Bind PCI device to VFIO-PCI passthrough bus.
 vfio_pci() {
   local sysfs=$1
@@ -206,6 +213,8 @@ save_pstore() {
 run() {
   # Crosvm-direct command line.
   local args="-s /run/crosvm.sock --cid 3"
+  args="${args} --balloon-control /run/mms_control_0.sock"
+  args="${args} --strict-balloon"
 
   # TODO(b/184871003): Enable user space IOAPIC implementation.
   # args="${args} --split-irqchip"
@@ -227,11 +236,7 @@ run() {
     args="${args} --cpus ${nproc} --cpu-affinity ${affinity%?}"
   fi
 
-  # Reserve 512MB of total system memory for hypervisor.
-  local mem_total=$(grep MemTotal /proc/meminfo)
-  local mem_kb=${mem_total//[^0-9]/}
-  local mem_vm=$((mem_kb/1024 - 512))
-  args="${args} --mem ${mem_vm}"
+  args="${args} --mem ${CROS_GUEST_MEMORY}"
 
   # DMI: Use host SMBIOS info
   if [[ -d "/sys/firmware/dmi/tables" ]]; then

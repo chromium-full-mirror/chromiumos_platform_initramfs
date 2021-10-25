@@ -6,6 +6,7 @@
 BIN_DEPS= \
 	/bin/busybox \
 	/build/initramfs/trichechus \
+	/build/initramfs/manatee_memory_service \
 	/build/manatee/bin/crosvm-direct \
 	/usr/bin/cbmem
 
