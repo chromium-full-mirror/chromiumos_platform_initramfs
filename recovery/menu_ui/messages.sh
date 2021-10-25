@@ -53,6 +53,8 @@ MONOSPACE_GLYPH_WIDTH=10
 NAME_LIST=
 NAME=
 
+RECOVERY_PROGRESS_BAR_PID=
+
 # User visible message overlaid on the screen. Only use for debug features!
 log() {
   echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
@@ -247,24 +249,63 @@ instructions_with_title() {
   showmessage "desc_${message_token}" "${title_x}" "${desc_y}"
 }
 
-# Handle display of a simple progress bar in the 'progress' box.
-# stdin is a sequence of numbers indicating percent of progress.
-# As each value is read, the progress bar is updated to reflect
-# the percentage.
-progress_bar() {
-  local progress_increment=10
+# Ensure that val is in the range [min, max]
+#
+# Arg 1:  val
+# Arg 2:  min
+# Arg 3:  max
+clamp() {
+  local val=$1
+  local min=$2
+  local max=$3
+
+  if [ "${val}" -lt "${min}" ]; then
+    val="${min}"
+  fi
+  if [ "${val}" -gt "${max}" ]; then
+    val="${max}"
+  fi
+
+  echo "${val}"
+}
+
+# Incrementally draw progress bar in the 'progress' box.
+#
+# Arg 1, 2: the interval to add, in range [0, 1000]
+# Arg 3: color (use MENU_UI_GREY for background, MENU_UI_BLUE for foreground)
+show_progress_bar() {
+  local range_left
+  local range_right
+  range_left="$(clamp "$1" 0 1000)"
+  range_right="$(clamp "$2" 0 1000)"
+  local color=$3
+
   local progress_height=4
-  local progress_full_width="${CANVAS_SIZE}"
-  local incr_left="$(( -progress_full_width / 2 ))"
-  local leftmost="${incr_left}"
+  local full_width="${CANVAS_SIZE}"
+
+  local progress_length="$(( range_right - range_left ))"
+  if [ "${progress_length}" -le 0 ]; then
+    return 0
+  fi
+
+  # mid point and size of the filled area
+  local offset_x="$(( (range_left + range_right) * full_width / 2000
+                      - full_width / 2 ))"
+  # add one extra pixel to prevent rounding error
+  local size_x="$(( progress_length * full_width / 1000 + 1 ))"
+
+  showbox "${offset_x}" 0 "${size_x}" "${progress_height}" "${color}"
+}
+
+# Read progress from stdin and display in progress bar
+#
+# This is the public interface for other scripts like recovery_init.sh
+progress_bar() {
   local percent=""
 
-  showbox 0 0 "${progress_full_width}" "${progress_height}" "${MENU_UI_GREY}"
-
+  show_progress_bar 0 1000 "${MENU_UI_GREY}"
   while read -r percent; do
-    local progress_width="$(( progress_full_width * percent / 100 ))"
-    showbox "$(( leftmost + progress_width / 2 ))" 0 \
-        "${progress_width}" "${progress_height}" "${MENU_UI_BLUE}"
+    show_progress_bar 0 "$(( percent * 10 ))" "${MENU_UI_BLUE}"
   done
 }
 
@@ -297,10 +338,34 @@ make_user_wait() {
   local delay
   delay=$(printf "%d.%03d" "${delay_sec}" "${delay_ms}")
 
+  show_progress_bar 0 1000 "${MENU_UI_GREY}"
   for i in $(seq 1 "${num_updates}"); do
     sleep "${delay}"
-    echo "${i}"
-  done | progress_bar "$2"
+    show_progress_bar 0 "$(( i * 10 ))" "${MENU_UI_BLUE}"
+  done
+}
+
+show_indeterminate_progress_bar() {
+  local size=400
+  local step=5
+  local left="$(( -size ))"
+
+  set +x
+  show_progress_bar 0 1000 "${MENU_UI_GREY}"
+
+  while true; do
+    local right="$(( left + size ))"
+
+    show_progress_bar "${right}" "$(( right + step ))" "${MENU_UI_BLUE}"
+    show_progress_bar "${left}" "$(( left + step ))" "${MENU_UI_GREY}"
+
+    left="$(( left + step ))"
+    if [ "${left}" -ge 1000 ]; then
+      left="$(( -size ))"
+    fi
+
+    sleep 0.01s
+  done
 }
 
 is_detachable() {
@@ -772,6 +837,8 @@ message_recovery_start() {
   message_base_screen
   instructions recovering
   show_stepper_in_progress
+  show_indeterminate_progress_bar &
+  RECOVERY_PROGRESS_BAR_PID=$!
 }
 
 # not used
@@ -787,6 +854,8 @@ message_disk_wipe_end() {
 }
 
 message_recovery_complete() {
+  kill "${RECOVERY_PROGRESS_BAR_PID}"
+  wait "${RECOVERY_PROGRESS_BAR_PID}"
   message_base_screen
   instructions_with_title recovery_complete
   show_stepper_done
@@ -795,6 +864,8 @@ message_recovery_complete() {
 # The same as message_recovery_complete, but with a different message notifying
 # the user that their computer will automatically restart.
 message_recovery_complete_noninteractive() {
+  kill "${RECOVERY_PROGRESS_BAR_PID}"
+  wait "${RECOVERY_PROGRESS_BAR_PID}"
   message_base_screen
   instructions complete_noninteractive
   show_stepper_done
@@ -804,6 +875,8 @@ message_recovery_complete_noninteractive() {
 # Kill the spinner animation and announce that recovery is
 # complete and enhanced disk wipe is successful.
 message_recovery_complete_wipe_successful() {
+  kill "${RECOVERY_PROGRESS_BAR_PID}"
+  wait "${RECOVERY_PROGRESS_BAR_PID}"
   message_base_screen
   instructions recovery_complete_wipe_success
   show_stepper_done
@@ -813,6 +886,8 @@ message_recovery_complete_wipe_successful() {
 # Kill the spinner animation and announce that recovery is
 # complete and enhanced disk wipe is failed.
 message_recovery_complete_wipe_fail() {
+  kill "${RECOVERY_PROGRESS_BAR_PID}"
+  wait "${RECOVERY_PROGRESS_BAR_PID}"
   message_base_screen
   instructions recovery_complete_wipe_fail
   show_stepper_error
@@ -822,6 +897,8 @@ message_recovery_complete_wipe_fail() {
 # Kill the spinner animation and inform user that an error occured
 # during recovery but enhanced disk wipe is successful.
 message_recovery_error_wipe_fail() {
+  kill "${RECOVERY_PROGRESS_BAR_PID}"
+  wait "${RECOVERY_PROGRESS_BAR_PID}"
   message_base_screen
   instructions recovery_error_wipe_fail
   show_stepper_error
@@ -830,6 +907,8 @@ message_recovery_error_wipe_fail() {
 # Kill the spinner animation and inform user that an error occured
 # during both recovery and enhanced disk wipe.
 message_recovery_error_wipe_success() {
+  kill "${RECOVERY_PROGRESS_BAR_PID}"
+  wait "${RECOVERY_PROGRESS_BAR_PID}"
   message_base_screen
   instructions recovery_error_wipe_success
   show_stepper_error
