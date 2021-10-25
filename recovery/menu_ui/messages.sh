@@ -739,6 +739,12 @@ message_startup() {
   printf "\033]input:off\a" > /run/frecon/vt0
 
   . "${SCREENS}/lang_constants.sh"
+
+  # If error happened before we can read vpd to determine locale,
+  # initialize it to en
+  if [ -z "${LANGDIR}" ]; then
+    select_locale en-US
+  fi
 }
 
 # not used, was smething like
