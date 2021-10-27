@@ -130,7 +130,25 @@ run() {
   echo 1 > /sys/module/vfio_pci/parameters/disable_idle_d3
 
   # VFIO: Direct attach all usable PCI devices.
+  local serial_bdf=$(readlink -f /sys/class/tty/ttyS0 | cut -d / -f 5)
   for dev in `find /sys/bus/pci/devices -type l | sort`; do
+    local bdf=$(basename "${dev}")
+    if [[ "${bdf}" == "${serial_bdf}" ]]; then
+      # Keep the serial device in the hypervisor. Configure a stub PCI device in
+      # its place so enumeration of the other function works properly in the
+      # guest.
+      local stub_params="${bdf}"
+      # 0x1ae0 is Google, 0xffff is unallocated.
+      # TODO(mnissler): replace with proper device ID once allocated.
+      stub_params="${stub_params},vendor=0x1ae0,device=0xffff"
+      # class code 0x13 is "non-essential instrumentation"
+      stub_params="${stub_params},class=0x130000"
+      # important: mark as multifunction so other functions get scanned.
+      stub_params="${stub_params},multifunction"
+      args="${args} --stub-pci-device ${stub_params}"
+      continue
+    fi
+
     vfio_pci "${dev}"
     if [[ $? -eq 0 ]]; then
       args="${args} --vfio ${dev}"
@@ -142,6 +160,15 @@ run() {
 
   # Platform IRQs
   args="${args} $(get_platform_irqs)"
+
+  # If there's a serial port present in the hypervisor, also configure an
+  # emulated serial port for the guest to use and forward I/O.
+  if [[ -r /sys/class/tty/ttyS0/type && \
+        "$(cat /sys/class/tty/ttyS0/type)" != 0 ]]; then
+    args="${args} --serial \
+        hardware=serial,type=stdout,stdin=true,console=true,earlycon=true"
+    exec <>/dev/ttyS0 1>&0 2>&0
+  fi
 
   exec /sbin/crosvm-direct run ${args} --params "$(get_cmdline)" /boot/vmlinuz
 }
