@@ -22,8 +22,6 @@ export MINIOS_RAMFS_LAYOUT_DIRS = \
 
 # Extra dependencies miniOS requires.
 export MINIOS_BIN_DEPS = \
-	/bin/bash \
-	/bin/ls \
 	/bin/mount \
 	/bin/systemd-tmpfiles \
 	/bin/udevadm \

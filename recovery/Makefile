@@ -144,8 +144,10 @@ minios: stage_init
 		! -name net \
 		! -name . -exec rm -rf {} +)
 	# MISC.
-	cp "$(SYSROOT)/etc/passwd" \
-		"$(SYSROOT)/etc/group" \
+	# use busybox as the default shell for all users
+	sed "s|/bin/bash|/bin/sh|" \
+		"$(SYSROOT)/etc/passwd" > "$(STAGE)/etc/passwd"
+	cp "$(SYSROOT)/etc/group" \
 		"$(SYSROOT)/etc/nsswitch.conf" "$(STAGE)/etc"
 	mkdir -p "$(STAGE)/usr/share/X11/xkb"
 	cp -r "$(SYSROOT)/usr/share/X11/xkb"* "$(STAGE)/usr/share/X11"
