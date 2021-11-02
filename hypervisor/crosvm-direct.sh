@@ -67,9 +67,9 @@ get_cmdline() {
   echo "${cmd}"
 }
 
+# Get the architecture to know whether it is x86_64 or arm.
 get_platform_arch() {
-  local arch=$(uname -m)
-  echo "${arch}"
+  uname -m
 }
 
 # Start primary guest VM.
@@ -86,13 +86,15 @@ run() {
   # Use all available CPUs for primary VM.
   local nproc=$(nproc)
 
-  local arch=$(get_platform_arch)
-  if [[ $(arch) == "x86_64" ]]; then
-   # crosvm now only supports "--host-cpu-topology" on x86_64
-   args="${args} --cpus ${nproc} --host-cpu-topology"
+  local arch="$(get_platform_arch)"
+  if [ $(arch) = "x86_64" ]; then
+    # crosvm now only supports "--host-cpu-topology" on x86_64.
+    args="${args} --cpus ${nproc} --host-cpu-topology"
   else
-   local affinity=$(for n in $(seq 0 $((nproc - 1))); do echo -n "$n=$n:"; done)
-   args="${args} --cpus ${nproc} --cpu-affinity ${affinity%?}"
+    local affinity=$(
+      for n in $(seq 0 $((nproc - 1))); do printf "$n=$n:"; done
+    )
+    args="${args} --cpus ${nproc} --cpu-affinity ${affinity%?}"
   fi
 
   # Reserve 512MB of total system memory for hypervisor.
