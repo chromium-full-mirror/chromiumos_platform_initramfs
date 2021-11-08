@@ -1,11 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE translationbundle>
 <translationbundle lang="ar">
+<translation id="1201402288615127009">التالي</translation>
 <translation id="1207194515919037363">‏لا تعمل وحدة الأمان على هذا الجهاز.
 
 يُرجى الرجوع إلى عنوان URL هذا للحصول على مزيد من المعلومات:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="1246412656779440622">حدثت مشكلة أثناء الاتصال بالشبكات المتاحة. يُرجى إعادة المحاولة.</translation>
 <translation id="1483971085438511843">‏استخدِم مفتاح Enter لتحديد أحد الخيارات.</translation>
 <translation id="1486534340494484631">حدث خطأ أثناء عملية حذف القرص المحسَّن.
 
@@ -14,9 +16,15 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="1600199746926806589">سيتم تسجيل جهازك تلقائيًا في النطاق الموضح أدناه.
 يُرجى التحقُّق من صحته.</translation>
 <translation id="1638626287317244115">نسخ السجلّات</translation>
+<translation id="175933110504178679">ستؤدي عملية استرداد نظام التشغيل إلى حجب بياناتك الشخصية. وستستغرق هذه العملية عدّة دقائق. يُرجى عدم إيقاف الجهاز.</translation>
 <translation id="1995660704900986789">إيقاف التشغيل</translation>
-<translation id="2238107357612570504">خيارات تصحيح أخطاء عملية الاسترداد</translation>
+<translation id="2160704550417277456">خيارات متقدمة</translation>
+<translation id="2161775569013928937">هل تريد بدء عملية الاسترداد؟</translation>
+<translation id="2249183435483068136">بيانات الاعتماد غير صحيحة</translation>
+<translation id="2367943141906694421">تعذّر العثور على أي شبكات</translation>
+<translation id="2437368373459239842">ستستغرق هذه العملية بضع دقائق.</translation>
 <translation id="2596600434078055015">خيارات تصحيح أخطاء عملية الاسترداد</translation>
+<translation id="2704439832119932045">اختيار قناة نظام التشغيل وإصداره لمواصلة عملية الاسترداد</translation>
 <translation id="2731700343119398978">يرجى الانتظار...</translation>
 <translation id="2904079386864173492">الطراز:</translation>
 <translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
@@ -27,8 +35,9 @@ https://www.google.com/chromeos/recovery</translation>
 لمزيد من المعلومات، يمكنك الرجوع إلى عنوان URL هذا:
 
 https://www.google.com/chromeos/devmode</translation>
+<translation id="3029977119648083072">إدخال كلمة مرور الشبكة</translation>
 <translation id="3243756202241744259">جارٍ التحقق من بيانات وسائط الاسترداد...</translation>
-<translation id="3283913352572436199">تتم تهيئة وسائط الاسترداد للإعداد التلقائي بعد إعادة تشغيله.
+<translation id="3283913352572436199">يتم إعداد وسائط الاسترداد للإعداد التلقائي بعد إعادة تشغيله.
 
 لمتابعة الإعداد التلقائي، يُرجى الضغط على الزر "رفع مستوى الصوت"، بخلاف ذلك،
 اضغط على الزر "خفض مستوى الصوت". وفي حال كنت ترغب في إلغاء الاسترداد، اضغط باستمرار على زر "التشغيل"
@@ -39,18 +48,21 @@ https://www.google.com/chromeos/devmode</translation>
 التحديث
 تلقائيًا عند شحن البطارية
 على نحوٍ كافٍ.</translation>
+<translation id="3554552348994984455">بدء عملية الاسترداد</translation>
 <translation id="369510862371290019">يتم ضبط وسائط الاسترداد للإعداد التلقائي بعد إعادة تشغيله.
 
 لمتابعة الإعداد التلقائي، يُرجى الضغط على مفتاح تبديل استرداد الجهاز.
 في حال كنت ترغب في إلغاء الاسترداد، يُرجى الضغط باستمرار على زر التشغيل للأسفل
 حتى يتم إيقاف الجهاز (يستغرق هذا ما يصل إلى 8 ثوانٍ).</translation>
+<translation id="3723985428118783104">جارٍ تنفيذ عملية الاسترداد</translation>
 <translation id="3750930141330200643">‏إنك تستخدم صورة قديمة لاسترداد نظام التشغيل Chrome.
 
 يُرجى الرجوع إلى عنوان URL هذا للحصول على إرشادات حول كيفية إنشاء
 وسائط استرداد جديدة:
 
 https://www.google.com/chromeos/recovery</translation>
-<translation id="385051799172605136">الرجوع إلى الوراء</translation>
+<translation id="385051799172605136">رجوع</translation>
+<translation id="3928994486545789273">اختيار شبكة</translation>
 <translation id="3942420633017001071">بيانات التشخيص</translation>
 <translation id="3946632524220974380">يلزم تغيير ملف مفتاح مطور البرامج للمتابعة، تستغرق العملية
 5 دقائق.</translation>
@@ -60,6 +72,7 @@ https://www.google.com/chromeos/recovery</translation>
 حدث خطأ غير متوقع أثناء عملية الاسترداد. يُرجى الرجوع إلى عنوان URL هذا للحصول على نصائح حول تحديد المشاكل وحلّها:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="4157577338965464221">الشبكات المتاحة</translation>
 <translation id="4261250127007881003">سجلّ الرسائل</translation>
 <translation id="4287891348859705498">نسخ السجلّات إلى القرص الخارجي</translation>
 <translation id="436588829138218801">‏تم إيقاف نظام التحقق من Chrome.
@@ -70,7 +83,12 @@ https://www.google.com/chromeos/recovery</translation>
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">استخدِم زرَّي التحكُّم بمستوى الصوت للانتقال للأعلى أو للأسفل.</translation>
+<translation id="4412740632134951267">انقر على الخيارات المتقدمة أدناه للتعديل.</translation>
+<translation id="4486160941938493301">‏إذا كنت تريد استخدام طريقة استرداد أخرى، يُرجى الرجوع إلى الخطوة السابقة والضغط على مفتاح الخروج (Esc) + Refresh (إعادة التحميل) + Power (زر التشغيل).</translation>
+<translation id="4503421634496749265">يُرجى إعادة المحاولة. احرص على توصيل الجهاز بمصدر الطاقة وأن تكون بطارية الجهاز في وضع الشحن.</translation>
+<translation id="4652489998517778111">يُرجى إعادة تشغيل الجهاز ثم إعادة المحاولة.</translation>
 <translation id="4791159253869531619">رصد قرص خارجي مع صورة استرداد</translation>
+<translation id="4851795211104228792">سيتم الآن التحديث إلى آخر إصدار ثابت من نظام التشغيل (إجراء مقترَح)</translation>
 <translation id="4905949142713655149">‏حدث خطأ غير متوقع. يُرجى الرجوع إلى عنوان URL هذا للحصول على
 نصائح تحديد المشاكل وحلّها:
 
@@ -84,6 +102,7 @@ https://www.google.com/chromeos/recovery</translation>
 إذا كنت تريد إلغاء عملية الاسترداد، اضغط مع الاستمرار على زر التشغيل
 حتى يتم إيقاف تشغيل الكمبيوتر (يستغرق ذلك مدة تصل إلى 8 ثوانٍ).
 من الآمن إجراء ذلك في أي وقت أثناء التحقُّق.</translation>
+<translation id="51254621993922230">اكتمال عملية الاسترداد</translation>
 <translation id="537291066186627789">اكتمل استرداد النظام.
 
 يُرجى إزالة بيانات وسائط الاسترداد وستتم إعادة تشغيل الكمبيوتر
@@ -110,6 +129,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="635783852215913562">استخدِم مفتاحَي الأسهم للتنقّل إلى أعلى أو أسفل.</translation>
 <translation id="6363786367719063276">عرض السجلّات</translation>
 <translation id="6374469231428023295">إعادة المحاولة</translation>
+<translation id="6388429950346313390">حدث خطأ</translation>
 <translation id="6451786478565057499">حذف القرص المُحسّن قيد التقدُّم...
 
 قد يستغرق هذا الإجراء وقتًا طويلاً.</translation>
@@ -118,15 +138,22 @@ https://www.google.com/chromeos/recovery</translation>
 سيستمر الاسترداد لأن التشغيل الذي تم التحقق منه متوقف.
 إذا شغلت التحقق مرة أخرى فيما بعد، فسيتعين عليك إعادة
 الاسترداد باستخدام صورة رسمية لنظام التشغيل Chrome.</translation>
+<translation id="6566947361877177265">اتصِل بشبكة لبدء عملية الاسترداد</translation>
+<translation id="6582194100503356658">قد تستغرق هذه العملية بضع دقائق. يُرجى عدم إيقاف الجهاز أو فصل مصدر الطاقة عنه.</translation>
 <translation id="6630033970080307657">يُرجى فصل القرص الخارجي لإعادة التشغيل.</translation>
 <translation id="6868586188416530903">‏سجلّ tpm-firmware-updater</translation>
+<translation id="6895131867077828321">‏اكتب كلمة المرور. اضغط على مفتاح التبويب (Tab) لإظهار كلمة المرور أو إخفائها. اضغط على مفتاح Enter لإتمام تسجيل كلمة المرور.</translation>
 <translation id="7126032376876878896">استخدِم زر التشغيل لتحديد أحد الخيارات.</translation>
+<translation id="7159548186721854353">يُرجى إعادة تشغيل الجهاز يدويًا إذا لم تتم تلقائيًا إعادة تشغيله.</translation>
 <translation id="7684530127758861598">سجلّ الاسترداد</translation>
 <translation id="7709095358410921767">‏تم حذف القرص المُحسَّن بنجاح.
 
 حدث خطأ غير متوقع أثناء عملية الاسترداد. يُرجى الرجوع إلى عنوان URL هذا للحصول على نصائح حول تحديد المشاكل وحلّها:
 
 https://www.google.com/chromeos/recovery</translation>
+<translation id="77159243231245687">‏يُرجى إدخال كلمة المرور مرة أخرى. لا يمكن استخدام سوى أحرف ASCII.</translation>
+<translation id="7939062555109487992">خيارات متقدمة</translation>
+<translation id="8048927549246926523">استرداد نظام التشغيل من خلال اتصال الإنترنت</translation>
 <translation id="8114187014283095781">تم حذف القرص المُحسَّن بنجاح.
 
 اكتملت عملية استرداد النظام.
@@ -136,8 +163,13 @@ https://www.google.com/chromeos/recovery</translation>
 سيستمر الاسترداد لأن التحقق متوقف.
 إذا أعدت تفعيل التحقق فيما بعد، فسيتعين عليك إعادة
 الاسترداد باستخدام صورة حديثة لنظام التشغيل Chrome.</translation>
+<translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">حدث خطأ أثناء عملية استرداد جهازك، يُرجى الرجوع إلى</translation>
+<translation id="8420829064199266609">جارٍ الاتصال بالشبكة. قد يستغرق هذا الإجراء مدة تصل إلى دقيقة.</translation>
+<translation id="8433773763660502318">تعذّر إتمام عملية الاسترداد</translation>
+<translation id="8473826843543665828">يُرجى اختيار شبكة جديدة أو إعادة المحاولة.</translation>
 <translation id="8518545754265418610">‏http://google.com/chromeos/recovery للحصول على حلول ممكنة أو أعِد المحاولة.</translation>
+<translation id="8523174215108794127">جارٍ إتمام عملية الاسترداد</translation>
 <translation id="8596190965261846034">جارٍ تثبيت التحديث...
 
 يُرجى عدم إيقاف الجهاز.
@@ -151,6 +183,7 @@ https://www.google.com/chromeos/recovery</translation>
 يُرجى الحفاظ على اتصال وسائط الاسترداد حتى يكتمل الإعداد التلقائي.
 ستتم إعادة تشغيل جهاز الكمبيوتر تلقائيًا بعد قليل لمتابعة الإعداد.</translation>
 <translation id="88986195241502842">صفحة لأسفل</translation>
+<translation id="8911667951938758302">تعذّر الاتصال بالشبكة</translation>
 <translation id="9146946647152579011">اكتملت عملية الاسترداد الآن</translation>
 <translation id="9156766649956178343">تعذّر استرداد جهازك</translation>
 </translationbundle>

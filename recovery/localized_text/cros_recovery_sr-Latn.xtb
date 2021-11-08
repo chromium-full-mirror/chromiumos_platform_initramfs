@@ -1,0 +1,185 @@
+<?xml version="1.0" ?>
+<!DOCTYPE translationbundle>
+<translationbundle lang="sr-Latn">
+<translation id="1201402288615127009">Dalje</translation>
+<translation id="1207194515919037363">Bezbednosni modul na ovom računaru ne funkcioniše.
+
+Posetite ovaj URL da biste pronašli dodatne informacije:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="1246412656779440622">Došlo je do problema pri otkrivanju dostupnih mreža, probajte ponovo</translation>
+<translation id="1483971085438511843">Koristite taster enter da biste izabrali opciju.</translation>
+<translation id="1486534340494484631">Došlo je do greške tokom poboljšanog brisanja diska.
+
+Oporavak sistema je završen.
+Uklonite medijume za oporavak i računar će se automatski ponovo pokrenuti.</translation>
+<translation id="1600199746926806589">Uređaj će se automatski registrovati na domen prikazan u nastavku.
+Potvrdite da je to tačno.</translation>
+<translation id="1638626287317244115">Kopiraj evidencije</translation>
+<translation id="175933110504178679">Ovaj proces će obrisati lične podatke. To će potrajati nekoliko minuta. Ne isključujte uređaj.</translation>
+<translation id="1995660704900986789">Isključi</translation>
+<translation id="2160704550417277456">Napredne opcije</translation>
+<translation id="2161775569013928937">Želite da započnete oporavak?</translation>
+<translation id="2249183435483068136">Pogrešni akreditivi</translation>
+<translation id="2367943141906694421">Nismo uspeli da pronađemo nijednu mrežu</translation>
+<translation id="2437368373459239842">Ovo će trajati par minuta</translation>
+<translation id="2596600434078055015">Opcije otklanjanja grešaka pri oporavku</translation>
+<translation id="2704439832119932045">Izaberite kanal i verziju OS-a da biste nastavili oporavak</translation>
+<translation id="2731700343119398978">Sačekajte…</translation>
+<translation id="2904079386864173492">Model:</translation>
+<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="300775974721831513">Vlasnik uređaja zahteva da verifikacija Chrome OS-a bude uključena
+kada se ovaj uređaj koristi. Pokušavate da instalirate nezvaničnu
+sliku za oporavak Chrome OS-a koja ne može da se verifikuje.
+
+Za više informacija posetite ovaj URL:
+
+https://www.google.com/chromeos/devmode</translation>
+<translation id="3029977119648083072">Unesite lozinku za mrežu</translation>
+<translation id="3243756202241744259">Verifikuje se integritet medijuma za oporavak...</translation>
+<translation id="3283913352572436199">Medijum za oporavak je konfigurisan za automatsko podešavanje posle ponovnog pokretanja.
+
+Da biste nastavili sa automatskim podešavanjem, pritisnite dugme za pojačavanje zvuka. U suprotnom,
+pritisnite dugme za utišavanje zvuka. Ako želite da otkažete oporavak, pritisnite dugme za uključivanje
+i zadržite ga dok se uređaj ne isključi (to traje oko 8 sekundi).</translation>
+<translation id="33938768013536853">Nivo napunjenosti baterije je prenizak za ažuriranje.
+
+Povežite Chromebook na struju. Ažuriranje će automatski početi čim se baterija dovoljno napuni.</translation>
+<translation id="3554552348994984455">Započnite oporavak</translation>
+<translation id="369510862371290019">Medijum za oporavak je konfigurisan za automatsko podešavanje posle ponovnog pokretanja.
+
+Da biste nastavili sa automatskim podešavanjem, pritisnite prekidač za oporavak na uređaju.
+Ako želite da otkažete oporavak, pritisnite dugme za uključivanje i zadržite
+ga dok se uređaj ne isključi (to traje oko 8 sekundi).</translation>
+<translation id="3723985428118783104">Oporavak je u toku</translation>
+<translation id="3750930141330200643">Koristite zastarelu sliku za oporavak Chrome OS-a.
+
+Potražite uputstva za pravljenje novog medijuma za oporavak na ovom
+URL-u:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="385051799172605136">Nazad</translation>
+<translation id="3928994486545789273">Odaberite mrežu</translation>
+<translation id="3942420633017001071">Dijagnostika</translation>
+<translation id="3946632524220974380">Da biste nastavili, treba da promenite ključ programera. Ovaj postupak traje
+5 minuta.</translation>
+<translation id="4006102694824401878">Ovaj proces može da potraje par minuta</translation>
+<translation id="4007898787815310968">Došlo je do greške tokom poboljšanog brisanja diska.
+
+Došlo je do neočekivane greške prilikom oporavka. Posetite ovaj URL da biste pronašli savete za rešavanje problema:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4157577338965464221">Dostupne mreže</translation>
+<translation id="4261250127007881003">Evidencija poruka</translation>
+<translation id="4287891348859705498">Kopirajte evidencije na spoljni disk</translation>
+<translation id="436588829138218801">Verifikacija Chrome OS-a je isključena.
+
+Ako je niste namerno isključili, treba da otkažete oporavak i onemogućite
+režim programera da biste omogućili verifikaciju. Za više informacija
+posetite ovaj URL:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="4410491068110727276">Koristite dugmad za jačinu zvuka da biste se kretali nagore ili nadole.</translation>
+<translation id="4412740632134951267">Izaberite napredne opcije u nastavku da biste ih promenili</translation>
+<translation id="4486160941938493301">Ako želite da odaberete drugi način oporavka, vratite se pritiskom na Esc + Refresh + Power</translation>
+<translation id="4503421634496749265">Probajte ponovo. Proverite da li je uređaj priključen i da li se puni.</translation>
+<translation id="4652489998517778111">Restartujte i probajte ponovo</translation>
+<translation id="4791159253869531619">Otkriven je spoljni disk sa slikom za oporavak</translation>
+<translation id="4851795211104228792">Vaša verzija će sada biti ažurirana na najnoviju stabilnu verziju (preporučeno)</translation>
+<translation id="4905949142713655149">Došlo je do neočekivane greške. Potražite savete za rešavanje problema
+na ovom URL-u:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="496201662522655493">Oporavak sistema je dovršen.
+
+Možete da uklonite medijum za oporavak. Računar će se uskoro automatski restartovati.</translation>
+<translation id="5080881219404532322">Upravo ćete pokrenuti oporavak računara. Uverite se da je
+ uključen u izvor napajanja.
+
+Ako želite da otkažete oporavak, pritisnite dugme za uključivanje i držite ga
+dok se računar ne isključi (za to je potrebno do 8 sekundi).
+Ovo slobodno možete da uradite u bilo kom trenutku tokom verifikacije.</translation>
+<translation id="51254621993922230">Oporavak je završen</translation>
+<translation id="537291066186627789">Oporavak sistema je dovršen.
+
+Uklonite medijum za oporavak i računar će se automatski
+ponovo pokrenuti.</translation>
+<translation id="544118001572747892">Izgleda da računar ne koristi Chrome OS!
+
+Ova operacija će izbrisati sve druge operativne sisteme koje ste
+instalirali, kao i sve podatke. Nećete moći da vratite rezervnu kopiju.
+Ako na ovom računaru imate podatke koje želite da sačuvate,
+trebalo bi da otkažete oporavak.</translation>
+<translation id="5512602676102820748">Nivo napunjenosti baterije je prenizak za ažuriranje.
+
+Puni se...
+
+Ažuriranje će automatski početi čim se baterija dovoljno napuni.</translation>
+<translation id="5592705604979238266">Centar za pomoć:</translation>
+<translation id="6037207722716689331">Medijum za oporavak je konfigurisan za automatsko podešavanje posle ponovnog pokretanja.
+
+Da biste nastavili sa automatskim podešavanjem, pritisnite Enter. U suprotnom, pritisnite Escape.
+Ako želite da otkažete oporavak, pritisnite dugme za uključivanje i zadržite
+ga dok se uređaj ne isključi (to traje oko 8 sekundi).</translation>
+<translation id="6185696379715117369">Stranica nagore</translation>
+<translation id="635783852215913562">Koristite tastere sa strelicama da biste se kretali nagore ili nadole.</translation>
+<translation id="6363786367719063276">Pregledajte evidencije</translation>
+<translation id="6374469231428023295">Probaj ponovo</translation>
+<translation id="6388429950346313390">Žao nam je, došlo je do greške</translation>
+<translation id="6451786478565057499">Poboljšano brisanje diska je u toku...
+
+To može dosta da potraje.</translation>
+<translation id="6478314309353607985">Slika na medijumu za oporavak nije verifikovana slika programera.
+
+Oporavak će se nastaviti zato što je verifikovano pokretanje isključeno.
+Ako kasnije ponovo uključite verifikaciju, moraćete da ponovite
+oporavak pomoću zvanične slike za oporavak Chrome OS-a.</translation>
+<translation id="6566947361877177265">Povežite se na mrežu da biste započeli oporavak</translation>
+<translation id="6582194100503356658">To može da potraje nekoliko minuta. Ne isključujte uređaj i ne prekidajte napajanje.</translation>
+<translation id="6630033970080307657">Isključite spoljni disk da biste restartovali uređaj.</translation>
+<translation id="6868586188416530903">tpm-firmware-updater evidencija</translation>
+<translation id="6895131867077828321">Unesite lozinku. Pritisnite Tab da biste prikazali ili sakrili lozinku. Pritisnite Enter da biste poslali.</translation>
+<translation id="7126032376876878896">Koristite dugme za uključivanje da biste izabrali opciju.</translation>
+<translation id="7159548186721854353">Restartujte ručno ako se uređaj ne restartuje automatski</translation>
+<translation id="7684530127758861598">Evidencija oporavka</translation>
+<translation id="7709095358410921767">Obavljeno je poboljšano brisanje diska.
+
+Došlo je do neočekivane greške prilikom oporavka. Posetite ovaj URL da biste pronašli savete za rešavanje problema:
+
+https://www.google.com/chromeos/recovery</translation>
+<translation id="77159243231245687">Unesite lozinku ponovo. Podržani su samo ASCII znakovi.</translation>
+<translation id="7939062555109487992">Napredne opcije</translation>
+<translation id="8048927549246926523">Obavite oporavak pomoću internet veze</translation>
+<translation id="8114187014283095781">Obavljeno je poboljšano brisanje diska.
+
+Oporavak sistema je završen.
+Uklonite medijume za oporavak i računar će se automatski ponovo pokrenuti.</translation>
+<translation id="816304391526917903">Koristite zastarelu zvaničnu sliku za oporavak Chrome OS-a.
+
+Oporavak će se nastaviti zato što je verifikacija isključena.
+Ako kasnije ponovo uključite verifikaciju, moraćete da ponovite
+oporavak pomoću ažurirane slike za oporavak Chrome OS-a.</translation>
+<translation id="8179976553408161302">Enter</translation>
+<translation id="8361934271307901704">Došlo je do greške pri oporavku uređaja. Pogledajte</translation>
+<translation id="8420829064199266609">Povezujete se sa mrežom. Ovo može da potraje najviše minut.</translation>
+<translation id="8433773763660502318">Nismo uspeli da završimo proces oporavka</translation>
+<translation id="8473826843543665828">Izaberite novu mrežu ili probajte ponovo</translation>
+<translation id="8518545754265418610">http://google.com/chromeos/recovery za moguća rešenja ili probajte ponovo.</translation>
+<translation id="8523174215108794127">Oporavak se završava</translation>
+<translation id="8596190965261846034">Instalira se ažuriranje...
+
+Ne isključujte uređaj.
+Automatski će se restartovati kada se ažuriranje završi.</translation>
+<translation id="8728458033228603970">Oporavak sistema je u toku...
+
+Ovo će potrajati par minuta. Ne isključujte računar i ne prekidajte
+napajanje.</translation>
+<translation id="8796495438384109098">Oporavak sistema je završen.
+
+Medijum za oporavak mora da bude uključen dok se automatsko podešavanje ne završi.
+Računar će se uskoro automatski restartovati da bi se nastavilo sa podešavanjem.</translation>
+<translation id="88986195241502842">Stranica nadole</translation>
+<translation id="8911667951938758302">Povezivanje sa mrežom nije uspelo</translation>
+<translation id="9146946647152579011">Oporavak je sada završen</translation>
+<translation id="9156766649956178343">Greška pri oporavku uređaja</translation>
+</translationbundle>
