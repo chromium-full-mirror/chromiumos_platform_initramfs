@@ -113,7 +113,7 @@ find_official_root() {
   # USB_DEV points to the rootfs partition of removable media. And its value
   # can be one of /dev/sda3 (arm), /dev/sdb3 (x86, arm) and /dev/mmcblk1p3
   # (arm). Get stateful partition by replacing partition number with "1".
-  LOG_DEV="${USB_DEV%[0-9]*}"1  # Default to stateful.
+  LOG_DEV="${USB_DEV%%[0-9]*}"1  # Default to stateful.
 
   mount_usb
 }
@@ -141,7 +141,7 @@ unmount_usb() {
 }
 
 strip_partition() {
-  local dev="${1%[0-9]*}"
+  local dev="${1%%[0-9]*}"
   # handle mmcblk0p case as well
   echo "${dev%p*}"
 }
