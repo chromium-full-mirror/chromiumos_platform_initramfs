@@ -31,10 +31,14 @@ vfio_pci() {
   echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci/new_id
 }
 
-# Port I/O forwarding.
+# Port I/O & MMIO forwarding.
 get_platform_pmio() {
   local pmio="${BOARD_PMIO:-128}"
-  echo "--no-legacy --direct-pmio /dev/port@${pmio}"
+  local args="--no-legacy --direct-pmio /dev/port@${pmio}"
+  if [ -n ${BOARD_MMIO} ]; then
+    args="${args} --direct-mmio /dev/mem@${BOARD_MMIO}"
+  fi
+  echo "${args}"
 }
 
 # Interrupt forwarding argument helper.
