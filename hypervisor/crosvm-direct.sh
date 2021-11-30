@@ -35,7 +35,7 @@ vfio_pci() {
 get_platform_pmio() {
   local pmio="${BOARD_PMIO:-128}"
   local args="--no-legacy --direct-pmio /dev/port@${pmio}"
-  if [ -n ${BOARD_MMIO} ]; then
+  if [ -n "${BOARD_MMIO}" ]; then
     args="${args} --direct-mmio /dev/mem@${BOARD_MMIO}"
   fi
   echo "${args}"
