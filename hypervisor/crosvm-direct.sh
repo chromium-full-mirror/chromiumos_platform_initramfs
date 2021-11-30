@@ -138,9 +138,11 @@ run() {
       # its place so enumeration of the other function works properly in the
       # guest.
       local stub_params="${bdf}"
-      # 0x1ae0 is Google, 0xffff is unallocated.
-      # TODO(mnissler): replace with proper device ID once allocated.
-      stub_params="${stub_params},vendor=0x1ae0,device=0xffff"
+      # Identifiers per "Google PCI Device and Subsystem ID Allocations".
+      stub_params="${stub_params},vendor=0x1ae0"
+      stub_params="${stub_params},device=0x0072"
+      stub_params="${stub_params},subsystem_vendor=0x1ae0"
+      stub_params="${stub_params},subsystem_device=0x00bf"
       # class code 0x13 is "non-essential instrumentation"
       stub_params="${stub_params},class=0x130000"
       # important: mark as multifunction so other functions get scanned.
