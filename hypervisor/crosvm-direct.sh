@@ -172,7 +172,19 @@ run() {
     exec <>/dev/ttyS0 1>&0 2>&0
   fi
 
-  exec /sbin/crosvm-direct run ${args} --params "$(get_cmdline)" /boot/vmlinuz
+  /sbin/crosvm-direct run ${args} --params "$(get_cmdline)" /boot/vmlinuz
+  rc="$?"
+  case "$rc" in
+    0)
+      poweroff -f
+      ;;
+    32)
+      reboot -f
+      ;;
+    *)
+      # TODO: also reboot if not using serial port.
+      ;;
+  esac
 }
 
 if [[ -f "/etc/manatee.conf" ]]; then
