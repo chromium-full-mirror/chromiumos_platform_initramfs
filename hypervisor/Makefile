@@ -29,5 +29,7 @@ $(RAMFS_BIN): stage_init ${CONFIG_DEPS}
 	tee_app_info_lint -R "$(SYSROOT)" \
 		-o "$(STAGE)/usr/share/manatee/manatee.flex.bin" \
 		${CONFIG_DEPS}
+	echo "MANATEE_VERSION=\"$(shell date)\"" \
+		>> "$(STAGE)/etc/lsb-release"
 
 	$(call generate_ramfs)
