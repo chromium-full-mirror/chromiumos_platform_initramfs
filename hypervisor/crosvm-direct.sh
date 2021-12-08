@@ -167,9 +167,10 @@ run() {
   # emulated serial port for the guest to use and forward I/O.
   if [[ -r /sys/class/tty/ttyS0/type && \
         "$(cat /sys/class/tty/ttyS0/type)" != 0 ]]; then
-    args="${args} --serial \
-        hardware=serial,type=stdout,stdin=true,console=true,earlycon=true"
+    args="${args} --serial hardware=serial,type=stdout,stdin=true"
     exec <>/dev/ttyS0 1>&0 2>&0
+    # Make sure ttyS0 is configured correctly in case the kernel didn't do it.
+    stty 115200 cs8 -cstopb -parenb
   fi
 
   /sbin/crosvm-direct run ${args} --params "$(get_cmdline)" /boot/vmlinuz
