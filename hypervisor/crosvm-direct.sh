@@ -173,7 +173,8 @@ run() {
     stty 115200 cs8 -cstopb -parenb
   fi
 
-  /sbin/crosvm-direct run ${args} --params "$(get_cmdline)" /boot/vmlinuz
+  /sbin/crosvm-direct --extended-status \
+    run ${args} --params "$(get_cmdline)" /boot/vmlinuz
   rc="$?"
   case "$rc" in
     0)
