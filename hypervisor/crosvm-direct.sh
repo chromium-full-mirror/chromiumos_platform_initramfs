@@ -123,6 +123,10 @@ get_cbmem_mappings() {
 get_cmdline() {
   local cmd="$(cat /proc/cmdline)"
 
+  # This is to avoid accessing package level MSRs which is not
+  # available on the guest
+  cmd="${cmd/warn_on_s0ix_failures=1\ /warn_on_s0ix_failures=0\ }"
+
   # PCI workaround
   cmd="pci=lastbus=255 pci=nocrs pci=realloc=off ${cmd}"
 
