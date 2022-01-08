@@ -81,8 +81,9 @@ include ../common/initramfs.mk
 
 $(RAMFS_BIN): $(UI) stage_init
 	$(RECOVERY_DIR)/make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
-	ln -s busybox $(STAGE)/bin/sh
+	ln -s busybox $(STAGE)/bin/env
 	ln -s busybox $(STAGE)/bin/gzip
+	ln -s busybox $(STAGE)/bin/sh
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
 	ln -s futility "$(STAGE)/bin/vbutil_kernel"
 	sudo lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
@@ -203,6 +204,7 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/init"
 	cp -av "$(SYSROOT)/build/initramfs/etc/init/"* \
 		"$(SYSROOT)/etc/init/dbus.conf" \
+		"$(SYSROOT)/etc/init/nebraska.conf" \
 		"$(SYSROOT)/etc/init/iptables.conf" \
 		"$(SYSROOT)/etc/init/ip6tables.conf" \
 		"$(SYSROOT)/etc/init/network-services.conf" \

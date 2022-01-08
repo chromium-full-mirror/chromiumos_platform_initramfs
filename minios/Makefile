@@ -24,8 +24,11 @@ export MINIOS_RAMFS_LAYOUT_DIRS = \
 export MINIOS_BIN_DEPS = \
 	/bin/mount \
 	/bin/systemd-tmpfiles \
+	/bin/tail \
+	/bin/tar \
 	/bin/udevadm \
 	/build/initramfs/bin/minios \
+	/build/initramfs/bin/minios_client \
 	/build/initramfs/bin/root_partition_for_recovery \
 	/build/initramfs/bin/stateful_partition_for_recovery \
 	/sbin/blockdev \
@@ -66,6 +69,8 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/od \
 	/usr/bin/openssl \
 	/usr/bin/rootdev \
+	/usr/bin/rsync \
+	/usr/bin/scp \
 	/usr/bin/shill \
 	/usr/bin/ssh-keygen \
 	/usr/bin/strace \
@@ -79,6 +84,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/sbin/chromeos-setgoodfirmware \
 	/usr/sbin/chromeos-setgoodkernel \
 	/usr/sbin/crda \
+	/usr/sbin/nvme \
 	/usr/sbin/rfkill \
 	/usr/sbin/rsyslogd \
 	/usr/sbin/sshd \
