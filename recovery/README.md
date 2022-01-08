@@ -163,7 +163,7 @@ work with. Tracking bug to make this less painful: <https://crbug.com/715162>.
 Related reading:
 
 *   [Creating a recovery image that has been modified for
-    test](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_guide.md#Creating-a-recovery-image-that-has-been-modified-for-test)
+    test](https://chromium.googlesource.com/chromiumos/docs/+/HEAD/developer_guide.md#Creating-a-recovery-image-that-has-been-modified-for-test)
 *   [Chromium OS \[serial\] Console Debugging
     HOWTO](https://www.chromium.org/chromium-os/how-tos-and-troubleshooting/serial-debugging-howto)
 *   [Controlling Enabled
@@ -176,7 +176,7 @@ Related reading:
     partner only)
 
 [Creating a recovery image that has been modified for
-test](https://chromium.googlesource.com/chromiumos/docs/+/master/developer_guide.md#Creating-a-recovery-image-that-has-been-modified-for-test)
+test](https://chromium.googlesource.com/chromiumos/docs/+/HEAD/developer_guide.md#Creating-a-recovery-image-that-has-been-modified-for-test)
 is the starter document for this. However, serial console debugging is not part
 of those instructions yet. Further, the flags that are needed cannot (yet) be
 passed on to the parts of the build system that need changes. Here are the
