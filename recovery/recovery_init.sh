@@ -608,6 +608,9 @@ maybe_get_debugging_logs() {
          --exclude './dev_image' \
          . >"${TTY_LOG}" 2>"${TTY_LOG}" </dev/null ; then
       log "Extraction failed. See debug log for more details."
+      # Remove the request file, to prevent being stuck in a error loop,
+      # Otherwise, rebooting the device will request recovery again.
+      rm -f "${flagfile}"
       crossystem recovery_request=1
       umount /tmp
       umount "${STATEFUL_MNT}"
