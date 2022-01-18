@@ -6,7 +6,8 @@
 BIN_DEPS= \
 	/bin/busybox \
 	/build/initramfs/trichechus \
-	/build/manatee/bin/crosvm-direct
+	/build/manatee/bin/crosvm-direct \
+	/usr/bin/cbmem
 
 # Additional data files to copy from the sysroot.
 DATA_DEPS= \
@@ -33,3 +34,6 @@ $(RAMFS_BIN): stage_init ${CONFIG_DEPS}
 		>> "$(STAGE)/etc/lsb-release"
 
 	$(call generate_ramfs)
+
+check:
+	$(SYSROOT)/bin/busybox sh "$(SRCDIR)/crosvm-direct-test.sh"

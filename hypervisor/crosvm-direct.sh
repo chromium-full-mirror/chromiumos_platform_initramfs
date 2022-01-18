@@ -52,6 +52,73 @@ get_platform_irqs() {
   echo "${args}"
 }
 
+# Reads the coreboot table and generates crosvm command line options to map
+# cbmem memory regions into the guest.
+#
+# TODO(b/173614113): This function is clearly beyond the line of what is a good
+# idea to write and maintain in shell. The plan is to fold the init logic into
+# trichechus, as part of which this will be rewritten in rust.
+get_cbmem_mappings() {
+  local cbmem
+  if ! cbmem=$(cbmem -l); then
+    echo "Failed to read cbmem regions" 1>&2
+    return;
+  fi
+
+  # TODO(b/184815519): Add a mapping for page at address 0, which contains a
+  # stub coreboot table containing a "forwarding entry" pointing at  the actual
+  # coreboot table. This is used by the cbmem userspace tool.
+
+  # Go through the coreboot table entries and create mappings for them. Note
+  # that the small region entries are only aligned to 4 bytes. The code below
+  # handles this by coalescing mappings into a smaller number of page-aligned
+  # mappings.
+  (
+    echo "${cbmem}"
+    # Add a fake entry beyond the last one to trigger the start-of-a-new-region
+    # condition in the last loop iteration below and output the final mapping.
+    echo "99. TERMINATOR  ffffffff  fffff000   00000000"
+  ) | tail +3 | awk '{ print $(NF - 1) " " $NF " " $(NF - 2) }' | sort | \
+  while read -r start len id; do
+    hstart="0x${start}"
+    hlen="0x${len}"
+
+    # 4k-align start and length of the region. This will potentially map more
+    # memory than specified in the cbmem region. That's OK since there's no need
+    # to hide any data in cbmem from the OS. Note that the large cbmem regions
+    # are page-aligned anyways (they may have odd size, but coreboot allocates
+    # the region with aligned size).
+    rstart=$(printf '%#x' $((hstart & ~0xfff)))
+    rlen=$(printf '%#x' $((((hstart + hlen + 0xfff) & ~0xfff) - rstart)))
+
+    # Determine extra mapping options. These are generally only safe to put for
+    # large regions since new mappings with changed options can only start at
+    # page-aligned boundaries.
+    rextra=""
+    case "${id}" in
+      05430095) # RAMOOPS
+        rextra=",rw"
+        ;;
+    esac
+
+    if [ $((addr + size)) -lt $((rstart)) ] ||
+       [ "${extra}" != "${rextra}" ]; then
+      # Start of the region is beyond the end of the previous ones that have
+      # been gathered and coalesced into [addr, addr+size]. Thus, emit what has
+      # been gathered and start a new mapping. Note that in the first iteration
+      # this branch is hit as well, but there is no previous region data; the
+      # tail +2 below filters the corresponding bogus line.
+      params="addr=${addr},size=${size},offset=${addr},path=/dev/mem"
+      echo "--file-backed-mapping ${params}${extra}"
+      addr="${rstart}"
+      size="${rlen}"
+      extra="${rextra}"
+    else
+      size=$(printf "%#x" $((rstart + rlen - addr)))
+    fi
+  done | tail +2  # drops the bogus region emitted by the first loop iteration
+}
+
 # Get guest kernel command line options.
 get_cmdline() {
   local cmd="$(cat /proc/cmdline)"
@@ -161,6 +228,9 @@ run() {
   # Platform IRQs
   args="${args} $(get_platform_irqs)"
 
+  # cbmem mappings
+  args="${args} $(get_cbmem_mappings)"
+
   # If there's a serial port present in the hypervisor, also configure an
   # emulated serial port for the guest to use and forward I/O.
   if [[ -r /sys/class/tty/ttyS0/type && \
@@ -187,8 +257,11 @@ run() {
   esac
 }
 
-if [[ -f "/etc/manatee.conf" ]]; then
-  source "/etc/manatee.conf"
-fi
+# Make this script sourceable for unit testing.
+if [ "$(basename "$0")" = "crosvm-direct.sh" ]; then
+  if [[ -f "/etc/manatee.conf" ]]; then
+    source "/etc/manatee.conf"
+  fi
 
-run
+  run
+fi
