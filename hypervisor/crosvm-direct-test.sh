@@ -17,6 +17,8 @@ join_lines() {
 }
 
 expected_mapping_args() {
+  # The mapping for the first page is always expected to be present.
+  echo "--file-backed-mapping addr=0x0,size=0x1000,path=/dev/mem"
   join_lines "$@" | awk '{ print "--file-backed-mapping " $0 }'
 }
 

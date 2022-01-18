@@ -65,9 +65,11 @@ get_cbmem_mappings() {
     return;
   fi
 
-  # TODO(b/184815519): Add a mapping for page at address 0, which contains a
-  # stub coreboot table containing a "forwarding entry" pointing at  the actual
-  # coreboot table. This is used by the cbmem userspace tool.
+  # Map the page at address zero, where coreboot stores a coreboot table there
+  # that contains a "forwarding entry" which in turn points at the actual
+  # coreboot table. cbmem makes use of this to locate the coreboot table, so add
+  # a mapping to make cbmem work in the guest.
+  echo "--file-backed-mapping addr=0x0,size=0x1000,path=/dev/mem"
 
   # Go through the coreboot table entries and create mappings for them. Note
   # that the small region entries are only aligned to 4 bytes. The code below
