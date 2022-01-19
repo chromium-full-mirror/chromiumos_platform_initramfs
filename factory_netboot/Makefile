@@ -70,6 +70,7 @@ DATA_DEPS = \
 # Directories to be cloned into initramfs.
 DATA_DIR_DEPS = \
 	/etc/terminfo \
+	/usr/share/chromeos-config \
 	/usr/share/factory_installer/tpm/
 
 # Layout of directories to be created in initramfs.
