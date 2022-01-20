@@ -23,6 +23,14 @@ has() {
   false
 }
 
+find_module() {
+  local module="$1"
+  local module_path="$2"
+  local cmd="$3"
+
+  find "${module_path}" -regex ".*/${module}\.ko\(\.\(gz\|xz\)\)?" ${cmd}
+}
+
 idoko() {
   local sysroot="$1"
   local output="$2"
@@ -52,10 +60,10 @@ idoko() {
 
     module_depends=($(modinfo -F depends "${module}" | tr ',' ' '))
     for depend in "${module_depends[@]}"; do
-      module_depend_path=$(find "${module_root_path}" -name "${depend}.ko")
+      module_depend_path=$(find_module "${depend}" "${module_root_path}")
       if [[ -z "${module_depend_path}" ]]; then
         missing_module=true
-        echo "Can't find ${depend}.ko in ${module_root_path}" >&2
+        echo "Can't find ${depend} in ${module_root_path}" >&2
         continue
       fi
       module_queue+=("${module_depend_path}")
@@ -79,12 +87,13 @@ main() {
   local sysroot="$2"
   local output="$3"
   local module_root_path="$2/lib/modules"
-  local module_path=$(find "${module_root_path}" -name "${kofile}" -printf "%h")
+  local module_path=$(find_module "${kofile}" "${module_root_path}" \
+    "-printf %h")
   [[ -n "${module_path}" ]] || die "Can't find ${kofile}"
   local module_list=()
   while read -d $'\0' -r module; do
     module_list+=("${module}")
-  done < <(find "${module_path}" -name "*.ko" -print0)
+  done < <(find_module ".*" "${module_path}" -print0)
   idoko "${sysroot}" "${output}" "${module_list[@]}"
   # Copy /lib/modules/*/modules.* for dependency list.
   local module_base_dir="$(realpath \
