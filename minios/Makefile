@@ -27,6 +27,7 @@ export MINIOS_BIN_DEPS += \
 	/bin/udevadm \
 	/build/initramfs/bin/minios \
 	/build/initramfs/bin/root_partition_for_recovery \
+	/build/initramfs/bin/stateful_partition_for_recovery \
 	/sbin/blockdev \
 	/sbin/chromeos_startup \
 	/sbin/dhclient \
