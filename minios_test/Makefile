@@ -36,3 +36,6 @@ export MINIOS_BIN_DEPS = \
 .PHONY: all
 all:
 	$(MAKE) -C $(MINIOS_DIR) $(MAKECMDGOALS)
+
+.PHONY: check
+check:

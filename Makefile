@@ -3,13 +3,19 @@
 # found in the LICENSE file.
 
 SUBDIRS := $(patsubst %/,%,$(dir $(wildcard */Makefile)))
+CHECK_TARGETS := $(patsubst %,%_check,$(SUBDIRS))
 
-.PHONY: subdirs clean $(SUBDIRS)
+.PHONY: subdirs clean $(SUBDIRS) $(UNITTEST_TARGETS)
 
 subdirs: $(SUBDIRS)
 
 $(SUBDIRS):
 	$(MAKE) -C $@
+
+check: $(CHECK_TARGETS)
+
+$(CHECK_TARGETS):
+	$(MAKE) -C $(patsubst %_check,%,$@) check
 
 clean:
 	@$(foreach dir,$(SUBDIRS),$(MAKE) -C $(dir) clean;)

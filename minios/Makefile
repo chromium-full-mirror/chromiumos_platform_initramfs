@@ -92,3 +92,6 @@ export MINIOS_DATA_DEPS = \
 .PHONY: all
 all:
 	$(MAKE) -C $(RECOVERY_DIR) $(MAKECMDGOALS)
+
+.PHONY: check
+check:

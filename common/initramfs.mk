@@ -34,6 +34,9 @@ BUILD_LDFLAGS ?=
 .PHONY: all
 all: $(RAMFS_BIN)
 
+.PHONY: check
+check:
+
 .PHONY: clean
 clean:
 	rm -rf $(RAMFS_BIN) $(RAMFS_BIN).contents $(STAGE) $(GEN_INIT_CPIO) \
