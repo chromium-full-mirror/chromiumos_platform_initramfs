@@ -267,6 +267,9 @@ run() {
   # cbmem mappings
   args="${args} $(get_cbmem_mappings)"
 
+  # CrOS is a privileged guest
+  args="${args} --privileged-vm"
+
   # If there's a serial port present in the hypervisor, also configure an
   # emulated serial port for the guest to use and forward I/O.
   if [[ -r /sys/class/tty/ttyS0/type && \
