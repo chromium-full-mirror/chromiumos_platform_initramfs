@@ -130,7 +130,8 @@ minios: stage_init
 	find "$(SYSROOT)/lib/firmware/" \
 		\( -iname "rt*" \
 		-o -iname "iwl*" \
-		-o -iname "ath*" \) \
+		-o -iname "ath*" \
+		-o -iname "regulatory*" \) \
 		-exec cp -r "{}" "$(STAGE)/lib/firmware" \;
 	# KERNEL MODULES
 	mkdir -p "$(STAGE)/lib/modules"
@@ -144,6 +145,7 @@ minios: stage_init
 	(cd "$(STAGE)/lib/modules/"*"/kernel/drivers" && \
 		find -maxdepth 1 \
 		! -name net \
+		! -name soc \
 		! -name . -exec rm -rf {} +)
 	# MISC.
 	# use busybox as the default shell for all users
