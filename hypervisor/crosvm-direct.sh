@@ -145,8 +145,6 @@ run() {
       stub_params="${stub_params},subsystem_device=0x00bf"
       # class code 0x13 is "non-essential instrumentation"
       stub_params="${stub_params},class=0x130000"
-      # important: mark as multifunction so other functions get scanned.
-      stub_params="${stub_params},multifunction"
       args="${args} --stub-pci-device ${stub_params}"
       continue
     fi
