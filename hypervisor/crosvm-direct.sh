@@ -127,13 +127,25 @@ get_cmdline() {
   cmd="pci=lastbus=255 pci=nocrs pci=realloc=off ${cmd}"
 
   # Disable strict IOMMU for guest kernel.
-  cmd="${cmd/iommu=on\ /iommu=off\ }"
+  cmd="$(echo "${cmd}" | sed 's|iommu=on |iommu=off |')"
 
   # Uncomment to disable standard boot flow.
-  # cmd="${cmd/init=*root=/root=} init=/bin/bash"
+  # cmd="$(echo "${cmd}" | sed 's|init=.*root=|init=/bin/bash root=|')"
 
-  # Uncomment for incorrect rootfs UUID workaround
-  # cmd="${cmd/root=*\ rootwait/root=\/dev\/nvme0n1p3}"
+  # Uncomment for incorrect rootfs UUID workaround.
+  # cmd="$(echo "${cmd}" | sed 's|root=.* rootwait|root=/dev/nvme0n1p3|')"
+
+  # Prevent the guest from using hardware ramoops memory.
+  cmd="initcall_blacklist=chromeos_pstore_init ${cmd}"  # nocheck
+
+  # Emulated ramoops does not have ECC.
+  cmd="$(echo "${cmd}" | sed 's|ramoops.ecc=1 ||')"
+
+  # TODO(b/214383090): These would be better set via crosvm. Currently, it
+  # overides the console_size value set below.
+  cmd="${cmd} ramoops.console_size=0x20000"
+  cmd="${cmd} ramoops.pmsg_size=0x20000"
+  cmd="${cmd} ramoops.ftrace_size=0x20000"
 
   echo "${cmd}"
 }
@@ -141,6 +153,22 @@ get_cmdline() {
 # Get the architecture to know whether it is x86_64 or arm.
 get_platform_arch() {
   uname -m
+}
+
+pstore_path="/run/crosvm.pstore"
+
+get_pstore_args() {
+  size="$(stat -c "%s" "${pstore_path}")"
+  echo "--pstore path=${pstore_path},size=${size}"
+}
+
+setup_pstore() {
+  trichechus --restore-pstore --pstore-path "${pstore_path}"
+}
+
+save_pstore() {
+  sync -f "${pstore_path}"
+  trichechus --save-pstore --pstore-path "${pstore_path}"
 }
 
 # Start primary guest VM.
@@ -245,9 +273,15 @@ run() {
     stty 115200 cs8 -cstopb -parenb
   fi
 
+  setup_pstore && args="${args} $(get_pstore_args)" \
+    || echo "Error setting up Chrome OS pstore"
+
   /sbin/crosvm-direct --extended-status \
     run ${args} --params "$(get_cmdline)" /boot/vmlinuz
   rc="$?"
+
+  save_pstore || echo "Error saving up Chrome OS pstore"
+
   case "$rc" in
     0)
       poweroff -f
