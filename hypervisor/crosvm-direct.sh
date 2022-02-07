@@ -153,6 +153,22 @@ get_cbmem_mappings() {
   done | tail +2  # drops the bogus region emitted by the first loop iteration
 }
 
+# Prints crosvm arguments to enable virtio-vhost-user proxy devices.
+get_vvu_proxy_devices() {
+    # Total number of virtio devices that sibling VMs will use.
+    local VVU_DEVICE_NUM=10
+
+    local args=""
+    for i in $(seq 1 $VVU_DEVICE_NUM); do
+        local index=$(printf "%02d" ${i})
+        # Embed the device index as the valid UUID value's lower 12 bytes.
+        # So the guest can reconstruct the socket path by reading /sys/devices/.
+        local uuid=$(printf "00000000-0000-4000-8000-%012x" ${i})
+        args="${args} --vvu-proxy=/run/crosvm-vvu${index}.sock,uuid=${uuid}"
+    done
+    echo "${args}"
+}
+
 # Get guest kernel command line options.
 get_cmdline() {
   local cmd="$(cat /proc/cmdline)"
@@ -346,6 +362,9 @@ run() {
 
   # serial port
   args="${args} $(get_serial_port_config)"
+
+  # Enable virtio-vhost-user proxy devices
+  args="${args} $(get_vvu_proxy_devices)"
 
   setup_pstore && args="${args} $(get_pstore_args)" \
     || echo "Error setting up Chrome OS pstore"
