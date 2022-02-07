@@ -196,10 +196,6 @@ run() {
   # VFIO: Disable power management.
   echo 1 > /sys/module/vfio_pci/parameters/disable_idle_d3
 
-  # VFIO: Remove limit on number of pinned regions
-  # TODO(b/217479627): manage vfio_iommu_type1 memory
-  echo 2147483648 > /sys/module/vfio_iommu_type1/parameters/dma_entry_limit
-
   # VFIO: Direct attach all usable PCI devices.
   local serial_bdf=$(readlink -f /sys/class/tty/ttyS0 | cut -d / -f 5)
   for dev in `find /sys/bus/pci/devices -type l | sort`; do
@@ -222,7 +218,7 @@ run() {
 
     vfio_pci "${dev}"
     if [[ $? -eq 0 ]]; then
-      args="${args} --vfio ${dev},iommu=coiommu"
+      args="${args} --vfio ${dev}"
     fi
   done
 
