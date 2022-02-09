@@ -304,7 +304,7 @@ Use the power button to select an option.
 Error recovering your device
       </message>
       <message name="desc_recovery_failed" desc="Detailed description for general error screen">
-There was error while recovering your device, Refer to
+There was an error while recovering your device, Refer to
 http://google.com/chromeos/recovery for possible solutions or try again.
       </message>
       <message name="btn_try_again" desc="In the error screen, button that tells user to reboot and try again">

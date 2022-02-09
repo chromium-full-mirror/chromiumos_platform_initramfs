@@ -162,7 +162,7 @@ Recovery will continue because verification is turned off.
 If you later turn verification back on, you will need to repeat
 recovery with an up-to-date Chrome OS image.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">There was error while recovering your device; refer to</translation>
+<translation id="8361934271307901704">There was an error while recovering your device; refer to</translation>
 <translation id="8420829064199266609">Connecting to the network. This may take up to a minute.</translation>
 <translation id="8433773763660502318">Could not finish the recovery process</translation>
 <translation id="8473826843543665828">Please select a new network or try again</translation>
