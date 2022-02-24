@@ -84,6 +84,7 @@ include ../common/initramfs.mk
 $(RAMFS_BIN): $(UI) stage_init
 	$(RECOVERY_DIR)/make_locales "$(CROS_REGIONS_DATABASE)" >"$(LOCALES_TABLE)"
 	ln -s busybox $(STAGE)/bin/sh
+	ln -s busybox $(STAGE)/bin/gzip
 	ln -s futility "$(STAGE)/bin/dump_kernel_config"
 	ln -s futility "$(STAGE)/bin/vbutil_kernel"
 	sudo lddtree --verbose --copy-non-elfs --root=$(SYSROOT) \
