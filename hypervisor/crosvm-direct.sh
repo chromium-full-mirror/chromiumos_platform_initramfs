@@ -70,6 +70,13 @@ get_platform_irqs() {
   echo "${args}"
 }
 
+# GPE forwarding argument helper.
+get_platform_gpes() {
+  if [ -n "${BOARD_GPES}" ]; then
+    printf " --direct-gpe %s" ${BOARD_GPES}
+  fi
+}
+
 # Reads the coreboot table and generates crosvm command line options to map
 # cbmem memory regions into the guest.
 #
@@ -309,6 +316,9 @@ run() {
 
   # Platform IRQs
   args="${args} $(get_platform_irqs)"
+
+  # Platform GPEs
+  args="${args} $(get_platform_gpes)"
 
   # cbmem mappings
   args="${args} $(get_cbmem_mappings)"
