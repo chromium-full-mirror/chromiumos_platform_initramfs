@@ -14,6 +14,7 @@ setup_environment() {
   /bin/busybox --install /bin || true
 
   mount -n -t sysfs -o nodev,noexec,nosuid sysfs /sys
+  mount -n -t pstore -o nodev,noexec,nosuid pstore /sys/fs/pstore
   mount -n -t proc -o nodev,noexec,nosuid none /proc
   mount -n -t devtmpfs -o mode=0755,nosuid devtmpfs /dev
 

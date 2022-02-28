@@ -145,11 +145,12 @@ get_cmdline() {
   # Emulated ramoops does not have ECC.
   cmd="$(echo "${cmd}" | sed 's|ramoops.ecc=1 ||')"
 
-  # TODO(b/214383090): These would be better set via crosvm. Currently, it
-  # overides the console_size value set below.
+  # From drivers/platform/chrome/chromeos_pstore.c in the kernel.
+  cmd="${cmd} ramoops.record_size=0x40000"
   cmd="${cmd} ramoops.console_size=0x20000"
-  cmd="${cmd} ramoops.pmsg_size=0x20000"
   cmd="${cmd} ramoops.ftrace_size=0x20000"
+  cmd="${cmd} ramoops.pmsg_size=0x20000"
+  cmd="${cmd} ramoops.max_reason=2"  # KMSG_DUMP_OOPS
 
   echo "${cmd}"
 }
