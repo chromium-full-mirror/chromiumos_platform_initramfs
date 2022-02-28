@@ -33,7 +33,9 @@ run_trichechus() {
 
 # Start serial bash access.
 run_console() {
+  export CONSOLE_DEBUG=1
   setsid cttyhack sh
+  unset CONSOLE_DEBUG
 }
 
 # Suzy-Q debug access.
@@ -43,7 +45,7 @@ debug_tty() {
   read -t 5 -p "Enter console debug [yes|NO]: " reply
   case "${reply}" in
   "y" | "Y" | "yes" | "YES")
-    # Start console, continue to crosvm boot
+    # Start console. On exit, continue to crosvm boot.
     run_console
     ;;
   *)

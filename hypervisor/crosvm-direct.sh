@@ -284,15 +284,25 @@ run() {
 
   case "$rc" in
     0)
-      poweroff -f
+      cmd="poweroff -f"
       ;;
     32)
-      reboot -f
+      cmd="reboot -f"
       ;;
     *)
       # TODO: also reboot if not using serial port.
+      echo crosvm exit code: "$rc"
       ;;
   esac
+
+  if [[ -n "${cmd}" ]]; then
+    if [[ -n "${CONSOLE_DEBUG}" ]]; then
+      echo Guest requested: "${cmd}"
+    else
+      # Unquoted since the command has multiple tokens
+      ${cmd}
+    fi
+  fi
 }
 
 # Make this script sourceable for unit testing.
