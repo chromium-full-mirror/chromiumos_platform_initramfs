@@ -215,7 +215,7 @@ run() {
   for acpi in `find /sys/firmware/acpi/tables/ -type f`; do
     # Filter by name
     case "${acpi##*/}" in
-    DMAR | FACS | APIC)
+    DMAR | FACS | APIC | MCFG)
       ;;
     *)
       args="${args} --acpi-table ${acpi}"
