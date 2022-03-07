@@ -8,6 +8,10 @@
 # Experimental /init script for use in the hypervisor initramfs.
 #
 
+is_cros_debug() {
+  grep -qw cros_debug /proc/cmdline 2>/dev/null
+}
+
 # Prepare standard paths and mount points.
 setup_environment() {
   # Install additional utility programs.
@@ -20,38 +24,6 @@ setup_environment() {
 
   mkdir /dev/pts
   mount -n -t devpts -o noexec,nosuid,mode=0600 devpts /dev/pts
-
-  # Disable console logging.
-#  dmesg -n 1
-}
-
-# Start ManaTEE Monitor.
-run_trichechus() {
-  if [[ -x "/sbin/trichechus" ]]; then
-    start-stop-daemon -S -b -x "/sbin/trichechus"
-  fi
-}
-
-# Start serial bash access.
-run_console() {
-  export CONSOLE_DEBUG=1
-  setsid cttyhack sh
-  unset CONSOLE_DEBUG
-}
-
-# Suzy-Q debug access.
-debug_tty() {
-  local reply=
-  echo "########################################################"
-  read -t 5 -p "Enter console debug [yes|NO]: " reply
-  case "${reply}" in
-  "y" | "Y" | "yes" | "YES")
-    # Start console. On exit, continue to crosvm boot.
-    run_console
-    ;;
-  *)
-    ;;
-  esac
 }
 
 # add pcieport and vfio-pci driver into allowlist
@@ -63,32 +35,97 @@ setup_pci_allowlist() {
   fi
 }
 
+# Executes a shell on the serial console.
+run_shell() {
+  if is_cros_debug; then
+    setsid cttyhack sh
+  fi
+}
+
+# Initialize serial port according to hardware status and kernel command line.
+#
+# The manatee_serial kernel command line option (which the kernel passes in the
+# environment when it runs this script as init) indicates what to run on the
+# serial port. Choices include:
+#   off              - do not use the serial port even if present
+#   os               - (default) serial port hosts  emulated serial port for OS
+#   shell            - run a busybox shell on the hypervisor side
+#   foreground_shell - Run a shell in the foreground, don't launch any other
+#                      jobs. Useful for experimenting with customized crosvm
+#                      command lines etc.
+setup_serial() {
+  if [[ -z "${manatee_serial}" ]]; then
+    export manatee_serial=os
+  fi
+
+  if [[ "${manatee_serial}" != "off" && \
+        -r /sys/class/tty/ttyS0/type && \
+        "$(cat /sys/class/tty/ttyS0/type)" != 0 ]]; then
+    # Make sure ttyS0 is configured correctly in case the kernel didn't do it.
+    exec <>/dev/ttyS0 1>&0 2>&0
+    stty 115200 cs8 -cstopb -parenb
+  else
+    # No serial port, disable any further handling.
+    manatee_serial=off
+    exec <>/dev/null 1>&0 2>&0
+  fi
+
+  case "${manatee_serial}" in
+    shell)
+      # NB: cttyhack in run_shell() forces the shell to run on the serial
+      # console even though it's started in a background job.
+      run_shell &
+      ;;
+    foreground_shell)
+      cat <<EOM
+Welcome to the ManaTEE debug shell. It's useful for inspecting ManaTEE
+hypervisor userspace and experimentation, e.g. to invoke the OS VM differently.
+Note that the ManaTEE jobs aren't started automatically, but you can do so as
+follows:
+
+ trichechus &       # launch the dispatcher / OS interface in the background
+ crosvm-direct.sh   # start the OS guest
+
+Closing this shell will result in init terminating, causing a kernel panic,
+which in turn leads to a reboot.
+
+Have fun!
+EOM
+      run_shell
+      exit 1
+      ;;
+  esac
+}
+
 # Main.
 main() {
   setup_environment
 
   setup_pci_allowlist
-# Uncomment for debug access.
-  debug_tty
+
+  setup_serial
 
   # Start Trichechus.
-  run_trichechus
+  /sbin/trichechus &
 
-  if [[ -x /bin/crosvm-direct.sh ]]; then
-    # Start ManaTEE Primary VM
-    start-stop-daemon -S -b -x "/bin/crosvm-direct.sh"
-  else
-    # Failover to serial console. Development only.
-    run_console
-  fi
-
-  # Poor man's init: keep running for 30 days
-  exec sleep 27648000
+  # Start ManaTEE Primary VM.
+  /bin/crosvm-direct.sh
+  case "$?" in
+    0)
+      poweroff -f
+      ;;
+    32)
+      reboot -f
+      ;;
+    *)
+      echo crosvm exit code: "$rc"
+      ;;
+  esac
 }
 
 # Make this source-able for testing.
 if [ "$0" = "/init" ]; then
   main "$@"
-  # Should never reach here. Failed to start VM.
+  # This script is running as init, exiting results in kernel panic and reboot.
   exit 1
 fi

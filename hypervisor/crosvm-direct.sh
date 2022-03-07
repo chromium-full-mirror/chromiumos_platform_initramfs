@@ -155,6 +155,22 @@ get_cmdline() {
   echo "${cmd}"
 }
 
+get_serial_port_config() {
+  case "${manatee_serial}" in
+    off)
+      echo "--serial hardware=serial,type=sink"
+      ;;
+    os)
+      # OS to control serial port - route input to guest.
+      echo "--serial hardware=serial,type=stdout,stdin=true"
+      ;;
+    *)
+      # Send OS output to the serial port even if input is going elsewhere.
+      echo "--serial hardware=serial,type=stdout"
+      ;;
+  esac
+}
+
 # Get the architecture to know whether it is x86_64 or arm.
 get_platform_arch() {
   uname -m
@@ -274,15 +290,8 @@ run() {
   # CrOS is a privileged guest
   args="${args} --privileged-vm"
 
-  # If there's a serial port present in the hypervisor, also configure an
-  # emulated serial port for the guest to use and forward I/O.
-  if [[ -r /sys/class/tty/ttyS0/type && \
-        "$(cat /sys/class/tty/ttyS0/type)" != 0 ]]; then
-    args="${args} --serial hardware=serial,type=stdout,stdin=true"
-    exec <>/dev/ttyS0 1>&0 2>&0
-    # Make sure ttyS0 is configured correctly in case the kernel didn't do it.
-    stty 115200 cs8 -cstopb -parenb
-  fi
+  # serial port
+  args="${args} $(get_serial_port_config)"
 
   setup_pstore && args="${args} $(get_pstore_args)" \
     || echo "Error setting up Chrome OS pstore"
@@ -293,27 +302,7 @@ run() {
 
   save_pstore || echo "Error saving up Chrome OS pstore"
 
-  case "$rc" in
-    0)
-      cmd="poweroff -f"
-      ;;
-    32)
-      cmd="reboot -f"
-      ;;
-    *)
-      # TODO: also reboot if not using serial port.
-      echo crosvm exit code: "$rc"
-      ;;
-  esac
-
-  if [[ -n "${cmd}" ]]; then
-    if [[ -n "${CONSOLE_DEBUG}" ]]; then
-      echo Guest requested: "${cmd}"
-    else
-      # Unquoted since the command has multiple tokens
-      ${cmd}
-    fi
-  fi
+  return "$rc"
 }
 
 # Make this script sourceable for unit testing.
