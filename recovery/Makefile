@@ -121,7 +121,18 @@ menu_ui: stage_init
 	cp $(RECOVERY_DIR)/*.sh $(RECOVERY_DIR)/menu_ui/*.sh "$(STAGE)/lib"
 
 .PHONY: minios_ui
-minios_ui: menu_ui ${MINIOS} stage_init
+minios_ui: minios_lvm menu_ui ${MINIOS} stage_init
+
+.PHONY: minios_lvm
+minios_lvm: stage_init
+	lddtree --verbose --copy-non-elfs --root="$(SYSROOT)" \
+		--copy-to-tree="$(STAGE)" --bindir=/bin \
+		$(MINIOS_LVM_BIN_DEPS)
+	for lvm_symlink in $(MINIOS_LVM_SYMLINKS); do \
+		ln -s lvm "$(STAGE)/bin/$$lvm_symlink"; \
+	done
+	mkdir -p "$(STAGE)/etc/lvm/"
+	cp -av "$(SYSROOT)/etc/lvm/lvm.conf" "$(STAGE)/etc/lvm/"
 
 # TODO(b/177025106): Improve the build process to be more generic.
 .PHONY: minios
