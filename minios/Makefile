@@ -52,6 +52,7 @@ export MINIOS_BIN_DEPS += \
 	/sbin/udevd \
 	/sbin/usermode-helper \
 	/usr/bin/awk \
+	/usr/bin/coreutils \
 	/usr/bin/cros_region_data \
 	/usr/bin/curl \
 	/usr/bin/dbus-daemon \
@@ -62,6 +63,7 @@ export MINIOS_BIN_DEPS += \
 	/usr/bin/jq \
 	/usr/bin/logger \
 	/usr/bin/metrics_client \
+	/usr/bin/od \
 	/usr/bin/openssl \
 	/usr/bin/rootdev \
 	/usr/bin/shill \
@@ -84,6 +86,41 @@ export MINIOS_BIN_DEPS += \
 	/usr/sbin/update-ca-certificates \
 	/usr/sbin/update_engine \
 	/usr/sbin/wpa_supplicant
+
+export MINIOS_LVM_BIN_DEPS = \
+	/sbin/lvm \
+	/sbin/lvmdump \
+	/sbin/lvmpolld \
+	/sbin/thin_metadata_size
+
+export MINIOS_LVM_SYMLINKS = \
+	lvchange \
+	lvcreate \
+	lvdisplay \
+	lvmsadc \
+	lvmsar \
+	lvremove \
+	lvrename \
+	lvresize \
+	lvs \
+	lvscan \
+	pvchange \
+	pvcreate \
+	pvdisplay \
+	pvmove \
+	pvremove \
+	pvresize \
+	pvs \
+	pvscan \
+	vgchange \
+	vgconvert \
+	vgcreate \
+	vgdisplay \
+	vgextend \
+	vgremove \
+	vgrename \
+	vgs \
+	vgscan
 
 export MINIOS_DATA_DEPS = \
 	/usr/share/chromeos-ssh-config/keys/authorized_keys \
