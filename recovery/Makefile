@@ -77,8 +77,6 @@ UI = minios_ui
 endif
 endif
 
-MINIOS = $(if $(MINIOS_TEST), minios_test,minios)
-
 include ../common/initramfs.mk
 
 $(RAMFS_BIN): $(UI) stage_init
@@ -121,7 +119,7 @@ menu_ui: stage_init
 	cp $(RECOVERY_DIR)/*.sh $(RECOVERY_DIR)/menu_ui/*.sh "$(STAGE)/lib"
 
 .PHONY: minios_ui
-minios_ui: minios_lvm menu_ui ${MINIOS} stage_init
+minios_ui: minios_lvm menu_ui stage_init
 
 .PHONY: minios_lvm
 minios_lvm: stage_init
@@ -287,12 +285,3 @@ minios: stage_init
 	cp -av "$(SYSROOT)/etc/resolv.conf" \
 		"$(SYSROOT)/etc/dhcpcd.conf" \
 		"$(STAGE)/etc/"
-
-.PHONY: minios_test
-minios_test: minios
-	cp -av "$(SYSROOT)/etc/init/nebraska.conf" \
-		"$(STAGE)/etc/init/"
-	# python3 related files for nebraska.
-	mkdir -p "$(STAGE)/usr/lib64"
-	# TODO(b/206026410): Only copy the libraries we need.
-	cp -av "$(SYSROOT)/usr/lib64/python3"* "$(STAGE)/usr/lib64/"
