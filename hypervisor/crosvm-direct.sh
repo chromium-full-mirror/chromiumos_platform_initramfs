@@ -72,9 +72,16 @@ get_platform_irqs() {
 
 # GPE forwarding argument helper.
 get_platform_gpes() {
+  local args=""
   if [ -n "${BOARD_GPES}" ]; then
-    printf " --direct-gpe %s" ${BOARD_GPES}
+     args=$(printf " --direct-gpe %s" ${BOARD_GPES})
   fi
+
+  if [ -n "${TBT_PCIE_HP_GPE}" ]; then
+    args="${args} --direct-gpe ${TBT_PCIE_HP_GPE}"
+  fi
+
+  echo "${args}"
 }
 
 # Reads the coreboot table and generates crosvm command line options to map
@@ -314,7 +321,11 @@ run() {
     if [[ $val -eq 0 ]]; then
       args="${args} --vfio ${dev},iommu=coiommu"
     elif [[ $val -eq 2 ]]; then
-      args="${args} --pcie-root-port ${dev}"
+      if [ -n "${TBT_PCIE_HP_GPE}" ]; then
+        args="${args} --pcie-root-port ${dev},hp_gpe=${TBT_PCIE_HP_GPE}"
+      else
+        args="${args} --pcie-root-port ${dev}"
+      fi
     fi
   done
 
