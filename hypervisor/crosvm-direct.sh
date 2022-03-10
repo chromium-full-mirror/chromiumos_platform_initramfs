@@ -84,6 +84,17 @@ get_platform_gpes() {
   echo "${args}"
 }
 
+# MSR forwarding argument helper.
+get_platform_msrs() {
+  local msr
+  local args=""
+  local msrs="${BOARD_MSR}"
+  for msr in ${msrs}; do
+    args="${args} --userspace-msr=${msr},action=r0"
+  done
+  echo "${args}"
+}
+
 # Reads the coreboot table and generates crosvm command line options to map
 # cbmem memory regions into the guest.
 #
@@ -363,8 +374,12 @@ run() {
   # serial port
   args="${args} $(get_serial_port_config)"
 
+
   # Enable virtio-vhost-user proxy devices
   args="${args} $(get_vvu_proxy_devices)"
+
+  # userspace msr support
+  args="${args} $(get_platform_msrs)"
 
   setup_pstore && args="${args} $(get_pstore_args)" \
     || echo "Error setting up Chrome OS pstore"
