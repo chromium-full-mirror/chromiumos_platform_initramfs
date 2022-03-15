@@ -24,8 +24,8 @@ in a proper language (e.g. C++) rather than untestable shell, and avoids
 bloating the initramfs (which has severe size constraints).
 
 [recovery_init.sh]: ./recovery_init.sh
-[installer]: https://chromium.googlesource.com/chromiumos/platform2/+/master/installer/
-[chromeos-recovery]: https://chromium.googlesource.com/chromiumos/platform2/+/master/installer/chromeos-recovery
+[installer]: https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/installer/
+[chromeos-recovery]: https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/installer/chromeos-recovery
 
 ## All about image resources in recovery images
 
