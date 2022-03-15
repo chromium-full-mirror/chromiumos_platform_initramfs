@@ -159,6 +159,9 @@ get_cmdline() {
   cmd="${cmd} ramoops.pmsg_size=0x20000"
   cmd="${cmd} ramoops.max_reason=2"  # KMSG_DUMP_OOPS
 
+  # Disallow LPS0 _DSM function 5 in the guest
+  cmd="${cmd} acpi.sleep_no_lps0"
+
   echo "${cmd}"
 }
 
