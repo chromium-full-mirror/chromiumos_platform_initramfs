@@ -135,6 +135,11 @@ get_cmdline() {
   # Disable strict IOMMU for guest kernel.
   cmd="$(echo "${cmd}" | sed 's|iommu=on |iommu=off |')"
 
+  # Filter out hypervisor-specific cmdline options.
+  cmd="$(echo "${cmd}" | sed 's|swiotlb=noforce ||')"
+  cmd="$(echo "${cmd}" | sed 's|dhash_entries=[0-9]* ||')"
+  cmd="$(echo "${cmd}" | sed 's|ihash_entries=[0-9]* ||')"
+
   # Uncomment to disable standard boot flow.
   # cmd="$(echo "${cmd}" | sed 's|init=.*root=|init=/bin/bash root=|')"
 
