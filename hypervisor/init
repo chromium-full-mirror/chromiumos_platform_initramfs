@@ -24,6 +24,12 @@ setup_environment() {
 
   mkdir /dev/pts
   mount -n -t devpts -o noexec,nosuid,mode=0600 devpts /dev/pts
+
+  # Disable lowmem reserve. The only thing in the hypervisor that makes
+  # GFP_DMA32 allocations is the gsmi driver, and it has already made its
+  # allocations. Reserving part of ZONE_DMA32 for GFP_DMA32 allocations at
+  # this point would just be wasting memory.
+  echo "0 0 0" > /proc/sys/vm/lowmem_reserve_ratio
 }
 
 # Calculate how much memory to give the CrOS guest
