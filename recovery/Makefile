@@ -77,6 +77,10 @@ UI = minios_ui
 endif
 endif
 
+ifeq ($(LIBDIR),)
+$(error "LIBDIR is undefined")
+endif
+
 include ../common/initramfs.mk
 
 $(RAMFS_BIN): $(UI) stage_init
@@ -144,6 +148,11 @@ minios: stage_init
 		-o -iname "ath*" \
 		-o -iname "regulatory*" \) \
 		-exec cp -r "{}" "$(STAGE)/lib/firmware" \;
+	if [ -d "$(SYSROOT)/lib/firmware/mediatek" ]; then \
+		mkdir -p "$(STAGE)/lib/firmware/mediatek"; \
+		cp -av "$(SYSROOT)/lib/firmware/mediatek/WIFI"* \
+			"$(STAGE)/lib/firmware/mediatek"; \
+	fi
 	# KERNEL MODULES
 	mkdir -p "$(STAGE)/lib/modules"
 	cp -av "$(SYSROOT)/lib/modules/"* "$(STAGE)/lib/modules"
@@ -167,9 +176,9 @@ minios: stage_init
 	mkdir -p "$(STAGE)/usr/share/X11/xkb"
 	cp -r "$(SYSROOT)/usr/share/X11/xkb"* "$(STAGE)/usr/share/X11"
 	# MISSING SHARED LIBS
-	mkdir -p "$(STAGE)/lib64"
-	cp -av "$(SYSROOT)/lib64/libnss"* "$(STAGE)/lib64/"
-	cp -av "$(SYSROOT)/lib64/libminijail"* "$(STAGE)/lib64/"
+	mkdir -p "$(STAGE)/$(LIBDIR)"
+	cp -av "$(SYSROOT)/$(LIBDIR)/libnss"* "$(STAGE)/$(LIBDIR)/"
+	cp -av "$(SYSROOT)/$(LIBDIR)/libminijail"* "$(STAGE)/$(LIBDIR)/"
 	# DBUS
 	mkdir -p "$(STAGE)/etc/dbus-1"
 	cp -av "$(SYSROOT)/etc/dbus-1/"* \
@@ -191,9 +200,9 @@ minios: stage_init
 	mkdir -p "$(STAGE)/usr/share/shill"
 	cp -av "$(SYSROOT)/usr/share/shill/"* \
 		"$(STAGE)/usr/share/shill/"
-	mkdir -p "$(STAGE)/usr/lib64/shill"
-	cp -av "$(SYSROOT)/usr/lib64/shill/"* \
-		"$(STAGE)/usr/lib64/shill/"
+	mkdir -p "$(STAGE)/usr/$(LIBDIR)/shill"
+	cp -av "$(SYSROOT)/usr/$(LIBDIR)/shill/"* \
+		"$(STAGE)/usr/$(LIBDIR)/shill/"
 	# Add json mapping from region to xkb layout.
 	cp -av "$(CROS_REGIONS_DATABASE)" "$(STAGE)/usr/share/misc/cros-regions.json"
 	# Copy the /etc/lsb-release file, during non-build_image flows this file might
@@ -218,14 +227,14 @@ minios: stage_init
 		"$(STAGE)/usr/lib/tmpfiles.d/"
 	# D-Bus and logging dependencies for upstart.
 	mkdir -p "$(STAGE)/var/lib/metrics"
-	mkdir -p "$(STAGE)/usr/lib64/rsyslog"
-	cp -av "$(SYSROOT)/usr/lib64/rsyslog/"* "$(STAGE)/usr/lib64/rsyslog"
+	mkdir -p "$(STAGE)/usr/$(LIBDIR)/rsyslog"
+	cp -av "$(SYSROOT)/usr/$(LIBDIR)/rsyslog/"* "$(STAGE)/usr/$(LIBDIR)/rsyslog"
 	cp -av "$(SYSROOT)/etc/rsyslog.chromeos" "$(STAGE)/etc"
 	mkdir -p "$(STAGE)/usr/lib/systemd"
 	cp -av "$(SYSROOT)/usr/lib/systemd/"* "$(STAGE)/usr/lib/systemd"
 	# Add policy files for init.
-	cp -av "$(SYSROOT)/lib64/libselinux"* "$(STAGE)/lib64/"
-	cp -av "$(SYSROOT)/usr/lib64/libselinux"* "$(STAGE)/usr/lib64/"
+	cp -av "$(SYSROOT)/$(LIBDIR)/libselinux"* "$(STAGE)/$(LIBDIR)/"
+	cp -av "$(SYSROOT)/usr/$(LIBDIR)/libselinux"* "$(STAGE)/usr/$(LIBDIR)/"
 	mkdir -p "$(STAGE)/etc/selinux"
 	rsync -av "$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"
 	# Add marker file to indicate we are running from MiniOs.
@@ -237,7 +246,7 @@ minios: stage_init
 		"$(STAGE)/usr/share/misc"
 	mkdir -p "$(STAGE)/usr/share/syslinux"
 	cp -av "$(SYSROOT)/usr/share/syslinux/gptmbr.bin" \
-		"$(STAGE)/usr/share/syslinux/"
+		"$(STAGE)/usr/share/syslinux/" || true
 	# Update engine dependencies.
 	mkdir -p "$(STAGE)/usr/share/update_engine"
 	cp -av "$(SYSROOT)/build/initramfs/update-payload-key.pub.pem" \
@@ -257,19 +266,19 @@ minios: stage_init
 	# Connecting to wifi.
 	# TODO(b/169261043): Cleanup and organize these dependencies.
 	#   Look into target-initramfs as the final solution.
-	sudo cp -av "$(SYSROOT)/usr/lib64/libdbus-glib"* \
-		"$(SYSROOT)/usr/lib64/libgio"* \
-		"$(SYSROOT)/usr/lib64/libgobject"* \
-		"$(SYSROOT)/usr/lib64/libgmodule"* \
-		"$(SYSROOT)/usr/lib64/libffi"* \
-		"$(SYSROOT)/usr/lib64/libgthread"* \
-		"$(SYSROOT)/usr/lib64/libz"* \
-		"$(SYSROOT)/usr/lib64/libssl"* \
-		"$(SYSROOT)/usr/lib64/engine"* \
-		"$(SYSROOT)/usr/lib64/libchaps"* \
-		"$(SYSROOT)/usr/lib64/libp11"* \
-		"$(SYSROOT)/usr/lib64/xtables"* \
-		"$(STAGE)/usr/lib64/"
+	sudo cp -av "$(SYSROOT)/usr/$(LIBDIR)/libdbus-glib"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libgio"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libgobject"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libgmodule"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libffi"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libgthread"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libz"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libssl"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/engine"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libchaps"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libp11"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/xtables"* \
+		"$(STAGE)/usr/$(LIBDIR)/"
 	mkdir -p "$(STAGE)/etc/ssl"
 	sudo cp -av "$(SYSROOT)/etc/ssl/"* \
 		"$(STAGE)/etc/ssl/"
@@ -283,7 +292,7 @@ minios: stage_init
 	sudo cp -av "$(SYSROOT)/usr/share/policy/wpa_supplicant.bpf" \
 		"$(STAGE)/usr/share/policy/"
 	# DHCPCD related files.
-	cp -av "$(SYSROOT)/lib64/dhcpcd"* "$(STAGE)/lib64/"
+	cp -av "$(SYSROOT)/$(LIBDIR)/dhcpcd"* "$(STAGE)/$(LIBDIR)/"
 	cp -av "$(SYSROOT)/etc/resolv.conf" \
 		"$(SYSROOT)/etc/dhcpcd.conf" \
 		"$(STAGE)/etc/"
