@@ -34,8 +34,19 @@ vfio_pci() {
     echo "${bdf}" > "${driver}/unbind"
   fi
 
-  # Attach pci device to VFIO-PCI bus driver.
-  echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci/new_id
+  if [[ -f "/sys/bus/pci/drivers/vfio-pci-pm/new_id" ]]; then
+    # Attach pci device to VFIO-PCI-PM bus driver (if exists).
+    echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci-pm/new_id
+  fi
+
+  # Absence of the unbind file implies the device has no PCI driver.
+  # This is normal - either the kernel does not support the VFIO-PCI-PM driver,
+  # or the PCI device failed to attach to it (most likely due to lack of PM
+  # capability).
+  if [[ ! -f "${driver}/unbind" ]]; then
+    # Attach pci device to VFIO-PCI bus driver.
+    echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci/new_id
+  fi
 }
 
 # Port I/O & MMIO forwarding.
