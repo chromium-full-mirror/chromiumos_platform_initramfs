@@ -120,7 +120,7 @@ menu_ui: stage_init
 	cp $(RECOVERY_DIR)/*.sh $(RECOVERY_DIR)/menu_ui/*.sh "$(STAGE)/lib"
 
 .PHONY: minios_ui
-minios_ui: minios_lvm menu_ui stage_init
+minios_ui: minios_lvm menu_ui minios stage_init
 
 .PHONY: minios_lvm
 minios_lvm: stage_init
