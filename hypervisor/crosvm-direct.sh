@@ -52,22 +52,19 @@ vfio_pci() {
 # Port I/O & MMIO forwarding.
 get_platform_pmio() {
   local pmio="${BOARD_PMIO:-128}"
-  local args="--no-legacy --direct-pmio /dev/port@${pmio}"
+  echo "--no-legacy --direct-pmio /dev/port@${pmio}"
   if [ -n "${BOARD_MMIO}" ]; then
-    args="${args} --direct-mmio /dev/mem@${BOARD_MMIO}"
+    echo "--direct-mmio /dev/mem@${BOARD_MMIO}"
   fi
-  echo "${args}"
 }
 
 # Interrupt forwarding argument helper.
 get_platform_irqs() {
   local irq
-  local args=""
   local irqs="${BOARD_IRQS:-edge:1}"
   for irq in ${irqs}; do
-    args="${args} --direct-${irq%:*}-irq ${irq#*:}"
+    echo "--direct-${irq%:*}-irq ${irq#*:}"
   done
-  echo "${args}"
 }
 
 # GPE forwarding argument helper.
@@ -87,12 +84,10 @@ get_platform_gpes() {
 # MSR forwarding argument helper.
 get_platform_msrs() {
   local msr
-  local args=""
   local msrs="${BOARD_MSR}"
   for msr in ${msrs}; do
-    args="${args} --userspace-msr=${msr},action=r0"
+    echo "--userspace-msr=${msr},action=r0"
   done
-  echo "${args}"
 }
 
 # Reads the coreboot table and generates crosvm command line options to map
