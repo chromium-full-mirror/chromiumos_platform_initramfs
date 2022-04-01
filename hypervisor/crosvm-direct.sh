@@ -187,6 +187,13 @@ get_cmdline() {
   # Disallow LPS0 _DSM function 5 in the guest
   cmd="${cmd} acpi.sleep_no_lps0"
 
+  # Since virtio-iommu doesn't advertise interrupt remapping, this param is
+  # necessary for the virtio-vhost-user VFIO driver. This does not actually
+  # expose any MSI attacks. Since the hypervisor does not allow unsafe
+  # interrupts, passthrough devices are safe, and virtualized devices don't
+  # expose hardware MSI in the first place.
+  cmd="${cmd} vfio_iommu_type1.allow_unsafe_interrupts=1"
+
   echo "${cmd}"
 }
 
