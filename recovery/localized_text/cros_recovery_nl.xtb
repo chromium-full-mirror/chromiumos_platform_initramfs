@@ -27,7 +27,7 @@ Controleer of het correct is.</translation>
 <translation id="2704439832119932045">Selecteer OS-kanaal en -versie om door te gaan met het herstel</translation>
 <translation id="2731700343119398978">Even geduld...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">De eigenaar van het apparaat vereist dat dit apparaat wordt uitgevoerd met Chrome OS-verificatie. Je probeert een niet-officiële Chrome OS-herstelimage te installeren die de verificatie niet doorstaat.
 
 Ga naar de onderstaande URL voor meer informatie:
@@ -145,7 +145,7 @@ Als je verificatie later weer aanzet, moet je het herstel opnieuw uitvoeren met 
 <translation id="8420829064199266609">Verbinding maken met het netwerk. Dit kan een minuut duren.</translation>
 <translation id="8433773763660502318">Kan het herstelproces niet voltooien</translation>
 <translation id="8473826843543665828">Selecteer een nieuw netwerk of probeer het opnieuw</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery voor mogelijke oplossingen of probeer het opnieuw.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery voor mogelijke oplossingen of probeer het opnieuw.</translation>
 <translation id="8523174215108794127">Herstel afronden</translation>
 <translation id="8596190965261846034">Update installeren...
 

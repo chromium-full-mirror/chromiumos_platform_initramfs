@@ -27,7 +27,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="2704439832119932045">復元を続行するには、OS のチャンネルとバージョンを選択してください</translation>
 <translation id="2731700343119398978">お待ちください...</translation>
 <translation id="2904079386864173492">モデル:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">このデバイスの所有者は、Chrome OS の確認機能をオンにして
 デバイスを実行する必要があります。現在、確認に失敗する
 非公式な Chrome OS リカバリ イメージをインストールしようとしています。
@@ -166,7 +166,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8420829064199266609">ネットワークに接続しています。これには 1 分ほどかかる場合があります。</translation>
 <translation id="8433773763660502318">復元プロセスを完了できませんでした</translation>
 <translation id="8473826843543665828">新しいネットワークを選択するか、もう一度お試しください</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery で解決方法を確認するか、もう一度お試しください。</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery で解決方法を確認するか、もう一度お試しください。</translation>
 <translation id="8523174215108794127">復元を完了します</translation>
 <translation id="8596190965261846034">アップデートをインストールしています...
 

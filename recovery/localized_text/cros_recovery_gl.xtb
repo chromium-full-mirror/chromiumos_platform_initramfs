@@ -27,7 +27,7 @@ Verifica se é correcto.</translation>
 <translation id="2704439832119932045">Seleccionar a canle e a versión do sistema operativo para continuar coa recuperación</translation>
 <translation id="2731700343119398978">Agarda...</translation>
 <translation id="2904079386864173492">Modelo:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">O propietario do dispositivo require que este dispositivo se execute coa
 verificación de Chrome OS activada. Estás tentando instalar unha imaxe de
 recuperación de Chrome OS non oficial que non pasa a verificación.
@@ -165,7 +165,7 @@ recuperación cunha imaxe de Chrome OS actualizada.</translation>
 <translation id="8420829064199266609">Conectando coa rede. Este proceso pode durar ata un minuto.</translation>
 <translation id="8433773763660502318">Non se puido finalizar o proceso de recuperación</translation>
 <translation id="8473826843543665828">Selecciona outra rede ou téntao de novo</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery para ver posibles solucións ou téntao de novo.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery para ver posibles solucións ou téntao de novo.</translation>
 <translation id="8523174215108794127">Finalizando recuperación</translation>
 <translation id="8596190965261846034">Instalando actualización...
 

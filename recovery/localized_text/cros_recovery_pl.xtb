@@ -27,7 +27,7 @@ Sprawdź, czy jest ona poprawna.</translation>
 <translation id="2704439832119932045">Aby kontynuować odzyskiwanie, wybierz kanał i wersję systemu operacyjnego</translation>
 <translation id="2731700343119398978">Czekaj...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Właściciel tego urządzenia wymaga, aby działało ono z włączoną weryfikacją
 Chrome OS. Próbujesz zainstalować nieoficjalny obraz odzyskiwania
 Chrome OS, którego działanie blokuje weryfikacja.
@@ -164,7 +164,7 @@ odzyskiwanie z użyciem aktualnego obrazu Chrome OS.</translation>
 <translation id="8420829064199266609">Łączę się z siecią. Może to potrwać około minuty.</translation>
 <translation id="8433773763660502318">Nie udało się ukończyć procesu odzyskiwania</translation>
 <translation id="8473826843543665828">Wybierz nową sieć lub spróbuj ponownie</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery lub spróbuj jeszcze raz.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery lub spróbuj jeszcze raz.</translation>
 <translation id="8523174215108794127">Kończę odzyskiwanie</translation>
 <translation id="8596190965261846034">Instaluję aktualizację…
 

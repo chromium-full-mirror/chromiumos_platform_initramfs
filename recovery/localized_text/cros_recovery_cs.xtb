@@ -27,7 +27,7 @@ Ověřte, zda je to správně.</translation>
 <translation id="2704439832119932045">Pokud v obnovení chcete pokračovat, vyberte kanál a verzi operačního systému</translation>
 <translation id="2731700343119398978">Čekejte prosím...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Vlastník zařízení vyžaduje, aby toto zařízení bylo spuštěno
 se zapnutým ověřením systému Chrome OS. Pokoušíte se nainstalovat
 neoficiální obraz pro obnovení systému Chrome OS, který ověřením neprojde.
@@ -156,7 +156,7 @@ zopakovat s aktuálním obrazem systému Chrome OS.</translation>
 <translation id="8420829064199266609">Probíhá připojování k síti. Může to trvat až minutu.</translation>
 <translation id="8433773763660502318">Proces obnovení se nepodařilo dokončit</translation>
 <translation id="8473826843543665828">Vyberte novou síť nebo to zkuste znovu</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery nebo to zkuste znovu.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery nebo to zkuste znovu.</translation>
 <translation id="8523174215108794127">Dokončuje se obnovení</translation>
 <translation id="8596190965261846034">Probíhá instalace aktualizace...
 

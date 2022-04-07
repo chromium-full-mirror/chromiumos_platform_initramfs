@@ -27,7 +27,7 @@ Verifica que sigui correcte.</translation>
 <translation id="2704439832119932045">Selecciona el canal i la versió del SO per continuar amb la recuperació</translation>
 <translation id="2731700343119398978">Espereu...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">El propietari del dispositiu requereix que el dispositiu s'executi amb la verificació de Chrome OS activada. Esteu provant d'instal·lar una imatge de recuperació de Chrome OS no oficial, que no s'ha pogut verificar.
 
 Per obtenir més informació, consulteu l'URL següent:
@@ -147,7 +147,7 @@ La recuperació continuarà perquè la verificació està desactivada. Si més e
 <translation id="8420829064199266609">S'està connectant a la xarxa. Aquesta acció pot tardar fins a un minut.</translation>
 <translation id="8433773763660502318">No s'ha pogut finalitzar el procés de recuperació</translation>
 <translation id="8473826843543665828">Selecciona una xarxa nova o torna-ho a provar</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery per veure solucions possibles o torna-ho a provar.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery per veure solucions possibles o torna-ho a provar.</translation>
 <translation id="8523174215108794127">S'està finalitzant la recuperació</translation>
 <translation id="8596190965261846034">S'està instal·lant l'actualització...
 

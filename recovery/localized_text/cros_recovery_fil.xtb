@@ -27,7 +27,7 @@ Paki-verify na tama ito.</translation>
 <translation id="2704439832119932045">Pumili ng channel at bersyon ng OS para maipagpatuloy ang pag-recover</translation>
 <translation id="2731700343119398978">Mangyaring maghintay...</translation>
 <translation id="2904079386864173492">Modelo:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Kinakailangan ng may-ari ng device na gumana ang device na ito na naka-on ang pag-verify ng Chrome OS.  Sinusubukan mong mag-install ng hindi opisyal na
 larawan sa pag-recover ng Chrome OS na hindi pumasa sa pag-verify.
 
@@ -158,7 +158,7 @@ ang pag-recover gamit ang napapanahong larawan ng Chrome OS.</translation>
 <translation id="8420829064199266609">Kumokonekta sa network. Posible itong abutin nang hanggang isang minuto.</translation>
 <translation id="8433773763660502318">Hindi matapos ang proseso ng pag-recover</translation>
 <translation id="8473826843543665828">Pumili ng bagong network o subukan ulit</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery para sa mga posibleng solusyon o subukan ulit.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery para sa mga posibleng solusyon o subukan ulit.</translation>
 <translation id="8523174215108794127">Tinatapos ang pag-recover</translation>
 <translation id="8596190965261846034">Ini-install ang update...
 

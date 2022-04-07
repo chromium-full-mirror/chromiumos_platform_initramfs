@@ -27,7 +27,7 @@ Harap verifikasi bahwa tindakan ini benar.</translation>
 <translation id="2704439832119932045">Pilih saluran dan versi OS untuk melanjutkan pemulihan</translation>
 <translation id="2731700343119398978">Harap tunggu...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Pemilik perangkat mewajibkan perangkat agar berjalan dengan mengaktifkan verifikasi Chrome OS.  Anda mencoba memasang gambar pemulihan Chrome OS tidak resmi yang tidak lulus verifikasi. 
 
 Untuk informasi selengkapnya, buka URL ini: 
@@ -149,7 +149,7 @@ Pemulihan akan berlanjut karena verifikasi dinonaktifkan. Jika nanti akan mengak
 <translation id="8420829064199266609">Menghubungkan ke jaringan. Proses ini mungkin memerlukan waktu hingga satu menit.</translation>
 <translation id="8433773763660502318">Tidak dapat menyelesaikan proses pemulihan</translation>
 <translation id="8473826843543665828">Pilih jaringan baru atau coba lagi</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery untuk solusi yang memungkinkan atau coba lagi.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery untuk solusi yang memungkinkan atau coba lagi.</translation>
 <translation id="8523174215108794127">Menyelesaikan pemulihan</translation>
 <translation id="8596190965261846034">Menginstal update...
 

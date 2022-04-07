@@ -27,7 +27,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="2704439832119932045">选择操作系统渠道和版本以继续恢复</translation>
 <translation id="2731700343119398978">请稍候...</translation>
 <translation id="2904079386864173492">型号：</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">设备所有者要求此设备必须开启 Chrome 操作系统验证功能。您正尝试安装的非官方 Chrome 操作系统恢复映像未能通过验证。
 
 有关详情，请前往以下网址：
@@ -145,7 +145,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8420829064199266609">正在连接到网络。这最多可能需要 1 分钟的时间。</translation>
 <translation id="8433773763660502318">无法完成恢复流程</translation>
 <translation id="8473826843543665828">请选择一个新网络或重试</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery 了解可行的解决方案，或者重试。</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery 了解可行的解决方案，或者重试。</translation>
 <translation id="8523174215108794127">即将恢复完毕</translation>
 <translation id="8596190965261846034">正在安装更新…
 

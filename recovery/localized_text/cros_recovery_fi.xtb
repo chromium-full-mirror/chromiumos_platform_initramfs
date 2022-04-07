@@ -27,7 +27,7 @@ Tarkista, että se on oikein.</translation>
 <translation id="2704439832119932045">Valitse käyttöjärjestelmän kanava ja versio jatkaaksesi palautusta</translation>
 <translation id="2731700343119398978">Odota...</translation>
 <translation id="2904079386864173492">Malli:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Laitteen omistaja edellyttää, että laitteen Chrome-käyttöjärjestelmän vahvistus on käytössä. Yrität asentaa epävirallista Chrome-käyttöjärjestelmän palautustiedostoa, jonka vahvistaminen ei onnistu.
 
 Saat lisätietoja tästä osoitteesta:
@@ -145,7 +145,7 @@ Palautusta jatketaan, koska vahvistus ei ole käytössä. Jos otat vahvistuksen 
 <translation id="8420829064199266609">Yhdistetään verkkoon. Tämä kestää noin minuutin.</translation>
 <translation id="8433773763660502318">Palautusprosessia ei voitu suorittaa loppuun</translation>
 <translation id="8473826843543665828">Valitse toinen verkko tai yritä uudelleen</translation>
-<translation id="8518545754265418610">ratkaisuvaihtoehtoja osoitteesta http://google.com/chromeos/recovery tai yritä uudelleen.</translation>
+<translation id="8518545754265418610">ratkaisuvaihtoehtoja osoitteesta https://google.com/chromeos/recovery tai yritä uudelleen.</translation>
 <translation id="8523174215108794127">Palautusta viimeistellään</translation>
 <translation id="8596190965261846034">Asennetaan päivitystä…
 

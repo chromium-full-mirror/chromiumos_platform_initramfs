@@ -27,7 +27,7 @@ Kinnitage, et see on õige.</translation>
 <translation id="2704439832119932045">Taastamise jätkamiseks valige OS-i kanal ja versioon</translation>
 <translation id="2731700343119398978">Oodake ...</translation>
 <translation id="2904079386864173492">Mudel:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Seadme omanik nõuab, et seadme käitamisel oleks Chrome OS-i
 kinnitamine sisse lülitatud. Üritate installida
 Chrome OS-i mitteametlikku taastekujutist, mida ei saa kinnitada.
@@ -165,7 +165,7 @@ kordama Chrome OS-i ajakohase kujutisega.</translation>
 <translation id="8420829064199266609">Luuakse võrguühendust. Selleks võib kuluda kuni minut.</translation>
 <translation id="8433773763660502318">Taastamisprotsessi ei õnnestunud lõpetada</translation>
 <translation id="8473826843543665828">Valige uus võrk või proovige uuesti</translation>
-<translation id="8518545754265418610">Saidilt http://google.com/chromeos/recovery leiate võimalikud lahendused või proovige uuesti.</translation>
+<translation id="8518545754265418610">Saidilt https://google.com/chromeos/recovery leiate võimalikud lahendused või proovige uuesti.</translation>
 <translation id="8523174215108794127">Taastamise lõpetamine</translation>
 <translation id="8596190965261846034">Värskenduse installimine …
 

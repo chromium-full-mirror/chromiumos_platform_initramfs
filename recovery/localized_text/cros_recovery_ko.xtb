@@ -27,7 +27,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="2704439832119932045">복구를 계속하려면 OS 채널 및 버전 선택</translation>
 <translation id="2731700343119398978">잠시 기다려 주세요...</translation>
 <translation id="2904079386864173492">모델:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">기기 소유자가 Chrome OS 확인이 사용 설정된 상태에서
 이 기기를 실행하도록 설정했습니다. 귀하는 현재 확인 프로세스를 통과하지 못하는
 비공식 Chrome OS 복구 이미지를 설치하려 하고 있습니다.
@@ -164,7 +164,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8420829064199266609">네트워크에 연결 중이며 1분 정도 걸릴 수 있습니다</translation>
 <translation id="8433773763660502318">복구 절차를 완료할 수 없음</translation>
 <translation id="8473826843543665828">새로운 네트워크를 선택하거나 다시 시도해 보세요.</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery에서 사용 가능한 해결 방법을 확인하거나 다시 시도해 보세요.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery에서 사용 가능한 해결 방법을 확인하거나 다시 시도해 보세요.</translation>
 <translation id="8523174215108794127">복구 완료 중</translation>
 <translation id="8596190965261846034">업데이트 설치 중...
 

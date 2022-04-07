@@ -27,7 +27,7 @@ Verifica che sia corretto.</translation>
 <translation id="2704439832119932045">Per continuare il ripristino, seleziona la versione e il canale del sistema operativo</translation>
 <translation id="2731700343119398978">Attendi...</translation>
 <translation id="2904079386864173492">Modello:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Il proprietario del dispositivo richiede l'utilizzo del dispositivo con la verifica di Chrome OS attiva. Stai cercando di installare un'immagine di ripristino di Chrome OS non ufficiale che non supera la verifica.
 
 Per ulteriori informazioni, visita la pagina all'indirizzo:
@@ -149,7 +149,7 @@ Se in un secondo momento riattiverai la verifica, dovrai ripetere il ripristino 
 <translation id="8420829064199266609">Connessione alla rete in corso. L'operazione potrebbe richiedere fino a un minuto.</translation>
 <translation id="8433773763660502318">Impossibile completare la procedura di ripristino</translation>
 <translation id="8473826843543665828">Seleziona una nuova rete o riprova</translation>
-<translation id="8518545754265418610">Vai all'indirizzo http://google.com/chromeos/recovery per trovare delle possibili soluzioni oppure riprova.</translation>
+<translation id="8518545754265418610">Vai all'indirizzo https://google.com/chromeos/recovery per trovare delle possibili soluzioni oppure riprova.</translation>
 <translation id="8523174215108794127">Completamento del ripristino in corso…</translation>
 <translation id="8596190965261846034">Installazione dell'aggiornamento in corso…
 

@@ -27,7 +27,7 @@ Lütfen doğru olduğunu onaylayın.</translation>
 <translation id="2704439832119932045">Kurtarma işlemine devam etmek için OS kanalını ve sürümünü seçin</translation>
 <translation id="2731700343119398978">Lütfen bekleyin...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Cihazın sahibi, bu cihazın Chrome OS doğrulama işlevi açık olarak
 çalıştırılmasını istiyor. Resmi olmayan ve doğrulama işleminden
 geçmeyen bir Chrome OS kurtarma görüntüsü yüklemeye çalışıyorsunuz.
@@ -155,7 +155,7 @@ işlemini güncel bir Chrome OS görüntüsüyle tekrar etmeniz gerekecektir.</t
 <translation id="8420829064199266609">Ağa bağlanılıyor. Bu işlem bir dakika kadar sürebilir.</translation>
 <translation id="8433773763660502318">Kurtarma işlemi tamamlanamadı</translation>
 <translation id="8473826843543665828">Lütfen başka bir ağ seçin veya tekrar deneyin</translation>
-<translation id="8518545754265418610">Olası çözümler için http://google.com/chromeos/recovery adresini ziyaret edin veya tekrar deneyin.</translation>
+<translation id="8518545754265418610">Olası çözümler için https://google.com/chromeos/recovery adresini ziyaret edin veya tekrar deneyin.</translation>
 <translation id="8523174215108794127">Kurtarma işlemi tamamlanıyor</translation>
 <translation id="8596190965261846034">Güncelleme yükleniyor...
 

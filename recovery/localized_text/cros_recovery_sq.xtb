@@ -27,7 +27,7 @@ Verifiko që është e saktë.</translation>
 <translation id="2704439832119932045">Zgjidh kanalin dhe versionin e sistemit operativ për të vazhduar rikuperimin</translation>
 <translation id="2731700343119398978">Qëndro në pritje...</translation>
 <translation id="2904079386864173492">Modeli:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Zotëruesi i pajisjes kërkon që kjo pajisje të funksionojë me verifikimin e sistemit operativ Chrome të aktivizuar. Po përpiqesh të instalosh një imazh rikuperimi jozyrtar të sistemit operativ Chrome që nuk e kalon verifikimin.
 
 Për më shumë informacione, referoju kësaj URL-je:
@@ -146,7 +146,7 @@ rikuperimin me një imazh të përditësuar të sistemit operativ Chrome.</trans
 <translation id="8420829064199266609">Po lidhet me rrjetin. Kjo mund të zgjasë deri në një minutë.</translation>
 <translation id="8433773763660502318">Procesi i rikuperimit nuk mund të përfundohej</translation>
 <translation id="8473826843543665828">Zgjidh një rrjet të ri ose provo sërish</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery për zgjidhje të mundshme ose provo përsëri.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery për zgjidhje të mundshme ose provo përsëri.</translation>
 <translation id="8523174215108794127">Rikuperimi po përfundon</translation>
 <translation id="8596190965261846034">Po instalohet përditësimi...
 

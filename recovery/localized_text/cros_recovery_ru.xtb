@@ -27,7 +27,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="2704439832119932045">Выберите версию операционной системы и версию обновления, чтобы продолжить восстановление</translation>
 <translation id="2731700343119398978">Подождите…</translation>
 <translation id="2904079386864173492">Модель:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Вы пытаетесь восстановить систему, используя неофициальный образ ОС. Владелец устройства запретил выключать проверку Chrome OS, а значит установка неофициальных версий невозможна.
 
 Подробную информацию читайте на этой странице:
@@ -145,7 +145,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8420829064199266609">Подключение к сети. Это может занять около минуты</translation>
 <translation id="8433773763660502318">Не удалось завершить процесс восстановления</translation>
 <translation id="8473826843543665828">Выберите новую сеть или повторите попытку.</translation>
-<translation id="8518545754265418610">Попробуйте найти решение проблемы на странице http://google.com/chromeos/recovery или повторите попытку.</translation>
+<translation id="8518545754265418610">Попробуйте найти решение проблемы на странице https://google.com/chromeos/recovery или повторите попытку.</translation>
 <translation id="8523174215108794127">Завершение восстановления</translation>
 <translation id="8596190965261846034">Установка обновления...
 

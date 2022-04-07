@@ -26,7 +26,7 @@ Quita los medios de recuperación y la computadora se reiniciará automáticamen
 <translation id="2704439832119932045">Selecciona la versión y el canal del SO para continuar con la recuperación</translation>
 <translation id="2731700343119398978">Espera...</translation>
 <translation id="2904079386864173492">Modelo:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">El propietario del dispositivo requiere que el dispositivo se ejecute con la
 verificación del Chrome OS desactivada. Estás intentando instalar
 una imagen de recuperación del Chrome OS no oficial que no se puede verificar.
@@ -149,7 +149,7 @@ Si vuelves a activar la verificación en otro momento, tendrás que repetir la r
 <translation id="8420829064199266609">Se está estableciendo la conexión a la red. Esto puede tardar hasta un minuto.</translation>
 <translation id="8433773763660502318">No se pudo completar el proceso de recuperación</translation>
 <translation id="8473826843543665828">Selecciona una red nueva o inténtalo de nuevo</translation>
-<translation id="8518545754265418610">Prueba las posibles soluciones que se encuentran en http://google.com/chromeos/recovery o vuelve a intentarlo.</translation>
+<translation id="8518545754265418610">Prueba las posibles soluciones que se encuentran en https://google.com/chromeos/recovery o vuelve a intentarlo.</translation>
 <translation id="8523174215108794127">Completando la recuperación</translation>
 <translation id="8596190965261846034">Instalando actualización…
 

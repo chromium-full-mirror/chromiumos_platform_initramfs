@@ -27,7 +27,7 @@ Potrdite, da je to pravilno.</translation>
 <translation id="2704439832119932045">Če želite nadaljevati obnovitev, izberite kanal in različico operacijskega sistema</translation>
 <translation id="2731700343119398978">Počakajte ...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Lastnik naprave zahteva, da se ta naprava uporablja z vklopljenim
 preverjanjem sistema Chrome OS. Namestiti poskušate neuradno sliko
 za obnovitev sistema Chrome OS, ki ni prestala preverjanja.
@@ -156,7 +156,7 @@ obnovitev s posodobljeno sliko sistema Chrome OS.</translation>
 <translation id="8420829064199266609">Povezovanje z omrežjem. To lahko traja največ minuto.</translation>
 <translation id="8433773763660502318">Postopka obnovitve ni bilo mogoče dokončati</translation>
 <translation id="8473826843543665828">Izberite novo omrežje ali poskusite znova.</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery, če vas zanimajo možne rešitve, ali poskusite znova.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery, če vas zanimajo možne rešitve, ali poskusite znova.</translation>
 <translation id="8523174215108794127">Dokončevanje obnovitve</translation>
 <translation id="8596190965261846034">Nameščanje posodobitve ...
 

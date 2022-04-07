@@ -26,7 +26,7 @@ Remova o suporte de dados de recuperação e o computador reiniciará automatica
 <translation id="2704439832119932045">Selecione a versão e o canal do SO para continuar a recuperação</translation>
 <translation id="2731700343119398978">Aguarde...</translation>
 <translation id="2904079386864173492">Modelo:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">O proprietário do dispositivo exige que este dispositivo seja executado com a validação do Chrome OS ativada. Está a tentar instalar uma imagem de recuperação do Chrome OS não oficial que não passa na validação.
 
 Para mais informações, consulte este URL:
@@ -150,7 +150,7 @@ Se voltar a ativar a validação mais tarde, tem de repetir a recuperação com 
 <translation id="8420829064199266609">A ligar à rede. Esta ação pode demorar, no máximo, um minuto.</translation>
 <translation id="8433773763660502318">Não foi possível concluir o processo de recuperação</translation>
 <translation id="8473826843543665828">Selecione uma nova rede ou tente novamente</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery para obter possíveis soluções ou tente novamente.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery para obter possíveis soluções ou tente novamente.</translation>
 <translation id="8523174215108794127">A concluir a recuperação</translation>
 <translation id="8596190965261846034">A instalar a atualização...
 

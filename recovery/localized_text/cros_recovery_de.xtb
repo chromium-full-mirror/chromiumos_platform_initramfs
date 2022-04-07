@@ -27,7 +27,7 @@ Bitte überprüfen Sie, ob es sich um die richtige Domain handelt.</translation>
 <translation id="2704439832119932045">Release-Version und Version des Betriebssystems auswählen, um mit der Wiederherstellung fortzufahren</translation>
 <translation id="2731700343119398978">Bitte warten...</translation>
 <translation id="2904079386864173492">Modell:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Der Eigentümer des Geräts hat festgelegt, dass auf diesem Gerät
 die Chrome Betriebssystemüberprüfung aktiviert sein muss. Sie versuchen, ein inoffizielles
 Chrome OS-Wiederherstellungs-Image zu installieren, das die Überprüfung nicht besteht.
@@ -155,7 +155,7 @@ müssen Sie die Wiederherstellung mit einem aktuellen Chrome OS-Image wiederhol
 <translation id="8420829064199266609">Die Netzwerkverbindung wird hergestellt. Dieser Vorgang kann bis zu einer Minute dauern.</translation>
 <translation id="8433773763660502318">Die Wiederherstellung konnte nicht abgeschlossen werden</translation>
 <translation id="8473826843543665828">Wählen Sie ein anderes Netzwerk aus oder versuchen Sie es noch einmal</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery erhalten Sie weitere Informationen zu Lösungsmöglichkeiten. Sie können es auch noch einmal versuchen.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery erhalten Sie weitere Informationen zu Lösungsmöglichkeiten. Sie können es auch noch einmal versuchen.</translation>
 <translation id="8523174215108794127">Wiederherstellung wird fertiggestellt</translation>
 <translation id="8596190965261846034">Update wird installiert...
 

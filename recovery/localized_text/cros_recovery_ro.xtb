@@ -26,7 +26,7 @@ Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
 <translation id="2704439832119932045">Selectează canalul și versiunea SO pentru a continua recuperarea</translation>
 <translation id="2731700343119398978">Așteptați...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Proprietarul dispozitivului solicită ca dispozitivul să ruleze având
 verificarea pentru sistemul de operare Chrome activată. Tu încerci
 să instalezi o imagine de recuperare neoficială a sistemului de operare
@@ -161,7 +161,7 @@ folosind o imagine a sistemului de operare Chrome actualizată.</translation>
 <translation id="8420829064199266609">Se conectează la rețea. Poate dura până la un minut.</translation>
 <translation id="8433773763660502318">Nu s-a putut finaliza procesul de recuperare</translation>
 <translation id="8473826843543665828">Selectează o rețea nouă sau încearcă din nou</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery pentru soluții posibile sau încearcă din nou.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery pentru soluții posibile sau încearcă din nou.</translation>
 <translation id="8523174215108794127">Se finalizează recuperarea</translation>
 <translation id="8596190965261846034">Se instalează actualizarea...
 

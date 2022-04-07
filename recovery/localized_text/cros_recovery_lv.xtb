@@ -27,7 +27,7 @@ Lūdzu, apstipriniet, ka tas ir pareizs.</translation>
 <translation id="2704439832119932045">Atlasiet OS kanālu un versiju, lai turpinātu atkopšanu</translation>
 <translation id="2731700343119398978">Lūdzu, uzgaidiet...</translation>
 <translation id="2904079386864173492">Modelis:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Ierīces īpašnieks ir noteicis, ka šī ierīce darbojas ar ieslēgtu Chrome OS verifikāciju. Jūs mēģināt instalēt neoficiālu Chrome OS atkopšanas attēlu, kuru nevar verificēt.
 
 Plašāku informāciju skatiet šeit:
@@ -145,7 +145,7 @@ Atkopšana tiks turpināta, jo verifikācija ir izslēgta. Ja vēlāk ieslēgsie
 <translation id="8420829064199266609">Notiek savienojuma izveide ar tīklu. Tas var ilgt kādu minūti.</translation>
 <translation id="8433773763660502318">Nevarēja pabeigt atkopšanas procesu</translation>
 <translation id="8473826843543665828">Lūdzu, atlasiet jaunu tīklu vai mēģiniet vēlreiz.</translation>
-<translation id="8518545754265418610">Mēģiniet vēlreiz vai skatiet iespējamos risinājumus vietnē http://google.com/chromeos/recovery</translation>
+<translation id="8518545754265418610">Mēģiniet vēlreiz vai skatiet iespējamos risinājumus vietnē https://google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">Atkopšanas pabeigšana</translation>
 <translation id="8596190965261846034">Notiek atjauninājuma instalēšana...
 

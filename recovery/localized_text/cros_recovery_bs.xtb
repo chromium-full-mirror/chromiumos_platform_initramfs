@@ -27,7 +27,7 @@ Potvrdite da je ispravna.</translation>
 <translation id="2704439832119932045">Odaberite kanal i verziju OS-a da nastavite oporavak</translation>
 <translation id="2731700343119398978">Pričekajte...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Vlasnik uređaja zahtijeva da potvrda Chrome OS-a
 bude uključena pri korištenju ovog uređaja.  Pokušavate instalirati neslužbenu sliku za
 oporavak Chrome OS-a koja ne prolazi potvrdu.
@@ -163,7 +163,7 @@ oporavak s ažuriranom slikom za oporavak Chrome OS-a.</translation>
 <translation id="8420829064199266609">Povezivanje s mrežom. Ovo može potrajati minutu.</translation>
 <translation id="8433773763660502318">Dovršavanje procesa oporavka nije uspjelo</translation>
 <translation id="8473826843543665828">Odaberite novu mrežu ili pokušajte ponovo</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery za moguća rješenja ili pokušajte ponovo.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery za moguća rješenja ili pokušajte ponovo.</translation>
 <translation id="8523174215108794127">Dovršavanje oporavka</translation>
 <translation id="8596190965261846034">Instaliranje ažuriranja...
 

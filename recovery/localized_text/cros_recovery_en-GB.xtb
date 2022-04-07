@@ -27,7 +27,7 @@ Please verify that it is correct.</translation>
 <translation id="2704439832119932045">Select OS channel and version to continue recovery</translation>
 <translation id="2731700343119398978">Please wait…</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">The device owner requires this device to run with Chrome OS
 verification turned on. You are trying to install an unofficial
 Chrome OS recovery image, which does not pass verification.
@@ -166,7 +166,7 @@ recovery with an up-to-date Chrome OS image.</translation>
 <translation id="8420829064199266609">Connecting to the network. This may take up to a minute.</translation>
 <translation id="8433773763660502318">Could not finish the recovery process</translation>
 <translation id="8473826843543665828">Please select a new network or try again</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery for possible solutions or try again.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery for possible solutions or try again.</translation>
 <translation id="8523174215108794127">Finishing recovery</translation>
 <translation id="8596190965261846034">Installing update...
 

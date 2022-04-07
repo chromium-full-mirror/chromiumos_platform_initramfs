@@ -27,7 +27,7 @@ Veuillez vérifier que le domaine correspond.</translation>
 <translation id="2704439832119932045">Sélectionner le canal et la version du SE pour poursuivre la récupération</translation>
 <translation id="2731700343119398978">Veuillez patienter...</translation>
 <translation id="2904079386864173492">Modèle :</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Le propriétaire de cet appareil souhaite que la vérification de Chrome OS soit activée. L'image de récupération non officielle de Chrome OS que vous essayez d'installer est bloquée par le processus de vérification.
 
 Pour en savoir plus, consultez la page dont l'URL figure ci-dessous :
@@ -164,7 +164,7 @@ avec une image de Chrome OS à jour.</translation>
 <translation id="8420829064199266609">Connexion au réseau en cours… Cette opération peut prendre jusqu'à une minute.</translation>
 <translation id="8433773763660502318">Impossible de terminer le processus de récupération</translation>
 <translation id="8473826843543665828">Veuillez sélectionner un nouveau réseau ou réessayer</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery propose des solutions possibles ou bien réessayez.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery propose des solutions possibles ou bien réessayez.</translation>
 <translation id="8523174215108794127">Achèvement de la récupération en cours…</translation>
 <translation id="8596190965261846034">Installation de la mise à jour en cours…
 

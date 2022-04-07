@@ -27,7 +27,7 @@ Bekreft at informasjonen stemmer.</translation>
 <translation id="2704439832119932045">Velg OS-kanal og -versjon for å fortsette gjenopprettingen</translation>
 <translation id="2731700343119398978">Vent litt …</translation>
 <translation id="2904079386864173492">Modell:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Eieren av denne enheten krever at enheten kjører med Chrome OS-bekreftelse
 slått på. Du prøver å installere en uoffisiell gjenoprettingsavbildning for
 Chrome OS som ikke kan bekreftes.
@@ -159,7 +159,7 @@ gjenopprettingen med en oppdatert avbildning for Chrome OS.</translation>
 <translation id="8420829064199266609">Kobler til nettverket. Dette kan ta opptil et minutt.</translation>
 <translation id="8433773763660502318">Kunne ikke fullføre gjenopprettingsprosessen</translation>
 <translation id="8473826843543665828">Velg et nytt nettverk, eller prøv på nytt</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery for mulige løsninger, eller prøv på nytt.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery for mulige løsninger, eller prøv på nytt.</translation>
 <translation id="8523174215108794127">Fullfører gjenopprettingen</translation>
 <translation id="8596190965261846034">Installerer oppdateringen …
 

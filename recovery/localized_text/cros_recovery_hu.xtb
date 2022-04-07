@@ -27,7 +27,7 @@ Ellenőrizze a domain helyességét.</translation>
 <translation id="2704439832119932045">A helyreállítás folytatásához válassza ki az operációs rendszer csatornáját és verzióját</translation>
 <translation id="2731700343119398978">Kérjük, várjon...</translation>
 <translation id="2904079386864173492">Modell:</translation>
-<translation id="2924925097667803013">http://google.com/chromeos/recovery</translation>
+<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
 <translation id="300775974721831513">Az eszköz tulajdonosa megköveteli, hogy ezen az eszközön a Chrome
 operációs rendszer bekapcsolt ellenőrző funkcióval fusson. Ön nem hivatalos Chrome operációsrendszer-helyreállítási képfájlt próbál meg telepíteni, amely nem
 felel meg az ellenőrzésen.
@@ -166,7 +166,7 @@ operációsrendszer-helyreállítási képfájllal kell megismételnie a helyre�
 <translation id="8420829064199266609">Csatlakozás a hálózathoz. Ez egy percig is eltarthat.</translation>
 <translation id="8433773763660502318">Nem sikerült befejezni a helyreállítási folyamatot</translation>
 <translation id="8473826843543665828">Válasszon új hálózatot, vagy próbálkozzon újra.</translation>
-<translation id="8518545754265418610">http://google.com/chromeos/recovery oldalt a lehetséges megoldásokért, vagy próbálkozzon újra.</translation>
+<translation id="8518545754265418610">https://google.com/chromeos/recovery oldalt a lehetséges megoldásokért, vagy próbálkozzon újra.</translation>
 <translation id="8523174215108794127">Helyreállítás befejezése</translation>
 <translation id="8596190965261846034">Frissítés telepítése…
 
