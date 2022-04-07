@@ -137,4 +137,56 @@ test_cbmem_mappings_actual() {
     )" "$(get_cbmem_mappings)"
 }
 
+MOCK_PROC_IOMEM=
+
+expected_hostbridge_regions() {
+  local IFS=","
+  echo "--mmio-address-range $(echo "$*")"
+}
+
+mock_proc_iomem() {
+  MOCK_PROC_IOMEM=$(join_lines "$@")
+}
+
+test_get_hostbridge_regions_single() {
+  mock_proc_iomem "00000000-000fffff : PCI Bus 0000:00"
+
+  assertEquals "$(expected_hostbridge_regions \
+      "0x00000000-0x000fffff"
+    )" "$(get_host_bridge_regions "${MOCK_PROC_IOMEM}")"
+}
+
+test_get_hostbridge_regions_skip_regions() {
+  mock_proc_iomem "00000000-000fffff : PCI Bus 0000:01" \
+    "  000a0000-000bffff : PCI Bus 0000:00"
+
+  assertEquals "$(expected_hostbridge_regions)" \
+    "$(get_host_bridge_regions "${MOCK_PROC_IOMEM}")"
+}
+
+test_get_hostbridge_regions_actual() {
+  # /proc/iomem output from a delbin, with some lines
+  # trimmed for brevity.
+  mock_proc_iomem "000a0000-000fffff : Reserved" \
+    "  000a0000-000bffff : PCI Bus 0000:00" \
+    "7fc00000-dfffffff : PCI Bus 0000:00" \
+    "  7fc00000-7fcfffff : PCI Bus 0000:01" \
+    "  7fd00000-7fdfffff : PCI Bus 0000:02" \
+    "f8000000-f9ffffff : Reserved" \
+    "fc800000-fe7fffff : PCI Bus 0000:00" \
+    "  fd690000-fd69ffff : INT34C5:00" \
+    "fed00000-fed003ff : HPET 0" \
+    "  fed00000-fed003ff : pnp 00:00" \
+    "fed40000-fed47fff : PCI Bus 0000:00" \
+    "280400000-7fffffffff : PCI Bus 0000:00" \
+    "  280400000-2805fffff : PCI Bus 0000:01" \
+    "  280600000-280600fff : 0000:00:19.0" \
+    "    280600000-2806001ff : lpss_dev"
+
+  assertEquals "$(expected_hostbridge_regions \
+      "0x7fc00000-0xdfffffff" "0xfc800000-0xfe7fffff" \
+      "0xfed40000-0xfed47fff" "0x280400000-0x7fffffffff"
+    )" "$(get_host_bridge_regions "${MOCK_PROC_IOMEM}")"
+}
+
 . "${SYSROOT}/usr/bin/shunit2"

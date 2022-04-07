@@ -168,6 +168,16 @@ get_vvu_proxy_devices() {
     echo "${args}"
 }
 
+# Root bridge regions are specified in ACPI tables passed to the guest. Keep
+# the guest kernel happy by limiting crosvm pci bars to those regions.
+get_host_bridge_regions() {
+  # Translate lines of the form "80400000-dfffffff : PCI Bus 0000:00" into
+  # lines of the form "0x80400000-0xdfffffff".
+  local regexp="s/^\([0-9a-f]*\)-\([0-9a-f]*\) : PCI Bus 0000:00/0x\1-0x\2/p"
+  local regions=$(echo "$1" | sed -n "${regexp}" | paste -sd ',')
+  echo "--mmio-address-range ${regions}"
+}
+
 # Get guest kernel command line options.
 get_cmdline() {
   local cmd="$(cat /proc/cmdline)"
@@ -177,7 +187,7 @@ get_cmdline() {
   cmd="${cmd/warn_on_s0ix_failures=1\ /warn_on_s0ix_failures=0\ }"
 
   # PCI workaround
-  cmd="pci=lastbus=255 pci=nocrs pci=realloc=off ${cmd}"
+  cmd="pci=lastbus=255 pci=realloc=off ${cmd}"
 
   # Disable strict IOMMU for guest kernel.
   cmd="$(echo "${cmd}" | sed 's|iommu=on |iommu=off |')"
@@ -362,12 +372,14 @@ run() {
   # serial port
   args="${args} $(get_serial_port_config)"
 
-
   # Enable virtio-vhost-user proxy devices
   args="${args} $(get_vvu_proxy_devices)"
 
   # userspace msr support
   args="${args} $(get_platform_msrs)"
+
+  # Limit mmio regions to match ACPI
+  args="${args} $(get_host_bridge_regions "`cat /proc/iomem`")"
 
   setup_pstore && args="${args} $(get_pstore_args)" \
     || echo "Error setting up Chrome OS pstore"
