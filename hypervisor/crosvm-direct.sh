@@ -299,6 +299,24 @@ save_pstore() {
   trichechus --save-pstore --pstore-path "${pstore_path}" "$@"
 }
 
+get_pcie_ecam() {
+  # Translate lines of the form "d0000000-dfffffff : PCI MMCONFIG 0000" into
+  # lines of the form "0xd0000000-0xdfffffff".
+  regexp="s/\([0-9a-f]*\)-\([0-9a-f]*\) : PCI MMCONFIG 0000/0x\1-0x\2/p"
+  regions=$(echo "$1" | sed -n "${regexp}")
+  if [ -z "${regions}" ]; then
+    return;
+  fi
+  #Only the first found take effect
+  base_end=$(echo ${regions} | awk -F ' ' '{print $1}')
+  base=$(echo ${base_end} | awk -F '-' '{print $1}')
+  end=$(echo ${base_end} | awk -F '-' '{print $2}')
+  len=$(($end - $base + 1))
+  hlen=$(printf '0x%x' $len)
+
+  echo "--pcie-ecam=$base,$hlen"
+}
+
 # Start primary guest VM.
 run() {
   # Crosvm-direct command line.
@@ -368,6 +386,9 @@ run() {
 
   # cbmem mappings
   args="${args} $(get_cbmem_mappings)"
+
+  # pcie ecam address and size
+  args="${args} $(get_pcie_ecam "$(cat /proc/iomem)")"
 
   # CrOS is a privileged guest
   args="${args} --privileged-vm"

@@ -217,4 +217,48 @@ uuid=00000000-0000-4000-8000-000000000002" \
   "$(get_vvu_proxy_devices 2)"
 }
 
+expected_pcie_ecam() {
+  echo "--pcie-ecam=0xe0000000,0x10000000"
+}
+
+test_get_pcie_ecam_single() {
+  mock_proc_iomem "e0000000-efffffff : PCI MMCONFIG 0000 [bus 00-ff]"
+
+  assertEquals "$(expected_pcie_ecam)" "$(get_pcie_ecam "${MOCK_PROC_IOMEM}")"
+}
+
+test_get_pcie_ecam_single_prefix_sapce() {
+  mock_proc_iomem "  e0000000-efffffff : PCI MMCONFIG 0000 [bus 00-ff]"
+
+  assertEquals "$(expected_pcie_ecam)" "$(get_pcie_ecam "${MOCK_PROC_IOMEM}")"
+}
+
+test_get_pcie_ecam_double() {
+  mock_proc_iomem "e0000000-efffffff : PCI MMCONFIG 0000 [bus 00-ff]" \
+    "d0000000-dfffffff : PCI MMCONFIG 0000 [bus 00-ff]"
+
+  assertEquals "$(expected_pcie_ecam)" "$(get_pcie_ecam "${MOCK_PROC_IOMEM}")"
+}
+
+test_get_pcie_ecam_skip_regions() {
+  mock_proc_iomem "70800000-dfffffff : PCI Bus 0000:00" \
+    "  70800000-dfffffff : PCI Bus 0000:00" \
+
+  assertEquals "" \
+    "$(get_pcie_ecam "${MOCK_PROC_IOMEM}")"
+}
+
+test_get_pcie_ecam_actual() {
+  # /proc/iomem output from an ubuntu, with some lines
+  # trimmed for brevity.
+  mock_proc_iomem "00000000-000fffff : PCI Bus 0000:01" \
+    "  000a0000-000bffff : PCI Bus 0000:00" \
+    "e0000000-efffffff : PCI MMCONFIG 0000 [bus 00-ff]" \
+    "  e0000000-efffffff : Reserved" \
+    "    e0000000-efffffff : pnp 00:04" \
+    "fd000000-fd68ffff : pnp 00:05"
+
+  assertEquals "$(expected_pcie_ecam)" "$(get_pcie_ecam "${MOCK_PROC_IOMEM}")"
+}
+
 . "${SYSROOT}/usr/bin/shunit2"
