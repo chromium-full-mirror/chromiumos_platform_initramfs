@@ -3,13 +3,6 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <CrOS guest memory in MiB>"
-  exit 1
-fi
-
-CROS_GUEST_MEMORY=$1
-
 # Bind PCI device to VFIO-PCI passthrough bus.
 vfio_pci() {
   local sysfs=$1
@@ -370,6 +363,13 @@ run() {
 
 # Make this script sourceable for unit testing.
 if [ "$(basename "$0")" = "crosvm-direct.sh" ]; then
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <CrOS guest memory in MiB>"
+    exit 1
+  fi
+
+  CROS_GUEST_MEMORY=$1
+
   if [[ -f "/etc/manatee.conf" ]]; then
     source "/etc/manatee.conf"
   fi
