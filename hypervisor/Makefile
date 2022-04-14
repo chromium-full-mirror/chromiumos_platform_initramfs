@@ -10,6 +10,17 @@ BIN_DEPS= \
 	/build/manatee/bin/crosvm-direct \
 	/usr/bin/cbmem
 
+ifeq ($(MANATEE_PERFORMANCE_TOOLS),1)
+BIN_DEPS+= \
+	/usr/bin/htop \
+	/usr/bin/perf \
+	/usr/bin/perfetto \
+	/usr/bin/strace \
+	/usr/bin/trace-cmd \
+	/usr/bin/turbostat \
+
+endif
+
 # Additional data files to copy from the sysroot.
 DATA_DEPS= \
 	/boot/vmlinuz \
