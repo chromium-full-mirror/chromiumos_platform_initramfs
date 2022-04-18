@@ -285,7 +285,7 @@ run() {
   local arch="$(get_platform_arch)"
   if [ $(arch) = "x86_64" ]; then
     # crosvm now only supports "--host-cpu-topology" on x86_64.
-    args="${args} --cpus ${nproc} --host-cpu-topology"
+    args="${args} --cpus ${nproc} --host-cpu-topology --itmt"
   else
     local affinity=$(
       for n in $(seq 0 $((nproc - 1))); do printf "$n=$n:"; done
