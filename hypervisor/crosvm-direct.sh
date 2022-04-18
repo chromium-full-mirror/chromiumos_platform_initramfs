@@ -79,7 +79,7 @@ get_platform_msrs() {
   local msr
   local msrs="${BOARD_MSR}"
   for msr in ${msrs}; do
-    echo "--userspace-msr=${msr},action=r0"
+    echo "--userspace-msr=${msr},type=r,action=pass"
   done
 }
 
