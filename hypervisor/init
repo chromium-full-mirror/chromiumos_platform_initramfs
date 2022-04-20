@@ -63,6 +63,7 @@ setup_pci_allowlist() {
   if [[ -w "/sys/bus/pci/drivers_allowlist_lockdown" ]]; then
     echo "pcieport" > /sys/bus/pci/drivers_allowlist
     echo "vfio-pci" > /sys/bus/pci/drivers_allowlist
+    echo "vfio-pci-pm" > /sys/bus/pci/drivers_allowlist
     echo 0 > /sys/bus/pci/drivers_allowlist_lockdown
   fi
 }
