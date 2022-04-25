@@ -7,7 +7,6 @@
 set_brightness() {
   local backlight_device=
   local brightness=
-  local i=
   for backlight_device in /sys/class/backlight/*; do
 
     # In order to set a backlight to maximum brightness, we do the following:
@@ -18,7 +17,7 @@ set_brightness() {
     # The hardware is particularly volatile during startup due to modeset and
     # hw initialization. We want to give ourselves the best chance of success,
     # so we'll try up to 5 times before continuing with recovery.
-    for i in $(seq 1 5); do
+    for _ in $(seq 1 5); do
       echo 0 > "${backlight_device}/bl_power" # 0 = FB_BLANK_UNBLANK (ie: on)
       brightness=$(cat "${backlight_device}/max_brightness")
       echo "${brightness}" > "${backlight_device}/brightness"
@@ -30,6 +29,7 @@ set_brightness() {
   done
 }
 
+# shellcheck source=../common/init.sh
 . /lib/init.sh
 initialize
 set_brightness
