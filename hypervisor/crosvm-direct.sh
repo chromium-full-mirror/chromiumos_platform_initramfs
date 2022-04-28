@@ -263,7 +263,7 @@ setup_pstore() {
 
 save_pstore() {
   sync -f "${pstore_path}"
-  trichechus --save-pstore --pstore-path "${pstore_path}"
+  trichechus --save-pstore --pstore-path "${pstore_path}" "$@"
 }
 
 # Start primary guest VM.
@@ -388,9 +388,15 @@ run() {
     run ${args} --params "$(get_cmdline)" /boot/vmlinuz
   rc="$?"
 
-  save_pstore || echo "Error saving up Chrome OS pstore"
+  if [ "${rc}" = "34" ]; then
+    # guest panic
+    save_args="--save-hypervisor-dmesg"
+  else
+    save_args=""
+  fi
+  save_pstore "${save_args}" || echo "Error saving Chrome OS pstore"
 
-  return "$rc"
+  return "${rc}"
 }
 
 # Make this script sourceable for unit testing.

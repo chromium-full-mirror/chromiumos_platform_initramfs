@@ -149,17 +149,22 @@ main() {
 
   # Start ManaTEE Primary VM.
   /bin/crosvm-direct.sh "${cros_guest_memory}"
-  case "$?" in
+  rc="$?"
+  case "${rc}" in
     0)
       poweroff -f
       ;;
     32)
       reboot -f
       ;;
-    *)
-      echo crosvm exit code: "$rc"
+    34)
+      reboot -f
       ;;
   esac
+
+  # Echo exit code in case someone is watching the console
+  echo Unexpected crosvm exit code: "${rc}"
+  reboot -f
 }
 
 # Make this source-able for testing.
