@@ -113,6 +113,12 @@ get_platform_gpes() {
   fi
 }
 
+get_platform_fixed_events() {
+  if [ -n "${BOARD_FIXED_EVENTS}" ]; then
+    printf " --direct-fixed-event %s" ${BOARD_FIXED_EVENTS}
+  fi
+}
+
 # MSR forwarding argument helper.
 get_platform_msrs() {
   local pass_ro_msr="--userspace-msr %s,type=r,action=pass\n"
@@ -395,6 +401,9 @@ run() {
 
   # Platform GPEs
   args="${args} $(get_platform_gpes)"
+
+  # Platform fixed ACPI events
+  args="${args} $(get_platform_fixed_events)"
 
   # cbmem mappings
   args="${args} $(get_cbmem_mappings)"
