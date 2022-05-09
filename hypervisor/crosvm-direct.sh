@@ -42,6 +42,42 @@ vfio_pci() {
   fi
 }
 
+# Sets up PCI passthrough and outputs the necessary crosvm flags.
+get_pci_passthrough() {
+  # VFIO: Direct attach all usable PCI devices.
+  local serial_bdf=$(readlink -f /sys/class/tty/ttyS0 | cut -d / -f 5)
+  for dev in `find /sys/bus/pci/devices -type l | sort`; do
+    local bdf=$(basename "${dev}")
+    if [[ "${bdf}" == "${serial_bdf}" ]]; then
+      # Keep the serial device in the hypervisor. Configure a stub PCI device in
+      # its place so enumeration of the other function works properly in the
+      # guest.
+      local stub_params="${bdf}"
+      # Identifiers per "Google PCI Device and Subsystem ID Allocations".
+      stub_params="${stub_params},vendor=0x1ae0"
+      stub_params="${stub_params},device=0x0072"
+      stub_params="${stub_params},subsystem_vendor=0x1ae0"
+      stub_params="${stub_params},subsystem_device=0x00bf"
+      # class code 0x13 is "non-essential instrumentation"
+      stub_params="${stub_params},class=0x130000"
+      echo "--stub-pci-device ${stub_params}"
+      continue
+    fi
+
+    vfio_pci "${dev}"
+    local val=$?
+    if [[ $val -eq 0 ]]; then
+      echo "--vfio ${dev},iommu=coiommu"
+    elif [[ $val -eq 2 ]]; then
+      if [ -n "${TBT_PCIE_HP_GPE}" ]; then
+        echo "--pcie-root-port ${dev},hp_gpe=${TBT_PCIE_HP_GPE}"
+      else
+        echo "--pcie-root-port ${dev}"
+      fi
+    fi
+  done
+}
+
 # Port I/O & MMIO forwarding.
 get_platform_pmio() {
   local pmio="${BOARD_PMIO:-128}"
@@ -321,38 +357,8 @@ run() {
   # TODO(b/217479627): manage vfio_iommu_type1 memory
   echo 2147483648 > /sys/module/vfio_iommu_type1/parameters/dma_entry_limit
 
-  # VFIO: Direct attach all usable PCI devices.
-  local serial_bdf=$(readlink -f /sys/class/tty/ttyS0 | cut -d / -f 5)
-  for dev in `find /sys/bus/pci/devices -type l | sort`; do
-    local bdf=$(basename "${dev}")
-    if [[ "${bdf}" == "${serial_bdf}" ]]; then
-      # Keep the serial device in the hypervisor. Configure a stub PCI device in
-      # its place so enumeration of the other function works properly in the
-      # guest.
-      local stub_params="${bdf}"
-      # Identifiers per "Google PCI Device and Subsystem ID Allocations".
-      stub_params="${stub_params},vendor=0x1ae0"
-      stub_params="${stub_params},device=0x0072"
-      stub_params="${stub_params},subsystem_vendor=0x1ae0"
-      stub_params="${stub_params},subsystem_device=0x00bf"
-      # class code 0x13 is "non-essential instrumentation"
-      stub_params="${stub_params},class=0x130000"
-      args="${args} --stub-pci-device ${stub_params}"
-      continue
-    fi
-
-    vfio_pci "${dev}"
-    local val=$?
-    if [[ $val -eq 0 ]]; then
-      args="${args} --vfio ${dev},iommu=coiommu"
-    elif [[ $val -eq 2 ]]; then
-      if [ -n "${TBT_PCIE_HP_GPE}" ]; then
-        args="${args} --pcie-root-port ${dev},hp_gpe=${TBT_PCIE_HP_GPE}"
-      else
-        args="${args} --pcie-root-port ${dev}"
-      fi
-    fi
-  done
+  # Device passthrough
+  args="${args} $(get_pci_passthrough)"
 
   # Platform IOs
   args="${args} $(get_platform_pmio)"
