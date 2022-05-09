@@ -136,16 +136,25 @@ EOM
 
 # Main.
 main() {
+  # cbmem needs /dev/mem, so just create that in an effort to collect the first
+  # hypervisor user space time stamp as early as possible.
+  busybox mknod /dev/mem c 1 1
+  cbmem -a TS_CRHV_BOOT
+
   setup_environment
 
   setup_pci_allowlist
 
   setup_serial
 
+  cbmem -a TS_CRHV_PLATFORM_INIT
+
   local cros_guest_memory="$(get_cros_guest_memory)"
 
   # Start hypervisor services.
   run_hypervisor_services "${cros_guest_memory}"
+
+  cbmem -a TS_CRHV_SERVICES_STARTED
 
   # Start ManaTEE Primary VM.
   /bin/crosvm-direct.sh "${cros_guest_memory}"

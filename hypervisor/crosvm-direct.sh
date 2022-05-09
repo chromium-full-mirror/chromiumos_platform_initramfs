@@ -44,6 +44,8 @@ vfio_pci() {
 
 # Sets up PCI passthrough and outputs the necessary crosvm flags.
 get_pci_passthrough() {
+  cbmem -a TS_CRHV_HW_PASSTRHOUGH_START
+
   # VFIO: Direct attach all usable PCI devices.
   local serial_bdf=$(readlink -f /sys/class/tty/ttyS0 | cut -d / -f 5)
   for dev in `find /sys/bus/pci/devices -type l | sort`; do
@@ -76,6 +78,8 @@ get_pci_passthrough() {
       fi
     fi
   done
+
+  cbmem -a TS_CRHV_HW_PASSTRHOUGH_END
 }
 
 # Port I/O & MMIO forwarding.
@@ -294,7 +298,9 @@ get_pstore_args() {
 }
 
 setup_pstore() {
+  cbmem -a TS_CRHV_PSTORE_START
   trichechus --restore-pstore --pstore-path "${pstore_path}"
+  cbmem -a TS_CRHV_PSTORE_END
 }
 
 save_pstore() {
@@ -394,6 +400,8 @@ run() {
   # TODO(b/230441812): Investigate why we need all those file descriptors and
   # decide if we actually need them or can be reduced.
   ulimit -n 2048
+
+  cbmem -a TS_CRHV_VMM_START
 
   /sbin/crosvm-direct --extended-status \
     run ${args} --params "$(get_cmdline)" /boot/vmlinuz
