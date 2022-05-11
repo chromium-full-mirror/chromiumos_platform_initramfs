@@ -390,6 +390,11 @@ run() {
   setup_pstore && args="${args} $(get_pstore_args)" \
     || echo "Error setting up Chrome OS pstore"
 
+  # Arbitrary limit, as of today there's 750 open fds on a 12 core brya.
+  # TODO(b/230441812): Investigate why we need all those file descriptors and
+  # decide if we actually need them or can be reduced.
+  ulimit -n 2048
+
   /sbin/crosvm-direct --extended-status \
     run ${args} --params "$(get_cmdline)" /boot/vmlinuz
   rc="$?"
