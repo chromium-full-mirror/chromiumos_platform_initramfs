@@ -18,6 +18,7 @@ BIN_DEPS+= \
 	/usr/bin/strace \
 	/usr/bin/trace-cmd \
 	/usr/bin/turbostat \
+	/usr/bin/vmstat \
 
 endif
 
