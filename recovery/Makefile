@@ -134,6 +134,9 @@ minios_lvm: stage_init
 	for lvm_symlink in $(MINIOS_LVM_SYMLINKS); do \
 		ln -s lvm "$(STAGE)/bin/$$lvm_symlink"; \
 	done
+	for pdata_tools_symlink in $(MINIOS_PDATA_TOOLS_SYMLINKS); do \
+		ln -s pdata_tools "$(STAGE)/bin/$$pdata_tools_symlink"; \
+	done
 	mkdir -p "$(STAGE)/etc/lvm/"
 	cp -av "$(SYSROOT)/etc/lvm/lvm.conf" "$(STAGE)/etc/lvm/"
 

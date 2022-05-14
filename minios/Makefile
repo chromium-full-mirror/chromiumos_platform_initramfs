@@ -97,7 +97,7 @@ export MINIOS_LVM_BIN_DEPS = \
 	/sbin/lvm \
 	/sbin/lvmdump \
 	/sbin/lvmpolld \
-	/sbin/thin_metadata_size
+	/sbin/pdata_tools
 
 export MINIOS_LVM_SYMLINKS = \
 	lvchange \
@@ -127,6 +127,17 @@ export MINIOS_LVM_SYMLINKS = \
 	vgrename \
 	vgs \
 	vgscan
+
+export MINIOS_PDATA_TOOLS_SYMLINKS = \
+	thin_check \
+	thin_delta \
+	thin_dump \
+	thin_ls \
+	thin_metadata_size \
+	thin_repair \
+	thin_restore \
+	thin_rmap \
+	thin_trim
 
 export MINIOS_DATA_DEPS = \
 	/usr/share/chromeos-ssh-config/keys/authorized_keys \
