@@ -208,5 +208,13 @@ test_get_platform_gpes() {
   "$(get_platform_gpes)"
 }
 
+test_get_vvu_proxy_devices() {
+  assertEquals \
+    "--vvu-proxy=/run/crosvm-vvu01.sock,\
+uuid=00000000-0000-4000-8000-000000000001
+--vvu-proxy=/run/crosvm-vvu02.sock,\
+uuid=00000000-0000-4000-8000-000000000002" \
+  "$(get_vvu_proxy_devices 2)"
+}
 
 . "${SYSROOT}/usr/bin/shunit2"

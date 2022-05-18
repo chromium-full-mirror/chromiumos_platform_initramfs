@@ -187,18 +187,16 @@ get_cbmem_mappings() {
 
 # Prints crosvm arguments to enable virtio-vhost-user proxy devices.
 get_vvu_proxy_devices() {
-    # Total number of virtio devices that sibling VMs will use.
-    local VVU_DEVICE_NUM=10
+  # Total number of virtio devices that sibling VMs will use.
+  local VVU_DEVICE_NUM="$1"
 
-    local args=""
-    for i in $(seq 1 $VVU_DEVICE_NUM); do
-        local index=$(printf "%02d" ${i})
-        # Embed the device index as the valid UUID value's lower 12 bytes.
-        # So the guest can reconstruct the socket path by reading /sys/devices/.
-        local uuid=$(printf "00000000-0000-4000-8000-%012x" ${i})
-        args="${args} --vvu-proxy=/run/crosvm-vvu${index}.sock,uuid=${uuid}"
-    done
-    echo "${args}"
+  for i in $(seq 1 $VVU_DEVICE_NUM); do
+    # Embed the device index as the valid UUID value's lower 12 bytes.
+    # So the guest can reconstruct the socket path by reading /sys/devices/.
+    printf \
+      "--vvu-proxy=/run/crosvm-vvu%02d.sock,\
+uuid=00000000-0000-4000-8000-%012x\n" "${i}" "${i}"
+  done
 }
 
 # Root bridge regions are specified in ACPI tables passed to the guest. Keep
@@ -378,7 +376,7 @@ run() {
   args="${args} $(get_serial_port_config)"
 
   # Enable virtio-vhost-user proxy devices
-  args="${args} $(get_vvu_proxy_devices)"
+  args="${args} $(get_vvu_proxy_devices 10)"
 
   # userspace msr support
   args="${args} $(get_platform_msrs)"
