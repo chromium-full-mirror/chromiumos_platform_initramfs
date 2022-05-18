@@ -116,11 +116,7 @@ get_platform_gpes() {
 
 # MSR forwarding argument helper.
 get_platform_msrs() {
-  local msr
-  local msrs="${BOARD_MSR}"
-  for msr in ${msrs}; do
-    echo "--userspace-msr=${msr},type=r,action=pass"
-  done
+  printf "--userspace-msr=%s,type=r,action=pass\n" ${BOARD_MSR}
 }
 
 # Reads the coreboot table and generates crosvm command line options to map

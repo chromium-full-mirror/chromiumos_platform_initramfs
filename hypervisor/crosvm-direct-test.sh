@@ -189,4 +189,13 @@ test_get_hostbridge_regions_actual() {
     )" "$(get_host_bridge_regions "${MOCK_PROC_IOMEM}")"
 }
 
+test_get_platform_msrs() {
+  BOARD_MSR="0x01
+0x02
+"
+  assertEquals "--userspace-msr=0x01,type=r,action=pass
+--userspace-msr=0x02,type=r,action=pass" \
+  "$(get_platform_msrs)"
+}
+
 . "${SYSROOT}/usr/bin/shunit2"
