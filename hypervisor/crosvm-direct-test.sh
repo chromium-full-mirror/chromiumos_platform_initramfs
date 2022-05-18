@@ -198,4 +198,15 @@ test_get_platform_msrs() {
   "$(get_platform_msrs)"
 }
 
+test_get_platform_gpes() {
+  BOARD_GPES="1
+2"
+  TBT_PCIE_HP_GPE=97
+  assertEquals "--direct-gpe 1
+--direct-gpe 2
+--direct-gpe 97" \
+  "$(get_platform_gpes)"
+}
+
+
 . "${SYSROOT}/usr/bin/shunit2"

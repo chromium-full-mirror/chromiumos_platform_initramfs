@@ -102,16 +102,13 @@ get_platform_irqs() {
 
 # GPE forwarding argument helper.
 get_platform_gpes() {
-  local args=""
   if [ -n "${BOARD_GPES}" ]; then
-     args=$(printf " --direct-gpe %s" ${BOARD_GPES})
+    printf "--direct-gpe %s\n" ${BOARD_GPES}
   fi
 
   if [ -n "${TBT_PCIE_HP_GPE}" ]; then
-    args="${args} --direct-gpe ${TBT_PCIE_HP_GPE}"
+    echo "--direct-gpe ${TBT_PCIE_HP_GPE}"
   fi
-
-  echo "${args}"
 }
 
 # MSR forwarding argument helper.
