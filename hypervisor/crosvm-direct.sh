@@ -189,8 +189,8 @@ get_cbmem_mappings() {
 get_vvu_proxy_devices() {
   # Total number of virtio devices that sibling VMs will use.
   local VVU_DEVICE_NUM="$1"
-
-  for i in $(seq 1 $VVU_DEVICE_NUM); do
+  local i=0
+  while [ "$(( i += 1 ))" -le "${VVU_DEVICE_NUM}" ]; do
     # Embed the device index as the valid UUID value's lower 12 bytes.
     # So the guest can reconstruct the socket path by reading /sys/devices/.
     printf \
