@@ -35,7 +35,7 @@ setup_environment() {
 # Calculate how much memory to give the CrOS guest
 get_cros_guest_memory() {
   # Reserve 512MB of total system memory for hypervisor.
-  local mem_total=$(grep MemTotal /proc/meminfo)
+  local mem_total=$(echo "$1" | grep MemTotal)
   local mem_kb=${mem_total//[^0-9]/}
   local mem_mb=$((mem_kb/1024 - 512))
   echo "${mem_mb}"
@@ -149,7 +149,7 @@ main() {
 
   cbmem -a TS_CRHV_PLATFORM_INIT
 
-  local cros_guest_memory="$(get_cros_guest_memory)"
+  local cros_guest_memory="$(get_cros_guest_memory "$(cat /proc/meminfo)")"
 
   # Start hypervisor services.
   run_hypervisor_services "${cros_guest_memory}"

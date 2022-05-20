@@ -51,3 +51,4 @@ $(RAMFS_BIN): stage_init ${CONFIG_DEPS}
 
 check:
 	$(SYSROOT)/bin/busybox sh "$(SRCDIR)/crosvm-direct-test.sh"
+	$(SYSROOT)/bin/busybox sh "$(SRCDIR)/init-test.sh"
