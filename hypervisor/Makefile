@@ -13,6 +13,7 @@ BIN_DEPS= \
 ifeq ($(MANATEE_PERFORMANCE_TOOLS),1)
 BIN_DEPS+= \
 	/usr/bin/htop \
+	/usr/bin/mpstat \
 	/usr/bin/perf \
 	/usr/bin/perfetto \
 	/usr/bin/strace \
