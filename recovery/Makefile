@@ -98,10 +98,6 @@ $(RAMFS_BIN): $(UI) stage_init
 	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
 	mkdir -p "$(CONFIG_FOLDER)"
 	[ "$(DETACHABLE)" -eq 0 ] || touch "$(CONFIG_FOLDER)/is_detachable"
-	[ "$(PHYSICAL_PRESENCE)" != "power" ] || \
-		touch "$(CONFIG_FOLDER)/is_physical_presence_power"
-	[ "$(PHYSICAL_PRESENCE)" != "recovery" ] || \
-		touch "$(CONFIG_FOLDER)/is_physical_presence_recovery"
 	[ "$(OOBE_CONFIG)" -eq 0 ] || touch "$(CONFIG_FOLDER)/use_oobe_config"
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
