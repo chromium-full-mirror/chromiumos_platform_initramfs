@@ -419,12 +419,17 @@ run() {
     run ${args} --params "$(get_cmdline)" /boot/vmlinuz
   rc="$?"
 
-  if [ "${rc}" = "34" ]; then
-    # guest panic
-    save_args="--save-hypervisor-dmesg"
-  else
-    save_args=""
-  fi
+  case "${rc}" in
+    0 | 32)
+      # Normal exit: poweroff or reboot
+      save_args=""
+      ;;
+    *)
+      # Guest panic or crosvm crash
+      save_args="--save-hypervisor-dmesg"
+      ;;
+  esac
+
   save_pstore "${save_args}" || echo "Error saving Chrome OS pstore"
 
   return "${rc}"
