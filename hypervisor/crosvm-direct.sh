@@ -113,7 +113,10 @@ get_platform_gpes() {
 
 # MSR forwarding argument helper.
 get_platform_msrs() {
-  printf "--userspace-msr=%s,type=r,action=pass\n" ${BOARD_MSR}
+  local pass_msr="--userspace-msr=%s,type=r,action=pass\n"
+  local filter_msr="--userspace-msr=%s,type=r,action=pass,filter=yes\n"
+  printf "${pass_msr}" ${BOARD_MSR_READ_PASS}
+  printf "${filter_msr}" ${BOARD_MSR_READ_PASS_FILTER}
 }
 
 # Reads the coreboot table and generates crosvm command line options to map
@@ -335,8 +338,10 @@ run() {
 
   local arch="$(get_platform_arch)"
   if [ $(arch) = "x86_64" ]; then
-    # crosvm now only supports "--host-cpu-topology" on x86_64.
+    # crosvm now only supports "--host-cpu-topology" "--itmt"
+    # "--enable-pnp-data" on x86_64.
     args="${args} --cpus ${nproc} --host-cpu-topology --itmt"
+    args="${args} --enable-pnp-data"
   else
     local affinity=$(
       for n in $(seq 0 $((nproc - 1))); do printf "$n=$n:"; done
