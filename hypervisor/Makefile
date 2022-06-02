@@ -20,13 +20,15 @@ BIN_DEPS+= \
 	/usr/bin/trace-cmd \
 	/usr/bin/turbostat \
 	/usr/bin/vmstat \
+	/usr/$(LIBDIR)/libtraceevent.so \
+	/usr/$(LIBDIR)/libtracefs.so \
 
 endif
 
 # Additional data files to copy from the sysroot.
 DATA_DEPS= \
 	/boot/vmlinuz \
-	/lib64/libminijailpreload.so
+	/$(LIBDIR)/libminijailpreload.so
 
 include ../common/initramfs.mk
 
