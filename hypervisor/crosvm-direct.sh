@@ -336,17 +336,20 @@ run() {
   # Use all available CPUs for primary VM.
   local nproc=$(nproc)
 
+  args="${args} --cpus ${nproc}"
+
   local arch="$(get_platform_arch)"
   if [ $(arch) = "x86_64" ]; then
     # crosvm now only supports "--host-cpu-topology" "--itmt"
     # "--enable-pnp-data" on x86_64.
-    args="${args} --cpus ${nproc} --host-cpu-topology --itmt"
     args="${args} --enable-pnp-data"
+    args="${args} --host-cpu-topology"
+    args="${args} --itmt"
   else
     local affinity=$(
       for n in $(seq 0 $((nproc - 1))); do printf "$n=$n:"; done
     )
-    args="${args} --cpus ${nproc} --cpu-affinity ${affinity%?}"
+    args="${args} --cpu-affinity ${affinity%?}"
   fi
 
   args="${args} --mem ${CROS_GUEST_MEMORY}"
