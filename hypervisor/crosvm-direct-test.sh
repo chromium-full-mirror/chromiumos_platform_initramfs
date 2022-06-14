@@ -191,13 +191,18 @@ test_get_platform_msrs() {
   BOARD_MSR_READ_PASS="0x01
 0x02
 "
-  BOARD_MSR_READ_PASS_FILTER="0x03
+  BOARD_MSR_READ_WRITE_PASS="0x03
 0x04
+"
+  BOARD_MSR_READ_PASS_FILTER="0x05
+0x06
 "
   assertEquals "--userspace-msr 0x01,type=r,action=pass
 --userspace-msr 0x02,type=r,action=pass
---userspace-msr 0x03,type=r,action=pass,filter=yes
---userspace-msr 0x04,type=r,action=pass,filter=yes" \
+--userspace-msr 0x03,type=rw,action=pass
+--userspace-msr 0x04,type=rw,action=pass
+--userspace-msr 0x05,type=r,action=pass,filter=yes
+--userspace-msr 0x06,type=r,action=pass,filter=yes" \
   "$(get_platform_msrs)"
 }
 

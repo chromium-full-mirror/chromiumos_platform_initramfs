@@ -115,9 +115,11 @@ get_platform_gpes() {
 
 # MSR forwarding argument helper.
 get_platform_msrs() {
-  local pass_msr="--userspace-msr %s,type=r,action=pass\n"
+  local pass_ro_msr="--userspace-msr %s,type=r,action=pass\n"
+  local pass_rw_msr="--userspace-msr %s,type=rw,action=pass\n"
   local filter_msr="--userspace-msr %s,type=r,action=pass,filter=yes\n"
-  printf "${pass_msr}" ${BOARD_MSR_READ_PASS}
+  printf "${pass_ro_msr}" ${BOARD_MSR_READ_PASS}
+  printf "${pass_rw_msr}" ${BOARD_MSR_READ_WRITE_PASS}
   printf "${filter_msr}" ${BOARD_MSR_READ_PASS_FILTER}
 }
 
@@ -226,6 +228,7 @@ get_cmdline() {
   cmd="$(echo "${cmd}" | sed 's|dhash_entries=[0-9]* ||')"
   cmd="$(echo "${cmd}" | sed 's|ihash_entries=[0-9]* ||')"
   cmd="$(echo "${cmd}" | sed 's|kvm.halt_poll_ns=0 ||')"
+  cmd="$(echo "${cmd}" | sed 's|msr.allow_writes=on ||')"
 
   # Uncomment to disable standard boot flow.
   # cmd="$(echo "${cmd}" | sed 's|init=.*root=|init=/bin/bash root=|')"
@@ -258,6 +261,9 @@ get_cmdline() {
 
   # VVU devices are accessed via vfio
   cmd="${cmd} vfio_pci.ids=1af4:107d"
+
+  # run intel_pstate only if HWP is supported
+  cmd="${cmd} intel_pstate=hwp_only"
 
   echo "${cmd}"
 }
@@ -339,8 +345,7 @@ run() {
 
   local arch="$(get_platform_arch)"
   if [ $(arch) = "x86_64" ]; then
-    # crosvm now only supports "--host-cpu-topology" "--itmt"
-    # "--enable-pnp-data" on x86_64.
+    args="${args} --enable-hwp"
     args="${args} --enable-pnp-data"
     args="${args} --host-cpu-topology"
     args="${args} --itmt"
