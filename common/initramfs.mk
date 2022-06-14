@@ -6,7 +6,7 @@
 .SUFFIXES:
 
 # How to compress the cpio archive.
-COMPRESS = xz -9 --check=crc32
+RAMFS_COMPRESS ?= xz -9 --check=crc32
 
 # Staging and build toolchain.
 SRCDIR ?= $(CURDIR)
@@ -78,7 +78,8 @@ define generate_initramfs
 	../common/process-layout \
 		filter \
 		../common/fs-layout.txt $(2).contents
-	$(GEN_INIT_CPIO) $(2).contents $(if $(COMPRESS),| $(COMPRESS)) > $(2)
+	$(GEN_INIT_CPIO) $(2).contents \
+		$(if $(RAMFS_COMPRESS),| $(RAMFS_COMPRESS)) > $(2)
 endef
 define generate_ramfs
 	$(call generate_initramfs,$(STAGE),$(RAMFS_BIN))
