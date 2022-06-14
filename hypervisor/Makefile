@@ -31,6 +31,8 @@ DATA_DEPS= \
 	/boot/vmlinuz \
 	/$(LIBDIR)/libminijailpreload.so
 
+RAMFS_COMPRESS = gzip -9 -c
+
 include ../common/initramfs.mk
 
 CONFIG_DEPS=$(wildcard $(SYSROOT)/usr/share/manatee/templates/*.json)
