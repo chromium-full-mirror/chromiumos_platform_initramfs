@@ -260,6 +260,9 @@ get_cmdline() {
   # expose hardware MSI in the first place.
   cmd="${cmd} vfio_iommu_type1.allow_unsafe_interrupts=1"
 
+  # VVU devices are accessed via vfio
+  cmd="${cmd} vfio_pci.ids=1af4:107d"
+
   echo "${cmd}"
 }
 
