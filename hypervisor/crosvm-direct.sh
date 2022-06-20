@@ -113,8 +113,8 @@ get_platform_gpes() {
 
 # MSR forwarding argument helper.
 get_platform_msrs() {
-  local pass_msr="--userspace-msr=%s,type=r,action=pass\n"
-  local filter_msr="--userspace-msr=%s,type=r,action=pass,filter=yes\n"
+  local pass_msr="--userspace-msr %s,type=r,action=pass\n"
+  local filter_msr="--userspace-msr %s,type=r,action=pass,filter=yes\n"
   printf "${pass_msr}" ${BOARD_MSR_READ_PASS}
   printf "${filter_msr}" ${BOARD_MSR_READ_PASS_FILTER}
 }
@@ -197,7 +197,7 @@ get_vvu_proxy_devices() {
     # Embed the device index as the valid UUID value's lower 12 bytes.
     # So the guest can reconstruct the socket path by reading /sys/devices/.
     printf \
-      "--vvu-proxy=/run/crosvm-vvu%02d.sock,\
+      "--vvu-proxy /run/crosvm-vvu%02d.sock,\
 uuid=00000000-0000-4000-8000-%012x\n" "${i}" "${i}"
   done
 }

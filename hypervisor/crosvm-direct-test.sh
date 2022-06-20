@@ -196,10 +196,10 @@ test_get_platform_msrs() {
   BOARD_MSR_READ_PASS_FILTER="0x03
 0x04
 "
-  assertEquals "--userspace-msr=0x01,type=r,action=pass
---userspace-msr=0x02,type=r,action=pass
---userspace-msr=0x03,type=r,action=pass,filter=yes
---userspace-msr=0x04,type=r,action=pass,filter=yes" \
+  assertEquals "--userspace-msr 0x01,type=r,action=pass
+--userspace-msr 0x02,type=r,action=pass
+--userspace-msr 0x03,type=r,action=pass,filter=yes
+--userspace-msr 0x04,type=r,action=pass,filter=yes" \
   "$(get_platform_msrs)"
 }
 
@@ -215,9 +215,9 @@ test_get_platform_gpes() {
 
 test_get_vvu_proxy_devices() {
   assertEquals \
-    "--vvu-proxy=/run/crosvm-vvu01.sock,\
+    "--vvu-proxy /run/crosvm-vvu01.sock,\
 uuid=00000000-0000-4000-8000-000000000001
---vvu-proxy=/run/crosvm-vvu02.sock,\
+--vvu-proxy /run/crosvm-vvu02.sock,\
 uuid=00000000-0000-4000-8000-000000000002" \
   "$(get_vvu_proxy_devices 2)"
 }
