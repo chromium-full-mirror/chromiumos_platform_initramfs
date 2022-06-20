@@ -85,7 +85,9 @@ get_pci_passthrough() {
 # Port I/O & MMIO forwarding.
 get_platform_pmio() {
   local pmio="${BOARD_PMIO:-128}"
-  echo "--no-legacy --direct-pmio /dev/port@${pmio}"
+  echo "--no-i8042"
+  echo "--no-rtc"
+  echo "--direct-pmio /dev/port@${pmio}"
   if [ -n "${BOARD_MMIO}" ]; then
     echo "--direct-mmio /dev/mem@${BOARD_MMIO}"
   fi

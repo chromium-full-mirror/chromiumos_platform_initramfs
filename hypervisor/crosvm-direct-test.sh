@@ -213,6 +213,16 @@ test_get_platform_gpes() {
   "$(get_platform_gpes)"
 }
 
+test_get_platform_pmio() {
+  BOARD_PMIO="1,2,3"
+  BOARD_MMIO="0xfe000000-0xfe00ffff"
+  assertEquals "--no-i8042
+--no-rtc
+--direct-pmio /dev/port@1,2,3
+--direct-mmio /dev/mem@0xfe000000-0xfe00ffff" \
+  "$(get_platform_pmio)"
+}
+
 test_get_vvu_proxy_devices() {
   assertEquals \
     "--vvu-proxy /run/crosvm-vvu01.sock,\
