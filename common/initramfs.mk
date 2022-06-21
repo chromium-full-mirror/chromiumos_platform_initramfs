@@ -12,7 +12,7 @@ COMPRESS = xz -9 --check=crc32
 SRCDIR ?= $(CURDIR)
 NAME ?= $(notdir $(SRCDIR))
 OUTPUT_DIR ?= $(SRCDIR)
-RAMFS_BIN ?= $(OUTPUT_DIR)/$(NAME)_ramfs.cpio.xz
+RAMFS_BIN ?= $(OUTPUT_DIR)/$(NAME)_ramfs.cpio
 STAGE ?= $(OUTPUT_DIR)/stage_$(NAME)
 DEFAULT_SYSROOT := $(if $(BOARD),/build/$(BOARD),/)
 SYSROOT ?= $(DEFAULT_SYSROOT)

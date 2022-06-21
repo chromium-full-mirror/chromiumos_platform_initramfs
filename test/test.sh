@@ -39,7 +39,7 @@ build_cpios() {
 
   for target in "${TARGETS[@]}"; do
     output="${OUTPUT_DIR}/${target}"
-    cpio="${output}/ramfs.cpio.xz"
+    cpio="${output}/ramfs.cpio"
     if [[ ! -f ${cpio} ]]; then
       info "${target}: Building cpio: ${cpio}"
       m -C "${SCRIPT_LOCATION}/.." \
@@ -127,7 +127,7 @@ defconfig() {
   setconfig y "${options[@]}"
 
   # Turn on the initramfs.
-  setconfig "${output}/../ramfs.cpio.xz" INITRAMFS_SOURCE
+  setconfig "${output}/../ramfs.cpio" INITRAMFS_SOURCE
   setconfig y INITRAMFS_COMPRESSION_XZ
 
   # Pass in a default command line for debugging.

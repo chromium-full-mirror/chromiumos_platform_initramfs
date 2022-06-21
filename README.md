@@ -37,10 +37,11 @@ without having to create a full image for every iteration.
 
 After `emerge-$BOARD`, find your initramfs package from chroot
 `/build/$BOARD/var/lib/initramfs` and copy to a running DUT, for example
-`/tmp/recovery_ramfs.cpio.xz`, then do followings on DUT over SSH:
+`/tmp/recovery_ramfs.cpio`, then do followings on DUT over SSH:
 
 1. `mkdir /usr/local/test/; cd /usr/local/test`
-2. `xzcat /tmp/XXXXXX_ramfs.cpio.xz | toybox cpio -iv`
+2. `xzcat /tmp/XXXXXX_ramfs.cpio | toybox cpio -iv`
+(Here we assume that the kernel is configured to use xz compression for its initramfs.)
 3. `stop ui; kill $(pidof frecon)`
 4. bind mount /dev, /proc, /sys and /tmp in /usr/local/test:
 ```

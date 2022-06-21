@@ -272,10 +272,10 @@ Back on your Servo or SuzyQ-connected host:
 4.  You should see the console output from the init script. The output is “sh
     -x”-style shell execution tracing.
 
-### Unpacking an initramfs for inspection
+### Unpacking an initramfs for inspection (assuming xz compression)
 
 1.  In some directory in chroot: `mkdir ./tmp-initramfs`
 
 2.  `cd tmp-initramfs`
 
-3.  `xzcat /build/${BOARD}/var/lib/initramfs/recovery_ramfs.cpio.xz | cpio -i`
+3.  `xzcat /build/${BOARD}/var/lib/initramfs/recovery_ramfs.cpio | cpio -i`
