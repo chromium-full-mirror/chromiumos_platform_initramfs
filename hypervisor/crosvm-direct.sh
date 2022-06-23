@@ -409,6 +409,9 @@ run() {
   # serial port
   args="${args} $(get_serial_port_config)"
 
+  # Disable INTx handling for virtio devices. See b/236206320 for background.
+  args="${args} --disable-virtio-intx"
+
   # Enable virtio-vhost-user proxy devices
   args="${args} $(get_vvu_proxy_devices 10)"
 
