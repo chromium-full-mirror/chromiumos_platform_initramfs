@@ -233,7 +233,7 @@ uuid=00000000-0000-4000-8000-000000000002" \
 }
 
 expected_pcie_ecam() {
-  echo "--pcie-ecam=0xe0000000,0x10000000"
+  echo "--pcie-ecam 0xe0000000,0x10000000"
 }
 
 test_get_pcie_ecam_single() {

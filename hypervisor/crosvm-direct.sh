@@ -322,7 +322,7 @@ get_pcie_ecam() {
   len=$(($end - $base + 1))
   hlen=$(printf '0x%x' $len)
 
-  echo "--pcie-ecam=$base,$hlen"
+  echo "--pcie-ecam $base,$hlen"
 }
 
 # Start primary guest VM.
