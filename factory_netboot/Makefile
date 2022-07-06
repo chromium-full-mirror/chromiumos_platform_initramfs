@@ -60,6 +60,11 @@ ifeq ($(INCLUDE_ECTOOL),1)
 	CROS_DEPS += /usr/sbin/ectool
 endif
 
+ifeq ($(INCLUDE_FACTORY_UFS),1)
+	CROS_DEPS += /usr/sbin/factory_ufs
+	CROS_DEPS += /usr/sbin/ufs-utils
+endif
+
 # Non-executables.
 DATA_DEPS = \
 	/root/.pmbr_code \
