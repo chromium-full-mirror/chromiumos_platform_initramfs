@@ -151,6 +151,11 @@ get_cbmem_mappings() {
     echo "99. TERMINATOR  ffffffff  fffff000   00000000"
   ) | tail +3 | awk '{ print $(NF - 1) " " $NF " " $(NF - 2) }' | sort | \
   while read -r start len id; do
+    if [ "${id}" = "05430095" ]; then
+        # RAMOOPS
+        continue
+    fi
+
     hstart="0x${start}"
     hlen="0x${len}"
 
@@ -162,28 +167,16 @@ get_cbmem_mappings() {
     rstart=$(printf '%#x' $((hstart & ~0xfff)))
     rlen=$(printf '%#x' $((((hstart + hlen + 0xfff) & ~0xfff) - rstart)))
 
-    # Determine extra mapping options. These are generally only safe to put for
-    # large regions since new mappings with changed options can only start at
-    # page-aligned boundaries.
-    rextra=""
-    case "${id}" in
-      05430095) # RAMOOPS
-        rextra=",rw"
-        ;;
-    esac
-
-    if [ $((addr + size)) -lt $((rstart)) ] ||
-       [ "${extra}" != "${rextra}" ]; then
+    if [ $((addr + size)) -lt $((rstart)) ]; then
       # Start of the region is beyond the end of the previous ones that have
       # been gathered and coalesced into [addr, addr+size]. Thus, emit what has
       # been gathered and start a new mapping. Note that in the first iteration
       # this branch is hit as well, but there is no previous region data; the
       # tail +2 below filters the corresponding bogus line.
       params="addr=${addr},size=${size},offset=${addr},path=/dev/mem"
-      echo "--file-backed-mapping ${params}${extra}"
+      echo "--file-backed-mapping ${params}"
       addr="${rstart}"
       size="${rlen}"
-      extra="${rextra}"
     else
       size=$(printf "%#x" $((rstart + rlen - addr)))
     fi

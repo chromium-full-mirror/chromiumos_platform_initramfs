@@ -73,7 +73,6 @@ test_cbmem_mappings_ramoops() {
     " 2. TWO         22222222  00003000   00001000"
   assertEquals "$(expected_mapping_args \
       "addr=0x1000,size=0x1000,offset=0x1000,path=/dev/mem" \
-      "addr=0x2000,size=0x1000,offset=0x2000,path=/dev/mem,rw" \
       "addr=0x3000,size=0x1000,offset=0x3000,path=/dev/mem" \
     )" "$(get_cbmem_mappings)"
 }
@@ -132,7 +131,6 @@ test_cbmem_mappings_actual() {
     "23. MEM INFO    494d454d  76ffe900   000001e0"
   assertEquals "$(expected_mapping_args \
       "addr=0x769ea000,size=0x11000,offset=0x769ea000,path=/dev/mem" \
-      "addr=0x769fb000,size=0x100000,offset=0x769fb000,path=/dev/mem,rw" \
       "addr=0x76afb000,size=0x504000,offset=0x76afb000,path=/dev/mem" \
     )" "$(get_cbmem_mappings)"
 }
