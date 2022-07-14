@@ -442,6 +442,7 @@ run() {
       ;;
     *)
       # Guest panic or crosvm crash
+      echo crosvm-direct.sh: abnormal crosvm exit: "${rc}" > /dev/kmsg
       save_args="--save-hypervisor-dmesg"
       ;;
   esac
