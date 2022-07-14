@@ -23,6 +23,8 @@ vfio_pci() {
 
   # Detach from current driver if any.
   local driver="${sysfs}/driver"
+  local driver_name=$(basename "$(readlink -f ${driver})")
+
   if [[ -f "${driver}/unbind" ]]; then
     echo "${bdf}" > "${driver}/unbind"
   fi
@@ -40,6 +42,12 @@ vfio_pci() {
     # Attach pci device to VFIO-PCI bus driver.
     echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci/new_id
   fi
+
+  case "${driver_name}" in
+    intel-lpss)
+      return 3
+      ;;
+  esac
 }
 
 # Sets up PCI passthrough and outputs the necessary crosvm flags.
@@ -70,6 +78,8 @@ get_pci_passthrough() {
     local val=$?
     if [[ $val -eq 0 ]]; then
       echo "--vfio ${dev},iommu=coiommu"
+    elif [[ $val -eq 3 ]]; then
+      echo "--vfio ${dev},iommu=coiommu,intel-lpss=true"
     elif [[ $val -eq 2 ]]; then
       if [ -n "${TBT_PCIE_HP_GPE}" ]; then
         echo "--pcie-root-port ${dev},hp_gpe=${TBT_PCIE_HP_GPE}"
