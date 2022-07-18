@@ -50,7 +50,7 @@ wait_for_socket() {
 
 # Start ManaTEE Monitor.
 run_hypervisor_services() {
-  /sbin/trichechus "-M" "$MMS_BRIDGE" &
+  /sbin/trichechus "-M" "$MMS_BRIDGE" --init &
   wait_for_socket "$MMS_BRIDGE"
   wait_for_socket "/dev/log"
 
