@@ -281,6 +281,9 @@ get_cmdline() {
   # run intel_pstate only if HWP is supported
   cmd="${cmd} intel_pstate=hwp_only"
 
+  # TODO(b/237052709): Remove after i915 DPT display issue is resolved.
+  cmd="${cmd} i915.enable_dpt=0"
+
   echo "${cmd}"
 }
 
