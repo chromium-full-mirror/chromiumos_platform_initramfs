@@ -79,7 +79,6 @@ export MINIOS_BIN_DEPS = \
 	/usr/sbin/bootstat \
 	/usr/sbin/chromeos-install \
 	/usr/sbin/crda \
-	/usr/sbin/nvme \
 	/usr/sbin/rfkill \
 	/usr/sbin/rsyslogd \
 	/usr/sbin/sshd \
@@ -87,6 +86,11 @@ export MINIOS_BIN_DEPS = \
 	/usr/sbin/update-ca-certificates \
 	/usr/sbin/update_engine \
 	/usr/sbin/wpa_supplicant
+
+ifeq ($(INCLUDE_NVME_CLI),1)
+MINIOS_BIN_DEPS += \
+	/usr/sbin/nvme
+endif
 
 export MINIOS_LVM_BIN_DEPS = \
 	/sbin/lvm \
