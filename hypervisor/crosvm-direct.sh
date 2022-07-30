@@ -225,6 +225,7 @@ get_cmdline() {
   cmd="$(echo "${cmd}" | sed 's|swiotlb=noforce ||')"
   cmd="$(echo "${cmd}" | sed 's|dhash_entries=[0-9]* ||')"
   cmd="$(echo "${cmd}" | sed 's|ihash_entries=[0-9]* ||')"
+  cmd="$(echo "${cmd}" | sed 's|kvm.halt_poll_ns=0 ||')"
 
   # Uncomment to disable standard boot flow.
   # cmd="$(echo "${cmd}" | sed 's|init=.*root=|init=/bin/bash root=|')"
