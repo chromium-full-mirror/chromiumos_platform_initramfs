@@ -415,6 +415,9 @@ run() {
   # Limit mmio regions to match ACPI
   args="${args} $(get_host_bridge_regions "`cat /proc/iomem`")"
 
+  # Hotplugged devices (e.g. TBT) are untrusted, so isolate them with viommu.
+  args="${args} --vfio-isolate-hotplug"
+
   setup_pstore && args="${args} $(get_pstore_args)" \
     || echo "Error setting up Chrome OS pstore"
 
