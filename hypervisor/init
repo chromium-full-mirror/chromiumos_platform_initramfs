@@ -42,6 +42,8 @@ get_cros_guest_memory() {
 }
 
 MMS_BRIDGE="/run/mms-bridge"
+APPS_MEMCG="apps"
+APPS_MEMCG_INIT_MB="16"
 
 # TODO: use inotify
 wait_for_socket() {
@@ -50,11 +52,15 @@ wait_for_socket() {
 
 # Start ManaTEE Monitor.
 run_hypervisor_services() {
+  echo $$ > "/sys/kernel/cgroup/${APPS_MEMCG}/cgroup.procs"
   /sbin/trichechus "-M" "$MMS_BRIDGE" --init &
+  echo $$ > /sys/kernel/cgroup/cgroup.procs
+
   wait_for_socket "$MMS_BRIDGE"
   wait_for_socket "/dev/log"
 
-  /sbin/manatee_memory_service "$1" "$MMS_BRIDGE" &
+  /sbin/manatee_memory_service "$1" "$MMS_BRIDGE" \
+      "$APPS_MEMCG" "$APPS_MEMCG_INIT_MB" &
   wait_for_socket "/run/mms_control_0.sock"
 }
 
@@ -68,10 +74,24 @@ setup_pci_allowlist() {
   fi
 }
 
+setup_memcg() {
+  mount -t cgroup2 none /sys/kernel/cgroup/
+  echo "+memory" > /sys/kernel/cgroup/cgroup.subtree_control
+  mkdir "/sys/kernel/cgroup/${APPS_MEMCG}"
+}
+
 # Executes a shell on the serial console.
 run_shell() {
   if is_cros_debug; then
-    setsid cttyhack sh
+    echo $$ > "/sys/kernel/cgroup/${APPS_MEMCG}/cgroup.procs"
+    if [[ "$1" == "bg" ]]; then
+      # NB: cttyhack forces the shell to run on the serial console
+      # even though it's started in a background job.
+      setsid cttyhack sh &
+    else
+      setsid cttyhack sh
+    fi
+    echo $$ > "/sys/kernel/cgroup/cgroup.procs"
   fi
 }
 
@@ -105,9 +125,7 @@ setup_serial() {
 
   case "${manatee_serial}" in
     shell)
-      # NB: cttyhack in run_shell() forces the shell to run on the serial
-      # console even though it's started in a background job.
-      run_shell &
+      run_shell "bg"
       ;;
     foreground_shell)
       cat <<EOM
@@ -128,7 +146,7 @@ which in turn leads to a reboot.
 
 Have fun!
 EOM
-      run_shell
+      run_shell "fg"
       exit 1
       ;;
   esac
@@ -144,6 +162,8 @@ main() {
   setup_environment
 
   setup_pci_allowlist
+
+  setup_memcg
 
   setup_serial
 
