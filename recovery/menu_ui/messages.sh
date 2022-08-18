@@ -416,6 +416,14 @@ wait_menu_input() {
   esac
 }
 
+kill_progress_bar() {
+  if [ ! -z "${RECOVERY_PROGRESS_BAR_PID}" ]; then
+    kill "${RECOVERY_PROGRESS_BAR_PID}"
+    wait "${RECOVERY_PROGRESS_BAR_PID}"
+    RECOVERY_PROGRESS_BAR_PID=""
+  fi
+}
+
 showbutton() {
   local message_token="$1"
   local offset_y="$2"
@@ -563,6 +571,7 @@ on_error_onchange() {
 
 # Generic message to report an error.
 message_on_error() {
+  kill_progress_bar
   message_base_screen
   menu_event_loop 4 1 on_error_onchange on_error_onselect
 }
@@ -854,8 +863,7 @@ message_disk_wipe_end() {
 }
 
 message_recovery_complete() {
-  kill "${RECOVERY_PROGRESS_BAR_PID}"
-  wait "${RECOVERY_PROGRESS_BAR_PID}"
+  kill_progress_bar
   message_base_screen
   instructions_with_title recovery_complete
   show_stepper_done
@@ -864,8 +872,7 @@ message_recovery_complete() {
 # The same as message_recovery_complete, but with a different message notifying
 # the user that their computer will automatically restart.
 message_recovery_complete_noninteractive() {
-  kill "${RECOVERY_PROGRESS_BAR_PID}"
-  wait "${RECOVERY_PROGRESS_BAR_PID}"
+  kill_progress_bar
   message_base_screen
   instructions complete_noninteractive
   show_stepper_done
@@ -875,8 +882,7 @@ message_recovery_complete_noninteractive() {
 # Kill the spinner animation and announce that recovery is
 # complete and enhanced disk wipe is successful.
 message_recovery_complete_wipe_successful() {
-  kill "${RECOVERY_PROGRESS_BAR_PID}"
-  wait "${RECOVERY_PROGRESS_BAR_PID}"
+  kill_progress_bar
   message_base_screen
   instructions recovery_complete_wipe_success
   show_stepper_done
@@ -886,8 +892,7 @@ message_recovery_complete_wipe_successful() {
 # Kill the spinner animation and announce that recovery is
 # complete and enhanced disk wipe is failed.
 message_recovery_complete_wipe_fail() {
-  kill "${RECOVERY_PROGRESS_BAR_PID}"
-  wait "${RECOVERY_PROGRESS_BAR_PID}"
+  kill_progress_bar
   message_base_screen
   instructions recovery_complete_wipe_fail
   show_stepper_error
@@ -897,8 +902,7 @@ message_recovery_complete_wipe_fail() {
 # Kill the spinner animation and inform user that an error occured
 # during recovery but enhanced disk wipe is successful.
 message_recovery_error_wipe_fail() {
-  kill "${RECOVERY_PROGRESS_BAR_PID}"
-  wait "${RECOVERY_PROGRESS_BAR_PID}"
+  kill_progress_bar
   message_base_screen
   instructions recovery_error_wipe_fail
   show_stepper_error
@@ -907,8 +911,7 @@ message_recovery_error_wipe_fail() {
 # Kill the spinner animation and inform user that an error occured
 # during both recovery and enhanced disk wipe.
 message_recovery_error_wipe_success() {
-  kill "${RECOVERY_PROGRESS_BAR_PID}"
-  wait "${RECOVERY_PROGRESS_BAR_PID}"
+  kill_progress_bar
   message_base_screen
   instructions recovery_error_wipe_success
   show_stepper_error
