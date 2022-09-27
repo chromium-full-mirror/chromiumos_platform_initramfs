@@ -434,7 +434,10 @@ run() {
   args="${args} --disable-virtio-intx"
 
   # Enable virtio-vhost-user proxy devices
-  args="${args} $(get_vvu_proxy_devices 10)"
+  # The argument of get_vvu_proxy_devices is the total number of VVU proxy
+  # devices we will enable. This number is equal to the sum of number of virtio
+  # devices that sibling VMs can use in total.
+  args="${args} $(get_vvu_proxy_devices 15)"
 
   # userspace msr support
   args="${args} $(get_platform_msrs)"
