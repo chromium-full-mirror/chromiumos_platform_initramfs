@@ -10,6 +10,7 @@ BIN_DEPS = \
 	/usr/bin/eject \
 	/usr/bin/pv \
 	/usr/bin/futility \
+	/usr/bin/crosid \
 	/usr/bin/crossystem \
 	/usr/bin/tpmc \
 	/usr/bin/cgpt \
@@ -96,8 +97,8 @@ $(RAMFS_BIN): $(UI) stage_init
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
 	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
-	mkdir -p "$(CONFIG_FOLDER)"
-	[ "$(DETACHABLE)" -eq 0 ] || touch "$(CONFIG_FOLDER)/is_detachable"
+	echo "Building UI $(UI)"
+	$(RECOVERY_DIR)/gen_recovery_config.sh $(CONFIG_FOLDER)
 	[ "$(OOBE_CONFIG)" -eq 0 ] || touch "$(CONFIG_FOLDER)/use_oobe_config"
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
@@ -118,6 +119,9 @@ menu_ui: stage_init
 		$(RECOVERY_DIR)/localized_text \
 		"$(STAGE)/etc/screens" $(LOCALE_LIST)
 	cp $(RECOVERY_DIR)/*.sh $(RECOVERY_DIR)/menu_ui/*.sh "$(STAGE)/lib"
+	mkdir -p $(STAGE)/usr/share/chromeos-config/
+	cp $(SYSROOT)/usr/share/chromeos-config/identity.bin \
+		"$(STAGE)/usr/share/chromeos-config/"
 
 .PHONY: minios_ui
 minios_ui: minios_lvm menu_ui minios stage_init
