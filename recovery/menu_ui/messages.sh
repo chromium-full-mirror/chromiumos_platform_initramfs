@@ -369,7 +369,18 @@ show_indeterminate_progress_bar() {
 }
 
 is_detachable() {
-  [ -f /etc/cros-initramfs/is_detachable ]
+  if [ -f /etc/cros-initramfs/unibuild ] ; then
+    model=$(crosid | \
+            awk -F"=" '$1=="FIRMWARE_MANIFEST_KEY" {print $2}' | \
+            tr -d "'")
+    if [ -z "${model}" ]; then
+      return 1
+    fi
+
+    [ -f "/etc/cros-initramfs/${model}/detachable_ui" ]
+  else
+    [ -f /etc/cros-initramfs/is_detachable ]
+  fi
 }
 
 wait_menu_input() {

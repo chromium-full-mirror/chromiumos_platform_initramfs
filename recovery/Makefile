@@ -17,6 +17,10 @@ BIN_DEPS = \
 	/usr/sbin/flashrom \
 	/usr/sbin/vpd
 
+ifeq ($(UNIBUILD),1)
+BIN_DEPS += /usr/bin/crosid
+endif
+
 ifdef MINIOS_BIN_DEPS
 BIN_DEPS += $(MINIOS_BIN_DEPS)
 endif
@@ -95,7 +99,10 @@ $(RAMFS_BIN): $(UI) stage_init
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
 	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
+	echo "Building UI $(UI)"
 	mkdir -p "$(CONFIG_FOLDER)"
+	[ "$(UNIBUILD)" -eq 0 ] || \
+		$(RECOVERY_DIR)/gen_recovery_config.sh $(CONFIG_FOLDER)
 	[ "$(DETACHABLE)" -eq 0 ] || touch "$(CONFIG_FOLDER)/is_detachable"
 	[ "$(OOBE_CONFIG)" -eq 0 ] || touch "$(CONFIG_FOLDER)/use_oobe_config"
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
@@ -117,6 +124,11 @@ menu_ui: stage_init
 		$(RECOVERY_DIR)/localized_text \
 		"$(STAGE)/etc/screens" $(LOCALE_LIST)
 	cp $(RECOVERY_DIR)/*.sh $(RECOVERY_DIR)/menu_ui/*.sh "$(STAGE)/lib"
+	if [ "$(UNIBUILD)" -eq 1 ]; then \
+		mkdir -p $(STAGE)/usr/share/chromeos-config;\
+		cp $(SYSROOT)/usr/share/chromeos-config/identity.bin \
+			"$(STAGE)/usr/share/chromeos-config/"; \
+	fi
 
 .PHONY: minios_ui
 minios_ui: minios_lvm menu_ui minios stage_init
