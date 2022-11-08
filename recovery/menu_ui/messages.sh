@@ -369,14 +369,7 @@ show_indeterminate_progress_bar() {
 }
 
 is_detachable() {
-  model=$(crosid | \
-          awk -F"=" '$1=="FIRMWARE_MANIFEST_KEY" {print $2}' | \
-          tr -d "'")
-  if [ -z "${model}" ]; then
-    return 1
-  fi
-
-  [ -f "/etc/cros-initramfs/${model}/detachable_ui" ]
+  [ -f /etc/cros-initramfs/is_detachable ]
 }
 
 wait_menu_input() {
