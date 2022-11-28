@@ -20,7 +20,6 @@ export MINIOS_RAMFS_LAYOUT_DIRS = \
 # Extra dependencies miniOS requires.
 export MINIOS_BIN_DEPS = \
 	/bin/mount \
-	/bin/systemd-tmpfiles \
 	/bin/tail \
 	/bin/tar \
 	/bin/udevadm \
@@ -71,6 +70,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/shill \
 	/usr/bin/ssh-keygen \
 	/usr/bin/strace \
+	/usr/bin/systemd-tmpfiles \
 	/usr/bin/update_engine_client \
 	/usr/bin/uptime \
 	/usr/bin/wpa_cli \
