@@ -394,10 +394,16 @@ run() {
     esac
   done
 
+  # Module parameter path depends on kernel release version.
+  if [[ -d "/sys/module/vfio_pci_core" ]]; then
+    VFIO_PCI_MOD="vfio_pci_core"
+  else
+    VFIO_PCI_MOD="vfio_pci"
+  fi
   # VFIO: Disable functional reset (b/173632817).
-  echo 1 > /sys/module/vfio_pci/parameters/disable_function_reset
+  echo 1 > /sys/module/${VFIO_PCI_MOD}/parameters/disable_function_reset
   # VFIO: Disable power management.
-  echo 1 > /sys/module/vfio_pci/parameters/disable_idle_d3
+  echo 1 > /sys/module/${VFIO_PCI_MOD}/parameters/disable_idle_d3
 
   # VFIO: Remove limit on number of pinned regions
   # TODO(b/217479627): manage vfio_iommu_type1 memory
