@@ -43,11 +43,15 @@ vfio_pci() {
     echo "${vendor_id} ${device_id}" > /sys/bus/pci/drivers/vfio-pci/new_id
   fi
 
-  case "${driver_name}" in
-    intel-lpss)
-      return 3
-      ;;
-  esac
+  # TODO(b/255912146): coordinated PM is not yet ported for v5.19 based kernel
+  local ker_rel="$(get_kernel_release)"
+  if [[ "$(ker_rel)" != "5.19.0-manatee" ]]; then
+    case "${driver_name}" in
+      intel-lpss)
+        return 3
+        ;;
+    esac
+  fi
 }
 
 # Sets up PCI passthrough and outputs the necessary crosvm flags.
@@ -306,6 +310,11 @@ get_serial_port_config() {
 # Get the architecture to know whether it is x86_64 or arm.
 get_platform_arch() {
   uname -m
+}
+
+# Get the kernel release
+get_kernel_release() {
+  uname -r
 }
 
 pstore_path="/run/crosvm.pstore"
