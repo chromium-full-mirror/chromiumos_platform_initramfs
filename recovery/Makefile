@@ -15,7 +15,6 @@ BIN_DEPS = \
 	/usr/bin/cgpt \
 	/usr/sbin/evwaitkey \
 	/usr/sbin/flashrom \
-	/usr/sbin/mosys \
 	/usr/sbin/vpd
 
 ifdef MINIOS_BIN_DEPS
