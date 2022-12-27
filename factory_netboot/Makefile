@@ -38,7 +38,6 @@ NETBOOT_BIN_DEPS = \
 	/usr/bin/wget \
 	/usr/sbin/flashrom \
 	/usr/sbin/fsck.vfat \
-	/usr/sbin/gsctool \
 	/usr/sbin/htpdate \
 	/usr/sbin/partprobe \
 	/usr/sbin/tpm_version \
@@ -70,8 +69,7 @@ DATA_DEPS = \
 	/root/.pmbr_code \
 	/usr/share/misc/chromeos-common.sh \
 	/usr/share/misc/shflags \
-	/usr/share/misc/storage-info-common.sh \
-	/usr/share/cros/gsc-constants.sh
+	/usr/share/misc/storage-info-common.sh
 
 # Directories to be cloned into initramfs.
 DATA_DIR_DEPS = \
