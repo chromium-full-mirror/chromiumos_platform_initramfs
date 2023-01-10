@@ -118,9 +118,9 @@
   <release seq="1">
     <messages fallback_to_english="true">
       <message name="block_dev_mode" desc="Message shown by the recovery installer upon attempts to install an unofficial image on a device that has been set up to block developer mode.">
-The device owner requires this device to run with Chrome OS
+The device owner requires this device to run with ChromeOS
 verification turned on.  You are trying to install an unofficial
-Chrome OS recovery image which does not pass verification.
+ChromeOS recovery image which does not pass verification.
 
 For more information, refer to this URL:
 
@@ -147,14 +147,14 @@ It is now safe to remove the recovery media. Your computer will
 automatically restart shortly.
       </message>
       <message name="dev_invalid_kernel" desc="Message shown by the recovery installer when developer mode is enabled and an image that is signed with outdated signing keys gets installed.">
-You are using an out-of-date official Chrome OS recovery image.
+You are using an out-of-date official ChromeOS recovery image.
 
 Recovery will continue because verification is turned off.
 If you later turn verification back on, you will need to repeat
-recovery with an up-to-date Chrome OS image.
+recovery with an up-to-date ChromeOS image.
       </message>
       <message name="dev_switch" desc="Message shown by the recovery installer to alert the user to the fact that developer mode is enabled.">
-Chrome OS verification is turned off.
+ChromeOS verification is turned off.
 
 If this is unintentional, you should cancel recovery and disable
 developer mode in order to enable verification.  For more information,
@@ -169,7 +169,7 @@ troubleshooting tips:
 https://www.google.com/chromeos/recovery
       </message>
       <message name="invalid_kernel" desc="Message shown by the recovery installer on an attempt to install a recovery image that was signed by an outdated signing key.">
-You are using an out-of-date Chrome OS recovery image.
+You are using an out-of-date ChromeOS recovery image.
 
 Please refer to this URL for instructions on how to create new
 recovery media:
@@ -180,8 +180,8 @@ https://www.google.com/chromeos/recovery
 A developer key change is required to proceed; the process requires
 5 minutes.
       </message>
-      <message name="non_chrome" desc="Message shown by the recovery installer when running on a machine that does not look like Chrome OS hardware.">
-Your computer does not appear to be a Chrome OS system!
+      <message name="non_chrome" desc="Message shown by the recovery installer when running on a machine that does not look like ChromeOS hardware.">
+Your computer does not appear to be a ChromeOS system!
 
 This operation will delete any other operating system you may have
 installed and all the data; there will be no opportunity for backup.
@@ -206,7 +206,7 @@ The image on your recovery media is an unverified developer image.
 
 Recovery will continue because verified boot is turned off.
 If you later turn verification back on, you will need to repeat
-recovery with an official Chrome OS image.
+recovery with an official ChromeOS image.
       </message>
       <message name="update_firmware" desc="Message shown by the recovery installer while installing a firmware update.">
 Installing update...

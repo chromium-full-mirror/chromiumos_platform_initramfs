@@ -28,9 +28,9 @@ Please verify that it is correct.</translation>
 <translation id="2731700343119398978">Please wait…</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">The device owner requires this device to run with Chrome OS
+<translation id="300775974721831513">The device owner requires this device to run with ChromeOS
 verification turned on. You are trying to install an unofficial
-Chrome OS recovery image, which does not pass verification.
+ChromeOS recovery image, which does not pass verification.
 
 For more information, refer to this URL:
 
@@ -53,7 +53,7 @@ To proceed with automatic setup, press the device's recovery switch.
 If you want to cancel recovery, press the power button and hold it
 down until the device turns off (this takes up to 8 seconds).</translation>
 <translation id="3723985428118783104">Recovery in progress</translation>
-<translation id="3750930141330200643">You are using an out-of-date Chrome OS recovery image.
+<translation id="3750930141330200643">You are using an out-of-date ChromeOS recovery image.
 
 Please refer to this URL for instructions on how to create new
 recovery media:
@@ -73,7 +73,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Available networks</translation>
 <translation id="4261250127007881003">Messages log</translation>
 <translation id="4287891348859705498">Copy logs to your external disk</translation>
-<translation id="436588829138218801">Chrome OS verification is turned off.
+<translation id="436588829138218801">ChromeOS verification is turned off.
 
 If this is unintentional, you should cancel recovery and disable
 developer mode in order to enable verification. For more information,
@@ -106,7 +106,7 @@ It is safe to do this at any time during verification.</translation>
 
 Please remove the recovery media and your computer will restart
 automatically.</translation>
-<translation id="544118001572747892">Your computer does not appear to be a Chrome OS system!
+<translation id="544118001572747892">Your computer does not appear to be a ChromeOS system!
 
 This operation will delete any other operating system that you may have
 installed and all the data; there will be no opportunity for backup.
@@ -135,7 +135,7 @@ This may take a lot of time.</translation>
 
 Recovery will continue because verified boot is turned off.
 If you later turn verification back on, you will need to repeat
-recovery with an official Chrome OS image.</translation>
+recovery with an official ChromeOS image.</translation>
 <translation id="6566947361877177265">Connect to a network to begin recovery</translation>
 <translation id="6582194100503356658">This may take a few minutes. Do not turn off the device or disconnect the power.</translation>
 <translation id="6630033970080307657">Unplug your external disk to restart.</translation>
@@ -156,11 +156,11 @@ https://www.google.com/chromeos/recovery</translation>
 
 System recovery is complete.
 Please remove the recovery media and your computer will restart automatically.</translation>
-<translation id="816304391526917903">You are using an out-of-date official Chrome OS recovery image.
+<translation id="816304391526917903">You are using an out-of-date official ChromeOS recovery image.
 
 Recovery will continue because verification is turned off.
 If you later turn verification back on, you will need to repeat
-recovery with an up-to-date Chrome OS image.</translation>
+recovery with an up-to-date ChromeOS image.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">There was an error while recovering your device; refer to</translation>
 <translation id="8420829064199266609">Connecting to the network. This may take up to a minute.</translation>
