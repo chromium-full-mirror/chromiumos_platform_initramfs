@@ -117,20 +117,26 @@ find_official_root() {
   # (arm). Get stateful partition by replacing partition number with "1".
   LOG_DEV="${USB_DEV%[0-9]*}"1  # Default to stateful.
 
-  mount_usb
+  mount_rootfs
 }
 
-mount_usb() {
-  info -n "Mounting usb... "
+mount_rootfs() {
+  info -n "Mounting rootfs... "
+  local usb_dev
+  if [ $(expr match "${KERN_ARG_ROOT}" '/dev/dm-[0-9]') != 0 ]; then
+    usb_dev="${KERN_ARG_ROOT}"
+  else
+    usb_dev="${USB_DEV}"
+  fi
   for try in $(seq 20); do
     info -n ". "
-    if mount -n -o ro "$USB_DEV" "$USB_MNT"; then
+    if mount -n -o ro "$usb_dev" "$USB_MNT"; then
       info "OK."
       return 0
     fi
     sleep 1
   done
-  info "Failed to mount usb!"
+  info "Failed to mount $usb_dev!"
   return 1
 }
 
