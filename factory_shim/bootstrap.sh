@@ -31,6 +31,8 @@ BASE_MOUNTS="/sys /proc /dev"
 # To be updated to keep logging after move_mounts.
 TAIL_PID=
 
+. /lib/dm_root_utils.sh
+
 # Print message on both main TTY and log file.
 log() {
   echo "$@" | tee -a "${TTY}" "${LOG_FILE}"
@@ -137,11 +139,22 @@ find_official_root() {
 mount_rootfs() {
   log -n "Mounting rootfs... "
   local usb_dev
-  if [ $(expr match "${KERN_ARG_ROOT}" '/dev/dm-[0-9]') != 0 ]; then
+  local kernel_command_line="$(cat /proc/cmdline)"
+
+  if check_if_dm_root "${kernel_command_line}"; then
+    if [ ! -b "${KERN_ARG_ROOT}" ]; then
+      setup_dm_root "${kernel_command_line}" "${USB_DEV}"
+    fi
     usb_dev="${KERN_ARG_ROOT}"
-  else
+  elif is_cros_debug; then
+    log "is_cros_debug, allow using ${USB_DEV} as rootfs"
     usb_dev="${USB_DEV}"
+  else
+    log "dm table is not set, did you enable rootfs verification when" \
+        "building the image?"
+    return 1
   fi
+
   for try in $(seq 20); do
     log -n ". "
     if mount -n -o ro "$usb_dev" "$USB_MNT"; then
@@ -398,6 +411,7 @@ main() {
 
   # USB device is unmounted, we can remove it now.
   unmount_usb
+  remove_dm_root
 
   # Apply all patches for bootstrap into new rootfs.
   patch_new_root

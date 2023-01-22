@@ -6,6 +6,7 @@
 BIN_DEPS= \
 	/bin/busybox \
 	/bin/sh \
+	/sbin/dmsetup \
 	/usr/bin/cgpt \
 	/usr/bin/crossystem \
 	/usr/bin/pv \
