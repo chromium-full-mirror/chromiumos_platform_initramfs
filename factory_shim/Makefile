@@ -6,6 +6,7 @@
 BIN_DEPS = \
 	/bin/busybox \
 	/bin/sh \
+	/sbin/dmsetup \
 	/sbin/frecon-lite \
 	/usr/bin/cgpt \
 	/usr/bin/crossystem \
