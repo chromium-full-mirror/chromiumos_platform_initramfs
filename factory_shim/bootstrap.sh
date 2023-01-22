@@ -32,8 +32,22 @@ BASE_MOUNTS="/sys /proc /dev"
 TAIL_PID=
 
 # Print message on both main TTY and log file.
-info() {
+log() {
   echo "$@" | tee -a "${TTY}" "${LOG_FILE}"
+}
+
+# Like log() but with printf() semantics.
+logf() {
+  printf "$@" | tee -a "${TTY}" "${LOG_FILE}"
+}
+
+# For factory shim, debug messages are logged to the same place.
+dlog() {
+  log "$@"
+}
+
+dlogf() {
+  logf "$@"
 }
 
 is_cros_debug() {
@@ -53,20 +67,20 @@ invoke_terminal() {
 enable_debug_console() {
   local tty="$1"
   if ! is_cros_debug; then
-    info "To debug, add [cros_debug] to your kernel command line."
+    log "To debug, add [cros_debug] to your kernel command line."
   elif [ "${tty}" = /dev/null ] || ! tty_is_valid "${tty}"; then
     # User probably can't see this, but we don't have better way.
-    info "Please set a valid [console=XXX] in kernel command line."
+    log "Please set a valid [console=XXX] in kernel command line."
   else
-    info -e '\033[1;33m[cros_debug] enabled on '${tty}'.\033[m'
+    log -e '\033[1;33m[cros_debug] enabled on '${tty}'.\033[m'
     invoke_terminal "${tty}" "[Bootstrap Debug Console]" "/bin/busybox sh"
   fi
 }
 
 on_error() {
   trap - EXIT
-  info -e '\033[1;31m'
-  info "ERROR: Factory installation aborted."
+  log -e '\033[1;31m'
+  log "ERROR: Factory installation aborted."
   save_log_files
   enable_debug_console "${TTY}"
   sleep 1d
@@ -76,11 +90,11 @@ on_error() {
 # Look for a device with our GPT ID.
 wait_for_gpt_root() {
   [ -z "$KERN_ARG_KERN_GUID" ] && return 1
-  info -n "Looking for rootfs using kern_guid [${KERN_ARG_KERN_GUID}]... "
+  log -n "Looking for rootfs using kern_guid [${KERN_ARG_KERN_GUID}]... "
   local try kern_dev kern_num
   local root_dev root_num
   for try in $(seq 20); do
-    info -n ". "
+    log -n ". "
     # crbug.com/463414: when the cgpt supports MTD (cgpt.bin), redirecting its
     # output will get duplicated data.
     kern_dev="$(cgpt find -1 -u $KERN_ARG_KERN_GUID 2>/dev/null | uniq)"
@@ -90,12 +104,12 @@ wait_for_gpt_root() {
     root_dev="${kern_dev%${kern_num}}${root_num}"
     if [ -b "$root_dev" ]; then
       USB_DEV="$root_dev"
-      info "Found ${USB_DEV}"
+      log "Found ${USB_DEV}"
       return 0
     fi
     sleep 1
   done
-  info "Failed waiting for device with correct kern_guid."
+  log "Failed waiting for device with correct kern_guid."
   return 1
 }
 
@@ -103,7 +117,7 @@ wait_for_gpt_root() {
 # kernel we're booted into to. Exports REAL_USB_DEV if there
 # is a root partition that may be used - on succes or failure.
 find_official_root() {
-  info -n "Checking for an official root... "
+  log -n "Checking for an official root... "
 
   # Check for a kernel selected root device or one in a well known location.
   wait_for_gpt_root || return 1
@@ -121,7 +135,7 @@ find_official_root() {
 }
 
 mount_rootfs() {
-  info -n "Mounting rootfs... "
+  log -n "Mounting rootfs... "
   local usb_dev
   if [ $(expr match "${KERN_ARG_ROOT}" '/dev/dm-[0-9]') != 0 ]; then
     usb_dev="${KERN_ARG_ROOT}"
@@ -129,32 +143,32 @@ mount_rootfs() {
     usb_dev="${USB_DEV}"
   fi
   for try in $(seq 20); do
-    info -n ". "
+    log -n ". "
     if mount -n -o ro "$usb_dev" "$USB_MNT"; then
-      info "OK."
+      log "OK."
       return 0
     fi
     sleep 1
   done
-  info "Failed to mount $usb_dev!"
+  log "Failed to mount $usb_dev!"
   return 1
 }
 
 get_stateful_dev() {
   STATE_DEV=${REAL_USB_DEV%[0-9]*}1
   if [ ! -b "$STATE_DEV" ]; then
-    info "Failed to determine stateful device."
+    log "Failed to determine stateful device."
     return 1
   fi
   return 0
 }
 
 unmount_usb() {
-  info "Unmounting ${USB_MNT}..."
+  log "Unmounting ${USB_MNT}..."
   umount -n "${USB_MNT}"
-  info ""
-  info "$REAL_USB_DEV can now be safely removed."
-  info ""
+  log ""
+  log "$REAL_USB_DEV can now be safely removed."
+  log ""
 }
 
 strip_partition() {
@@ -172,7 +186,7 @@ save_log_files() {
   local log_dev="${1:-$LOG_DEV}"
   [ -z "$log_dev" ] && return 0
 
-  info "Dumping dmesg to $LOG_DIR"
+  log "Dumping dmesg to $LOG_DIR"
   dmesg >"$LOG_DIR"/dmesg
 
   local err=0
@@ -180,7 +194,7 @@ save_log_files() {
   local save_dir_name="factory_shim_logs"
   local save_dir="${save_mnt}/${save_dir_name}"
 
-  info "Saving log files from: $LOG_DIR -> $log_dev $(basename ${save_dir})"
+  log "Saving log files from: $LOG_DIR -> $log_dev $(basename ${save_dir})"
   mkdir -p "${save_mnt}"
   mount -n -o sync,rw "${log_dev}" "${save_mnt}" || err=$?
   [ ${err} -ne 0 ] || rm -rf "${save_dir}" || err=$?
@@ -189,13 +203,13 @@ save_log_files() {
   umount -n "${save_mnt}" || err=1
 
   if [ ${err} -eq 0 ] ; then
-    info "Successfully saved the log file."
-    info ""
-    info "Please remove the USB media, insert into a Linux machine,"
-    info "mount the first partition, and find the logs in directory:"
-    info "  ${save_dir_name}"
+    log "Successfully saved the log file."
+    log ""
+    log "Please remove the USB media, insert into a Linux machine,"
+    log "mount the first partition, and find the logs in directory:"
+    log "  ${save_dir_name}"
   else
-    info "Failures seen trying to save log file."
+    log "Failures seen trying to save log file."
   fi
 }
 
@@ -212,31 +226,31 @@ export_args() {
   local key=
   local val=
   local acceptable_set='[A-Za-z0-9]_'
-  info "Exporting kernel arguments..."
+  log "Exporting kernel arguments..."
   for arg in "$@"; do
     key=$(echo "${arg%%=*}" | tr 'a-z' 'A-Z' | \
                    tr -dc "$acceptable_set" '_')
     val="${arg#*=}"
     export "KERN_ARG_$key"="$val"
-    info -n " KERN_ARG_$key=$val,"
+    log -n " KERN_ARG_$key=$val,"
   done
-  info ""
+  log ""
 }
 
 mount_tmpfs() {
-  info "Mounting tmpfs..."
+  log "Mounting tmpfs..."
   mount -n -t tmpfs tmpfs "$NEWROOT_MNT" -o "size=$TMPFS_SIZE"
 }
 
 copy_contents() {
-  info "Copying contents of USB device to tmpfs... "
+  log "Copying contents of USB device to tmpfs... "
   tar -cf - -C "${USB_MNT}" . | pv -f 2>"${TTY}" | tar -xf - -C "${NEWROOT_MNT}"
 }
 
 mount_stateful() {
-  info "Mounting stateful..."
+  log "Mounting stateful..."
   if ! mount -n "${STATE_DEV}" "${STATEFUL_MNT}"; then
-    info "Failed to mount ${STATE_DEV}!! Failing."
+    log "Failed to mount ${STATE_DEV}!! Failing."
     return 1
   fi
 }
@@ -248,7 +262,7 @@ umount_stateful() {
 
 # TODO(hungte) We should move this to factory_bootstrap.sh.
 copy_lsb() {
-  info -n "Copying lsb... "
+  log -n "Copying lsb... "
 
   local lsb_file="dev_image/etc/lsb-factory"
   local dest_path="${NEWROOT_MNT}/mnt/stateful_partition/${lsb_file}"
@@ -260,12 +274,12 @@ copy_lsb() {
   if [ -f "${src_path}" ]; then
     # Convert it to upper case and store it to lsb file.
     local kern_guid=$(echo "${KERN_ARG_KERN_GUID}" | tr '[:lower:]' '[:upper:]')
-    info "Found ${src_path}"
+    log "Found ${src_path}"
     cp -a "${src_path}" "${dest_path}"
     echo "REAL_USB_DEV=${REAL_USB_DEV}" >>"${dest_path}"
     echo "KERN_ARG_KERN_GUID=${kern_guid}" >>"${dest_path}"
   else
-    info "Failed to find ${src_path}!! Failing."
+    log "Failed to find ${src_path}!! Failing."
     ret=1
   fi
   return "${ret}"
@@ -274,7 +288,7 @@ copy_lsb() {
 patch_new_root() {
   # Create an early debug terminal if available.
   if is_cros_debug && [ -n "${DEBUG_TTY}" ]; then
-    info "Adding debug console service..."
+    log "Adding debug console service..."
     file="${NEWROOT_MNT}/etc/init/debug_console.conf"
     echo "# Generated by factory shim.
       start on startup
@@ -292,7 +306,7 @@ patch_new_root() {
   local flag="/tmp/bootstrap.failed"
   if [ -x "${bootstrap}" ]; then
     rm -f "${flag}"
-    info "Running ${bootstrap}..."
+    log "Running ${bootstrap}..."
     # Return code of "a|b" is will be b instead of a, so we have to touch a flag
     # file to check results.
     ("${bootstrap}" "${NEWROOT_MNT}" || touch "${flag}") \
@@ -304,7 +318,7 @@ patch_new_root() {
 }
 
 move_mounts() {
-  info "Moving $BASE_MOUNTS to $NEWROOT_MNT"
+  log "Moving $BASE_MOUNTS to $NEWROOT_MNT"
   for mnt in $BASE_MOUNTS; do
     # $mnt is a full path (leading '/'), so no '/' joiner
     mkdir -p "$NEWROOT_MNT$mnt"
@@ -319,14 +333,14 @@ move_mounts() {
   # Make a copy of bootstrap log into new root.
   mkdir -p "${NEWROOT_MNT}${LOG_DIR}"
   cp -f "${LOG_FILE}" "${NEWROOT_MNT}${LOG_FILE}"
-  info "Done."
+  log "Done."
 }
 
 use_new_root() {
   move_mounts
 
   # Chroot into newroot, erase the contents of the old /, and exec real init.
-  info "About to switch root... Check VT2/3/4 if you stuck for a long time."
+  log "About to switch root... Check VT2/3/4 if you stuck for a long time."
   stop_log_file
 
   # If you have problem getting console after switch_root, try to debug by:
@@ -350,8 +364,8 @@ main() {
   mkdir -p "${USB_MNT}" "${STATEFUL_MNT}" "${LOG_DIR}" "${NEWROOT_MNT}"
 
   exec >"${LOG_FILE}" 2>&1
-  info "...:::||| Bootstrapping ChromeOS Factory Shim |||:::..."
-  info "TTY: ${TTY}, LOG: ${LOG_TTY}, INFO: ${INFO_TTY}, DEBUG: ${DEBUG_TTY}"
+  log "...:::||| Bootstrapping ChromeOS Factory Shim |||:::..."
+  log "TTY: ${TTY}, LOG: ${LOG_TTY}, INFO: ${INFO_TTY}, DEBUG: ${DEBUG_TTY}"
 
   # Send all verbose output to debug TTY.
   (tail -f "${LOG_FILE}" >"${LOG_TTY}") &
@@ -362,7 +376,7 @@ main() {
   export_args $(cat /proc/cmdline | sed -e 's/"[^"]*"/DROPPED/g')
 
   if [ -n "${INFO_TTY}" -a -e /dev/kmsg ]; then
-    info "Kernel messages available in ${INFO_TTY}."
+    log "Kernel messages available in ${INFO_TTY}."
     cat /dev/kmsg >>"${INFO_TTY}" &
   fi
 
@@ -373,7 +387,7 @@ main() {
   find_official_root
   get_stateful_dev
 
-  info "Bootstrapping factory shim."
+  log "Bootstrapping factory shim."
   # Copy rootfs contents to tmpfs, then unmount USB device.
   mount_tmpfs
   copy_contents
