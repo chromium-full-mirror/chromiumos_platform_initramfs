@@ -8,22 +8,17 @@
 
 # Include disk information.
 . /usr/sbin/write_gpt.sh
+# Include firmware rollback check functions.
+. /lib/fw_rollback_check.sh
 
-# Minimum (default) version in firmware space
-FW_VER_MIN=0x10001
 # Starting kernel rollback version.
 KERNEL_VER_MIN=0x10001
-# TPM NVRAM index where the rollback firmware version is stored.
-FW_VER_TPM_NV_SPACE=0x1007
 # TPM NVRAM index where the rollback kernel version is stored.
 KERNEL_VER_TPM_NV_SPACE=0x1008
 # TPM NVRAM index for the lockbox.
 LOCKBOX_TPM_NV_SPACE=0x20000004
 # TPM NVRAM index for OOBE autoconfig public key hashes.
 OOBE_AUTO_CONFIG_KEY_HASH_NV_SPACE=0x100c
-# Recovery version is the top nibble of the firmware version.  Lock out the
-# recovery image if the version is greater than this.
-REC_VER_MAX=0
 # Where chromeos-install will store any related hardware diagnostics data.
 LOG_HARDWARE_DIAGNOSTICS=hardware_diagnostics.log
 # Minimum battery charge required for TPM firmware update.
@@ -35,12 +30,6 @@ OOBE_PRIVATE_KEY_PEM=
 OOBE_PUBLIC_KEY_PEM=
 # Domain specified for OOBE auto-enrollment.
 OOBE_ENROLLMENT_DOMAIN=
-# "E" key on the keyboard
-EVWAITKEY_KEY=18
-# Path of the file where the EVWAITKEY is written if it is pressed.
-EVWAITKEY_FILE=/tmp/check_for_reload_key
-# If disk wipe is requested, the result is stored here.
-DISK_WIPE_RESULT=
 
 
 # Installation Target.
@@ -208,57 +197,6 @@ check_install_kernel_key_match() {
   return 1
 }
 
-clear_eventlog() {
-  flashrom -E -i RW_ELOG
-}
-
-# Check EVWAITKEY is pressed and if it is, perfom full disk wipe.
-check_disk_wipe_requested() {
-  local evwaitkey_output=$(cat "${EVWAITKEY_FILE}")
-  if [ "${evwaitkey_output}" = "${EVWAITKEY_KEY}" ]; then
-    # If EVWAITKEY is pressed, perform full disk wipe.
-    dlog "Key is pressed, disks will be physically wiped."
-    message disk_wipe_start
-    chroot "${USB_MNT}" /usr/sbin/wipe_disk
-    DISK_WIPE_RESULT=$?
-    clear_eventlog
-    message disk_wipe_end
-  fi
-  rm "${EVWAITKEY_FILE}"
-}
-
-# Get the firmware version by directly reading the TPM NVRAM spaces.
-# Needed when crossystem doesn't work (e.g. Mario systems).
-get_fwver_from_tpmc () {
-  if [ $# -ne 0 ]; then
-    dlog "ERROR: get_fwver_from_tpmc() doesn't take any args"
-    return
-  fi
-  # Example output:
-  #
-  # 2 3 3 0 1 0
-  #
-  # The first 2 bytes of the output are internal version and flags and
-  # can be ignored. The full firmware version is stored as a 32-bit
-  # integer in little endian format.
-  local out
-  if ! out=$(tpmc read ${FW_VER_TPM_NV_SPACE} 6); then
-    dlog "ERROR: tpmc read failed"
-    echo "${FW_VER_MIN}"
-    return
-  fi
-  set -- ${out}
-  if [ $# != 6 ]; then
-    # The TPM is uninitialized or corrupt.  Return a default
-    # version.  Don't lock out recovery because we might be what's
-    # supposed to fix it.
-    echo "${FW_VER_MIN}"
-    return
-  fi
-
-  echo "$(( 0x$6 << 24 | 0x$5 << 16 | 0x$4 << 8 | 0x$3 ))"
-}
-
 # Get the kernel version by directly reading the TPM NVRAM spaces.
 # Needed when crossystem doesn't work (e.g. Mario systems).
 get_kernelver_from_tpmc () {
@@ -279,21 +217,6 @@ verify_kernel_signature() {
 
   # Validates the signature and outputs a keyblock.
   if ! vbutil_kernel --verify "$kern_dev" --keyblock "$keyblock"; then
-    return 1
-  fi
-  return 0
-}
-
-verify_fw_version() {
-  local fwver recver
-  fwver=$(crossystem tpm_fwver || get_fwver_from_tpmc)
-  : $(( recver = fwver >> 28 ))
-  echo "FW version from TPM: ${fwver}"
-  echo "Recovery version from top nibble: ${recver}"
-
-  if [ ${recver} -gt ${REC_VER_MAX} ]; then
-    printf "Recovery script locked out due to firmware version 0x%x\n" \
-      "${fwver}"
     return 1
   fi
   return 0
