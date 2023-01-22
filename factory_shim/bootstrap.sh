@@ -31,6 +31,8 @@ TAIL_PID=
 
 . /lib/dm_root_utils.sh
 
+. /lib/fw_rollback_check.sh
+
 # Print message on both main TTY and log file.
 log() {
   echo "$@" | tee -a "${TTY}" "${LOG_FILE}"
@@ -347,6 +349,9 @@ main() {
   # DEBUG_TTY may be not available, but we don't have better choices on headless
   # devices.
   enable_debug_console "${DEBUG_TTY}"
+
+  # Verify FW version.
+  verify_fw_version
 
   find_official_root
 
