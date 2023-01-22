@@ -67,7 +67,7 @@ ifneq ($(LOCAL_BIN_DEPS),)
 	)
 endif
 	cp init "$(STAGE)/init"
-	cp ../common/init.sh "$(STAGE)/lib/"
+	cp ../common/init.sh ../common/dm_root_utils.sh "$(STAGE)/lib/"
 
 define generate_initramfs
 	../common/gen_initramfs_list.sh -u squash -g squash $(1) > $(2).contents
