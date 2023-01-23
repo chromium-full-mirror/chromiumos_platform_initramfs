@@ -79,8 +79,15 @@ wait_for_gpt_root() {
   return 1
 }
 
+# Usage: check_if_dm_root [kernel_command_line]
+# Check if the given kernel command line contains a dm argument.
+# Args:
+#  kernel_command_line: the kernel command line to check.
+# Returns:
+#  Returns none zero value if no dm arguments found.
 check_if_dm_root() {
-  dump_kernel_config "$KERN_B_CACHE" | grep -q 'root=/dev/dm-' || return 1
+  local kernel_command_line="$1"
+  echo "${kernel_command_line}" | grep -q 'root=/dev/dm-' || return 1
   return 0
 }
 
@@ -106,8 +113,9 @@ find_official_root() {
   verify_install_kernel_hash || return 1
 
   # Now see if the root should be integrity checked.
-  if check_if_dm_root; then
-    setup_dm_root || return 1
+  local kernel_command_line="$(dump_kernel_config "${KERN_B_CACHE}")"
+  if check_if_dm_root "${kernel_command_line}"; then
+    USB_DEV="$(setup_dm_root "${kernel_command_line}" "${USB_DEV}")" || return 1
   fi
 
   mount_usb || return 1
@@ -126,7 +134,7 @@ find_developer_root() {
   dlogf "\nSearching for developer root . . ."
   # If an official root could not be mounted, free up the underlying device
   # if it is claimed by verity.
-  dmsetup remove "$DM_NAME"
+  remove_dm_root
 
   # If we found a valid rootfs earlier, then we're done.
   # TODO(wad) Attempt to setup an unofficial dm root prior to
@@ -141,8 +149,8 @@ find_developer_root() {
 is_old_style_verity_argv() {
   # TODO(ellyjones): remove by 2011-08-31. Part of crosbug.com/15772.
   # "0 1740800 verity %U+1 %U+1 1740800 0 sha1 $hash"
-  local depth=$(echo "$1" | cut -f7 -d' ')
-  if [ "$depth" = "0" ]; then
+  local depth="$(echo "$1" | cut -f7 -d' ')"
+  if [ "${depth}" = "0" ]; then
     return 0
   fi
   return 1
@@ -222,7 +230,6 @@ verify_install_kernel_hash() {
 # $22  alg=sha1
 # $23  root_hexdigest=cf20e4499efb35b8a3dedbf3e84a6a55750003e5
 # $24  salt=20ba9113fe2c46f38393bbe630126f87378ff01bdcbf87384929bfe43f9e56ce
-#
 parse_dm_table() {
   case $1 in
     2)  # Both bootcache and verity in the new dm-init format
@@ -243,54 +250,71 @@ parse_dm_table() {
   esac
   # We override the reboot-to-recovery error behavior so that we can fail
   # gracefully on invalid rootfs.
-  if is_old_style_verity_argv "$table"; then
+  if is_old_style_verity_argv "${table}"; then
     local eio=eio
   else
     local eio='error_behavior=eio'
   fi
-  echo "$table $eio"
+  echo "${table} ${eio}"
 }
 
+# Usage: setup_dm_root [kernel_command_line] [root_dev]
+# Set up dm root according to a given kernel command line.
+# Args:
+#  kernel_command_line: the kernel command line that contains the dm argument.
+#  root_dev: the root device.
+# Outputs:
+#  Outputs the dm device path to STDOUT. For now, it's always "/dev/dm-0".
+# Returns:
+#  Returns 1 if anything goes wrong.
 setup_dm_root() {
-  local eio
+  local kernel_command_line="$1"
+  local root_dev="$2"
+
   dlog -n "Extracting the device mapper configuration..."
   # export_args can't handle dm="..." at present.
   # We have to substitute the GUID of the recovery kernel for the %U variable.
-  DMARG=$(dump_kernel_config "$KERN_B_CACHE" |
-    sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d' |
-    sed -e "s/%U/$KERN_ARG_KERN_GUID/g")
+  local dm_arg="$(echo "${kernel_command_line}" |
+      sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d' |
+      sed -e "s/%U/${KERN_ARG_KERN_GUID}/g")"
 
   # Make sure we have valid dm args string.
-  if [ -z "$DMARG" ]; then
+  if [ -z "${dm_arg}" ]; then
     dlog "Failed to extract dm arguments from kernel command line"
     return 1
   fi
 
   DM_NAME=vroot
-  DM_TABLE=$(parse_dm_table $DMARG)
+  local dm_table="$(parse_dm_table ${dm_arg})"
 
   # Don't attempt to call dmsetup if the root device isn't one that was
   # discovered as the creation process will hang.
   # TODO(wad) extract the UUID and use it with cgpt find instead.
-  if [ -n "$KERN_ARG_KERN_GUID" ]; then
-    [ "${DM_TABLE%$KERN_ARG_KERN_GUID*}" = "$DM_TABLE" ] && return 1
-  elif [ -n "$USB_DEV" ]; then
-    [ "${DM_TABLE%$USB_DEV*}" = "$DM_TABLE" ] && return 1
+  if [ -n "${KERN_ARG_KERN_GUID}" ]; then
+    [ "${dm_table%${KERN_ARG_KERN_GUID}*}" = "${dm_table}" ] && return 1
+  elif [ -n "${root_dev}" ]; then
+    [ "${dm_table%${root_dev}*}" = "${dm_table}" ] && return 1
   fi
 
-  if ! dmsetup create -r "$DM_NAME" --table "$DM_TABLE"
-  then
+  if ! dmsetup create -r "${DM_NAME}" --table "${dm_table}"; then
     dlog "Failed to configure device mapper root"
     return 1
   fi
-  USB_DEV="/dev/dm-0"
-  if [ ! -b "$USB_DEV" ]; then
+  local dm_dev="/dev/dm-0"
+  if [ ! -b "${dm_dev}" ]; then
     local major=$(dmsetup info -c -o major --noheadings "${DM_NAME}")
     local minor=$(dmsetup info -c -o minor --noheadings "${DM_NAME}")
-    mknod -m 0600 "$USB_DEV" b "${major}" "${minor}"
+    mknod -m 0600 "${dm_dev}" b "${major}" "${minor}"
   fi
-  dlog "Created device mapper root $DM_NAME."
-  return 0
+  dlog "Created device mapper root ${DM_NAME}."
+  echo "${dm_dev}"
+}
+
+# Remove the DM device created by setup_dm_root.
+remove_dm_root() {
+  if [ -n "${DM_NAME}" ]; then
+    dmsetup remove "${DM_NAME}"
+  fi
 }
 
 mount_usb() {
@@ -322,7 +346,7 @@ unmount_usb() {
   # Make sure we clean up a device-mapper root.
   if [ "$USB_DEV" = "/dev/dm-0" ]; then
     dlog "Removing dm-verity target"
-    dmsetup remove "$DM_NAME"
+    remove_dm_root
   fi
   dlog
   dlog "$REAL_USB_DEV can now be safely removed"
