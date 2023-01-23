@@ -144,7 +144,7 @@ validate_recovery_root() {
   # it didn't pass validation.  Try to fall back to installing a
   # developer image.
   umount "${USB_MNT}"
-  dmsetup remove "$DM_NAME"  # Free up the real root for use.
+  remove_dm_root
   USB_DEV=
 
   find_developer_root || return 1
