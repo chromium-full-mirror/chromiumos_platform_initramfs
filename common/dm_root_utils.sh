@@ -116,11 +116,22 @@ setup_dm_root() {
   local root_dev="$2"
 
   dlog -n "Extracting the device mapper configuration..."
+
   # export_args can't handle dm="..." at present.
-  # We have to substitute the GUID of the recovery kernel for the %U variable.
+  #
+  # Substitute root_dev for the payload and hashtree. E.g.
+  # Before:
+  # payload=PARTUUID=%U/PARTNROFF=1 hashtree=PARTUUID=%U/PARTNROFF=1
+  # After:
+  # payload=/dev/sda3 hashtree=/dev/sda3
+  #
+  # Note: the `;t;d` is so that we return an empty string if the substitution
+  # fails (which we then check for below). However this also means we need
+  # separate sed calls instead of a single call with multiple -e arguments.
   local dm_arg="$(echo "${kernel_command_line}" |
       sed -e 's/.*dm="\([^"]*\)".*/\1/g;t;d' |
-      sed -e "s/%U/${KERN_ARG_KERN_GUID}/g")"
+      sed -e "s|payload=[^\" ]*|payload=${root_dev}|g;t;d" |
+      sed -e "s|hashtree=[^\" ]*|hashtree=${root_dev}|g;t;d")"
 
   # Make sure we have valid dm args string.
   if [ -z "${dm_arg}" ]; then
@@ -130,15 +141,6 @@ setup_dm_root() {
 
   DM_NAME=vroot
   local dm_table="$(_parse_dm_table ${dm_arg})"
-
-  # Don't attempt to call dmsetup if the root device isn't one that was
-  # discovered as the creation process will hang.
-  # TODO(wad) extract the UUID and use it with cgpt find instead.
-  if [ -n "${KERN_ARG_KERN_GUID}" ]; then
-    [ "${dm_table%${KERN_ARG_KERN_GUID}*}" = "${dm_table}" ] && return 1
-  elif [ -n "${root_dev}" ]; then
-    [ "${dm_table%${root_dev}*}" = "${dm_table}" ] && return 1
-  fi
 
   if ! dmsetup create -r "${DM_NAME}" --table "${dm_table}"; then
     dlog "Failed to configure device mapper root"
