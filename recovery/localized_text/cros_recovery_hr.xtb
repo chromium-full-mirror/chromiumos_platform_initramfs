@@ -17,6 +17,8 @@ Uklonite medij za oporavak i računalo će se automatski ponovo pokrenuti.</tran
 Potvrdite da je to točno.</translation>
 <translation id="1638626287317244115">Kopiraj zapisnike</translation>
 <translation id="175933110504178679">Postupak će izbrisati vaše osobne podatke. To će potrajati nekoliko minuta. Nemojte isključiti uređaj.</translation>
+<translation id="1950865024817806485">moguća rješenja potražite na https://google.com/chromeos/recovery ili pokušajte ponovo.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Isključi</translation>
 <translation id="2160704550417277456">Napredne postavke</translation>
 <translation id="2161775569013928937">Želite li pokrenuti oporavak?</translation>
@@ -27,14 +29,6 @@ Potvrdite da je to točno.</translation>
 <translation id="2704439832119932045">Odaberite kanal i verziju OS-a da biste nastavili oporavak</translation>
 <translation id="2731700343119398978">Pričekajte...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">Vlasnik uređaja zahtijeva da uređaj radi uz uključenu potvrdu
-OS-a Chrome. Pokušavate instalirati neslužbenu sliku za
-oporavak OS-a Chrome koja ne prolazi potvrdu.
-
-Više informacija potražite na ovom URL-u:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">Unesite zaporku mreže</translation>
 <translation id="3243756202241744259">Provjeravamo integritet vašeg medija za oporavak...</translation>
 <translation id="3283913352572436199">Vaš je medij za oporavak konfiguriran za automatsko postavljanje nakon što se ponovo pokrene.
@@ -52,16 +46,18 @@ Da biste nastavili s automatskim postavljanjem, pritisnite prekidač za oporavak
 Ako želite otkazati oporavak, pritisnite tipku za uključivanje/isključivanje i držite je
 dok se uređaj ne isključi (to traje najviše osam sekundi).</translation>
 <translation id="3723985428118783104">Oporavak u tijeku</translation>
-<translation id="3750930141330200643">Upotrebljavate zastarjelu sliku za oporavak OS-a Chrome.
-
-Upute za izradu novog medija za oporavak potražite na ovom URL-u:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">Natrag</translation>
 <translation id="3928994486545789273">Odaberi mrežu</translation>
 <translation id="3942420633017001071">Dijagnostika</translation>
 <translation id="3946632524220974380">Za nastavak je potrebna promjena ključa razvojnog programera;
 taj postupak traje 5 minuta.</translation>
+<translation id="3986180833426451964">Vlasnik zahtijeva da uređaj radi uz uključenu potvrdu sustava ChromeOS.
+Pokušavate instalirati neslužbenu
+sliku za oporavak sustava ChromeOS koja ne prolazi potvrdu.
+
+Više informacija potražite na ovom URL-u:
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">Taj postupak može potrajati nekoliko minuta</translation>
 <translation id="4007898787815310968">Došlo je do pogreške prilikom poboljšanog brisanja diska.
 
@@ -71,13 +67,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Dostupne mreže</translation>
 <translation id="4261250127007881003">Zapisnik poruka</translation>
 <translation id="4287891348859705498">Kopirajte zapisnike na vanjski disk</translation>
-<translation id="436588829138218801">Potvrda OS-a Chrome isključena je.
-
-Ako to niste namjeravali, otkažite oporavak i onemogućite način
-rada razvojnog programera da biste omogućili potvrdu. Više informacija
-potražite na ovom URL-u:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">Za kretanje prema gore ili dolje koristite se tipkama za glasnoću.</translation>
 <translation id="4412740632134951267">Odaberite napredne opcije u nastavku da biste ih promijenili</translation>
 <translation id="4486160941938493301">Ako želite odabrati neki drugi način oporavka, vratite se tako što ćete pritisnuti Esc + Osvježavanje + Uključivanje/isključivanje</translation>
@@ -103,12 +92,6 @@ To slobodno možete učiniti u bilo kojem trenutku provjere.</translation>
 
 Uklonite medij za oporavak i računalo će se automatski
 ponovo pokrenuti.</translation>
-<translation id="544118001572747892">Izgleda da vaše računalo nije sustav OS-a Chrome!
-
-Ta će operacija izbrisati sve ostale operativne sustave koji su
-instalirani i sve podatke; neće biti prilike za izradu sigurnosne kopije.
-Ako želite sačuvati neke podatke na ovom računalu,
-otkažite oporavak.</translation>
 <translation id="5512602676102820748">Baterija nije dovoljno napunjena za ažuriranje.
 
 Punjenje...
@@ -125,17 +108,30 @@ dok se uređaj ne isključi (to traje najviše osam sekundi).</translation>
 <translation id="6363786367719063276">Prikaz zapisnika</translation>
 <translation id="6374469231428023295">Pokušaj ponovo</translation>
 <translation id="6388429950346313390">Nešto nije u redu</translation>
+<translation id="6408757960874122684">Čini se da vaše računalo nema sustav ChromeOS!
+
+Ovaj će postupak izbrisati sve druge operativne sustave koji su možda instalirani i sve podatke; ne postoji mogućnost sigurnosnog kopiranja.
+Ako želite sačuvati neke podatke s ovog računala, otkažite oporavak.</translation>
 <translation id="6451786478565057499">U tijeku je poboljšano brisanje diska...
 
 To može potrajati malo dulje.</translation>
-<translation id="6478314309353607985">Slika na vašem mediju za oporavak nepotvrđena je slika razvojnog programera.
-
+<translation id="64764858283438323">Slika na vašem mediju za oporavak nepotvrđena je slika razvojnog programera.
 Oporavak će se nastaviti jer je potvrđeno pokretanje isključeno.
 Ako kasnije uključite potvrdu, morat ćete ponoviti
-oporavak sa službenom slikom OS-a Chrome.</translation>
+oporavak sa službenom slikom sustava ChromeOS.</translation>
 <translation id="6566947361877177265">Povežite se s mrežom da biste pokrenuli oporavak</translation>
 <translation id="6582194100503356658">To može potrajati nekoliko minuta. Nemojte isključiti uređaj ni napajanje.</translation>
+<translation id="662657262312410525">Upotrebljavate zastarjelu sliku za oporavak sustava ChromeOS.
+
+Upute za izradu novog medija za oporavak potražite na ovom URL-u:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">Za ponovno pokretanje odspojite vanjski disk.</translation>
+<translation id="6691307183503218714">Upotrebljavate zastarjelu službenu sliku za oporavak sustava ChromeOS.
+
+Oporavak će se nastaviti jer je potvrda isključena.
+Ako kasnije uključite potvrdu, morat ćete ponoviti
+oporavak s ažurnom slikom sustava ChromeOS.</translation>
 <translation id="6868586188416530903">Zapisnik alata za ažuriranje TPM opreme</translation>
 <translation id="6895131867077828321">Unesite zaporku. Pritisnite Tab da bi se zaporka prikazala ili sakrila. Pritisnite Enter da biste je poslali.</translation>
 <translation id="7126032376876878896">Za odabir opcije upotrijebite tipku za uključivanje/isključivanje.</translation>
@@ -153,17 +149,18 @@ https://www.google.com/chromeos/recovery</translation>
 
 Oporavak sustava je dovršen.
 Uklonite medij za oporavak i računalo će se automatski ponovo pokrenuti.</translation>
-<translation id="816304391526917903">Upotrebljavate zastarjelu službenu sliku za oporavak OS-a Chrome.
-
-Oporavak će se nastaviti jer je potvrda isključena.
-Ako kasnije uključite potvrdu, morat ćete ponoviti
-oporavak s ažurnom slikom OS-a Chrome.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">Došlo je do pogreške prilikom oporavka uređaja, moguća rješenja potražite na</translation>
 <translation id="8420829064199266609">Povezivanje s mrežom. To može potrajati koju minutu.</translation>
 <translation id="8433773763660502318">Postupak oporavka nije dovršen</translation>
 <translation id="8473826843543665828">Odaberite novu mrežu ili pokušajte ponovo</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery ili pokušajte ponovo.</translation>
+<translation id="8474679199432944250">Isključena je potvrda sustava ChromeOS.
+
+Ako to niste namjeravali, otkažite oporavak i onemogućite način
+rada razvojnog programera da biste omogućili potvrdu. Više informacija
+potražite na ovom URL-u:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">Dovršavanje oporavka</translation>
 <translation id="8596190965261846034">Instaliranje ažuriranja...
 

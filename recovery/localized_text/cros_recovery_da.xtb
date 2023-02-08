@@ -17,6 +17,8 @@ Fjern gendannelsesmediet, så genstarter din computer automatisk.</translation>
 Bekræft, at det er korrekt.</translation>
 <translation id="1638626287317244115">Kopiér logs</translation>
 <translation id="175933110504178679">Denne handling rydder dine personoplysninger. Dette tager flere minutter. Undlad at slukke enheden.</translation>
+<translation id="1950865024817806485">https://google.com/chromeos/recovery for at finde mulige løsningsforslag, eller prøv igen.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Sluk</translation>
 <translation id="2160704550417277456">Avancerede valgmuligheder</translation>
 <translation id="2161775569013928937">Vil du starte gendannelsen?</translation>
@@ -27,14 +29,6 @@ Bekræft, at det er korrekt.</translation>
 <translation id="2704439832119932045">Vælg OS-kanal og -version for at fortsætte gendannelsen</translation>
 <translation id="2731700343119398978">Vent et øjeblik...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">Enhedsejeren kræver, at Chrome OS-bekræftelse er slået til
-på denne enhed. Du forsøger at installere et uofficielt gendannelsesbillede
-for Chrome OS, som ikke er godkendt af bekræftelsen.
-
-Få flere oplysninger på webadressen nedenfor:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">Angiv adgangskoden til netværket</translation>
 <translation id="3243756202241744259">Bekræfter integriteten af dit gendannelsesmedie...</translation>
 <translation id="3283913352572436199">Dit gendannelsesmedie er konfigureret til automatisk konfiguration efter genstart.
@@ -52,15 +46,17 @@ Hvis du vil fortsætte med automatisk konfiguration, skal du trykke på enhedens
 Hvis du vil annullere gendannelsen, skal du trykke på afbryderknappen og holde den
 nede, indtil enheden slukkes (dette kan tage op til 8 sekunder).</translation>
 <translation id="3723985428118783104">Gendannelsen er i gang</translation>
-<translation id="3750930141330200643">Du bruger et forældet gendannelsesbillede for Chrome OS.
-
-Få hjælp til at oprette et nyt gendannelsesmedie på webadressen nedenfor:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">Tilbage</translation>
 <translation id="3928994486545789273">Vælg netværk</translation>
 <translation id="3942420633017001071">Diagnostik</translation>
 <translation id="3946632524220974380">For at fortsætte skal du ændre din udviklernøgle. Processen tager 5 minutter.</translation>
+<translation id="3986180833426451964">Enhedsejeren kræver, at ChromeOS-verificering er aktiveret
+på denne enhed. Du forsøger at installere et uofficielt systembillede
+til gendannelse for ChromeOS, som ikke opfylder kravene til verificering.
+
+Få flere oplysninger på webadressen nedenfor:
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">Dette kan tage et par minutter</translation>
 <translation id="4007898787815310968">Der opstod en fejl under den udvidede sletning af disken.
 
@@ -70,11 +66,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Tilgængelige netværk</translation>
 <translation id="4261250127007881003">Beskedlog</translation>
 <translation id="4287891348859705498">Kopiér logs til din eksterne disk</translation>
-<translation id="436588829138218801">Chrome OS-bekræftelse er slået fra.
-
-Hvis dette er en fejl, bør du annullere gendannelsen og deaktivere udviklertilstanden for at kunne aktivere bekræftelse. Få flere oplysninger på webadressen nedenfor:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">Brug lydstyrkeknapperne til at navigere op eller ned.</translation>
 <translation id="4412740632134951267">Vælg avancerede muligheder nedenfor for at foretage ændringer</translation>
 <translation id="4486160941938493301">Hvis du vil vælge en anden gendannelsesmetode, skal du gå tilbage ved at trykke på Esc + Opdater + Afbryderknappen</translation>
@@ -99,10 +90,6 @@ Du kan gøre dette til enhver tid under bekræftelsen.</translation>
 <translation id="537291066186627789">Systemgendannelsen blev fuldført.
 
 Din computer genstartes automatisk, når du fjerner gendannelsesmediet.</translation>
-<translation id="544118001572747892">Din computer lader ikke til at være et Chrome OS-system.
-
-Denne handling vil slette andre operativsystemer, du har installeret, samt alle data. Det er ikke muligt at sikkerhedskopiere.
-Hvis du har nogen data på denne computer, som du gerne vil bevare, bør du annullere gendannelsen.</translation>
 <translation id="5512602676102820748">Batteriniveauet er for lavt til at opdatere.
 
 Oplader...
@@ -119,17 +106,33 @@ nede, indtil enheden slukkes (dette kan tage op til 8 sekunder).</translation>
 <translation id="6363786367719063276">Se logfiler</translation>
 <translation id="6374469231428023295">Prøv igen</translation>
 <translation id="6388429950346313390">Der gik noget galt</translation>
+<translation id="6408757960874122684">Det lader til, at din computer ikke er et ChromeOS-system.
+
+Denne handling sletter ethvert andet operativsystem, som du har installeret,
+samt dine data. Du har ikke mulighed for at tage en sikkerhedskopi.
+Hvis du har data på computeren, som du vil gemme, skal du annullere
+genoprettelsen.</translation>
 <translation id="6451786478565057499">Udvidet sletning af disk er i gang...
 
 Dette kan tage lang tid.</translation>
-<translation id="6478314309353607985">Billedet på dit gendannelsesmedie er et ubekræftet udviklerbillede.
+<translation id="64764858283438323">Billedet på dit gendannelsesmedie er et uverificeret udviklerbillede.
 
-Gendannelsen fortsætter, da bekræftet start er slået fra.
-Hvis du slår bekræftelse til igen senere, skal du gentage
-gendannelsen med et officielt billede for Chrome OS.</translation>
+Gendannelsen fortsætter, da verificeret opstart er deaktiveret.
+Hvis du aktiverer verificering igen senere, skal du gentage
+gendannelsen med et officielt billede for ChromeOS.</translation>
 <translation id="6566947361877177265">Opret forbindelse til et netværk for at starte gendannelsen</translation>
 <translation id="6582194100503356658">Dette kan tage et par minutter. Undlad at slukke enheden eller afbryde strømmen.</translation>
+<translation id="662657262312410525">Du bruger et forældet systembillede til gendannelse for ChromeOS.
+
+Få hjælp til at oprette et nyt gendannelsesmedie på webadressen nedenfor:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">Fjern din eksterne disk for at genstarte.</translation>
+<translation id="6691307183503218714">Du bruger et forældet systembillede til gendannelse for ChromeOS.
+
+Gendannelsen fortsætter, da verificering er deaktiveret.
+Hvis du aktiverer verificering igen senere, skal du gentage
+gendannelsen med et opdateret billede for ChromeOS.</translation>
 <translation id="6868586188416530903">Loggen tpm-firmware-updater</translation>
 <translation id="6895131867077828321">Angiv din adgangskode. Tryk på Tab-tasten for at få vist eller skjult adgangskoden. Tryk på Enter for at sende.</translation>
 <translation id="7126032376876878896">Brug afbryderknappen til at vælge en mulighed.</translation>
@@ -147,17 +150,16 @@ https://www.google.com/chromeos/recovery</translation>
 
 Systemgendannelsen er fuldført.
 Fjern gendannelsesmediet, så genstarter din computer automatisk.</translation>
-<translation id="816304391526917903">Du bruger et forældet gendannelsesbillede for Chrome OS.
-
-Gendannelsen fortsætter, da bekræftelse er slået fra.
-Hvis du slår bekræftelse til igen senere, skal du gentage
-gendannelsen med et opdateret billede for Chrome OS.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">Der opstod en fejl under gendannelse af din enhed. Gå til</translation>
 <translation id="8420829064199266609">Opretter forbindelse til netværket. Dette kan tage op til et minut.</translation>
 <translation id="8433773763660502318">Gendannelsen kunne ikke udføres</translation>
 <translation id="8473826843543665828">Vælg et nyt netværk, eller prøv igen</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery for at få flere løsningsforslag, eller prøv igen.</translation>
+<translation id="8474679199432944250">ChromeOS-verificering er deaktiveret.
+
+Hvis dette er en fejl, bør du annullere gendannelsen og deaktivere udviklertilstand for at kunne aktivere verificering. Få flere oplysninger på webadressen nedenfor:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">Gendannelsen udføres</translation>
 <translation id="8596190965261846034">Installerer opdatering...
 

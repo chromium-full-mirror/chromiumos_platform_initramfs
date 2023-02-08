@@ -17,6 +17,8 @@ https://www.google.com/chromeos/recovery</translation>
 יש לוודא שהוא נכון.</translation>
 <translation id="1638626287317244115">העתקת היומנים</translation>
 <translation id="175933110504178679">התהליך הזה יגרום למחיקת המידע האישי שלך. הוא עשוי להימשך מספר דקות. אין לכבות את המכשיר.</translation>
+<translation id="1950865024817806485">‏יש לעבור אל https://google.com/chromeos/recovery כדי לקבל פתרונות אפשריים או לנסות שוב.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">כיבוי</translation>
 <translation id="2160704550417277456">אפשרויות מתקדמות</translation>
 <translation id="2161775569013928937">להתחיל בשחזור?</translation>
@@ -27,13 +29,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="2704439832119932045">‏בוחרים בגרסה ובערוץ OS כדי להמשיך בתהליך השחזור</translation>
 <translation id="2731700343119398978">יש להמתין...</translation>
 <translation id="2904079386864173492">דגם:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">‏בעל המכשיר דורש שאימות מערכת ההפעלה של Chrome
-יופעל במכשיר זה. ניסית להתקין תמונה לא רשמית לשחזור מערכת ההפעלה של Chrome, שלא עוברת אימות.
-
-למידע נוסף, יש להיכנס לכתובת הזו:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">צריך להזין את סיסמת הרשת</translation>
 <translation id="3243756202241744259">אימות התקינות של מדיית השחזור...</translation>
 <translation id="3283913352572436199">לפי תצורת אמצעי המדיה לשחזור, תתבצע הגדרה אוטומטית אחרי ההפעלה מחדש.
@@ -47,15 +42,16 @@ https://www.google.com/chromeos/devmode</translation>
 
 כדי להמשיך בהגדרה האוטומטית, יש ללחוץ על מתג השחזור של המכשיר. אם ברצונך לבטל את השחזור, יש ללחוץ על לחצן ההפעלה ולהחזיק אותו עד כיבוי המכשיר (הלחיצה נמשכת עד 8 שניות).</translation>
 <translation id="3723985428118783104">תהליך השחזור מתבצע</translation>
-<translation id="3750930141330200643">‏מתבצע שימוש בגרסה מיושנת של תמונה לשחזור מערכת ההפעלה של Chrome.
-
-אפשר לעיין בכתובת הזו לקבלת הוראות ליצירת מדיה חדשה לשחזור:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">חזרה</translation>
 <translation id="3928994486545789273">יש לבחור רשת</translation>
 <translation id="3942420633017001071">אבחון</translation>
 <translation id="3946632524220974380">יש לעבור למפתח של פיתוח-תוכנה כדי להמשיך. התהליך אורך חמש דקות.</translation>
+<translation id="3986180833426451964">‏הבעלים של המכשיר דורש שהאימות של ChromeOS
+יופעל במכשיר הזה. ניסית להתקין תמונה לא רשמית לשחזור מערכת ההפעלה ChromeOS, שלא עוברת אימות.
+
+מידע נוסף זמין בכתובת הזו:
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">התהליך הזה עשוי לארוך מספר דקות</translation>
 <translation id="4007898787815310968">‏התרחשה שגיאה במהלך המחיקה המורחבת של התקן האחסון.
 
@@ -65,13 +61,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">רשתות זמינות</translation>
 <translation id="4261250127007881003">יומן הודעות</translation>
 <translation id="4287891348859705498">העתקת יומנים אל התקן האחסון החיצוני</translation>
-<translation id="436588829138218801">‏אימות מערכת ההפעלה של Chrome כבוי.
-
-אם האימות כובה בטעות, עליך לבטל את השחזור ולהשבית
-את מצב הפיתוח כדי להפעיל את השחזור. למידע נוסף,
-יש לעיין בכתובת האתר הזו:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">יש להשתמש בלחצני עוצמת הקול כדי לנווט מעלה ומטה</translation>
 <translation id="4412740632134951267">כדי לשנות, בוחרים אחת מהאפשרויות המתקדמות הרשומות</translation>
 <translation id="4486160941938493301">‏כדי לבחור שיטת שחזור אחרת, צריך לחזור אחורה בלחיצה על המקשים Esc‏ + רענון + לחצן ההפעלה</translation>
@@ -94,12 +83,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="537291066186627789">שחזור המערכת הושלם.
 
 יש להסיר את מדיית השחזור והמחשב יופעל מחדש באופן אוטומטי.</translation>
-<translation id="544118001572747892">‏נראה כי מערכת המחשב שלך אינה מערכת ההפעלה של Chrome!
-
-פעולה זו תמחק כל מערכת הפעלה אחרת שהתקנת
-ואת כל הנתונים. לא תהיה הזדמנות לגיבוי.
-אם יש נתונים במחשב זה שברצונך לשמור,
-עליך לבטל את השחזור.</translation>
 <translation id="5512602676102820748">הסוללה חלשה מדי ולא ניתן לבצע את העדכון.
 
 מתבצעת טעינה...
@@ -114,17 +97,33 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="6363786367719063276">הצגת היומנים</translation>
 <translation id="6374469231428023295">ניסיון נוסף</translation>
 <translation id="6388429950346313390">מצטערים, משהו השתבש</translation>
+<translation id="6408757960874122684">‏נראה שבמחשב שלך לא פועלת מערכת ChromeOS.
+
+הפעולה הזו תמחק את כל מערכות ההפעלה האחרות שהותקנו
+ואת כל הנתונים. לא תהיה הזדמנות לבצע גיבוי.
+אם יש במחשב הזה נתונים שחשוב לך לשמור,
+עליך לבטל את תהליך השחזור.</translation>
 <translation id="6451786478565057499">מחיקה מורחבת של התקן האחסון מתבצעת כעת...
 
 הפעולה עשויה לארוך זמן רב.</translation>
-<translation id="6478314309353607985">‏התמונה במדיית השחזור היא תמונת מפתח שלא אומתה.
+<translation id="64764858283438323">‏התמונה במדיה לשחזור היא תמונת פיתוח שלא אומתה.
 
-השחזור ימשיך כי ההפעלה המאומתת כבויה.
-אם בהמשך יופעל שוב האימות, יהיה צורך לחזור על
-השחזור עם תמונה רשמית של מערכת ההפעלה של Chrome.</translation>
+תהליך השחזור ימשיך כי ההפעלה המאומתת מושבתת.
+אם האימות יופעל שוב בהמשך, יהיה צורך לחזור על
+תהליך השחזור עם תמונה רשמית של ChromeOS.</translation>
 <translation id="6566947361877177265">צריך להתחבר לרשת כדי להתחיל את תהליך השחזור</translation>
 <translation id="6582194100503356658">הפעולה עשויה להימשך מספר דקות. אין לכבות את המכשיר או לנתק אותו מהחשמל.</translation>
+<translation id="662657262312410525">‏נעשה שימוש בגרסה מיושנת של תמונה לשחזור מערכת ההפעלה ChromeOS.
+
+אפשר לעיין בכתובת הזו לקבלת הוראות ליצירת מדיה חדשה לשחזור:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">יש לנתק את התקן האחסון החיצוני כדי להפעיל מחדש.</translation>
+<translation id="6691307183503218714">‏נעשה שימוש בגרסה מיושנת של תמונה רשמית לשחזור מערכת ההפעלה ChromeOS.
+
+תהליך השחזור ימשיך כי האימות מושבת.
+אם האימות יופעל שוב בהמשך, יהיה צורך לחזור על
+תהליך השחזור עם תמונה עדכנית של ChromeOS.</translation>
 <translation id="6868586188416530903">‏יומן tpm-firmware-updater</translation>
 <translation id="6895131867077828321">‏מקלידים את הסיסמה. מקישים על מקש Tab כדי להציג או להסתיר את הסיסמה. מקישים על Enter כדי לשלוח.</translation>
 <translation id="7126032376876878896">יש להשתמש בלחצן ההפעלה כדי לבחור אפשרות.</translation>
@@ -142,17 +141,18 @@ https://www.google.com/chromeos/recovery</translation>
 
 שחזור המערכת הסתיים.
 יש לנתק את מדיית השחזור, והמחשב יופעל מחדש באופן אוטומטי.</translation>
-<translation id="816304391526917903">‏נעשה שימוש בגרסה מיושנת של תמונה רשמית לשחזור מערכת ההפעלה של Chrome.
-
-השחזור ימשיך כי האימות כבוי.
-אם בהמשך יופעל שוב האימות, יהיה צורך לחזור על השחזור
-עם תמונה מעודכנת של מערכת ההפעלה של Chrome.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">אירעה שגיאה בזמן שחזור המכשיר. למידע נוסף:</translation>
 <translation id="8420829064199266609">מתבצע חיבור לרשת. יכול להיות שהפעולה תימשך עד כדקה.</translation>
 <translation id="8433773763660502318">לא ניתן היה להשלים את תהליך השחזור</translation>
 <translation id="8473826843543665828">צריך לבחור רשת חדשה או לנסות שוב</translation>
-<translation id="8518545754265418610">‏יש לעבור אל https://google.com/chromeos/recovery כדי לקבל פתרונות אפשריים או לנסות שוב.</translation>
+<translation id="8474679199432944250">‏האימות של ChromeOS מושבת.
+
+אם האימות הושבת בטעות, עליך לבטל את השחזור ולהשבית
+את מצב הפיתוח כדי להפעיל את האימות. מידע נוסף
+זמין בכתובת הזו:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">תהליך השחזור בשלבי סיום</translation>
 <translation id="8596190965261846034">מתבצעת התקנה של העדכון...
 

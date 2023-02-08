@@ -16,6 +16,8 @@ Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
 <translation id="1600199746926806589">Dispozitivul tău va fi automat înscris în domeniul prezentat mai jos. Verifică dacă este corect.</translation>
 <translation id="1638626287317244115">Copiază jurnalele</translation>
 <translation id="175933110504178679">Acest proces îți va șterge datele cu caracter personal. Va dura câteva minute. Nu opri dispozitivul.</translation>
+<translation id="1950865024817806485">https://google.com/chromeos/recovery pentru soluții posibile sau încearcă din nou.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Oprește alimentarea</translation>
 <translation id="2160704550417277456">Opțiuni avansate</translation>
 <translation id="2161775569013928937">Pornești recuperarea?</translation>
@@ -26,15 +28,6 @@ Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
 <translation id="2704439832119932045">Selectează canalul și versiunea SO pentru a continua recuperarea</translation>
 <translation id="2731700343119398978">Așteptați...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">Proprietarul dispozitivului solicită ca dispozitivul să ruleze având
-verificarea pentru sistemul de operare Chrome activată. Tu încerci
-să instalezi o imagine de recuperare neoficială a sistemului de operare
-Chrome, care nu trece de faza de verificare.
-
-Pentru mai multe informații, consultă această adresă URL:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">Introdu parola rețelei</translation>
 <translation id="3243756202241744259">Se verifică integritatea suportului de recuperare...</translation>
 <translation id="3283913352572436199">Suportul de recuperare este configurat pentru configurare automată după ce repornește.
@@ -53,17 +46,18 @@ Pentru a continua configurarea automată, apasă comutatorul de recuperare al
 dispozitivului. Dacă dorești să anulezi recuperarea, apasă lung pe
 butonul de alimentare până când computerul se închide (durează până la opt secunde).</translation>
 <translation id="3723985428118783104">Se recuperează</translation>
-<translation id="3750930141330200643">Folosești o imagine de recuperare a sistemului de operare Chrome neactualizată.
-
-Pentru instrucțiuni privind modul în care poți să creezi un
-nou suport de recuperare, accesează această adresă URL:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">Înapoi</translation>
 <translation id="3928994486545789273">Alege o rețea</translation>
 <translation id="3942420633017001071">Diagnosticare</translation>
 <translation id="3946632524220974380">Pentru a continua, este necesară modificarea cheii de dezvoltator;
 procesul necesită 5 minute.</translation>
+<translation id="3986180833426451964">Proprietarul dispozitivului solicită ca dispozitivul să ruleze cu
+verificarea pentru ChromeOS activată. Tu încerci
+să instalezi o imagine de recuperare neoficială a ChromeOS, care nu trece de faza de verificare.
+
+Pentru mai multe informații, consultă următoarea adresă URL:
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">Acest proces poate dura câteva minute</translation>
 <translation id="4007898787815310968">A apărut o eroare în timpul ștergerii avansate a discurilor.
 
@@ -73,13 +67,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Rețele disponibile</translation>
 <translation id="4261250127007881003">Jurnalul de mesaje</translation>
 <translation id="4287891348859705498">Copiază jurnalele pe discul extern</translation>
-<translation id="436588829138218801">Verificarea sistemului de operare Chrome este dezactivată.
-
-Dacă nu ai intenționat acest lucru, anulează recuperarea și
-dezactivează modul pentru dezvoltatori, pentru a activa verificarea.
-Pentru mai multe informații, consultă această adresă URL:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">Folosește butoanele de volum pentru a naviga în sus sau în jos.</translation>
 <translation id="4412740632134951267">Selectează una dintre opțiunile avansate de mai jos pentru a schimba</translation>
 <translation id="4486160941938493301">Dacă vrei să alegi altă metodă de recuperare, revino apăsând pe Esc + tasta de actualizare + tasta de pornire</translation>
@@ -102,11 +89,6 @@ Poți face în siguranță acest lucru oricând în timpul verificării.</transl
 <translation id="537291066186627789">Recuperarea sistemului este finalizată.
 
 Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
-<translation id="544118001572747892">Se pare că computerul nu folosește sistemul de operare Chrome!
-
-Această acțiune va șterge orice alt sistem de operare pe care l-ai
-instalat și toate datele; nu vei avea opțiunea de a face backup.
-Dacă pe computer ai date pe care vrei să le salvezi, anulează recuperarea.</translation>
 <translation id="5512602676102820748">Bateria este prea descărcată pentru actualizare.
 
 Se încarcă...
@@ -123,17 +105,33 @@ computerul se închide (durează până la opt secunde).</translation>
 <translation id="6363786367719063276">Consultă jurnalele</translation>
 <translation id="6374469231428023295">Încearcă din nou</translation>
 <translation id="6388429950346313390">A apărut o eroare</translation>
+<translation id="6408757960874122684">Computerul tău nu pare să ruleze ChromeOS!
+
+Această operațiune va șterge orice alt sistem de operare pe care îl ai
+instalat, împreună cu toate datele sale; nu va exista opțiunea de a face backup.
+Dacă ai date pe acest computer pe care dorești să le păstrezi, anulează recuperarea.</translation>
 <translation id="6451786478565057499">Are loc ștergerea avansată a discurilor...
 
 Procesul poate dura mult.</translation>
-<translation id="6478314309353607985">Imaginea de pe suportul de recuperare este o imagine de dezvoltare neverificată.
+<translation id="64764858283438323">Imaginea de pe suportul de recuperare este o imagine de dezvoltare neverificată.
 
 Recuperarea va continua, deoarece pornirea verificată este dezactivată.
 Dacă ulterior activezi verificarea, va fi necesar să repeți recuperarea
-folosind o imagine a sistemului de operare Chrome oficială.</translation>
+folosind o imagine a ChromeOS oficială.</translation>
 <translation id="6566947361877177265">Conectează-te la o rețea pentru a începe recuperarea</translation>
 <translation id="6582194100503356658">Poate dura câteva minute. Nu opri dispozitivul sau alimentarea.</translation>
+<translation id="662657262312410525">Folosești o imagine de recuperare a ChromeOS neactualizată.
+
+Pentru instrucțiuni privind modul în care poți să creezi un
+nou suport de recuperare, accesează următoarea adresă URL:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">Pentru a reporni, deconectează discul extern.</translation>
+<translation id="6691307183503218714">Folosești o imagine de recuperare a ChromeOS neactualizată.
+
+Recuperarea va continua, deoarece verificarea este dezactivată.
+Dacă ulterior activezi verificarea, va fi necesar să repeți recuperarea
+folosind o imagine a ChromeOS actualizată.</translation>
 <translation id="6868586188416530903">Jurnalul tpm-firmware-updater</translation>
 <translation id="6895131867077828321">Introdu parola. Apasă pe Tab pentru a afișa sau a ascunde parola. Apasă pe Enter pentru a trimite.</translation>
 <translation id="7126032376876878896">Folosește butonul de pornire pentru a selecta o opțiune.</translation>
@@ -151,17 +149,18 @@ https://www.google.com/chromeos/recovery</translation>
 
 Recuperarea sistemului s-a finalizat.
 Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
-<translation id="816304391526917903">Folosești o imagine de recuperare a sistemului de operare Chrome oficială neactualizată.
-
-Recuperarea va continua, deoarece verificarea este dezactivată.
-Dacă ulterior activezi verificarea, va fi necesar să repeți recuperarea
-folosind o imagine a sistemului de operare Chrome actualizată.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">A apărut o eroare în timpul recuperării dispozitivului. Consultă</translation>
 <translation id="8420829064199266609">Se conectează la rețea. Poate dura până la un minut.</translation>
 <translation id="8433773763660502318">Nu s-a putut finaliza procesul de recuperare</translation>
 <translation id="8473826843543665828">Selectează o rețea nouă sau încearcă din nou</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery pentru soluții posibile sau încearcă din nou.</translation>
+<translation id="8474679199432944250">Verificarea ChromeOS este dezactivată.
+
+Dacă nu ai intenționat acest lucru, anulează recuperarea și
+dezactivează modul pentru dezvoltatori, pentru a activa verificarea.
+Pentru mai multe informații, consultă următoarea adresă URL:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">Se finalizează recuperarea</translation>
 <translation id="8596190965261846034">Se instalează actualizarea...
 

@@ -17,6 +17,8 @@ Extreu el mitjà de recuperació i l'ordinador es reiniciarà automàticament.</
 Verifica que sigui correcte.</translation>
 <translation id="1638626287317244115">Copia els registres</translation>
 <translation id="175933110504178679">Aquest procés netejarà les teves dades personals. Tardarà uns quants minuts. No apaguis el dispositiu.</translation>
+<translation id="1950865024817806485">https://google.com/chromeos/recovery per veure solucions possibles o tornar-ho a provar.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Apaga</translation>
 <translation id="2160704550417277456">Opcions avançades</translation>
 <translation id="2161775569013928937">Vols iniciar la recuperació?</translation>
@@ -24,15 +26,9 @@ Verifica que sigui correcte.</translation>
 <translation id="2367943141906694421">No s'ha trobat cap xarxa</translation>
 <translation id="2437368373459239842">Aquest procés tardarà uns quants minuts</translation>
 <translation id="2596600434078055015">Opcions de depuració de la recuperació</translation>
-<translation id="2704439832119932045">Selecciona el canal i la versió del SO per continuar amb la recuperació</translation>
+<translation id="2704439832119932045">Selecciona el canal i la versió de l'SO per continuar amb la recuperació</translation>
 <translation id="2731700343119398978">Espereu...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">El propietari del dispositiu requereix que el dispositiu s'executi amb la verificació de Chrome OS activada. Esteu provant d'instal·lar una imatge de recuperació de Chrome OS no oficial, que no s'ha pogut verificar.
-
-Per obtenir més informació, consulteu l'URL següent:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">Introdueix la contrasenya de la xarxa</translation>
 <translation id="3243756202241744259">S'està verificant la integritat del mitjà de recuperació...</translation>
 <translation id="3283913352572436199">El mitjà de recuperació s'ha definit de manera que es configuri automàticament després de reiniciar-se.
@@ -50,15 +46,15 @@ Per continuar amb la configuració automàtica, prem el botó de recuperació de
 Si vols cancel·lar la recuperació, mantén premut el botó d'engegada
 fins que el dispositiu s'apagui (pot tardar fins a 8 segons).</translation>
 <translation id="3723985428118783104">Recuperació en curs</translation>
-<translation id="3750930141330200643">Esteu utilitzant una imatge de recuperació de Chrome OS obsoleta.
-
-Consulteu l'URL següent per obtenir instruccions sobre com es poden crear mitjans de recuperació nous:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">Enrere</translation>
 <translation id="3928994486545789273">Tria la xarxa</translation>
 <translation id="3942420633017001071">Diagnòstic</translation>
 <translation id="3946632524220974380">Cal canviar la clau de desenvolupador per continuar. Aquest procés tarda 5 minuts.</translation>
+<translation id="3986180833426451964">El propietari del dispositiu requereix que aquest dispositiu s'executi amb la verificació de ChromeOS activada. Estàs provant d'instal·lar una imatge de recuperació de ChromeOS no oficial, la qual no supera la verificació.
+
+Per obtenir més informació, consulta aquest URL:
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">Aquest procés pot tardar uns quants minuts</translation>
 <translation id="4007898787815310968">S'ha produït un error durant la supressió millorada de les dades del disc.
 
@@ -68,11 +64,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Xarxes disponibles</translation>
 <translation id="4261250127007881003">Registre de missatges</translation>
 <translation id="4287891348859705498">Copia els registres al disc extern</translation>
-<translation id="436588829138218801">La verificació de Chrome OS està desactivada.
-
-Si no l'heu desactivada expressament, cancel·leu la recuperació i desactiveu el mode de desenvolupador per poder activar la verificació. Per obtenir més informació, consulteu l'URL següent:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">Utilitza els botons de volum per navegar cap amunt o cap avall.</translation>
 <translation id="4412740632134951267">Selecciona les opcions avançades següents per canviar</translation>
 <translation id="4486160941938493301">Si vols triar un mètode de recuperació diferent, prem Esc+Actualitza+el botó d'engegada per tornar enrere</translation>
@@ -94,9 +85,6 @@ Es pot fer de manera segura en qualsevol moment durant la verificació.</transla
 <translation id="537291066186627789">La recuperació del sistema s'ha completat.
 
 Extraieu el mitjà de recuperació i l'ordinador es reiniciarà automàticament.</translation>
-<translation id="544118001572747892">Sembla que el vostre ordinador no és un sistema Chrome OS.
-
-Aquesta operació suprimirà qualsevol altre sistema operatiu que tingueu instal·lat i totes les dades que hi tingueu desades; no en podreu fer cap còpia de seguretat. Si teniu dades a l'ordinador que vulgueu conservar, cancel·leu la recuperació.</translation>
 <translation id="5512602676102820748">No hi ha prou bateria per fer l'actualització.
 
 S'està carregant...
@@ -113,15 +101,27 @@ fins que el dispositiu s'apagui (pot tardar fins a 8 segons).</translation>
 <translation id="6363786367719063276">Mostra els registres</translation>
 <translation id="6374469231428023295">Torna-ho a provar</translation>
 <translation id="6388429950346313390">S'ha produït un error</translation>
+<translation id="6408757960874122684">No sembla que el teu ordinador sigui un sistema ChromeOS.
+
+Aquesta operació suprimirà qualsevol altre sistema operatiu que tinguis instal·lat i totes les dades. No podràs crear cap còpia de seguretat.
+Si en aquest ordinador tens dades que vols conservar, cancel·la la recuperació.</translation>
 <translation id="6451786478565057499">La supressió millorada de les dades del disc està en curs...
 
 Aquest procés pot tardar molta estona.</translation>
-<translation id="6478314309353607985">La imatge del mitjà de recuperació és una imatge de desenvolupador no verificada.
+<translation id="64764858283438323">La imatge del mitjà de recuperació és una imatge de desenvolupador no verificada.
 
-La recuperació continuarà perquè l'inici verificat està desactivat. Si més endavant torneu a activar la verificació, haureu de repetir la recuperació amb una imatge de Chrome OS oficial.</translation>
+La recuperació continuarà perquè l'inici verificat està desactivat. Si, més endavant, tornes a activar la verificació, hauràs de repetir la recuperació amb una imatge de ChromeOS oficial.</translation>
 <translation id="6566947361877177265">Connecta't a una xarxa per començar la recuperació</translation>
 <translation id="6582194100503356658">Aquest procés pot tardar uns minuts. No apaguis el dispositiu ni desconnectis la font d'alimentació.</translation>
+<translation id="662657262312410525">Utilitzes una imatge de recuperació de ChromeOS obsoleta.
+
+Consulta aquest URL per obtenir instruccions sobre com es poden crear mitjans de recuperació nous:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">Desendolla el disc extern perquè comenci el reinici.</translation>
+<translation id="6691307183503218714">Utilitzes una imatge de recuperació de ChromeOS oficial obsoleta.
+
+La recuperació continuarà perquè la verificació està desactivada. Si, més endavant, tornes a activar la verificació, hauràs de repetir la recuperació amb una imatge de ChromeOS actualitzada.</translation>
 <translation id="6868586188416530903">Registre de tpm-firmware-updater</translation>
 <translation id="6895131867077828321">Escriu la contrasenya. Prem Tab per mostrar o amagar la contrasenya. Prem Retorn per enviar-la.</translation>
 <translation id="7126032376876878896">Utilitza el botó d'engegada per seleccionar una opció.</translation>
@@ -139,15 +139,16 @@ https://www.google.com/chromeos/recovery</translation>
 
 La recuperació del sistema s'ha completat.
 Extreu el mitjà de recuperació i l'ordinador es reiniciarà automàticament.</translation>
-<translation id="816304391526917903">Esteu utilitzant una imatge de recuperació de Chrome OS oficial obsoleta.
-
-La recuperació continuarà perquè la verificació està desactivada. Si més endavant torneu a activar la verificació, haureu de repetir la recuperació amb una imatge de Chrome OS actualitzada.</translation>
 <translation id="8179976553408161302">Retorn</translation>
 <translation id="8361934271307901704">S'ha produït un error en recuperar el dispositiu. Consulta</translation>
 <translation id="8420829064199266609">S'està connectant a la xarxa. Aquesta acció pot tardar fins a un minut.</translation>
 <translation id="8433773763660502318">No s'ha pogut finalitzar el procés de recuperació</translation>
 <translation id="8473826843543665828">Selecciona una xarxa nova o torna-ho a provar</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery per veure solucions possibles o torna-ho a provar.</translation>
+<translation id="8474679199432944250">La verificació de ChromeOS està desactivada.
+
+Si s’ha desactivat sense voler, cancel·la la recuperació i desactiva el mode de desenvolupador per poder activar la verificació. Per obtenir més informació, consulta aquest URL:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">S'està finalitzant la recuperació</translation>
 <translation id="8596190965261846034">S'està instal·lant l'actualització...
 

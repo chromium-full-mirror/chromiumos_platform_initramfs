@@ -17,6 +17,8 @@ Tiklash vositalarini uzing va kompyuter qaytadan ishga tushadi.</translation>
 Domen manzilini tasdiqlang.</translation>
 <translation id="1638626287317244115">Jurnallarni nusxalash</translation>
 <translation id="175933110504178679">Bu jarayonda barcha shaxsiy maʼlumotlaringiz tozalanadi. Bu bir necha daqiqa vaqt oladi. Qurilmani oʻchirmang.</translation>
+<translation id="1950865024817806485">https://google.com/chromeos/recovery sahifasidan yechim qidiring yoki qaytadan urining.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">O‘chirish</translation>
 <translation id="2160704550417277456">Kengaytirilgan sozlamalar</translation>
 <translation id="2161775569013928937">Tiklash boshlansinmi?</translation>
@@ -27,12 +29,6 @@ Domen manzilini tasdiqlang.</translation>
 <translation id="2704439832119932045">Tiklashda davom etish uchun operatsion tizim kanali va versiyasini tanlang</translation>
 <translation id="2731700343119398978">Iltimos, kuting...</translation>
 <translation id="2904079386864173492">Modeli:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">Siz tizimni tashqi tasvir faylidan tiklamoqchi bo‘lyapsiz. Qurilma egasi Chrome OS tekshiruvini yoqib qo‘ygan, shuning uchun siz o‘rnatmoqchi bo‘lgan versiya o‘rnamaydi.
-
-Qo‘shimcha ma’lumot uchun quyidagi sahifaga o‘ting:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">Tarmoq parolini kiriting</translation>
 <translation id="3243756202241744259">Tizimni qayta tiklovchi xotira qurilmasining yaroqliligi tekshirilmoqda...</translation>
 <translation id="3283913352572436199">Qayta tiklovchi xotira qurilmasi o‘chib yongan qurilmani avtomatik sozlaydi.
@@ -51,15 +47,18 @@ Avtomatik sozlanishi uchun qurilmani tiklovchi tugmani bosing. Qayta tiklash
 bajarilmasligi uchun esa quvvat tugmasini qurilma o‘chgunga qadar
 bosib turing (taxminan 8 soniya).</translation>
 <translation id="3723985428118783104">Tiklanmoqda</translation>
-<translation id="3750930141330200643">Siz foydalanayotgan Chrome OS qayta tiklash tasviri eskirgan.
-
-Yangi tasvirni qanday yaratish haqida batafsil ma’lumotlarni quyidagi sahifadan olish mumkin:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">Orqaga</translation>
 <translation id="3928994486545789273">Tarmoqni tanlang</translation>
 <translation id="3942420633017001071">Diagnostika</translation>
 <translation id="3946632524220974380">Davom etish uchun dasturchi kaliti zarur, bu 5 daqiqa vaqtingizni olishi mumkin.</translation>
+<translation id="3986180833426451964">Qurilma egasi tomonidan ChromeOS
+tekshiruvi yoqilgan, shuning uchun siz
+urinayotgan norasmiy versiya oʻrnatilmaydi.
+Joriy ChromeOS tizimini tiklash tasviri tekshiruvdan oʻtmaydi.
+
+Batafsil axborot olish uchun quyidagi sahifani oching:
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">Bu jarayon bir necha daqiqa vaqt olishi mumkin</translation>
 <translation id="4007898787815310968">Diskni yaxshilab tozalash vaqtida xatolik yuz berdi.
 
@@ -69,11 +68,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Mavjud tarmoqlar</translation>
 <translation id="4261250127007881003">Xabarlar jurnali</translation>
 <translation id="4287891348859705498">Tashqi diskdagi jurnal yozuvlarini nusxalash</translation>
-<translation id="436588829138218801">Chrome OS tekshiruvi o‘chirib qo‘yilgan.
-
-Agar tekshiruv bajarilishini xohlasangiz, tizimni tiklash amalini bekor qiling va dasturchi rejimidan chiqing. Batafsil ma’lumotlarni quyidagi sahifadan topish mumkin:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">Bandlarni ovoz balandligi tugmalari orqali kezing.</translation>
 <translation id="4412740632134951267">Oʻzgartirish uchun pastdagi kengaytirilgn sozlamalarni tanlang</translation>
 <translation id="4486160941938493301">Boshqa tiklash usulini tanlamoqchi boʻlsangiz, Esc + Yangilash + Quvvat tugmalarini birga bosib, ortga qaytishingiz mumkin</translation>
@@ -98,11 +92,6 @@ Bu amalni tekshiruv davomida istalgan vaqtda bajarish mumkin.</translation>
 <translation id="537291066186627789">Tizim qaytadan tiklandi.
 
 Qayta tiklovchi xotira qurilmasini chiqarib oling, keyin kompyuter avtomatik ravishda o‘chib yonadi.</translation>
-<translation id="544118001572747892">Kompyuteringiz Chrome OS tizimida emas ekan!
-
-Bu amal natijasida o‘rnatilgan har qanday operatsion tizim hamda ma’lumotlar o‘chirib tashlanadi; ularni zaxiralash imkoni berilmaydi.
-Bu kompyuterdagi qaysidir ma’lumotni saqlab qolish kerak bo‘lsa, qayta tiklashni
-bekor qilishingiz kerak.</translation>
 <translation id="5512602676102820748">Batareya quvvati yetarli emas.
 
 Quvvatlanmoqda...
@@ -119,17 +108,32 @@ qadar bosib turing (taxminan 8 soniya).</translation>
 <translation id="6363786367719063276">Jurnallarni ochish</translation>
 <translation id="6374469231428023295">Qaytadan</translation>
 <translation id="6388429950346313390">Nimadir xato ketdi</translation>
+<translation id="6408757960874122684">Kompyuteringiz ChromeOS tizimida emas shekilli!
+
+Bu amal natijasida oʻrnatilgan har qanday operatsion tizim hamda maʼlumotlar oʻchirib tashlanadi; ularni zaxiralash imkoni berilmaydi.
+Bu kompyuterdagi ayrim maʼlumotni saqlab qolish kerak boʻlsa, qayta tiklashni
+bekor qilishingiz lozim.</translation>
 <translation id="6451786478565057499">Disklar yaxshilab tozalanmoqda...
 
 Bu anchagina vaqt olishi mumkin.</translation>
-<translation id="6478314309353607985">Siz foydalanayotgan Chrome OS qayta tiklash tasviri haqiqiylik tekshiruvidan o‘tmadi.
+<translation id="64764858283438323">Siz foydalanayotgan ChromeOS qayta tiklash tasviri haqiqiylik tekshiruvidan oʻtmadi.
 
-Qayta tiklash davom etadi, chunki tekshirish o‘chirib qo‘yilgan.
-Agar keyinchalik tekshirishni yoqsangiz, qayta tiklashni
-yangi Chrome OS tasviri bilan takrorlashingiz kerak.</translation>
+Qayta tiklash davom etadi, chunki tekshiruv vositasi yoniq emas.
+Agar keyinchalik tekshiruv yoqilsa, qayta tiklashni
+yangi ChromeOS tasviri bilan takrorlashingiz kerak.</translation>
 <translation id="6566947361877177265">Tiklashni boshlash uchun tarmoqqa ulaning</translation>
 <translation id="6582194100503356658">Bu bir necha daqiqa vaqt olishi mumkin. Qurilmani oʻchirmang va elektr quvvatini uzmang.</translation>
+<translation id="662657262312410525">Siz foydalanayotgan ChromeOS qayta tiklash tasviri eskirgan.
+
+Yangi tasvirni qanday yaratish haqida batafsil axborotni quyidagi sahifadan olish mumkin:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">Qaytadan ishga tushirish uchun tashqi diskni uzing.</translation>
+<translation id="6691307183503218714">Siz foydalanayotgan ChromeOS rasmiy qayta tiklash tasviri eskirgan.
+
+Qayta tiklash davom etadi, chunki tekshiruv vositasi yoqilmagan.
+Agar keyinchalik tekshiruv yoqilsa, qayta tiklashni
+yangi ChromeOS tasviri bilan takrorlashingiz kerak.</translation>
 <translation id="6868586188416530903">tpm-firmware-updater jurnali</translation>
 <translation id="6895131867077828321">Parolingizni tering. Parolni koʻrsatish yoki yashirish uchun Tab tugmasini bosing. Yuborish uchun Enter tugmasini bosing.</translation>
 <translation id="7126032376876878896">Tanlash uchun quvvat tugmasini ishlating.</translation>
@@ -147,17 +151,16 @@ https://www.google.com/chromeos/recovery</translation>
 
 Tizimni tiklash yakunlandi.
 Tiklash vositalarini uzing va kompyuter qaytadan ishga tushadi.</translation>
-<translation id="816304391526917903">Siz foydalanayotgan Chrome OS rasmiy qayta tiklash tasviri eskirgan.
-
-Qayta tiklash davom etadi, chunki tekshirish o‘chirib qo‘yilgan.
-Agar keyinchalik tekshirishni yoqsangiz, qayta tiklashni
-yangi Chrome OS tasviri bilan takrorlashingiz kerak.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">Qurilmani tiklashda xatolik yuz berdi, Batafsil:</translation>
 <translation id="8420829064199266609">Tarmoqqa ulanmoqda. Bu bir daqiqagacha vaqt olishi mumkin.</translation>
 <translation id="8433773763660502318">Tiklash jarayoni yakunlanmadi</translation>
 <translation id="8473826843543665828">Yangi tarmoqni tanlang yoki qayta urining</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery sahifasidan yechim qidiring yoki qaytadan urining.</translation>
+<translation id="8474679199432944250">ChromeOS tekshiruvi yoniq emas.
+
+Agar tekshiruv bajarilishini istasangiz, tizimni tiklash amalini bekor qiling va dasturchi rejimidan chiqing. Batafsil axborot olish uchun quyidagi sahifani oching:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">Tiklash yakunlanmoqda</translation>
 <translation id="8596190965261846034">Yangilanish o‘rnatilmoqda...
 

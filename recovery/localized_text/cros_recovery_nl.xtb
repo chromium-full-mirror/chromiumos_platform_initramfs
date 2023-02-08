@@ -17,6 +17,8 @@ Verwijder het herstelmedium. Je computer wordt automatisch opnieuw gestart.</tra
 Controleer of het correct is.</translation>
 <translation id="1638626287317244115">Logboeken kopiëren</translation>
 <translation id="175933110504178679">Met dit proces worden je persoonsgegevens gewist. Dit kan enkele minuten duren. Zet het apparaat niet uit.</translation>
+<translation id="1950865024817806485">https://google.com/chromeos/recovery voor mogelijke oplossingen of probeer het opnieuw.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Uitzetten</translation>
 <translation id="2160704550417277456">Geavanceerde opties</translation>
 <translation id="2161775569013928937">Herstel starten?</translation>
@@ -27,12 +29,6 @@ Controleer of het correct is.</translation>
 <translation id="2704439832119932045">Selecteer OS-kanaal en -versie om door te gaan met het herstel</translation>
 <translation id="2731700343119398978">Even geduld...</translation>
 <translation id="2904079386864173492">Model:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">De eigenaar van het apparaat vereist dat dit apparaat wordt uitgevoerd met Chrome OS-verificatie. Je probeert een niet-officiële Chrome OS-herstelimage te installeren die de verificatie niet doorstaat.
-
-Ga naar de onderstaande URL voor meer informatie:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">Vul het wachtwoord van het netwerk in</translation>
 <translation id="3243756202241744259">De integriteit van je herstelmedium wordt geverifieerd...</translation>
 <translation id="3283913352572436199">Je herstelmedium is ingesteld voor automatische configuratie nadat dit opnieuw is opgestart.
@@ -46,15 +42,15 @@ Sluit je Chromebook aan op een stroombron. De update wordt automatisch gestart w
 
 Als je wilt doorgaan met de automatische configuratie, druk je op de herstelknop van het apparaat. Als je het herstel wilt annuleren, houd je de aan/uit-knop ingedrukt totdat het apparaat wordt uitgezet (dit duurt maximaal 8 seconden).</translation>
 <translation id="3723985428118783104">Bezig met herstel</translation>
-<translation id="3750930141330200643">Je gebruikt een verouderde Chrome OS-herstelimage.
-
-Ga naar de volgende URL voor instructies voor het maken van een nieuw herstelmedium:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">Terug</translation>
 <translation id="3928994486545789273">Netwerk kiezen</translation>
 <translation id="3942420633017001071">Diagnose</translation>
 <translation id="3946632524220974380">De ontwikkelaarssleutel moet worden gewijzigd om door te gaan. Dit proces duurt vijf minuten.</translation>
+<translation id="3986180833426451964">De eigenaar van het apparaat vereist dat dit apparaat wordt uitgevoerd met ChromeOS-verificatie aangezet. Je probeert een niet-officiële ChromeOS-herstelimage te installeren die de verificatie niet doorstaat.
+
+Ga naar de onderstaande URL voor meer informatie:
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">Dit kan enkele minuten duren</translation>
 <translation id="4007898787815310968">Er is een fout opgetreden tijdens de uitgebreide schijfverwijdering.
 
@@ -64,11 +60,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Beschikbare netwerken</translation>
 <translation id="4261250127007881003">Berichtenlogboek</translation>
 <translation id="4287891348859705498">Logboeken kopiëren naar externe schijf</translation>
-<translation id="436588829138218801">Chrome OS-verificatie is uitgezet.
-
-Als dit niet de bedoeling is, moet je het herstel annuleren en de ontwikkelaarsmodus uitzetten om verificatie aan te zetten. Ga naar de onderstaande URL voor meer informatie:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">Gebruik de volumeknoppen om omhoog of omlaag te navigeren.</translation>
 <translation id="4412740632134951267">Selecteer hieronder geavanceerde opties die je wilt aanpassen</translation>
 <translation id="4486160941938493301">Als je een andere herstelmethode wilt kiezen, ga je terug door op Esc + Vernieuwen + Aan/uit te drukken</translation>
@@ -91,10 +82,6 @@ Je kunt dit op elk moment tijdens de verificatie veilig doen.</translation>
 <translation id="537291066186627789">Systeemherstel is voltooid.
 
 Verwijder het herstelmedium. Je computer wordt automatisch opnieuw opgestart.</translation>
-<translation id="544118001572747892">Het lijkt erop dat Chrome OS niet op je computer is geïnstalleerd.
-
-Met deze bewerking wordt een ander besturingssysteem dat mogelijk is geïnstalleerd verwijderd, evenals alle gegevens. Er is geen mogelijkheid om een back-up te maken.
-Als er gegevens op deze computer staan die je wilt behouden, moet je het herstel annuleren.</translation>
 <translation id="5512602676102820748">Batterij niet voldoende opgeladen voor update.
 
 Opladen...
@@ -109,16 +96,29 @@ Als je wilt doorgaan met de automatische configuratie, druk je op Enter. Anders 
 <translation id="6363786367719063276">Logboeken bekijken</translation>
 <translation id="6374469231428023295">Opnieuw proberen</translation>
 <translation id="6388429950346313390">Er is iets misgegaan</translation>
+<translation id="6408757960874122684">Het lijkt erop dat je computer geen ChromeOS-systeem is.
+
+Als je deze bewerking uitvoert, worden andere geïnstalleerde besturingssystemen en alle gegevens verwijderd. Je kunt geen back-up maken.
+Als er gegevens op deze computer staan die je wilt behouden, annuleer je het herstel.</translation>
 <translation id="6451786478565057499">Uitgebreide schijfverwijdering is bezig…
 
 Dit kan lang duren.</translation>
-<translation id="6478314309353607985">De image op je herstelmedium is een niet-geverifieerde ontwikkelaarsimage.
+<translation id="64764858283438323">De image op je herstelmedium is een niet-geverifieerde ontwikkelaarsimage.
 
-Het herstel wordt voortgezet omdat geverifieerd opstarten is uitgezet.
-Als je verificatie later weer aanzet, moet je het herstel opnieuw uitvoeren met een officiële Chrome OS-image.</translation>
+Het herstel wordt voortgezet omdat Verified Boot is uitgezet.
+Als je verificatie later weer aanzet, moet je het herstel opnieuw uitvoeren met een officiële ChromeOS-image.</translation>
 <translation id="6566947361877177265">Maak verbinding met een netwerk om het herstel te starten</translation>
 <translation id="6582194100503356658">Dit kan een paar minuten duren. Zet het apparaat niet uit en haal de stekker niet uit het stopcontact.</translation>
+<translation id="662657262312410525">Je gebruikt een verouderde ChromeOS-herstelimage.
+
+Ga naar de volgende URL voor instructies om een nieuw herstelmedium te maken:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">Ontkoppel je externe schijf om opnieuw op te starten.</translation>
+<translation id="6691307183503218714">Je gebruikt een verouderde officiële ChromeOS-herstelimage.
+
+Het herstel wordt voortgezet omdat verificatie is uitgezet.
+Als je verificatie later weer aanzet, moet je het herstel opnieuw uitvoeren met een up-to-date ChromeOS-image.</translation>
 <translation id="6868586188416530903">Logboek tpm-firmware-updater</translation>
 <translation id="6895131867077828321">Typ je wachtwoord. Druk op Tab om het wachtwoord leesbaar te maken of te verbergen. Druk op Enter om het te versturen.</translation>
 <translation id="7126032376876878896">Gebruik de aan/uit-knop om een optie te selecteren.</translation>
@@ -136,16 +136,16 @@ https://www.google.com/chromeos/recovery</translation>
 
 Systeemherstel is voltooid.
 Verwijder het herstelmedium. Je computer wordt automatisch opnieuw gestart.</translation>
-<translation id="816304391526917903">Je gebruikt een verouderde officiële Chrome OS-herstelimage.
-
-Het herstel wordt voortgezet omdat verificatie is uitgezet.
-Als je verificatie later weer aanzet, moet je het herstel opnieuw uitvoeren met een actuele Chrome OS-image.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">Er is een fout opgetreden bij het herstellen van je apparaat. Ga naar</translation>
 <translation id="8420829064199266609">Verbinding maken met het netwerk. Dit kan een minuut duren.</translation>
 <translation id="8433773763660502318">Kan het herstelproces niet voltooien</translation>
 <translation id="8473826843543665828">Selecteer een nieuw netwerk of probeer het opnieuw</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery voor mogelijke oplossingen of probeer het opnieuw.</translation>
+<translation id="8474679199432944250">ChromeOS-verificatie is uitgezet.
+
+Als dit niet de bedoeling is, annuleer je het herstel en zet je de ontwikkelaarsmodus uit om verificatie aan te zetten. Ga naar de onderstaande URL voor meer informatie:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">Herstel afronden</translation>
 <translation id="8596190965261846034">Update installeren...
 

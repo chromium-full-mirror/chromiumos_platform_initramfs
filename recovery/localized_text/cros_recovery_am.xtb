@@ -17,6 +17,8 @@ https://www.google.com/chromeos/recovery</translation>
 እባክዎ ትክክል መሆኑን ያረጋግጡ።</translation>
 <translation id="1638626287317244115">የምዝግብ ማስታወሻዎችን ቅዳ</translation>
 <translation id="175933110504178679">ይህ ሂደት የግል ውሂብዎን ይጠርጋል። ይህ በርካታ ደቂቃዎችን ይወስዳል። መሣሪያውን አያጥፉ።</translation>
+<translation id="1950865024817806485">ሊሆኑ ለሚችሉ መፍትሔዎች https://google.com/chromeos/recovery ወይም እንደገና ይሞክሩ።</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">ኃይል አጥፋ</translation>
 <translation id="2160704550417277456">የላቁ አማራጮች</translation>
 <translation id="2161775569013928937">መልሶ ማግኘት ይጀምር?</translation>
@@ -27,13 +29,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="2704439832119932045">መልሶ ማግኘቱን ለመቀጠል የOS ሰርጥ እና ስሪት ይምረጡ</translation>
 <translation id="2731700343119398978">እባክዎ ይጠብቁ...</translation>
 <translation id="2904079386864173492">ሞዴል፦</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">የመሣሪያው ባለቤት ይህ መሣሪያ የChrome OS
-ማረጋገጫ እንደበራ እንዲሰራ ይጠይቃል።  ማረጋገጫ የማያልፍ ኦፊሴላዊ ያልሆነ የChrome OS እንደነበረ መመለሻ ምስል ለመጫን እየሞከሩ ነው።
-
-ለተጨማሪ መረጃ፣ ይህንን ዩአርኤል ይመልከቱ፦
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">የአውታረ መረብ የይለፍ ቃል ያስገቡ</translation>
 <translation id="3243756202241744259">የእርስዎን የእንደነበረ መመለሻ ሚዲያ ተአማኒነት በማረጋገጥ ላይ...</translation>
 <translation id="3283913352572436199">የእርስዎ የመልሶ ማግኛ ሚዲያ ዳግም ከተነሳ በኋላ ለራስ-ሰር ውቅረት ተዋቅሯል።
@@ -48,15 +43,17 @@ https://www.google.com/chromeos/devmode</translation>
 
 በራስ-ሰር ውቅረት ለመቀጠል የመሣሪያው መልሶ ማግኛ ማብሪያ/ማጥፊያ ይጫኑ። መልሶ ማግኘትን መሰረዝ ከፈለጉ የኃይል አዝራሩን ይጫኑትና መሣሪያው እስኪጠፋ ድረስ ይያዙት (ይህ እስከ 8 ሰከንዶች ድረስ ሊወስድ ይችላል)።</translation>
 <translation id="3723985428118783104">ማልሶ ማግኘት በሂደት ላይ</translation>
-<translation id="3750930141330200643">ጊዜው ያለፈበት የChrome OS እንደነበረ መመለሻ ምስል እየተጠቀሙ ነው።
-
-እንዴት አዲስ እንደነበረ መመለሻ ሚዲያን መፍጠር እንደሚቻል መመሪያዎችን ለማግኘት እባክዎ ይህን ዩአርኤል ይመልከቱ፦
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">ተመለስ</translation>
 <translation id="3928994486545789273">አውታረ መረብ ይምረጡ</translation>
 <translation id="3942420633017001071">ምርመራ</translation>
 <translation id="3946632524220974380">ወደፊት ለመቀጠል የገንቢ ቁልፍ ለውጥ ያስፈልጋል፣ ይህ ሂደት 5 ደቂቃዎችን ይፈልጋል።</translation>
+<translation id="3986180833426451964">የመሣሪያው ባለቤት ይህ መሣሪያ የChrome OS ማረጋገጫ
+በርቶ ሳለ እንዲሰራ ይጠይቃሉ።  ማረጋገጫን የማያልፍ ይፋዊ ያልሆነ
+የChrome OS መልሶ ማግኛ ምስልን ለመጫን እየሞከሩ ነው።
+
+ለተጨማሪ መረጃ ይህን ዩአርኤል ዋቢ ያድርጉ፦
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">ይሄ ሂደት ጥቂት ደቂቃዎችን ሊወስድ ይችላል</translation>
 <translation id="4007898787815310968">በተሻሻለ የዲስክ ስረዛ ወቅት አንድ ስህተት ነበር።
 
@@ -66,11 +63,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">የሚገኙ አውታረ መረቦች</translation>
 <translation id="4261250127007881003">የመልዕክት ምዝግብ ማስታወሻ</translation>
 <translation id="4287891348859705498">ምዝግብ ማስታወሻዎችን ወደ ውጫዊ ዲስክዎ ይቅዱ</translation>
-<translation id="436588829138218801">የChrome OS ማረጋገጫ ጠፍቷል።
-
-ይህ ሆን ተብሎ ያልተደረገ ከሆነ፣ እንደነበረ መመለስን ለመሰረዝ እና ማረጋገጫን ለማንቃት የገንቢ ሁነታን ማሰናከል ይኖርብዎታል።  ለተጨማሪ መረጃ፣ ይህንን ዩአርኤል ይመልከቱ፦
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">ወደ ላይ ወይም ወደ ታች ለማሰስ የድምፅ አዝራሮችን ይጠቀሙ።</translation>
 <translation id="4412740632134951267">ለመለወጥ ከዚህ በታች ያሉ የላቁ አማራጮችን ይምረጡ</translation>
 <translation id="4486160941938493301">የተለየ የመልሶ ማግኛ ዘዴን ለመምረጥ ከፈለጉ Esc + Refresh + Powerን በመጫን ወደኋላ ይመለሱ</translation>
@@ -93,10 +85,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="537291066186627789">ስርዓትን እንደነበረ መመለስ ሂደት ተጠናቋል።
 
 እባክዎ እንደነበረ መመለሻውን ሚዲያ ያስወግዱ እና የእርስዎ ኮምፒውተር በራስ-ሰር ዳግም ይጀምራል።</translation>
-<translation id="544118001572747892">ኮምፒውተርዎ የChrome OS ስርዓት አይመስልም!
-
-ስርዓተ ክወናው ማናቸውንም እርስዎ ያልዎትን የተጫኑ ሌሎች የስርዓተ ክወናዎችን እና ሁሉንም ውሂብ ይሰረዛል፣ በምትኬ ለማስቀመጥ ምንም ዕድል አይኖርም።
-በዚህ ኮምፒውተር ላይ ጠብቀው ሊያቆዩት የሚፈልጉት ምንም ዓይነት ውሂብ ካልዎት፣ እንደነበረ መመለስን መሰረዝ አለብዎት።</translation>
 <translation id="5512602676102820748">እንዳይዘመን ባትሪው በጣም ዝቅተኛ ነው።
 
 ኃይል በመሙላት ላይ...
@@ -111,16 +99,34 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="6363786367719063276">ምዝግብ ማስታወሻ ይመልከቱ</translation>
 <translation id="6374469231428023295">እንደገና ይሞክሩ</translation>
 <translation id="6388429950346313390">ይቅርታ፣ የሆነ ችግር ተፈጥሯል</translation>
+<translation id="6408757960874122684">ኮምፒውተርዎ የChrome OS ስርዓት አይመስልም!
+
+ይህ ከዋኝ ጭነውት ሊሆን የሚችል ማንኛውንም ሌላ ስርዓተ ክወና እና ውሂቡን በሙሉ ይሰርዛል፤
+ምትኬ ለማስቀመጥ ምንም ዕድል አይኖርም።
+በዚህ ኮምፒውተር ላይ ማቆየት የሚፈልጉት ማንኛውም ውሂብ ካለዎት
+መልሶ ማግኘትን መሰረዝ አለብዎት።</translation>
 <translation id="6451786478565057499">የተሻሻለ የዲስክ ስረዛ በሂደት ላይ...
 
 ይህ ብዙ ጊዜ ሊወስድ ይችላል።</translation>
-<translation id="6478314309353607985">በእርስዎ እንደነበረ መመለሻ ሚዲያ ላይ ያለው ምስል ያልተረጋገጠ የገንቢ ምስል ነው።
+<translation id="64764858283438323">በእርስዎ መልሶ ማግኛ ሚዲያ ላይ ያለው ምስል ያልተረጋገጠ የገንቢ ምስል ነው።
 
-የተረጋገጠ ማስነሳት ስለጠፋ እንደነበረ መመለስ ይቀጥላል።
-በኋላ ላይ ማረጋገጫን መልሰው ካበሩት፣ እንደነበረ መመለሻን ከኦፊሴላዊ የChrome OS ምስል ጋር እንደገና መድገም ይኖርብዎታል።</translation>
+የተረጋገጠ ማስነሳት ስለጠፋ መልሶ ማግኘት ይቀጥላል።
+በኋላ ላይ ማረጋገጫን መልሰው ካበሩ በይፋዊ የChrome OS ምስል
+መልሶ ማግኘትን መድገም ይኖርብዎታል።</translation>
 <translation id="6566947361877177265">መልሶ ማግኘትን ለመጀመር ከአውታረ መረብ ጋር ይገናኙ</translation>
 <translation id="6582194100503356658">ይህ ጥቂት ደቂቃዎችን ሊወስድ ይችላል። መሣሪያውን አያጥፉ ወይም የኃይል መስጫውን አይንቀሉት።</translation>
+<translation id="662657262312410525">ጊዜው ያለፈበት የChrome OS መልሶ ማግኛ ምስል እየተጠቀሙ ነው።
+
+አዲስ መልሶ ማግኛ ሚዲያ እንዴት መፍጠር እንደሚቻል መመሪያዎችን ለማግኘት
+እባክዎ ይህን ዩአርኤል ዋቢ ያድርጉ፦
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">እንደገና ለማስጀመር የውጭ ዲስክዎን ይንቀሉ።</translation>
+<translation id="6691307183503218714">ጊዜው ያለፈበት ይፋዊ የChrome OS መልሶ ማግኛ ምስል እየተጠቀሙ ነው።
+
+ማረጋገጫ ስለጠፋ መልሶ ማግኘት ይቀጥላል።
+በኋላ ላይ ማረጋገጫን መልሰው ካበሩ ወቅታዊ በሆነ የChrome OS ምስል
+መልሶ ማግኘትን መድገም ይኖርብዎታል።</translation>
 <translation id="6868586188416530903">tpm-firmware-updater ምዝግብ ማስታወሻ</translation>
 <translation id="6895131867077828321">የይለፍ ቃልዎን ይተይቡ። የይለፍ ቃሉን ለማሳየት ወይም ለመደበቅ ትርን ይጫኑ። ለማስገባት አስገባን ይጫኑ።</translation>
 <translation id="7126032376876878896">አንድ አማራጭ ለመምረጥ የማብሪያ/ማጥፊያ ቁልፍ ይጠቀሙ።</translation>
@@ -138,16 +144,19 @@ https://www.google.com/chromeos/recovery</translation>
 
 ሥርዓትን ወደ ነበረበት መመለስ ተጠናቅቋል።
 እባክዎ ወደ ነበረበት መመለሻ ሚዲያውን ያስወግዱ እና ኮምፒተርዎ በራስ-ሰር እንደገና ይጀምራል።</translation>
-<translation id="816304391526917903">ጊዜው ያለፈበት የChrome OS እንደነበረ መመለሻ ምስል እየተጠቀሙ ነው።
-
-ማረጋገጫ ስለጠፋ እንደነበረ መመለሻ ይቀጥላል።
-በኋላ ላይ ማረጋገጫን መልሰው ካበሩት፣ እንደነበረ መመለሻን ከChrome OS ምስል ዝማኔ ጋር እንደገና መድገም ይኖርብዎታል።</translation>
 <translation id="8179976553408161302">አስገባ</translation>
 <translation id="8361934271307901704">የእርስዎን መሣሪያ እንደነበረ በመመለስ ላይ ስህተት ነበር፣ ይጥቀሱ</translation>
 <translation id="8420829064199266609">ከአውታረ መረቡ ጋር በመገናኘት ላይ። ይሄ እስከ አንድ ደቂቃ ድረስ ሊወስድ ይችላል።</translation>
 <translation id="8433773763660502318">የመልሶ ማግኛ ሂደቱን መጨረስ አልተቻለም</translation>
 <translation id="8473826843543665828">እባክዎ አዲስ አውታረ መረብ ይምረጡ ወይም እንደገና ይሞክሩ</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery ሊሆኑ ለሚችሉ መፍትሄዎች ወይም እንደገና ይሞክሩ።</translation>
+<translation id="8474679199432944250">የChrome OS ማረጋገጫ ጠፍቷል።
+
+ይህ ሆን ተብሎ ያልተደረገ ከሆነ፣ ማረጋገጫን ለማንቃት መልሶ
+ማግኘትን መሰረዝ እና
+የገንቢ ሁነታን ማሰናከል ይኖርብዎታል።  ለተጨማሪ መረጃ
+ይህን ዩአርኤል ዋቢ ያድርጉ፦
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">መልሶ ማግኘትን በመጨረስ ላይ</translation>
 <translation id="8596190965261846034">ዝማኔን በመጫን ላይ...
 

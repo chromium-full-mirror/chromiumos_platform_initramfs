@@ -17,6 +17,8 @@ Fjarlægðu endurheimtarmiðilinn og tölvan endurræsist sjálfkrafa.</translat
 Staðfestu að það sé rétt.</translation>
 <translation id="1638626287317244115">Afrita annála</translation>
 <translation id="175933110504178679">Þetta ferli straujar allar persónuupplýsingar þínar. Þetta mun taka nokkrar mínútur. Ekki slökkva á tækinu.</translation>
+<translation id="1950865024817806485">Skoðaðu mögulegar lausnir á http://google.com/chromeos/recovery eða reyndu aftur.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Slökkva</translation>
 <translation id="2160704550417277456">Ítarlegir valkostir</translation>
 <translation id="2161775569013928937">Hefja endurheimt?</translation>
@@ -27,14 +29,6 @@ Staðfestu að það sé rétt.</translation>
 <translation id="2704439832119932045">Veldu rás og útgáfu stýrikerfis til að halda endurheimt áfram</translation>
 <translation id="2731700343119398978">Augnablik...</translation>
 <translation id="2904079386864173492">Gerð:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">Eigandi tækisins krefst þess að þetta tæki keyri með kveikt á
-Chrome OS staðfestingu. Þú ert að reyna að setja upp óopinbera
-endurheimtarmynd af Chrome OS sem stenst ekki staðfestingu.
-
-Frekari upplýsingar eru á eftirfarandi vefslóð:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">Sláðu inn aðgangsorð netkerfisins</translation>
 <translation id="3243756202241744259">Staðfestir heilleika endurheimtarmiðilsins...</translation>
 <translation id="3283913352572436199">Endurheimtarmiðillinn er stilltur á sjálfvirka uppsetningu eftir að hann er endurræstur.
@@ -53,17 +47,18 @@ Til að halda áfram með sjálfvirka uppsetningu skaltu ýta á endurheimtarrof
 Ef þú vilt hætta við endurheimt skaltu ýta á aflrofann og halda honum
 inni þar til tækið slekkur á sér (þetta tekur allt að 8 sekúndur).</translation>
 <translation id="3723985428118783104">Endurheimt stendur yfir</translation>
-<translation id="3750930141330200643">Þú ert að nota úrelta endurheimtarmynd af Chrome OS.
-
-Farðu á þessa vefslóð til að fá leiðbeiningar um hvernig þú
-býrð til nýjan endurheimtarmiðil:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">Til baka</translation>
 <translation id="3928994486545789273">Velja netkerfi</translation>
 <translation id="3942420633017001071">Greining</translation>
 <translation id="3946632524220974380">Skipta þarf um forritaralykil til að halda áfram. Ferlið tekur
 fimm mínútur.</translation>
+<translation id="3986180833426451964">Eigandi tækisins krefst þess að þetta tæki keyri með kveikt á
+ChromeOS-staðfestingu.  Þú ert að reyna að setja upp óopinbera
+ChromeOS-endurheimtarmynd sem stenst ekki staðfestingu.
+
+Frekari upplýsingar eru á eftirfarandi vefslóð:
+
+https://www.google.com/chromeos/devmode</translation>
 <translation id="4006102694824401878">Þetta ferli gæti tekið nokkrar mínútur</translation>
 <translation id="4007898787815310968">Villa kom upp við ítarlega eyðingu drifs.
 
@@ -73,13 +68,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Tiltæk netkerfi</translation>
 <translation id="4261250127007881003">Skilaboðaannáll</translation>
 <translation id="4287891348859705498">Afrita annála á ytra drif</translation>
-<translation id="436588829138218801">Slökkt er á Chrome OS staðfestingu.
-
-Ef þetta er óviljandi ættirðu að hætta við endurheimtina og slökkva
-á forritarastillingu til að gera staðfestingu virka. Frekari upplýsingar
-eru á eftirfarandi vefslóð:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">Notaðu hljóðstyrkshnappana til að fletta upp eða niður.</translation>
 <translation id="4412740632134951267">Veldu ítarlega valkosti hér að neðan til að breyta</translation>
 <translation id="4486160941938493301">Ef þú vilt velja aðra endurheimtaraðferð skaltu fara til baka með því að ýta á Esc + endurnýja + aflrofa</translation>
@@ -107,12 +95,6 @@ staðfestingu stendur.</translation>
 
 Fjarlægðu endurheimtarmiðilinn og tölvan verður þá endurræst
 sjálfkrafa.</translation>
-<translation id="544118001572747892">Tölvan þín virðist ekki vera Chrome OS tölva!
-
-Þessi aðgerð eyðir hverju því stýrikerfi sem kann að vera uppsett
-og öllum gögnum. Ekkert tækifæri gefst til öryggisafritunar.
-Ef þú átt einhver gögn í þessari tölvu sem þú vilt varðveita skaltu
-hætta við endurheimtina.</translation>
 <translation id="5512602676102820748">Of lítil hleðsla á rafhlöðu til að uppfæra. 
 
 Hleður...
@@ -129,17 +111,34 @@ inni þar til tækið slekkur á sér (þetta tekur allt að 8 sekúndur).</tran
 <translation id="6363786367719063276">Skoða annála</translation>
 <translation id="6374469231428023295">Reyna aftur</translation>
 <translation id="6388429950346313390">Því miður fór eitthvað úrskeiðis</translation>
+<translation id="6408757960874122684">Tölvan þín virðist ekki vera ChromeOS-tölva!
+
+Þessi aðgerð eyðir hverju því stýrikerfi sem kann að vera uppsett
+og öllum gögnum. Ekkert tækifæri gefst til öryggisafritunar.
+Ef þú átt einhver gögn í þessari tölvu sem þú vilt varðveita skaltu
+hætta við endurheimtina.</translation>
 <translation id="6451786478565057499">Ítarleg eyðing drifs er í gangi...
 
 Þetta gæti tekið langan tíma.</translation>
-<translation id="6478314309353607985">Myndin á endurheimtarmiðlinum er óstaðfest forritaramynd.
+<translation id="64764858283438323">Myndin á endurheimtarmiðlinum er óstaðfest forritaramynd.
 
 Endurheimt mun halda áfram vegna þess að slökkt er á staðfestingu.
 Ef þú kveikir aftur á staðfestingu síðar þarftu að endurtaka endurheimt
-með nýrri Chrome OS mynd.</translation>
+með nýrri ChromeOS-mynd.</translation>
 <translation id="6566947361877177265">Þú verður að tengjast netkerfi til að hefja endurheimt</translation>
 <translation id="6582194100503356658">Þetta gæti tekið nokkrar mínútur. Ekki slökkva á tækinu né taka tækið úr sambandi við rafmagn.</translation>
+<translation id="662657262312410525">Þú ert að nota úrelta ChromeOS-endurheimtarmynd.
+
+Farðu á þessa vefslóð til að fá leiðbeiningar um hvernig þú
+býrð til nýjan endurheimtarmiðil:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="6630033970080307657">Aftengdu ytra drifið til að endurræsa.</translation>
+<translation id="6691307183503218714">Þú ert að nota úrelta opinbera ChromeOS-endurheimtarmynd.
+
+Endurheimt mun halda áfram vegna þess að slökkt er á staðfestingu.
+Ef þú kveikir aftur á staðfestingu síðar þarftu að endurtaka endurheimt
+með nýrri ChromeOS-mynd.</translation>
 <translation id="6868586188416530903">tpm-firmware-updater annáll</translation>
 <translation id="6895131867077828321">Sláðu inn aðgangsorðið þitt. Ýttu á dálkalykilinn til að sýna eða fela aðgangsorðið. Ýttu á Enter til að senda.</translation>
 <translation id="7126032376876878896">Notaðu aflrofann til að velja valkost.</translation>
@@ -157,17 +156,18 @@ https://www.google.com/chromeos/recovery</translation>
 
 Endurheimt kerfis er lokið.
 Fjarlægðu endurheimtarmiðilinn og tölvan endurræsist sjálfkrafa.</translation>
-<translation id="816304391526917903">Þú ert að nota úrelta opinbera endurheimtarmynd af Chrome OS.
-
-Endurheimt mun halda áfram vegna þess að slökkt er á staðfestingu.
-Ef þú kveikir aftur á staðfestingu síðar þarftu að endurtaka endurheimt
-með nýrri Chrome OS mynd.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">Villa kom upp við að endurheimta tækið, skoðaðu</translation>
 <translation id="8420829064199266609">Tengist netkerfinu. Þetta getur tekið allt upp í eina mínútu.</translation>
 <translation id="8433773763660502318">Ekki tókst að ljúka við endurheimtarferlið</translation>
 <translation id="8473826843543665828">Veldu nýtt netkerfi eða reyndu aftur</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery fyrir hugsanlegar lausnir eða reyndu aftur.</translation>
+<translation id="8474679199432944250">Slökkt er á ChromeOS-staðfestingu.
+
+Ef þetta er óviljandi ættirðu að hætta við að endurheimta og slökkva
+á forritarastillingu til að gera staðfestingu virka.  Frekari upplýsingar
+eru á eftirfarandi vefslóð:
+
+https://www.google.com/chromeos/recovery</translation>
 <translation id="8523174215108794127">Lýkur endurheimt</translation>
 <translation id="8596190965261846034">Setur upp uppfærslu...
 

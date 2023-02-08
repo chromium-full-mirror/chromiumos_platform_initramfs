@@ -17,6 +17,8 @@ Kérjük, távolítsa el a helyreállítási adathordozót. A számítógép aut
 Ellenőrizze a domain helyességét.</translation>
 <translation id="1638626287317244115">Naplók másolása</translation>
 <translation id="175933110504178679">A folyamat visszaállíthatatlanul törli az Ön személyes adatait. Ez eltarthat néhány percig. Ne kapcsolja ki az eszközt.</translation>
+<translation id="1950865024817806485">https://google.com/chromeos/recovery oldalt a lehetséges megoldásokért, vagy próbálkozzon újra.</translation>
+<translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Kikapcsolás</translation>
 <translation id="2160704550417277456">Speciális beállítások</translation>
 <translation id="2161775569013928937">Helyreállítás indítása?</translation>
@@ -27,14 +29,6 @@ Ellenőrizze a domain helyességét.</translation>
 <translation id="2704439832119932045">A helyreállítás folytatásához válassza ki az operációs rendszer csatornáját és verzióját</translation>
 <translation id="2731700343119398978">Kérjük, várjon...</translation>
 <translation id="2904079386864173492">Modell:</translation>
-<translation id="2924925097667803013">https://google.com/chromeos/recovery</translation>
-<translation id="300775974721831513">Az eszköz tulajdonosa megköveteli, hogy ezen az eszközön a Chrome
-operációs rendszer bekapcsolt ellenőrző funkcióval fusson. Ön nem hivatalos Chrome operációsrendszer-helyreállítási képfájlt próbál meg telepíteni, amely nem
-felel meg az ellenőrzésen.
-
-További tájékoztatásért keresse fel ezt az URL-t:
-
-https://www.google.com/chromeos/devmode</translation>
 <translation id="3029977119648083072">Adja meg a hálózat jelszavát.</translation>
 <translation id="3243756202241744259">A helyreállítási adathordozó integritásának ellenőrzése...</translation>
 <translation id="3283913352572436199">A helyreállítási adathordozó automatikus beállításba kezd az újraindítás után.
@@ -54,17 +48,19 @@ Az automatikus beállítás megkezdéséhez nyomja meg az eszköz helyreállít�
 gombját. A helyreállítás megszakításához a bekapcsológombot (kb. 8 másodpercig)
 nyomva tartva kapcsolja ki az eszközt.</translation>
 <translation id="3723985428118783104">Helyreállítás folyamatban</translation>
-<translation id="3750930141330200643">Elavult Chrome operációsrendszer-helyreállítási képfájlt használ.
-
-Tekintse meg az ezen az URL-en elérhető útmutatót azzal kapcsolatban,
-hogy miként hozhat létre új helyreállítási adathordozót:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="385051799172605136">Vissza</translation>
 <translation id="3928994486545789273">Hálózat kiválasztása</translation>
 <translation id="3942420633017001071">Diagnosztika</translation>
 <translation id="3946632524220974380">A továbblépéshez a fejlesztői kulcs módosítása szükséges; a folyamat
 5 percet vesz igénybe.</translation>
+<translation id="3986180833426451964">Az eszköz tulajdonosa megköveteli, hogy ezen az eszközön a ChromeOS
+bekapcsolt ellenőrző funkcióval fusson.  Ön nem hivatalos
+ChromeOS-helyreállító képfájlt próbál meg telepíteni, amely nem
+felel meg az ellenőrzésen.
+
+További tájékoztatásért keresse fel ezt az URL-t:
+
+https://www.google.com/chromeos/devmode.</translation>
 <translation id="4006102694824401878">Ez a folyamat néhány percet is igénybe vehet</translation>
 <translation id="4007898787815310968">Hiba történt a speciális lemeztörlés során.
 
@@ -74,13 +70,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4157577338965464221">Rendelkezésre álló hálózatok</translation>
 <translation id="4261250127007881003">Üzenetnapló</translation>
 <translation id="4287891348859705498">Naplók másolása külső lemezre</translation>
-<translation id="436588829138218801">A Chrome operációs rendszer ellenőrzése ki van kapcsolva.
-
-Ha ez nem szándékos, szakítsa meg a helyreállítást, és kapcsolja ki
-a fejlesztői módot az ellenőrzés aktiválásához. További tájékoztatásért
-keresse fel ezt az URL-t:
-
-https://www.google.com/chromeos/recovery</translation>
 <translation id="4410491068110727276">A hangerőgombokkal navigálhat fel és le.</translation>
 <translation id="4412740632134951267">Az alábbiakban kiválaszthatja a módosítani kívánt speciális beállításokat</translation>
 <translation id="4486160941938493301">Ha másik helyreállítási módszert szeretne választani, lépjen vissza az Esc + Frissítés + Bekapcsológomb megnyomásával.</translation>
@@ -107,12 +96,6 @@ Ezt bármikor biztonságosan megteheti az ellenőrzés során.</translation>
 
 Távolítsa el a helyreállítási adathordozót – számítógépe ezt követően
 automatikusan újraindul.</translation>
-<translation id="544118001572747892">Úgy tűnik, számítógépén nem Chrome operációs rendszer fut!
-
-Ez a művelet minden egyéb operációs rendszert töröl, amely esetleg
-telepítve van, és az összes adatot is; biztonsági másolat készítése nem lehetséges.
-Ha van olyan adat a számítógépen, amelyet szeretne megőrizni, akkor
-szakítsa meg a helyreállítást.</translation>
 <translation id="5512602676102820748">Az akkumulátor töltöttségi szintje túl alacsony a frissítéshez.
 
 Töltés…
@@ -128,17 +111,34 @@ egyébként az Escape billentyűt. A helyreállítás megszakításához a bekap
 <translation id="6363786367719063276">Naplók megtekintése</translation>
 <translation id="6374469231428023295">Próbálja újra</translation>
 <translation id="6388429950346313390">Sajnos hiba történt</translation>
+<translation id="6408757960874122684">Lehet, hogy számítógépén nem ChromeOS operációs rendszer fut.
+
+A művelet töröl minden más telepített operációs rendszert
+és minden adatot; nem fog tudni biztonsági mentést készíteni.
+Ha meg szeretne őrizni bizonyos adatokat a számítógépéről,
+akkor állítsa le a helyreállítást.</translation>
 <translation id="6451786478565057499">Speciális lemeztörlés folyamatban…
 
 Ez sokáig tarthat.</translation>
-<translation id="6478314309353607985">Az adathordozón lévő képfájl nem ellenőrzött fejlesztői képfájl.
+<translation id="64764858283438323">Az adathordozón lévő képfájl nem ellenőrzött fejlesztői képfájl.
 
-A helyreállítás folytatódik, mivel az ellenőrzött rendszerbetöltés ki van kapcsolva.
-Ha később ismét bekapcsolná az ellenőrzést, akkor egy hivatalos Chrome
-operációsrendszer-helyreállítási képfájllal kell megismételnie a helyreállítást.</translation>
+A helyreállítás folytatódik, mert az ellenőrzött rendszerbetöltés ki van kapcsolva.
+Ha később ismét bekapcsolná az ellenőrzést, akkor egy hivatalos ChromeOS-
+képfájllal kell megismételnie a helyreállítást.</translation>
 <translation id="6566947361877177265">A helyreállítás megkezdéséhez csatlakozzon hálózathoz</translation>
 <translation id="6582194100503356658">Ez eltarthat néhány percig. Ne kapcsolja ki az eszközt, és ne szüntesse meg a tápellátást.</translation>
+<translation id="662657262312410525">Elavult ChromeOS-helyreállító képfájlt használ.
+
+Tekintse meg az ezen az URL-en elérhető útmutatót azzal kapcsolatban,
+hogy miként hozhat létre új helyreállítási adathordozót:
+
+https://www.google.com/chromeos/recovery.</translation>
 <translation id="6630033970080307657">Az újraindításhoz húzza ki a külső lemezt.</translation>
+<translation id="6691307183503218714">Elavult hivatalos ChromeOS-helyreállító képfájlt használ.
+
+A helyreállítás folytatódik, mert az ellenőrzés ki van kapcsolva.
+Ha később ismét bekapcsolná az ellenőrzést, akkor egy naprakész ChromeOS-
+képfájllal kell megismételnie a helyreállítást.</translation>
 <translation id="6868586188416530903">tpm-firmware-updater napló</translation>
 <translation id="6895131867077828321">Írja be a jelszavát. Nyomja meg a Tab billentyűt a jelszó megjelenítéséhez vagy elrejtéséhez. Ha végzett, nyomja meg az Entert.</translation>
 <translation id="7126032376876878896">A bekapcsológombbal választhat lehetőséget.</translation>
@@ -156,17 +156,18 @@ https://www.google.com/chromeos/recovery</translation>
 
 A rendszer helyreállítása befejeződött.
 Kérjük, távolítsa el a helyreállítási adathordozót. A számítógép automatikusan újraindul.</translation>
-<translation id="816304391526917903">Elavult hivatalos Chrome operációsrendszer-helyreállítási képfájlt használ.
-
-A helyreállítás folytatódik, mivel az ellenőrzés ki van kapcsolva.
-Ha később ismét bekapcsolná az ellenőrzést, akkor egy naprakész Chrome
-operációsrendszer-helyreállítási képfájllal kell megismételnie a helyreállítást.</translation>
 <translation id="8179976553408161302">Enter</translation>
 <translation id="8361934271307901704">Hiba történt az eszköz helyreállítása során. Keresse fel a</translation>
 <translation id="8420829064199266609">Csatlakozás a hálózathoz. Ez egy percig is eltarthat.</translation>
 <translation id="8433773763660502318">Nem sikerült befejezni a helyreállítási folyamatot</translation>
 <translation id="8473826843543665828">Válasszon új hálózatot, vagy próbálkozzon újra.</translation>
-<translation id="8518545754265418610">https://google.com/chromeos/recovery oldalt a lehetséges megoldásokért, vagy próbálkozzon újra.</translation>
+<translation id="8474679199432944250">A ChromeOS ellenőrzése ki van kapcsolva.
+
+Ha ez nem szándékos, szakítsa meg a helyreállítást, és kapcsolja ki
+a fejlesztői módot az ellenőrzés aktiválásához.  További tájékoztatásért
+keresse fel ezt az URL-t:
+
+https://www.google.com/chromeos/recovery.</translation>
 <translation id="8523174215108794127">Helyreállítás befejezése</translation>
 <translation id="8596190965261846034">Frissítés telepítése…
 
