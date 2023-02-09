@@ -214,17 +214,29 @@ check_disk_wipe_requested() {
 }
 
 # Get the kernel version by directly reading the TPM NVRAM spaces.
-# Needed when crossystem doesn't work (e.g. Mario systems).
+# Use this instead of `crossystem tpm_kernver` because the version returned by
+# crossystem is advanced in recovery mode even though the version in the TPM is
+# not (see b/266502803#comment25).
 get_kernelver_from_tpmc () {
   set -- $(tpmc read $KERNEL_VER_TPM_NV_SPACE 9)
+  # Struct reference: `struct vb2_secdata_kernel_v0/1` in
+  # vboot_reference/firmware/2lib/include/2secdata_struct.h
+  #
   # Example output:
   #
+  # v0.* - kernel version is bytes 6-9
   # 1 4c 57 52 47 1 0 1 0
   #
-  # The first 5 bytes of the output are a canary value and can be
-  # ignored. The full kernel version is stored as a 32-bit integer
-  # in little endian format.
-  echo "$(( $9 << 24 | $8 << 16 | $7 << 8 | $6 ))"
+  # v1.* - kernel version is bytes 5-8
+  # 10 28 f2 a 1 0 1 0 34
+  #
+  # The full kernel version is stored as a 32-bit integer in little
+  # endian format.
+  local struct_version=$(printf "%d" "0x$1")
+  if [ ${struct_version} -lt 16 ]; then
+    shift 1
+  fi
+  printf "0x%x" "$(( $8 << 24 | $7 << 16 | $6 << 8 | $5 ))"
 }
 
 verify_kernel_signature() {
@@ -243,7 +255,7 @@ verify_kernel_version() {
   local minversion="$KERNEL_VER_MIN"
 
   # Get the currently set TPM NVRAM rollback versions.
-  minversion=$(crossystem tpm_kernver || get_kernelver_from_tpmc)
+  minversion=$(get_kernelver_from_tpmc)
   dlog "Rollback version stored in the TPM: $minversion"
 
   # Validate the signature and rollback versions.
