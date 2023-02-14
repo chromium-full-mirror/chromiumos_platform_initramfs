@@ -53,7 +53,7 @@ sampai perangkat mati (butuh waktu sekitar 8 detik).</translation>
 <translation id="3946632524220974380">Dibutuhkan perubahan kunci pengembang untuk melanjutkan; proses membutuhkan waktu 5 menit.</translation>
 <translation id="3986180833426451964">Pemilik perangkat mewajibkan perangkat ini berjalan dengan mengaktifkan
 verifikasi ChromeOS.  Anda mencoba menginstal image pemulihan ChromeOS
-tidak resmi yang tidak lulus verifikasi. 
+tidak resmi yang tidak lulus verifikasi.
 
 Untuk informasi selengkapnya, buka URL ini:
 
@@ -74,7 +74,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="4652489998517778111">Mulai ulang dan coba lagi</translation>
 <translation id="4791159253869531619">Disk eksternal dengan image pemulihan terdeteksi</translation>
 <translation id="4851795211104228792">Anda sekarang akan mengupdate ke versi stabil terbaru (Direkomendasikan)</translation>
-<translation id="4905949142713655149">Terjadi error tak terduga.  Lihat URL ini untuk kiat pemecahan masalah: 
+<translation id="4905949142713655149">Terjadi error tak terduga.  Lihat URL ini untuk kiat pemecahan masalah:
 
 https://www.google.com/chromeos/recovery</translation>
 <translation id="496201662522655493">Pemulihan sistem selesai.
@@ -86,7 +86,7 @@ segera dinyalakan ulang secara otomatis.</translation>
 Jika Anda ingin membatalkan pemulihan, tekan tombol daya dan tahan hingga komputer mati (perlu waktu hingga 8 detik).
 Tindakan ini aman untuk dilakukan kapan saja selama proses verifikasi.</translation>
 <translation id="51254621993922230">Pemulihan selesai</translation>
-<translation id="537291066186627789">Pemulihan sistem selesai. 
+<translation id="537291066186627789">Pemulihan sistem selesai.
 
 Copot media pemulihan dan komputer akan dimulai ulang secara otomatis.</translation>
 <translation id="5512602676102820748">Baterai terlalu lemah untuk mengupdate.
