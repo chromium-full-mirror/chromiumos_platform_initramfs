@@ -1,9 +1,11 @@
-[{
-  "app_name": "busybox",
-  "exec_info": {
-    "Path": "/bin/busybox"
-  },
-  "sandbox_type": "DeveloperEnvironment",
-  "secrets_parameters": null,
-  "storage_parameters": null
-}]
+[
+  {
+    "app_name": "busybox",
+    "exec_info": {
+      "Path": "/bin/busybox"
+    },
+    "sandbox_type": "DeveloperEnvironment",
+    "secrets_parameters": null,
+    "storage_parameters": null
+  }
+]
