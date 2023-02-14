@@ -23,7 +23,6 @@ BUILD_LIBRARY_DIR ?= $(HOME)/trunk/src/scripts/build_library
 RAMFS_LAYOUT_DIRS += bin etc lib root
 RAMFS_BIN_DEPS ?= $(BIN_DEPS) $(EXTRA_BIN_DEPS)
 GEN_INIT_CPIO = $(OUTPUT_DIR)/gen_init_cpio
-AOA_SWITCH = $(OUTPUT_DIR)/aoa_switch
 
 # Settings for the build system.
 BUILD_CC ?= gcc
@@ -39,17 +38,12 @@ check:
 
 .PHONY: clean
 clean:
-	rm -rf $(RAMFS_BIN) $(RAMFS_BIN).contents $(STAGE) $(GEN_INIT_CPIO) \
-		$(AOA_SWITCH)
+	rm -rf $(RAMFS_BIN) $(RAMFS_BIN).contents $(STAGE) $(GEN_INIT_CPIO)
 
 $(RAMFS_BIN): $(GEN_INIT_CPIO)
 
 $(GEN_INIT_CPIO): ../common/gen_init_cpio.c
 	$(BUILD_CC) $(BUILD_CFLAGS) $(BUILD_CPPFLAGS) $(BUILD_LDFLAGS) $< -o $@
-
-$(AOA_SWITCH): ../common/aoa_switch.c
-	$(CC) $(CFLAGS) -Wall -Werror $< -o $@ \
-		-Wno-missing-declarations #TODO: remove after clang uprev
 
 .PHONY: stage_init
 stage_init: $(LOCAL_BIN_DEPS)

@@ -38,9 +38,6 @@ ifdef MINIOS_DATA_DEPS
 DATA_DEPS += $(MINIOS_DATA_DEPS)
 endif
 
-LOCAL_BIN_DEPS = \
-	$(AOA_SWITCH)
-
 # Layout of directories to be created in initramfs.
 RAMFS_LAYOUT_DIRS = \
 	etc/screens \

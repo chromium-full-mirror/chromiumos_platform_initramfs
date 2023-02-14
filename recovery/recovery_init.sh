@@ -793,27 +793,6 @@ on_error() {
   signal_fatal_error
 }
 
-# Detect whether the USB device containing the recovery image is a phone
-# with "our" app on it.
-recovering_using_phone_app() {
-  local devpath="/sys/block/$(strip_partition "${REAL_USB_DEV##*/}")/device"
-  if [ "$(cat "$devpath/vendor")" == "GOOGLE  " ]; then
-    if [ "$(cat "$devpath/model")" == "Chrome OS AOA   " ]; then
-      return 0
-    fi
-  fi
-  return 1
-}
-
-# In case the boot media is an Android phone with our app, tell the app that
-# we are done with the process, by "ejecting" the block device.
-signal_completion() {
-  unmount_usb
-  if recovering_using_phone_app; then
-    /usr/bin/eject -m -s "$REAL_USB_DEV"
-  fi
-}
-
 # Called after displaying some fatal error message.  This method will sync
 # disks, and never return.  In the future, if the boot media is an Android
 # phone, it will also tell the app that progress has halted.
@@ -880,7 +859,7 @@ recovery_install() {
   # USB stick from that moment forward.
   local usb_node_dir=$(get_usb_node_dir)
 
-  signal_completion
+  unmount_usb
 
   if [ -n "$usb_node_dir" ]; then
     # Default (interactive) case.
