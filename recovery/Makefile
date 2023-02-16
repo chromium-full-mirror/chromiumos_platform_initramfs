@@ -242,8 +242,10 @@ minios: stage_init
 	# Add policy files for init.
 	cp -av "$(SYSROOT)/$(LIBDIR)/libselinux"* "$(STAGE)/$(LIBDIR)/"
 	cp -av "$(SYSROOT)/usr/$(LIBDIR)/libselinux"* "$(STAGE)/usr/$(LIBDIR)/"
-	mkdir -p "$(STAGE)/etc/selinux"
-	rsync -av "$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"
+	if [ -d "$(SYSROOT)/etc/selinux" ]; then \
+		mkdir -p "$(STAGE)/etc/selinux"; \
+		rsync -av "$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"; \
+	fi
 	# Add marker file to indicate we are running from MiniOs.
 	touch "$(STAGE)/etc/minios"
 	# CrOS-install dependencies.
