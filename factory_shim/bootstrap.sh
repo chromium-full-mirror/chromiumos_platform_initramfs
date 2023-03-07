@@ -89,6 +89,17 @@ on_error() {
   exit 1
 }
 
+is_good_rootfs_partition() {
+  local root_dev="$1"
+
+  local sector_count
+  sector_count="$(cat "/sys/class/block/$(basename "${root_dev}")/size")"
+
+  local sector_count_threshold=1
+
+  [ "${sector_count}" -gt "${sector_count_threshold}" ]
+}
+
 # Look for a device with our GPT ID.
 wait_for_gpt_root() {
   [ -z "$KERN_ARG_KERN_GUID" ] && return 1
@@ -101,14 +112,23 @@ wait_for_gpt_root() {
     # output will get duplicated data.
     kern_dev="$(cgpt find -1 -u $KERN_ARG_KERN_GUID 2>/dev/null | uniq)"
     kern_num=${kern_dev##[/a-z]*[/a-z]}
-    # rootfs partition is always in kernel partition + 1.
-    root_num=$(( kern_num + 1 ))
-    root_dev="${kern_dev%${kern_num}}${root_num}"
-    if [ -b "$root_dev" ]; then
-      USB_DEV="$root_dev"
-      log "Found ${USB_DEV}"
-      return 0
-    fi
+    # The order of offset to try matters.  We have to try +1 before trying -1.
+    # The disk layout should look like:
+    #   partition 1: stateful partition
+    #   partition 2: KERN-A  # This is paired with ROOT-A.
+    #   partition 3: ROOT-A
+    #   partition 4: KERN-B  # This is also paired with ROOT-A.
+    #   partition 5: ROOT-B  # This is empty.
+    # The order trying +1 before trying -1 works for both KERN-A and KERN-B.
+    for offset in 1 -1; do
+      root_num=$(( kern_num + ${offset} ))
+      root_dev="${kern_dev%${kern_num}}${root_num}"
+      if [ -b "${root_dev}" ] && is_good_rootfs_partition "${root_dev}"; then
+        USB_DEV="${root_dev}"
+        log "Found ${USB_DEV}"
+        return 0
+      fi
+    done
     sleep 1
   done
   log "Failed waiting for device with correct kern_guid."
@@ -141,18 +161,13 @@ mount_rootfs() {
   local usb_dev
   local kernel_command_line="$(cat /proc/cmdline)"
 
-  if check_if_dm_root "${kernel_command_line}"; then
-    if [ ! -b "${KERN_ARG_ROOT}" ]; then
-      setup_dm_root "${kernel_command_line}" "${USB_DEV}"
-    fi
-    usb_dev="${KERN_ARG_ROOT}"
-  elif is_cros_debug; then
-    log "is_cros_debug, allow using ${USB_DEV} as rootfs"
+  if is_cros_debug; then
+    log "is_cros_debug, use ${USB_DEV} as rootfs"
     usb_dev="${USB_DEV}"
   else
-    log "dm table is not set, did you enable rootfs verification when" \
-        "building the image?"
-    return 1
+    # Always try to setup dm root when cros_debug is not set.
+    setup_dm_root "${kernel_command_line}" "${USB_DEV}"
+    usb_dev="/dev/dm-0"
   fi
 
   for try in $(seq 20); do
