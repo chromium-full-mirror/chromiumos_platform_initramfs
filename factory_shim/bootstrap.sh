@@ -166,8 +166,8 @@ mount_rootfs() {
     usb_dev="${USB_DEV}"
   else
     # Always try to setup dm root when cros_debug is not set.
-    setup_dm_root "${kernel_command_line}" "${USB_DEV}"
-    usb_dev="/dev/dm-0"
+    setup_dm_root "${kernel_command_line}" "${USB_DEV}" || return 1
+    usb_dev="${DM_DEV}"
   fi
 
   for try in $(seq 20); do
