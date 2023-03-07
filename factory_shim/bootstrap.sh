@@ -95,21 +95,14 @@ wait_for_gpt_root() {
   log -n "Looking for rootfs using kern_guid [${KERN_ARG_KERN_GUID}]... "
   local try kern_dev kern_num
   local root_dev root_num
-  local kernel_command_line="$(cat /proc/cmdline)"
-  # Usually the root_num equals to kern_num + 1, but we'll set PARTNROFF=-1
-  # when we want to share rootfs on two kernels.
-  local partnroff=1
-  echo "${kernel_command_line}" | grep -q '\bdm="[^"]*PARTNROFF=-1' \
-        && partnroff=-1
-
   for try in $(seq 20); do
     log -n ". "
     # crbug.com/463414: when the cgpt supports MTD (cgpt.bin), redirecting its
     # output will get duplicated data.
     kern_dev="$(cgpt find -1 -u $KERN_ARG_KERN_GUID 2>/dev/null | uniq)"
     kern_num=${kern_dev##[/a-z]*[/a-z]}
-    # Find rootfs partition based on the partnroff and the kernel partition.
-    root_num=$(( kern_num + ${partnroff} ))
+    # rootfs partition is always in kernel partition + 1.
+    root_num=$(( kern_num + 1 ))
     root_dev="${kern_dev%${kern_num}}${root_num}"
     if [ -b "$root_dev" ]; then
       USB_DEV="$root_dev"
