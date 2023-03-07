@@ -4,6 +4,8 @@
 
 # Name of the dm device. A shared variable for this script.
 DM_NAME=
+# /dev path of the dm device (e.g. /dev/dm-0).
+DM_DEV=
 
 _is_old_style_verity_argv() {
   # TODO(ellyjones): remove by 2011-08-31. Part of crosbug.com/15772.
@@ -108,7 +110,8 @@ _parse_dm_table() {
 #  kernel_command_line: the kernel command line that contains the dm argument.
 #  root_dev: the root device.
 # Outputs:
-#  Outputs the dm device path to STDOUT. For now, it's always "/dev/dm-0".
+#  This function outputs by setting global variables. It sets both `DM_NAME`
+#  and `DM_DEV`.
 # Returns:
 #  Returns 1 if anything goes wrong.
 setup_dm_root() {
@@ -153,7 +156,7 @@ setup_dm_root() {
     mknod -m 0600 "${dm_dev}" b "${major}" "${minor}"
   fi
   dlog "Created device mapper root ${DM_NAME}."
-  echo "${dm_dev}"
+  DM_DEV="${dm_dev}"
 }
 
 # Remove the DM device created by setup_dm_root.
