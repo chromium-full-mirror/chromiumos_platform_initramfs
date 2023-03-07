@@ -93,7 +93,8 @@ find_official_root() {
   # Now see if the root should be integrity checked.
   local kernel_command_line="$(dump_kernel_config "${KERN_B_CACHE}")"
   if check_if_dm_root "${kernel_command_line}"; then
-    USB_DEV="$(setup_dm_root "${kernel_command_line}" "${USB_DEV}")" || return 1
+    setup_dm_root "${kernel_command_line}" "${USB_DEV}" || return 1
+    USB_DEV="${DM_DEV}"
   fi
 
   mount_usb || return 1
