@@ -32,12 +32,12 @@ DEVMODE_BOX_TOP=$MESSAGE_BOX_HEIGHT
 
 # User visible message overlaid on the screen. Only use for debug features!
 log() {
-  echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
+  echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}" >&2
 }
 
 # Like log() but with printf() semantics.
 logf() {
-  printf "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
+  printf "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}" >&2
 }
 
 # Debug messages logged to VT1 and log file.
