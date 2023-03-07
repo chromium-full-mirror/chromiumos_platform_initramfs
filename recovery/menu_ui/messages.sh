@@ -54,12 +54,13 @@ MONOSPACE_GLYPH_WIDTH=10
 
 # User visible message overlaid on the screen. Only use for debug features!
 log() {
-  echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
+  echo "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}" >&2
 }
 
 # Like log() but with printf() semantics.
 logf() {
-  printf "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}"
+  # shellcheck disable=SC2059
+  printf "$@" | tee -a "${TTY_CONSOLE}" "${TTY_LOG}" >&2
 }
 
 # Debug messages logged to VT1 and log file.
