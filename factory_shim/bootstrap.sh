@@ -35,12 +35,12 @@ TAIL_PID=
 
 # Print message on both main TTY and log file.
 log() {
-  echo "$@" | tee -a "${TTY}" "${LOG_FILE}"
+  echo "$@" | tee -a "${TTY}" "${LOG_FILE}" >&2
 }
 
 # Like log() but with printf() semantics.
 logf() {
-  printf "$@" | tee -a "${TTY}" "${LOG_FILE}"
+  printf "$@" | tee -a "${TTY}" "${LOG_FILE}" >&2
 }
 
 # For factory shim, debug messages are logged to the same place.
