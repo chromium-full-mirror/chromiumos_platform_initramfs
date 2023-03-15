@@ -13,35 +13,26 @@ https://www.google.com/chromeos/recovery</translation>
 
 系统已恢复完毕。
 请移除恢复媒体，您的计算机将会自动重启。</translation>
-<translation id="1600199746926806589">您的设备将会自动注册到如下所示的网域。
-请检查该网域是否正确。</translation>
 <translation id="1638626287317244115">复制日志</translation>
 <translation id="175933110504178679">此流程会擦除您的个人数据。这将花费几分钟的时间。请勿关闭设备。</translation>
-<translation id="1950865024817806485">您可前往 https://google.com/chromeos/recovery 了解可行的解决方案，或者重试。</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">关机</translation>
 <translation id="2160704550417277456">高级选项</translation>
 <translation id="2161775569013928937">开始恢复？</translation>
+<translation id="2238107357612570504">恢复调试选项</translation>
 <translation id="2249183435483068136">凭据不正确</translation>
 <translation id="2367943141906694421">找不到任何网络</translation>
 <translation id="2437368373459239842">这将需要几分钟的时间</translation>
-<translation id="2596600434078055015">恢复调试选项</translation>
 <translation id="2704439832119932045">选择操作系统渠道和版本以继续恢复</translation>
 <translation id="2731700343119398978">请稍候...</translation>
 <translation id="2904079386864173492">型号：</translation>
 <translation id="3029977119648083072">输入网络密码</translation>
 <translation id="3243756202241744259">正在检验恢复媒体是否完整...</translation>
-<translation id="3283913352572436199">您的恢复媒体已配置为在设备重新启动后自动进行设置。
-
-要继续进行自动设置，请按“调高音量”按钮，否则请按“调低音量”按钮。如果您要取消当前的恢复操作，请按住电源按钮直到设备关闭（这最多需要 8 秒钟的时间）。</translation>
+<translation id="3377484800447890197">恢复设备时出错。请参阅 https://google.com/chromeos/recovery 了解可能的解决方案，或者重试。</translation>
 <translation id="33938768013536853">电量太低，无法更新。
 
 请将您的 Chromebook 连接到电源。待电池蓄有足够的电量后，更新即会自动开始。</translation>
 <translation id="3554552348994984455">开始恢复</translation>
-<translation id="369510862371290019">您的恢复媒体已配置为在设备重新启动后自动进行设置。
-
-要继续进行自动设置，请按设备的恢复开关。
-如果您要取消当前的恢复操作，请按住电源按钮直到设备关闭（这最多需要 8 秒钟的时间）。</translation>
 <translation id="3723985428118783104">正在恢复</translation>
 <translation id="385051799172605136">返回</translation>
 <translation id="3928994486545789273">选择网络</translation>
@@ -88,10 +79,6 @@ https://www.google.com/chromeos/recovery</translation>
 
 待电池蓄有足够的电量后，更新即会自动开始。</translation>
 <translation id="5592705604979238266">帮助中心：</translation>
-<translation id="6037207722716689331">您的恢复媒体已配置为在设备重新启动后自动进行设置。
-
-要继续进行自动设置，请按 Enter 键，否则请按 Esc 键。
-如果您要取消当前的恢复操作，请按住电源按钮直到设备关闭（这最多需要 8 秒钟的时间）。</translation>
 <translation id="6185696379715117369">向上翻页</translation>
 <translation id="635783852215913562">使用箭头键可向上/向下移动。</translation>
 <translation id="6363786367719063276">查看日志</translation>
@@ -138,7 +125,6 @@ https://www.google.com/chromeos/recovery</translation>
 系统已恢复完毕。
 请移除恢复媒体，您的计算机将会自动重启。</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">恢复您的设备时出错，请参阅</translation>
 <translation id="8420829064199266609">正在连接到网络。这最多可能需要 1 分钟的时间。</translation>
 <translation id="8433773763660502318">无法完成恢复流程</translation>
 <translation id="8473826843543665828">请选择一个新网络或重试</translation>
@@ -155,10 +141,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8728458033228603970">正在恢复系统...
 
 此过程需要几分钟时间。请不要关闭计算机或断开电源。</translation>
-<translation id="8796495438384109098">系统恢复已完成。
-
-请让您的恢复媒体保持插入状态，直到完成自动设置。
-您的计算机很快就会自动重启以继续进行设置。</translation>
 <translation id="88986195241502842">向下翻页</translation>
 <translation id="8911667951938758302">无法连接到网络</translation>
 <translation id="9146946647152579011">现已恢复完毕</translation>

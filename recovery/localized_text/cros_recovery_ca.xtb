@@ -13,38 +13,26 @@ https://www.google.com/chromeos/recovery</translation>
 
 La recuperació del sistema s'ha completat.
 Extreu el mitjà de recuperació i l'ordinador es reiniciarà automàticament.</translation>
-<translation id="1600199746926806589">El dispositiu s'inscriurà automàticament al domini que hi ha a sota.
-Verifica que sigui correcte.</translation>
 <translation id="1638626287317244115">Copia els registres</translation>
 <translation id="175933110504178679">Aquest procés netejarà les teves dades personals. Tardarà uns quants minuts. No apaguis el dispositiu.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery per veure solucions possibles o tornar-ho a provar.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Apaga</translation>
 <translation id="2160704550417277456">Opcions avançades</translation>
 <translation id="2161775569013928937">Vols iniciar la recuperació?</translation>
+<translation id="2238107357612570504">Opcions de depuració de la recuperació</translation>
 <translation id="2249183435483068136">Credencials incorrectes</translation>
 <translation id="2367943141906694421">No s'ha trobat cap xarxa</translation>
 <translation id="2437368373459239842">Aquest procés tardarà uns quants minuts</translation>
-<translation id="2596600434078055015">Opcions de depuració de la recuperació</translation>
 <translation id="2704439832119932045">Selecciona el canal i la versió de l'SO per continuar amb la recuperació</translation>
 <translation id="2731700343119398978">Espereu...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Introdueix la contrasenya de la xarxa</translation>
 <translation id="3243756202241744259">S'està verificant la integritat del mitjà de recuperació...</translation>
-<translation id="3283913352572436199">El mitjà de recuperació s'ha definit de manera que es configuri automàticament després de reiniciar-se.
-
-Per continuar amb la configuració automàtica, prem el botó d'apujar el volum. Per no continuar,
-prem el botó d'abaixar el volum. Si vols cancel·lar la recuperació, mantén premut el botó d'engegada
-fins que el dispositiu s'apagui (pot tardar fins a 8 segons).</translation>
+<translation id="3377484800447890197">S'ha produït un error en recuperar el dispositiu. Consulta https://google.com/chromeos/recovery per veure possibles solucions, o bé torna-ho a provar.</translation>
 <translation id="33938768013536853">No hi ha prou bateria per fer l'actualització.
 
 Connecta Chromebook a una font d'alimentació. L'actualització començarà automàticament quan la bateria estigui prou carregada.</translation>
 <translation id="3554552348994984455">Inicia la recuperació</translation>
-<translation id="369510862371290019">El mitjà de recuperació s'ha definit de manera que es configuri automàticament després de reiniciar-se.
-
-Per continuar amb la configuració automàtica, prem el botó de recuperació del dispositiu.
-Si vols cancel·lar la recuperació, mantén premut el botó d'engegada
-fins que el dispositiu s'apagui (pot tardar fins a 8 segons).</translation>
 <translation id="3723985428118783104">Recuperació en curs</translation>
 <translation id="385051799172605136">Enrere</translation>
 <translation id="3928994486545789273">Tria la xarxa</translation>
@@ -91,11 +79,6 @@ S'està carregant...
 
 L'actualització començarà automàticament quan la bateria estigui prou carregada.</translation>
 <translation id="5592705604979238266">Centre d’ajuda:</translation>
-<translation id="6037207722716689331">El mitjà de recuperació s'ha definit de manera que es configuri automàticament després de reiniciar-se.
-
-Per continuar amb la configuració automàtica, prem Retorn. Per no continuar, prem Esc.
-Si vols cancel·lar la recuperació, mantén premut el botó d'engegada
-fins que el dispositiu s'apagui (pot tardar fins a 8 segons).</translation>
 <translation id="6185696379715117369">Re Pàg</translation>
 <translation id="635783852215913562">Fes servir les tecles de fletxa per navegar cap amunt o cap avall.</translation>
 <translation id="6363786367719063276">Mostra els registres</translation>
@@ -140,7 +123,6 @@ https://www.google.com/chromeos/recovery</translation>
 La recuperació del sistema s'ha completat.
 Extreu el mitjà de recuperació i l'ordinador es reiniciarà automàticament.</translation>
 <translation id="8179976553408161302">Retorn</translation>
-<translation id="8361934271307901704">S'ha produït un error en recuperar el dispositiu. Consulta</translation>
 <translation id="8420829064199266609">S'està connectant a la xarxa. Aquesta acció pot tardar fins a un minut.</translation>
 <translation id="8433773763660502318">No s'ha pogut finalitzar el procés de recuperació</translation>
 <translation id="8473826843543665828">Selecciona una xarxa nova o torna-ho a provar</translation>
@@ -157,10 +139,6 @@ Es reiniciarà automàticament un cop finalitzi l'actualització.</translation>
 <translation id="8728458033228603970">Recuperació del sistema en curs...
 
 Aquesta tasca pot tardar uns quants minuts. No apagueu l'ordinador ni el desconnecteu de la font d'alimentació.</translation>
-<translation id="8796495438384109098">La recuperació del sistema s'ha completat.
-
-Mantén el mitjà de recuperació connectat fins que la configuració automàtica es completi.
-L'ordinador es reiniciarà automàticament en breu per continuar amb la configuració.</translation>
 <translation id="88986195241502842">Av Pàg</translation>
 <translation id="8911667951938758302">No s'ha pogut connectar a la xarxa</translation>
 <translation id="9146946647152579011">La recuperació ja ha finalitzat</translation>

@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Stelselterugstelling is afgehandel.
 Verwyder asseblief die terugstelmedia; jou rekenaar sal outomaties herbegin.</translation>
-<translation id="1600199746926806589">Jou toestel sal outomaties ingeskryf word by die domein wat hieronder gewys word.
-Maak asseblief seker dat dit reg is.</translation>
 <translation id="1638626287317244115">Kopieer loglêers</translation>
 <translation id="175933110504178679">Hierdie proses sal jou persoonlike data uitvee. Dit sal 'n paar minute neem. Moenie die toestel afskakel nie.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery vir moontlik oplossings, of probeer weer.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Skakel af</translation>
 <translation id="2160704550417277456">Gevorderde opsies</translation>
 <translation id="2161775569013928937">Begin terugstelling?</translation>
+<translation id="2238107357612570504">Terugstelontfoutingopsies</translation>
 <translation id="2249183435483068136">Verkeerde eiebewyse</translation>
 <translation id="2367943141906694421">Kon nie enige netwerke kry nie</translation>
 <translation id="2437368373459239842">Dit sal 'n paar minute neem</translation>
-<translation id="2596600434078055015">Terugstelontfoutingopsies</translation>
 <translation id="2704439832119932045">Kies bedryfstelselkanaal en -weergawe om met terugstelling voort te gaan</translation>
 <translation id="2731700343119398978">Wag asseblief …</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Voer die netwerkwagwoord in</translation>
 <translation id="3243756202241744259">Verifieer tans die integriteit van jou terugstellingmedia …</translation>
-<translation id="3283913352572436199">Jou terugstelmedia is gestel om outomaties ná die herselflaai opgestel te word.
-
-Druk die Volume Harder-knoppie om met die outomatiese opstelling voort te gaan,
-of druk andersins Volume Sagter. Druk die aan/af-skakelaar as jy die terugstelling
-wil kanselleer, en hou dit ingedruk totdat die toestel afskakel (dit neem tot 8 sekondes).</translation>
+<translation id="3377484800447890197">Kon nie jou toestel terugstel nie. Raadpleeg
+https://google.com/chromeos/recovery vir moontlike oplossings, of probeer weer.</translation>
 <translation id="33938768013536853">Battery is te pap vir opdatering.
 
 Koppel jou Chromebook aan 'n kragbron. Die opdatering
 sal outomaties begin sodra die battery genoeg krag het.</translation>
 <translation id="3554552348994984455">Begin terugstelling</translation>
-<translation id="369510862371290019">Jou terugstelmedia is gestel om outomaties ná die herselflaai opgestel te word.
-
-Druk die toestel se terugstellingskakelaar om met outomatiese opstelling voort te
-gaan. Druk die aan/af-skakelaar as jy die terugstelling wil kanselleer, en hou dit
-ingedruk totdat die toestel afskakel (dit neem tot 8 sekondes).</translation>
 <translation id="3723985428118783104">Stel tans terug</translation>
 <translation id="385051799172605136">Terug</translation>
 <translation id="3928994486545789273">Kies netwerk</translation>
@@ -100,11 +89,6 @@ Laai tans …
 
 Die opdatering sal outomaties begin sodra die battery genoeg krag het.</translation>
 <translation id="5592705604979238266">Hulpsentrum:</translation>
-<translation id="6037207722716689331">Jou terugstelmedia is gestel om outomaties ná die herselflaai opgestel te word.
-
-Druk Enter om met outomatiese opstelling voort te gaan, of druk andersins
-Escape. Druk die aan/af-skakelaar as jy die terugstelling wil kanselleer, en hou dit
-ingedruk totdat die toestel afskakel (dit neem tot 8 sekondes).</translation>
 <translation id="6185696379715117369">Bladsy op</translation>
 <translation id="635783852215913562">Gebruik die pyltjiesleutels om op of af te beweeg.</translation>
 <translation id="6363786367719063276">Bekyk loglêers</translation>
@@ -156,7 +140,6 @@ https://www.google.com/chromeos/recovery</translation>
 Stelselterugstelling is afgehandel.
 Verwyder asseblief die terugstelmedia; jou rekenaar sal outomaties herbegin.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Kon nie jou toestel terugstel nie. Verwys na</translation>
 <translation id="8420829064199266609">Koppel tans aan die netwerk. Dit kan tot 'n minuut duur.</translation>
 <translation id="8433773763660502318">Kon nie die terugstellingproses voltooi nie</translation>
 <translation id="8473826843543665828">Kies asseblief 'n nuwe netwerk of probeer weer</translation>
@@ -176,10 +159,6 @@ Dit sal outomaties herselflaai wanneer die opdatering voltooi is.</translation>
 
 Dit sal 'n paar minute duur. Moet asseblief nie die rekenaar afskakel of
 die krag ontkoppel nie.</translation>
-<translation id="8796495438384109098">Stelselterugstelling is voltooi.
-
-Hou jou terugstelmedia ingeprop totdat die outomatiese opstelling voltooi is.
-Jou rekenaar sal binnekort outomaties herbegin om met die opstelling voort te gaan.</translation>
 <translation id="88986195241502842">Bladsy af</translation>
 <translation id="8911667951938758302">Kon nie aan die netwerk koppel nie</translation>
 <translation id="9146946647152579011">Terugstelling is nou afgehandel</translation>

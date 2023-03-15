@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Endurheimt kerfis er lokið.
 Fjarlægðu endurheimtarmiðilinn og tölvan endurræsist sjálfkrafa.</translation>
-<translation id="1600199746926806589">Tækið þitt verður sjálfkrafa skráð á lénið sem er sýnt hér að neðan.
-Staðfestu að það sé rétt.</translation>
 <translation id="1638626287317244115">Afrita annála</translation>
 <translation id="175933110504178679">Þetta ferli straujar allar persónuupplýsingar þínar. Þetta mun taka nokkrar mínútur. Ekki slökkva á tækinu.</translation>
-<translation id="1950865024817806485">Skoðaðu mögulegar lausnir á http://google.com/chromeos/recovery eða reyndu aftur.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Slökkva</translation>
 <translation id="2160704550417277456">Ítarlegir valkostir</translation>
 <translation id="2161775569013928937">Hefja endurheimt?</translation>
+<translation id="2238107357612570504">Kembivalkostir endurheimtar</translation>
 <translation id="2249183435483068136">Röng skilríki</translation>
 <translation id="2367943141906694421">Engin netkerfi fundust</translation>
 <translation id="2437368373459239842">Þetta tekur nokkrar mínútur</translation>
-<translation id="2596600434078055015">Kembivalkostir endurheimtar</translation>
 <translation id="2704439832119932045">Veldu rás og útgáfu stýrikerfis til að halda endurheimt áfram</translation>
 <translation id="2731700343119398978">Augnablik...</translation>
 <translation id="2904079386864173492">Gerð:</translation>
 <translation id="3029977119648083072">Sláðu inn aðgangsorð netkerfisins</translation>
 <translation id="3243756202241744259">Staðfestir heilleika endurheimtarmiðilsins...</translation>
-<translation id="3283913352572436199">Endurheimtarmiðillinn er stilltur á sjálfvirka uppsetningu eftir að hann er endurræstur.
-
-Til að halda áfram með sjálfvirka uppsetningu skaltu ýta á takkann til að hækka hljóðstyrk, annars
-skaltu ýta á takkann til að lækka hljóðstyrk. Ef þú vilt hætta við endurheimt skaltu ýta á aflrofann
-og halda honum inni þar til tækið slekkur á sér (þetta tekur allt að 8 sekúndur).</translation>
+<translation id="3377484800447890197">Villa kom upp við að endurheimta tækið. Skoðaðu
+https://google.com/chromeos/recovery til að finna mögulegar lausnir eða reyndu aftur.</translation>
 <translation id="33938768013536853">Of lítil rafhlöðuhleðsla fyrir uppfærslu.
 
 Settu Chromebook í hleðslu. Uppfærslan hefst
 sjálfkrafa um leið og rafhlaðan hefur fengið næga hleðslu.</translation>
 <translation id="3554552348994984455">Hefja endurheimt</translation>
-<translation id="369510862371290019">Endurheimtarmiðillinn er stilltur á sjálfvirka uppsetningu eftir að hann er endurræstur.
-
-Til að halda áfram með sjálfvirka uppsetningu skaltu ýta á endurheimtarrofa tækisins.
-Ef þú vilt hætta við endurheimt skaltu ýta á aflrofann og halda honum
-inni þar til tækið slekkur á sér (þetta tekur allt að 8 sekúndur).</translation>
 <translation id="3723985428118783104">Endurheimt stendur yfir</translation>
 <translation id="385051799172605136">Til baka</translation>
 <translation id="3928994486545789273">Velja netkerfi</translation>
@@ -101,11 +90,6 @@ Hleður...
 
 Uppfærslan hefst sjálfkrafa um leið og rafhlaðan hefur fengið næga hleðslu.</translation>
 <translation id="5592705604979238266">Hjálparmiðstöð:</translation>
-<translation id="6037207722716689331">Endurheimtarmiðillinn er stilltur á sjálfvirka uppsetningu eftir að hann er endurræstur.
-
-Til að halda áfram með sjálfvirka uppsetningu skaltu ýta á Enter, ef ekki skaltu ýta á Escape.
-Ef þú vilt hætta við endurheimt skaltu ýta á aflrofann og halda honum
-inni þar til tækið slekkur á sér (þetta tekur allt að 8 sekúndur).</translation>
 <translation id="6185696379715117369">Upp um síðu</translation>
 <translation id="635783852215913562">Notaðu örvatakkana til að fletta upp eða niður.</translation>
 <translation id="6363786367719063276">Skoða annála</translation>
@@ -157,7 +141,6 @@ https://www.google.com/chromeos/recovery</translation>
 Endurheimt kerfis er lokið.
 Fjarlægðu endurheimtarmiðilinn og tölvan endurræsist sjálfkrafa.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Villa kom upp við að endurheimta tækið, skoðaðu</translation>
 <translation id="8420829064199266609">Tengist netkerfinu. Þetta getur tekið allt upp í eina mínútu.</translation>
 <translation id="8433773763660502318">Ekki tókst að ljúka við endurheimtarferlið</translation>
 <translation id="8473826843543665828">Veldu nýtt netkerfi eða reyndu aftur</translation>
@@ -177,10 +160,6 @@ Ekki slökkva á tækinu.
 
 Þetta mun taka nokkrar mínútur. Ekki slökkva á tölvunni eða taka
 hana úr sambandi.</translation>
-<translation id="8796495438384109098">Endurheimt kerfis er lokið.
-
-Hafðu endurheimtarmiðilinn í sambandi þar til sjálfvirku uppsetningunni er lokið.
-Tölvan verður endurræst sjálfkrafa innan skamms til að halda uppsetningunni áfram.</translation>
 <translation id="88986195241502842">Niður um síðu</translation>
 <translation id="8911667951938758302">Ekki tókst að tengjast netkerfinu</translation>
 <translation id="9146946647152579011">Endurheimt er nú lokið</translation>

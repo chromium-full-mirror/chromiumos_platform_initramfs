@@ -13,35 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Sistem kurtarma işlemi tamamlandı.
 Lütfen kurtarma ortamını çıkarın, bilgisayarınız otomatik olarak yeniden başlatılacaktır.</translation>
-<translation id="1600199746926806589">Cihazınız aşağıda gösterilen alana otomatik olarak kaydedilir.
-Lütfen doğru olduğunu onaylayın.</translation>
 <translation id="1638626287317244115">Günlükleri kopyala</translation>
 <translation id="175933110504178679">Bu işlem kişisel verilerinizi siler. Bu işlem birkaç dakika sürer. Cihazı kapatmayın.</translation>
-<translation id="1950865024817806485">Olası çözümler için https://google.com/chromeos/recovery adresini ziyaret edin veya tekrar deneyin.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Kapat</translation>
 <translation id="2160704550417277456">Gelişmiş Seçenekler</translation>
 <translation id="2161775569013928937">Kurtarma işlemi başlatılsın mı?</translation>
+<translation id="2238107357612570504">Kurtarma işlemi hata ayıklama seçenekleri</translation>
 <translation id="2249183435483068136">Kimlik Bilgileri Yanlış</translation>
 <translation id="2367943141906694421">Herhangi bir ağ bulunamadı</translation>
 <translation id="2437368373459239842">Bu işlem birkaç dakika sürer</translation>
-<translation id="2596600434078055015">Kurtarma İşlemi Hata Ayıklama Seçenekleri</translation>
 <translation id="2704439832119932045">Kurtarma işlemine devam etmek için OS kanalını ve sürümünü seçin</translation>
 <translation id="2731700343119398978">Lütfen bekleyin...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Ağ şifresini girin</translation>
 <translation id="3243756202241744259">Kurtarma medyanızın bütünlüğü doğrulanıyor...</translation>
-<translation id="3283913352572436199">Kurtarma ortamınız, yeniden başlatıldıktan sonra otomatik kurulum işlemini gerçekleştirecek şekilde yapılandırıldı.
-
-Otomatik kurulum ile devam etmek için Sesi Artırma düğmesine; aksi halde, Sesi Azaltma düğmesine basın. Kurtarmayı iptal etmek istiyorsanız güç düğmesine basın ve cihaz kapanıncaya kadar basılı tutun (bu işlem yaklaşık 8 saniye sürer).</translation>
+<translation id="3377484800447890197">Cihazınız kurtarılırken hata oluştu. Olası çözümler için
+https://google.com/chromeos/recovery adresine göz atın veya tekrar deneyin.</translation>
 <translation id="33938768013536853">Pil gücü güncelleme için yeterli değil.
 
 Chromebook'unuzu lütfen bir güç kaynağına takın. Pilin gücü
 yeterli olduğunda güncelleme otomatik olarak başlar.</translation>
 <translation id="3554552348994984455">Kurtarma işlemini başlat</translation>
-<translation id="369510862371290019">Kurtarma ortamınız, yeniden başlatıldıktan sonra otomatik kurulum işlemini gerçekleştirecek şekilde yapılandırıldı.
-
-Otomatik kurulum ile devam etmek için cihazın kurtarma düğmesine basın. Kurtarmayı iptal etmek istiyorsanız güç düğmesine basın ve cihaz kapanıncaya kadar basılı tutun (bu işlem yaklaşık 8 saniye sürer).</translation>
 <translation id="3723985428118783104">Kurtarma işlemi devam ediyor</translation>
 <translation id="385051799172605136">Geri</translation>
 <translation id="3928994486545789273">Ağ seçin</translation>
@@ -93,9 +86,6 @@ yeniden başlayacaktır.</translation>
 
 Pilin gücü yeterli olduğunda güncelleme otomatik olarak başlar.</translation>
 <translation id="5592705604979238266">Yardım merkezi:</translation>
-<translation id="6037207722716689331">Kurtarma ortamınız, yeniden başlatıldıktan sonra otomatik kurulum işlemini gerçekleştirecek şekilde yapılandırıldı.
-
-Otomatik kurulum ile devam etmek için Enter tuşuna; aksi halde, Escape tuşuna basın. Kurtarmayı iptal etmek istiyorsanız güç düğmesine basın ve cihaz kapanıncaya kadar basılı tutun (bu işlem yaklaşık 8 saniye sürer).</translation>
 <translation id="6185696379715117369">Bir sayfa yukarı</translation>
 <translation id="635783852215913562">Yukarı veya aşağı gitmek için ok tuşlarını kullanın</translation>
 <translation id="6363786367719063276">Günlükleri göster</translation>
@@ -144,7 +134,6 @@ Kurtarma işlemi sırasında beklenmeyen bir hata oluştu. Sorun giderme ipuçla
 Sistem kurtarma işlemi tamamlandı.
 Lütfen kurtarma ortamını çıkarın, bilgisayarınız otomatik olarak yeniden başlatılacaktır.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Cihazınızı kurtarma işlemi sırasında bir hata oluştu. Bkz.</translation>
 <translation id="8420829064199266609">Ağa bağlanılıyor. Bu işlem bir dakika kadar sürebilir.</translation>
 <translation id="8433773763660502318">Kurtarma işlemi tamamlanamadı</translation>
 <translation id="8473826843543665828">Lütfen başka bir ağ seçin veya tekrar deneyin</translation>
@@ -164,10 +153,6 @@ Güncelleme tamamlandığında cihaz otomatik olarak yeniden başlar.</translati
 
 Bu işlem birkaç dakika sürecektir. Lütfen bilgisayarı kapatmayın
 veya güç bağlantısını kesmeyin.</translation>
-<translation id="8796495438384109098">Sistem kurtarma işlemi tamamlandı.
-
-Lütfen otomatik kurulum tamamlanıncaya kadar kurtarma ortamını takılı tutun.
-Bilgisayarınız kuruluma devam etmek için kısa bir süre içinde otomatik olarak yeniden başlatılacak.</translation>
 <translation id="88986195241502842">Bir sayfa aşağı gider</translation>
 <translation id="8911667951938758302">Ağa bağlanılamadı</translation>
 <translation id="9146946647152579011">Kurtarma işlemi tamamlandı</translation>

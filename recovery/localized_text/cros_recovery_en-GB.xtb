@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 System recovery is complete.
 Please remove the recovery media and your computer will restart automatically.</translation>
-<translation id="1600199746926806589">Your device will automatically be enrolled into the domain shown below.
-Please verify that it is correct.</translation>
 <translation id="1638626287317244115">Copy logs</translation>
 <translation id="175933110504178679">This process will wipe your personal data. This will take several minutes. Do not turn off the device.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery for possible solutions or try again.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Power off</translation>
 <translation id="2160704550417277456">Advanced Options</translation>
 <translation id="2161775569013928937">Start recovery?</translation>
+<translation id="2238107357612570504">Recovery debug options</translation>
 <translation id="2249183435483068136">Incorrect credentials</translation>
 <translation id="2367943141906694421">Could not find any networks</translation>
 <translation id="2437368373459239842">This will take a few minutes</translation>
-<translation id="2596600434078055015">Recovery debug options</translation>
 <translation id="2704439832119932045">Select OS channel and version to continue recovery</translation>
 <translation id="2731700343119398978">Please wait…</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Enter the network password</translation>
 <translation id="3243756202241744259">Verifying the integrity of your recovery media…</translation>
-<translation id="3283913352572436199">Your recovery media is configured for automatic setup after it reboots.
-
-To proceed with automatic setup, press the Volume Up button. Otherwise,
-press Volume Down. If you want to cancel recovery, press the power button
-and hold it down until the device turns off (this takes up to 8 seconds).</translation>
+<translation id="3377484800447890197">There was an error while recovering your device. Refer to
+https://google.com/chromeos/recovery for possible solutions, or try again.</translation>
 <translation id="33938768013536853">Battery too low for update.
 
 Please connect your Chromebook to a power socket. The update
 will automatically begin as soon as the battery has enough charge.</translation>
 <translation id="3554552348994984455">Start recovery</translation>
-<translation id="369510862371290019">Your recovery media is configured for automatic setup after it reboots.
-
-To proceed with automatic setup, press the device's recovery switch.
-If you want to cancel recovery, press the power button and hold it
-down until the device turns off (this takes up to 8 seconds).</translation>
 <translation id="3723985428118783104">Recovery in progress</translation>
 <translation id="385051799172605136">Back</translation>
 <translation id="3928994486545789273">Choose network</translation>
@@ -100,11 +89,6 @@ Charging...
 
 The update will automatically begin as soon as the battery has enough charge.</translation>
 <translation id="5592705604979238266">Help Centre:</translation>
-<translation id="6037207722716689331">Your recovery media is configured for automatic setup after it reboots.
-
-To proceed with automatic setup, press Enter. Otherwise, press Escape.
-If you want to cancel recovery, press the power button and hold it
-down until the device turns off (this takes up to 8 seconds).</translation>
 <translation id="6185696379715117369">Page up</translation>
 <translation id="635783852215913562">Use the arrow keys to navigate up or down.</translation>
 <translation id="6363786367719063276">View logs</translation>
@@ -156,7 +140,6 @@ https://www.google.com/chromeos/recovery</translation>
 System recovery is complete.
 Please remove the recovery media and your computer will restart automatically.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">There was error while recovering your device; refer to</translation>
 <translation id="8420829064199266609">Connecting to the network. This may take up to a minute.</translation>
 <translation id="8433773763660502318">Could not finish the recovery process</translation>
 <translation id="8473826843543665828">Please select a new network or try again</translation>
@@ -176,10 +159,6 @@ It will automatically reboot when the update finishes.</translation>
 
 This will take a few minutes. Please do not turn off the computer or
 disconnect the power.</translation>
-<translation id="8796495438384109098">System recovery is complete.
-
-Please keep your recovery media plugged in until automatic setup is complete.
-Your computer will automatically restart shortly to continue setup.</translation>
 <translation id="88986195241502842">Page down</translation>
 <translation id="8911667951938758302">Could not connect to the network</translation>
 <translation id="9146946647152579011">Recovery is now complete</translation>

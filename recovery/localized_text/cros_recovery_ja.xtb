@@ -13,39 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 システムの復元が完了しました。
 リカバリ メディアを取り外してください。パソコンは自動的に再起動します。</translation>
-<translation id="1600199746926806589">ご使用のデバイスは自動的に以下のドメインに登録されます。
-情報が正しいかご確認ください。</translation>
 <translation id="1638626287317244115">ログをコピー</translation>
 <translation id="175933110504178679">この処理を行うと個人データが消去されます。これには数分かかります。デバイスの電源をオフにしないでください。</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery で解決方法を確認するか、もう一度お試しください。</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">電源を切る</translation>
 <translation id="2160704550417277456">詳細オプション</translation>
 <translation id="2161775569013928937">復元を開始</translation>
+<translation id="2238107357612570504">復元デバッグ オプション</translation>
 <translation id="2249183435483068136">認証情報が正しくありません</translation>
 <translation id="2367943141906694421">ネットワークが見つかりませんでした</translation>
 <translation id="2437368373459239842">数分お待ちください</translation>
-<translation id="2596600434078055015">復元デバッグ オプション</translation>
 <translation id="2704439832119932045">復元を続行するには、OS のチャンネルとバージョンを選択してください</translation>
 <translation id="2731700343119398978">お待ちください...</translation>
 <translation id="2904079386864173492">モデル:</translation>
 <translation id="3029977119648083072">ネットワークのパスワードを入力してください</translation>
 <translation id="3243756202241744259">リカバリ メディアの完全性を確認しています...</translation>
-<translation id="3283913352572436199">ご使用のリカバリ メディアは再起動後に自動セットアップを開始するよう設定されています。
-
-自動セットアップに進むには音量大のボタンを押し、それ以外の場合は音量小の
-ボタンを押してください。復元をキャンセルするには、電源ボタンを長押しして
-デバイスの電源をオフにしてください（電源がオフになるまで最大 8 秒かかります）。</translation>
+<translation id="3377484800447890197">デバイスの復元中にエラーが発生しました。考えられる解決策については、https://google.com/chromeos/recovery をご覧になるか、もう一度お試しください。</translation>
 <translation id="33938768013536853">バッテリーの残量が少ないためアップデートを実行できません。
 
 Chromebook を電源に接続してください。バッテリーがある程度まで
 充電されると、自動的にアップデートが始まります。</translation>
 <translation id="3554552348994984455">復元を開始します</translation>
-<translation id="369510862371290019">ご使用のリカバリ メディアは再起動後に自動セットアップを開始するよう設定されています。
-
-自動セットアップに進むにはデバイスの復元スイッチを押してください。
-復元をキャンセルするには、電源ボタンを長押ししてデバイスの電源を
-オフにしてください（電源がオフになるまで最大 8 秒かかります）。</translation>
 <translation id="3723985428118783104">復元処理中です</translation>
 <translation id="385051799172605136">戻る</translation>
 <translation id="3928994486545789273">ネットワークを選択</translation>
@@ -100,11 +88,6 @@ https://www.google.com/chromeos/recovery</translation>
 
 バッテリーがある程度まで充電されると、自動的にアップデートが始まります。</translation>
 <translation id="5592705604979238266">ヘルプセンター:</translation>
-<translation id="6037207722716689331">ご使用のリカバリ メディアは再起動後に自動セットアップを開始するよう設定されています。
-
-自動セットアップに進むには Enter キーを押し、それ以外の場合は Esc キーを
-押してください。復元をキャンセルするには、電源ボタンを長押ししてデバイスの
-電源をオフにしてください（電源がオフになるまで最大 8 秒かかります）。</translation>
 <translation id="6185696379715117369">ページ内を上に移動</translation>
 <translation id="635783852215913562">上下に移動するには矢印キーを使用します。</translation>
 <translation id="6363786367719063276">ログを表示</translation>
@@ -156,7 +139,6 @@ https://www.google.com/chromeos/recovery</translation>
 システムの復元が完了しました。
 リカバリ メディアを取り外してください。パソコンは自動的に再起動します。</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">デバイスの復元中にエラーが発生しました。以下をご確認ください。</translation>
 <translation id="8420829064199266609">ネットワークに接続しています。これには 1 分ほどかかる場合があります。</translation>
 <translation id="8433773763660502318">復元プロセスを完了できませんでした</translation>
 <translation id="8473826843543665828">新しいネットワークを選択するか、もう一度お試しください</translation>
@@ -176,10 +158,6 @@ https://www.google.com/chromeos/recovery</translation>
 
 この処理には数分かかることがあります。パソコンの電源をオフにしたり、
 電源コードを抜いたりしないでください。</translation>
-<translation id="8796495438384109098">システムの復元が完了しました。
-
-自動セットアップが完了するまでリカバリ メディアを取り外さないでください。
-まもなくパソコンが自動的に再起動し、セットアップが始まります。</translation>
 <translation id="88986195241502842">ページ内を下に移動</translation>
 <translation id="8911667951938758302">ネットワークに接続できませんでした</translation>
 <translation id="9146946647152579011">復元が完了しました</translation>

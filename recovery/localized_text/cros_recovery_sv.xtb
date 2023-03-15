@@ -13,40 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Systemåterställningen är klar.
 Ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
-<translation id="1600199746926806589">Enheten registreras automatiskt på domänen nedan.
-Kontrollera att det är rätt domän.</translation>
 <translation id="1638626287317244115">Kopiera loggar</translation>
 <translation id="175933110504178679">Den här processen rensar din personliga data. Det här tar flera minuter. Stäng inte av enheten.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery för möjliga lösningar eller försök igen.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Stäng av</translation>
 <translation id="2160704550417277456">Avancerade alternativ</translation>
 <translation id="2161775569013928937">Vill du starta återställningen?</translation>
+<translation id="2238107357612570504">Felsökningsalternativ för återställning</translation>
 <translation id="2249183435483068136">Felaktiga användaruppgifter</translation>
 <translation id="2367943141906694421">Det gick inte att hitta några nätverk</translation>
 <translation id="2437368373459239842">Detta tar några minuter</translation>
-<translation id="2596600434078055015">Felsökningsalternativ för återställning</translation>
 <translation id="2704439832119932045">Välj kanal och version för operativsystemet för att fortsätta med återställningen</translation>
 <translation id="2731700343119398978">Vänta ...</translation>
 <translation id="2904079386864173492">Modell:</translation>
 <translation id="3029977119648083072">Ange lösenordet för nätverket</translation>
 <translation id="3243756202241744259">Återställningsmediets säkerhetsstatus verifieras …</translation>
-<translation id="3283913352572436199">Återställningsmediet är inställt på automatisk konfigurering efter omstart.
-
-Om du vill fortsätta med den automatiska konfigureringen trycker du på knappen
-Höj volymen. Annars trycker du på knappen Sänk volymen. Om du vill avbryta
-återställningen håller du av/på-knappen nedtryckt tills datorn stängs av (detta tar
-upp till åtta sekunder).</translation>
+<translation id="3377484800447890197">Ett fel uppstod när enheten skulle återställas. Besök
+https://google.com/chromeos/recovery för möjliga lösningar eller försök igen.</translation>
 <translation id="33938768013536853">Batterinivån är för låg för uppdateringen.
 
 Anslut Chromebook till en strömkälla. Uppdateringen startar automatiskt
 när batteriet har laddats upp tillräckligt.</translation>
 <translation id="3554552348994984455">Starta återställning</translation>
-<translation id="369510862371290019">Återställningsmediet är inställt på automatisk konfigurering efter omstart.
-
-Om du vill fortsätta med den automatiska konfigureringen trycker du på enhetens
-återställningsreglage. Om du vill avbryta återställningen håller du av/på-knappen
-nedtryckt tills datorn stängs av (detta tar upp till åtta sekunder).</translation>
 <translation id="3723985428118783104">Återställning pågår</translation>
 <translation id="385051799172605136">Föregående</translation>
 <translation id="3928994486545789273">Välj nätverk</translation>
@@ -99,11 +87,6 @@ Laddar …
 
 Uppdateringen startar automatiskt när batteriet har laddats upp tillräckligt.</translation>
 <translation id="5592705604979238266">Hjälpcenter:</translation>
-<translation id="6037207722716689331">Återställningsmediet är inställt på automatisk konfigurering efter omstart.
-
-Om du vill fortsätta med den automatiska konfigureringen trycker du på Retur.
-Annars trycker du på Esc. Om du vill avbryta återställningen håller du
-av/på-knappen nedtryckt tills datorn stängs av (detta tar upp till åtta sekunder).</translation>
 <translation id="6185696379715117369">Uppåt en sida</translation>
 <translation id="635783852215913562">Navigera uppåt eller nedåt med piltangenterna.</translation>
 <translation id="6363786367719063276">Visa loggar</translation>
@@ -156,7 +139,6 @@ https://www.google.com/chromeos/recovery</translation>
 Systemåterställningen är klar.
 Ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Det uppstod ett fel under återställningen av enheten. Se</translation>
 <translation id="8420829064199266609">Ansluter till nätverket. Det kan ta upp till en minut.</translation>
 <translation id="8433773763660502318">Det gick inte att slutföra återställningsprocessen</translation>
 <translation id="8473826843543665828">Välj ett nytt nätverk eller försök igen</translation>
@@ -176,10 +158,6 @@ Den startas om automatiskt när uppdateringen är klar.</translation>
 
 Detta tar en stund. Stäng inte av datorn och koppla inte från
 strömsladden.</translation>
-<translation id="8796495438384109098">Systemåterställningen är klar.
-
-Låt återställningsmediet sitta kvar i datorn tills den automatiska konfigureringen är klar.
-Datorn startas snart om automatiskt för konfigureringen.</translation>
 <translation id="88986195241502842">Nedåt en sida</translation>
 <translation id="8911667951938758302">Det gick inte att ansluta till nätverket</translation>
 <translation id="9146946647152579011">Återställningen har nu slutförts</translation>

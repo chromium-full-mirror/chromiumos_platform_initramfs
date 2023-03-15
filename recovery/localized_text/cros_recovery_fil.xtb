@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Tapos na ang pag-recover ng system.
 Pakialis ang media sa pag-recover at awtomatikong magre-restart ang iyong computer.</translation>
-<translation id="1600199746926806589">Awtomatikong mae-enroll sa domain na ipinapakita sa ibaba ang iyong device.
-Paki-verify na tama ito.</translation>
 <translation id="1638626287317244115">Kopyahin ang mga log</translation>
 <translation id="175933110504178679">Iwa-wipe ng prosesong ito ang iyong personal na data. Aabutin ito nang ilang minuto. Huwag i-off ang device.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery para sa mga posibleng solusyon o subukan ulit.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">I-off</translation>
 <translation id="2160704550417277456">Advanced na Mga Pagpipilian</translation>
 <translation id="2161775569013928937">Simulan ang pag-recover?</translation>
+<translation id="2238107357612570504">Mga opsyon sa pag-debug sa pag-recover</translation>
 <translation id="2249183435483068136">Maling Kredensyal</translation>
 <translation id="2367943141906694421">Hindi makahanap ng anumang network</translation>
 <translation id="2437368373459239842">Aabutin ito nang ilang minuto</translation>
-<translation id="2596600434078055015">Mga Opsyon sa Pag-debug sa Pag-recover</translation>
 <translation id="2704439832119932045">Pumili ng channel at bersyon ng OS para maipagpatuloy ang pag-recover</translation>
 <translation id="2731700343119398978">Mangyaring maghintay...</translation>
 <translation id="2904079386864173492">Modelo:</translation>
 <translation id="3029977119648083072">Ilagay ang password ng network</translation>
 <translation id="3243756202241744259">Vine-verify ang integridad ng iyong media sa pag-recover...</translation>
-<translation id="3283913352572436199">Naka-configure na awtomatikong mag-set up ang iyong media sa pag-recover pagkatapos nitong mag-reboot.
-
-Para magpatuloy sa awtomatikong pag-set up, pindutin ang button na Pataas na Volume, o kaya ay
-pindutin ang Pababang Volume. Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
-hanggang sa mag-off ang device (tatagal ito nang hanggang 8 segundo).</translation>
+<translation id="3377484800447890197">Nagka-error habang nire-recover ang iyong device. Mag-refer sa
+https://google.com/chromeos/recovery para sa mga posibleng solusyon o subukan ulit.</translation>
 <translation id="33938768013536853">Masyadong mababa ang charge ng baterya para sa update.
 
 Pakikonekta ang iyong Chromebook sa mapagkukunan ng power. Awtomatikong
 magsisimula ang pag-update sa sandaling magkaroon ng sapat na charge ang baterya.</translation>
 <translation id="3554552348994984455">Simulan ang pag-recover</translation>
-<translation id="369510862371290019">Naka-configure na awtomatikong mag-set up ang iyong media sa pag-recover pagkatapos nitong mag-reboot.
-
-Para magpatuloy sa awtomatikong pag-set up, pindutin ang switch sa pag-recover ng device.
-Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
-hanggang sa mag-off ang device (tatagal ito nang hanggang 8 segundo).</translation>
 <translation id="3723985428118783104">Kasalukuyang nagre-recover</translation>
 <translation id="385051799172605136">Bumalik</translation>
 <translation id="3928994486545789273">Pumili ng network</translation>
@@ -96,11 +85,6 @@ Nagcha-charge...
 
 Awtomatikong magsisimula ang pag-update sa sandaling magkaroon ng sapat na charge ang baterya.</translation>
 <translation id="5592705604979238266">Help center:</translation>
-<translation id="6037207722716689331">Naka-configure na awtomatikong mag-set up ang iyong media sa pag-recover pagkatapos nitong mag-reboot.
-
-Para magpatuloy sa awtomatikong pag-set up, pindutin ang Enter, o kaya ay pindutin ang Escape.
-Kung gusto mong kanselahin ang pag-recover, pindutin nang matagal ang power button
-hanggang sa mag-off ang device (tatagal ito nang hanggang 8 segundo).</translation>
 <translation id="6185696379715117369">Pataas sa pahina</translation>
 <translation id="635783852215913562">Gamitin ang mga arrow key para mag-navigate pataas o pababa.</translation>
 <translation id="6363786367719063276">Tingnan ang mga log</translation>
@@ -152,7 +136,6 @@ https://www.google.com/chromeos/recovery</translation>
 Tapos na ang pag-recover ng system.
 Pakialis ang media sa pag-recover at awtomatikong magre-restart ang iyong computer.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Nagka-error habang nire-recover ang iyong device, Sumangguni sa</translation>
 <translation id="8420829064199266609">Kumokonekta sa network. Posible itong abutin nang hanggang isang minuto.</translation>
 <translation id="8433773763660502318">Hindi matapos ang proseso ng pag-recover</translation>
 <translation id="8473826843543665828">Pumili ng bagong network o subukan ulit</translation>
@@ -172,10 +155,6 @@ Awtomatiko itong magre-reboot kapag tapos na ang pag-update.</translation>
 
 Tatagal ito nang ilang minuto. Mangyaring huwag i-off ang computer o
 putulin ang koneksyon ng power.</translation>
-<translation id="8796495438384109098">Tapos na ang pag-recover ng system.
-
-Panatilihing nakasaksak ang iyong media sa pag-recover hanggang sa matapos ang pag-set up.
-Awtomatikong magre-restart ang iyong computer sa ilang sandali para ituloy ang pag-set up.</translation>
 <translation id="88986195241502842">Pababa sa pahina</translation>
 <translation id="8911667951938758302">Hindi makakonekta sa network</translation>
 <translation id="9146946647152579011">Tapos na ang pag-recover</translation>

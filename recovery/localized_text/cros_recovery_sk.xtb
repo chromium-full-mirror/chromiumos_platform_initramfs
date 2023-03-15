@@ -13,34 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Obnovenie systému je dokončené.
 Odstráňte médium na obnovenie a počítač sa automaticky reštartuje.</translation>
-<translation id="1600199746926806589">Vaše zariadenie bude automaticky zaregistrované do domény zobrazenej nižšie. Overte, či je správna.</translation>
 <translation id="1638626287317244115">Kopírovať denníky</translation>
 <translation id="175933110504178679">Týmto sa natrvalo vymažú vaše osobné údaje. Bude to trvať niekoľko minút. Nevypínajte zariadenie.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery, kde nájdete možné riešenia, alebo to skúste znova.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Vypnúť</translation>
 <translation id="2160704550417277456">Rozšírené možnosti</translation>
 <translation id="2161775569013928937">Chcete začať s obnovením?</translation>
+<translation id="2238107357612570504">Možnosti ladenia obnovy</translation>
 <translation id="2249183435483068136">Nesprávne prihlasovacie údaje</translation>
 <translation id="2367943141906694421">Nenašli sa žiadne siete</translation>
 <translation id="2437368373459239842">Bude to trvať niekoľko minút</translation>
-<translation id="2596600434078055015">Možnosti ladenia obnovy</translation>
 <translation id="2704439832119932045">V obnovení pokračujte výberom kanála a verzie operačného systému</translation>
 <translation id="2731700343119398978">Počkajte...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Zadajte heslo siete</translation>
 <translation id="3243756202241744259">Overuje sa integrita média na obnovenie...</translation>
-<translation id="3283913352572436199">Vaše médium na obnovenie je nakonfigurované tak, aby sa po reštartovaní automaticky nastavilo.
-
-Ak chcete pokračovať s automatickým nastavením, stlačte tlačidlo zvýšenia hlasitosti, inak stlačte tlačidlo zníženia hlasitosti. Ak chcete obnovenie zrušiť, pridržte vypínač, dokým sa zariadenie nevypne (trvá to max. 8 sekúnd).</translation>
+<translation id="3377484800447890197">Pri obnovovaní vášho zariadenia sa vyskytla chyba. Prejdite na
+https://google.com/chromeos/recovery, kde nájdete možné riešenia, alebo to skúste znova.</translation>
 <translation id="33938768013536853">Batéria je príliš slabá na aktualizáciu.
 
 Pripojte Chromebook k zdroju napájania. Aktualizácia
 sa automaticky spustí, keď bude batéria dostatočne nabitá.</translation>
 <translation id="3554552348994984455">Začnite s obnovením</translation>
-<translation id="369510862371290019">Vaše médium na obnovenie je nakonfigurované tak, aby sa po reštartovaní automaticky nastavilo.
-
-Ak chcete pokračovať s automatickým nastavením, stlačte prepínač obnovenia. Ak chcete obnovenie zrušiť, pridržte vypínač, dokým sa zariadenie nevypne (trvá to max. 8 sekúnd).</translation>
 <translation id="3723985428118783104">Obnovuje sa</translation>
 <translation id="385051799172605136">Späť</translation>
 <translation id="3928994486545789273">Vybrať sieť</translation>
@@ -89,9 +83,6 @@ Nabíja sa...
 
 Aktualizácia sa automaticky spustí, keď bude batéria dostatočne nabitá.</translation>
 <translation id="5592705604979238266">Centrum pomoci:</translation>
-<translation id="6037207722716689331">Vaše médium na obnovenie je nakonfigurované tak, aby sa po reštartovaní automaticky nastavilo.
-
-Ak chcete pokračovať s automatickým nastavením, stlačte Enter, inak stlačte Escape. Ak chcete obnovenie zrušiť, pridržte vypínač, dokým sa zariadenie nevypne (trvá to max. 8 sekúnd).</translation>
 <translation id="6185696379715117369">Posunúť o stránku nahor</translation>
 <translation id="635783852215913562">Klávesmi so šípkami prechádzajte nahor a nadol.</translation>
 <translation id="6363786367719063276">Zobraziť denníky</translation>
@@ -140,7 +131,6 @@ https://www.google.com/chromeos/recovery</translation>
 Obnovenie systému je dokončené.
 Odstráňte médium na obnovenie a počítač sa automaticky reštartuje.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Pri obnovovaní zariadenia sa vyskytla chyba. Prejdite na</translation>
 <translation id="8420829064199266609">Pripája sa k sieti. Môže to trvať až minútu.</translation>
 <translation id="8433773763660502318">Obnovenie výrobných nastavení sa nepodarilo dokončiť</translation>
 <translation id="8473826843543665828">Vyberte novú sieť alebo to skúste znova</translation>
@@ -159,9 +149,6 @@ Po dokončení aktualizácie sa automaticky reštartuje.</translation>
 
 Táto operácia môže trvať niekoľko minút. Nevypínajte počítač ani ho neodpájajte
 od zdroja napájania.</translation>
-<translation id="8796495438384109098">Obnovenie systému je dokončené.
-
-Médium na obnovenie ponechajte zapojené, dokým sa nedokončí automatické nastavenie. Počítač sa čoskoro automaticky reštartuje a bude pokračovať s nastavením.</translation>
 <translation id="88986195241502842">Posunúť stránku nadol</translation>
 <translation id="8911667951938758302">Nepodarilo sa pripojiť k sieti</translation>
 <translation id="9146946647152579011">Obnovenie je dokončené</translation>

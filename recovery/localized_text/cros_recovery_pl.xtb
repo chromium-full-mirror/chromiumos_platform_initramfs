@@ -13,38 +13,26 @@ https://www.google.com/chromeos/recovery</translation>
 
 System został przywrócony.
 Wyjmij nośnik przywracania. Komputer automatycznie uruchomi się ponownie.</translation>
-<translation id="1600199746926806589">Twoje urządzenie zostanie automatycznie zarejestrowane w poniższej domenie.
-Sprawdź, czy jest ona poprawna.</translation>
 <translation id="1638626287317244115">Kopiuj dzienniki</translation>
 <translation id="175933110504178679">Ten proces spowoduje usunięcie wszystkich danych osobowych. Potrwa to kilka minut. Nie wyłączaj urządzenia.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery lub spróbuj jeszcze raz.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Wyłącz</translation>
 <translation id="2160704550417277456">Opcje zaawansowane</translation>
 <translation id="2161775569013928937">Czy chcesz rozpocząć odzyskiwanie?</translation>
+<translation id="2238107357612570504">Opcje debugowania dotyczące przywracania</translation>
 <translation id="2249183435483068136">Nieprawidłowe dane logowania</translation>
 <translation id="2367943141906694421">Nie udało się znaleźć żadnej sieci</translation>
 <translation id="2437368373459239842">Potrwa to kilka minut</translation>
-<translation id="2596600434078055015">Opcje debugowania dotyczące przywracania</translation>
 <translation id="2704439832119932045">Aby kontynuować odzyskiwanie, wybierz kanał i wersję systemu operacyjnego</translation>
 <translation id="2731700343119398978">Czekaj...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Wpisz hasło dostępu do sieci</translation>
 <translation id="3243756202241744259">Trwa sprawdzanie poprawności nośnika przywracania...</translation>
-<translation id="3283913352572436199">Nośnik odzyskiwania jest skonfigurowany do automatycznej konfiguracji po ponownym uruchomieniu.
-
-Aby kontynuować automatyczną konfigurację, naciśnij przycisk zwiększania głośności.
-W przeciwnym razie naciśnij przycisk zmniejszania głośności. Jeśli chcesz anulować odzyskiwanie,
-naciśnij przycisk zasilania i przytrzymaj go, aż urządzenie się wyłączy (do 8 sekund).</translation>
+<translation id="3377484800447890197">Podczas przywracania urządzenia wystąpił błąd. Sprawdź dostępne rozwiązania na stronie https://google.com/chromeos/recovery lub spróbuj jeszcze raz.</translation>
 <translation id="33938768013536853">Poziom naładowania baterii jest zbyt niski, by zainstalować aktualizację.
 
 Podłącz Chromebooka do źródła zasilania. Instalacja aktualizacji rozpocznie się automatycznie, gdy tylko bateria zostanie wystarczająco naładowana.</translation>
 <translation id="3554552348994984455">Rozpocznij odzyskiwanie</translation>
-<translation id="369510862371290019">Nośnik odzyskiwania jest skonfigurowany do automatycznej konfiguracji po ponownym uruchomieniu.
-
-Aby kontynuować automatyczną konfigurację, naciśnij przełącznik odzyskiwania na urządzeniu.
-Jeśli chcesz anulować odzyskiwanie, naciśnij przycisk zasilania i przytrzymaj go,
-aż urządzenie się wyłączy (do 8 sekund).</translation>
 <translation id="3723985428118783104">Trwa odzyskiwanie</translation>
 <translation id="385051799172605136">Wstecz</translation>
 <translation id="3928994486545789273">Wybierz sieć</translation>
@@ -94,11 +82,6 @@ uruchomi się ponownie.</translation>
 
 Instalacja aktualizacji rozpocznie się automatycznie, gdy tylko bateria zostanie wystarczająco naładowana.</translation>
 <translation id="5592705604979238266">Centrum pomocy:</translation>
-<translation id="6037207722716689331">Nośnik odzyskiwania jest skonfigurowany do automatycznej konfiguracji po ponownym uruchomieniu.
-
-Aby kontynuować automatyczną konfigurację, naciśnij Enter. W przeciwnym razie naciśnij Escape.
-Jeśli chcesz anulować odzyskiwanie, naciśnij przycisk zasilania i przytrzymaj go,
-aż urządzenie się wyłączy (do 8 sekund).</translation>
 <translation id="6185696379715117369">Strona do góry</translation>
 <translation id="635783852215913562">Użyj klawiszy strzałek, by przechodzić w górę lub w dół.</translation>
 <translation id="6363786367719063276">Wyświetl logi</translation>
@@ -135,7 +118,6 @@ https://www.google.com/chromeos/recovery</translation>
 System został przywrócony.
 Wyjmij nośnik przywracania. Komputer automatycznie uruchomi się ponownie.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Podczas przywracania systemu na urządzeniu wystąpił błąd. Poszukaj rozwiązań na stronie</translation>
 <translation id="8420829064199266609">Łączę się z siecią. Może to potrwać około minuty.</translation>
 <translation id="8433773763660502318">Nie udało się ukończyć procesu odzyskiwania</translation>
 <translation id="8473826843543665828">Wybierz nową sieć lub spróbuj ponownie</translation>
@@ -148,10 +130,6 @@ Po zakończeniu instalacji urządzenie automatycznie uruchomi się ponownie.</tr
 <translation id="8728458033228603970">Trwa odzyskiwanie systemu...
 
 Może to potrwać kilka minut. Nie wyłączaj komputera ani nie odłączaj zasilania.</translation>
-<translation id="8796495438384109098">Ukończono odzyskiwanie systemu.
-
-Nie wyjmuj nośnika odzyskiwania do momentu zakończenia automatycznej konfiguracji.
-Za chwilę komputer automatycznie uruchomi się ponownie, by kontynuować konfigurację.</translation>
 <translation id="88986195241502842">Strona w dół</translation>
 <translation id="8911667951938758302">Nie udało się połączyć z siecią</translation>
 <translation id="9146946647152579011">Zakończono przywracanie</translation>

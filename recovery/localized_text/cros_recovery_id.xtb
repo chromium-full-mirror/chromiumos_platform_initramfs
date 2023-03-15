@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Pemulihan sistem selesai.
 Hapus media pemulihan dan komputer akan dimulai ulang secara otomatis.</translation>
-<translation id="1600199746926806589">Perangkat Anda akan otomatis didaftarkan ke domain yang ditampilkan di bawah.
-Harap verifikasi bahwa tindakan ini benar.</translation>
 <translation id="1638626287317244115">Salin log</translation>
 <translation id="175933110504178679">Proses ini akan menghapus total data pribadi Anda. Proses ini akan memerlukan waktu beberapa menit. Jangan menonaktifkan perangkat.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery untuk mendapatkan solusi yang memungkinkan atau coba lagi.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Matikan perangkat</translation>
 <translation id="2160704550417277456">Opsi Lanjutan</translation>
 <translation id="2161775569013928937">Mulai pemulihan?</translation>
+<translation id="2238107357612570504">Opsi debug pemulihan</translation>
 <translation id="2249183435483068136">Kredensial Salah</translation>
 <translation id="2367943141906694421">Tidak dapat menemukan jaringan</translation>
 <translation id="2437368373459239842">Proses ini akan memerlukan waktu beberapa menit</translation>
-<translation id="2596600434078055015">Opsi Debug Pemulihan</translation>
 <translation id="2704439832119932045">Pilih saluran dan versi OS untuk melanjutkan pemulihan</translation>
 <translation id="2731700343119398978">Harap tunggu...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Masukkan sandi jaringan</translation>
 <translation id="3243756202241744259">Memverifikasi integritas media pemulihan Anda...</translation>
-<translation id="3283913352572436199">Media pemulihan Anda dikonfigurasi untuk disiapkan secara otomatis setelah reboot.
-
-Untuk melanjutkan penyiapan otomatis, tekan tombol Naikkan Volume, jika tidak ingin melanjutkan,
-tekan Turunkan Volume. Jika ingin membatalkan pemulihan, tekan dan tahan tombol daya
-sampai perangkat mati (butuh waktu sekitar 8 detik).</translation>
+<translation id="3377484800447890197">Terjadi error saat memulihkan perangkat Anda. Buka
+https://google.com/chromeos/recovery untuk melihat kemungkinan solusi atau coba lagi.</translation>
 <translation id="33938768013536853">Baterai terlalu lemah untuk mengupdate.
 
 Sambungkan Chromebook ke sumber listrik. Update
 akan otomatis dimulai segera setelah baterai memiliki daya yang cukup.</translation>
 <translation id="3554552348994984455">Mulai pemulihan</translation>
-<translation id="369510862371290019">Media pemulihan Anda dikonfigurasi untuk disiapkan secara otomatis setelah reboot.
-
-Untuk melanjutkan penyiapan otomatis, tekan tombol pemulihan perangkat.
-Jika ingin membatalkan pemulihan, tekan dan tahan tombol daya
-sampai perangkat mati (butuh waktu sekitar 8 detik).</translation>
 <translation id="3723985428118783104">Pemulihan sedang berlangsung</translation>
 <translation id="385051799172605136">Kembali</translation>
 <translation id="3928994486545789273">Pilih jaringan</translation>
@@ -95,11 +84,6 @@ Mengisi baterai...
 
 Update akan otomatis dimulai segera setelah baterai memiliki daya yang cukup.</translation>
 <translation id="5592705604979238266">Pusat bantuan:</translation>
-<translation id="6037207722716689331">Media pemulihan Anda dikonfigurasi untuk disiapkan secara otomatis setelah reboot.
-
-Untuk melanjutkan penyiapan otomatis, tekan Enter, jika tidak ingin melanjutkan, tekan Escape.
-Jika ingin membatalkan pemulihan, tekan dan tahan tombol daya
-sampai perangkat mati (butuh waktu sekitar 8 detik).</translation>
 <translation id="6185696379715117369">Page up</translation>
 <translation id="635783852215913562">Gunakan tombol panah untuk mengarahkan ke atas atau ke bawah.</translation>
 <translation id="6363786367719063276">Lihat log</translation>
@@ -151,7 +135,6 @@ https://www.google.com/chromeos/recovery</translation>
 Pemulihan sistem selesai.
 Hapus media pemulihan dan komputer akan dimulai ulang secara otomatis.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Terjadi error saat memulihkan perangkat. Buka</translation>
 <translation id="8420829064199266609">Menghubungkan ke jaringan. Proses ini mungkin memerlukan waktu hingga satu menit.</translation>
 <translation id="8433773763660502318">Tidak dapat menyelesaikan proses pemulihan</translation>
 <translation id="8473826843543665828">Pilih jaringan baru atau coba lagi</translation>
@@ -170,10 +153,6 @@ Perangkat akan otomatis melakukan reboot saat update selesai.</translation>
 <translation id="8728458033228603970">Pemulihan sistem sedang berlangsung...
 
 Proses ini akan memakan waktu beberapa menit. Jangan menonaktifkan komputer atau memutus sambungan daya.</translation>
-<translation id="8796495438384109098">Pemulihan sistem selesai.
-
-Harap tetap colokkan media pemulihan sampai penyiapan otomatis selesai.
-Komputer akan segera dinyalakan ulang untuk secara otomatis untuk melanjutkan penyiapan.</translation>
 <translation id="88986195241502842">Page down</translation>
 <translation id="8911667951938758302">Tidak dapat terhubung ke jaringan</translation>
 <translation id="9146946647152579011">Pemulihan telah selesai</translation>

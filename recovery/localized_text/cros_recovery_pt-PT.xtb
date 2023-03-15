@@ -13,37 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 A recuperação do sistema está concluída.
 Remova o suporte de dados de recuperação e o computador reiniciará automaticamente.</translation>
-<translation id="1600199746926806589">O seu dispositivo vai ser inscrito automaticamente no domínio apresentado abaixo. Confirme se está correto.</translation>
 <translation id="1638626287317244115">Copiar registos</translation>
 <translation id="175933110504178679">Este processo irá limpar os seus dados pessoais. Esta ação irá demorar vários minutos. Não desligue o dispositivo.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery para obter possíveis soluções ou tente novamente.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Desligar</translation>
 <translation id="2160704550417277456">Opções avançadas</translation>
 <translation id="2161775569013928937">Pretende iniciar a recuperação?</translation>
+<translation id="2238107357612570504">Opções de depuração de recuperação</translation>
 <translation id="2249183435483068136">Credenciais incorretas</translation>
 <translation id="2367943141906694421">Não encontrámos quaisquer redes</translation>
 <translation id="2437368373459239842">Esta ação pode demorar alguns minutos</translation>
-<translation id="2596600434078055015">Opções de depuração de recuperação</translation>
 <translation id="2704439832119932045">Selecione a versão e o canal do SO para continuar a recuperação</translation>
 <translation id="2731700343119398978">Aguarde...</translation>
 <translation id="2904079386864173492">Modelo:</translation>
 <translation id="3029977119648083072">Introduza a palavra-passe da rede</translation>
 <translation id="3243756202241744259">A validar a integridade do suporte de dados de recuperação...</translation>
-<translation id="3283913352572436199">O seu suporte de dados de recuperação está definido para a configuração automática após reiniciar.
-
-Para prosseguir com a configuração automática, prima o botão Aumentar volume, caso contrário,
-prima Diminuir volume. Se pretender cancelar a recuperação, prima o botão ligar/desligar
-e mantenha-o premido até o dispositivo se desligar (esta ação demora até 8 segundos).</translation>
+<translation id="3377484800447890197">Ocorreu um erro durante a recuperação do seu dispositivo. Consulte
+https://google.com/chromeos/recovery para obter possíveis soluções ou tente novamente.</translation>
 <translation id="33938768013536853">Bateria demasiado fraca para atualizar.
 
 Ligue o Chromebook a uma fonte de alimentação. A atualização começará automaticamente quando a bateria tiver carga suficiente.</translation>
 <translation id="3554552348994984455">Inicie a recuperação</translation>
-<translation id="369510862371290019">O seu suporte de dados de recuperação está definido para a configuração automática após reiniciar.
-
-Para prosseguir com a configuração automática, prima o interruptor de recuperação do dispositivo.
-Se pretender cancelar a recuperação, prima o botão ligar/desligar e mantenha-o premido
-até o dispositivo se desligar (demora até 8 segundos).</translation>
 <translation id="3723985428118783104">A recuperação está em curso</translation>
 <translation id="385051799172605136">Anterior</translation>
 <translation id="3928994486545789273">Escolher rede</translation>
@@ -95,11 +85,6 @@ A carregar...
 
 A atualização começará automaticamente quando a bateria tiver carga suficiente.</translation>
 <translation id="5592705604979238266">Centro de Ajuda:</translation>
-<translation id="6037207722716689331">O seu suporte de dados de recuperação está definido para a configuração automática após reiniciar.
-
-Para prosseguir com a configuração automática, prima Enter ou Escape.
-Se pretender cancelar a recuperação, prima o botão ligar/desligar e mantenha-o premido
-até o dispositivo se desligar (demora até 8 segundos).</translation>
 <translation id="6185696379715117369">Página para cima</translation>
 <translation id="635783852215913562">Utilize as teclas de seta para navegar para cima ou para baixo.</translation>
 <translation id="6363786367719063276">Veja registos</translation>
@@ -150,7 +135,6 @@ https://www.google.com/chromeos/recovery</translation>
 A recuperação do sistema está concluída.
 Remova o suporte de dados de recuperação e o computador reiniciará automaticamente.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Ocorreu um erro ao recuperar o seu dispositivo, consulte</translation>
 <translation id="8420829064199266609">A ligar à rede. Esta ação pode demorar, no máximo, um minuto.</translation>
 <translation id="8433773763660502318">Não foi possível concluir o processo de recuperação</translation>
 <translation id="8473826843543665828">Selecione uma nova rede ou tente novamente</translation>
@@ -169,10 +153,6 @@ Este será reiniciado automaticamente quando a atualização terminar.</translat
 <translation id="8728458033228603970">A recuperação do sistema está em curso...
 
 Esta ação demora alguns minutos. Não desligue o computador nem o desligue da tomada.</translation>
-<translation id="8796495438384109098">A recuperação do sistema está concluída.
-
-Mantenha o suporte de dados de recuperação ligado até à conclusão da configuração automática.
-O computador reiniciará automaticamente dentro de momentos para continuar a configuração.</translation>
 <translation id="88986195241502842">Página para baixo</translation>
 <translation id="8911667951938758302">Não foi possível ligar à rede</translation>
 <translation id="9146946647152579011">A recuperação está agora concluída</translation>

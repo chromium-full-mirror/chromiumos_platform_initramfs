@@ -13,38 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 Recuperarea sistemului s-a finalizat.
 Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
-<translation id="1600199746926806589">Dispozitivul tău va fi automat înscris în domeniul prezentat mai jos. Verifică dacă este corect.</translation>
 <translation id="1638626287317244115">Copiază jurnalele</translation>
 <translation id="175933110504178679">Acest proces îți va șterge datele cu caracter personal. Va dura câteva minute. Nu opri dispozitivul.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery pentru soluții posibile sau încearcă din nou.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Oprește alimentarea</translation>
 <translation id="2160704550417277456">Opțiuni avansate</translation>
 <translation id="2161775569013928937">Pornești recuperarea?</translation>
+<translation id="2238107357612570504">Opțiuni de remediere a erorilor legate de recuperare</translation>
 <translation id="2249183435483068136">Date de conectare incorecte</translation>
 <translation id="2367943141906694421">Nu s-au găsit rețele</translation>
 <translation id="2437368373459239842">Va dura câteva minute</translation>
-<translation id="2596600434078055015">Opțiuni de remediere a erorilor legate de recuperare</translation>
 <translation id="2704439832119932045">Selectează canalul și versiunea SO pentru a continua recuperarea</translation>
 <translation id="2731700343119398978">Așteptați...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Introdu parola rețelei</translation>
 <translation id="3243756202241744259">Se verifică integritatea suportului de recuperare...</translation>
-<translation id="3283913352572436199">Suportul de recuperare este configurat pentru configurare automată după ce repornește.
-
-Pentru a continua configurarea automată, apasă butonul de creștere a volumului sau
-butonul de reducere a volumului. Dacă dorești să anulezi recuperarea, apasă lung pe
-butonul de alimentare până când computerul se închide (durează până la opt secunde).</translation>
+<translation id="3377484800447890197">A apărut o eroare la recuperarea dispozitivului. Consultă https://google.com/chromeos/recovery pentru soluții posibile sau încearcă din nou.</translation>
 <translation id="33938768013536853">Bateria este prea descărcată pentru actualizare.
 
 Conectează Chromebookul la o sursă de alimentare. Actualizarea
 va începe automat de îndată ce bateria este încărcată suficient.</translation>
 <translation id="3554552348994984455">Pornește recuperarea</translation>
-<translation id="369510862371290019">Suportul de recuperare este configurat pentru configurare automată după ce repornește.
-
-Pentru a continua configurarea automată, apasă comutatorul de recuperare al
-dispozitivului. Dacă dorești să anulezi recuperarea, apasă lung pe
-butonul de alimentare până când computerul se închide (durează până la opt secunde).</translation>
 <translation id="3723985428118783104">Se recuperează</translation>
 <translation id="385051799172605136">Înapoi</translation>
 <translation id="3928994486545789273">Alege o rețea</translation>
@@ -95,11 +84,6 @@ Se încarcă...
 
 Actualizarea va începe automat de îndată ce bateria este încărcată suficient.</translation>
 <translation id="5592705604979238266">Centrul de ajutor:</translation>
-<translation id="6037207722716689331">Suportul de recuperare este configurat pentru configurare automată după ce repornește.
-
-Pentru a continua configurarea automată, apasă Enter; altfel, apasă Escape.
-Dacă dorești să anulezi recuperarea, apasă lung pe butonul de alimentare până când
-computerul se închide (durează până la opt secunde).</translation>
 <translation id="6185696379715117369">O pagină mai sus</translation>
 <translation id="635783852215913562">Folosește tastele săgeată pentru a naviga în sus sau în jos.</translation>
 <translation id="6363786367719063276">Consultă jurnalele</translation>
@@ -150,7 +134,6 @@ https://www.google.com/chromeos/recovery</translation>
 Recuperarea sistemului s-a finalizat.
 Scoate suportul de recuperare, iar computerul va reporni automat.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">A apărut o eroare în timpul recuperării dispozitivului. Consultă</translation>
 <translation id="8420829064199266609">Se conectează la rețea. Poate dura până la un minut.</translation>
 <translation id="8433773763660502318">Nu s-a putut finaliza procesul de recuperare</translation>
 <translation id="8473826843543665828">Selectează o rețea nouă sau încearcă din nou</translation>
@@ -170,10 +153,6 @@ Acesta va reporni automat când actualizarea se finalizează.</translation>
 
 Procesul va dura câteva minute. Nu închide computerul
 și nu-l deconecta de la sursa de alimentare.</translation>
-<translation id="8796495438384109098">Recuperarea sistemului s-a încheiat.
-
-Păstrează suportul de recuperare conectat până când se încheie configurarea automată.
-Computerul va reporni automat în curând pentru a continua configurarea.</translation>
 <translation id="88986195241502842">O pagină mai jos</translation>
 <translation id="8911667951938758302">Conectarea la rețea nu a reușit</translation>
 <translation id="9146946647152579011">Recuperarea s-a finalizat</translation>

@@ -13,37 +13,26 @@ https://www.google.com/chromeos/recovery</translation>
 
 Pemulihan sistem sudah selesai.
 Sila alih keluar media pemulihan dan komputer anda akan dimulakan semula secara automatik.</translation>
-<translation id="1600199746926806589">Peranti anda akan didaftarkan ke domain yang ditunjukkan di bawah secara automatik. Sila sahkan bahawa perkara ini betul.</translation>
 <translation id="1638626287317244115">Salin log</translation>
 <translation id="175933110504178679">Proses ini akan menghapuskan data peribadi anda. Proses ini akan mengambil masa beberapa minit. Jangan matikan peranti.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery untuk mendapatkan penyelesaian yang mungkin berkesan atau cuba lagi.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Matikan kuasa</translation>
 <translation id="2160704550417277456">Pilihan Lanjutan</translation>
 <translation id="2161775569013928937">Mulakan pemulihan?</translation>
+<translation id="2238107357612570504">Pilihan nyahpepijat pemulihan</translation>
 <translation id="2249183435483068136">Bukti Kelayakan Salah</translation>
 <translation id="2367943141906694421">Tidak menemukan sebarang rangkaian</translation>
 <translation id="2437368373459239842">Proses ini mengambil masa beberapa minit</translation>
-<translation id="2596600434078055015">Pilihan Nyahpepijat Pemulihan</translation>
 <translation id="2704439832119932045">Pilih saluran dan versi OS untuk meneruskan pemulihan</translation>
 <translation id="2731700343119398978">Sila tunggu...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Masukkan kata laluan rangkaian</translation>
 <translation id="3243756202241744259">Mengesahkan integriti media pemulihan anda...</translation>
-<translation id="3283913352572436199">Media pemulihan anda dikonfigurasi untuk persediaan automatik selepas but semula.
-
-Untuk meneruskan persediaan automatik, tekan butang Naikkan Kelantangan, jika tidak
-tekan Kurangkan Kelantangan. Jika anda ingin membatalkan pemulihan, tekan butang kuasa
-dan tahan hingga peranti dimatikan (proses ini mengambil masa sehingga 8 saat).</translation>
+<translation id="3377484800447890197">Berlaku ralat semasa memulihkan peranti anda, rujuk https://google.com/chromeos/recovery untuk mendapatkan penyelesaian yang mungkin berkesan atau cuba lagi.</translation>
 <translation id="33938768013536853">Bateri terlalu lemah untuk kemas kini.
 
 Sila sambungkan Chromebook anda kepada sumber kuasa. Kemas kini akan dimulakan secara automatik sebaik sahaja cas bateri mencukupi.</translation>
 <translation id="3554552348994984455">Mulakan pemulihan</translation>
-<translation id="369510862371290019">Media pemulihan anda dikonfigurasi untuk persediaan automatik selepas but semula.
-
-Untuk meneruskan persediaan automatik, tekan suis pemulihan peranti.
-Jika anda ingin membatalkan pemulihan, tekan butang kuasa dan tahan
-hingga peranti dimatikan (proses ini mengambil masa sehingga 8 saat).</translation>
 <translation id="3723985428118783104">Pemulihan sedang berlangsung</translation>
 <translation id="385051799172605136">Kembali</translation>
 <translation id="3928994486545789273">Pilih rangkaian</translation>
@@ -97,11 +86,6 @@ Mengecas...
 
 Kemas kini akan dimulakan secara automatik sebaik sahaja cas bateri mencukupi.</translation>
 <translation id="5592705604979238266">Pusat bantuan:</translation>
-<translation id="6037207722716689331">Media pemulihan anda dikonfigurasi untuk persediaan automatik selepas but semula.
-
-Untuk meneruskan persediaan automatik, tekan Enter, jika tidak tekan Escape.
-Jika anda ingin membatalkan pemulihan, tekan butang kuasa dan tahan
-hingga peranti dimatikan (proses ini mengambil masa sehingga 8 saat).</translation>
 <translation id="6185696379715117369">Halaman atas</translation>
 <translation id="635783852215913562">Gunakan kekunci anak panah untuk menavigasi ke atas atau ke bawah.</translation>
 <translation id="6363786367719063276">Lihat log</translation>
@@ -151,7 +135,6 @@ https://www.google.com/chromeos/recovery</translation>
 Pemulihan sistem sudah selesai.
 Sila alih keluar media pemulihan dan komputer anda akan dimulakan semula secara automatik.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Terdapat ralat semasa memulihkan peranti anda. Rujuk</translation>
 <translation id="8420829064199266609">Menyambung kepada rangkaian. Proses ini mungkin mengambil masa sehingga seminit.</translation>
 <translation id="8433773763660502318">Tidak dapat menyelesaikan proses pemulihan</translation>
 <translation id="8473826843543665828">Sila pilih rangkaian baharu atau cuba lagi</translation>
@@ -171,10 +154,6 @@ Peranti ini akan mengebut semula secara automatik apabila kemas kini selesai.</t
 
 Ini akan mengambil masa beberapa minit. Harap jangan matikan komputer atau
 putuskan sambungan kuasa.</translation>
-<translation id="8796495438384109098">Pemulihan sistem selesai.
-
-Jangan keluarkan media pemulihan anda sehinggalah persediaan automatik selesai.
-Komputer anda akan dimulakan semula secara automatik sebentar lagi untuk meneruskan persediaan.</translation>
 <translation id="88986195241502842">Halaman bawah</translation>
 <translation id="8911667951938758302">Tidak dapat menyambung kepada rangkaian</translation>
 <translation id="9146946647152579011">Pemulihan sudah selesai</translation>

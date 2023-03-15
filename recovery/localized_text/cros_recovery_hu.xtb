@@ -13,40 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 A rendszer helyreállítása befejeződött.
 Kérjük, távolítsa el a helyreállítási adathordozót. A számítógép automatikusan újraindul.</translation>
-<translation id="1600199746926806589">Eszköze automatikusan regisztrál az alábbi domainre.
-Ellenőrizze a domain helyességét.</translation>
 <translation id="1638626287317244115">Naplók másolása</translation>
 <translation id="175933110504178679">A folyamat visszaállíthatatlanul törli az Ön személyes adatait. Ez eltarthat néhány percig. Ne kapcsolja ki az eszközt.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery oldalt a lehetséges megoldásokért, vagy próbálkozzon újra.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Kikapcsolás</translation>
 <translation id="2160704550417277456">Speciális beállítások</translation>
 <translation id="2161775569013928937">Helyreállítás indítása?</translation>
+<translation id="2238107357612570504">Helyreállítási hibakeresési lehetőségek</translation>
 <translation id="2249183435483068136">Helytelen hitelesítési adatok</translation>
 <translation id="2367943141906694421">Nem találhatók hálózatok</translation>
 <translation id="2437368373459239842">Ez eltarthat néhány percig</translation>
-<translation id="2596600434078055015">Helyreállítási hibakeresési lehetőségek</translation>
 <translation id="2704439832119932045">A helyreállítás folytatásához válassza ki az operációs rendszer csatornáját és verzióját</translation>
 <translation id="2731700343119398978">Kérjük, várjon...</translation>
 <translation id="2904079386864173492">Modell:</translation>
 <translation id="3029977119648083072">Adja meg a hálózat jelszavát.</translation>
 <translation id="3243756202241744259">A helyreállítási adathordozó integritásának ellenőrzése...</translation>
-<translation id="3283913352572436199">A helyreállítási adathordozó automatikus beállításba kezd az újraindítás után.
-
-Az automatikus beállítás megkezdéséhez nyomja meg a hangerő növelése
-gombot, egyébként a hangerő csökkentése gombot. A helyreállítás
-megszakításához a bekapcsológombot (kb. 8 másodpercig)
-nyomva tartva kapcsolja ki az eszközt.</translation>
+<translation id="3377484800447890197">Hiba történt az eszköz helyreállítása során. A lehetséges megoldásokról a https://google.com/chromeos/recovery oldalon tájékozódhat, vagy próbálkozzon újra.</translation>
 <translation id="33938768013536853">Az akkumulátor töltöttségi szintje túl alacsony a frissítéshez.
 
 Csatlakoztassa a Chromebookot áramforráshoz. A frissítés automatikusan
 elkezdődik, amint az akkumulátor eléri a megfelelő töltöttségi szintet.</translation>
 <translation id="3554552348994984455">Helyreállítás indítása</translation>
-<translation id="369510862371290019">A helyreállítási adathordozó automatikus beállításba kezd az újraindítás után.
-
-Az automatikus beállítás megkezdéséhez nyomja meg az eszköz helyreállítási
-gombját. A helyreállítás megszakításához a bekapcsológombot (kb. 8 másodpercig)
-nyomva tartva kapcsolja ki az eszközt.</translation>
 <translation id="3723985428118783104">Helyreállítás folyamatban</translation>
 <translation id="385051799172605136">Vissza</translation>
 <translation id="3928994486545789273">Hálózat kiválasztása</translation>
@@ -102,10 +89,6 @@ Töltés…
 
 A frissítés automatikusan elkezdődik, amint az akkumulátor eléri a megfelelő töltöttségi szintet.</translation>
 <translation id="5592705604979238266">Súgó:</translation>
-<translation id="6037207722716689331">A helyreállítási adathordozó automatikus beállításba kezd az újraindítás után.
-
-Az automatikus beállítás megkezdéséhez nyomja meg az Enter billentyűt,
-egyébként az Escape billentyűt. A helyreállítás megszakításához a bekapcsológombot (kb. 8 másodpercig) nyomva tartva kapcsolja ki az eszközt.</translation>
 <translation id="6185696379715117369">Lapozás felfelé</translation>
 <translation id="635783852215913562">A nyílbillentyűkkel navigálhat fel és le.</translation>
 <translation id="6363786367719063276">Naplók megtekintése</translation>
@@ -157,7 +140,6 @@ https://www.google.com/chromeos/recovery</translation>
 A rendszer helyreállítása befejeződött.
 Kérjük, távolítsa el a helyreállítási adathordozót. A számítógép automatikusan újraindul.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Hiba történt az eszköz helyreállítása során. Keresse fel a</translation>
 <translation id="8420829064199266609">Csatlakozás a hálózathoz. Ez egy percig is eltarthat.</translation>
 <translation id="8433773763660502318">Nem sikerült befejezni a helyreállítási folyamatot</translation>
 <translation id="8473826843543665828">Válasszon új hálózatot, vagy próbálkozzon újra.</translation>
@@ -177,11 +159,6 @@ A frissítés befejezése után az eszköz automatikusan újraindul.</translatio
 
 Ez néhány percet vesz igénybe. Ne kapcsolja ki a számítógépet, illetve
 ne szüntesse meg a tápellátását.</translation>
-<translation id="8796495438384109098">A rendszer helyreállítása befejeződött.
-
-Ne távolítsa el a helyreállítási adathordozót, amíg az automatikus beállítás
-be nem fejeződött.
-A számítógép rövidesen automatikusan újraindul, hogy folytathassa a beállítást.</translation>
 <translation id="88986195241502842">Lapozás lefelé</translation>
 <translation id="8911667951938758302">Nem sikerült kapcsolódni a hálózathoz</translation>
 <translation id="9146946647152579011">A helyreállítás befejeződött</translation>

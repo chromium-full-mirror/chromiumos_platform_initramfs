@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Mae'r adferiad system wedi'i gwblhau.
 Tynnwch y cyfryngau adfer a bydd eich cyfrifiadur yn ailgychwyn yn awtomatig.</translation>
-<translation id="1600199746926806589">Bydd eich dyfais yn cael ei chofrestru'n awtomatig yn y parth a ddangosir isod.
-Cadarnhewch ei fod yn gywir.</translation>
 <translation id="1638626287317244115">Copïo logiau</translation>
 <translation id="175933110504178679">Bydd y broses hon yn clirio'ch data personol. Bydd hyn yn cymryd sawl munud. Peidiwch â diffodd y ddyfais.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery am atebion posib neu rhowch gynnig arall arni.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Diffodd</translation>
 <translation id="2160704550417277456">Dewisiadau Uwch</translation>
 <translation id="2161775569013928937">Dechrau adfer?</translation>
+<translation id="2238107357612570504">Dewisiadau dadfygio adfer</translation>
 <translation id="2249183435483068136">Manylion Adnabod Anghywir</translation>
 <translation id="2367943141906694421">Ni fu modd dod o hyd i unrhyw rwydweithiau</translation>
 <translation id="2437368373459239842">Bydd hyn yn cymryd ychydig funudau</translation>
-<translation id="2596600434078055015">Dewisiadau Dadfygio Adfer</translation>
 <translation id="2704439832119932045">Dewiswch sianel a fersiwn OS i barhau i adfer</translation>
 <translation id="2731700343119398978">Arhoswch...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Rhowch gyfrinair y rhwydwaith</translation>
 <translation id="3243756202241744259">Wrthi'n dilysu cywirdeb eich cyfryngau adfer...</translation>
-<translation id="3283913352572436199">Mae eich cyfryngau adfer wedi'i ffurfweddu ar gyfer gosod awtomatig ar ôl iddo ailgychwyn.
-
-Er mwyn parhau gyda'r gosod awtomatig, pwyswch y botwm Lefel Sain i Fyny, fel arall,
-pwyswch Lefel Sain i Lawr. Os ydych am ganslo'r broses adfer, pwyswch y botwm pŵer
-a'i ddal i lawr nes i'r ddyfais ddiffodd (mae hyn yn cymryd hyd at 8 eiliad).</translation>
+<translation id="3377484800447890197">Bu gwall wrth adfer eich dyfais, Cyfeiriwch at
+https://google.com/chromeos/recovery am ddatrysiadau posib neu rhowch gynnig arall arni.</translation>
 <translation id="33938768013536853">Mae'r batri yn rhy isel i ddiweddaru
 
 Cysylltwch eich Chromebook â ffynhonnell bŵer. Bydd y diweddariad
 yn cychwyn yn awtomatig cyn gynted ag y bydd gan y batri ddigon o bŵer.</translation>
 <translation id="3554552348994984455">Dechrau adfer</translation>
-<translation id="369510862371290019">Mae eich cyfryngau adfer wedi'i ffurfweddu ar gyfer gosod awtomatig ar ôl iddo ailgychwyn.
-
-Er mwyn parhau gyda gosod awtomatig, pwyswch switsh adfer eich dyfais.
-Os ydych am ganslo adfer, pwyswch y botwm pŵer daliwch ef
-i lawr nes i'r ddyfais ddiffodd (mae hyn yn cymryd hyd at 8 eiliad).</translation>
 <translation id="3723985428118783104">Wrthi'n adfer</translation>
 <translation id="385051799172605136">Nôl</translation>
 <translation id="3928994486545789273">Dewiswch rwydwaith</translation>
@@ -100,11 +89,6 @@ Wrthi'n gwefru...
 
 Bydd y diweddariad yn cychwyn yn awtomatig cyn gynted ag y bydd gan y batri ddigon o bŵer.</translation>
 <translation id="5592705604979238266">Canolfan gymorth:</translation>
-<translation id="6037207722716689331">Mae eich cyfryngau adfer wedi'i ffurfweddu ar gyfer gosod awtomatig ar ôl iddo ailgychwyn.
-
-I barhau gyda gosod awtomatig, pwyswch Enter, fel arall pwyswch Escape.
-Os ydych am ganslo adfer, pwyswch y botwm pŵer a daliwch ef
-i lawr nes i'r ddyfais ddiffodd (mae hyn yn cymryd hyd at 8 eiliad).</translation>
 <translation id="6185696379715117369">Tudalen i fyny</translation>
 <translation id="635783852215913562">Defnyddiwch y bysellau saeth i lywio i fyny neu i lawr.</translation>
 <translation id="6363786367719063276">Gweld cofnodion</translation>
@@ -156,7 +140,6 @@ https://www.google.com/chromeos/recovery</translation>
 Mae'r adferiad system wedi'i gwblhau.
 Tynnwch y cyfryngau adfer a bydd eich cyfrifiadur yn ailgychwyn yn awtomatig.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Bu gwall wrth adfer eich dyfais, Cyfeiriwch at</translation>
 <translation id="8420829064199266609">Wrthi'n cysylltu â'r rhyngrwyd. Gall hyn gymryd hyd at funud.</translation>
 <translation id="8433773763660502318">Ni fu modd gorffen y broses adfer</translation>
 <translation id="8473826843543665828">Dewiswch rwydwaith newydd neu rhowch gynnig arall arni</translation>
@@ -176,10 +159,6 @@ Bydd yn ailgychwyn yn awtomatig ar ôl i'r diweddariad ddod i ben.</translation>
 
 Bydd hyn yn cymryd ychydig funudau. Peidiwch â diffodd y cyfrifiadur na
 datgysylltu’r pŵer.</translation>
-<translation id="8796495438384109098">Mae adferiad system wedi'i gwblhau.
-
-Cadwch eich cyfryngau adfer wedi'u plygio i mewn nes bod y gosod awtomatig wedi'i gwblhau.
-Bydd eich cyfrifiadur yn ailgychwyn yn awtomatig yn fuan i barhau i osod.</translation>
 <translation id="88986195241502842">I lawr y dudalen</translation>
 <translation id="8911667951938758302">Methu â chysylltu â'r rhwydwaith</translation>
 <translation id="9146946647152579011">Mae'r adferiad bellach wedi'i gwblhau</translation>

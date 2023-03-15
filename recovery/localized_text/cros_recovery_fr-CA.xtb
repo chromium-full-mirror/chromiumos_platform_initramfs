@@ -13,39 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 La récupération système est terminée.
 Veuillez retirer le support de récupération. Votre ordinateur redémarrera automatiquement.</translation>
-<translation id="1600199746926806589">Votre appareil sera automatiquement inscrit dans le domaine affiché ci-dessous.
-Veuillez vérifier que le domaine correspond.</translation>
 <translation id="1638626287317244115">Copier les journaux</translation>
 <translation id="175933110504178679">Ce processus effacera vos données personnelles. Cette opération prendra plusieurs minutes. N'éteignez pas l'appareil.</translation>
-<translation id="1950865024817806485">Consultez les solutions possibles à la page https://google.com/chromeos/recovery ou réessayez.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Éteindre</translation>
 <translation id="2160704550417277456">Options avancées</translation>
 <translation id="2161775569013928937">Commencer la récupération?</translation>
+<translation id="2238107357612570504">Options de débogage de la récupération</translation>
 <translation id="2249183435483068136">Authentifiant incorrect</translation>
 <translation id="2367943141906694421">Impossible de trouver des réseaux</translation>
 <translation id="2437368373459239842">Cette opération prendra quelques minutes</translation>
-<translation id="2596600434078055015">Options de débogage de la récupération</translation>
 <translation id="2704439832119932045">Sélectionner le canal et la version du SE pour poursuivre la récupération</translation>
 <translation id="2731700343119398978">Veuillez patienter...</translation>
 <translation id="2904079386864173492">Modèle :</translation>
 <translation id="3029977119648083072">Entrez le mot de passe du réseau</translation>
 <translation id="3243756202241744259">Vérification en cours de l'intégrité de votre support de récupération...</translation>
-<translation id="3283913352572436199">Votre support de récupération est configuré pour une installation automatique après le redémarrage.
-
-Pour procéder à la configuration automatique, appuyez sur le bouton d'augmentation du volume, sinon
-appuyez sur le bouton de diminution du volume. Si vous souhaitez annuler ce processus, appuyez sur l'interrupteur
-et maintenez-le enfoncé jusqu'à ce que l'ordinateur s'éteigne (cela prend jusqu'à 8 secondes).</translation>
+<translation id="3377484800447890197">Une erreur s'est produite lors de la récupération de votre appareil. Consultez la page https://google.com/chromeos/recovery pour obtenir des conseils ou réessayez.</translation>
 <translation id="33938768013536853">Pile trop faible pour la mise à jour.
 
 Veuillez brancher votre Chromebook sur une source d'alimentation. La mise à jour
 démarrera automatiquement dès que la pile sera suffisamment chargée.</translation>
 <translation id="3554552348994984455">Commencer la récupération</translation>
-<translation id="369510862371290019">Votre support de récupération est configuré pour une installation automatique après le redémarrage.
-
-Pour procéder à la configuration automatique, appuyez sur le bouton de récupération de l'appareil.
-Si vous souhaitez annuler la récupération, appuyez sur l'interrupteur
-et maintenez-le enfoncé jusqu'à ce que l'appareil s'éteigne (cela prend jusqu'à 8 secondes).</translation>
 <translation id="3723985428118783104">Récupération en cours…</translation>
 <translation id="385051799172605136">Retour</translation>
 <translation id="3928994486545789273">Choisir un réseau</translation>
@@ -97,11 +85,6 @@ Chargement en cours…
 
 La mise à jour démarrera automatiquement dès que la pile sera suffisamment chargée.</translation>
 <translation id="5592705604979238266">Centre d'aide :</translation>
-<translation id="6037207722716689331">Votre support de récupération est configuré pour une installation automatique après le redémarrage.
-
-Pour procéder à la configuration automatique, appuyez sur Entrée, sinon
-appuyez sur Échappement. Si vous souhaitez annuler ce processus, appuyez sur l'interrupteur
-et maintenez-le enfoncé jusqu'à ce que l'ordinateur s'éteigne (cela prend jusqu'à 8 secondes).</translation>
 <translation id="6185696379715117369">Page précédente</translation>
 <translation id="635783852215913562">Utilisez les touches fléchées pour naviguer vers le haut ou vers le bas.</translation>
 <translation id="6363786367719063276">Afficher les journaux</translation>
@@ -152,7 +135,6 @@ https://www.google.com/chromeos/recovery</translation>
 La récupération système est terminée.
 Veuillez retirer le support de récupération. Votre ordinateur redémarrera automatiquement.</translation>
 <translation id="8179976553408161302">Entrée</translation>
-<translation id="8361934271307901704">Une erreur s'est produite lors de la récupération de votre appareil. Vérifiez si la page</translation>
 <translation id="8420829064199266609">Connexion au réseau en cours… Cette opération peut prendre jusqu'à une minute.</translation>
 <translation id="8433773763660502318">Impossible de terminer le processus de récupération</translation>
 <translation id="8473826843543665828">Veuillez sélectionner un nouveau réseau ou réessayer</translation>
@@ -172,10 +154,6 @@ Celui-ci redémarrera automatiquement une fois la mise à jour terminée.</trans
 
 Ce processus prend quelques minutes. Veuillez ne pas éteindre l'ordinateur ou
 débrancher l'alimentation.</translation>
-<translation id="8796495438384109098">Le processus de récupération du système est terminé.
-
-Assurez-vous que votre support de récupération est branché jusqu'à la fin de la configuration automatique.
-Votre ordinateur redémarrera automatiquement dans un instant pour continuer la configuration.</translation>
 <translation id="88986195241502842">Page suivante</translation>
 <translation id="8911667951938758302">Impossible de se connecter au réseau</translation>
 <translation id="9146946647152579011">La récupération est maintenant terminée</translation>

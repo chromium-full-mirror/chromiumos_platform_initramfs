@@ -13,35 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 ሥርዓትን ወደ ነበረበት መመለስ ተጠናቅቋል።
 እባክዎ ወደ ነበረበት መመለሻ ሚዲያውን ያስወግዱ እና ኮምፒተርዎ በራስ-ሰር እንደገና ይጀምራል።</translation>
-<translation id="1600199746926806589">የእርስዎ መሣሪያ በራስ-ሰር ከታች በሚታየው ጎራ ውስጥ ይመዘገባል።
-እባክዎ ትክክል መሆኑን ያረጋግጡ።</translation>
 <translation id="1638626287317244115">የምዝግብ ማስታወሻዎችን ቅዳ</translation>
 <translation id="175933110504178679">ይህ ሂደት የግል ውሂብዎን ይጠርጋል። ይህ በርካታ ደቂቃዎችን ይወስዳል። መሣሪያውን አያጥፉ።</translation>
-<translation id="1950865024817806485">ሊሆኑ ለሚችሉ መፍትሔዎች https://google.com/chromeos/recovery ወይም እንደገና ይሞክሩ።</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">ኃይል አጥፋ</translation>
 <translation id="2160704550417277456">የላቁ አማራጮች</translation>
 <translation id="2161775569013928937">መልሶ ማግኘት ይጀምር?</translation>
+<translation id="2238107357612570504">እንደነበረ መመለሻ የስህተት ማረም አማራጮች</translation>
 <translation id="2249183435483068136">ትክክል ያልሆኑ የመግቢያ ማስረጃዎች</translation>
 <translation id="2367943141906694421">ምንም አውታረ መረቦችን ማግኘት አልተቻለም</translation>
 <translation id="2437368373459239842">ይሄ ጥቂት ደቂቃዎችን ይወስዳል</translation>
-<translation id="2596600434078055015">እንደነበረ መመለሻ የስህተት ማረም አማራጮች</translation>
 <translation id="2704439832119932045">መልሶ ማግኘቱን ለመቀጠል የOS ሰርጥ እና ስሪት ይምረጡ</translation>
 <translation id="2731700343119398978">እባክዎ ይጠብቁ...</translation>
 <translation id="2904079386864173492">ሞዴል፦</translation>
 <translation id="3029977119648083072">የአውታረ መረብ የይለፍ ቃል ያስገቡ</translation>
 <translation id="3243756202241744259">የእርስዎን የእንደነበረ መመለሻ ሚዲያ ተአማኒነት በማረጋገጥ ላይ...</translation>
-<translation id="3283913352572436199">የእርስዎ የመልሶ ማግኛ ሚዲያ ዳግም ከተነሳ በኋላ ለራስ-ሰር ውቅረት ተዋቅሯል።
-
-በራስ-ሰር ውቅረት ለመቀጠል የድምጽ መጨመሪያ አዝራሩን ይጫኑ፣ አለበለዚያ የድምጽ ቀንስ አዝራሩን ይጫኑ። መልሶ ማግኘትን መሰረዝ ከፈለጉ የኃይል አዝራሩን ይጫኑትና መሣሪያው እስኪጠፋ ድረስ ይያዙት (ይህ እስከ 8 ሰከንዶች ድረስ ሊወስድ ይችላል)።</translation>
+<translation id="3377484800447890197">መሣሪያዎን መልሶ በማግኘት ጊዜ ስህተት ነበር፣ ሊሆኑ ለሚችሉ መፍትሄዎች
+https://google.com/chromeos/recoveryን ዋቢ ያድርጉ ወይም እንደገና ይሞክሩ።</translation>
 <translation id="33938768013536853">እንዳይዘመን ባትሪው በጣም ዝቅተኛ ነው።
 
 እባክዎ የእርስዎን Chromebook ከኃይል ምንጭ ጋር ያገናኙት።
 ልክ ባትሪው በቂ ኃይል እንዳገኘ ዝማኔው በራስ-ሰር ይጀመራል።</translation>
 <translation id="3554552348994984455">መልሶ ማግኘትን ይጀምሩ</translation>
-<translation id="369510862371290019">የእርስዎ የመልሶ ማግኛ ሚዲያ ዳግም ከተነሳ በኋላ ለራስ-ሰር ውቅረት ተዋቅሯል።
-
-በራስ-ሰር ውቅረት ለመቀጠል የመሣሪያው መልሶ ማግኛ ማብሪያ/ማጥፊያ ይጫኑ። መልሶ ማግኘትን መሰረዝ ከፈለጉ የኃይል አዝራሩን ይጫኑትና መሣሪያው እስኪጠፋ ድረስ ይያዙት (ይህ እስከ 8 ሰከንዶች ድረስ ሊወስድ ይችላል)።</translation>
 <translation id="3723985428118783104">ማልሶ ማግኘት በሂደት ላይ</translation>
 <translation id="385051799172605136">ተመለስ</translation>
 <translation id="3928994486545789273">አውታረ መረብ ይምረጡ</translation>
@@ -91,9 +84,6 @@ https://www.google.com/chromeos/recovery</translation>
 
 ልክ ባትሪው በቂ ኃይል እንዳገኘ ዝማኔው በራስ-ሰር ይጀመራል።</translation>
 <translation id="5592705604979238266">የእገዛ ማዕከል፦</translation>
-<translation id="6037207722716689331">የእርስዎ የመልሶ ማግኛ ሚዲያ ዳግም ከተነሳ በኋላ ለራስ-ሰር ውቅረት ተዋቅሯል።
-
-በራስ-ሰር ውቅረት ለመቀጠል Enterን ይጫኑ፣ አለበለዚያ Escapeን ይጫኑ። መልሶ ማግኘትን መሰረዝ ከፈለጉ የኃይል አዝራሩን ይጫኑትና መሣሪያው እስኪጠፋ ድረስ ይያዙት (ይህ እስከ 8 ሰከንዶች ድረስ ሊወስድ ይችላል)።</translation>
 <translation id="6185696379715117369">ገጽ ወደላይ</translation>
 <translation id="635783852215913562">ወደ ላይ ወይም ወደ ታች ለማሰስ የቀስት ቁልፎቹን ይጠቀሙ።</translation>
 <translation id="6363786367719063276">ምዝግብ ማስታወሻ ይመልከቱ</translation>
@@ -145,7 +135,6 @@ https://www.google.com/chromeos/recovery</translation>
 ሥርዓትን ወደ ነበረበት መመለስ ተጠናቅቋል።
 እባክዎ ወደ ነበረበት መመለሻ ሚዲያውን ያስወግዱ እና ኮምፒተርዎ በራስ-ሰር እንደገና ይጀምራል።</translation>
 <translation id="8179976553408161302">አስገባ</translation>
-<translation id="8361934271307901704">የእርስዎን መሣሪያ እንደነበረ በመመለስ ላይ ስህተት ነበር፣ ይጥቀሱ</translation>
 <translation id="8420829064199266609">ከአውታረ መረቡ ጋር በመገናኘት ላይ። ይሄ እስከ አንድ ደቂቃ ድረስ ሊወስድ ይችላል።</translation>
 <translation id="8433773763660502318">የመልሶ ማግኛ ሂደቱን መጨረስ አልተቻለም</translation>
 <translation id="8473826843543665828">እባክዎ አዲስ አውታረ መረብ ይምረጡ ወይም እንደገና ይሞክሩ</translation>
@@ -165,9 +154,6 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8728458033228603970">የስርዓት እንደነበረ መመለ በሂደት ላይ ነው...
 
 ይህ ጥቂት ደቂቃዎችን ይወስዳል። እባክዎ ኮምፒውተሩን አያጥፉት ወይም ኃይል መስጫውን ግንኙነት አቋርጥ።</translation>
-<translation id="8796495438384109098">ስርዓትን መልሶ ማግኘት ተጠናቅቋል።
-
-ራስ-ሰር ውቅረት እስኪጠናቀቅ ድረስ እባክዎ የመልሶ ማግኛ ሚዲያዎን እንደተሰካ ያቆዩት። ኮምፒውተርዎ ማዋቀርን ለመቀጠል ትንሽ ቆይቶ በራስ-ሰር ዳግም ይነሳል።</translation>
 <translation id="88986195241502842">ገጽ ወደ ታች</translation>
 <translation id="8911667951938758302">ከአውታረ መረቡ ጋር መገናኘት አልተቻለም</translation>
 <translation id="9146946647152579011">እንደነበረ መመለስ አሁን ተጠናቅቋል</translation>

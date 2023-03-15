@@ -13,35 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 Sistēmas atkopšana ir pabeigta.
 Lūdzu, noņemiet atkopšanas datu nesēju, un dators automātiski tiks restartēts.</translation>
-<translation id="1600199746926806589">Jūsu ierīce automātiski tiks reģistrēta tālāk norādītajā domēnā.
-Lūdzu, apstipriniet, ka tas ir pareizs.</translation>
 <translation id="1638626287317244115">Kopēt žurnālus</translation>
 <translation id="175933110504178679">Šajā procesā tiks notīrīti jūsu personas dati. Tas var ilgt vairākas minūtes. Neizslēdziet ierīci.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery, lai skatītu iespējamos risinājumus, vai mēģiniet vēlreiz.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Izslēgt</translation>
 <translation id="2160704550417277456">Izvērstas opcijas</translation>
 <translation id="2161775569013928937">Vai sākt atkopšanu?</translation>
+<translation id="2238107357612570504">Atkopšanas atkļūdošanas opcijas</translation>
 <translation id="2249183435483068136">Nepareizi akreditācijas dati</translation>
 <translation id="2367943141906694421">Nevarēja atrast nevienu tīklu</translation>
 <translation id="2437368373459239842">Tā ilgs dažas minūtes</translation>
-<translation id="2596600434078055015">Atkopšanas atkļūdošanas opcijas</translation>
 <translation id="2704439832119932045">Atlasiet OS kanālu un versiju, lai turpinātu atkopšanu</translation>
 <translation id="2731700343119398978">Lūdzu, uzgaidiet...</translation>
 <translation id="2904079386864173492">Modelis:</translation>
 <translation id="3029977119648083072">Tīkla paroles ievade</translation>
 <translation id="3243756202241744259">Tiek pārbaudīta datu nesēja integritāte...</translation>
-<translation id="3283913352572436199">Jūsu atkopšanas datu nesējs pēc atkārtotas palaišanas ir konfigurēts automātiskai iestatīšanai.
-
-Lai turpinātu automātisko iestatīšanu, nospiediet skaļuma palielināšanas pogu, pretējā gadījumā nospiediet skaļuma samazināšanas pogu. Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu, līdz ierīce izslēdzas (izslēgšana ilgst līdz 8 sekundēm).</translation>
+<translation id="3377484800447890197">Mēģinot atkopt jūsu ierīci, radās kļūda. Skatiet iespējamos risinājumus vietnē
+https://google.com/chromeos/recovery vai mēģiniet vēlreiz.</translation>
 <translation id="33938768013536853">Nepietiek akumulatora jaudas, lai veiktu atjauninājumu.
 
 Pievienojiet Chromebook datoru strāvas avotam. Atjauninājums tiks sākts automātiski, tiklīdz akumulatorā būs pietiekami daudz jaudas.</translation>
 <translation id="3554552348994984455">Atkopšanas sākšana</translation>
-<translation id="369510862371290019">Jūsu atkopšanas datu nesējs pēc atkārtotas palaišanas ir konfigurēts automātiskai iestatīšanai.
-
-Lai turpinātu automātisko iestatīšanu, nospiediet ierīces atkopšanas slēdzi.
-Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu, līdz ierīce izslēdzas (izslēgšana ilgst līdz 8 sekundēm).</translation>
 <translation id="3723985428118783104">Notiek atkopšana</translation>
 <translation id="385051799172605136">Atpakaļ</translation>
 <translation id="3928994486545789273">Izvēlēties tīklu</translation>
@@ -90,10 +82,6 @@ Notiek uzlāde...
 
 Atjauninājums tiks sākts automātiski, tiklīdz akumulatorā būs pietiekami daudz jaudas.</translation>
 <translation id="5592705604979238266">Palīdzības centrs:</translation>
-<translation id="6037207722716689331">Jūsu atkopšanas datu nesējs pēc atkārtotas palaišanas ir konfigurēts automātiskai iestatīšanai.
-
-Lai turpinātu automātisko iestatīšanu, nospiediet taustiņu Enter, pretējā gadījumā nospiediet taustiņu Escape.
-Ja vēlaties atcelt atkopšanu, nospiediet un turiet barošanas pogu, līdz ierīce izslēdzas (izslēgšana ilgst līdz 8 sekundēm).</translation>
 <translation id="6185696379715117369">Augšup</translation>
 <translation id="635783852215913562">Lai pārietu uz augšu vai leju, izmantojiet bulttaustiņus.</translation>
 <translation id="6363786367719063276">Skatīt žurnālus</translation>
@@ -140,7 +128,6 @@ https://www.google.com/chromeos/recovery</translation>
 Sistēmas atkopšana ir pabeigta.
 Lūdzu, noņemiet atkopšanas datu nesēju, un dators automātiski tiks restartēts.</translation>
 <translation id="8179976553408161302">Ievadīt</translation>
-<translation id="8361934271307901704">Atkopjot jūsu ierīci, radās kļūda. Plašāka informācija:</translation>
 <translation id="8420829064199266609">Notiek savienojuma izveide ar tīklu. Tas var ilgt kādu minūti.</translation>
 <translation id="8433773763660502318">Nevarēja pabeigt atkopšanas procesu</translation>
 <translation id="8473826843543665828">Lūdzu, atlasiet jaunu tīklu vai mēģiniet vēlreiz.</translation>
@@ -157,10 +144,6 @@ Kad atjaunināšana būs pabeigta, ierīce tiks automātiski atkārtoti palaista
 <translation id="8728458033228603970">Notiek sistēmas atkopšana...
 
 Tas aizņems dažas minūtes. Lūdzu, neizslēdziet datoru un neatvienojiet to no barošanas avota.</translation>
-<translation id="8796495438384109098">Sistēmas atkopšana ir pabeigta.
-
-Lūdzu, atstājiet atkopšanas datu nesēju pievienotu, līdz automātiskā iestatīšana ir pabeigta.
-Pēc brīža dators tiks automātiski restartēts, lai turpinātu iestatīšanu.</translation>
 <translation id="88986195241502842">Lejup</translation>
 <translation id="8911667951938758302">Nevarēja izveidot savienojumu ar tīklu</translation>
 <translation id="9146946647152579011">Atkopšana pabeigta</translation>

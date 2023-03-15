@@ -13,34 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 Järjestelmän palautus onnistui.
 Poista palautustietoväline, niin tietokone käynnistyy uudelleen automaattisesti.</translation>
-<translation id="1600199746926806589">Laitteesi rekisteröidään alla näkyvään verkkotunnukseen automaattisesti.
-Tarkista, että se on oikein.</translation>
 <translation id="1638626287317244115">Kopioi lokit</translation>
 <translation id="175933110504178679">Tämä prosessi poistaa henkilökohtaisen datasi. Tämä kestää useita minuutteja. Älä sammuta laitetta.</translation>
-<translation id="1950865024817806485">ratkaisuvaihtoehtoja osoitteesta https://google.com/chromeos/recovery tai yritä uudelleen.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Virta pois</translation>
 <translation id="2160704550417277456">Lisäasetukset</translation>
 <translation id="2161775569013928937">Aloitetaanko palautus?</translation>
+<translation id="2238107357612570504">Palautuksen virheenkorjausvaihtoehdot</translation>
 <translation id="2249183435483068136">Väärät kirjautumistiedot</translation>
 <translation id="2367943141906694421">Verkkoja ei löytynyt</translation>
 <translation id="2437368373459239842">Tämä kestää muutaman minuutin</translation>
-<translation id="2596600434078055015">Palautuksen virheenkorjausvaihtoehdot</translation>
 <translation id="2704439832119932045">Valitse käyttöjärjestelmän kanava ja versio jatkaaksesi palautusta</translation>
 <translation id="2731700343119398978">Odota...</translation>
 <translation id="2904079386864173492">Malli:</translation>
 <translation id="3029977119648083072">Lisää verkon salasana.</translation>
 <translation id="3243756202241744259">Vahvistetaan palautustietovälineen eheyttä…</translation>
-<translation id="3283913352572436199">Palautusvälineen asetukset on valittu niin, että määritys aloitetaan automaattisesti uudelleenkäynnistyksen jälkeen.
-
-Jatka automaattista määritystä painamalla äänenvoimakkuuden lisäyspainiketta. Muussa tapauksessa paina äänenvoimakkuuden vähennyspainiketta. Jos haluat peruuttaa palautuksen, pidä virtapainiketta painettuna, kunnes laite sammuu (tässä kestää enintään kahdeksan sekuntia).</translation>
+<translation id="3377484800447890197">Laitteesi palautuksessa tapahtui virhe. Katso mahdolliset
+ratkaisut osoitteesta https://google.com/chromeos/recovery tai yritä uudelleen.</translation>
 <translation id="33938768013536853">Akun varaus ei riitä päivittämiseen.
 
 Yhdistä Chromebook virtalähteeseen. Päivitys alkaa automaattisesti heti, kun akussa on tarpeeksi virtaa.</translation>
 <translation id="3554552348994984455">Aloita palautus</translation>
-<translation id="369510862371290019">Palautusvälineen asetukset on valittu niin, että määritys aloitetaan automaattisesti uudelleenkäynnistyksen jälkeen.
-
-Jatka automaattista määritystä painamalla laitteen palautuskytkintä. Jos haluat peruuttaa palautuksen, pidä virtapainiketta painettuna, kunnes laite sammuu (tässä kestää enintään kahdeksan sekuntia).</translation>
 <translation id="3723985428118783104">Palautus käynnissä</translation>
 <translation id="385051799172605136">Takaisin</translation>
 <translation id="3928994486545789273">Valitse verkko</translation>
@@ -91,9 +84,6 @@ Ladataan…
 
 Päivitys alkaa automaattisesti heti, kun akussa on tarpeeksi virtaa.</translation>
 <translation id="5592705604979238266">Ohjekeskus:</translation>
-<translation id="6037207722716689331">Palautusvälineen asetukset on valittu niin, että määritys aloitetaan automaattisesti uudelleenkäynnistyksen jälkeen.
-
-Jatka automaattista määritystä painamalla Enter. Muussa tapauksessa paina Esc. Jos haluat peruuttaa palautuksen, pidä virtapainiketta painettuna, kunnes laite sammuu (tässä kestää enintään kahdeksan sekuntia).</translation>
 <translation id="6185696379715117369">Sivu ylös</translation>
 <translation id="635783852215913562">Siirry ylös tai alas nuolinäppäimillä.</translation>
 <translation id="6363786367719063276">Katso lokit</translation>
@@ -143,7 +133,6 @@ https://www.google.com/chromeos/recovery</translation>
 Järjestelmän palautus onnistui.
 Poista palautustietoväline, niin tietokone käynnistyy uudelleen automaattisesti.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Laitteesi palautuksessa tapahtui virhe. Katso</translation>
 <translation id="8420829064199266609">Yhdistetään verkkoon. Tämä kestää noin minuutin.</translation>
 <translation id="8433773763660502318">Palautusprosessia ei voitu suorittaa loppuun</translation>
 <translation id="8473826843543665828">Valitse toinen verkko tai yritä uudelleen</translation>
@@ -160,10 +149,6 @@ Se käynnistyy automaattisesti, kun päivitys päättyy.</translation>
 <translation id="8728458033228603970">Järjestelmän palautus on käynnissä…
 
 Tämä kestää muutaman minuutin. Älä sammuta tietokonetta tai irrota virtalähdettä.</translation>
-<translation id="8796495438384109098">Järjestelmän palautus on valmis.
-
-Älä irrota palautusvälinettä, ennen kuin automaattinen määritys on valmis.
-Tietokoneesi käynnistyy pian automaattisesti uudelleen, jotta määritystä voidaan jatkaa.</translation>
 <translation id="88986195241502842">Sivu alas</translation>
 <translation id="8911667951938758302">Verkkoyhteyttä ei voi muodostaa.</translation>
 <translation id="9146946647152579011">Palautus on nyt valmis</translation>

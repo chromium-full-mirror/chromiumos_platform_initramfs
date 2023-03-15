@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Đã khôi phục xong hệ thống.
 Vui lòng xóa phương tiện khôi phục. Sau đó, máy tính của bạn sẽ tự động khởi động lại.</translation>
-<translation id="1600199746926806589">Thiết bị của bạn sẽ tự động được đăng ký vào miền hiển thị dưới đây.
-Vui lòng xác minh miền này là chính xác.</translation>
 <translation id="1638626287317244115">Sao chép nhật ký</translation>
 <translation id="175933110504178679">Quá trình này sẽ xóa toàn bộ dữ liệu cá nhân của bạn. Quá trình này sẽ mất vài phút. Đừng tắt thiết bị.</translation>
-<translation id="1950865024817806485">Truy cập https://google.com/chromeos/recovery để xem các giải pháp khả thi hoặc thử lại.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Tắt nguồn</translation>
 <translation id="2160704550417277456">Tùy chọn Nâng cao</translation>
 <translation id="2161775569013928937">Bắt đầu quá trình khôi phục?</translation>
+<translation id="2238107357612570504">Tùy chọn gỡ lỗi khôi phục</translation>
 <translation id="2249183435483068136">Thông tin xác thực không chính xác</translation>
 <translation id="2367943141906694421">Không thể tìm thấy bất kỳ mạng nào</translation>
 <translation id="2437368373459239842">Quá trình này sẽ mất một vài phút</translation>
-<translation id="2596600434078055015">Tùy chọn gỡ lỗi khôi phục</translation>
 <translation id="2704439832119932045">Hãy chọn kênh và phiên bản hệ điều hành để tiếp tục quá trình khôi phục</translation>
 <translation id="2731700343119398978">Vui lòng chờ...</translation>
 <translation id="2904079386864173492">Mẫu:</translation>
 <translation id="3029977119648083072">Nhập mật khẩu mạng</translation>
 <translation id="3243756202241744259">Đang xác minh tính toàn vẹn của phương tiện khôi phục của bạn...</translation>
-<translation id="3283913352572436199">Phương tiện khôi phục của bạn được định cấu hình để tự động thiết lập sau khi khởi động lại.
-
-Để tiếp tục quá trình thiết lập tự động, hãy nhấn vào nút Tăng âm lượng, hoặc
-nhấn vào nút Giảm âm lượng. Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn và giữ nút
-nguồn cho tới khi thiết bị tắt (thao tác này mất tối đa 8 giây).</translation>
+<translation id="3377484800447890197">Đã xảy ra lỗi khi khôi phục thiết bị của bạn. Hãy tham khảo
+https://google.com/chromeos/recovery để biết các giải pháp có thể áp dụng hoặc thử lại.</translation>
 <translation id="33938768013536853">Pin quá yếu để thực hiện thao tác cập nhật.
 
 Vui lòng kết nối Chromebook của bạn với nguồn điện. Quá trình cập nhật
 sẽ tự động bắt đầu ngay khi sạc đủ pin.</translation>
 <translation id="3554552348994984455">Bắt đầu khôi phục</translation>
-<translation id="369510862371290019">Phương tiện khôi phục của bạn được định cấu hình để tự động thiết lập sau khi khởi động lại.
-
-Để tiếp tục quá trình thiết lập tự động, hãy nhấn vào nút chuyển khôi phục của thiết bị.
-Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn và giữ nút hủy
-cho tới khi thiết bị tắt (thao tác này mất tối đa 8 giây).</translation>
 <translation id="3723985428118783104">Đang khôi phục</translation>
 <translation id="385051799172605136">Quay lại</translation>
 <translation id="3928994486545789273">Chọn mạng</translation>
@@ -98,11 +87,6 @@ Vui lòng tháoxóa phương tiện khôi phục và máy tính của bạn sẽ
 
 Quá trình cập nhật sẽ tự động bắt đầu ngay khi sạc đủ pin.</translation>
 <translation id="5592705604979238266">Trung tâm trợ giúp:</translation>
-<translation id="6037207722716689331">Phương tiện khôi phục của bạn được định cấu hình để tự động thiết lập sau khi khởi động lại.
-
-Để tiếp tục quá trình thiết lập tự động, hãy nhấn vào nút Enter hoặc nút Escape.
-Nếu bạn muốn hủy quá trình khôi phục, hãy nhấn và giữ nút nguồn
-cho tới khi thiết bị tắt (thao tác này mất tối đa 8 giây).</translation>
 <translation id="6185696379715117369">Trang trên</translation>
 <translation id="635783852215913562">Sử dụng các phím mũi tên để di chuyển lên trên hoặc xuống dưới.</translation>
 <translation id="6363786367719063276">Xem nhật ký</translation>
@@ -154,7 +138,6 @@ https://www.google.com/chromeos/recovery</translation>
 Đã khôi phục xong hệ thống.
 Vui lòng xóa phương tiện khôi phục. Sau đó, máy tính của bạn sẽ tự động khởi động lại.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Đã xảy ra lỗi trong khi khôi phục thiết bị của bạn. Hãy tham khảo</translation>
 <translation id="8420829064199266609">Đang kết nối mạng. Quá trình này có thể mất tối đa một phút.</translation>
 <translation id="8433773763660502318">Không thể hoàn tất quá trình khôi phục</translation>
 <translation id="8473826843543665828">Vui lòng chọn một mạng mới hoặc thử lại</translation>
@@ -174,10 +157,6 @@ Thiết bị sẽ tự động khởi động lại khi quá trình cập nhật
 
 Quá trình này có thể mất vài phút. Vui lòng không tắt máy tính hoặc
 ngắt kết nối nguồn điện.</translation>
-<translation id="8796495438384109098">Quá trình khôi phục hệ thống đã hoàn tất.
-
-Vui lòng tiếp tục cắm phương tiện khôi phục cho tới khi quá trình thiết lập tự động hoàn tất.
-Máy tính của bạn sẽ sớm tự động khởi động lại để tiếp tục thiết lập.</translation>
 <translation id="88986195241502842">Trang dưới</translation>
 <translation id="8911667951938758302">Không thể kết nối mạng</translation>
 <translation id="9146946647152579011">Đã khôi phục xong</translation>

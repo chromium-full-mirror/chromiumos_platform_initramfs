@@ -13,35 +13,26 @@ https://www.google.com/chromeos/recovery</translation>
 
 Ripristino del sistema completato.
 Rimuovi il supporto di ripristino e il computer si riavvierà automaticamente.</translation>
-<translation id="1600199746926806589">Il dispositivo verrà registrato automaticamente nel dominio mostrato sotto.
-Verifica che sia corretto.</translation>
 <translation id="1638626287317244115">Copia log</translation>
 <translation id="175933110504178679">Questa procedura cancellerà i tuoi dati personali. L'operazione richiederà diversi minuti. Non spegnere il dispositivo.</translation>
-<translation id="1950865024817806485">Vai all'indirizzo https://google.com/chromeos/recovery per trovare delle possibili soluzioni oppure riprova.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Spegni</translation>
 <translation id="2160704550417277456">Opzioni avanzate</translation>
 <translation id="2161775569013928937">Vuoi avviare il ripristino?</translation>
+<translation id="2238107357612570504">Opzioni di debug di ripristino</translation>
 <translation id="2249183435483068136">Credenziali non corrette</translation>
 <translation id="2367943141906694421">Impossibile trovare reti</translation>
 <translation id="2437368373459239842">Questa operazione richiederà alcuni minuti</translation>
-<translation id="2596600434078055015">Opzioni di debug di ripristino</translation>
 <translation id="2704439832119932045">Per continuare il ripristino, seleziona la versione e il canale del sistema operativo</translation>
 <translation id="2731700343119398978">Attendi...</translation>
 <translation id="2904079386864173492">Modello:</translation>
 <translation id="3029977119648083072">Inserisci la password di rete</translation>
 <translation id="3243756202241744259">Verifica dell'integrità del supporto di ripristino...</translation>
-<translation id="3283913352572436199">È impostata la configurazione automatica del supporto di ripristino dopo il riavvio.
-
-Per procedere con la configurazione automatica, premi il pulsante Alza il volume, altrimenti il pulsante Abbassa il volume. Se vuoi annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del dispositivo (potrebbero essere necessari fino a 8 secondi).</translation>
+<translation id="3377484800447890197">Si è verificato un errore durante il ripristino del dispositivo. Visita la pagina https://google.com/chromeos/recovery per trovare possibili soluzioni oppure riprova.</translation>
 <translation id="33938768013536853">Livello della batteria troppo basso per eseguire l'aggiornamento.
 
 Collega il tuo Chromebook a una fonte di alimentazione. L'aggiornamento avrà inizio non appena la batteria avrà carica sufficiente.</translation>
 <translation id="3554552348994984455">Avvia ripristino</translation>
-<translation id="369510862371290019">È impostata la configurazione automatica del supporto di ripristino dopo il riavvio.
-
-Per procedere con la configurazione automatica, premi l'interruttore per il ripristino del dispositivo.
-Se vuoi annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del dispositivo (potrebbero essere necessari fino a 8 secondi).</translation>
 <translation id="3723985428118783104">Ripristino in corso…</translation>
 <translation id="385051799172605136">Indietro</translation>
 <translation id="3928994486545789273">Scegli la rete</translation>
@@ -91,10 +82,6 @@ Caricamento in corso…
 
 L'aggiornamento avrà inizio non appena la batteria avrà carica sufficiente.</translation>
 <translation id="5592705604979238266">Centro assistenza:</translation>
-<translation id="6037207722716689331">È impostata la configurazione automatica del supporto di ripristino dopo il riavvio.
-
-Per procedere con la configurazione automatica, premi INVIO, altrimenti premi ESC.
-Se vuoi annullare il ripristino, tieni premuto il tasto di accensione fino allo spegnimento del dispositivo (potrebbero essere necessari fino a 8 secondi).</translation>
 <translation id="6185696379715117369">Pagina su</translation>
 <translation id="635783852215913562">Usa i tasti Freccia per spostarti verso l'alto o verso il basso.</translation>
 <translation id="6363786367719063276">Visualizza log</translation>
@@ -141,7 +128,6 @@ https://www.google.com/chromeos/recovery</translation>
 Ripristino del sistema completato.
 Rimuovi il supporto di ripristino e il computer si riavvierà automaticamente.</translation>
 <translation id="8179976553408161302">Invio</translation>
-<translation id="8361934271307901704">Si è verificato un errore durante il ripristino del dispositivo, fai riferimento a</translation>
 <translation id="8420829064199266609">Connessione alla rete in corso. L'operazione potrebbe richiedere fino a un minuto.</translation>
 <translation id="8433773763660502318">Impossibile completare la procedura di ripristino</translation>
 <translation id="8473826843543665828">Seleziona una nuova rete o riprova</translation>
@@ -158,10 +144,6 @@ Si riavvierà automaticamente al termine dell'aggiornamento.</translation>
 <translation id="8728458033228603970">Ripristino del sistema in corso...
 
 L'operazione richiederà alcuni minuti. Non spegnere il computer e non staccarlo dalla corrente.</translation>
-<translation id="8796495438384109098">Ripristino del sistema completato.
-
-Lascia collegato il supporto di ripristino fino al termine della configurazione automatica.
-Tra poco il computer si riavvierà automaticamente per continuare la configurazione.</translation>
 <translation id="88986195241502842">Pagina giù</translation>
 <translation id="8911667951938758302">Impossibile connettersi alla rete</translation>
 <translation id="9146946647152579011">Ripristino completato</translation>

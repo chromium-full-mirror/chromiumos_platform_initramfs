@@ -13,38 +13,26 @@ https://www.google.com/chromeos/recovery</translation>
 
 Oporavak sistema je završen.
 Uklonite medije za oporavak i računar će se automatski ponovo pokrenuti.</translation>
-<translation id="1600199746926806589">Vaš uređaj će biti automatski prijavljen u domenu prikazanu ispod.
-Potvrdite da je ispravna.</translation>
 <translation id="1638626287317244115">Kopiraj zapisnike</translation>
 <translation id="175933110504178679">Ovim procesom će se uništiti vaši lični podaci. Ovo će potrajati nekoliko minuta. Nemojte isključivati uređaj.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery za moguća rješenja ili pokušajte ponovo.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Isključi</translation>
 <translation id="2160704550417277456">Napredne opcije</translation>
 <translation id="2161775569013928937">Započeti oporavak?</translation>
+<translation id="2238107357612570504">Opcije za otklanjanje grešaka prilikom oporavka</translation>
 <translation id="2249183435483068136">Netačan akreditiv</translation>
 <translation id="2367943141906694421">Pronalaženje mreža nije uspjelo</translation>
 <translation id="2437368373459239842">Ovo će potrajati nekoliko minuta</translation>
-<translation id="2596600434078055015">Opcije za otklanjanje grešaka prilikom oporavka</translation>
 <translation id="2704439832119932045">Odaberite kanal i verziju OS-a da nastavite oporavak</translation>
 <translation id="2731700343119398978">Pričekajte...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Unesite lozinku mreže</translation>
 <translation id="3243756202241744259">Potvrđuje se integritet vaših medija za oporavak...</translation>
-<translation id="3283913352572436199">Mediji za oporavak su konfigurirani za automatsko postavljanje nakon ponovnog pokretanja.
-
-Da nastavite s automatskim postavljanjem, pritisnite dugme za pojačavanje zvuka, a u suprotnom
-pritisnite dugme za smanjivanje zvuka. Ako želite otkazati oporavak, pritisnite dugme za uključivanje
-i držite ga dok se uređaj ne isključi (to može potrajati do 8 sekundi).</translation>
+<translation id="3377484800447890197">Došlo je do greške prilikom oporavljanja uređaja. Pogledajte https://google.com/chromeos/recovery za moguća rješenja ili pokušajte ponovo.</translation>
 <translation id="33938768013536853">Baterija je preslaba za ažuriranje.
 
 Povežite Chromebook s izvorom napajanja. Ažuriranje će automatski započeti čim baterija bude dovoljno napunjena.</translation>
 <translation id="3554552348994984455">Započnite oporavak</translation>
-<translation id="369510862371290019">Vaš medij za oporavak je konfiguriran za automatsko postavljanje nakon ponovnog pokretanja.
-
-Pritisnite prekidač za oporavak na uređaju da nastavite s automatskim postavljanjem.
-Ako želite otkazati oporavak, pritisnite dugme za uključivanje i držite ga
-dok se uređaj ne isključi (ovo traje do 8 sekundi).</translation>
 <translation id="3723985428118783104">Oporavak je u toku</translation>
 <translation id="385051799172605136">Nazad</translation>
 <translation id="3928994486545789273">Odaberite mrežu</translation>
@@ -99,11 +87,6 @@ Punjenje...
 
 Ažuriranje će automatski početi čim se baterija dovoljno napuni.</translation>
 <translation id="5592705604979238266">Centar za pomoć:</translation>
-<translation id="6037207722716689331">Vaš medij za oporavak je konfiguriran za automatsko postavljanje nakon ponovnog pokretanja.
-
-Da nastavite s automatskim postavljanjem, pritisnite Enter. U suprotnom, pritisnite Escape.
-Ako želite otkazati oporavak, pritisnite dugme za uključivanje i držite ga
-pritisnutim dok se uređaj ne isključi (ovo traje do 8 sekundi).</translation>
 <translation id="6185696379715117369">Stranica prema gore</translation>
 <translation id="635783852215913562">Koristite tipke sa strelicama za navigiranje nagore i nadolje.</translation>
 <translation id="6363786367719063276">Pregledajte zapisnike</translation>
@@ -155,7 +138,6 @@ https://www.google.com/chromeos/recovery</translation>
 Oporavak sistema je završen.
 Uklonite medije za oporavak i računar će se automatski ponovo pokrenuti.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Došlo je do greške prilikom oporavka uređaja. Pogledajte</translation>
 <translation id="8420829064199266609">Povezivanje s mrežom. Ovo može potrajati minutu.</translation>
 <translation id="8433773763660502318">Dovršavanje procesa oporavka nije uspjelo</translation>
 <translation id="8473826843543665828">Odaberite novu mrežu ili pokušajte ponovo</translation>
@@ -174,10 +156,6 @@ Automatski će se ponovo pokrenuti kada se ažuriranje završi.</translation>
 <translation id="8728458033228603970">Oporavak sistema je u toku…
 
 Ovo će potrajati nekoliko minuta. Nemojte isključivati računar ili napajanje.</translation>
-<translation id="8796495438384109098">Oporavak sistema je završen.
-
-Ostavite medije za oporavak priključenim dok se ne završi automatsko postavljanje.
-Vaš računar će se ubrzo automatski ponovo pokrenuti kako bi se nastavilo postavljanje.</translation>
 <translation id="88986195241502842">Tipka Page Down</translation>
 <translation id="8911667951938758302">Povezivanje s mrežom nije uspjelo</translation>
 <translation id="9146946647152579011">Oporavak je sada završen</translation>

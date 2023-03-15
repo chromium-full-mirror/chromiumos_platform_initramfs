@@ -13,34 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 Obnovitev sistema je končana.
 Odstranite medij za obnovitev in računalnik se bo samodejno znova zagnal.</translation>
-<translation id="1600199746926806589">Vaša naprava bo samodejno včlanjena v spodaj prikazano domeno.
-Potrdite, da je to pravilno.</translation>
 <translation id="1638626287317244115">Kopiraj dnevnike</translation>
 <translation id="175933110504178679">S tem postopkom bodo izbrisani osebni podatki. To bo trajalo več minut. Ne izklopite naprave.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery, če vas zanimajo možne rešitve, ali poskusite znova.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Izklop</translation>
 <translation id="2160704550417277456">Dodatne možnosti</translation>
 <translation id="2161775569013928937">Želite začeti obnovitev?</translation>
+<translation id="2238107357612570504">Možnosti odpravljanja napak pri obnovitvi</translation>
 <translation id="2249183435483068136">Nepravilne poverilnice</translation>
 <translation id="2367943141906694421">Ni bilo mogoče najti omrežij</translation>
 <translation id="2437368373459239842">To bo trajalo nekaj minut</translation>
-<translation id="2596600434078055015">Možnosti odpravljanja napak pri obnovitvi</translation>
 <translation id="2704439832119932045">Če želite nadaljevati obnovitev, izberite kanal in različico operacijskega sistema</translation>
 <translation id="2731700343119398978">Počakajte ...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Vnesite geslo za omrežje</translation>
 <translation id="3243756202241744259">Preverjanje celovitosti medija za obnovitev ...</translation>
-<translation id="3283913352572436199">Medij za obnovitev je konfiguriran za samodejno nastavitev po vnovičnem zagonu.
-
-Če želite nadaljevati samodejno nastavitev, pritisnite gumb za povečanje glasnosti, v nasprotnem primeru pa gumb za zmanjšanje glasnosti. Če želite preklicati obnovitev, pritisnite gumb za vklop in ga pridržite, dokler se naprava ne izklopi (to traja do 8 sekund).</translation>
+<translation id="3377484800447890197">Med obnovitvijo naprave je prišlo do napake. Morebitne rešitve si oglejte na
+https://google.com/chromeos/recovery ali poskusite znova.</translation>
 <translation id="33938768013536853">Akumulator ima premalo energije za posodobitev.
 
 Chromebook priklopite na vir napajanja. Posodobitev se bo samodejno začela, ko bo akumulator dovolj napolnjen.</translation>
 <translation id="3554552348994984455">Začetek obnovitve</translation>
-<translation id="369510862371290019">Medij za obnovitev je konfiguriran za samodejno nastavitev po vnovičnem zagonu.
-
-Če želite nadaljevati samodejno nastavitev, pritisnite stikalo za obnovitev na napravi. Če želite preklicati obnovitev, pritisnite gumb za vklop in ga pridržite, dokler se naprava ne izklopi (to traja do 8 sekund).</translation>
 <translation id="3723985428118783104">Obnovitev je v teku</translation>
 <translation id="385051799172605136">Nazaj</translation>
 <translation id="3928994486545789273">Izberi omrežje</translation>
@@ -93,9 +86,6 @@ Polnjenje ...
 
 Posodobitev se bo samodejno začela, ko bo akumulator dovolj napolnjen.</translation>
 <translation id="5592705604979238266">Center za pomoč:</translation>
-<translation id="6037207722716689331">Medij za obnovitev je konfiguriran za samodejno nastavitev po vnovičnem zagonu.
-
-Če želite nadaljevati samodejno nastavitev, pritisnite tipko Enter, v nasprotnem primeru pa tipko Escape. Če želite preklicati obnovitev, pritisnite gumb za vklop in ga pridržite, dokler se naprava ne izklopi (to traja do 8 sekund).</translation>
 <translation id="6185696379715117369">Stran gor</translation>
 <translation id="635783852215913562">Uporabite puščične tipke za pomikanje gor ali dol.</translation>
 <translation id="6363786367719063276">Ogled dnevnikov</translation>
@@ -144,7 +134,6 @@ https://www.google.com/chromeos/recovery</translation>
 Obnovitev sistema je končana.
 Odstranite medij za obnovitev in računalnik se bo samodejno znova zagnal.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Pri obnavljanju naprave je prišlo do napake. Obiščite</translation>
 <translation id="8420829064199266609">Povezovanje z omrežjem. To lahko traja največ minuto.</translation>
 <translation id="8433773763660502318">Postopka obnovitve ni bilo mogoče dokončati</translation>
 <translation id="8473826843543665828">Izberite novo omrežje ali poskusite znova.</translation>
@@ -163,9 +152,6 @@ Po končani posodobitvi se bo samodejno znova zagnala.</translation>
 <translation id="8728458033228603970">Obnovitev sistema poteka ...
 
 Trajalo bo nekaj minut. Ne izklopite računalnika ali ga odklopite z vira napajanja.</translation>
-<translation id="8796495438384109098">Obnovitev sistema je dokončana.
-
-Medij za obnovitev naj bo vklopljen v računalnik, dokler se samodejna nastavitev ne dokonča. Računalnik se bo kmalu samodejno zagnal zaradi nadaljevanja nastavitve.</translation>
 <translation id="88986195241502842">Page Down</translation>
 <translation id="8911667951938758302">Povezave z omrežjem ni bilo mogoče vzpostaviti</translation>
 <translation id="9146946647152579011">Obnovitev je dokončana</translation>

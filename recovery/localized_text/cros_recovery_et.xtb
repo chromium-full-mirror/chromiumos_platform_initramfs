@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Süsteemitaaste on lõpetatud.
 Eemaldage taastekandja ja teie arvuti taaskäivitub automaatselt.</translation>
-<translation id="1600199746926806589">Teie seade registreeritakse automaatselt alloleval domeenil.
-Kinnitage, et see on õige.</translation>
 <translation id="1638626287317244115">Kopeeri logid</translation>
 <translation id="175933110504178679">Selle protsessi käigus kustutatakse teie isiklikud andmed. Selleks kulub mitu minutit. Ärge lülitage seadet välja.</translation>
-<translation id="1950865024817806485">Saidilt https://google.com/chromeos/recovery leiate võimalikud lahendused või proovige uuesti.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Lülita välja</translation>
 <translation id="2160704550417277456">Täpsemad valikud</translation>
 <translation id="2161775569013928937">Kas alustada taastamist?</translation>
+<translation id="2238107357612570504">Silumise valikud taastamisel</translation>
 <translation id="2249183435483068136">Vale mandaat</translation>
 <translation id="2367943141906694421">Ei leitud ühtegi võrku</translation>
 <translation id="2437368373459239842">Selleks kulub mõni minut</translation>
-<translation id="2596600434078055015">Silumise valikud taastamisel</translation>
 <translation id="2704439832119932045">Taastamise jätkamiseks valige OS-i kanal ja versioon</translation>
 <translation id="2731700343119398978">Oodake ...</translation>
 <translation id="2904079386864173492">Mudel:</translation>
 <translation id="3029977119648083072">Sisestage võrgu parool</translation>
 <translation id="3243756202241744259">Teie taastemeediumi terviklikkuse kinnitamine ...</translation>
-<translation id="3283913352572436199">Teie taastemeedia on seadistatud pärast taaskäivitamist automaatset seadistust alustama.
-
-Automaatse seadistuse jätkamiseks vajutage helitugevuse suurendamise nuppu, muul
-juhul helitugevuse vähendamise nuppu. Kui soovite taastamise tühistada, vajutage
-toitenuppu ja hoidke seda all, kuni seade välja lülitub (see võib võtta kuni 8 sekundit).</translation>
+<translation id="3377484800447890197">Teie seadme taastamisel ilmnes viga. Vaadake lehelt
+https://google.com/chromeos/recovery võimalikke lahendusi või proovige uuesti.</translation>
 <translation id="33938768013536853">Aku on värskendamiseks liiga tühi.
 
 Ühendage oma Chromebook toiteallikaga. Värskendamine
 algab automaatselt kohe, kui aku on piisavalt laetud.</translation>
 <translation id="3554552348994984455">Taastamise alustamine</translation>
-<translation id="369510862371290019">Teie taastemeedia on seadistatud pärast taaskäivitamist automaatset seadistust alustama.
-
-Automaatse seadistuse jätkamiseks vajutage seadme taastelülitit.
-Kui soovite taastamise tühistada, vajutage toitenuppu ja hoidke seda all,
-kuni seade välja lülitub (see võib võtta kuni 8 sekundit).</translation>
 <translation id="3723985428118783104">Taastamine on pooleli</translation>
 <translation id="385051799172605136">Tagasi</translation>
 <translation id="3928994486545789273">Vali võrk</translation>
@@ -100,11 +89,6 @@ Laadimine …
 
 Värskendamine algab automaatselt kohe, kui aku on piisavalt laetud.</translation>
 <translation id="5592705604979238266">Abikeskus:</translation>
-<translation id="6037207722716689331">Teie taastemeedia on seadistatud pärast taaskäivitamist automaatset seadistust alustama.
-
-Automaatse seadistuse jätkamiseks vajutage sisestusklahvi, muul juhul
-vajutage paoklahvi. Kui soovite taastamise tühistada, vajutage toitenuppu
-ja hoidke seda all, kuni seade välja lülitub (see võib võtta kuni 8 sekundit).</translation>
 <translation id="6185696379715117369">Lehel üles</translation>
 <translation id="635783852215913562">Kasutage üles või alla liikumiseks nooleklahve.</translation>
 <translation id="6363786367719063276">Kuva logid</translation>
@@ -155,7 +139,6 @@ https://www.google.com/chromeos/recovery</translation>
 Süsteemitaaste on lõpetatud.
 Eemaldage taastekandja ja teie arvuti taaskäivitub automaatselt.</translation>
 <translation id="8179976553408161302">Sisestusklahv</translation>
-<translation id="8361934271307901704">Seadme taastamisel ilmnes viga, vt</translation>
 <translation id="8420829064199266609">Luuakse võrguühendust. Selleks võib kuluda kuni minut.</translation>
 <translation id="8433773763660502318">Taastamisprotsessi ei õnnestunud lõpetada</translation>
 <translation id="8473826843543665828">Valige uus võrk või proovige uuesti</translation>
@@ -174,10 +157,6 @@ See taaskäivitub automaatselt, kui värskendamine lõpetatakse.</translation>
 <translation id="8728458033228603970">Süsteemitaaste on pooleli ...
 
 See võtab mõne minuti. Ärge lülitage arvutit välja ega eemaldage toidet.</translation>
-<translation id="8796495438384109098">Süsteemitaaste jõudis lõpule.
-
-Hoidke taastemeedia ühendatuna, kuni automaatne seadistus on lõpule viidud.
-Teie arvuti taaskäivitatakse peagi automaatselt, et seadistust jätkata.</translation>
 <translation id="88986195241502842">Lehe lõppu</translation>
 <translation id="8911667951938758302">Võrguga ei saanud ühendust</translation>
 <translation id="9146946647152579011">Taastamine on nüüd lõpetatud</translation>

@@ -13,34 +13,26 @@ https://www.google.com/chromeos/recovery</translation>
 
 Osatu da sistema berreskuratzeko prozesua.
 Kendu berreskuratze-irudia, eta ordenagailua automatikoki berrabiaraziko da.</translation>
-<translation id="1600199746926806589">Behean agertzen den domeinuan erregistratuko da gailua automatikoki.
-Egiaztatu zuzena dela.</translation>
 <translation id="1638626287317244115">Kopiatu erregistroak</translation>
 <translation id="175933110504178679">Prozesu honen bitartez datu pertsonalak xahutuko dira. Minutuko batzuk beharko dira horretarako. Ez itzali gailua amaitu arte.</translation>
-<translation id="1950865024817806485">Joan https://google.com/chromeos/recovery helbidera irtenbide posibleak ikusteko, edo saiatu berriro.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Itzali</translation>
 <translation id="2160704550417277456">Aukera aurreratuak</translation>
 <translation id="2161775569013928937">Berreskuratze-prozesuari ekin nahi diozu?</translation>
+<translation id="2238107357612570504">Berreskuratzeko prozesuaren arazketa-aukerak</translation>
 <translation id="2249183435483068136">Kredentzialak ez dira zuzenak</translation>
 <translation id="2367943141906694421">Ezin izan da aurkitu sarerik</translation>
 <translation id="2437368373459239842">Minutu batzuk beharko dira</translation>
-<translation id="2596600434078055015">Berreskuratzeko prozesuaren arazketa-aukerak</translation>
 <translation id="2704439832119932045">Sistema berreskuratzen jarraitzeko, hautatu sistema eragilearen kanala eta bertsioa</translation>
 <translation id="2731700343119398978">Itxaron, mesedez…</translation>
 <translation id="2904079386864173492">Modeloa:</translation>
 <translation id="3029977119648083072">Idatzi sarearen pasahitza</translation>
 <translation id="3243756202241744259">Datuak berreskuratzeko irudiak balio duen egiaztatzen…</translation>
-<translation id="3283913352572436199">Berrabiarazi ondoren automatikoki konfiguratzen da datuak berreskuratzeko multimedia-gailua.
-
-Konfigurazio automatikoarekin aurrera egiteko, sakatu bolumena igotzeko edo jaisteko botoia. Berreskuratzeko prozesua bertan behera utzi nahi baduzu, sakatu etengailua eta eduki ezazu sakatuta gailua itzali arte (zortzi segundora arte behar izan daitezke).</translation>
+<translation id="3377484800447890197">Errore bat gertatu da gailuaren sistema eragilea kentzean eta berriro instalatzean. Konponbide posibleak ikusteko, irakurri https://google.com/chromeos/recovery; bestela, saiatu berriro.</translation>
 <translation id="33938768013536853">Ez daukazu eguneratzeko behar adina bateria.
 
 Konektatu Chromebook-a energia-iturri batera. Bateria behar adina kargatu bezain laster, automatikoki hasiko da eguneratzen.</translation>
 <translation id="3554552348994984455">Hasi berreskuratzen</translation>
-<translation id="369510862371290019">Berrabiarazi ondoren automatikoki konfiguratzen da datuak berreskuratzeko multimedia-gailua.
-
-Konfigurazio automatikoarekin aurrera egiteko, sakatu gailuaren berreskuratze-etengailua. Berreskuratzeko prozesua bertan behera utzi nahi baduzu, sakatu etengailua eta eduki ezazu sakatuta gailua itzali arte (zortzi segundora arte behar izan daitezke).</translation>
 <translation id="3723985428118783104">Berreskuratzen</translation>
 <translation id="385051799172605136">Atzera</translation>
 <translation id="3928994486545789273">Aukeratu sarea</translation>
@@ -87,11 +79,6 @@ Kargatzen…
 
 Bateria behar adina kargatu bezain laster, automatikoki hasiko da eguneratzen.</translation>
 <translation id="5592705604979238266">Laguntza-zentroa:</translation>
-<translation id="6037207722716689331">Berrabiarazi ondoren automatikoki konfiguratzen da datuak berreskuratzeko multimedia-gailua.
-
-Konfigurazio automatikoarekin aurrera egiteko, sakatu Sartu edo Ihes tekla.
-Berreskuratzeko prozesua bertan behera utzi nahi baduzu, sakatu etengailua
-eta eduki ezazu sakatuta gailua itzali arte (zortzi segundora arte behar izan daitezke).</translation>
 <translation id="6185696379715117369">Orrian gora</translation>
 <translation id="635783852215913562">Erabili gezi-teklak gora edo behera joateko.</translation>
 <translation id="6363786367719063276">Ikusi erregistroak</translation>
@@ -138,7 +125,6 @@ https://www.google.com/chromeos/recovery</translation>
 Osatu da sistema berreskuratzeko prozesua.
 Kendu berreskuratze-irudia, eta ordenagailua automatikoki berrabiaraziko da.</translation>
 <translation id="8179976553408161302">Sartu</translation>
-<translation id="8361934271307901704">Errore bat gertatu da gailua berreskuratu bitartean. Joan hona:</translation>
 <translation id="8420829064199266609">Sarera konektatzen ari da. Baliteke minutu bat behar izatea.</translation>
 <translation id="8433773763660502318">Ezin izan da amaitu berreskuratze-prozesua</translation>
 <translation id="8473826843543665828">Hautatu beste sare bat edo saiatu berriro</translation>
@@ -155,10 +141,6 @@ Eguneratzen amaitu ondoren, automatikoki berrabiaraziko da.</translation>
 <translation id="8728458033228603970">Sistema berreskuratzeko prozesua abian da...
 
 Minutu batzuk beharko dira. Ez itzali edo deskonektatu ordenagailua.</translation>
-<translation id="8796495438384109098">Berreskuratu da sistema.
-
-Ez kendu datuak berreskuratzeko multimedia-gailua konfigurazio automatikoa osatu arte.
-Konfiguratzen jarraitzeko, automatikoki berrabiaraziko da laster ordenagailua.</translation>
 <translation id="88986195241502842">Orrian behera</translation>
 <translation id="8911667951938758302">Ezin izan da konektatu sarera</translation>
 <translation id="9146946647152579011">Osatu da berreskuratzeko prozesua</translation>

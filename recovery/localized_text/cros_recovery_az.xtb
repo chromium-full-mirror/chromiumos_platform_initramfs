@@ -13,36 +13,27 @@ https://www.google.com/chromeos/recovery</translation>
 
 Sistem bərpası tamamlandı.
 Bərpa mediasını çıxarın və kompüteriniz avtomatik olaraq yenidən başladılacaq.</translation>
-<translation id="1600199746926806589">Cihaz aşağıda göstərilən domendə avtomatik qeydiyyatdan keçəcək.
-Bunun doğru olduğunu təsdiq edin.</translation>
 <translation id="1638626287317244115">Jurnalları kopyalayın</translation>
 <translation id="175933110504178679">Bu proses şəxsi datanızı siləcək. Bu proses bir neçə dəqiqə çəkəcək. Cihazı söndürməyin.</translation>
-<translation id="1950865024817806485">Mümkün həll yollarına baxmaq üçün https://google.com/chromeos/recovery ünvanına daxil olun və ya yenidən cəhd edin.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Söndürün</translation>
 <translation id="2160704550417277456">Qabaqcıl Seçimlər</translation>
 <translation id="2161775569013928937">Bərpa başladılsın?</translation>
+<translation id="2238107357612570504">Bərpa sazlama seçimləri</translation>
 <translation id="2249183435483068136">Yanlış Giriş Məlumatları</translation>
 <translation id="2367943141906694421">Heç bir şəbəkə tapılmadı</translation>
 <translation id="2437368373459239842">Bu, bir neçə dəqiqə çəkəcək</translation>
-<translation id="2596600434078055015">Bərpa Sazlama Seçimləri</translation>
 <translation id="2704439832119932045">Bərpa etməyə davam etmək üçün OS kanalını və versiyasını seçin</translation>
 <translation id="2731700343119398978">Gözləyin...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Şəbəkə parolunu daxil edin</translation>
 <translation id="3243756202241744259">Bərpa mediasının tamlığını yoxlayır...</translation>
-<translation id="3283913352572436199">Bərpa mediası yenidən başladıqdan sonra avtomatik ayarlanacaq.
-
-
-Avtomatik ayarlama ilə davam etmək üçün Səsi Artırın, əks halda isə Səsi Azaldın düyməsinə basın. Bərpa prosesini ləğv etmək istəyirsinizsə, yandırıb-söndürmə düyməsinə klikləyərək cihaz sönənə qədər (təxminən 8 saniyə) basılı saxlayın.</translation>
+<translation id="3377484800447890197">Cihazı bərpa edən zaman xəta baş verdi. Mümkün həllər üçün
+https://google.com/chromeos/recovery bölməsinə istinad edin, yaxud yenidən cəhd edin.</translation>
 <translation id="33938768013536853">Güncəlləmə üçün batareya çox azdır.
 
 Chromebook'u enerji mənbəyinə qoşun. Batareya kifayət qədər olduqda güncəlləmə avtomatik olaraq başlayacaq.</translation>
 <translation id="3554552348994984455">Bərpanı başladın</translation>
-<translation id="369510862371290019">Bərpa mediası yenidən başladıqdan sonra avtomatik ayarlanacaq.
-
-
-Avtomatik ayarlnama ilə davam etmək üçün cihazın bərpa açarına basın. Bərpa prosesini ləğv etmək istəyirsinizsə, yandırıb-söndürmə düyməsinə klikləyərək cihaz sönənə qədər (təxminən 8 saniyə) basılı saxlayın.</translation>
 <translation id="3723985428118783104">Bərpa davam edir</translation>
 <translation id="385051799172605136">Geri</translation>
 <translation id="3928994486545789273">Şəbəkə seçin</translation>
@@ -88,9 +79,6 @@ Batareya yığır...
 
 Batareya kifayət qədər olduqda güncəlləmə avtomatik olaraq başlayacaq.</translation>
 <translation id="5592705604979238266">Yardım mərkəzi:</translation>
-<translation id="6037207722716689331">Bərpa mediası yenidən başladıqdan sonra avtomatik ayarlanacaq.
-
-Avtomatik ayarlama ilə davam etmək üçün Enter, əks halda isə Escape düyməsinə basın. Bərpa prosesini ləğv etmək istəyirsinizsə, yandırıb-söndürmə düyməsinə klikləyərək cihaz sönənə qədər (təxminən 8 saniyə) basılı saxlayın.</translation>
 <translation id="6185696379715117369">Yuxarı səhifə</translation>
 <translation id="635783852215913562">Yuxarı və ya aşağı keçmək üçün ox düymələrindən istifadə edin.</translation>
 <translation id="6363786367719063276">Baxış jurnalı</translation>
@@ -136,7 +124,6 @@ https://www.google.com/chromeos/recovery</translation>
 Sistem bərpası tamamlandı.
 Bərpa mediasını çıxarın və kompüteriniz avtomatik olaraq yenidən başladılacaq.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Cihazınızı bərpa edən zaman xəta baş verdi. Bu ünvana keçin:</translation>
 <translation id="8420829064199266609">Şəbəkəyə qoşulur. Bu, bir dəqiqə çəkə bilər.</translation>
 <translation id="8433773763660502318">Bərpa prosesini başa çatdırmaq mümkün olmadı</translation>
 <translation id="8473826843543665828">Yeni şəbəkə seçin və ya yenidən cəhd edin</translation>
@@ -154,10 +141,6 @@ Güncəlləmə tamamlandıqda cihaz avtomatik olaraq başlayacaq.</translation>
 <translation id="8728458033228603970">Sistem bərpa olunur...
 
 Kompüteri söndürməyin və ya şəbəkədən ayırmayın.</translation>
-<translation id="8796495438384109098">Sistem bərpası tamamlanıb.
-
-Avtomatik quraşdırma tamamlanana qədər bərpa mediasını şəbəkədən ayırmayın.
-Kompüteriniz tezliklə avtomatik olaraq yenidən işə başlayacaq.</translation>
 <translation id="88986195241502842">Aşağı səhifə</translation>
 <translation id="8911667951938758302">Şəbəkəyə qoşulmaq alınmadı</translation>
 <translation id="9146946647152579011">Bərpa artıq tamamlanıb</translation>

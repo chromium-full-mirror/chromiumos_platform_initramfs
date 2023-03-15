@@ -13,36 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 系統已完成復原。
 請移除復原媒體，電腦將自動重新開機。</translation>
-<translation id="1600199746926806589">您的裝置會自動註冊至以下顯示的網域。
-請確認該網域是否正確。</translation>
 <translation id="1638626287317244115">複製記錄</translation>
 <translation id="175933110504178679">此程序將會清除您的個人資料。過程需時數分鐘。請勿關閉裝置。</translation>
-<translation id="1950865024817806485">前往 https://google.com/chromeos/recovery 查看可行的解決方案，或再試一次。</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">關機</translation>
 <translation id="2160704550417277456">進階選項</translation>
 <translation id="2161775569013928937">要開始復原嗎？</translation>
+<translation id="2238107357612570504">復原偵錯選項</translation>
 <translation id="2249183435483068136">憑證錯誤</translation>
 <translation id="2367943141906694421">找不到任何網絡</translation>
 <translation id="2437368373459239842">過程需時數分鐘</translation>
-<translation id="2596600434078055015">復原偵錯選項</translation>
 <translation id="2704439832119932045">選取作業系統版本即可繼續復原</translation>
 <translation id="2731700343119398978">請稍後…</translation>
 <translation id="2904079386864173492">型號：</translation>
 <translation id="3029977119648083072">輸入網絡密碼</translation>
 <translation id="3243756202241744259">正在驗證復原媒體的完整性…</translation>
-<translation id="3283913352572436199">您的復原媒體已設定在裝置重新啟動後自動設定。
-
-如要繼續自動設定，請按「調高音量」按鈕；否則請按「調低音量」按鈕。如要取消復原操作，請按住電源按鈕直至裝置關閉 (最多需時 8 秒)。</translation>
+<translation id="3377484800447890197">復原裝置時發生錯誤，請參閱
+https://google.com/chromeos/recovery 以查看可行的解決方案，或者再試一次。</translation>
 <translation id="33938768013536853">電量過低，無法更新。
 
 請將 Chromebook 連接電源。
 電量充足時，Chromebook 便會自動開始更新。</translation>
 <translation id="3554552348994984455">開始復原</translation>
-<translation id="369510862371290019">您的復原媒體已設定在裝置重新啟動後自動設定。
-
-如要繼續自動設定，請按裝置的復原按鈕。
-如要取消復原操作，請按住電源按鈕直至裝置關閉 (最多需時 8 秒)。</translation>
 <translation id="3723985428118783104">正在進行復原</translation>
 <translation id="385051799172605136">返回</translation>
 <translation id="3928994486545789273">選擇網絡</translation>
@@ -94,10 +86,6 @@ https://www.google.com/chromeos/recovery</translation>
 
 電量充足時，Chromebook 便會自動開始更新。</translation>
 <translation id="5592705604979238266">說明中心：</translation>
-<translation id="6037207722716689331">您的復原媒體已設定在裝置重新啟動後自動設定。
-
-如要繼續自動設定，請接 Enter 鍵；否則請按 Esc 鍵。
-如要取消復原操作，請按住電源按鈕直至裝置關閉 (最多需時 8 秒)。</translation>
 <translation id="6185696379715117369">向上鍵</translation>
 <translation id="635783852215913562">使用箭嘴鍵向上或向下導覽。</translation>
 <translation id="6363786367719063276">查看記錄</translation>
@@ -144,7 +132,6 @@ https://www.google.com/chromeos/recovery</translation>
 系統已完成復原。
 請移除復原媒體，電腦將自動重新開機。</translation>
 <translation id="8179976553408161302">Enter 鍵</translation>
-<translation id="8361934271307901704">復原裝置時發生錯誤，請前往</translation>
 <translation id="8420829064199266609">正在連線至網絡，過程最多可能需時 1 分鐘。</translation>
 <translation id="8433773763660502318">無法完成復原程序</translation>
 <translation id="8473826843543665828">請選取新網絡，或者再試一次</translation>
@@ -162,10 +149,6 @@ https://www.google.com/chromeos/recovery</translation>
 
 這個程序需要數分鐘。請勿關閉電腦或
 中斷電源。</translation>
-<translation id="8796495438384109098">系統已復原。
-
-請保持復原媒體連接電源，直至完成自動設定。
-電腦亦即將自動重新啟動。</translation>
 <translation id="88986195241502842">下一頁</translation>
 <translation id="8911667951938758302">無法連線至網絡</translation>
 <translation id="9146946647152579011">已完成復原</translation>

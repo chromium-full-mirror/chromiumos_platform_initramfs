@@ -13,35 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Rikuperimi i sistemit përfundoi.
 Hiq median e rikuperimit dhe kompjuteri yt do të riniset automatikisht.</translation>
-<translation id="1600199746926806589">Pajisja jote do të regjistrohet automatikisht në domenin e shfaqur më poshtë.
-Verifiko që është e saktë.</translation>
 <translation id="1638626287317244115">Kopjo evidencat</translation>
 <translation id="175933110504178679">Ky proces do të pastrojë të dhënat e tua personale. Kjo do të zgjasë disa minuta. Mos e fik pajisjen.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery për zgjidhje të mundshme ose provo përsëri.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Fik</translation>
 <translation id="2160704550417277456">Opsionet e përparuara</translation>
 <translation id="2161775569013928937">Të niset rikuperimit?</translation>
+<translation id="2238107357612570504">Opsionet e korrigjimit të rikuperimit</translation>
 <translation id="2249183435483068136">Kredenciale të pasakta</translation>
 <translation id="2367943141906694421">Nuk mund të gjendej asnjë rrjet</translation>
 <translation id="2437368373459239842">Kjo do të zgjasë disa minuta</translation>
-<translation id="2596600434078055015">Opsionet e korrigjimit të rikuperimit</translation>
 <translation id="2704439832119932045">Zgjidh kanalin dhe versionin e sistemit operativ për të vazhduar rikuperimin</translation>
 <translation id="2731700343119398978">Qëndro në pritje...</translation>
 <translation id="2904079386864173492">Modeli:</translation>
 <translation id="3029977119648083072">Vendos fjalëkalimin e rrjetit</translation>
 <translation id="3243756202241744259">Verifiko integritetin e medias së rikuperimit...</translation>
-<translation id="3283913352572436199">Media e rikuperimit është konfiguruar për konfigurimin automatik pas rindezjes.
-
-Për të vazhduar me konfigurimin automatik, shtyp butonin "Rrit volumin" dhe në rast të kundërt shtyp "Ul volumin". Nëse dëshiron ta anulosh rikuperimin, shtyp butonin e energjisë dhe mbaje të shtypur deri sa pajisja të fiket (kjo kërkon deri në 8 sekonda).</translation>
+<translation id="3377484800447890197">Ndodhi një gabim gjatë rikuperimit të pajisjes sate. Referoju
+https://google.com/chromeos/recovery për zgjidhjet e mundshme ose provo përsëri.</translation>
 <translation id="33938768013536853">Bateria është tepër e ulët për përditësimin.
 
 Lidhe pajisjen tënde Chromebook me një burim rryme. Përditësimi
 do të fillojë automatikisht sapo bateria të ketë karikim të mjaftueshëm.</translation>
 <translation id="3554552348994984455">Nis rikuperimin</translation>
-<translation id="369510862371290019">Media e rikuperimit është konfiguruar për konfigurimin automatik pas rindezjes.
-
-Për të vazhduar me konfigurimin automatik, shtyp çelësin e rikuperimit të pajisjes. Nëse dëshiron ta anulosh rikuperimin, shtyp butonin e energjisë dhe mbaje të shtypur deri sa pajisja të fiket (kjo kërkon deri në 8 sekonda).</translation>
 <translation id="3723985428118783104">Rikuperimi në vazhdim</translation>
 <translation id="385051799172605136">Prapa</translation>
 <translation id="3928994486545789273">Zgjidh rrjetin</translation>
@@ -88,9 +81,6 @@ Po ngarkohet...
 
 Përditësimi do të fillojë automatikisht sapo bateria të ketë karikim të mjaftueshëm.</translation>
 <translation id="5592705604979238266">Qendra e ndihmës:</translation>
-<translation id="6037207722716689331">Media e rikuperimit është konfiguruar për konfigurimin automatik pas rindezjes.
-
-Për të vazhduar me konfigurimin automatik, shtyp tastin Enter dhe në rast të kundërt shtyp tastin Escape. Nëse dëshiron ta anulosh rikuperimin, shtyp butonin e energjisë dhe mbaje të shtypur deri sa pajisja të fiket (kjo kërkon deri në 8 sekonda).</translation>
 <translation id="6185696379715117369">Faqe lart</translation>
 <translation id="635783852215913562">Përdor tastet e shigjetave për të naviguar lart ose poshtë.</translation>
 <translation id="6363786367719063276">Shiko evidencat</translation>
@@ -137,7 +127,6 @@ https://www.google.com/chromeos/recovery</translation>
 Rikuperimi i sistemit përfundoi.
 Hiq median e rikuperimit dhe kompjuteri yt do të riniset automatikisht.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Ndodhi një gabim gjatë rikuperimit të pajisjes sate, drejtoju</translation>
 <translation id="8420829064199266609">Po lidhet me rrjetin. Kjo mund të zgjasë deri në një minutë.</translation>
 <translation id="8433773763660502318">Procesi i rikuperimit nuk mund të përfundohej</translation>
 <translation id="8473826843543665828">Zgjidh një rrjet të ri ose provo sërish</translation>
@@ -154,10 +143,6 @@ Ajo do të rindizet automatikisht kur të përfundojë përditësimi.</translati
 <translation id="8728458033228603970">Rikuperimi i sistemit është në progres...
 
 Kjo do të zgjasë disa minuta. Mos e fik kompjuterin dhe mos e ndërprit energjinë.</translation>
-<translation id="8796495438384109098">Rikuperimi i sistemit përfundoi.
-
-Mbaje të lidhur median e rikuperimit deri sa të përfundojë konfigurimi automatik.
-Kompjuteri do të riniset automatikisht shpejt më pas për të vazhduar konfigurimin.</translation>
 <translation id="88986195241502842">Faqe poshtë</translation>
 <translation id="8911667951938758302">Nuk mund të lidhej me rrjetin</translation>
 <translation id="9146946647152579011">Rikuperimi tani ka përfunduar</translation>

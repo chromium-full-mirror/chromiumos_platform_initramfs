@@ -13,39 +13,28 @@ https://www.google.com/chromeos/recovery</translation>
 
 Tizimni tiklash yakunlandi.
 Tiklash vositalarini uzing va kompyuter qaytadan ishga tushadi.</translation>
-<translation id="1600199746926806589">Qurilmangiz quyidagi domenga qayd qilinadi.
-Domen manzilini tasdiqlang.</translation>
 <translation id="1638626287317244115">Jurnallarni nusxalash</translation>
 <translation id="175933110504178679">Bu jarayonda barcha shaxsiy maʼlumotlaringiz tozalanadi. Bu bir necha daqiqa vaqt oladi. Qurilmani oʻchirmang.</translation>
-<translation id="1950865024817806485">https://google.com/chromeos/recovery sahifasidan yechim qidiring yoki qaytadan urining.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">O‘chirish</translation>
 <translation id="2160704550417277456">Kengaytirilgan sozlamalar</translation>
 <translation id="2161775569013928937">Tiklash boshlansinmi?</translation>
+<translation id="2238107357612570504">Tiklashdagi xatolarni aniqlash parametrlari</translation>
 <translation id="2249183435483068136">Hisob maʼlumotlari notoʻgʻri</translation>
 <translation id="2367943141906694421">Hech qanday tarmoq topilmadi</translation>
 <translation id="2437368373459239842">Bu bir necha daqiqa oladi</translation>
-<translation id="2596600434078055015">Tiklashdagi xatolarni aniqlash parametrlari</translation>
 <translation id="2704439832119932045">Tiklashda davom etish uchun operatsion tizim kanali va versiyasini tanlang</translation>
 <translation id="2731700343119398978">Iltimos, kuting...</translation>
 <translation id="2904079386864173492">Modeli:</translation>
 <translation id="3029977119648083072">Tarmoq parolini kiriting</translation>
 <translation id="3243756202241744259">Tizimni qayta tiklovchi xotira qurilmasining yaroqliligi tekshirilmoqda...</translation>
-<translation id="3283913352572436199">Qayta tiklovchi xotira qurilmasi o‘chib yongan qurilmani avtomatik sozlaydi.
-
-Avtomatik sozlanishi uchun Ovozni kuchaytirish tugmasini, bekor qilish uchun esa
-Ovozni pasaytirish tugmasini bosing. Qayta tiklash bajarilmasligi uchun esa
-quvvat tugmasini qurilma o‘chgunga qadar bosib turing (taxminan 8 soniya).</translation>
+<translation id="3377484800447890197">Qurilmani tiklashda xatolik yuz berdi, mavjud yechimlarni
+https://google.com/chromeos/recovery sahifasidan oling va qayta urining.</translation>
 <translation id="33938768013536853">Batareya quvvati yetarli emas.
 
 Chromebookni elektr quvvatiga ulang. Batareya yetarli quvvat
 olishi bilan yangilanish avtomatik ishga tushadi.</translation>
 <translation id="3554552348994984455">Tiklashni boshlash</translation>
-<translation id="369510862371290019">Qayta tiklovchi xotira qurilmasi o‘chib yongan qurilmani avtomatik sozlaydi.
-
-Avtomatik sozlanishi uchun qurilmani tiklovchi tugmani bosing. Qayta tiklash
-bajarilmasligi uchun esa quvvat tugmasini qurilma o‘chgunga qadar
-bosib turing (taxminan 8 soniya).</translation>
 <translation id="3723985428118783104">Tiklanmoqda</translation>
 <translation id="385051799172605136">Orqaga</translation>
 <translation id="3928994486545789273">Tarmoqni tanlang</translation>
@@ -98,11 +87,6 @@ Quvvatlanmoqda...
 
 Batareya yetarli quvvat olishi bilan yangilanish avtomatik ishga tushadi.</translation>
 <translation id="5592705604979238266">Yordam markazi:</translation>
-<translation id="6037207722716689331">Qayta tiklovchi xotira qurilmasi o‘chib yongan qurilmani avtomatik sozlaydi.
-
-Avtomatik sozlanishi uchun Enter tugmasini, bekor qilish uchun esa Esc tugmasini
-bosing. Qayta tiklash bajarilmasligi uchun esa quvvat tugmasini qurilma o‘chgunga
-qadar bosib turing (taxminan 8 soniya).</translation>
 <translation id="6185696379715117369">Yuqoriga</translation>
 <translation id="635783852215913562">Bandlarni yuqoriga va pastga strelkalar orqali kezing.</translation>
 <translation id="6363786367719063276">Jurnallarni ochish</translation>
@@ -152,7 +136,6 @@ https://www.google.com/chromeos/recovery</translation>
 Tizimni tiklash yakunlandi.
 Tiklash vositalarini uzing va kompyuter qaytadan ishga tushadi.</translation>
 <translation id="8179976553408161302">Enter</translation>
-<translation id="8361934271307901704">Qurilmani tiklashda xatolik yuz berdi, Batafsil:</translation>
 <translation id="8420829064199266609">Tarmoqqa ulanmoqda. Bu bir daqiqagacha vaqt olishi mumkin.</translation>
 <translation id="8433773763660502318">Tiklash jarayoni yakunlanmadi</translation>
 <translation id="8473826843543665828">Yangi tarmoqni tanlang yoki qayta urining</translation>
@@ -169,10 +152,6 @@ Yangilanish yakunida o‘zi avtomatik o‘chib yonadi.</translation>
 <translation id="8728458033228603970">Tizim qayta tiklanmoqda...
 
 Bu bir necha daqiqa vaqtni oladi. Kompyuterni o‘chirib yoki elektr manbaidan uzib qo‘ymang.</translation>
-<translation id="8796495438384109098">Tizim qaytadan tiklandi.
-
-Qayta tiklovchi xotira qurilmasini avtomatik qayta tiklash yakunlanmaguncha
-chiqarib olmang, keyin kompyuter avtomatik ravishda o‘chib yonadi.</translation>
 <translation id="88986195241502842">Pastki sahifa</translation>
 <translation id="8911667951938758302">Tarmoqqa ulanmadi</translation>
 <translation id="9146946647152579011">Tizimni tiklash yakunlandi</translation>
