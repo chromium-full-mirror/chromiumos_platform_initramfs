@@ -40,7 +40,6 @@ NETBOOT_BIN_DEPS = \
 	/usr/sbin/fsck.vfat \
 	/usr/sbin/htpdate \
 	/usr/sbin/partprobe \
-	/usr/sbin/tpm_version \
 	/usr/sbin/uftpd
 
 # ChromeOS specific dependency.
@@ -70,6 +69,11 @@ DATA_DEPS = \
 	/usr/share/misc/chromeos-common.sh \
 	/usr/share/misc/shflags \
 	/usr/share/misc/storage-info-common.sh
+
+ifeq ($(FACTORY_TPM_SCRIPT),cros)
+	NETBOOT_BIN_DEPS += /usr/sbin/gsctool
+	DATA_DEPS += /usr/share/cros/gsc-constants.sh
+endif
 
 # Directories to be cloned into initramfs.
 DATA_DIR_DEPS = \
