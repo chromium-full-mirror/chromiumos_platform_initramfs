@@ -203,7 +203,7 @@ def CreateMessageImage(
         suffix=".png"
     ) as temp_image:
         font = FONT_MAPPING.get(locale, DEFAULT_FONT) + ", %dpx" % fontsize
-        params = (
+        params = [
             "pango-view",
             "-q",
             "--pixels",
@@ -215,11 +215,12 @@ def CreateMessageImage(
             "--background=%s" % background,
             "--font=%s" % font,
             "--output=%s" % temp_image.name,
-            "--width=%d" % width,
             "--height=%d" % height,
             "--markup",
-            txt_file.name,
-        )
+        ]
+        if width:
+            params += ["--width=%d" % width]
+        params += [txt_file.name]
         txt_file.write(msgtext.encode("utf_8_sig"))
         txt_file.flush()
         subprocess.check_call(params)
@@ -380,7 +381,7 @@ def CreateLocales(textdir, screendir, locale_list, ui_type):
                 )
 
             # Generate an image file for translated message.
-            for (tag, msgdict) in translations.items():
+            for tag, msgdict in translations.items():
                 if not any(substring in tag for substring in BASE_ELEMENTS):
                     # Other than base element tags, only include `MiniOS`
                     # strings when running the `minios_ui` and the recovery
