@@ -148,6 +148,7 @@ NEWLINE_PATTERN = re.compile("([^\n])\n([^\n])")
 NEWLINE_REPLACEMENT = r"\1 \2"
 CRLF_PATTERN = re.compile("\r\n")
 MULTIBLANK_PATTERN = re.compile("   *")
+URL_PATTERN = re.compile("https://[a-zA-Z0-9/._-]+")
 
 
 def OptimizeImage(src_img, dst_img):
@@ -176,6 +177,11 @@ def OptimizeImage(src_img, dst_img):
     )
 
     subprocess.check_call(pngcrush_args)
+
+
+def PatchUrlString(msgtext):
+    # Put allow_breaks=false attribute around URLs to disallow line breaks.
+    return URL_PATTERN.sub(r'<span allow_breaks="false">\g<0></span>', msgtext)
 
 
 def CreateMessageImage(
@@ -221,6 +227,7 @@ def CreateMessageImage(
         if width:
             params += ["--width=%d" % width]
         params += [txt_file.name]
+        msgtext = PatchUrlString(msgtext)
         txt_file.write(msgtext.encode("utf_8_sig"))
         txt_file.flush()
         subprocess.check_call(params)
