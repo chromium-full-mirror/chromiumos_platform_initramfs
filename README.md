@@ -1,12 +1,12 @@
-# Chromium OS initramfs
+# ChromiumOS initramfs
 
 Build logic for creating standalone initramfs environments.
 
 See the README files in the respective subdirs for more details.
 
+[TOC]
 
-To Use
-======
+## Using
 
 Normally you wouldn't build in this directory directly.  Instead, you would
 build the chromeos-initramfs package with the right USE flags.  e.g.:
@@ -17,9 +17,7 @@ That will install the cpio initramfs files into the sysroot for you to build
 into a kernel directly.  The various build scripts would then be used to make
 the right kernel/image using those (e.g. mod_image_for_recovery.sh).
 
-
-To Make
-=======
+## Building
 
 You could build these by hand for quick testing.  Inside the chroot:
 
@@ -27,8 +25,8 @@ You could build these by hand for quick testing.  Inside the chroot:
 
 That will create the cpio archives for you.
 
-To Debug
-========
+## Debugging
+
 It is possible to debug few of the initramfs targets in QEMU. Read
 [test/README.md](test/README.md) for more information.
 
