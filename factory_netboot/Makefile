@@ -64,6 +64,11 @@ ifeq ($(INCLUDE_FACTORY_UFS),1)
 	CROS_DEPS += /usr/sbin/ufs-utils
 endif
 
+# For supporting firmware-unlock on certain projects. (b/275276471)
+ifeq ($(UNIBUILD),1)
+	CROS_DEPS += /usr/bin/crosid
+endif
+
 # Non-executables.
 DATA_DEPS = \
 	/root/.pmbr_code \
