@@ -6,7 +6,7 @@
 .SUFFIXES:
 
 # How to compress the cpio archive.
-RAMFS_COMPRESS ?= xz -9 --check=crc32
+RAMFS_COMPRESS ?= xz -9 -T0 --check=crc32
 
 # Staging and build toolchain.
 SRCDIR ?= $(CURDIR)
