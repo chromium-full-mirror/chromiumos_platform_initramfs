@@ -304,3 +304,14 @@ minios: stage_init
 	cp -av "$(SYSROOT)/etc/resolv.conf" \
 		"$(SYSROOT)/etc/dhcpcd.conf" \
 		"$(STAGE)/etc/"
+	# Screenshot util dependencies.
+	mkdir -p "$(STAGE)/usr/$(LIBDIR)/dri"
+	cp -av "$(SYSROOT)/usr/$(LIBDIR)/dri/"* \
+		"$(STAGE)/usr/$(LIBDIR)/dri/" || true
+	cp -av "$(SYSROOT)/usr/$(LIBDIR)/libminigbm"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libglapi"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libEGL"* \
+		"$(STAGE)/usr/$(LIBDIR)/" || true
+	mkdir -p "$(STAGE)/usr/share/glvnd"
+	cp -av "$(SYSROOT)/usr/share/glvnd/"* \
+		"$(STAGE)/usr/share/glvnd/" || true

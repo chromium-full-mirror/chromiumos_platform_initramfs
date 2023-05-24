@@ -81,6 +81,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/sbin/crda \
 	/usr/sbin/rfkill \
 	/usr/sbin/rsyslogd \
+	/usr/sbin/screenshot \
 	/usr/sbin/sshd \
 	/usr/sbin/syslog-cat \
 	/usr/sbin/update-ca-certificates \
