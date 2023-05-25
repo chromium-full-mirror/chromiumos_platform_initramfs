@@ -140,7 +140,6 @@ export MINIOS_PDATA_TOOLS_SYMLINKS = \
 
 export MINIOS_DATA_DEPS = \
 	/usr/share/chromeos-ssh-config/keys/authorized_keys \
-	/usr/share/chromeos-ssh-config/keys/id_rsa \
 	/usr/share/chromeos-ssh-config/keys/id_rsa.pub
 
 .PHONY: all
