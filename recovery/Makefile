@@ -275,8 +275,7 @@ minios: stage_init
 	# Connecting to wifi.
 	# TODO(b/169261043): Cleanup and organize these dependencies.
 	#   Look into target-initramfs as the final solution.
-	sudo cp -av "$(SYSROOT)/usr/$(LIBDIR)/libdbus-glib"* \
-		"$(SYSROOT)/usr/$(LIBDIR)/libgio"* \
+	sudo cp -av "$(SYSROOT)/usr/$(LIBDIR)/libgio"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libgobject"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libgmodule"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libffi"* \
