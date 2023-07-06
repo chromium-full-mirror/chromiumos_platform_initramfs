@@ -96,7 +96,6 @@ endif
 export MINIOS_LVM_BIN_DEPS = \
 	/sbin/lvm \
 	/sbin/lvmdump \
-	/sbin/lvmpolld \
 	/sbin/pdata_tools
 
 export MINIOS_LVM_SYMLINKS = \
