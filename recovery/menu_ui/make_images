@@ -533,7 +533,11 @@ def CreateConstantDefs(screendir, all_locales, ui_type):
 
             # the secondary buttons are left-aligned, so we need information
             # about their maximum width and individual width.
-            adv_buttons = ["btn_debug_options", "btn_power_off"]
+            adv_buttons = [
+                "btn_debug_options",
+                "btn_MiniOS_advanced_options",
+                "btn_power_off",
+            ]
             adv_option_btn_width = CalculateButtonWidth(
                 screendir, locale, *adv_buttons
             )
