@@ -6,17 +6,16 @@
 """Generate message images from localized translations."""
 
 import argparse
-import io
+import contextlib
 import json
 import multiprocessing
 import os
 import re
-import shutil
 import subprocess
 import sys
 import tempfile
 
-from PIL import Image
+from PIL import Image  # pylint: disable=import-error
 
 
 # The list of supported locales, and their associated fonts.  Fonts should
@@ -396,7 +395,7 @@ def CreateProgressBar(image_dir):
 
 def _LoadMessages(filename):
     """Load messaages from |filename|."""
-    with io.open(filename, encoding="utf-8-sig") as fp:
+    with open(filename, "rb") as fp:
         return json.load(fp)
 
 
@@ -415,10 +414,10 @@ def CreateLocales(textdir, screendir, locale_list):
     empty_file = os.path.join(screendir, empty_base)
     CreateMessageImage("", "en-US", empty_file)
 
-    pool = multiprocessing.Pool()
-    try:
+    with contextlib.ExitStack() as stack:
+        pool = stack.enter_context(multiprocessing.Pool())
         # Create a temporary directory for grit's translation output.
-        tmpdir = tempfile.mkdtemp()
+        tmpdir = stack.enter_context(tempfile.TemporaryDirectory())
 
         # Invoke the grit build command to generate JSON files from the XTB
         # translations.  The results are placed in `tmpdir` as specified in
@@ -430,7 +429,7 @@ def CreateLocales(textdir, screendir, locale_list):
                 os.path.join(textdir, "cros_recovery.grd"),
                 "build",
                 "-o",
-                os.path.join(tmpdir),
+                tmpdir,
             ]
         )
 
@@ -459,7 +458,7 @@ def CreateLocales(textdir, screendir, locale_list):
                 print(f'  missing translations: {" ".join(sorted(missing))}')
 
             # Generate an image file for translated message.
-            for (tag, msgdict) in translations.items():
+            for tag, msgdict in translations.items():
                 msgtext = msgdict["message"]
                 msgtext = re.sub(CRLF_PATTERN, "\n", msgtext)
                 msgtext = re.sub(NEWLINE_PATTERN, NEWLINE_REPLACEMENT, msgtext)
@@ -473,11 +472,12 @@ def CreateLocales(textdir, screendir, locale_list):
                     CreateMessageImage, (msgtext, locale, pngfilename)
                 )
 
-    finally:
+        # We have to wait for async tasks to finish ourselves.  Pool context
+        # managers call terminate rather than wait.
         pool.close()
         pool.join()
-        os.unlink(empty_file)
-        shutil.rmtree(tmpdir)
+
+    os.unlink(empty_file)
 
 
 def CreateLinkedLocales(screendir, locale_list, link_list):
@@ -538,7 +538,7 @@ def CreateConstantDefs(image_dir):
 
 """
     constants_sh = os.path.join(image_dir, "constants.sh")
-    with open(constants_sh, "w") as genfile:
+    with open(constants_sh, "w", encoding="utf-8") as genfile:
         genfile.write(fileheader % os.path.basename(sys.argv[0]))
         for var, fmt in export_vars:
             genfile.write(("%s=" + fmt + "\n") % (var, globals()[var]))

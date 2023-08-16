@@ -9,20 +9,18 @@ usage:
   ./make_images [ <localized_text> <screens> [ <locale> ... ] ]
 """
 
+import contextlib
 import glob
-import io
-import itertools
 import json
 import multiprocessing
 import os
 import re
-import shutil
 import string
 import subprocess
 import sys
 import tempfile
 
-from PIL import Image
+from PIL import Image  # pylint: disable=import-error
 
 
 # The list of supported locales, and their associated fonts.  Fonts should
@@ -225,7 +223,7 @@ def CreateMonospaceGlyph(
 
 def _LoadMessages(filename):
     """Load messaages from |filename|."""
-    with io.open(filename, encoding="utf-8-sig") as fp:
+    with open(filename, "rb") as fp:
         return json.load(fp)
 
 
@@ -275,7 +273,7 @@ def _GetButtonStyles(tag):
     return button_style, focused_style
 
 
-def _GetMenuItemStyles(tag):
+def _GetMenuItemStyles():
     # For items inside expanded dropdown menu.
     normal_style = {"width": 0, "background": DROPDOWN_BG_COLOR}
     focused_style = dict(normal_style, background=BLUE, foreground=BACKGROUND)
@@ -306,10 +304,10 @@ def CreateLocales(textdir, screendir, locale_list, ui_type):
     empty_file = os.path.join(screendir, empty_base)
     CreateMessageImage("", "en-US", empty_file)
 
-    pool = multiprocessing.Pool()
-    try:
+    with contextlib.ExitStack() as stack:
+        pool = stack.enter_context(multiprocessing.Pool())
         # Create a temporary directory for grit's translation output.
-        tmpdir = tempfile.mkdtemp()
+        tmpdir = stack.enter_context(tempfile.TemporaryDirectory())
 
         # Invoke the grit build command to generate JSON files from the XTB
         # translations.  The results are placed in `tmpdir` as specified in
@@ -321,7 +319,7 @@ def CreateLocales(textdir, screendir, locale_list, ui_type):
                 os.path.join(textdir, "cros_recovery.grd"),
                 "build",
                 "-o",
-                os.path.join(tmpdir),
+                tmpdir,
             ]
         )
 
@@ -400,13 +398,10 @@ def CreateLocales(textdir, screendir, locale_list, ui_type):
 
         with open(
             os.path.join(textdir, "locale_names.json"),
-            "r",
-            encoding="utf-8-sig",
+            "rb",
         ) as f:
             for locale, text in json.load(f).items():
-                style_normal, style_focused, style_folded = _GetMenuItemStyles(
-                    "language"
-                )
+                style_normal, style_focused, style_folded = _GetMenuItemStyles()
 
                 for style, name in zip(
                     (style_normal, style_focused, style_folded),
@@ -422,11 +417,12 @@ def CreateLocales(textdir, screendir, locale_list, ui_type):
                         style,
                     )
 
-    finally:
+        # We have to wait for async tasks to finish ourselves.  Pool context
+        # managers call terminate rather than wait.
         pool.close()
         pool.join()
-        os.unlink(empty_file)
-        shutil.rmtree(tmpdir)
+
+    os.unlink(empty_file)
 
 
 def CreateMonospaceGlyphs(glyph_dir, text_color, background_color):
@@ -453,11 +449,11 @@ def GetImageHeight(imgpath):
         return image.size[1]
 
 
-def CalculateButtonWidth(screendir, locale, *buttons):
+def CalculateButtonWidth(screendir, locale, *args):
     """Returns the maximum width of given buttons."""
 
     width = 64
-    for button in buttons:
+    for button in args:
         pngfile = button + ".png"
         if os.path.exists(os.path.join(screendir, locale, pngfile)):
             width = max(
@@ -473,7 +469,11 @@ def CalculateButtonWidth(screendir, locale, *buttons):
 
 def CreateConstantDefs(screendir, all_locales, ui_type):
     for locale in all_locales:
-        with open(os.path.join(screendir, locale, "constants.sh"), "w") as out:
+        with open(
+            os.path.join(screendir, locale, "constants.sh"),
+            "w",
+            encoding="utf-8",
+        ) as out:
             on_error_btn_width = CalculateButtonWidth(
                 screendir, locale, "btn_try_again"
             )
@@ -555,7 +555,9 @@ def CreateConstantDefs(screendir, all_locales, ui_type):
 
 
 def CreateLanguageDefs(screendir, all_locales):
-    with open(os.path.join(screendir, "lang_constants.sh"), "w") as out:
+    with open(
+        os.path.join(screendir, "lang_constants.sh"), "w", encoding="utf-8"
+    ) as out:
         for locale in all_locales:
             language_img_width = GetImageWidth(
                 os.path.join(screendir, locale, "language.png")
