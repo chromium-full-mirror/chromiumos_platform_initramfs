@@ -17,7 +17,7 @@ STAGE ?= $(OUTPUT_DIR)/stage_$(NAME)
 DEFAULT_SYSROOT := $(if $(BOARD),/build/$(BOARD),/)
 SYSROOT ?= $(DEFAULT_SYSROOT)
 BOARD ?= unknown
-BUILD_LIBRARY_DIR ?= $(HOME)/trunk/src/scripts/build_library
+BUILD_LIBRARY_DIR ?= /mnt/host/source/src/scripts/build_library
 
 # These are common paths we want to install files into.
 RAMFS_LAYOUT_DIRS += bin etc lib root
