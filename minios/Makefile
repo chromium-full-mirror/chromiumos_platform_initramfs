@@ -10,9 +10,6 @@ export SRCDIR = $(CURDIR)
 # Override so recovery/Makefile uses files with relative path to miniOS.
 export RECOVERY_DIR = ../recovery
 
-# Override so recovery/Makefile uses miniOS initramfs folder.
-export OVERLAY_FOLDER = $(SYSROOT)/var/lib/initramfs/minios
-
 # Override so recovery/Makefile creates extra directories.
 export MINIOS_RAMFS_LAYOUT_DIRS = \
 	run/dbus

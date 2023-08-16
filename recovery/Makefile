@@ -52,9 +52,6 @@ endif
 
 INTERACTIVE_COMPLETE ?= true
 
-# Any files here will be overlayed to the initramfs folder.
-OVERLAY_FOLDER ?= $(SYSROOT)/var/lib/initramfs/recovery
-
 # LOCALE_LIST can be overridden on the command line.  This feature
 # is used in the ebuild to allow board-specific locale lists.
 LOCALE_LIST =
@@ -95,7 +92,6 @@ $(RAMFS_BIN): $(UI) stage_init
 		$(DATA_DEPS)
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
-	[ ! -d "$(OVERLAY_FOLDER)" ] || rsync -av $(OVERLAY_FOLDER)/* "$(STAGE)"
 	echo "Building UI $(UI)"
 	mkdir -p "$(CONFIG_FOLDER)"
 	[ "$(UNIBUILD)" -eq 0 ] || \
