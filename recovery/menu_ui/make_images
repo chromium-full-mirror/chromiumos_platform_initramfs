@@ -151,34 +151,6 @@ MULTIBLANK_PATTERN = re.compile("   *")
 URL_PATTERN = re.compile("https://[a-zA-Z0-9/._-]+")
 
 
-def OptimizeImage(src_img, dst_img):
-    """Optimize |src_img|, and save into |dst_img|."""
-    # These pngcrush options won't generate the smallest .png file possible,
-    # instead, the goal here is to generate .png files that the xz step that
-    # compresses the initramfs can compress well, taking advantage of the
-    # redundancy between files. See crbug.com/465647 for details.
-    pngcrush_args = (
-        "pngcrush",
-        "-quiet",
-        # Set the color type to "true color without alpha channel".
-        "-c",
-        "2",
-        # Use method 1 (no filtering).
-        "-m",
-        "1",
-        # zlib level 0 (no compression).
-        "-l",
-        "0",
-        # No filter.
-        "-f",
-        "0",
-        src_img,
-        dst_img,
-    )
-
-    subprocess.check_call(pngcrush_args)
-
-
 def PatchUrlString(msgtext):
     # Put allow_breaks=false attribute around URLs to disallow line breaks.
     return URL_PATTERN.sub(r'<span allow_breaks="false">\g<0></span>', msgtext)
@@ -205,9 +177,7 @@ def CreateMessageImage(
     # pango-view supports specifying content by parameter (--text=) but that may
     # cause python to fail due to unicode when running inside ebuilds.  Write to
     # a temporary file to avoid that.
-    with tempfile.NamedTemporaryFile() as txt_file, tempfile.NamedTemporaryFile(
-        suffix=".png"
-    ) as temp_image:
+    with tempfile.NamedTemporaryFile() as txt_file:
         font = FONT_MAPPING.get(locale, DEFAULT_FONT) + ", %dpx" % fontsize
         params = [
             "pango-view",
@@ -220,7 +190,7 @@ def CreateMessageImage(
             "--foreground=%s" % foreground,
             "--background=%s" % background,
             "--font=%s" % font,
-            "--output=%s" % temp_image.name,
+            "--output=%s" % imagename,
             "--height=%d" % height,
             "--markup",
         ]
@@ -232,30 +202,25 @@ def CreateMessageImage(
         txt_file.flush()
         subprocess.check_call(params)
 
-        OptimizeImage(temp_image.name, imagename)
-
 
 def CreateMonospaceGlyph(
     char, glyph_path, fontsize, fg_color, background_color
 ):
     """Renders a single |char| into |glyph_path|."""
-    with tempfile.NamedTemporaryFile(suffix=".png") as temp:
-        subprocess.check_call(
-            [
-                "pango-view",
-                "-q",
-                "--pixels",
-                "--hinting=auto",
-                "--margin=0",
-                "--foreground=%s" % fg_color,
-                "--background=%s" % background_color,
-                "--font=%s" % (MONOSPACE_FONT % fontsize),
-                "--text=%s" % char,
-                "--output=%s" % temp.name,
-            ]
-        )
-
-        OptimizeImage(temp.name, glyph_path)
+    subprocess.check_call(
+        [
+            "pango-view",
+            "-q",
+            "--pixels",
+            "--hinting=auto",
+            "--margin=0",
+            "--foreground=%s" % fg_color,
+            "--background=%s" % background_color,
+            "--font=%s" % (MONOSPACE_FONT % fontsize),
+            "--text=%s" % char,
+            "--output=%s" % glyph_path,
+        ]
+    )
 
 
 def _LoadMessages(filename):
