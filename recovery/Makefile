@@ -17,6 +17,7 @@ BIN_DEPS = \
 	/usr/sbin/flashrom \
 	/usr/sbin/vpd
 
+UNIBUILD ?= 1
 ifeq ($(UNIBUILD),1)
 BIN_DEPS += /usr/bin/crosid
 endif
