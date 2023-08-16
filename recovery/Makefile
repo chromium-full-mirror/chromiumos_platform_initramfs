@@ -92,7 +92,6 @@ $(RAMFS_BIN): $(UI) stage_init
 		$(DATA_DEPS)
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
-	echo "Building UI $(UI)"
 	mkdir -p "$(CONFIG_FOLDER)"
 	[ "$(UNIBUILD)" -eq 0 ] || \
 		$(RECOVERY_DIR)/gen_recovery_config.sh $(CONFIG_FOLDER)
