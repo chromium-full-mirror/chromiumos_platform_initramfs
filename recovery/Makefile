@@ -94,10 +94,15 @@ $(RAMFS_BIN): $(UI) stage_init
 	echo "INTERACTIVE_COMPLETE=$(INTERACTIVE_COMPLETE)" \
 		>$(STAGE)/lib/completion_settings.sh
 	mkdir -p "$(CONFIG_FOLDER)"
-	[ "$(UNIBUILD)" -eq 0 ] || \
-		$(RECOVERY_DIR)/gen_recovery_config.sh $(CONFIG_FOLDER)
-	[ "$(DETACHABLE)" -eq 0 ] || touch "$(CONFIG_FOLDER)/is_detachable"
-	[ "$(OOBE_CONFIG)" -eq 0 ] || touch "$(CONFIG_FOLDER)/use_oobe_config"
+ifeq ($(UNIBUILD),1)
+	$(RECOVERY_DIR)/gen_recovery_config.sh $(CONFIG_FOLDER)
+endif
+ifeq ($(DETACHABLE),1)
+	touch "$(CONFIG_FOLDER)/is_detachable"
+endif
+ifeq ($(OOBE_CONFIG),1)
+	touch "$(CONFIG_FOLDER)/use_oobe_config"
+endif
 	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
 	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
 	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
