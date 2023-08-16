@@ -95,7 +95,7 @@ $(RAMFS_BIN): $(UI) stage_init
 		>$(STAGE)/lib/completion_settings.sh
 	mkdir -p "$(CONFIG_FOLDER)"
 ifeq ($(UNIBUILD),1)
-	$(RECOVERY_DIR)/gen_recovery_config.sh $(CONFIG_FOLDER)
+	SYSROOT="$(SYSROOT)" $(RECOVERY_DIR)/gen_recovery_config.sh $(CONFIG_FOLDER)
 endif
 ifeq ($(DETACHABLE),1)
 	touch "$(CONFIG_FOLDER)/is_detachable"
