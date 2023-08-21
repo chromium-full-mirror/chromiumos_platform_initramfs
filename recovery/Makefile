@@ -168,6 +168,7 @@ minios: stage_init
 		find -maxdepth 1 \
 		! -name drivers \
 		! -name net \
+		! -name fs \
 		! -name crypto \
 		! -name . -exec rm -rf {} +)
 	(cd "$(STAGE)/lib/modules/"*"/kernel/drivers" && \
@@ -316,3 +317,6 @@ minios: stage_init
 	mkdir -p "$(STAGE)/usr/share/glvnd"
 	cp -av "$(SYSROOT)/usr/share/glvnd/"* \
 		"$(STAGE)/usr/share/glvnd/" || true
+	# Mount helpers.
+	ln -s "/usr/bin/ntfs-3g" "$(STAGE)/sbin/mount.ntfs-3g"
+	ln -s "/usr/bin/ntfs-3g" "$(STAGE)/sbin/mount.ntfs"

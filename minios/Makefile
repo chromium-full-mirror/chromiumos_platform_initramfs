@@ -59,6 +59,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/jq \
 	/usr/bin/logger \
 	/usr/bin/metrics_client \
+	/usr/bin/ntfs-3g \
 	/usr/bin/od \
 	/usr/bin/openssl \
 	/usr/bin/rootdev \
@@ -106,6 +107,7 @@ export MINIOS_LVM_SYMLINKS = \
 	lvresize \
 	lvs \
 	lvscan \
+	ntfs-3g \
 	pvchange \
 	pvcreate \
 	pvdisplay \
