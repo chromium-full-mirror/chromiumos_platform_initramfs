@@ -303,6 +303,7 @@ verify_install_kernel() {
 setup_install_mounts() {
   mount -t tmpfs -o mode=1777 none "${USB_MNT}/tmp" || return 1
   mount -t tmpfs -o mode=0755 run "${USB_MNT}/run" || return 1
+  mount -t tmpfs -o mode=0755 none "${USB_MNT}/var" || return 1
   mkdir -p -m 0755 "${USB_MNT}/run/lock" || return 1
 
   dlog "Re-binding $BASE_MOUNTS for $NEWROOT_MNT"
@@ -322,6 +323,7 @@ cleanup_install_mounts() {
     umount "$NEWROOT_MNT$mnt"
   done
   dlog "Done."
+  umount "${USB_MNT}/var"
   umount "${USB_MNT}/run"
   umount "${USB_MNT}/tmp"
   return 0
