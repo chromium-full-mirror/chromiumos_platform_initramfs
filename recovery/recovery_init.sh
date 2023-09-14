@@ -395,7 +395,7 @@ verify_rw_vpd() {
 
   # Test if RW_VPD region exists on system by attempting to read it
   # using flashrom.
-  flashrom -p host -i RW_VPD:${tmpfile} -r
+  flashrom -p internal -i RW_VPD:${tmpfile} -r
   if [ $? -ne 0 ]; then
     dlog "RW_VPD does not exist on this system, skipping."
     return 0
@@ -435,7 +435,7 @@ verify_rw_vpd() {
   # try initializing anyway and hope it works well enough.
   dlog "Erasing RW_VPD region and re-initializing the VPD."
 
-  flashrom -p host -i RW_VPD -E
+  flashrom -p internal -i RW_VPD -E
   if [ $? -ne 0 ]; then
     dlog "Failed to erase RW_VPD region, continuing anyway."
   fi
