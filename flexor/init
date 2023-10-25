@@ -21,13 +21,14 @@ flexor_err() {
 }
 
 main() {
+  # shellcheck source=/dev/null
   . /lib/init.sh
   initialize
 
   flexor_info "Welcome from Flexor"
 
   while true; do
-    flexor_info "Starting a shell for you to explore PhoenixOS!"
+    flexor_info "Starting a shell for you to explore Flexor!"
     /bin/sh
   done
 }

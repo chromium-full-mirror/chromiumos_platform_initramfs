@@ -71,6 +71,16 @@ endif
 		../common/fw_rollback_check.sh \
 		"$(STAGE)/lib/"
 
+# Generate /bin/write_gpt.sh.
+# Args:
+# 	$(1); image_type: The layout name used to look up partition info in disk
+# 					  layout.
+define generate_write_gpt_sh
+	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
+	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
+	 write_partition_script $(1) $(STAGE)/bin/write_gpt.sh")
+endef
+
 define generate_initramfs
 	../common/gen_initramfs_list.sh -u squash -g squash $(1) > $(2).contents
 	../common/process-layout \

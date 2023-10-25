@@ -5,28 +5,21 @@
 # Dependency list of binary programs.
 BIN_DEPS = \
 	/bin/busybox \
-	/usr/bin/cgpt \
-	/usr/bin/crossystem \
-	/usr/bin/futility
-
-ifndef FLEXOR
-BIN_DEPS += /sbin/dmsetup \
+	/sbin/dmsetup \
 	/sbin/frecon-lite \
 	/usr/bin/eject \
 	/usr/bin/pv \
+	/usr/bin/futility \
+	/usr/bin/crossystem \
 	/usr/bin/tpmc \
+	/usr/bin/cgpt \
 	/usr/sbin/evwaitkey \
 	/usr/sbin/flashrom \
 	/usr/sbin/vpd
-endif
 
 UNIBUILD ?= 1
 ifeq ($(UNIBUILD),1)
 BIN_DEPS += /usr/bin/crosid
-endif
-
-ifdef FLEXOR_BIN_DEPS
-BIN_DEPS += $(FLEXOR_BIN_DEPS)
 endif
 
 ifdef MINIOS_BIN_DEPS
@@ -82,10 +75,6 @@ UI = minios_ui
 endif
 endif
 
-ifeq ($(FLEXOR), 1)
-UI = flexor
-endif
-
 ifeq ($(LIBDIR),)
 $(error "LIBDIR is undefined")
 endif
@@ -114,9 +103,7 @@ endif
 ifeq ($(OOBE_CONFIG),1)
 	touch "$(CONFIG_FOLDER)/use_oobe_config"
 endif
-	(BOARD=$(BOARD) BUILD_LIBRARY_DIR=$(BUILD_LIBRARY_DIR) bash -c \
-	 ". $(BUILD_LIBRARY_DIR)/disk_layout_util.sh; \
-	 write_partition_script usb $(STAGE)/bin/write_gpt.sh")
+	$(call generate_write_gpt_sh,usb)
 	$(call generate_ramfs)
 
 .PHONY: legacy_ui
@@ -155,39 +142,6 @@ minios_lvm: stage_init
 	done
 	mkdir -p "$(STAGE)/etc/lvm/"
 	cp -av "$(SYSROOT)/etc/lvm/lvm.conf" "$(STAGE)/etc/lvm/"
-
-.PHONY: flexor
-flexor: stage_init
-	# KERNEL MODULES
-	mkdir -p "$(STAGE)/lib/modules"
-	cp -av "$(SYSROOT)/lib/modules/"* "$(STAGE)/lib/modules"
-	(cd "$(STAGE)/lib/modules/"*"/kernel" && \
-		find -maxdepth 1 \
-		! -name drivers \
-		! -name fs \
-		! -name crypto \
-		! -name . -exec rm -rf {} +)
-	(cd "$(STAGE)/lib/modules/"*"/kernel/drivers" && \
-		find -maxdepth 1 \
-		! -name soc \
-		! -name . -exec rm -rf {} +)
-	sed "s|/bin/bash|/bin/sh|" \
-		"$(SYSROOT)/etc/passwd" > "$(STAGE)/etc/passwd"
-	# Add policy files for SELinux.
-	cp -av "$(SYSROOT)/$(LIBDIR)/libselinux"* "$(STAGE)/$(LIBDIR)/"
-	cp -av "$(SYSROOT)/usr/$(LIBDIR)/libselinux"* "$(STAGE)/usr/$(LIBDIR)/"
-	if [ -d "$(SYSROOT)/etc/selinux" ]; then \
-		mkdir -p "$(STAGE)/etc/selinux"; \
-		rsync -av "$(SYSROOT)/etc/selinux/"* "$(STAGE)/etc/selinux/"; \
-	fi
-	# CrOS-install dependencies.
-	cp -av "$(SYSROOT)/usr/share/misc/shflags" "$(STAGE)/usr/share/misc"
-	cp -av "$(SYSROOT)/usr/share/misc/lvm-utils.sh" "$(STAGE)/usr/share/misc"
-	cp -av "$(SYSROOT)/usr/share/misc/chromeos-common.sh" \
-		"$(STAGE)/usr/share/misc"
-	mkdir -p "$(STAGE)/usr/share/syslinux"
-	cp -av "$(SYSROOT)/usr/share/syslinux/gptmbr.bin" \
-		"$(STAGE)/usr/share/syslinux/" || true
 
 # TODO(b/177025106): Improve the build process to be more generic.
 .PHONY: minios
