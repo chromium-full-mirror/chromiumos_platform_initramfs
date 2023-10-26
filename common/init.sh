@@ -5,10 +5,12 @@
 # Common runtime library used by /init scripts.  All "exported" utility
 # functions should start with "init_".
 
-# Sanity check the date (crosbug.com/13200)
+# Make sure the date is recent even if the RTC is reset or invalid.
+# This date should be updated periodically.
 init_check_clock() {
-  if [ $(date +%Y) -lt 1970 ]; then
-    date 010200001970.00
+  local year="2023"
+  if [ $(date +%Y) -lt ${year} ]; then
+    date 01010000${year}.00
   fi
 }
 
