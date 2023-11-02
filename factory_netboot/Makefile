@@ -36,6 +36,7 @@ NETBOOT_BIN_DEPS = \
 	/usr/bin/uudecode \
 	/usr/bin/uuidgen \
 	/usr/bin/wget \
+	/usr/sbin/fmap_decode \
 	/usr/sbin/flashrom \
 	/usr/sbin/fsck.vfat \
 	/usr/sbin/htpdate \
@@ -62,6 +63,11 @@ endif
 ifeq ($(INCLUDE_FACTORY_UFS),1)
 	CROS_DEPS += /usr/sbin/factory_ufs
 	CROS_DEPS += /usr/sbin/ufs-utils
+endif
+
+# For generating ME locked FW.
+ifeq ($(INCLUDE_IFDTOOL),1)
+	CROS_DEPS += /usr/bin/ifdtool
 endif
 
 # For supporting firmware-unlock on certain projects. (b/275276471)
