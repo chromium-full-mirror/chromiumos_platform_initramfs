@@ -12,6 +12,11 @@ LOG_ERROR="<3>"
 # Tag for log messages.
 TAG="flexor-init"
 
+# shellcheck source=/dev/null
+. /usr/bin/write_gpt.sh
+# shellcheck source=../common/init.sh
+. /lib/init.sh
+
 flexor_info() {
   echo "${LOG_INFO}${TAG}: $*" | tee "${LOG_FILE}" 1>&2
 }
@@ -20,17 +25,37 @@ flexor_err() {
   echo "${LOG_ERROR}${TAG}: $*" | tee "${LOG_FILE}" 1>&2
 }
 
-main() {
-  # shellcheck source=/dev/null
-  . /lib/init.sh
-  initialize
+# For initramfs, this init script is responsible for the equivalent of
+# `prepare_namespace()`. For Flexor this simplifies to waiting for the
+# fixed block devices to become available.
+wait_for_fixed_dst_drive() {
+  # Wait up to 10 seconds.
+  local NUM_TRIES=100
+  local SLEEP_SECONDS=0.1
 
-  flexor_info "Welcome from Flexor"
+  load_base_vars
+  flexor_info "Looking for destination drive ..."
 
-  while true; do
-    flexor_info "Starting a shell for you to explore Flexor!"
-    /bin/sh
+  local try=0
+  while [ $(( try += 1 )) -lt "${NUM_TRIES}" ]; do
+    DST="$(get_fixed_dst_drive)"
+    if [ -n "${DST}" ]; then
+      flexor_info "Found destination drive: ${DST}"
+      return 0
+    fi
+    sleep "${SLEEP_SECONDS}"
   done
+
+  flexor_err "Failed waiting for destination drive"
+  return 1
+}
+
+main() {
+  initialize
+  wait_for_fixed_dst_drive
+
+  flexor_info "Done initializing, start installation"
+  exec /sbin/flexor --device="$(get_fixed_dst_drive)"
 }
 
 if [ "$0" = "/init" ]; then
