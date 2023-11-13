@@ -331,6 +331,9 @@ View logs
       <message name="btn_recovery_log" desc="In the debug options menu, button that let user to view the recovery log">
 Recovery log
       </message>
+      <message name="btn_erase_logs" desc="In the debug options menu, button that lets users to erase logs stored to disk.">
+Erase logs
+      </message>
       <message name="btn_message_log" desc="In the debug options menu, button that let user to view the /var/log/messages log">
 Messages log
       </message>
@@ -451,6 +454,9 @@ Please try again. Make sure the device is plugged in and charging.
       </message>
       <message name="btn_MiniOS_display_options" desc="Button for options menu">
 Available Networks
+      </message>
+      <message name="btn_Available_devices" desc="Button for debug options screen to show list of available devices to store logs.">
+Available Devices
       </message>
       <message name="btn_MiniOS_advanced_options" desc="Button for advanced options menu">
 Advanced Options

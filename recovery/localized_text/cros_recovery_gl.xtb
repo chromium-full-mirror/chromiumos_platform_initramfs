@@ -17,6 +17,7 @@ Quita o recurso de recuperación e o teu ordenador reiniciarase automaticamente.
 <translation id="175933110504178679">Con este proceso borraranse os teus datos persoais. Esta operación tardará varios minutos en completarse. Non apagues o dispositivo.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Apagar</translation>
+<translation id="2133904005200140687">Dispositivos dispoñibles</translation>
 <translation id="2160704550417277456">Opcións avanzadas</translation>
 <translation id="2161775569013928937">Queres iniciar a recuperación?</translation>
 <translation id="2238107357612570504">Opcións de depuración da recuperación</translation>
@@ -91,7 +92,7 @@ A actualización comezará automaticamente tan pronto como a batería teña carg
 <translation id="6451786478565057499">A eliminación avanzada do disco está en curso...
 
 Este proceso pode levar moito tempo.</translation>
-<translation id="64764858283438323">A imaxe do medio de recuperación é unha imaxe de programador non verificada. A recuperación continuará porque o inicio verificado está desactivado. Se volves activar a verificación, deberás repetir a recuperación cunha imaxe oficial de ChromeOS.</translation>
+<translation id="64764858283438323">A imaxe do medio de recuperación é unha imaxe de programador non verificada. A recuperación continuará porque o arranque verificado está desactivado. Se volves activar a verificación, deberás repetir a recuperación cunha imaxe oficial de ChromeOS.</translation>
 <translation id="6566947361877177265">Conectarse a unha rede para iniciar a recuperación</translation>
 <translation id="6582194100503356658">Esta acción pode tardar uns minutos. Non apagues o dispositivo nin desconectes a alimentación.</translation>
 <translation id="662657262312410525">A imaxe de recuperación de ChromeOS que estás usando non está actualizada. Consulta este URL para obter instrucións acerca de como crear un novo medio de recuperación: https://www.google.com/chromeos/recovery</translation>
@@ -101,6 +102,7 @@ Este proceso pode levar moito tempo.</translation>
 <translation id="6895131867077828321">Escribe o teu contrasinal. Preme Tabulador para mostralo ou ocultalo. Preme Introducir para envialo.</translation>
 <translation id="7126032376876878896">Utiliza o botón de acendido para seleccionar unha opción.</translation>
 <translation id="7159548186721854353">Se o dispositivo non se reinicia automaticamente, reiníciao manualmente</translation>
+<translation id="7419645453864742083">Borrar rexistros</translation>
 <translation id="7684530127758861598">Rexistro da recuperación</translation>
 <translation id="7709095358410921767">A eliminación avanzada do disco realizouse correctamente.
 

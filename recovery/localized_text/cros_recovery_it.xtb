@@ -17,6 +17,7 @@ Rimuovi il supporto di ripristino e il computer si riavvierà automaticamente.</
 <translation id="175933110504178679">Questa procedura cancellerà i tuoi dati personali. L'operazione richiederà diversi minuti. Non spegnere il dispositivo.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Spegni</translation>
+<translation id="2133904005200140687">Dispositivi disponibili</translation>
 <translation id="2160704550417277456">Opzioni avanzate</translation>
 <translation id="2161775569013928937">Vuoi avviare il ripristino?</translation>
 <translation id="2238107357612570504">Opzioni di debug di ripristino</translation>
@@ -114,6 +115,7 @@ Se in un secondo momento riattiverai la verifica, dovrai ripetere il ripristino 
 <translation id="6895131867077828321">Digita la password. Premi Tab per mostrare o nascondere la password. Premi Invio per inviare.</translation>
 <translation id="7126032376876878896">Utilizza il tasto di accensione per selezionare un'opzione.</translation>
 <translation id="7159548186721854353">Riavvia manualmente il dispositivo se non viene riavviato automaticamente</translation>
+<translation id="7419645453864742083">Cancella log</translation>
 <translation id="7684530127758861598">Log di ripristino</translation>
 <translation id="7709095358410921767">Pulizia avanzata del disco effettuata correttamente.
 

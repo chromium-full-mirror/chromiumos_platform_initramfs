@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE translationbundle>
 <translationbundle lang="te">
-<translation id="1201402288615127009">తరువాత</translation>
+<translation id="1201402288615127009">తర్వాత</translation>
 <translation id="1207194515919037363">ఈ పరికరంలో ఉన్న భద్రతా మాడ్యూల్ పని చేయడం లేదు.
 
 దయచేసి మరింత సమాచారం కోసం ఈ URLను చూడండి:
@@ -17,6 +17,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="175933110504178679">ఈ ప్రాసెస్ మీ వ్యక్తిగత డేటాను తుడిచివేస్తుంది. దీనికి కొన్ని నిమిషాలు పడుతుంది. పరికరాన్ని ఆఫ్ చేయకండి.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">పవర్ ఆఫ్ చేయి</translation>
+<translation id="2133904005200140687">అందుబాటులో ఉన్న పరికరాలు</translation>
 <translation id="2160704550417277456">అధునాతన ఎంపికలు</translation>
 <translation id="2161775569013928937">రికవరీని ప్రారంభించాలా?</translation>
 <translation id="2238107357612570504">రికవరీ డీబగ్ ఆప్షన్‌లు</translation>
@@ -122,6 +123,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="6895131867077828321">మీ పాస్‌వర్డ్‌ను టైప్ చేయండి. పాస్‌వర్డ్‌ను చూపడానికి లేదా దాచడానికి Tabను నొక్కండి. సమర్పించడానికి Enterను నొక్కండి.</translation>
 <translation id="7126032376876878896">ఒక ఆప్షన్‌ను ఎంచుకోవడానికి పవర్ బటన్‌ను ఉపయోగించండి.</translation>
 <translation id="7159548186721854353">ఒకవేళ పరికరం ఆటోమేటిక్‌గా రీస్టార్ట్ అవ్వకపోతే, మాన్యువల్‌గా రీస్టార్ట్ చేయండి</translation>
+<translation id="7419645453864742083">లాగ్‌లను తొలగించండి</translation>
 <translation id="7684530127758861598">రికవరీ లాగ్</translation>
 <translation id="7709095358410921767">మెరుగైన డిస్క్ తొలగింపు ప్రక్రియ విజయవంతమైంది.
 

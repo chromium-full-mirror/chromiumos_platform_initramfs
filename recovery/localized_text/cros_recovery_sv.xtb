@@ -17,6 +17,7 @@ Ta bort återställningsmediet. Datorn startas om automatiskt.</translation>
 <translation id="175933110504178679">Den här processen rensar din personliga data. Det här tar flera minuter. Stäng inte av enheten.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Stäng av</translation>
+<translation id="2133904005200140687">Tillgängliga enheter</translation>
 <translation id="2160704550417277456">Avancerade alternativ</translation>
 <translation id="2161775569013928937">Vill du starta återställningen?</translation>
 <translation id="2238107357612570504">Felsökningsalternativ för återställning</translation>
@@ -125,6 +126,7 @@ Om du aktiverar verifieringen igen senare måste du göra om
 <translation id="6895131867077828321">Ange ditt lösenord. Tryck på Tabb för att visa eller dölja lösenordet. Tryck på Retur för att skicka.</translation>
 <translation id="7126032376876878896">Välj ett alternativ genom att trycka på av/på-knappen.</translation>
 <translation id="7159548186721854353">Starta om enheten manuellt om det inte görs automatiskt</translation>
+<translation id="7419645453864742083">Rensa loggar</translation>
 <translation id="7684530127758861598">Återställningslogg</translation>
 <translation id="7709095358410921767">Den utökade raderingen av disk har genomförts.
 

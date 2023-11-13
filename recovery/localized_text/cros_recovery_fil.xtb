@@ -17,6 +17,7 @@ Pakialis ang media sa pag-recover at awtomatikong magre-restart ang iyong comput
 <translation id="175933110504178679">Iwa-wipe ng prosesong ito ang iyong personal na data. Aabutin ito nang ilang minuto. Huwag i-off ang device.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">I-off</translation>
+<translation id="2133904005200140687">Mga Available na Device</translation>
 <translation id="2160704550417277456">Advanced na Mga Pagpipilian</translation>
 <translation id="2161775569013928937">Simulan ang pag-recover?</translation>
 <translation id="2238107357612570504">Mga opsyon sa pag-debug sa pag-recover</translation>
@@ -122,6 +123,7 @@ ang pag-recover gamit ang up-to-date na imahe ng ChromeOS.</translation>
 <translation id="6895131867077828321">I-type ang iyong password. Pindutin ang Tab para ipakita o itago ang password. Pindutin ang Enter para isumite.</translation>
 <translation id="7126032376876878896">Gamitin ang power button para pumili ng opsyon.</translation>
 <translation id="7159548186721854353">Manual na i-restart kung hindi awtomatikong magre-restart ang device</translation>
+<translation id="7419645453864742083">Burahin ang mga log</translation>
 <translation id="7684530127758861598">Log ng pag-recover</translation>
 <translation id="7709095358410921767">Matagumpay ang pinahusay na pag-delete ng disk.
 

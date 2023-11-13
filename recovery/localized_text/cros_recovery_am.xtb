@@ -17,6 +17,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="175933110504178679">ይህ ሂደት የግል ውሂብዎን ይጠርጋል። ይህ በርካታ ደቂቃዎችን ይወስዳል። መሣሪያውን አያጥፉ።</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">ኃይል አጥፋ</translation>
+<translation id="2133904005200140687">የሚገኙ መሣሪያች</translation>
 <translation id="2160704550417277456">የላቁ አማራጮች</translation>
 <translation id="2161775569013928937">መልሶ ማግኘት ይጀምር?</translation>
 <translation id="2238107357612570504">እንደነበረ መመለሻ የስህተት ማረም አማራጮች</translation>
@@ -84,7 +85,7 @@ https://www.google.com/chromeos/recovery</translation>
 
 ልክ ባትሪው በቂ ኃይል እንዳገኘ ዝማኔው በራስ-ሰር ይጀመራል።</translation>
 <translation id="5592705604979238266">የእገዛ ማዕከል፦</translation>
-<translation id="6185696379715117369">ገጽ ወደላይ</translation>
+<translation id="6185696379715117369">ገፅ ወደላይ</translation>
 <translation id="635783852215913562">ወደ ላይ ወይም ወደ ታች ለማሰስ የቀስት ቁልፎቹን ይጠቀሙ።</translation>
 <translation id="6363786367719063276">ምዝግብ ማስታወሻ ይመልከቱ</translation>
 <translation id="6374469231428023295">እንደገና ይሞክሩ</translation>
@@ -121,6 +122,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="6895131867077828321">የይለፍ ቃልዎን ይተይቡ። የይለፍ ቃሉን ለማሳየት ወይም ለመደበቅ ትርን ይጫኑ። ለማስገባት አስገባን ይጫኑ።</translation>
 <translation id="7126032376876878896">አንድ አማራጭ ለመምረጥ የማብሪያ/ማጥፊያ ቁልፍ ይጠቀሙ።</translation>
 <translation id="7159548186721854353">መሣሪያው በራስ-ሰር ካልጀመረ እራስዎ እንደገና ያስጀምሩ</translation>
+<translation id="7419645453864742083">ምዝግብ ማስታወሻዎችን መደምሰስ</translation>
 <translation id="7684530127758861598">ወደ ነበረበት የመመለስ ምዝግብ ማስታወሻ</translation>
 <translation id="7709095358410921767">የተሻሻለ የዲስክ ስረዛ ስኬታማ ነበር።
 
@@ -154,7 +156,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="8728458033228603970">የስርዓት እንደነበረ መመለ በሂደት ላይ ነው...
 
 ይህ ጥቂት ደቂቃዎችን ይወስዳል። እባክዎ ኮምፒውተሩን አያጥፉት ወይም ኃይል መስጫውን ግንኙነት አቋርጥ።</translation>
-<translation id="88986195241502842">ገጽ ወደ ታች</translation>
+<translation id="88986195241502842">ገፅ ወደ ታች</translation>
 <translation id="8911667951938758302">ከአውታረ መረቡ ጋር መገናኘት አልተቻለም</translation>
 <translation id="9146946647152579011">እንደነበረ መመለስ አሁን ተጠናቅቋል</translation>
 <translation id="9156766649956178343">የእርስዎን መሣሪያ ወደ ነበረበት መመለስ ላይ ስህተት አለ</translation>

@@ -17,6 +17,7 @@ Retira el medio de recuperación para que el ordenador se reinicie automáticame
 <translation id="175933110504178679">Este proceso borrará tus datos personales. Tardará unos minutos. No apagues el dispositivo.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Apagar</translation>
+<translation id="2133904005200140687">Dispositivos disponibles</translation>
 <translation id="2160704550417277456">Opciones avanzadas</translation>
 <translation id="2161775569013928937">¿Iniciar recuperación?</translation>
 <translation id="2238107357612570504">Opciones de depuración para la recuperación</translation>
@@ -111,6 +112,7 @@ La recuperación continuará, ya que la verificación está desactivada. Si vuel
 <translation id="6895131867077828321">Escribe tu contraseña. Pulsa Tabulador para mostrar u ocultar la contraseña. Pulsa Intro para enviarla.</translation>
 <translation id="7126032376876878896">Usa el botón de encendido para seleccionar una opción.</translation>
 <translation id="7159548186721854353">Reinicia el dispositivo de forma manual si no lo hace automáticamente</translation>
+<translation id="7419645453864742083">Borrar registros</translation>
 <translation id="7684530127758861598">Registro de recuperación</translation>
 <translation id="7709095358410921767">El borrado mejorado del disco se ha realizado correctamente.
 

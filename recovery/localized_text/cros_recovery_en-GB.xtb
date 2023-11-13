@@ -17,6 +17,7 @@ Please remove the recovery media and your computer will restart automatically.</
 <translation id="175933110504178679">This process will wipe your personal data. This will take several minutes. Do not turn off the device.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Power off</translation>
+<translation id="2133904005200140687">Available devices</translation>
 <translation id="2160704550417277456">Advanced Options</translation>
 <translation id="2161775569013928937">Start recovery?</translation>
 <translation id="2238107357612570504">Recovery debug options</translation>
@@ -126,6 +127,7 @@ recovery with an up-to-date ChromeOS image.</translation>
 <translation id="6895131867077828321">Type your password. Press Tab to show or hide the password. Press Enter to submit.</translation>
 <translation id="7126032376876878896">Use the power button to select an option.</translation>
 <translation id="7159548186721854353">Restart manually if the device doesn’t automatically restart</translation>
+<translation id="7419645453864742083">Erase logs</translation>
 <translation id="7684530127758861598">Recovery log</translation>
 <translation id="7709095358410921767">Enhanced disk deletion was successful.
 

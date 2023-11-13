@@ -17,6 +17,7 @@ Wyjmij nośnik przywracania. Komputer automatycznie uruchomi się ponownie.</tra
 <translation id="175933110504178679">Ten proces spowoduje usunięcie wszystkich danych osobowych. Potrwa to kilka minut. Nie wyłączaj urządzenia.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Wyłącz</translation>
+<translation id="2133904005200140687">Dostępne urządzenia</translation>
 <translation id="2160704550417277456">Opcje zaawansowane</translation>
 <translation id="2161775569013928937">Czy chcesz rozpocząć odzyskiwanie?</translation>
 <translation id="2238107357612570504">Opcje debugowania dotyczące przywracania</translation>
@@ -104,6 +105,7 @@ Może to zająć sporo czasu.</translation>
 <translation id="6895131867077828321">Wpisz hasło. Aby pokazać lub ukryć hasło, naciśnij Tab. Aby przesłać, naciśnij Enter.</translation>
 <translation id="7126032376876878896">Naciśnij przycisk zasilania, by wybrać opcję.</translation>
 <translation id="7159548186721854353">Jeśli urządzenie nie uruchomi się ponownie automatycznie, zrób to ręcznie</translation>
+<translation id="7419645453864742083">Usuń dane z dzienników</translation>
 <translation id="7684530127758861598">Dziennik przywracania</translation>
 <translation id="7709095358410921767">Rozszerzone usuwanie dysku zostało ukończone.
 

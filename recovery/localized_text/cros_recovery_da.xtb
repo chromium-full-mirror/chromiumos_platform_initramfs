@@ -17,6 +17,7 @@ Fjern gendannelsesmediet, så genstarter din computer automatisk.</translation>
 <translation id="175933110504178679">Denne handling rydder dine personoplysninger. Dette tager flere minutter. Undlad at slukke enheden.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Sluk</translation>
+<translation id="2133904005200140687">Tilgængelige enheder</translation>
 <translation id="2160704550417277456">Avancerede valgmuligheder</translation>
 <translation id="2161775569013928937">Vil du starte gendannelsen?</translation>
 <translation id="2238107357612570504">Valgmuligheder for fejlretning ved gendannelse</translation>
@@ -27,7 +28,7 @@ Fjern gendannelsesmediet, så genstarter din computer automatisk.</translation>
 <translation id="2731700343119398978">Vent et øjeblik...</translation>
 <translation id="2904079386864173492">Model:</translation>
 <translation id="3029977119648083072">Angiv adgangskoden til netværket</translation>
-<translation id="3243756202241744259">Bekræfter integriteten af dit gendannelsesmedie...</translation>
+<translation id="3243756202241744259">Verificerer integriteten af dit gendannelsesmedie...</translation>
 <translation id="3377484800447890197">Der opstod en fejl under gendannelsen af fabriksindstillingerne på din enhed. Gå til https://google.com/chromeos/recovery for at se mulige løsninger, eller prøv igen.</translation>
 <translation id="33938768013536853">Batteriniveauet er for lavt til at opdatere.
 
@@ -121,6 +122,7 @@ gendannelsen med et opdateret billede for ChromeOS.</translation>
 <translation id="6895131867077828321">Angiv din adgangskode. Tryk på Tab-tasten for at få vist eller skjult adgangskoden. Tryk på Enter for at sende.</translation>
 <translation id="7126032376876878896">Brug afbryderknappen til at vælge en mulighed.</translation>
 <translation id="7159548186721854353">Genstart enheden manuelt, hvis den ikke gør det automatisk</translation>
+<translation id="7419645453864742083">Ryd logs</translation>
 <translation id="7684530127758861598">Gendannelseslog</translation>
 <translation id="7709095358410921767">Den udvidede sletning af disken blev gennemført.
 

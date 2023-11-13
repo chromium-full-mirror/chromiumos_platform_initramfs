@@ -17,6 +17,7 @@ Remova a mídia de recuperação. O sistema será reiniciado automaticamente.</t
 <translation id="175933110504178679">Este processo apagará seus dados pessoais e levará alguns minutos. Não desligue o dispositivo.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Desligar</translation>
+<translation id="2133904005200140687">Dispositivos disponíveis</translation>
 <translation id="2160704550417277456">Opções avançadas</translation>
 <translation id="2161775569013928937">Iniciar recuperação?</translation>
 <translation id="2238107357612570504">Opções de depuração de recuperação</translation>
@@ -105,7 +106,7 @@ A recuperação vai continuar porque a inicialização verificada foi desativada
 Se você reativar a verificação, será necessário repetir
 a recuperação com uma imagem oficial do ChromeOS.</translation>
 <translation id="6566947361877177265">Conecte-se a uma rede para iniciar a recuperação</translation>
-<translation id="6582194100503356658">Isso pode levar alguns minutos. Não desligue o dispositivo nem o desconecte da fonte de energia.</translation>
+<translation id="6582194100503356658">Pode levar alguns minutos.. Não desligue o dispositivo nem o desconecte da fonte de energia.</translation>
 <translation id="662657262312410525">Você está usando uma imagem de recuperação do ChromeOS desatualizada.
 
 Consulte este URL para verificar instruções sobre como criar uma nova
@@ -122,6 +123,7 @@ a recuperação com uma imagem atualizada do ChromeOS.</translation>
 <translation id="6895131867077828321">Digite sua senha. Pressione "Tab" para exibir ou ocultar a senha. Pressione "Enter" para enviar.</translation>
 <translation id="7126032376876878896">Use o botão liga/desliga para selecionar uma opção.</translation>
 <translation id="7159548186721854353">Se o dispositivo não reiniciar automaticamente, faça o processo manual</translation>
+<translation id="7419645453864742083">Limpar registros</translation>
 <translation id="7684530127758861598">Registro de recuperação</translation>
 <translation id="7709095358410921767">A exclusão avançada do disco foi concluída.
 

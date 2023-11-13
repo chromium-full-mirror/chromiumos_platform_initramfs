@@ -17,6 +17,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="175933110504178679">तपाईंले रिकभर गर्नुभयो भने तपाईंको व्यक्तिगत डेटा मेटिने छ। यो प्रक्रिया पूरा हुन निकै बेर लाग्ने छ। डिभाइस बन्द नगर्नुहोला।</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">निष्क्रिय पार्नुहोस्</translation>
+<translation id="2133904005200140687">उपलब्ध डिभाइसहरू</translation>
 <translation id="2160704550417277456">उन्नत विकल्पहरू</translation>
 <translation id="2161775569013928937">रिकभर गर्ने प्रक्रिया सुरु गर्ने हो?</translation>
 <translation id="2238107357612570504">रिकभरी डिबगका विकल्पहरू</translation>
@@ -81,7 +82,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="635783852215913562">तल वा माथि जान तीर कुञ्जीहरू प्रयोग गर्नुहोस्।</translation>
 <translation id="6363786367719063276">लगहरू हेर्नुहोस्</translation>
 <translation id="6374469231428023295">फेरि प्रयास गर्नुहोस्</translation>
-<translation id="6388429950346313390">माफ गर्नुहोस्, केही चिज गडबड भयो</translation>
+<translation id="6388429950346313390">माफ गर्नुहोस्, कुनै समस्या आयो</translation>
 <translation id="6408757960874122684">तपाईंको कम्प्युटरमा ChromeOS सिस्टम छैन जस्तो देखिन्छ!
 
 तपाईंले यो कार्य गर्नुभयो भने तपाईंले इन्स्टल गरेका हुन सक्ने अन्य सबै अपरेटिङ सिस्टम र सम्पूर्ण जानकारी मेटिने छन्। साथै, तपाईंले ब्याकअप गर्ने कुनै अवसर पाउनु हुने छैन।
@@ -109,6 +110,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="6895131867077828321">आफ्नो पासवर्ड टाइप गर्नुहोस्। पासवर्ड देखाउन वा लुकाउन Tab थिच्नुहोस्। पेस गर्न Enter थिच्नुहोस्।</translation>
 <translation id="7126032376876878896">कुनै विकल्प चयन गर्न पावर बटन प्रयोग गर्नुहोस्।</translation>
 <translation id="7159548186721854353">डिभाइस स्वतः रिस्टार्ट नभएका खण्डमा म्यानुअल रूपमा रिस्टार्ट गर्नुहोस्</translation>
+<translation id="7419645453864742083">लगहरू मेटाउनुहोस्</translation>
 <translation id="7684530127758861598">रिकभरी लग</translation>
 <translation id="7709095358410921767">डिस्कको डेटा परिष्कृत ढङ्गले मेटाइयो।
 

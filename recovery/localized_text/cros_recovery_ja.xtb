@@ -17,6 +17,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="175933110504178679">この処理を行うと個人データが消去されます。これには数分かかります。デバイスの電源をオフにしないでください。</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">電源を切る</translation>
+<translation id="2133904005200140687">利用可能なデバイス</translation>
 <translation id="2160704550417277456">詳細オプション</translation>
 <translation id="2161775569013928937">復元を開始</translation>
 <translation id="2238107357612570504">復元デバッグ オプション</translation>
@@ -125,6 +126,7 @@ https://www.google.com/chromeos/recovery</translation>
 <translation id="6895131867077828321">パスワードを入力します。パスワードを表示または非表示にするには、Tab キーを押します。送信するには、Enter キーを押します。</translation>
 <translation id="7126032376876878896">電源ボタンを使用して、オプションを選択します。</translation>
 <translation id="7159548186721854353">デバイスが自動的に再起動しない場合は、手動で再起動します</translation>
+<translation id="7419645453864742083">ログを消去</translation>
 <translation id="7684530127758861598">リカバリログ</translation>
 <translation id="7709095358410921767">拡張ディスクの削除が完了しました。
 

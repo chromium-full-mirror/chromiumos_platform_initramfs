@@ -17,6 +17,7 @@ Lūdzu, noņemiet atkopšanas datu nesēju, un dators automātiski tiks restart�
 <translation id="175933110504178679">Šajā procesā tiks notīrīti jūsu personas dati. Tas var ilgt vairākas minūtes. Neizslēdziet ierīci.</translation>
 <translation id="1977020597896356883">https://google.com/chromeos/recovery</translation>
 <translation id="1995660704900986789">Izslēgt</translation>
+<translation id="2133904005200140687">Pieejamās ierīces</translation>
 <translation id="2160704550417277456">Izvērstas opcijas</translation>
 <translation id="2161775569013928937">Vai sākt atkopšanu?</translation>
 <translation id="2238107357612570504">Atkopšanas atkļūdošanas opcijas</translation>
@@ -83,7 +84,7 @@ Notiek uzlāde...
 Atjauninājums tiks sākts automātiski, tiklīdz akumulatorā būs pietiekami daudz jaudas.</translation>
 <translation id="5592705604979238266">Palīdzības centrs:</translation>
 <translation id="6185696379715117369">Augšup</translation>
-<translation id="635783852215913562">Lai pārietu uz augšu vai leju, izmantojiet bulttaustiņus.</translation>
+<translation id="635783852215913562">Lai pārietu uz augšu vai leju, izmantojiet bultiņas.</translation>
 <translation id="6363786367719063276">Skatīt žurnālus</translation>
 <translation id="6374469231428023295">Mēģināt vēlreiz</translation>
 <translation id="6388429950346313390">Diemžēl radās kļūda</translation>
@@ -114,6 +115,7 @@ Ja vēlāk atkal ieslēgsiet verifikāciju, atkopšana būs jāatkārto, izmanto
 <translation id="6895131867077828321">Ierakstiet paroli. Nospiediet tabulēšanas taustiņu, lai rādītu vai paslēptu paroli. Nospiediet ievadīšanas taustiņu, lai iesniegtu.</translation>
 <translation id="7126032376876878896">Izmantojiet barošanas pogu, lai atlasītu kādu no opcijām.</translation>
 <translation id="7159548186721854353">Manuāli restartējiet ierīci, ja tā netiek restartēta automātiski.</translation>
+<translation id="7419645453864742083">Dzēst žurnālus</translation>
 <translation id="7684530127758861598">Atkopšanas žurnāls</translation>
 <translation id="7709095358410921767">Diska uzlabotā dzēšana bija sekmīga.
 
