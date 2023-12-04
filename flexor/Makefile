@@ -20,15 +20,20 @@ FLEXOR_BIN_DEPS = \
 	/bin/tar \
 	/bin/dd \
 	/bin/udevadm \
+	/bin/lsblk \
 	/build/initramfs/sbin/flexor \
+	/usr/bin/systemd-tmpfiles \
 	/usr/sbin/chromeos-install \
+	/usr/sbin/rsyslogd \
 	/sbin/blockdev \
 	/sbin/init \
 	/sbin/poweroff \
 	/sbin/losetup \
+	/sbin/minijail0 \
 	/sbin/mkfs.ext4 \
 	/sbin/reboot \
-	/sbin/sfdisk
+	/sbin/sfdisk \
+	/sbin/udevd
 
 DATA_DEPS = \
 	/usr/share/misc/chromeos-common.sh
@@ -42,6 +47,8 @@ INTERACTIVE_COMPLETE ?= true
 
 # Layout of directories to be created in initramfs.
 RAMFS_LAYOUT_DIRS = \
+	etc/init \
+	usr/lib/tmpfiles.d \
 	usr/share/misc \
 	usr/share/syslinux \
 	lib/modules
@@ -88,6 +95,28 @@ flexor: stage_init
 		"$(STAGE)/usr/share/misc"
 	cp -av "$(SYSROOT)/usr/share/syslinux/gptmbr.bin" \
 		"$(STAGE)/usr/share/syslinux/" || true
+	# Use busybox as the default shell for all users.
+	sed "s|/bin/bash|/bin/sh|" \
+		"$(SYSROOT)/etc/passwd" > "$(STAGE)/etc/passwd"
+	# Copy group file.
+	cp "$(SYSROOT)/etc/group" "$(STAGE)/etc"
+	# Missing shared libs.
+	mkdir -p "$(STAGE)/$(LIBDIR)"
+	cp -av "$(SYSROOT)/$(LIBDIR)/libminijail"* "$(STAGE)/$(LIBDIR)/"
+	cp -av "$(SYSROOT)/usr/$(LIBDIR)/rsyslog" "$(STAGE)/$(LIBDIR)"
+	# Config for rsyslog.
+	cp -av "$(SYSROOT)/etc/rsyslog.chromeos" "$(STAGE)/etc"
+	# Copy udev.
+	cp -av "$(SYSROOT)/lib/udev" "$(STAGE)/lib/"
+	# Conf files for upstart.
+	cp -av "$(SYSROOT)/build/initramfs/etc/init/"* \
+		"$(SYSROOT)/etc/init/udev-boot.conf" \
+		"$(SYSROOT)/etc/init/udev-trigger.conf" \
+		"$(SYSROOT)/etc/init/udev-trigger-early.conf" \
+		"$(STAGE)/etc/init/"
+	# Sync tmpfiles.
+	cp -av "$(SYSROOT)/usr/lib/tmpfiles.d/syslog.conf" \
+		"$(STAGE)/usr/lib/tmpfiles.d/"
 
 .PHONY: check
 check:
