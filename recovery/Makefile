@@ -320,3 +320,7 @@ minios: stage_init
 	# Mount helpers.
 	ln -s "/usr/bin/ntfs-3g" "$(STAGE)/sbin/mount.ntfs-3g"
 	ln -s "/usr/bin/ntfs-3g" "$(STAGE)/sbin/mount.ntfs"
+	# minijail configs
+	mkdir -p "$(STAGE)/usr/share/minijail"
+	cp -av "$(SYSROOT)/usr/share/minijail/syslog.conf" \
+		"$(STAGE)/usr/share/minijail/syslog.conf"
