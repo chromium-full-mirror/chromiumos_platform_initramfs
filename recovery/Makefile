@@ -301,9 +301,11 @@ minios: stage_init
 		"$(STAGE)/usr/share/policy/"
 	# DHCPCD related files.
 	cp -av "$(SYSROOT)/$(LIBDIR)/dhcpcd"* "$(STAGE)/$(LIBDIR)/"
-	cp -av "$(SYSROOT)/etc/resolv.conf" \
-		"$(SYSROOT)/etc/dhcpcd.conf" \
+	cp -av "$(SYSROOT)/etc/dhcpcd.conf" \
 		"$(STAGE)/etc/"
+	# TODO(b/316191866): Remove manual linking and run dns-proxy and
+	#   patchpaneld in minios.
+	ln -s  "/run/shill/resolv.conf" "$(STAGE)/etc/resolv.conf"
 	# Screenshot util dependencies.
 	mkdir -p "$(STAGE)/usr/$(LIBDIR)/dri"
 	cp -av "$(SYSROOT)/usr/$(LIBDIR)/dri/"* \
