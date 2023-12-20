@@ -71,14 +71,15 @@ $(RAMFS_BIN): stage_init flexor
 flexor: stage_init
 	# KERNEL MODULES
 	cp -av "$(SYSROOT)/lib/modules/"* "$(STAGE)/lib/modules"
-	(cd "$(STAGE)/lib/modules/"*"/kernel" && \
-		find -maxdepth 1 \
+	(cd "$(STAGE)/lib/modules" && \
+		find */kernel/ -maxdepth 1 \
+		! -name kernel \
 		! -name drivers \
 		! -name fs \
 		! -name crypto \
 		! -name . -exec rm -rf {} +)
-	(cd "$(STAGE)/lib/modules/"*"/kernel/drivers" && \
-		find -maxdepth 1 \
+	(cd "$(STAGE)/lib/modules" && \
+		find */kernel/drivers/ -maxdepth 1 \
 		! -name soc \
 		! -name . -exec rm -rf {} +)
 	# Add policy files for SELinux.
