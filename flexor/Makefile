@@ -28,6 +28,8 @@ FLEXOR_BIN_DEPS = \
 	/sbin/blockdev \
 	/sbin/init \
 	/sbin/poweroff \
+	/sbin/resize2fs \
+	/sbin/e2fsck \
 	/sbin/losetup \
 	/sbin/minijail0 \
 	/sbin/mkfs.ext4 \
