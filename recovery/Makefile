@@ -224,6 +224,7 @@ minios: stage_init
 		"$(SYSROOT)/etc/init/iptables.conf" \
 		"$(SYSROOT)/etc/init/ip6tables.conf" \
 		"$(SYSROOT)/etc/init/network-services.conf" \
+		"$(SYSROOT)/etc/init/patchpanel.conf" \
 		"$(SYSROOT)/etc/init/pre-shutdown.conf" \
 		"$(SYSROOT)/etc/init/reboot.conf" \
 		"$(SYSROOT)/etc/init/shill.conf" \
@@ -324,3 +325,5 @@ minios: stage_init
 	mkdir -p "$(STAGE)/usr/share/minijail"
 	cp -av "$(SYSROOT)/usr/share/minijail/syslog.conf" \
 		"$(STAGE)/usr/share/minijail/syslog.conf"
+	cp -av "$(SYSROOT)/usr/share/policy/iptables-seccomp.policy" \
+		"$(STAGE)/usr/share/policy/"

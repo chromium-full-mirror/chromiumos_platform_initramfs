@@ -16,6 +16,7 @@ export MINIOS_RAMFS_LAYOUT_DIRS = \
 
 # Extra dependencies miniOS requires.
 export MINIOS_BIN_DEPS = \
+	/bin/ip \
 	/bin/mount \
 	/bin/tail \
 	/bin/tar \
@@ -62,6 +63,8 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/ntfs-3g \
 	/usr/bin/od \
 	/usr/bin/openssl \
+	/usr/bin/patchpaneld \
+	/usr/bin/patchpanel_bpf_loader \
 	/usr/bin/rootdev \
 	/usr/bin/rsync \
 	/usr/bin/scp \
