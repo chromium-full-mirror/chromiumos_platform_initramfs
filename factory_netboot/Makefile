@@ -26,6 +26,7 @@ NETBOOT_BIN_DEPS = \
 	/sbin/sfdisk \
 	/usr/bin/coreutils \
 	/usr/bin/curl \
+	/usr/bin/dlc_metadata_util \
 	/usr/bin/getopt \
 	/usr/bin/jq \
 	/usr/bin/lbzip2 \
