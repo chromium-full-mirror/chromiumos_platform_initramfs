@@ -50,7 +50,6 @@ CROS_DEPS = \
 	/usr/bin/crossystem \
 	/usr/bin/futility \
 	/usr/sbin/chromeos-install \
-	/usr/sbin/chromeos-install.sh \
 	/usr/sbin/factory_*.sh \
 	/usr/sbin/secure_less.sh \
 	/usr/sbin/vpd

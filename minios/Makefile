@@ -79,7 +79,6 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/wpa_passphrase \
 	/usr/sbin/bootstat \
 	/usr/sbin/chromeos-install \
-	/usr/sbin/chromeos-install.sh \
 	/usr/sbin/crda \
 	/usr/sbin/rfkill \
 	/usr/sbin/rsyslogd \

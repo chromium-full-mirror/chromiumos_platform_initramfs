@@ -24,7 +24,6 @@ FLEXOR_BIN_DEPS = \
 	/build/initramfs/sbin/flexor \
 	/usr/bin/systemd-tmpfiles \
 	/usr/sbin/chromeos-install \
-	/usr/sbin/chromeos-install.sh \
 	/usr/sbin/rsyslogd \
 	/sbin/blockdev \
 	/sbin/init \
