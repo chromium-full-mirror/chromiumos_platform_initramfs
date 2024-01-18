@@ -36,6 +36,7 @@ NETBOOT_BIN_DEPS = \
 	/usr/bin/uudecode \
 	/usr/bin/uuidgen \
 	/usr/bin/wget \
+	/usr/sbin/fmap_decode \
 	/usr/sbin/flashrom \
 	/usr/sbin/fsck.vfat \
 	/usr/sbin/htpdate \
