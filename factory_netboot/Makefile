@@ -63,6 +63,11 @@ ifeq ($(INCLUDE_FACTORY_UFS),1)
 	CROS_DEPS += /usr/sbin/ufs-utils
 endif
 
+# For generating ME locked FW.
+ifeq ($(INCLUDE_IFDTOOL),1)
+	CROS_DEPS += /usr/bin/ifdtool
+endif
+
 # Non-executables.
 DATA_DEPS = \
 	/root/.pmbr_code \
