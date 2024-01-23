@@ -303,10 +303,8 @@ minios: stage_init
 	# DHCPCD related files.
 	cp -av "$(SYSROOT)/$(LIBDIR)/dhcpcd"* "$(STAGE)/$(LIBDIR)/"
 	cp -av "$(SYSROOT)/etc/dhcpcd.conf" \
+		"$(SYSROOT)/etc/resolv.conf" \
 		"$(STAGE)/etc/"
-	# TODO(b/316191866): Remove manual linking and run dns-proxy and
-	#   patchpaneld in minios.
-	ln -s  "/run/shill/resolv.conf" "$(STAGE)/etc/resolv.conf"
 	# Screenshot util dependencies.
 	mkdir -p "$(STAGE)/usr/$(LIBDIR)/dri"
 	cp -av "$(SYSROOT)/usr/$(LIBDIR)/dri/"* \
@@ -326,4 +324,5 @@ minios: stage_init
 	cp -av "$(SYSROOT)/usr/share/minijail/syslog.conf" \
 		"$(STAGE)/usr/share/minijail/syslog.conf"
 	cp -av "$(SYSROOT)/usr/share/policy/iptables-seccomp.policy" \
+		"$(SYSROOT)/usr/share/policy/dns-proxy-seccomp.policy" \
 		"$(STAGE)/usr/share/policy/"
