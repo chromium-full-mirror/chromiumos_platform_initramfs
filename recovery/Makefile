@@ -323,6 +323,6 @@ minios: stage_init
 	mkdir -p "$(STAGE)/usr/share/minijail"
 	cp -av "$(SYSROOT)/usr/share/minijail/syslog.conf" \
 		"$(STAGE)/usr/share/minijail/syslog.conf"
-	cp -av "$(SYSROOT)/usr/share/policy/iptables-seccomp.policy" \
+	cp -av "$(SYSROOT)/usr/share/policy/iptables-seccomp.bpf.policy" \
 		"$(SYSROOT)/usr/share/policy/dns-proxy-seccomp.policy" \
 		"$(STAGE)/usr/share/policy/"
