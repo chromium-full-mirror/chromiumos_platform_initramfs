@@ -24,6 +24,7 @@ NETBOOT_BIN_DEPS = \
 	/sbin/frecon-lite \
 	/sbin/resize2fs \
 	/sbin/sfdisk \
+	/usr/bin/cbfstool \
 	/usr/bin/coreutils \
 	/usr/bin/curl \
 	/usr/bin/getopt \
