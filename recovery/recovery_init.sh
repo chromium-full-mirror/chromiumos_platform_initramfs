@@ -453,9 +453,6 @@ verify_rw_vpd() {
 }
 
 recover_system() {
-  local source=$(strip_partition "$REAL_USB_DEV")
-  dlog "Beginning system recovery from $source"
-
   # If we're not running a developer script then we're either
   # installing a developer image or an official one. If we're
   # in normal recovery mode, then we require that the KERN-B
@@ -488,7 +485,7 @@ recover_system() {
 
   message recovery_start
 
-  call_image_recovery_script "$source" ${extra_flags} || return 1
+  call_image_recovery_script ${extra_flags} || return 1
 
   return 0
 }
