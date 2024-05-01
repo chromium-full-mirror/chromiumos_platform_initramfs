@@ -15,7 +15,6 @@ EXTRA_BIN_DEPS ?=
 NETBOOT_BIN_DEPS = \
 	/bin/dd \
 	/bin/ip \
-	/bin/kmod \
 	/bin/udevadm \
 	/bin/xxd \
 	/sbin/blockdev \
@@ -31,6 +30,7 @@ NETBOOT_BIN_DEPS = \
 	/usr/bin/getopt \
 	/usr/bin/jq \
 	/usr/bin/lbzip2 \
+	/usr/bin/kmod \
 	/usr/bin/mktemp \
 	/usr/bin/openssl \
 	/usr/bin/pigz \

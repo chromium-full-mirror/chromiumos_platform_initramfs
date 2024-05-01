@@ -37,7 +37,6 @@ export MINIOS_BIN_DEPS = \
 	/sbin/losetup \
 	/sbin/minijail0 \
 	/sbin/mkfs.ext4 \
-	/sbin/modprobe \
 	/sbin/net_poll_tool \
 	/sbin/poweroff \
 	/sbin/reboot \
@@ -60,6 +59,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/jq \
 	/usr/bin/logger \
 	/usr/bin/metrics_client \
+	/usr/bin/modprobe \
 	/usr/bin/ntfs-3g \
 	/usr/bin/od \
 	/usr/bin/openssl \
