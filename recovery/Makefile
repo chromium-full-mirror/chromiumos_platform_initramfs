@@ -301,8 +301,8 @@ minios: stage_init
 	sudo cp -av "$(SYSROOT)/usr/share/policy/wpa_supplicant.bpf" \
 		"$(STAGE)/usr/share/policy/"
 	# DHCPCD related files.
-	cp -av "$(SYSROOT)/$(LIBDIR)/dhcpcd"* "$(STAGE)/$(LIBDIR)/"
-	cp -av "$(SYSROOT)/etc/dhcpcd.conf" \
+	cp -av "$(SYSROOT)/$(LIBDIR)/dhcpcd7"* "$(STAGE)/$(LIBDIR)/"
+	cp -av "$(SYSROOT)/etc/dhcpcd7.conf" \
 		"$(SYSROOT)/etc/resolv.conf" \
 		"$(STAGE)/etc/"
 	# Screenshot util dependencies.

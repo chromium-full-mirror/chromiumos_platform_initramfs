@@ -29,7 +29,7 @@ export MINIOS_BIN_DEPS = \
 	/sbin/chromeos_startup \
 	/sbin/dhclient \
 	/sbin/dhclient-script \
-	/sbin/dhcpcd \
+	/sbin/dhcpcd7 \
 	/sbin/init \
 	/sbin/initctl \
 	/sbin/iptables \
