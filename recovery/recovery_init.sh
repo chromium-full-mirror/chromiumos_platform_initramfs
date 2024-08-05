@@ -48,6 +48,60 @@ ERR_INVALID_INSTALL_KERNEL=2
 # The image failed validation on a device with block_devmode=1.
 ERR_DEV_MODE_BLOCKED=3
 
+# The DEV_DISABLE_BOOT flag location
+VB2_SECDATA_FWMP_DEV_DISABLE_BOOT=0
+
+# check if the argument is a valid hex value (no 0x prefix)
+is_valid_hex() {
+    local hex_str="$1"
+
+    # Check if the string is empty
+    if [ -z "$hex_str" ]; then
+        return 1
+    fi
+
+    # Use a regular expression to check if the string contains only valid hex characters
+    if echo "$hex_str" | grep -Eq '^[0-9a-fA-F]+$'; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Check if FWMP DEV_DISABLE_BOOT
+# Fail if set or not accessible (return 1)
+# otherwise return 0 (meaning enabled)
+is_fwmp_dev_enabled() {
+  local bit_position=VB2_SECDATA_FWMP_DEV_DISABLE_BOOT
+  local tpmc_output=$(tpmc read 0x100a 8)
+  local tpmc_exit_status=$?
+
+  if [ $tpmc_exit_status -eq 0 ]; then
+    set -- $tpmc_output  # Split the output only if tpmc succeeded
+  else
+    return 1 # error
+  fi
+
+  # expecting 8 values
+  if [ "$#" -lt 8 ]; then
+    return 1 # error
+  fi
+
+  local count = 0
+  for element; do
+    if [ $count -eq 8 ]; then
+        break  # Stop the loop after checking 8 elements
+    fi
+    if ! is_valid_hex "$element"; then
+      return 1  # error
+    fi
+    count=$((count + 1))
+  done
+
+  local flags=$5 # 5th byte is the flags
+  local bit_val=$(( ( 0x$flags >> bit_position ) & 1 ))
+  return $bit_val
+}
 
 # Check whether the device owner has configured the device to block
 # developer mode.  Note that the check works regardless of whether the
@@ -68,6 +122,12 @@ is_developer_mode_blocked() {
   if crossystem 'block_devmode?1'; then
     return 0
   fi
+
+  if ! is_fwmp_dev_enabled; then
+    dlog "dev mode boot blocked by fwmp"
+    return 0
+  fi
+
   [ "$(vpd -i RW_VPD -g block_devmode)" = "1" ]
 }
 
