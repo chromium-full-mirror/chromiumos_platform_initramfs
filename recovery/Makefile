@@ -172,6 +172,8 @@ minios: stage_init
 	(cd "$(STAGE)/lib/modules/"*"/kernel/drivers" && \
 		find -maxdepth 1 \
 		! -name net \
+		! -name pps \
+		! -name ptp \
 		! -name soc \
 		! -name . -exec rm -rf {} +)
 	# MISC.
