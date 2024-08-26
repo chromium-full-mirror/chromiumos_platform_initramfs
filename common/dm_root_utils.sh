@@ -149,7 +149,11 @@ setup_dm_root() {
     dlog "Failed to configure device mapper root"
     return 1
   fi
-  local dm_dev="/dev/dm-0"
+
+  mknod /dev/dm_vroot b $(dmsetup info --noheadings \
+    --column -o major,minor \
+    --separator=' ' vroot)
+  local dm_dev="/dev/dm_vroot"
   if [ ! -b "${dm_dev}" ]; then
     local major=$(dmsetup info -c -o major --noheadings "${DM_NAME}")
     local minor=$(dmsetup info -c -o minor --noheadings "${DM_NAME}")
