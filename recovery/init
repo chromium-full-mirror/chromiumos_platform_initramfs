@@ -8,6 +8,9 @@
 
 . /lib/init.sh
 
+# Export PATH to make it available to child processes.
+export PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
 # USB card partition and mount point.
 USB_MNT=/usb
 REAL_USB_DEV=
