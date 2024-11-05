@@ -21,7 +21,7 @@ LOG_DIR=/log
 LOG_FILE=${LOG_DIR}/factory_initramfs.log
 
 # Size of the root ramdisk.
-TMPFS_SIZE=1024M
+TMPFS_SIZE=2048M
 
 # Special file systems required in addition to the root file system.
 BASE_MOUNTS="/sys /proc /dev"
