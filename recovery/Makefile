@@ -198,6 +198,9 @@ minios: stage_init
 	cp -av "$(SYSROOT)/usr/share/dbus-1/"* \
 		"$(STAGE)/usr/share/dbus-1/"
 	# SHILL
+	mkdir -p "$(STAGE)/usr/share/cros/startup/"
+	cp -av "$(SYSROOT)/usr/share/cros/startup/process_management_policies" \
+		"$(STAGE)/usr/share/cros/startup"
 	mkdir -p "$(STAGE)/usr/share/cros/init"
 	cp -av "$(SYSROOT)/usr/share/cros/init/shill-pre-start.sh" \
 		"$(SYSROOT)/usr/share/cros/init/shill.sh" \
