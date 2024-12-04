@@ -284,6 +284,7 @@ minios: stage_init
 	sudo cp -av "$(SYSROOT)/usr/$(LIBDIR)/libgio"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libgobject"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libgmodule"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libcrypt"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libffi"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libgthread"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libz"* \
@@ -291,8 +292,12 @@ minios: stage_init
 		"$(SYSROOT)/usr/$(LIBDIR)/engine"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libchaps"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/libp11"* \
+		"$(SYSROOT)/usr/$(LIBDIR)/libpam"* \
 		"$(SYSROOT)/usr/$(LIBDIR)/xtables"* \
 		"$(STAGE)/usr/$(LIBDIR)/"
+	mkdir -p "$(STAGE)/usr/$(LIBDIR)/misc"
+	sudo cp -av "$(SYSROOT)/usr/$(LIBDIR)/misc/ssh"* \
+		"$(STAGE)/usr/$(LIBDIR)/misc/"
 	mkdir -p "$(STAGE)/etc/ssl"
 	sudo cp -av "$(SYSROOT)/etc/ssl/"* \
 		"$(STAGE)/etc/ssl/"
