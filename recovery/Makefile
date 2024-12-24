@@ -228,11 +228,17 @@ minios: stage_init
 		"$(SYSROOT)/etc/init/nebraska.conf" \
 		"$(SYSROOT)/etc/init/iptables.conf" \
 		"$(SYSROOT)/etc/init/ip6tables.conf" \
+		"$(SYSROOT)/etc/init/mojo_service_manager.conf" \
 		"$(SYSROOT)/etc/init/network-services.conf" \
 		"$(SYSROOT)/etc/init/patchpanel.conf" \
 		"$(SYSROOT)/etc/init/pre-shutdown.conf" \
 		"$(SYSROOT)/etc/init/reboot.conf" \
+		"$(SYSROOT)/etc/init/shill-event.conf" \
+		"$(SYSROOT)/etc/init/shill-start-user-session.conf" \
+		"$(SYSROOT)/etc/init/shill-stop-user-session.conf" \
 		"$(SYSROOT)/etc/init/shill.conf" \
+		"$(SYSROOT)/etc/init/shill_respawn.conf" \
+		"$(SYSROOT)/etc/init/shill_stop_waiter.conf" \
 		"$(SYSROOT)/etc/init/wpasupplicant.conf" \
 		"$(STAGE)/etc/init/"
 	mkdir -p "$(STAGE)/usr/lib/tmpfiles.d"
@@ -304,6 +310,10 @@ minios: stage_init
 	mkdir -p "$(STAGE)/etc/ssh"
 	sudo cp -av "$(SYSROOT)/build/initramfs/etc/ssh/"* \
 		"$(STAGE)/etc/ssh/"
+	mkdir -p "$(STAGE)/etc/patchpanel"
+	sudo cp -av "$(SYSROOT)/etc/patchpanel/ip6tables.start" \
+		"$(SYSROOT)/etc/patchpanel/iptables.start" \
+		"$(STAGE)/etc/patchpanel/"
 	mkdir -p "$(STAGE)/root/.ssh"
 	sudo cp -av "$(SYSROOT)/root/.ssh/"* \
 		"$(STAGE)/root/.ssh"
@@ -332,7 +342,9 @@ minios: stage_init
 	# minijail configs
 	mkdir -p "$(STAGE)/usr/share/minijail"
 	cp -av "$(SYSROOT)/usr/share/minijail/syslog.conf" \
-		"$(STAGE)/usr/share/minijail/syslog.conf"
+		"$(SYSROOT)/build/initramfs/usr/share/minijail/mojo_service_manager.conf" \
+		"$(STAGE)/usr/share/minijail/"
 	cp -av "$(SYSROOT)/usr/share/policy/iptables-seccomp.bpf.policy" \
 		"$(SYSROOT)/usr/share/policy/dns-proxy-seccomp.policy" \
+		"$(SYSROOT)/usr/share/policy/mojo_service_manager.policy" \
 		"$(STAGE)/usr/share/policy/"

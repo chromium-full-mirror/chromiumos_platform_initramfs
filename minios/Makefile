@@ -34,6 +34,10 @@ export MINIOS_BIN_DEPS = \
 	/sbin/initctl \
 	/sbin/iptables \
 	/sbin/ip6tables \
+	/sbin/iptables-save \
+	/sbin/ip6tables-save \
+	/sbin/iptables-restore \
+	/sbin/ip6tables-restore \
 	/sbin/losetup \
 	/sbin/minijail0 \
 	/sbin/mkfs.ext4 \
@@ -60,6 +64,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/logger \
 	/usr/bin/metrics_client \
 	/usr/bin/modprobe \
+	/usr/bin/mojo_service_manager \
 	/usr/bin/ntfs-3g \
 	/usr/bin/od \
 	/usr/bin/openssl \
