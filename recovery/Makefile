@@ -238,7 +238,6 @@ minios: stage_init
 		"$(SYSROOT)/etc/init/shill-stop-user-session.conf" \
 		"$(SYSROOT)/etc/init/shill.conf" \
 		"$(SYSROOT)/etc/init/shill_respawn.conf" \
-		"$(SYSROOT)/etc/init/shill_stop_waiter.conf" \
 		"$(SYSROOT)/etc/init/wpasupplicant.conf" \
 		"$(STAGE)/etc/init/"
 	mkdir -p "$(STAGE)/usr/lib/tmpfiles.d"
