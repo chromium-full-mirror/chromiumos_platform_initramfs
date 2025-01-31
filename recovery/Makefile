@@ -156,8 +156,9 @@ minios: stage_init
 		-exec cp -r "{}" "$(STAGE)/lib/firmware" \;
 	if [ -d "$(SYSROOT)/lib/firmware/mediatek" ]; then \
 		mkdir -p "$(STAGE)/lib/firmware/mediatek"; \
-		cp -av "$(SYSROOT)/lib/firmware/mediatek/WIFI"* \
-			"$(STAGE)/lib/firmware/mediatek"; \
+		(cd "${SYSROOT}/lib/firmware/mediatek" && \
+			find . -iname "WIFI*"\
+			-exec cp -av --parents "{}" "$(STAGE)/lib/firmware/mediatek" \;) \
 	fi
 	# KERNEL MODULES
 	mkdir -p "$(STAGE)/lib/modules"
