@@ -73,10 +73,11 @@ is_valid_hex() {
 # otherwise return 0 (meaning enabled)
 is_fwmp_dev_enabled() {
   local bit_position=VB2_SECDATA_FWMP_DEV_DISABLE_BOOT
-  local tpmc_output=$(tpmc read 0x100a 8)
-  local tpmc_exit_status=$?
+  local tpmc_output
 
-  if [ $tpmc_exit_status -eq 0 ]; then
+  tpmc_output=$(tpmc read 0x100a 8)
+
+  if [ $? -eq 0 ]; then
     set -- $tpmc_output  # Split the output only if tpmc succeeded
   else
     return 1 # error
@@ -87,7 +88,7 @@ is_fwmp_dev_enabled() {
     return 1 # error
   fi
 
-  local count = 0
+  local count=0
   for element; do
     if [ $count -eq 8 ]; then
         break  # Stop the loop after checking 8 elements
