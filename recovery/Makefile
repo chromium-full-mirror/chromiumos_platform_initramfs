@@ -26,6 +26,10 @@ ifdef MINIOS_BIN_DEPS
 BIN_DEPS += $(MINIOS_BIN_DEPS)
 endif
 
+ifdef DESKTOP_BIN_DEPS
+BIN_DEPS += $(DESKTOP_BIN_DEPS)
+endif
+
 # Override this value when including this Makefile.
 RECOVERY_DIR ?= $(CURDIR)
 
