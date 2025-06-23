@@ -129,6 +129,14 @@ menu_ui: stage_init
 		cp $(SYSROOT)/usr/share/chromeos-config/identity.bin \
 			"$(STAGE)/usr/share/chromeos-config/"; \
 	fi
+ifeq ($(DESKTOP_RECOVERY),1)
+	cp -av "$(SYSROOT)/build/initramfs/lib/"*.sh "$(STAGE)/lib/"
+ifneq ($(SRCDIR),$(RECOVERY_DIR))
+	# Also copy scripts from the original build source directory if it is
+	# different from the recovery directory.
+	cp $(SRCDIR)/*.sh "$(STAGE)/lib"
+endif
+endif
 
 .PHONY: minios_ui
 minios_ui: minios_lvm menu_ui minios stage_init

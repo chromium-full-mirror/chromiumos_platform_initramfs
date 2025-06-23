@@ -30,91 +30,36 @@ TPM_FAILED_SELFTEST=
 # Special file systems required in addition to the root file system.
 BASE_MOUNTS="/sys /proc /dev"
 
-# Used to ensure the factory check only occurs with
-# a properly matched root and kernel.
-UNOFFICIAL_ROOT=0
-
-. /lib/completion_settings.sh
 . /lib/messages.sh
 
 # Load default settings, which may be overridden by board_recovery.sh.
 . /lib/defaults.sh
-. /lib/recovery_init.sh
+. /lib/desktop_recovery_init.sh
 if [ -f /lib/board_recovery.sh ]; then
   . /lib/board_recovery.sh
 fi
 
-. /lib/dm_root_utils.sh
+# Look for a device with our GPT ID.
+wait_for_gpt_root() {
+  [ -z "$KERN_ARG_KERN_GUID" ] && return 1
 
-find_developer_root() {
-  is_developer_mode || return 1
-
-  # Lock the TPM prior to using an untrusted root.
-  lock_tpm || return 1
-
-  # Don't allow an untrusted root when the TPM is in failed selftest mode.
-  [ -n "${TPM_FAILED_SELFTEST}" ] && return 1
-
-  dlogf "\nSearching for developer root . . ."
-  # If an official root could not be mounted, free up the underlying device
-  # if it is claimed by verity.
-  remove_dm_root
-
-  # If we found a valid rootfs earlier, then we're done.
-  # TODO(wad) Attempt to setup an unofficial dm root prior to
-  # mounting the USB directly
-  USB_DEV="$REAL_USB_DEV"
-  [ -z "$USB_DEV" ] && return 1
-  set_unofficial_root || return 1
-  mount_usb || return 1
-  return 0
-}
-
-is_old_style_verity_argv() {
-  # TODO(ellyjones): remove by 2011-08-31. Part of crosbug.com/15772.
-  # "0 1740800 verity %U+1 %U+1 1740800 0 sha1 $hash"
-  local depth="$(echo "$1" | cut -f7 -d' ')"
-  if [ "${depth}" = "0" ]; then
-    return 0
-  fi
-  return 1
-}
-
-mount_usb() {
-  dlog -n "Mounting usb"
-  for try in $(seq 20); do
+  dlog -n "Looking for device using kern_guid..."
+  local try=0
+  # Wait up to a minute to give devices & users time to respond.
+  while [ $(( try += 1 )) -lt 600 ]; do
     dlogf " ."
-    if mount -n -o ro "$USB_DEV" "$USB_MNT"; then
-      dlog "ok"
+    kern=$(cgpt find -1 -u $KERN_ARG_KERN_GUID)
+    # We always try ROOT-A in recovery.
+    newroot="${kern%[0-9]*}"
+    if [ -b "$newroot" ]; then
+      USB_DEV="$newroot"
+      dlog "Found $USB_DEV"
       return 0
     fi
-    sleep 1
+    sleep 0.1
   done
-  dlog "Failed to mount usb!"
+  dlog "Failed waiting for kern_guid"
   return 1
-}
-
-get_stateful_dev() {
-  STATE_DEV=${REAL_USB_DEV%[0-9]*}1
-  if [ ! -b "$STATE_DEV" ]; then
-    dlog "Failed to determine stateful device"
-    return 1
-  fi
-  return 0
-}
-
-unmount_usb() {
-  dlog "Unmounting $USB_MNT"
-  umount "$USB_MNT"
-  # Make sure we clean up a device-mapper root.
-  if [ "$USB_DEV" = "/dev/dm-0" ]; then
-    dlog "Removing dm-verity target"
-    remove_dm_root
-  fi
-  dlog
-  dlog "$REAL_USB_DEV can now be safely removed"
-  dlog
-  return 0
 }
 
 strip_partition() {
@@ -187,24 +132,8 @@ save_log_files() {
   fi
 }
 
-is_unofficial_root() {
-  [ $UNOFFICIAL_ROOT -eq 1 ]
-}
-
-set_unofficial_root() {
-  UNOFFICIAL_ROOT=1
-  return 0
-}
-
 is_nonchrome() {
   crossystem "mainfw_type?nonchrome" || crossystem "mainfw_type?netboot"
-}
-
-is_developer_mode() {
-  # Legacy/unsupported systems are mapped to developer mode.
-  is_nonchrome && return 0
-  # Otherwise the exit status will be accurate.
-  crossystem "devsw_boot?1"
 }
 
 lock_tpm() {
@@ -313,15 +242,15 @@ main() {
   # Show a welcome page first.
   message recovery_in_progress
 
-  # Extract the real boot source, which may be masked by dm-verity.
-  get_stateful_dev || on_error
+  wait_for_gpt_root || return 1
+  REAL_USB_DEV="$USB_DEV"
 
   message validate
+  sleep 3
 
   set_brightness
 
-  #TODO(yuanpengni): Do actual recovery install
-  message recovery_debug_options
+  recovery_install
 }
 
 # Make this source-able for testing.

@@ -2,6 +2,8 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
+export DESKTOP_RECOVERY = 1
+
 # Override so initramfs.mk doesn't use recovery directory.
 export SRCDIR = $(CURDIR)
 
@@ -10,6 +12,7 @@ export RECOVERY_DIR = ../recovery
 
 # Extra dependencies desktop recovery requires.
 export DESKTOP_BIN_DEPS = \
+	/sbin/mkfs.ext4 \
 	/sbin/poweroff \
 	/sbin/reboot \
 	/sbin/shutdown \
