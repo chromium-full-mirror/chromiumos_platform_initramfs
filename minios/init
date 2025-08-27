@@ -12,32 +12,6 @@ LOG_ERROR="<3>"
 # Tag for log messages.
 TAG="minios-init"
 
-# Set panel brightness to maximum level
-set_brightness() {
-  local backlight_device=
-  local brightness=
-  for backlight_device in /sys/class/backlight/*; do
-
-    # In order to set a backlight to maximum brightness, we do the following:
-    # - Turn the backlight device on (using bl_power).
-    # - Read max_brightness and pipe that into the desired brightness.
-    # - Verify that the backlight's actual brightness matches our expectation.
-    #
-    # The hardware is particularly volatile during startup due to modeset and
-    # hw initialization. We want to give ourselves the best chance of success,
-    # so we'll try up to 5 times before continuing with recovery.
-    for _ in $(seq 1 5); do
-      echo 0 > "${backlight_device}/bl_power" # 0 = FB_BLANK_UNBLANK (ie: on)
-      brightness=$(cat "${backlight_device}/max_brightness")
-      echo "${brightness}" > "${backlight_device}/brightness"
-      if [ "$(cat "${backlight_device}/actual_brightness")" = \
-           "${brightness}" ]; then
-        break
-      fi
-    done
-  done
-}
-
 minios_info() {
   echo "${LOG_INFO}${TAG}: $*" | tee "${LOG_FILE}" 1>&2
 }
@@ -77,6 +51,5 @@ wait_for_fixed_dst_drive() {
 # shellcheck source=../common/init.sh
 . /lib/init.sh
 initialize
-set_brightness
 wait_for_fixed_dst_drive
 exec /bin/init
