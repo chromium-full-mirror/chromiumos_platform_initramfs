@@ -119,7 +119,7 @@ recovery_install() {
   mkdir -p /tmp/fw
   mount -oro "${SRC_DEV_BASE}5" /tmp/fw || on_error
 
-  /tmp/fw/chromeos-firmwareupdate --mode=recovery --force || handle_error $?
+  futility update -a /tmp/fw/chromeos-firmwareupdate -m recovery --force || handle_error $?
 
   sleep 2
 
