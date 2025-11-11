@@ -326,10 +326,63 @@ verify_kernel_version() {
   return 0
 }
 
+verify_part_hash() {
+  if [ "$REAL_KERN_B_HASH" != "$KERN_ARG_KERN_B_HASH" ]; then
+    return 1
+  fi
+  # We want to pull the `cros_part_hash` from the recovery kernel command line.
+  if [ -z "${KERN_ARG_CROS_PART_HASH}" ]; then
+    # If there's no hash on the command line, there's nothing to do.
+    return 0
+  fi
+
+  # The `cros_part_hash` is in the format of:
+  # part_num:base64(hextobin(digest))
+  #
+  # There can be multiple separated by comma.
+  #
+  # We need to convert it back to the hex digest to compare with the actual
+  # hash of the partition.
+  OLD_IFS="${IFS}"
+  IFS=','
+  set -- ${KERN_ARG_CROS_PART_HASH}
+  IFS="${OLD_IFS}"
+
+  local part_info
+  local part_num
+  local real_part_hash
+  while [ -n "$1" ]; do
+    part_info="$1"
+    shift
+
+    # Split into the partition number and the base64(hextobin(digest)).
+    part_num="${part_info%%:*}"
+    part_hash_base64_binary="${part_info#*:}"
+
+    # Decode the base64 encoded binary to get the hex digest.
+    part_hash=$(echo "${part_hash_base64_binary}" | base64 -d \
+        | hexdump -v -e '/1 "%02x"')
+
+    # Get the hash of the real partition.
+    real_part_hash=$(sha256sum "${REAL_USB_DEV%[0-9]*}${part_num}" \
+        | cut -f1 -d' ')
+
+    if [ "${part_hash}" != "${real_part_hash}" ]; then
+      dlog "Partition hash mismatch!"
+      dlog "Partition number: ${part_num}"
+      dlog "Expected: ${part_hash}"
+      dlog "Got:      ${real_part_hash}"
+      return 1
+    fi
+  done
+
+  return 0
+}
+
 verify_install_kernel() {
   # TODO(wad) check signatures from stateful on kern b using the
   #           root of trust instead of using a baked in cmdline.
-  if [ "$REAL_KERN_B_HASH" != "$KERN_ARG_KERN_B_HASH" ]; then
+  if ! verify_part_hash; then
     # Assertion: we have to be in developer mode; this was verified in the
     # course of the general init process.
     is_developer_mode || return 1
