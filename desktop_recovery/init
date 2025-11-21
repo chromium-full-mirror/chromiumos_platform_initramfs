@@ -218,6 +218,35 @@ set_brightness() {
   done
 }
 
+# Checks if the logdev has a valid file system, otherwise it creates an ext4 fs.
+# The recovery images coming out of the Android builder don't initialize the
+# stateful partition.
+# Args:
+#   $1: Log block device
+setup_logdev() {
+  local log_dev="${1}"
+
+  mnt="$(mktemp -d)"
+
+  if mount -n -o rw "${log_dev}" "${mnt}"; then
+    umount "${mnt}"
+    rm -rf "${mnt}"
+    LOG_DEV="${log_dev}"
+    return 0
+  fi
+
+  rm -rf "${mnt}"
+
+  if ! mkfs.ext4 "${log_dev}"; then
+    echo "Failed to create ext4 partition on logging device ${log_dev}"
+    return 1
+  fi
+
+  LOG_DEV="${log_dev}"
+
+  return 0
+}
+
 main() {
   exec >"${LOG_FILE}" 2>&1 </dev/null
 
@@ -243,7 +272,14 @@ main() {
   message recovery_in_progress
 
   wait_for_gpt_root || return 1
-  REAL_USB_DEV="$USB_DEV"
+  REAL_USB_DEV="${USB_DEV}"
+
+  # USB_DEV points to the rootfs partition of removable media. And its value
+  # can be one of /dev/sda3 (arm), /dev/sdb3 (x86, arm) and /dev/mmcblk1p3
+  # (arm). Get stateful partition by replacing partition number with "1".
+  if ! setup_logdev "${USB_DEV%[0-9]*}"1; then  # Default to stateful.
+    dlog "Failed to setup logdev"
+  fi
 
   message validate
   sleep 3

@@ -58,7 +58,7 @@ recovery_install_internal() {
 
   message recovery_in_progress
 
-  echo y | chroot . /lib/desktop-recovery-install.sh "${REAL_USB_DEV}" "$(strip_partition ${DST_DEV_BASE}1)"
+  echo y | chroot . /bin/sh -x /lib/desktop-recovery-install.sh "${REAL_USB_DEV}" "$(strip_partition ${DST_DEV_BASE}1)"
   return $?
 }
 
@@ -79,6 +79,8 @@ get_usb_node_dir() {
 # Shows the appropriate error screen for the specified error code and
 # stops further action, i.e. doesn't return.
 handle_error() {
+  save_log_files
+
   case "$1" in
     $ERR_DEV_MODE_BLOCKED)
       message block_developer_mode
@@ -128,6 +130,9 @@ recovery_install() {
   sleep 2
 
   recovery_install_internal || handle_error $?
+
+  # Save the logs to the USB stick on success.
+  save_log_files
 
   # This assignment depends on the stateful partition on the USB
   # stick, so we must do it before unmount_usb and the
