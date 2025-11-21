@@ -117,6 +117,7 @@ save_log_files() {
     rm -rf "/tmp/${log_dev_dir}"
     mkdir -p "/tmp/${log_dev_dir}"
     cp "${LOG_DIR}"/* "/tmp/${log_dev_dir}/"
+    cp /proc/mounts "/tmp/${log_dev_dir}/"
     rm -f /tmp/recovery_logs
     ln -sf "${log_dev_dir}" /tmp/recovery_logs
   )
