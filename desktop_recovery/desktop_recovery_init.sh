@@ -136,6 +136,11 @@ recovery_install() {
 
   recovery_install_internal || handle_error $?
 
+  # Enable dev_boot_usb by default
+  # TODO(b/457449610): Remove this line once crossystem will be available
+  # on user builds and enabling USB boot will be possible through UI.
+  crossystem dev_boot_usb=1
+
   # Save the logs to the USB stick on success.
   save_log_files
 
