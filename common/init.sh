@@ -8,7 +8,7 @@
 # Make sure the date is recent even if the RTC is reset or invalid.
 # This date should be updated periodically.
 init_check_clock() {
-  local year="2024"
+  local year="2026"
   if [ $(date +%Y) -lt ${year} ]; then
     date 01010000${year}.00
   fi
