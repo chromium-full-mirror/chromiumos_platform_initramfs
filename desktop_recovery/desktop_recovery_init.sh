@@ -130,9 +130,12 @@ recovery_install() {
 
   sleep 2
 
-  futility gbb --set --flash --flags -0x80000000
-
-  sleep 2
+  if [ -n "${KERN_ARG_INSECURE_KEEP_ADB_GBB:-}" ]; then
+    dlog 'Found insecure_keep_adb_gbb in kernel cmdline. Keeping GBB flag 0x80000000 intact.'
+  else
+    futility gbb --set --flash --flags -0x80000000
+    sleep 2
+  fi
 
   recovery_install_internal || handle_error $?
 
