@@ -489,7 +489,7 @@ clear_tpm() {
   tpmc enable || dlog "tpmc enable error: $?"
   tpmc activate || dlog "tpmc activate error: $?"
   clobber_lockbox_space || dlog "error clobbering lockbox space: $?"
-  tpmc pplock || dlog "tpmc pplock error: $?"
+  tpmc pplock || return 1
   dlog " done."
   return 0
 }
