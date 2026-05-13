@@ -93,13 +93,12 @@ find_official_root() {
   # Must verify that install kernel hash matches current kernel hash argument.
   verify_install_kernel_hash || return 1
 
-  # Now see if the root should be integrity checked.
+  # Now enable dm-verity integrity checking.
   local kernel_command_line="$(dump_kernel_config "${KERN_B_CACHE}")"
-  if check_if_dm_root "${kernel_command_line}"; then
-    setup_dm_root "${kernel_command_line}" "${USB_DEV}" || return 1
-    USB_DEV="${DM_DEV}"
-  fi
+  setup_dm_root "${kernel_command_line}" "${USB_DEV}" || return 1
+  USB_DEV="${DM_DEV}"
 
+  # If rootfs is not valid verity (i.e. was modified), we'll usually fail here.
   mount_usb || return 1
   return 0
 }
@@ -160,10 +159,8 @@ verify_install_kernel_hash() {
   get_real_kern_b_hash || return 1
 
   if [ "$REAL_KERN_B_HASH" != "$KERN_ARG_KERN_B_HASH" ]; then
-    if ! is_developer_mode; then
-      dlog "The recovery kernel cannot be verified."
-      return 1
-    fi
+    dlog "The recovery kernel cannot be verified."
+    return 1
   fi
 
   return 0
