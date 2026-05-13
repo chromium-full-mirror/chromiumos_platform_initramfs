@@ -793,6 +793,12 @@ tpm_firmware_update_applicable() {
     return 1
   fi
 
+  # Only applies to old TPM 1.2 devices. This is a static check in the utility
+  # that does not access the TPM (so no worries about selftest mode).
+  if [ "$(tpmc tpmversion)" != "1.2" ]; then
+    return 1
+  fi
+
   # Images for boards that we don't ship TPM firmware updates for don't carry
   # the updater. Nothing to do in that case.
   if ! [ -x "${USB_MNT}/usr/sbin/tpm-firmware-updater" ]; then
