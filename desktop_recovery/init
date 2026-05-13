@@ -30,6 +30,57 @@ TPM_FAILED_SELFTEST=
 # Special file systems required in addition to the root file system.
 BASE_MOUNTS="/sys /proc /dev"
 
+# Check if the argument is a valid hex byte value (*without* the 0x prefix).
+is_valid_hex() {
+  local hex_str="$1"
+
+  # Check if the string is empty
+  if [ -z "$hex_str" ]; then
+    return 1
+  fi
+
+  # Use a regular expression to check if the string contains 1 or 2 valid hex
+  # characters (tpmc read prints each byte with "%x" without leading zeros).
+  if echo "$hex_str" | grep -Eq '^[0-9a-fA-F]{1,2}$'; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+# Returns 0 if FWMP.dev_disable_boot == 0 (can migrate), 1 otherwise.
+# Any failure to read or parse FWMP is treated as blocking migration (fail
+# closed) to prevent unexpected migration on enterprise-managed devices.
+can_device_migrate_to_al() {
+  # Declare and assign separately to avoid masking tpmc return value (SC2155).
+  local tpmc_output
+  if ! tpmc_output=$(tpmc read 0x100a 8); then
+    return 1 # FWMP not defined or accessible, prevent migration
+  fi
+  set -- $tpmc_output  # Split the output only if tpmc succeeded
+
+  # expecting 8 values
+  if [ "$#" -lt 8 ]; then
+    return 1 # FWMP content is invalid, prevent migration
+  fi
+
+  local count=0
+  for element; do
+    if [ $count -eq 8 ]; then
+      break
+    fi
+    if ! is_valid_hex "$element"; then
+      return 1 # FWMP content is invalid, prevent migration
+    fi
+    count=$((count + 1))
+  done
+
+  local flags=$5 # 5th byte is the flags
+  local bit_position=0 # VB2_SECDATA_FWMP_DEV_DISABLE_BOOT
+  local dev_disable_boot=$(( ( 0x$flags >> bit_position ) & 1 ))
+  return $dev_disable_boot
+}
+
 . /lib/messages.sh
 
 # Load default settings, which may be overridden by board_recovery.sh.
@@ -265,6 +316,9 @@ main() {
 
   # Verify FW version.
   verify_fw_version || handle_error $?
+
+  # Check if device is allowed to migrate to AL
+  can_device_migrate_to_al || handle_error $ERR_DEV_MODE_BLOCKED
 
   # We should select the locale before showing any messages.
   select_locale
