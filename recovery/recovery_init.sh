@@ -76,12 +76,17 @@ is_fwmp_dev_enabled() {
   local tpmc_output
 
   tpmc_output=$(tpmc read 0x100a 8)
-
-  if [ $? -eq 0 ]; then
-    set -- $tpmc_output  # Split the output only if tpmc succeeded
-  else
-    return 1 # error
-  fi
+  case "$?" in
+    0)
+      set -- $tpmc_output  # Split the output only if tpmc succeeded
+      ;;
+    2)
+      return 0  # BADINDEX -> no FWMP means no dev mode blocking
+      ;;
+    *)
+      return 1  # Any other error shouldn't happen, play it safe
+      ;;
+  esac
 
   # expecting 8 values
   if [ "$#" -lt 8 ]; then
