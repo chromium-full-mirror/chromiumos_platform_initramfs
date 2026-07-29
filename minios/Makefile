@@ -59,6 +59,7 @@ export MINIOS_BIN_DEPS = \
 	/usr/bin/dbus-monitor \
 	/usr/bin/dbus-send \
 	/usr/bin/dbus-uuidgen \
+	/usr/bin/dlc_metadata_util \
 	/usr/bin/ionice \
 	/usr/bin/jq \
 	/usr/bin/logger \
