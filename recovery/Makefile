@@ -334,7 +334,9 @@ minios: stage_init
 		"$(STAGE)/usr/share/policy/"
 	# DHCPCD related files.
 	cp -av "$(SYSROOT)/$(LIBDIR)/dhcpcd7"* "$(STAGE)/$(LIBDIR)/"
+	cp -av "$(SYSROOT)/lib/dhcpcd"* "$(STAGE)/lib/"
 	cp -av "$(SYSROOT)/etc/dhcpcd7.conf" \
+		"$(SYSROOT)/etc/dhcpcd.conf" \
 		"$(SYSROOT)/etc/resolv.conf" \
 		"$(STAGE)/etc/"
 	# Screenshot util dependencies.
