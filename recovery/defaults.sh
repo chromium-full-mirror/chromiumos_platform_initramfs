@@ -50,7 +50,7 @@ message() {
     TTY_DEBUG=/run/frecon/vt2
 
     # Send all verbose output to debug tty.
-    (tail -f -n +1 "${LOG_FILE}" > "${TTY_DEBUG}") &
+    (tail -f -n +1 "${LOG_FILE}" | tr -cd '\t\n -~' > "${TTY_DEBUG}") &
     message_"$1" &
     return
   fi

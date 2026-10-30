@@ -671,7 +671,7 @@ maybe_get_debugging_logs() {
   fi
   if [ -f "$flagfile" ] && [ -d "$decrypted_dir" ]; then
     log "Prior recovery request exists. Attempting to extract files."
-    if ! mount -n -o sync,rw "${STATE_DEV}" /tmp 2>"${TTY_LOG}"; then
+    if ! mount -n -o sync,rw "${STATE_DEV}" /tmp; then
       log "Failed to mount recovery stateful partition."
       on_error
     fi
@@ -684,7 +684,7 @@ maybe_get_debugging_logs() {
          --exclude './encrypted*' \
          --exclude './home/.shadow/*/*' \
          --exclude './dev_image' \
-         . >"${TTY_LOG}" 2>"${TTY_LOG}" </dev/null ; then
+         . >>"${LOG_FILE}" 2>&1 </dev/null ; then
       log "Extraction failed. See debug log for more details."
       # Remove the request file, to prevent being stuck in a error loop,
       # Otherwise, rebooting the device will request recovery again.
